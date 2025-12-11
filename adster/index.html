@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Scrapester</title>
+  <link rel="icon" href="/favicon.ico" />
+  <link rel="stylesheet" href="/ads.css" />
+</head>
+
+<body>
+  <div class="toolbar">
+    <div class="brand-logo">
+      <img id="scrapeMetaIcon" src="/lizardsunning.gif" alt="Scrapester snapshot" />
+    </div>
+    <div class="search-wrapper">
+      <input id="searchInput" type="text" placeholder="Search title, description, location, author…" />
+      <button id="clearSearch" class="clear-btn" title="Clear search">×</button>
+    </div>
+
+    <button id="toggleHidden" class="toggle-btn" title="Show hidden ads">
+      👁
+    </button>
+
+    <div class="datetime-quick-wrapper">
+      <button type="button" id="btnLast4h" class="datetime-quick-btn" title="Last 4 hours">4h</button>
+      <button type="button" id="btnLast12h" class="datetime-quick-btn" title="Last 12 hours">12h</button>
+      <button type="button" id="btnLast1d" class="datetime-quick-btn" title="Last 1 day">1d</button>
+    </div>
+
+    <input id="dateTimeFilter" class="datetime-filter" type="datetime-local" />
+
+    <div id="favoritesWrapper" class="favorites-wrapper"></div>
+  </div>
+
+  <div class="sort-bar">
+    <button type="button" class="sort-btn" data-field="price">
+      Price <span class="sort-indicator"></span>
+    </button>
+
+    <button type="button" class="sort-btn" data-field="distance">
+      Distance <span class="sort-indicator"></span>
+    </button>
+
+    <button type="button" class="sort-btn" data-field="postedTime">
+      Time <span class="sort-indicator"></span>
+    </button>
+
+    <button type="button" class="sort-btn" data-field="title">
+      Title <span class="sort-indicator"></span>
+    </button>
+
+    <button type="button" class="sort-btn" data-field="location">
+      Location <span class="sort-indicator"></span>
+    </button>
+
+    <button type="button" class="sort-btn" data-field="author">
+      Seller <span class="sort-indicator"></span>
+    </button>
+
+    <button type="button" class="sort-btn" data-field="source">
+      Source <span class="sort-indicator"></span>
+    </button>
+  </div>
+
+  <div class="table-wrapper">
+    <div id="adsTbody" class="ads-grid">
+      Loading…
+    </div>
+  </div>
+
+  <script src="/ads.js"></script>
+</body>
+
+</html>

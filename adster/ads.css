@@ -1,0 +1,617 @@
+* {
+  box-sizing: border-box;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+body {
+  margin: 0;
+  background: #111;
+  color: #eee;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.toolbar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: #222;
+  padding: 8px 12px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  border-bottom: 1px solid #333;
+}
+
+.toolbar input[type="text"] {
+  flex: 1 1 240px;
+  padding: 6px 8px;
+  border-radius: 4px;
+  border: 1px solid #444;
+  background: #111;
+  color: #eee;
+}
+
+.toolbar select {
+  padding: 6px 8px;
+  border-radius: 4px;
+  border: 1px solid #444;
+  background: #111;
+  color: #eee;
+}
+
+.toolbar button {
+  padding: 6px 10px;
+  border-radius: 4px;
+  border: 1px solid #444;
+  background: #333;
+  color: #eee;
+  cursor: pointer;
+}
+
+.toolbar button:hover {
+  background: #444;
+}
+
+.table-wrapper {
+  padding: 8px 12px;
+  flex: 1 1 auto;
+  overflow: auto;
+  /* vertical + horizontal if needed */
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+thead {
+  background: #1b1b1b;
+}
+
+thead th {
+  background: #1b1b1b;
+  text-align: center !important;
+}
+
+th,
+td {
+  padding: 6px 8px;
+  border-bottom: 1px solid #333;
+  vertical-align: top;
+}
+
+th {
+  text-align: left;
+  cursor: default;
+  white-space: nowrap;
+}
+
+th.sortable:hover {
+  background: #222;
+}
+
+th .sort-indicator {
+  opacity: 0.5;
+  margin-left: 4px;
+  font-size: 11px;
+}
+
+/* tr:nth-child(even) td {
+  background: #181818;
+}
+
+tr:nth-child(odd) td {
+  background: #141414;
+} */
+
+a {
+  color: #6cf;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.thumb {
+  width: 80px;
+  max-height: 80px;
+  object-fit: cover;
+  border-radius: 4px;
+  background: #000;
+}
+
+td.price {
+  font-weight: 600;
+  white-space: nowrap;
+  /* keep "$1,234" on one line */
+  text-align: right;
+  /* looks nicer for numbers */
+  /* remove inline-block & ellipsis so it fills the cell */
+}
+
+.source-pill {
+  display: inline-block;
+  padding: 2px 6px;
+  border-radius: 999px;
+  background: #333;
+  font-size: 11px;
+}
+
+.meta-line {
+  font-size: 11px;
+  color: #aaa;
+  margin-top: 2px;
+}
+
+.title-cell {
+  min-width: 220px;
+}
+
+.search-wrapper {
+  position: relative;
+  flex: 1 1 240px;
+}
+
+.search-wrapper input {
+  width: 100%;
+  padding-right: 24px;
+  /* room for X button */
+}
+
+.clear-btn {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #333;
+  /* matches toolbar button bg */
+  border: 1px solid #444;
+  /* matches input border */
+  color: #ccc;
+  font-size: 14px;
+  cursor: pointer;
+  padding: 0;
+  line-height: 1;
+}
+
+.clear-btn:hover {
+  background: #444;
+  color: #fff;
+}
+
+.favorites-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.favorite-btn {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 1px solid #444;
+  background: #222;
+  color: #ff6b81;
+  cursor: pointer;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+.favorite-btn:hover {
+  background: #444;
+}
+
+.favorite-btn.active {
+  background: #224422;
+  border-color: #55aa55;
+  color: #c8ffd1;
+}
+
+.datetime-filter {
+  padding: 4px 6px;
+  border-radius: 4px;
+  border: 1px solid #444;
+  background: #111;
+  color: #eee;
+  font-size: 12px;
+}
+
+.datetime-quick-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.datetime-quick-btn {
+  padding: 4px 6px;
+  border-radius: 4px;
+  border: 1px solid #444;
+  background: #222;
+  color: #eee;
+  font-size: 11px;
+  cursor: pointer;
+}
+
+.datetime-quick-btn:hover {
+  background: #444;
+}
+
+.datetime-quick-btn.active {
+  background: #224422;
+  border-color: #55aa55;
+  color: #c8ffd1;
+}
+
+.time-cell {
+  white-space: nowrap;
+}
+
+.time-cell .time-sub {
+  font-size: 13px;
+  /* match table font */
+  color: #eee;
+  /* same as normal text */
+  margin-top: 2px;
+  /* small spacing for readability */
+}
+
+.sort-bar {
+  background: #181818;
+  padding: 6px 12px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  border-bottom: 1px solid #333;
+}
+
+.sort-bar-label {
+  font-size: 12px;
+  opacity: 0.8;
+}
+
+.sort-btn {
+  padding: 4px 8px;
+  border-radius: 999px;
+  border: 1px solid #444;
+  background: #222;
+  color: #eee;
+  font-size: 12px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.sort-btn:hover {
+  background: #333;
+}
+
+.sort-btn.active {
+  background: #224422;
+  border-color: #55aa55;
+  color: #c8ffd1;
+}
+
+.sort-btn .sort-indicator {
+  font-size: 11px;
+  opacity: 0.9;
+}
+
+/* --- hidden rows --- */
+tr.hidden-ad td {
+  opacity: 0.45;
+}
+
+/* --- actions column --- */
+.actions-cell {
+  white-space: nowrap;
+}
+
+.icon-btn {
+  padding: 2px 6px;
+  margin-left: 4px;
+  border-radius: 4px;
+  border: 1px solid #444;
+  background: #222;
+  color: #eee;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.icon-btn:first-child {
+  margin-left: 0;
+}
+
+.icon-btn:hover {
+  background: #444;
+}
+
+/* --- Show hidden toggle button in toolbar --- */
+.toggle-btn {
+  padding: 4px 8px;
+  border-radius: 4px;
+  border: 1px solid #444;
+  background: #222;
+  color: #eee;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.toggle-btn:hover {
+  background: #444;
+}
+
+.toggle-btn.active {
+  background: #224422;
+  border-color: #55aa55;
+  color: #c8ffd1;
+}
+
+/* --- card layout --- */
+
+.ads-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 12px;
+  font-size: 13px;
+}
+
+/* medium screens: cap it at 3 columns */
+@media (max-width: 1200px) {
+  .ads-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+/* tablets & most phones in landscape: 2 across */
+@media (max-width: 900px) {
+  .ads-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .ad-card {
+    font-size: 14px;
+  }
+
+  .ad-desc-row {
+    font-size: 12px;
+  }
+}
+
+/* small phones: 1 across, bigger tap targets */
+@media (max-width: 600px) {
+  .ads-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .ad-card {
+    font-size: 15px;
+  }
+
+  .ad-card-body {
+    padding: 10px 12px 8px;
+  }
+
+  .ad-card-footer {
+    padding: 8px 12px 10px;
+  }
+
+  .icon-btn {
+    padding: 6px 10px;
+    font-size: 13px;
+  }
+}
+
+.ad-card {
+  background: #181818;
+  border-radius: 8px;
+  border: 1px solid #333;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: border-color 120ms ease, box-shadow 120ms ease, transform 120ms ease;
+}
+
+.ad-card:hover {
+  border-color: #555;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+  transform: translateY(-1px);
+}
+
+/* hidden ads dimmed */
+.ad-card.hidden-ad {
+  opacity: 0.45;
+}
+
+.ad-thumb-wrap {
+  position: relative;
+  background: #000;
+}
+
+.ad-thumb-wrap a {
+  display: block;
+}
+
+.ad-thumb {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  display: block;
+}
+
+.ad-card-body {
+  padding: 8px 10px 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1 1 auto;
+}
+
+.ad-title-row a {
+  font-weight: 600;
+  color: #fff;
+  text-decoration: none;
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  /* title ellipsis */
+}
+
+.ad-title-row a:hover {
+  text-decoration: underline;
+}
+
+.ad-meta-row {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 6px;
+  align-items: baseline;
+  font-size: 12px;
+}
+
+.ad-price {
+  font-weight: 600;
+  margin-right: 8px;
+  white-space: nowrap;
+}
+
+.ad-location-line {
+  color: #ccc;
+  font-size: 11px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.ad-sub-row {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: baseline;
+  justify-content: space-between;
+  font-size: 11px;
+  color: #aaa;
+}
+
+.ad-datetime {
+  white-space: nowrap;
+  margin-right: 8px;
+}
+
+.ad-author {
+  margin-left: auto;
+  font-size: 11px;
+  color: #bbb;
+  max-width: 50%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  text-align: right;
+}
+
+.ad-author a,
+.ad-author .ad-author-link,
+.ad-author .ad-author-text {
+  color: #bbb;
+  text-decoration: none;
+}
+
+.ad-author a:hover,
+.ad-author .ad-author-link:hover {
+  text-decoration: underline;
+}
+
+.ad-desc-row {
+  font-size: 11px;
+  color: #aaa;
+  margin-top: 0;
+
+  /* show a couple of lines max with fade-out */
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.ad-card-footer {
+  padding: 6px 10px 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+  border-top: 1px solid #222;
+}
+
+.ad-card-footer .source-pill {
+  font-size: 10px;
+}
+
+/* button cluster on card */
+.ad-actions {
+  display: flex;
+  gap: 4px;
+}
+
+/* tighten table-wrapper for cards */
+.table-wrapper {
+  padding: 8px 12px;
+  flex: 1 1 auto;
+  overflow: auto;
+}
+
+.brand-logo {
+  display: flex;
+  align-items: center;
+  margin-right: 8px;
+}
+
+.brand-logo img {
+  height: 28px;
+  width: auto;
+  cursor: pointer;
+}
+
+.toast-container {
+  position: fixed;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9999;
+  pointer-events: none;
+}
+
+.toast-message {
+  background: rgba(0, 0, 0, 0.85);
+  color: #fff;
+  padding: 8px 12px;
+  margin-top: 4px;
+  border-radius: 4px;
+  font-size: 12px;
+  border: 1px solid #444;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
+  opacity: 0;
+  transform: translateY(-4px);
+  transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out;
+}
+
+.toast-message.show {
+  opacity: 1;
+  transform: translateY(0);
+}
