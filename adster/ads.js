@@ -718,21 +718,21 @@ function renderFavorites() {
 }
 
 async function loadSettings() {
-  try {
-    const res = await fetch(API_BASE_URL + "/settings");
-    if (!res.ok) throw new Error("HTTP " + res.status);
+    try {
+        const res = await fetch(API_BASE_URL + "/settings");
+        if (!res.ok) throw new Error("HTTP " + res.status);
 
-    const json = await res.json();
-    const raw = json && json.settings ? json.settings : json;
+        const json = await res.json();
+        const raw = json && json.settings ? json.settings : json;
 
-    const favs = Array.isArray(raw.favorites) ? raw.favorites : [];
-    favorites = favs;
-    renderFavorites();
-  } catch (err) {
-    console.error("Failed to load settings:", err);
-    favorites = [];
-    renderFavorites();
-  }
+        const favs = Array.isArray(raw.favorites) ? raw.favorites : [];
+        favorites = favs;
+        renderFavorites();
+    } catch (err) {
+        console.error("Failed to load settings:", err);
+        favorites = [];
+        renderFavorites();
+    }
 }
 
 // --- hide/unhide + delete helpers ---
@@ -800,8 +800,13 @@ async function loadAds() {
 
         const json = await res.json();
 
-        generatedAtISO = json.generated_at || null; // NEW
-        updateGeneratedAtTooltip();                 // NEW
+        generatedAtISO = json.generated_at || null;
+        updateGeneratedAtTooltip();
+
+        if (generatedAtISO) {
+            const pretty = formatTimestampDisplay(generatedAtISO);
+            showToast(`Last Scrape: ${pretty}`);
+        }
 
         // scrapester.json is { generated_at, ads: [...] }
         const ads = Array.isArray(json.ads) ? json.ads : json;
@@ -855,7 +860,7 @@ document.querySelectorAll(".sort-btn").forEach((btn) => {
 
 // initial load
 (async function init() {
-  await loadSettings();        // get favorites → render hearts
-  await resolveHomeLocation(); // pick browser or fallback location (+ toast)
-  await loadAds();             // load ads and compute distances with that location
+    await loadSettings();        // get favorites → render hearts
+    await resolveHomeLocation(); // pick browser or fallback location (+ toast)
+    await loadAds();             // load ads and compute distances with that location
 })();
