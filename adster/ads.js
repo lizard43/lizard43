@@ -1,5 +1,5 @@
-const API_BASE_URL = "/api";
-const ADS_JSON_URL = "/scrapester.json";
+const API_BASE_URL = "";
+const ADS_JSON_URL = "scrapester.json";
 
 let allAds = [];
 let filteredAds = [];
