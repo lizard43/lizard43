@@ -23,6 +23,7 @@ body {
   align-items: center;
   gap: 8px;
   border-bottom: 1px solid #333;
+  position: relative;
 }
 
 .toolbar input[type="text"] {
@@ -417,6 +418,11 @@ tr.hidden-ad td {
     padding: 6px 10px;
     font-size: 13px;
   }
+
+  .settings-gear {
+    padding: 8px 12px;
+    font-size: 16px;
+  }
 }
 
 .ad-card {
@@ -618,8 +624,10 @@ tr.hidden-ad td {
 
 /* settings gear button in toolbar */
 .settings-gear {
-  margin-left: auto;
-  /* pushes it to the right */
+  position: absolute;
+  top: 8px;
+  right: 12px;
+
   appearance: none;
   border: 1px solid #444;
   background: #333;
@@ -781,4 +789,9 @@ body>.modal {
 .modal option {
   background-color: #fff;
   color: #000;
+}
+
+#locLat,
+#locLon {
+  font-variant-numeric: tabular-nums;
 }
