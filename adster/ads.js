@@ -41,15 +41,18 @@ const DEFAULT_HOME = { lat: 30.40198, lon: -86.87008 }; // Navarre, FL (change i
 let cachedLocations = null;
 
 async function loadLocationsJson() {
-    if (cachedLocations) return cachedLocations;
+    if (cachedLocations && cachedLocations.length) {
+        return cachedLocations;
+    }
     try {
-        const r = await fetch("locations.json", { cache: "no-store" });
+        const r = await fetch("./locations.json", { cache: "no-store" });
         if (!r.ok) throw new Error(`HTTP ${r.status}`);
         const j = await r.json();
         cachedLocations = Array.isArray(j.locations) ? j.locations : [];
     } catch (e) {
         cachedLocations = [];
-        console.warn("locations.json not available:", e);
+        console.error("locations.json not available:", e);
+        showToast("Could not load locations.json (check Network tab)", 6000);
     }
     return cachedLocations;
 }
