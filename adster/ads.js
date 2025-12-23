@@ -794,14 +794,7 @@ function renderFavorites() {
 
 async function loadSettings() {
     try {
-        const res = await fetch(API_BASE_URL + "/settings");
-        if (!res.ok) throw new Error("HTTP " + res.status);
-
-        const json = await res.json();
-        const raw = json && json.settings ? json.settings : json;
-
-        const favs = Array.isArray(raw.favorites) ? raw.favorites : [];
-        favorites = favs;
+        favorites = [];
         renderFavorites();
     } catch (err) {
         console.error("Failed to load settings:", err);

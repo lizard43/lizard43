@@ -617,29 +617,36 @@ tr.hidden-ad td {
 }
 
 /* settings gear button in toolbar */
-.settings-gear{
-  margin-left: auto;              /* pushes it to the right */
-  appearance:none;
-  border:1px solid #444;
-  background:#333;
-  color:#eee;
+.settings-gear {
+  margin-left: auto;
+  /* pushes it to the right */
+  appearance: none;
+  border: 1px solid #444;
+  background: #333;
+  color: #eee;
   padding: 6px 10px;
   border-radius: 4px;
-  cursor:pointer;
+  cursor: pointer;
 }
-.settings-gear:hover{ background:#444; }
+
+.settings-gear:hover {
+  background: #444;
+}
 
 /* modal close button (don’t collide with icon-btn) */
-.modal-close{
-  appearance:none;
-  border:1px solid #444;
-  background:#222;
-  color:#eee;
+.modal-close {
+  appearance: none;
+  border: 1px solid #444;
+  background: #222;
+  color: #eee;
   padding: 6px 10px;
   border-radius: 4px;
-  cursor:pointer;
+  cursor: pointer;
 }
-.modal-close:hover{ background:#444; }
+
+.modal-close:hover {
+  background: #444;
+}
 
 /* --- Modal --- */
 .modal {
@@ -650,6 +657,12 @@ tr.hidden-ad td {
   align-items: center;
   justify-content: center;
   z-index: 9999;
+}
+
+body>.modal {
+  position: fixed !important;
+  inset: 0;
+  flex: none !important;
 }
 
 .modal.hidden {
@@ -682,7 +695,9 @@ tr.hidden-ad td {
   padding: 14px;
 }
 
-.hidden { display: none !important; }
+.hidden {
+  display: none !important;
+}
 
 .section-title {
   font-weight: 700;
