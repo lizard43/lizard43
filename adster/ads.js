@@ -6,6 +6,15 @@ let filteredAds = [];
 let sortField = "postedTime";
 let sortDir = "asc"; // or "desc"
 
+const SORT_DEFAULT_DIR = {
+    distance: "asc",      // closest first
+    price: "asc",         // cheapest first
+    postedTime: "desc",   // newest first
+    title: "asc",         // A → Z
+    author: "asc",        // A → Z
+    source: "asc"         // A → Z
+};
+
 let favorites = [];
 
 let activeQuickRange = -1; // -1 = none active, 0=4h, 1=12h, 2=1d
@@ -1067,11 +1076,14 @@ document.querySelectorAll(".sort-btn").forEach((btn) => {
         if (!f) return;
 
         if (f === sortField) {
+            // toggle direction if clicking same field
             sortDir = sortDir === "asc" ? "desc" : "asc";
         } else {
+            // new field → reset to that field’s default direction
             sortField = f;
-            sortDir = "asc";
+            sortDir = SORT_DEFAULT_DIR[f] || "asc";
         }
+
         renderTable();
     });
 });
