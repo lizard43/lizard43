@@ -86,27 +86,21 @@
               Use browser location
             </label>
             <label class="radio">
-              <input type="radio" name="locMode" value="saved">
-              Use saved location
-            </label>
-            <label class="radio">
-              <input type="radio" name="locMode" value="custom">
-              Use custom lat/lon
+              <input type="radio" name="locMode" value="fixed">
+              Use fixed location
             </label>
           </div>
         </div>
 
         <div class="field" id="fallbackRow">
-          <div class="label">If browser location fails</div>
+          <div class="label">Fallback location</div>
           <select id="locFallback" class="select">
-            <option value="saved">Use saved location</option>
-            <option value="custom">Use custom lat/lon</option>
-            <option value="default">Use built-in default</option>
+            <option value="">Loading locations…</option>
           </select>
         </div>
 
         <div class="field" id="savedRow">
-          <div class="label">Saved location</div>
+          <div class="label">Fixed location</div>
           <select id="savedLocationSelect" class="select">
             <option value="">Loading locations…</option>
           </select>
@@ -124,7 +118,7 @@
         </div>
 
         <div class="hint">
-          Tip: “Saved location” auto-fills lat/lon. “Custom” lets you edit lat/lon.
+          Tip: “Fixed location / User Defined.
         </div>
       </div>
 
