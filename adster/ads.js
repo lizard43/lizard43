@@ -869,7 +869,8 @@ async function setupSettingsModal() {
 
     function selectedLocId() {
         const mode = getMode();
-        return mode === "browser" ? (fallbackSel.value || savedSel.value) : savedSel.value;
+        return mode === "browser" ? fallbackSel.value : savedSel.value;
+
     }
 
     function applyLatLonFromSelection() {

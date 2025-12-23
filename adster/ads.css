@@ -775,3 +775,10 @@ body>.modal {
   border-color: rgba(255, 255, 255, 0.22);
   background: rgba(255, 255, 255, 0.10);
 }
+
+/* Ensure modal dropdown options are readable across platforms */
+.modal select,
+.modal option {
+  background-color: #fff;
+  color: #000;
+}
