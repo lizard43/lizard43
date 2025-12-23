@@ -28,6 +28,71 @@ const toggleHiddenBtn = document.getElementById("toggleHidden");
 
 const metaIcon = document.getElementById("scrapeMetaIcon");
 
+// --- Location settings storage keys ---
+const LS_LOC_MODE = "adster.location.mode";         // "browser" | "saved" | "custom"
+const LS_LOC_FALLBACK = "adster.location.fallback"; // "saved" | "custom" | "default"
+const LS_LOC_SAVED_ID = "adster.location.savedId";
+const LS_LOC_CUSTOM_LAT = "adster.location.customLat";
+const LS_LOC_CUSTOM_LON = "adster.location.customLon";
+
+// built-in default if nothing else is available
+const DEFAULT_HOME = { lat: 30.40198, lon: -86.87008 }; // Navarre, FL (change if you want)
+
+let cachedLocations = null;
+
+async function loadLocationsJson() {
+    if (cachedLocations) return cachedLocations;
+    try {
+        const r = await fetch("locations.json", { cache: "no-store" });
+        if (!r.ok) throw new Error(`HTTP ${r.status}`);
+        const j = await r.json();
+        cachedLocations = Array.isArray(j.locations) ? j.locations : [];
+    } catch (e) {
+        cachedLocations = [];
+        console.warn("locations.json not available:", e);
+    }
+    return cachedLocations;
+}
+
+function getSavedLocationById(list, id) {
+    return list.find(x => x.id === id) || null;
+}
+
+function getLocSettings() {
+    return {
+        mode: localStorage.getItem(LS_LOC_MODE) || "browser",
+        fallback: localStorage.getItem(LS_LOC_FALLBACK) || "saved",
+        savedId: localStorage.getItem(LS_LOC_SAVED_ID) || "",
+        customLat: localStorage.getItem(LS_LOC_CUSTOM_LAT) || "",
+        customLon: localStorage.getItem(LS_LOC_CUSTOM_LON) || "",
+    };
+}
+
+function setLocSettings(s) {
+    localStorage.setItem(LS_LOC_MODE, s.mode);
+    localStorage.setItem(LS_LOC_FALLBACK, s.fallback);
+    localStorage.setItem(LS_LOC_SAVED_ID, s.savedId);
+    localStorage.setItem(LS_LOC_CUSTOM_LAT, String(s.customLat ?? ""));
+    localStorage.setItem(LS_LOC_CUSTOM_LON, String(s.customLon ?? ""));
+}
+
+function parseNumberOrNull(v) {
+    const n = Number(v);
+    return Number.isFinite(n) ? n : null;
+}
+
+async function getBrowserLatLon() {
+    if (!("geolocation" in navigator)) return null;
+
+    return new Promise((resolve) => {
+        navigator.geolocation.getCurrentPosition(
+            (pos) => resolve({ lat: pos.coords.latitude, lon: pos.coords.longitude }),
+            () => resolve(null),
+            { enableHighAccuracy: false, timeout: 8000, maximumAge: 60_000 }
+        );
+    });
+}
+
 // ---- simple toast helper for status messages (e.g., chosen location) ----
 function showToast(message, duration = 4000) {
     let container = document.querySelector(".toast-container");
@@ -61,45 +126,55 @@ function showToast(message, duration = 4000) {
 }
 
 async function resolveHomeLocation() {
-    const FALLBACK_LAT = 30.4983;
-    const FALLBACK_LON = -86.1361; // 86.1361° W → negative
+    const s = getLocSettings();
+    const locations = await loadLocationsJson();
 
-    // No geolocation API? Use fallback.
-    if (!("geolocation" in navigator)) {
-        homeLat = FALLBACK_LAT;
-        homeLon = FALLBACK_LON;
-        showToast(
-            `Using fallback location: ${homeLat.toFixed(4)}, ${homeLon.toFixed(4)}`
-        );
+    // helper to choose saved/custom/default
+    const chooseNonBrowser = (which) => {
+        if (which === "saved") {
+            const pick = getSavedLocationById(locations, s.savedId);
+            if (pick) return { lat: pick.lat, lon: pick.lon, why: `saved: ${pick.label}` };
+            // if savedId missing or not found, fall through
+        }
+        if (which === "custom") {
+            const lat = parseNumberOrNull(s.customLat);
+            const lon = parseNumberOrNull(s.customLon);
+            if (lat != null && lon != null) return { lat, lon, why: "custom lat/lon" };
+            // fall through
+        }
+        return { lat: DEFAULT_HOME.lat, lon: DEFAULT_HOME.lon, why: "built-in default" };
+    };
+
+    // MODE: browser
+    if (s.mode === "browser") {
+        const geo = await getBrowserLatLon();
+        if (geo) {
+            homeLat = geo.lat;
+            homeLon = geo.lon;
+            showToast(`Location: browser (${homeLat.toFixed(4)}, ${homeLon.toFixed(4)})`);
+            return;
+        }
+        const fb = chooseNonBrowser(s.fallback);
+        homeLat = fb.lat;
+        homeLon = fb.lon;
+        showToast(`Location: browser failed → ${fb.why}`);
         return;
     }
 
-    await new Promise((resolve) => {
-        navigator.geolocation.getCurrentPosition(
-            (pos) => {
-                homeLat = pos.coords.latitude;
-                homeLon = pos.coords.longitude;
-                showToast(
-                    `Using browser location: ${homeLat.toFixed(4)}, ${homeLon.toFixed(4)}`
-                );
-                resolve();
-            },
-            (err) => {
-                console.warn("Geolocation failed, using fallback:", err);
-                homeLat = FALLBACK_LAT;
-                homeLon = FALLBACK_LON;
-                showToast(
-                    `Using fallback location: ${homeLat.toFixed(4)}, ${homeLon.toFixed(4)}`
-                );
-                resolve();
-            },
-            {
-                enableHighAccuracy: false,
-                timeout: 5000,
-                maximumAge: 600000,
-            }
-        );
-    });
+    // MODE: saved/custom
+    if (s.mode === "saved") {
+        const fb = chooseNonBrowser("saved");
+        homeLat = fb.lat;
+        homeLon = fb.lon;
+        showToast(`Location: ${fb.why}`);
+        return;
+    }
+
+    // MODE: custom
+    const fb = chooseNonBrowser("custom");
+    homeLat = fb.lat;
+    homeLon = fb.lon;
+    showToast(`Location: ${fb.why}`);
 }
 
 // helpers (price, distance, time, boolean search, etc.)
@@ -770,6 +845,158 @@ async function deleteAd(adID) {
     }
 }
 
+async function setupSettingsModal() {
+    const settingsBtn = document.getElementById("settingsBtn");
+    const modal = document.getElementById("settingsModal");
+    const closeBtn = document.getElementById("settingsCloseBtn");
+    const cancelBtn = document.getElementById("settingsCancelBtn");
+    const saveBtn = document.getElementById("settingsSaveBtn");
+
+    const fallbackRow = document.getElementById("fallbackRow");
+    const savedRow = document.getElementById("savedRow");
+    const fallbackSel = document.getElementById("locFallback");
+    const savedSel = document.getElementById("savedLocationSelect");
+    const latInput = document.getElementById("locLat");
+    const lonInput = document.getElementById("locLon");
+
+    const modeRadios = Array.from(document.querySelectorAll('input[name="locMode"]'));
+
+    function open() { modal.classList.remove("hidden"); }
+    function close() { modal.classList.add("hidden"); }
+
+    function getMode() {
+        const r = modeRadios.find(x => x.checked);
+        return r ? r.value : "browser";
+    }
+
+    function setMode(v) {
+        modeRadios.forEach(x => x.checked = (x.value === v));
+    }
+
+    function updateEnablement() {
+        const mode = getMode();
+
+        // fallback row only matters in browser mode
+        fallbackRow.style.display = (mode === "browser") ? "" : "none";
+
+        // saved location dropdown only matters in saved mode, and also as a fallback choice
+        savedRow.style.display = (mode === "saved" || (mode === "browser" && fallbackSel.value === "saved")) ? "" : "";
+
+        // lat/lon editable only in custom mode, and also if fallback/custom selected and custom is chosen
+        const latlonEditable = (mode === "custom");
+        latInput.readOnly = !latlonEditable;
+        lonInput.readOnly = !latlonEditable;
+
+        // When mode is saved, auto-fill lat/lon from selection
+        if (mode === "saved") {
+            const loc = cachedLocations ? getSavedLocationById(cachedLocations, savedSel.value) : null;
+            if (loc) {
+                latInput.value = loc.lat;
+                lonInput.value = loc.lon;
+            }
+            latInput.readOnly = true;
+            lonInput.readOnly = true;
+        }
+    }
+
+    // populate saved locations
+    const list = await loadLocationsJson();
+    savedSel.innerHTML = "";
+    if (!list.length) {
+        const opt = document.createElement("option");
+        opt.value = "";
+        opt.textContent = "(no locations.json found)";
+        savedSel.appendChild(opt);
+    } else {
+        const opt0 = document.createElement("option");
+        opt0.value = "";
+        opt0.textContent = "Select a location…";
+        savedSel.appendChild(opt0);
+
+        for (const loc of list) {
+            const opt = document.createElement("option");
+            opt.value = loc.id;
+            opt.textContent = loc.label;
+            savedSel.appendChild(opt);
+        }
+    }
+
+    function syncUIFromStorage() {
+        const s = getLocSettings();
+        setMode(s.mode);
+        fallbackSel.value = s.fallback || "saved";
+        savedSel.value = s.savedId || "";
+
+        // fill lat/lon
+        if (s.mode === "custom") {
+            latInput.value = s.customLat;
+            lonInput.value = s.customLon;
+        } else if (s.mode === "saved") {
+            const loc = getSavedLocationById(list, s.savedId);
+            if (loc) {
+                latInput.value = loc.lat;
+                lonInput.value = loc.lon;
+            } else {
+                latInput.value = "";
+                lonInput.value = "";
+            }
+        } else {
+            // browser mode: show custom if present else blank
+            latInput.value = s.customLat || "";
+            lonInput.value = s.customLon || "";
+        }
+
+        updateEnablement();
+    }
+
+    function syncStorageFromUI() {
+        const mode = getMode();
+        const fallback = fallbackSel.value;
+
+        const s = {
+            mode,
+            fallback,
+            savedId: savedSel.value || "",
+            customLat: latInput.value,
+            customLon: lonInput.value,
+        };
+
+        // If mode is saved, also stash customLat/Lon as the chosen saved coords? (No)
+        // Keep custom separate so user can flip modes.
+        setLocSettings(s);
+    }
+
+    settingsBtn?.addEventListener("click", () => {
+        syncUIFromStorage();
+        open();
+    });
+
+    closeBtn?.addEventListener("click", close);
+    cancelBtn?.addEventListener("click", close);
+
+    modal?.addEventListener("click", (e) => {
+        if (e.target === modal) close();
+    });
+
+    document.addEventListener("keydown", (e) => {
+        if (!modal.classList.contains("hidden") && e.key === "Escape") close();
+    });
+
+    modeRadios.forEach(r => r.addEventListener("change", updateEnablement));
+    fallbackSel.addEventListener("change", updateEnablement);
+    savedSel.addEventListener("change", updateEnablement);
+
+    saveBtn?.addEventListener("click", async () => {
+        syncStorageFromUI();
+        close();
+
+        // apply immediately: recompute distances, re-render
+        await resolveHomeLocation();
+        await loadAds(); // reload + recompute distances using new homeLat/homeLon
+        showToast("Settings saved");
+    });
+}
+
 // event delegation for action buttons
 tbody.addEventListener("click", (e) => {
     const btn = e.target.closest("button[data-action]");
@@ -861,6 +1088,7 @@ document.querySelectorAll(".sort-btn").forEach((btn) => {
 // initial load
 (async function init() {
     await loadSettings();        // get favorites → render hearts
+    await setupSettingsModal();
     await resolveHomeLocation(); // pick browser or fallback location (+ toast)
     await loadAds();             // load ads and compute distances with that location
 })();
