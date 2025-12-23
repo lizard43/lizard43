@@ -41,14 +41,19 @@ const DEFAULT_HOME = { lat: 30.40198, lon: -86.87008 }; // Navarre, FL (change i
 let cachedLocations = null;
 
 async function loadLocationsJson() {
-    if (cachedLocations && cachedLocations.length) {
-        return cachedLocations;
-    }
+    if (cachedLocations && cachedLocations.length) return cachedLocations;
+
     try {
-        const r = await fetch("./locations.json", { cache: "no-store" });
+        const url = new URL("locations.json", window.location.href).toString();
+        console.log("[locations] fetching:", url);
+
+        const r = await fetch(url, { cache: "no-store" });
+        console.log("[locations] status:", r.status, r.ok);
+
         if (!r.ok) throw new Error(`HTTP ${r.status}`);
         const j = await r.json();
         cachedLocations = Array.isArray(j.locations) ? j.locations : [];
+        console.log("[locations] loaded count:", cachedLocations.length);
     } catch (e) {
         cachedLocations = [];
         console.error("locations.json not available:", e);
@@ -833,6 +838,8 @@ async function deleteAd(adID) {
 }
 
 async function setupSettingsModal() {
+    console.log("[settings] setupSettingsModal start");
+
     const settingsBtn = document.getElementById("settingsBtn");
     const modal = document.getElementById("settingsModal");
     const closeBtn = document.getElementById("settingsCloseBtn");
