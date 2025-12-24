@@ -51,7 +51,24 @@ const LS_LOC_CUSTOM_LAT = "adster.location.customLat";
 const LS_LOC_CUSTOM_LON = "adster.location.customLon";
 const LS_LOC_FALLBACK_ID = "adster.location.fallbackId";
 const LS_DISTANCE_CAP = "adster.distance.capMiles"; // number, default 250
+// --- Hidden ads storage key ---
+const LS_HIDDEN_AD_IDS = "adster.hiddenAdIDs"; // JSON array of adID strings
 
+function loadHiddenIds() {
+    try {
+        return new Set(JSON.parse(localStorage.getItem(LS_HIDDEN_AD_IDS) || "[]"));
+    } catch (e) {
+        console.warn("[hidden] failed to parse localStorage, resetting:", e);
+        return new Set();
+    }
+}
+
+function saveHiddenIds(set) {
+    localStorage.setItem(LS_HIDDEN_AD_IDS, JSON.stringify(Array.from(set)));
+}
+
+// in-memory set of hidden adIDs
+let hiddenIdSet = loadHiddenIds();
 
 // built-in default if nothing else is available
 const DEFAULT_HOME = { lat: 30.40198, lon: -86.87008 }; // Navarre, FL (change if you want)
@@ -569,12 +586,6 @@ function renderTable() {
                     title="${hideShowTitle}">
               ${hideShowLabel}
             </button>
-            <button class="icon-btn"
-                    data-action="delete"
-                    data-ad-id="${adID}"
-                    title="Delete ad">
-              🗑
-            </button>
           </div>
         </div>
       </div>
@@ -929,38 +940,23 @@ async function loadSettings() {
     }
 }
 
-// --- hide/unhide + delete helpers ---
+// --- hide/unhide helpers (client-only, GitHub Pages friendly) ---
 
-async function setAdHidden(adID, hidden) {
+function setAdHidden(adID, hidden) {
     try {
-        const res = await fetch(`${API_BASE_URL}/ads/hide`, {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ adID, hidden })
-        });
-        if (!res.ok) throw new Error("HTTP " + res.status);
+        // update storage set
+        if (hidden) hiddenIdSet.add(adID);
+        else hiddenIdSet.delete(adID);
+        saveHiddenIds(hiddenIdSet);
+
         // update local model
         allAds = allAds.map((ad) =>
             ad.adID === adID ? { ...ad, hidden: hidden ? 1 : 0 } : ad
         );
+
         applyFilter();
     } catch (err) {
         console.error("Failed to set hidden:", err);
-        // optionally show some UI error later
-    }
-}
-
-async function deleteAd(adID) {
-    try {
-        const res = await fetch(`${API_BASE_URL}/ads/${encodeURIComponent(adID)}`, {
-            method: "DELETE"
-        });
-        if (!res.ok) throw new Error("HTTP " + res.status);
-
-        allAds = allAds.filter((ad) => ad.adID !== adID);
-        applyFilter();
-    } catch (err) {
-        console.error("Failed to delete ad:", err);
     }
 }
 
@@ -1128,8 +1124,6 @@ tbody.addEventListener("click", (e) => {
         setAdHidden(adID, true);
     } else if (action === "show") {
         setAdHidden(adID, false);
-    } else if (action === "delete") {
-        deleteAd(adID);
     }
 });
 
@@ -1180,6 +1174,15 @@ async function loadAds() {
         });
 
         allAds = ads;
+
+        // apply persisted hidden state from localStorage
+        hiddenIdSet = loadHiddenIds();
+        allAds.forEach((ad) => {
+            if (!ad) return;
+            const id = ad.adID || "";
+            ad.hidden = hiddenIdSet.has(id) ? 1 : 0;
+        });
+
         applyFilter();
     } catch (err) {
         console.error("Failed to load ads:", err);
