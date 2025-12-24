@@ -20,27 +20,28 @@ body {
   padding: 8px 12px;
   border-bottom: 1px solid #333;
 
-  display: grid;
-  grid-template-columns: 1fr auto;
-  /* left = controls, right = gear */
+  display: flex;
+  flex-wrap: wrap;
   align-items: center;
   gap: 8px;
+
+  position: relative;
+  /* anchor absolute gear */
+  padding-right: 72px;
+  /* reserve space for gear so it doesn't overlap buttons */
 }
 
-/* put everything except the gear into the left grid cell */
-.toolbar> :not(.settings-gear) {
-  grid-column: 1;
-}
-
-/* gear always stays in its own right-side cell */
 .settings-gear {
-  grid-column: 2;
-  justify-self: end;
+  position: absolute;
+  top: 8px;
+  right: 12px;
 
-  position: static;
-  /* IMPORTANT: stop absolute overlap */
-  top: auto;
-  right: auto;
+  padding: 6px 10px;
+  border-radius: 4px;
+  border: 1px solid #444;
+  background: #333;
+  color: #eee;
+  cursor: pointer;
 }
 
 .toolbar input[type="text"] {
