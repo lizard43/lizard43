@@ -56,6 +56,25 @@ const LS_HIDDEN_AD_IDS = "adster.hiddenAdIDs"; // JSON array of adID strings
 // --- Show hidden ads setting key ---
 const LS_SHOW_HIDDEN = "adster.showHidden"; // "1" | "0"
 
+// --- Favorite ads storage key ---
+const LS_FAVORITE_AD_IDS = "adster.favoriteAdIDs"; // JSON array of adID strings
+
+function loadFavoriteIds() {
+    try {
+        return new Set(JSON.parse(localStorage.getItem(LS_FAVORITE_AD_IDS) || "[]"));
+    } catch (e) {
+        console.warn("[favorites] failed to parse localStorage, resetting:", e);
+        return new Set();
+    }
+}
+
+function saveFavoriteIds(set) {
+    localStorage.setItem(LS_FAVORITE_AD_IDS, JSON.stringify(Array.from(set)));
+}
+
+// in-memory set of favorite adIDs
+let favoriteIdSet = loadFavoriteIds();
+
 function loadShowHidden() {
     return localStorage.getItem(LS_SHOW_HIDDEN) === "1";
 }
@@ -494,9 +513,23 @@ function sortAds(list) {
     });
 }
 
+function sortAdsWithFavoritesFirst(list) {
+    // Favorites: sorted by current sortField/sortDir, then the rest sorted same way.
+    const fav = [];
+    const rest = [];
+
+    for (const ad of list) {
+        const id = ad?.adID || "";
+        if (id && favoriteIdSet.has(id)) fav.push(ad);
+        else rest.push(ad);
+    }
+
+    return sortAds(fav).concat(sortAds(rest));
+}
+
 function renderTable() {
     const container = tbody; // #adsTbody (div.ads-grid)
-    const sorted = sortAds(filteredAds);
+    const sorted = sortAdsWithFavoritesFirst(filteredAds);
 
     if (!sorted.length) {
         container.innerHTML = '<div class="empty-state">No ads found.</div>';
@@ -584,14 +617,21 @@ function renderTable() {
 
     <div class="ad-card-footer">
       <span class="source-pill">${escapeHtml(source)}</span>
-      <div class="ad-actions">
+        <div class="ad-actions">
+        <button class="icon-btn fav-toggle ${favoriteIdSet.has(adID) ? "active" : ""}"
+                data-action="toggle-fav"
+                data-ad-id="${escapeAttr(adID)}"
+                title="${favoriteIdSet.has(adID) ? "Unfavorite" : "Favorite"}">
+            ${favoriteIdSet.has(adID) ? "♥" : "♡"}
+        </button>
+
         <button class="icon-btn hide-toggle"
                 data-action="${hideShowAction}"
                 data-ad-id="${escapeAttr(adID)}"
                 title="${escapeAttr(hideShowTitle)}">
-          ${hideShowLabel}
+            ${hideShowLabel}
         </button>
-      </div>
+        </div>
     </div>
   </div>
 </div>
@@ -1161,6 +1201,21 @@ tbody.addEventListener("click", (e) => {
     const adID = btn.dataset.adId;
     if (!adID) return;
 
+    if (action === "toggle-fav") {
+        try {
+            if (favoriteIdSet.has(adID)) favoriteIdSet.delete(adID);
+            else favoriteIdSet.add(adID);
+
+            saveFavoriteIds(favoriteIdSet);
+
+            // just re-render with current filters/sort
+            renderTable();
+        } catch (err) {
+            console.error("Failed to toggle favorite:", err);
+        }
+        return;
+    }
+
     if (action === "hide") {
         setAdHidden(adID, true);
     } else if (action === "show") {
@@ -1218,6 +1273,8 @@ async function loadAds() {
 
         // apply persisted hidden state from localStorage
         hiddenIdSet = loadHiddenIds();
+        favoriteIdSet = loadFavoriteIds();
+
         allAds.forEach((ad) => {
             if (!ad) return;
             const id = ad.adID || "";

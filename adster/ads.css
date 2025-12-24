@@ -284,7 +284,8 @@ a:hover {
   background: transparent;
   padding: 6px 10px;
   border-radius: 8px;
-  color: #9a9a9a;        /* slightly dimmer for ✖ */
+  color: #9a9a9a;
+  /* slightly dimmer for ✖ */
   font-size: 17px;
   line-height: 1;
 }
@@ -300,6 +301,35 @@ a:hover {
 
 .icon-btn:hover {
   background: #444;
+}
+
+/* --- Favorite heart button (card footer) --- */
+
+.icon-btn.fav-toggle {
+  border: none;
+  background: transparent;
+  padding: 6px 10px;
+  border-radius: 8px;
+
+  color: #9a9a9a;
+  /* default subtle */
+  font-size: 17px;
+  line-height: 1;
+}
+
+.icon-btn.fav-toggle:hover {
+  color: #ffffff;
+  background: #262626;
+}
+
+.icon-btn.fav-toggle:active {
+  transform: translateY(1px);
+}
+
+/* selected = faint red (not bright/pink) */
+.icon-btn.fav-toggle.active {
+  color: #c05a5a;
+  /* subtle visible red */
 }
 
 .toggle-btn {
