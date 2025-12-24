@@ -359,7 +359,8 @@ a:hover {
   grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
   gap: 12px;
   font-size: 13px;
-  align-items: start; /* <-- stop cards stretching to row height */
+  align-items: start;
+  /* <-- stop cards stretching to row height */
 }
 
 /* medium screens: cap at 3 columns */
@@ -432,7 +433,8 @@ a:hover {
 /* image column */
 .ad-thumb-wrap {
   flex: 0 0 120px;
-  background: #181818; /* match card background */
+  background: #181818;
+  /* match card background */
   border-radius: 6px;
   overflow: hidden;
 }
@@ -477,6 +479,12 @@ a:hover {
 
 .ad-line1 a:hover {
   text-decoration: underline;
+}
+
+/* Reserve space so long titles never run under the top-right ✖ button */
+.ad-line1 {
+  padding-right: 34px;
+  /* room for card-close */
 }
 
 /* line 2 & 3 */
