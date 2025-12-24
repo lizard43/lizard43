@@ -28,7 +28,8 @@ body {
   gap: 8px;
 
   position: relative;
-  padding-right: 72px; /* reserve space for gear */
+  padding-right: 72px;
+  /* reserve space for gear */
 }
 
 .settings-gear {
@@ -97,7 +98,8 @@ body {
 
 .search-wrapper input {
   width: 100%;
-  padding-right: 24px; /* room for X */
+  padding-right: 24px;
+  /* room for X */
 }
 
 .clear-btn {
@@ -277,6 +279,25 @@ a:hover {
   font-size: 12px;
 }
 
+.icon-btn.hide-toggle {
+  border: none;
+  background: transparent;
+  padding: 6px 10px;
+  border-radius: 8px;
+  color: #9a9a9a;        /* slightly dimmer for ✖ */
+  font-size: 17px;
+  line-height: 1;
+}
+
+.icon-btn.hide-toggle:hover {
+  color: #ffffff;
+  background: #262626;
+}
+
+.icon-btn.hide-toggle:active {
+  transform: translateY(1px);
+}
+
 .icon-btn:hover {
   background: #444;
 }
@@ -393,7 +414,10 @@ a:hover {
 .ad-thumb {
   width: 100%;
   height: 100%;
-  object-fit: contain; /* IMPORTANT: avoid cropping */
+  object-fit: contain;
+  /* IMPORTANT: avoid cropping */
+  object-position: top center;
+  /* top-align image inside the black box */
   display: block;
 }
 
@@ -442,13 +466,13 @@ a:hover {
 }
 
 .ad-line2 .ad-seller {
-  color: #ccc;               
+  color: #ccc;
   font-weight: 500;
   text-decoration: none;
 }
 
 .ad-line2 .ad-seller a {
-  color: inherit;          
+  color: inherit;
   text-decoration: none;
 }
 
@@ -480,7 +504,8 @@ a:hover {
 
 /* footer stays inside body at bottom */
 .ad-card-footer {
-  margin-top: auto; /* push to bottom of body */
+  margin-top: auto;
+  /* push to bottom of body */
 
   display: flex;
   align-items: center;
@@ -573,7 +598,7 @@ a:hover {
   z-index: 9999;
 }
 
-body > .modal {
+body>.modal {
   position: fixed !important;
   inset: 0;
   flex: none !important;

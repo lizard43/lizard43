@@ -546,11 +546,11 @@ function renderTable() {
         // Hide/show action
         let hideShowLabel, hideShowAction, hideShowTitle;
         if (isHidden) {
-            hideShowLabel = "👁";
+            hideShowLabel = "👁️";
             hideShowAction = "show";
             hideShowTitle = "Unhide ad";
         } else {
-            hideShowLabel = "🙈";
+            hideShowLabel = "✖";
             hideShowAction = "hide";
             hideShowTitle = "Hide ad";
         }
@@ -585,7 +585,7 @@ function renderTable() {
     <div class="ad-card-footer">
       <span class="source-pill">${escapeHtml(source)}</span>
       <div class="ad-actions">
-        <button class="icon-btn"
+        <button class="icon-btn hide-toggle"
                 data-action="${hideShowAction}"
                 data-ad-id="${escapeAttr(adID)}"
                 title="${escapeAttr(hideShowTitle)}">
