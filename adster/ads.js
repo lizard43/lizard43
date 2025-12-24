@@ -623,8 +623,10 @@ function renderTable() {
     <div class="ad-line4">${descSafe}</div>
 
     <div class="ad-card-footer">
-        <span class="source-text">${escapeHtml(source)}</span>
-
+        <span class="source-text">
+        ${escapeHtml(source)}
+        ${ad.postedTime ? `<span class="meta-dot">·</span>${escapeHtml(dateTimeText)}` : ""}
+        </span>
         <button class="icon-btn fav-toggle ${favoriteIdSet.has(adID) ? "active" : ""}"
                 data-action="toggle-fav"
                 data-ad-id="${escapeAttr(adID)}"
