@@ -1083,19 +1083,29 @@ async function setupSettingsModal() {
     }
 
     clearHiddenBtn?.addEventListener("click", () => {
-        try {
-            hiddenIdSet = new Set();
-            saveHiddenIds(hiddenIdSet);
+        const onClearHidden = (e) => {
+            e.preventDefault();
+            e.stopPropagation();
 
-            // update local model immediately
-            allAds = allAds.map((ad) => ({ ...ad, hidden: 0 }));
+            console.log("[hidden] clear clicked");
 
-            applyFilter();
-            showToast("Hidden ads cleared");
-        } catch (err) {
-            console.error("Failed to clear hidden ads:", err);
-            showToast("Failed to clear hidden ads", 5000);
-        }
+            try {
+                hiddenIdSet = new Set();
+                saveHiddenIds(hiddenIdSet);
+
+                // update local model immediately
+                allAds = allAds.map((ad) => ({ ...ad, hidden: 0 }));
+
+                applyFilter();
+                showToast("Hidden ads cleared");
+            } catch (err) {
+                console.error("Failed to clear hidden ads:", err);
+                showToast("Failed to clear hidden ads", 5000);
+            }
+        };
+
+        clearHiddenBtn?.addEventListener("click", onClearHidden);
+        clearHiddenBtn?.addEventListener("pointerup", onClearHidden);
     });
 
     settingsBtn?.addEventListener("click", () => {

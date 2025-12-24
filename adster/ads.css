@@ -790,6 +790,31 @@ body>.modal {
   background: rgba(0, 0, 0, 0.35);
 }
 
+/* Make modal buttons look clearly clickable */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+/* Make danger button stand out more */
+.btn.danger {
+  border-color: rgba(255, 120, 120, 0.55);
+  background: rgba(255, 80, 80, 0.18);
+}
+
+.btn.danger:hover {
+  background: rgba(255, 80, 80, 0.26);
+}
+
+
 .btn.primary {
   border-color: rgba(255, 255, 255, 0.22);
   background: rgba(255, 255, 255, 0.10);
