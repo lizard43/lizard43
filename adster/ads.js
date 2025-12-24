@@ -34,7 +34,6 @@ const dateTimeFilter = document.getElementById("dateTimeFilter");
 const btnLast4h = document.getElementById("btnLast4h");
 const btnLast12h = document.getElementById("btnLast12h");
 const btnLast1d = document.getElementById("btnLast1d");
-const toggleHiddenBtn = document.getElementById("toggleHidden");
 
 const btnDistance = document.getElementById("btnDistance");
 const distanceCapLabel = document.getElementById("distanceCapLabel");
@@ -53,6 +52,17 @@ const LS_LOC_FALLBACK_ID = "adster.location.fallbackId";
 const LS_DISTANCE_CAP = "adster.distance.capMiles"; // number, default 250
 // --- Hidden ads storage key ---
 const LS_HIDDEN_AD_IDS = "adster.hiddenAdIDs"; // JSON array of adID strings
+
+// --- Show hidden ads setting key ---
+const LS_SHOW_HIDDEN = "adster.showHidden"; // "1" | "0"
+
+function loadShowHidden() {
+    return localStorage.getItem(LS_SHOW_HIDDEN) === "1";
+}
+
+function saveShowHidden(v) {
+    localStorage.setItem(LS_SHOW_HIDDEN, v ? "1" : "0");
+}
 
 function loadHiddenIds() {
     try {
@@ -847,21 +857,6 @@ if (btnLast1d) {
     btnLast1d.addEventListener("click", () => setFilterRelativeHoursToggle(2, 24));
 }
 
-// "show hidden" toggle button
-if (toggleHiddenBtn) {
-    toggleHiddenBtn.addEventListener("click", () => {
-        showHidden = !showHidden;
-        if (showHidden) {
-            toggleHiddenBtn.classList.add("active");
-            toggleHiddenBtn.title = "Hide hidden ads";
-        } else {
-            toggleHiddenBtn.classList.remove("active");
-            toggleHiddenBtn.title = "Show hidden ads";
-        }
-        applyFilter();
-    });
-}
-
 searchInput.addEventListener("input", applyFilter);
 
 const clearSearch = document.getElementById("clearSearch");
@@ -976,6 +971,9 @@ async function setupSettingsModal() {
     const latInput = document.getElementById("locLat");
     const lonInput = document.getElementById("locLon");
 
+    const showHiddenCheckbox = document.getElementById("showHiddenCheckbox");
+    const clearHiddenBtn = document.getElementById("clearHiddenBtn");
+
     const modeRadios = Array.from(document.querySelectorAll('input[name="locMode"]'));
 
     function open() { modal.classList.remove("hidden"); }
@@ -1055,6 +1053,8 @@ async function setupSettingsModal() {
     function syncUIFromStorage() {
         const s = getLocSettings();
 
+        showHiddenCheckbox.checked = loadShowHidden();
+
         setMode(s.mode);
         savedSel.value = s.fixedId || "";
         fallbackSel.value = s.fallbackId || "";
@@ -1069,6 +1069,8 @@ async function setupSettingsModal() {
     function syncStorageFromUI() {
         const mode = getMode();
 
+        saveShowHidden(!!showHiddenCheckbox.checked);
+
         const s = {
             mode,
             fixedId: savedSel.value || "",
@@ -1079,6 +1081,22 @@ async function setupSettingsModal() {
 
         setLocSettings(s);
     }
+
+    clearHiddenBtn?.addEventListener("click", () => {
+        try {
+            hiddenIdSet = new Set();
+            saveHiddenIds(hiddenIdSet);
+
+            // update local model immediately
+            allAds = allAds.map((ad) => ({ ...ad, hidden: 0 }));
+
+            applyFilter();
+            showToast("Hidden ads cleared");
+        } catch (err) {
+            console.error("Failed to clear hidden ads:", err);
+            showToast("Failed to clear hidden ads", 5000);
+        }
+    });
 
     settingsBtn?.addEventListener("click", () => {
         syncUIFromStorage();
@@ -1101,6 +1119,10 @@ async function setupSettingsModal() {
     savedSel.addEventListener("change", updateEnablement);
 
     saveBtn?.addEventListener("click", async () => {
+
+        showHidden = !!showHiddenCheckbox.checked;
+        saveShowHidden(showHidden);
+
         syncStorageFromUI();
         close();
 
@@ -1267,6 +1289,9 @@ function sortByDistanceClick() {
 (async function init() {
     await loadSettings();        // get favorites → render hearts
     await setupSettingsModal();
+
+    // showHidden init (from settings)
+    showHidden = loadShowHidden();
 
     // distance cap init
     const stored = loadDistanceCap();

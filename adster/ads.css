@@ -795,6 +795,27 @@ body>.modal {
   background: rgba(255, 255, 255, 0.10);
 }
 
+.checkbox-row {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+}
+
+.checkbox-row input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+}
+
+.btn.danger {
+  border-color: rgba(255, 120, 120, 0.35);
+  background: rgba(255, 80, 80, 0.12);
+}
+
+.btn.danger:hover {
+  background: rgba(255, 80, 80, 0.18);
+}
+
 /* Ensure modal dropdown options are readable across platforms */
 .modal select,
 .modal option {
