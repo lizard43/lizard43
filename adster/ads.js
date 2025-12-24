@@ -4,7 +4,7 @@ const ADS_JSON_URL = "scrapester.json";
 let allAds = [];
 let filteredAds = [];
 let sortField = "postedTime";
-let sortDir = "asc"; // or "desc"
+let sortDir = SORT_DEFAULT_DIR[sortField] || "asc";
 
 const SORT_DEFAULT_DIR = {
     distance: "asc",      // closest first
@@ -445,6 +445,17 @@ function sortAds(list) {
             if (isNaN(da)) return 1;
             if (isNaN(db)) return -1;
             return (da - db) * dir;
+        }
+
+        if (field === "postedTime") {
+            const ta = new Date(a.postedTime).getTime();
+            const tb = new Date(b.postedTime).getTime();
+
+            if (!Number.isFinite(ta) && !Number.isFinite(tb)) return 0;
+            if (!Number.isFinite(ta)) return 1;   // invalid/missing times go bottom
+            if (!Number.isFinite(tb)) return -1;
+
+            return (ta - tb) * dir; // dir handles asc/desc
         }
 
         const va = (a[field] || "").toString().toLowerCase();
