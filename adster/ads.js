@@ -495,7 +495,7 @@ function sortAds(list) {
 }
 
 function renderTable() {
-    const container = tbody; // now a div.ads-grid
+    const container = tbody; // #adsTbody (div.ads-grid)
     const sorted = sortAds(filteredAds);
 
     if (!sorted.length) {
@@ -510,7 +510,6 @@ function renderTable() {
         const distance = ad.distance || "";
         const location = ad.location || "";
         const author = ad.author || "";
-        const dateTimeText = formatTimestampDisplay(ad.postedTime);
         const price = ad.price || "";
         const imageUrl = ad.imageUrl || "";
         const adUrl = ad.adUrl || ad.AdUrl || "";
@@ -518,92 +517,102 @@ function renderTable() {
         const authorUrl = ad.authorUrl || "";
         const adID = ad.adID || "";
 
+        const dateTimeText = formatTimestampDisplay(ad.postedTime);
+
         const isHidden = !!ad.hidden;
 
+        // Title line (line 1)
         const titleHtml = adUrl
-            ? `<a href="${adUrl}" target="_blank" rel="noopener noreferrer">${title}</a>`
-            : `<span>${title}</span>`;
+            ? `<a href="${adUrl}" target="_blank" rel="noopener noreferrer">${escapeHtml(title)}</a>`
+            : `<span>${escapeHtml(title)}</span>`;
 
+        // Seller (line 2 right side)
         const authorHtml = author
             ? (authorUrl
-                ? `<a href="${authorUrl}" target="_blank" rel="noopener noreferrer" class="ad-author-link">${author}</a>`
-                : `<span class="ad-author-text">${author}</span>`)
-            : "";
+                ? `<a href="${authorUrl}" target="_blank" rel="noopener noreferrer" class="ad-author-link">${escapeHtml(author)}</a>`
+                : `<span class="ad-author-text">${escapeHtml(author)}</span>`)
+            : `<span class="ad-author-text"></span>`;
 
-        const distanceText = distance ? `${distance} mi` : "";
+        // Distance text (line 3 left side)
+        const distanceText = distance ? `${escapeHtml(String(distance))} mi` : "";
 
-        let locationLine = "";
-        if (distanceText && location) {
-            // distance first, then location, with a trailing period
-            locationLine = `${distanceText} • ${location}.`;
-        } else if (distanceText) {
-            locationLine = distanceText;
-        } else {
-            locationLine = location;
-        }
-
-        const descHtml = desc
-            ? `<div class="ad-desc-row">${desc}</div>`
-            : "";
-
+        // Image (left column)
         const imgHtml = imageUrl
             ? `<a href="${adUrl}" target="_blank" rel="noopener noreferrer">
                  <img class="ad-thumb" src="${imageUrl}" alt="">
                </a>`
             : "";
 
-        // Actions: hide/delete OR show/delete depending on hidden state
+        // Hide/show action
         let hideShowLabel, hideShowAction, hideShowTitle;
         if (isHidden) {
-            hideShowLabel = "👁";          // show
+            hideShowLabel = "👁";
             hideShowAction = "show";
             hideShowTitle = "Unhide ad";
         } else {
-            hideShowLabel = "🙈";          // hide
+            hideShowLabel = "🙈";
             hideShowAction = "hide";
             hideShowTitle = "Hide ad";
         }
 
+        // Description (line 4) — we escape so it can’t break the card HTML.
+        // (Your CSS clamps it to a few lines.)
+        const descSafe = escapeHtml(desc);
+
         return `
-      <div class="ad-card ${isHidden ? "hidden-ad" : ""}" data-ad-id="${adID}">
-        <div class="ad-thumb-wrap">
-          ${imgHtml}
-        </div>
+<div class="ad-card ${isHidden ? "hidden-ad" : ""}" data-ad-id="${escapeAttr(adID)}">
+  <div class="ad-thumb-wrap">
+    ${imgHtml}
+  </div>
 
-        <div class="ad-card-body">
-          <div class="ad-title-row">
-            ${titleHtml}
-          </div>
+  <div class="ad-card-body">
+    <div class="ad-line1">${titleHtml}</div>
 
-            <div class="ad-meta-row">
-            <span class="ad-price">${price}</span>
-            <span class="ad-location-line">${locationLine}</span>
-            </div>
+    <div class="ad-line2">
+      <span class="ad-price">${escapeHtml(price)}</span>
+      <span class="ad-seller">${authorHtml}</span>
+    </div>
 
-            <div class="ad-sub-row">
-            <span class="ad-datetime">${dateTimeText}</span>
-            <span class="ad-author">${authorHtml}</span>
-            </div>
-            ${descHtml}
-        </div>
+    <div class="ad-line3">
+      <span class="ad-distance">${distanceText}</span>
+      <span class="ad-location">${escapeHtml(location)}</span>
+    </div>
 
-        <div class="ad-card-footer">
-          <span class="source-pill">${source}</span>
-          <div class="ad-actions">
-            <button class="icon-btn"
-                    data-action="${hideShowAction}"
-                    data-ad-id="${adID}"
-                    title="${hideShowTitle}">
-              ${hideShowLabel}
-            </button>
-          </div>
-        </div>
+    <div class="ad-line4">${descSafe}</div>
+
+    <div class="ad-card-footer">
+      <span class="source-pill">${escapeHtml(source)}</span>
+      <div class="ad-actions">
+        <button class="icon-btn"
+                data-action="${hideShowAction}"
+                data-ad-id="${escapeAttr(adID)}"
+                title="${escapeAttr(hideShowTitle)}">
+          ${hideShowLabel}
+        </button>
       </div>
-    `;
+    </div>
+  </div>
+</div>
+        `.trim();
     });
 
     container.innerHTML = cardsHtml.join("");
     updateSortIndicators();
+}
+
+/* --- tiny escaping helpers (safe, drop-in) --- */
+function escapeHtml(s) {
+    return String(s ?? "")
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#39;");
+}
+
+function escapeAttr(s) {
+    // Same as escapeHtml, but semantically for attribute contexts.
+    return escapeHtml(s);
 }
 
 function updateSortIndicators() {

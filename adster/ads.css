@@ -12,6 +12,8 @@ body {
   flex-direction: column;
 }
 
+/* ---------------- Toolbar ---------------- */
+
 .toolbar {
   position: sticky;
   top: 0;
@@ -26,9 +28,7 @@ body {
   gap: 8px;
 
   position: relative;
-  /* anchor absolute gear */
-  padding-right: 72px;
-  /* reserve space for gear so it doesn't overlap buttons */
+  padding-right: 72px; /* reserve space for gear */
 }
 
 .settings-gear {
@@ -42,6 +42,10 @@ body {
   background: #333;
   color: #eee;
   cursor: pointer;
+}
+
+.settings-gear:hover {
+  background: #444;
 }
 
 .toolbar input[type="text"] {
@@ -74,101 +78,16 @@ body {
   background: #444;
 }
 
-.table-wrapper {
-  padding: 8px 12px;
-  flex: 1 1 auto;
-  overflow: auto;
-  /* vertical + horizontal if needed */
+.brand-logo {
+  display: flex;
+  align-items: center;
+  margin-right: 8px;
 }
 
-table {
-  width: 100%;
-  border-collapse: collapse;
-  font-size: 13px;
-}
-
-thead {
-  background: #1b1b1b;
-}
-
-thead th {
-  background: #1b1b1b;
-  text-align: center !important;
-}
-
-th,
-td {
-  padding: 6px 8px;
-  border-bottom: 1px solid #333;
-  vertical-align: top;
-}
-
-th {
-  text-align: left;
-  cursor: default;
-  white-space: nowrap;
-}
-
-th.sortable:hover {
-  background: #222;
-}
-
-th .sort-indicator {
-  opacity: 0.5;
-  margin-left: 4px;
-  font-size: 11px;
-}
-
-/* tr:nth-child(even) td {
-  background: #181818;
-}
-
-tr:nth-child(odd) td {
-  background: #141414;
-} */
-
-a {
-  color: #6cf;
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: underline;
-}
-
-.thumb {
-  width: 80px;
-  max-height: 80px;
-  object-fit: cover;
-  border-radius: 4px;
-  background: #000;
-}
-
-td.price {
-  font-weight: 600;
-  white-space: nowrap;
-  /* keep "$1,234" on one line */
-  text-align: right;
-  /* looks nicer for numbers */
-  /* remove inline-block & ellipsis so it fills the cell */
-}
-
-.source-pill {
-  display: inline-block;
-  padding: 2px 6px;
-  border-radius: 999px;
-  background: #333;
-  font-size: 11px;
-}
-
-.meta-line {
-  font-size: 11px;
-  color: #aaa;
-  margin-top: 2px;
-}
-
-.title-cell {
-  min-width: 220px;
+.brand-logo img {
+  height: 28px;
+  width: auto;
+  cursor: pointer;
 }
 
 .search-wrapper {
@@ -178,8 +97,7 @@ td.price {
 
 .search-wrapper input {
   width: 100%;
-  padding-right: 24px;
-  /* room for X button */
+  padding-right: 24px; /* room for X */
 }
 
 .clear-btn {
@@ -196,9 +114,7 @@ td.price {
   justify-content: center;
 
   background: #333;
-  /* matches toolbar button bg */
   border: 1px solid #444;
-  /* matches input border */
   color: #ccc;
   font-size: 14px;
   cursor: pointer;
@@ -277,18 +193,7 @@ td.price {
   color: #c8ffd1;
 }
 
-.time-cell {
-  white-space: nowrap;
-}
-
-.time-cell .time-sub {
-  font-size: 13px;
-  /* match table font */
-  color: #eee;
-  /* same as normal text */
-  margin-top: 2px;
-  /* small spacing for readability */
-}
+/* ---------------- Sort bar ---------------- */
 
 .sort-bar {
   background: #181818;
@@ -298,11 +203,6 @@ td.price {
   align-items: center;
   gap: 6px;
   border-bottom: 1px solid #333;
-}
-
-.sort-bar-label {
-  font-size: 12px;
-  opacity: 0.8;
 }
 
 .sort-btn {
@@ -334,19 +234,41 @@ td.price {
   opacity: 0.9;
 }
 
-/* --- hidden rows --- */
-tr.hidden-ad td {
-  opacity: 0.45;
+.distance-caret {
+  opacity: 0.75;
+  font-size: 11px;
+  margin-left: 2px;
 }
 
-/* --- actions column --- */
-.actions-cell {
-  white-space: nowrap;
+/* ---------------- Wrapper ---------------- */
+
+.table-wrapper {
+  padding: 8px 12px;
+  flex: 1 1 auto;
+  overflow: auto;
+}
+
+/* ---------------- Shared UI bits ---------------- */
+
+a {
+  color: #6cf;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.source-pill {
+  display: inline-block;
+  padding: 2px 6px;
+  border-radius: 999px;
+  background: #333;
+  font-size: 11px;
 }
 
 .icon-btn {
-  padding: 2px 6px;
-  margin-left: 4px;
+  padding: 6px 10px;
   border-radius: 4px;
   border: 1px solid #444;
   background: #222;
@@ -355,15 +277,10 @@ tr.hidden-ad td {
   font-size: 12px;
 }
 
-.icon-btn:first-child {
-  margin-left: 0;
-}
-
 .icon-btn:hover {
   background: #444;
 }
 
-/* --- Show hidden toggle button in toolbar --- */
 .toggle-btn {
   padding: 4px 8px;
   border-radius: 4px;
@@ -384,65 +301,33 @@ tr.hidden-ad td {
   color: #c8ffd1;
 }
 
-/* --- card layout --- */
+/* ---------------- Grid ---------------- */
 
 .ads-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
   gap: 12px;
   font-size: 13px;
 }
 
-/* medium screens: cap it at 3 columns */
+/* medium screens: cap at 3 columns */
 @media (max-width: 1200px) {
   .ads-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
 
-/* tablets & most phones in landscape: 2 across */
+/* tablets & most phones landscape: 2 across */
 @media (max-width: 900px) {
   .ads-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
-
-  .ad-card {
-    font-size: 14px;
-  }
-
-  .ad-desc-row {
-    font-size: 12px;
-  }
 }
 
+/* phones: 1 across */
 @media (max-width: 600px) {
   .ads-grid {
     grid-template-columns: 1fr;
-  }
-
-  .ad-card {
-    font-size: 15px;
-    flex-direction: column;
-    height: auto;
-  }
-
-  .ad-thumb-wrap {
-    width: 100%;
-    height: 180px;
-    flex: none;
-  }
-
-  .ad-card-body {
-    padding: 10px 12px 8px;
-  }
-
-  .ad-card-footer {
-    padding: 8px 12px 10px;
-  }
-
-  .icon-btn {
-    padding: 6px 10px;
-    font-size: 13px;
   }
 
   .settings-gear {
@@ -456,26 +341,48 @@ tr.hidden-ad td {
   }
 }
 
-/* --- card layout: image left, text right --- */
+/* =========================================================
+   HARD-RULE CARD LAYOUT (single source of truth)
+   Rules:
+   1) title
+   2) price - seller
+   3) distance - location
+   4) description (wrap a few lines)
+   bottom: source left, hide button right
+   ========================================================= */
+
 .ad-card {
+  display: flex;
+  gap: 12px;
+  padding: 10px;
+
   background: #181818;
-  border-radius: 8px;
   border: 1px solid #333;
+  border-radius: 10px;
   overflow: hidden;
 
-  display: flex;
-  flex-direction: row;
-
-  height: 140px;
-  transition: border-color 120ms ease, box-shadow 120ms ease, transform 120ms ease;
-
+  align-items: stretch;
   min-width: 0;
+
+  transition: border-color 120ms ease, box-shadow 120ms ease, transform 120ms ease;
 }
 
+.ad-card:hover {
+  border-color: #555;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+  transform: translateY(-1px);
+}
+
+.ad-card.hidden-ad {
+  opacity: 0.45;
+}
+
+/* image column */
 .ad-thumb-wrap {
-  flex: 0 0 140px;
-  height: 100%;
+  flex: 0 0 120px;
   background: #000;
+  border-radius: 8px;
+  overflow: hidden;
 }
 
 .ad-thumb-wrap a {
@@ -486,179 +393,125 @@ tr.hidden-ad td {
 .ad-thumb {
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  object-fit: contain; /* IMPORTANT: avoid cropping */
   display: block;
 }
 
-/* Give text more room on narrow screens */
-@media (max-width: 900px) {
-  .ad-thumb-wrap {
-    flex: 0 0 96px;
-    /* was 140 */
-  }
-
-  .ad-card {
-    height: 128px;
-    /* optional: a touch shorter */
-  }
-}
-
-.ad-card:hover {
-  border-color: #555;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
-  transform: translateY(-1px);
-}
-
-/* hidden ads dimmed */
-.ad-card.hidden-ad {
-  opacity: 0.45;
-}
-
+/* right column */
 .ad-card-body {
-  padding: 8px 10px 6px;
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
   flex: 1 1 auto;
   min-width: 0;
-  /* IMPORTANT for ellipsis to work in flex rows */
-}
 
-.ad-card-footer {
-  margin-top: auto;
-  /* pushes footer to bottom */
-  padding: 6px 10px 8px;
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  flex-direction: column;
   gap: 6px;
-  border-top: 1px solid #222;
 }
 
-.ad-title-row a {
-  font-weight: 600;
+/* line 1 */
+.ad-line1 a,
+.ad-line1 span {
+  font-weight: 800;
   color: #fff;
   text-decoration: none;
   display: block;
+
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  /* title ellipsis */
 }
 
-.ad-title-row a:hover {
+.ad-line1 a:hover {
   text-decoration: underline;
 }
 
-.ad-meta-row {
+/* line 2 & 3 */
+.ad-line2,
+.ad-line3 {
   display: flex;
-  flex-wrap: nowrap;
-  gap: 6px;
-  align-items: baseline;
+  gap: 10px;
+  min-width: 0;
   font-size: 12px;
-}
-
-.ad-price {
-  font-weight: 600;
-  margin-right: 8px;
-  white-space: nowrap;
-}
-
-.ad-location-line {
   color: #ccc;
-  font-size: 11px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-.ad-sub-row {
-  display: flex;
-  flex-wrap: nowrap;
   align-items: baseline;
-  justify-content: space-between;
-  font-size: 11px;
-  color: #aaa;
 }
 
-.ad-datetime {
+.ad-line2 .ad-price {
+  font-weight: 800;
+  color: #fff;
   white-space: nowrap;
-  margin-right: 8px;
 }
 
-.ad-author {
+.ad-line2 .ad-seller {
   margin-left: auto;
-  font-size: 11px;
-  color: #bbb;
-  max-width: 50%;
+  max-width: 55%;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
   text-align: right;
 }
 
-.ad-author a,
-.ad-author .ad-author-link,
-.ad-author .ad-author-text {
+.ad-line3 .ad-distance {
+  white-space: nowrap;
   color: #bbb;
-  text-decoration: none;
 }
 
-.ad-author a:hover,
-.ad-author .ad-author-link:hover {
-  text-decoration: underline;
+.ad-line3 .ad-location {
+  margin-left: auto;
+  max-width: 65%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  text-align: right;
 }
 
-.ad-desc-row {
-  font-size: 11px;
+/* line 4: description wraps a few lines then ellipsis */
+.ad-line4 {
   color: #aaa;
-  margin-top: 0;
+  font-size: 12px;
+  line-height: 1.25;
 
-  /* show a couple of lines max with fade-out */
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
+  margin-top: 2px;
+}
+
+/* footer stays inside body at bottom */
+.ad-card-footer {
+  margin-top: auto; /* push to bottom of body */
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+
+  padding-top: 6px;
+  border-top: 1px solid #222;
 }
 
 .ad-card-footer .source-pill {
   font-size: 10px;
 }
 
-/* Make footer go under the text instead of becoming a skinny right column */
-.ad-card {
-  flex-wrap: wrap;
-}
-
-.ad-card-body {
-  flex: 1 1 0;
-}
-
-.ad-card-footer {
-  flex: 1 1 100%;
-  width: 100%;
-  margin-top: 0;
-  /* we’re using wrapping now */
-  border-top: 1px solid #222;
-}
-
-/* button cluster on card */
 .ad-actions {
   display: flex;
-  gap: 4px;
+  gap: 6px;
 }
 
-.brand-logo {
-  display: flex;
-  align-items: center;
-  margin-right: 8px;
+/* make buttons consistently tappable */
+.ad-actions .icon-btn {
+  padding: 6px 10px;
 }
 
-.brand-logo img {
-  height: 28px;
-  width: auto;
-  cursor: pointer;
+/* mobile: shrink image so text is wider */
+@media (max-width: 600px) {
+  .ad-thumb-wrap {
+    flex-basis: 92px;
+  }
 }
+
+/* ---------------- Toasts ---------------- */
 
 .toast-container {
   position: fixed;
@@ -688,11 +541,8 @@ tr.hidden-ad td {
   transform: translateY(0);
 }
 
-.settings-gear:hover {
-  background: #444;
-}
+/* ---------------- Modal ---------------- */
 
-/* modal close button (don’t collide with icon-btn) */
 .modal-close {
   appearance: none;
   border: 1px solid #444;
@@ -707,7 +557,6 @@ tr.hidden-ad td {
   background: #444;
 }
 
-/* --- Modal --- */
 .modal {
   position: fixed;
   inset: 0;
@@ -718,7 +567,7 @@ tr.hidden-ad td {
   z-index: 9999;
 }
 
-body>.modal {
+body > .modal {
   position: fixed !important;
   inset: 0;
   flex: none !important;
@@ -824,14 +673,7 @@ body>.modal {
   padding: 10px 14px;
   border-radius: 10px;
   cursor: pointer;
-}
 
-.btn:hover {
-  background: rgba(0, 0, 0, 0.35);
-}
-
-/* Make modal buttons look clearly clickable */
-.btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -840,11 +682,19 @@ body>.modal {
   -webkit-tap-highlight-color: transparent;
 }
 
+.btn:hover {
+  background: rgba(0, 0, 0, 0.35);
+}
+
 .btn:active {
   transform: translateY(1px);
 }
 
-/* Make danger button stand out more */
+.btn.primary {
+  border-color: rgba(255, 255, 255, 0.22);
+  background: rgba(255, 255, 255, 0.10);
+}
+
 .btn.danger {
   border-color: rgba(255, 120, 120, 0.55);
   background: rgba(255, 80, 80, 0.18);
@@ -852,12 +702,6 @@ body>.modal {
 
 .btn.danger:hover {
   background: rgba(255, 80, 80, 0.26);
-}
-
-
-.btn.primary {
-  border-color: rgba(255, 255, 255, 0.22);
-  background: rgba(255, 255, 255, 0.10);
 }
 
 .checkbox-row {
@@ -884,12 +728,7 @@ body>.modal {
   font-variant-numeric: tabular-nums;
 }
 
-/* --- Distance long-press menu --- */
-.distance-caret {
-  opacity: 0.75;
-  font-size: 11px;
-  margin-left: 2px;
-}
+/* ---------------- Distance long-press menu ---------------- */
 
 .distance-menu {
   position: fixed;
