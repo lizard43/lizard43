@@ -359,6 +359,7 @@ a:hover {
   grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
   gap: 12px;
   font-size: 13px;
+  align-items: start; /* <-- stop cards stretching to row height */
 }
 
 /* medium screens: cap at 3 columns */
