@@ -1024,6 +1024,7 @@ async function setupSettingsModal() {
 
     const showHiddenCheckbox = document.getElementById("showHiddenCheckbox");
     const clearHiddenBtn = document.getElementById("clearHiddenBtn");
+    const clearFavoritesBtn = document.getElementById("clearFavoritesBtn");
 
     const modeRadios = Array.from(document.querySelectorAll('input[name="locMode"]'));
 
@@ -1154,8 +1155,37 @@ async function setupSettingsModal() {
         }
     };
 
+    const onClearFavorites = (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+
+        console.log("[favorites] clear clicked");
+
+        try {
+            // If you used the names from the favorites feature:
+            //   const LS_FAVORITE_AD_IDS = "adster.favoriteAdIDs";
+            //   let favoriteIdSet = loadFavoriteIds();
+            favoriteIdSet = new Set();
+            localStorage.setItem(LS_FAVORITE_AD_IDS, "[]");
+
+            // Re-apply current filtering/sorting so pinned favorites disappear immediately
+            // Use whichever your code currently uses:
+            // - applyFilter() if that's your main rerender pipeline
+            // - renderTable() if you re-render directly
+            if (typeof applyFilter === "function") applyFilter();
+            else if (typeof renderTable === "function") renderTable();
+
+            showToast("Favorites cleared");
+        } catch (err) {
+            console.error("Failed to clear favorites:", err);
+            showToast("Failed to clear favorites", 5000);
+        }
+    };
+
     // Use pointerup to avoid "pointerup + click" double-firing on mobile taps
     clearHiddenBtn?.addEventListener("pointerup", onClearHidden);
+
+    clearFavoritesBtn?.addEventListener("pointerup", onClearFavorites);
 
     settingsBtn?.addEventListener("click", () => {
         syncUIFromStorage();
