@@ -442,12 +442,18 @@ a:hover {
 }
 
 .ad-line2 .ad-seller {
-  margin-left: auto;
-  max-width: 55%;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  text-align: right;
+  color: #ccc;               
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.ad-line2 .ad-seller a {
+  color: inherit;          
+  text-decoration: none;
+}
+
+.ad-line2 .ad-seller a:hover {
+  text-decoration: underline;
 }
 
 .ad-line3 .ad-distance {
@@ -456,12 +462,7 @@ a:hover {
 }
 
 .ad-line3 .ad-location {
-  margin-left: auto;
-  max-width: 65%;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  text-align: right;
+  color: #bbb;
 }
 
 /* line 4: description wraps a few lines then ellipsis */
@@ -497,6 +498,11 @@ a:hover {
 .ad-actions {
   display: flex;
   gap: 6px;
+}
+
+.meta-dot {
+  opacity: 0.6;
+  margin: 0 6px;
 }
 
 /* make buttons consistently tappable */

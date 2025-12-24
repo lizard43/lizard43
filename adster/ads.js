@@ -569,13 +569,15 @@ function renderTable() {
     <div class="ad-line1">${titleHtml}</div>
 
     <div class="ad-line2">
-      <span class="ad-price">${escapeHtml(price)}</span>
-      <span class="ad-seller">${authorHtml}</span>
+    <span class="ad-price">${escapeHtml(price)}</span>
+    ${author ? `<span class="meta-dot">·</span>` : ""}
+    <span class="ad-seller">${authorHtml}</span>
     </div>
 
     <div class="ad-line3">
-      <span class="ad-distance">${distanceText}</span>
-      <span class="ad-location">${escapeHtml(location)}</span>
+    <span class="ad-distance">${distanceText}</span>
+    ${location ? `<span class="meta-dot">·</span>` : ""}
+    <span class="ad-location">${escapeHtml(location)}</span>
     </div>
 
     <div class="ad-line4">${descSafe}</div>
