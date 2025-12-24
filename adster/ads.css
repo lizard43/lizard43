@@ -415,7 +415,6 @@ tr.hidden-ad td {
   }
 }
 
-/* small phones: 1 across, bigger tap targets */
 @media (max-width: 600px) {
   .ads-grid {
     grid-template-columns: 1fr;
@@ -423,6 +422,14 @@ tr.hidden-ad td {
 
   .ad-card {
     font-size: 15px;
+    flex-direction: column;
+    height: auto;
+  }
+
+  .ad-thumb-wrap {
+    width: 100%;
+    height: 180px;
+    flex: none;
   }
 
   .ad-card-body {
@@ -442,23 +449,45 @@ tr.hidden-ad td {
     padding: 8px 12px;
     font-size: 16px;
   }
-}
 
-@media (max-width: 600px) {
   .toggle-btn {
     padding: 4px 6px;
     font-size: 13px;
   }
 }
 
+/* --- card layout: image left, text right --- */
 .ad-card {
   background: #181818;
   border-radius: 8px;
   border: 1px solid #333;
   overflow: hidden;
+
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+
+  height: 140px;
   transition: border-color 120ms ease, box-shadow 120ms ease, transform 120ms ease;
+
+  min-width: 0;
+}
+
+.ad-thumb-wrap {
+  flex: 0 0 140px;
+  height: 100%;
+  background: #000;
+}
+
+.ad-thumb-wrap a {
+  display: block;
+  height: 100%;
+}
+
+.ad-thumb {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
 }
 
 .ad-card:hover {
@@ -472,28 +501,25 @@ tr.hidden-ad td {
   opacity: 0.45;
 }
 
-.ad-thumb-wrap {
-  position: relative;
-  background: #000;
-}
-
-.ad-thumb-wrap a {
-  display: block;
-}
-
-.ad-thumb {
-  width: 100%;
-  height: 160px;
-  object-fit: contain;
-  background: #000;
-}
-
 .ad-card-body {
   padding: 8px 10px 6px;
   display: flex;
   flex-direction: column;
   gap: 4px;
   flex: 1 1 auto;
+  min-width: 0;
+  /* IMPORTANT for ellipsis to work in flex rows */
+}
+
+.ad-card-footer {
+  margin-top: auto;
+  /* pushes footer to bottom */
+  padding: 6px 10px 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+  border-top: 1px solid #222;
 }
 
 .ad-title-row a {
@@ -582,15 +608,6 @@ tr.hidden-ad td {
   overflow: hidden;
 }
 
-.ad-card-footer {
-  padding: 6px 10px 8px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 6px;
-  border-top: 1px solid #222;
-}
-
 .ad-card-footer .source-pill {
   font-size: 10px;
 }
@@ -599,13 +616,6 @@ tr.hidden-ad td {
 .ad-actions {
   display: flex;
   gap: 4px;
-}
-
-/* tighten table-wrapper for cards */
-.table-wrapper {
-  padding: 8px 12px;
-  flex: 1 1 auto;
-  overflow: auto;
 }
 
 .brand-logo {
@@ -830,15 +840,6 @@ body>.modal {
 .checkbox-row input[type="checkbox"] {
   width: 18px;
   height: 18px;
-}
-
-.btn.danger {
-  border-color: rgba(255, 120, 120, 0.35);
-  background: rgba(255, 80, 80, 0.12);
-}
-
-.btn.danger:hover {
-  background: rgba(255, 80, 80, 0.18);
 }
 
 /* Ensure modal dropdown options are readable across platforms */
