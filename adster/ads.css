@@ -274,11 +274,11 @@ td.price {
 
 .sort-bar {
   background: #181818;
-  padding: 6px 12px;
+  padding: 4px 10px;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
   border-bottom: 1px solid #333;
 }
 
@@ -288,16 +288,17 @@ td.price {
 }
 
 .sort-btn {
-  padding: 4px 8px;
+  padding: 3px 7px;
   border-radius: 999px;
   border: 1px solid #444;
+  border-width: 0.5px;
   background: #222;
   color: #eee;
-  font-size: 12px;
+  font-size: 11px;
   cursor: pointer;
   display: inline-flex;
   align-items: center;
-  gap: 4px;
+  gap: 3px;
 }
 
 .sort-btn:hover {
