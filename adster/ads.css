@@ -18,14 +18,29 @@ body {
   z-index: 10;
   background: #222;
   padding: 8px 12px;
-  display: flex;
-  flex-wrap: wrap;
+  border-bottom: 1px solid #333;
+
+  display: grid;
+  grid-template-columns: 1fr auto;
+  /* left = controls, right = gear */
   align-items: center;
   gap: 8px;
-  border-bottom: 1px solid #333;
-  position: relative;
-  padding-right: 64px;
-  /* reserve space for the absolute gear */
+}
+
+/* put everything except the gear into the left grid cell */
+.toolbar> :not(.settings-gear) {
+  grid-column: 1;
+}
+
+/* gear always stays in its own right-side cell */
+.settings-gear {
+  grid-column: 2;
+  justify-self: end;
+
+  position: static;
+  /* IMPORTANT: stop absolute overlap */
+  top: auto;
+  right: auto;
 }
 
 .toolbar input[type="text"] {
@@ -630,21 +645,6 @@ tr.hidden-ad td {
 .toast-message.show {
   opacity: 1;
   transform: translateY(0);
-}
-
-/* settings gear button in toolbar */
-.settings-gear {
-  position: absolute;
-  top: 8px;
-  right: 12px;
-
-  appearance: none;
-  border: 1px solid #444;
-  background: #333;
-  color: #eee;
-  padding: 6px 10px;
-  border-radius: 4px;
-  cursor: pointer;
 }
 
 .settings-gear:hover {
