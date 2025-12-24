@@ -490,6 +490,19 @@ tr.hidden-ad td {
   display: block;
 }
 
+/* Give text more room on narrow screens */
+@media (max-width: 900px) {
+  .ad-thumb-wrap {
+    flex: 0 0 96px;
+    /* was 140 */
+  }
+
+  .ad-card {
+    height: 128px;
+    /* optional: a touch shorter */
+  }
+}
+
 .ad-card:hover {
   border-color: #555;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
@@ -610,6 +623,23 @@ tr.hidden-ad td {
 
 .ad-card-footer .source-pill {
   font-size: 10px;
+}
+
+/* Make footer go under the text instead of becoming a skinny right column */
+.ad-card {
+  flex-wrap: wrap;
+}
+
+.ad-card-body {
+  flex: 1 1 0;
+}
+
+.ad-card-footer {
+  flex: 1 1 100%;
+  width: 100%;
+  margin-top: 0;
+  /* we’re using wrapping now */
+  border-top: 1px solid #222;
 }
 
 /* button cluster on card */
