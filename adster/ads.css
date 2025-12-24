@@ -431,8 +431,8 @@ a:hover {
 /* image column */
 .ad-thumb-wrap {
   flex: 0 0 120px;
-  background: #000;
-  border-radius: 8px;
+  background: #181818; /* match card background */
+  border-radius: 6px;
   overflow: hidden;
 }
 
@@ -482,7 +482,7 @@ a:hover {
 .ad-line2,
 .ad-line3 {
   display: flex;
-  gap: 10px;
+  gap: 0px;
   min-width: 0;
   font-size: 12px;
   color: #ccc;
@@ -490,7 +490,7 @@ a:hover {
 }
 
 .ad-line2 .ad-price {
-  font-weight: 800;
+  font-weight: 400;
   color: #fff;
   white-space: nowrap;
 }
@@ -542,8 +542,8 @@ a:hover {
   justify-content: space-between;
   gap: 10px;
 
-  padding-top: 6px;
-  border-top: 1px solid #222;
+  padding-top: 4px;
+  border-top: none;
 }
 
 .ad-card-footer .source-pill {
@@ -563,6 +563,11 @@ a:hover {
 /* make buttons consistently tappable */
 .ad-actions .icon-btn {
   padding: 6px 10px;
+}
+
+.source-text {
+  font-size: 11px;
+  color: #888;
 }
 
 /* mobile: shrink image so text is wider */
@@ -826,4 +831,25 @@ body>.modal {
   background: #224422;
   border-color: #55aa55;
   color: #c8ffd1;
+}
+
+/* allow absolute positioning */
+.ad-card {
+  position: relative;
+}
+
+/* top-right close (hidden) button */
+.card-close {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  z-index: 3;
+}
+
+/* footer heart pinned bottom-right */
+.ad-card-footer {
+  padding-top: 4px;
+  /* tighter */
+  border-top: none;
+  /* cleaner */
 }

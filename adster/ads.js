@@ -594,6 +594,13 @@ function renderTable() {
 
         return `
 <div class="ad-card ${isHidden ? "hidden-ad" : ""}" data-ad-id="${escapeAttr(adID)}">
+  <button class="icon-btn hide-toggle card-close"
+          data-action="${hideShowAction}"
+          data-ad-id="${escapeAttr(adID)}"
+          title="${escapeAttr(hideShowTitle)}">
+    ${hideShowLabel}
+  </button>
+
   <div class="ad-thumb-wrap">
     ${imgHtml}
   </div>
@@ -616,24 +623,16 @@ function renderTable() {
     <div class="ad-line4">${descSafe}</div>
 
     <div class="ad-card-footer">
-      <span class="source-pill">${escapeHtml(source)}</span>
-        <div class="ad-actions">
+        <span class="source-text">${escapeHtml(source)}</span>
+
         <button class="icon-btn fav-toggle ${favoriteIdSet.has(adID) ? "active" : ""}"
                 data-action="toggle-fav"
                 data-ad-id="${escapeAttr(adID)}"
                 title="${favoriteIdSet.has(adID) ? "Unfavorite" : "Favorite"}">
             ${favoriteIdSet.has(adID) ? "♥" : "♡"}
         </button>
-
-        <button class="icon-btn hide-toggle"
-                data-action="${hideShowAction}"
-                data-ad-id="${escapeAttr(adID)}"
-                title="${escapeAttr(hideShowTitle)}">
-            ${hideShowLabel}
-        </button>
         </div>
     </div>
-  </div>
 </div>
         `.trim();
     });
