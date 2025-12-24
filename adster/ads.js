@@ -1082,31 +1082,29 @@ async function setupSettingsModal() {
         setLocSettings(s);
     }
 
-    clearHiddenBtn?.addEventListener("click", () => {
-        const onClearHidden = (e) => {
-            e.preventDefault();
-            e.stopPropagation();
+    const onClearHidden = (e) => {
+        e.preventDefault();
+        e.stopPropagation();
 
-            console.log("[hidden] clear clicked");
+        console.log("[hidden] clear clicked");
 
-            try {
-                hiddenIdSet = new Set();
-                saveHiddenIds(hiddenIdSet);
+        try {
+            hiddenIdSet = new Set();
+            saveHiddenIds(hiddenIdSet);
 
-                // update local model immediately
-                allAds = allAds.map((ad) => ({ ...ad, hidden: 0 }));
+            // update local model immediately
+            allAds = allAds.map((ad) => ({ ...ad, hidden: 0 }));
 
-                applyFilter();
-                showToast("Hidden ads cleared");
-            } catch (err) {
-                console.error("Failed to clear hidden ads:", err);
-                showToast("Failed to clear hidden ads", 5000);
-            }
-        };
+            applyFilter();
+            showToast("Hidden ads cleared");
+        } catch (err) {
+            console.error("Failed to clear hidden ads:", err);
+            showToast("Failed to clear hidden ads", 5000);
+        }
+    };
 
-        clearHiddenBtn?.addEventListener("click", onClearHidden);
-        clearHiddenBtn?.addEventListener("pointerup", onClearHidden);
-    });
+    // Use pointerup to avoid "pointerup + click" double-firing on mobile taps
+    clearHiddenBtn?.addEventListener("pointerup", onClearHidden);
 
     settingsBtn?.addEventListener("click", () => {
         syncUIFromStorage();
