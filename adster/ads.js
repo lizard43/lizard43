@@ -35,7 +35,13 @@ const btnLast12h = document.getElementById("btnLast12h");
 const btnLast1d = document.getElementById("btnLast1d");
 const toggleHiddenBtn = document.getElementById("toggleHidden");
 
+const btnDistance = document.getElementById("btnDistance");
+const distanceCapLabel = document.getElementById("distanceCapLabel");
+
 const metaIcon = document.getElementById("scrapeMetaIcon");
+
+let distanceCapMiles = 250; // default
+const DISTANCE_CAP_OPTIONS = [50, 100, 250, 500, 1000, Infinity];
 
 // --- Location settings storage keys ---
 const LS_LOC_MODE = "adster.location.mode";         // "browser" | "fixed"
@@ -43,11 +49,103 @@ const LS_LOC_SAVED_ID = "adster.location.savedId";
 const LS_LOC_CUSTOM_LAT = "adster.location.customLat";
 const LS_LOC_CUSTOM_LON = "adster.location.customLon";
 const LS_LOC_FALLBACK_ID = "adster.location.fallbackId";
+const LS_DISTANCE_CAP = "adster.distance.capMiles"; // number, default 250
+
 
 // built-in default if nothing else is available
 const DEFAULT_HOME = { lat: 30.40198, lon: -86.87008 }; // Navarre, FL (change if you want)
 
 let cachedLocations = null;
+
+function loadDistanceCap() {
+    const raw = localStorage.getItem(LS_DISTANCE_CAP);
+    const n = Number(raw);
+    if (Number.isFinite(n) && n > 0) return n;
+    // support old/empty values
+    return 250;
+}
+
+function saveDistanceCap(n) {
+    localStorage.setItem(LS_DISTANCE_CAP, String(n));
+}
+
+function capToLabel(n) {
+    if (n === Infinity) return "1000+";
+    return String(n);
+}
+
+function ensureDistanceMenu() {
+    let menu = document.getElementById("distanceMenu");
+    if (menu) return menu;
+
+    menu = document.createElement("div");
+    menu.id = "distanceMenu";
+    menu.className = "distance-menu hidden";
+
+    DISTANCE_CAP_OPTIONS.forEach((opt) => {
+        const b = document.createElement("button");
+        b.type = "button";
+        b.dataset.miles = String(opt);
+        b.textContent = (opt === Infinity) ? "1000+" : `${opt} miles`;
+        menu.appendChild(b);
+    });
+
+    document.body.appendChild(menu);
+
+    // click away to close
+    document.addEventListener("pointerdown", (e) => {
+        if (menu.classList.contains("hidden")) return;
+        if (e.target === btnDistance) return;
+        if (menu.contains(e.target)) return;
+        menu.classList.add("hidden");
+    });
+
+    // menu selection
+    menu.addEventListener("click", (e) => {
+        const b = e.target.closest("button[data-miles]");
+        if (!b) return;
+
+        const raw = b.dataset.miles;
+        const val = (raw === "Infinity") ? Infinity : Number(raw);
+
+        distanceCapMiles = val;
+        saveDistanceCap(val === Infinity ? 1000000 : val); // store big number for Infinity
+        updateDistanceCapLabel();
+        menu.classList.add("hidden");
+
+        applyFilter();
+    });
+
+    return menu;
+}
+
+function openDistanceMenu() {
+    if (!btnDistance) return;
+    const menu = ensureDistanceMenu();
+
+    // mark active item
+    Array.from(menu.querySelectorAll("button")).forEach((b) => {
+        const raw = b.dataset.miles;
+        const val = (raw === "Infinity") ? Infinity : Number(raw);
+        const active = (distanceCapMiles === Infinity && val === Infinity) || (val === distanceCapMiles);
+        b.classList.toggle("active", active);
+    });
+
+    // position menu under the button
+    const r = btnDistance.getBoundingClientRect();
+    const top = r.bottom + 6;
+    const left = Math.min(r.left, window.innerWidth - 190);
+
+    menu.style.top = `${top}px`;
+    menu.style.left = `${left}px`;
+
+    menu.classList.remove("hidden");
+}
+
+function updateDistanceCapLabel() {
+    if (!distanceCapLabel) return;
+    distanceCapLabel.textContent = capToLabel(distanceCapMiles);
+}
 
 async function loadLocationsJson() {
     if (cachedLocations && cachedLocations.length) return cachedLocations;
@@ -667,6 +765,14 @@ function applyFilter() {
             if (!Number.isFinite(t) || t < filterMs) return false;
         }
 
+        // distance cap (only applies when we have a numeric distance)
+        // If cap is Infinity => don't filter by distance.
+        if (distanceCapMiles !== Infinity) {
+            const d = normalizeDistance(ad.distance);
+            if (!Number.isFinite(d)) return false;      // no distance => drop when capped
+            if (d > distanceCapMiles) return false;
+        }
+
         return true;
     });
 
@@ -1071,15 +1177,15 @@ async function loadAds() {
 
 // sort-bar button sorting
 document.querySelectorAll(".sort-btn").forEach((btn) => {
+    const f = btn.getAttribute("data-field");
+    if (f === "distance") return; // handled by hybrid handler below
+
     btn.addEventListener("click", () => {
-        const f = btn.getAttribute("data-field");
         if (!f) return;
 
         if (f === sortField) {
-            // toggle direction if clicking same field
             sortDir = sortDir === "asc" ? "desc" : "asc";
         } else {
-            // new field → reset to that field’s default direction
             sortField = f;
             sortDir = SORT_DEFAULT_DIR[f] || "asc";
         }
@@ -1088,10 +1194,71 @@ document.querySelectorAll(".sort-btn").forEach((btn) => {
     });
 });
 
+function sortByDistanceClick() {
+    const f = "distance";
+    if (f === sortField) {
+        sortDir = sortDir === "asc" ? "desc" : "asc";
+    } else {
+        sortField = f;
+        sortDir = SORT_DEFAULT_DIR[f] || "asc";
+    }
+    renderTable();
+}
+
+(function setupDistanceHybrid() {
+    if (!btnDistance) return;
+
+    let pressTimer = null;
+    let longPressFired = false;
+
+    const LONG_PRESS_MS = 450;
+
+    btnDistance.addEventListener("pointerdown", (e) => {
+        longPressFired = false;
+        pressTimer = setTimeout(() => {
+            longPressFired = true;
+            openDistanceMenu();
+        }, LONG_PRESS_MS);
+
+        // avoid iOS text selection / context menu weirdness
+        btnDistance.setPointerCapture?.(e.pointerId);
+    });
+
+    const clear = () => {
+        if (pressTimer) {
+            clearTimeout(pressTimer);
+            pressTimer = null;
+        }
+    };
+
+    btnDistance.addEventListener("pointerup", (e) => {
+        clear();
+
+        // if menu opened, don't sort
+        if (longPressFired) {
+            e.preventDefault();
+            e.stopPropagation();
+            return;
+        }
+
+        sortByDistanceClick();
+    });
+
+    btnDistance.addEventListener("pointercancel", clear);
+    btnDistance.addEventListener("pointerleave", clear);
+})();
+
 // initial load
 (async function init() {
     await loadSettings();        // get favorites → render hearts
     await setupSettingsModal();
+
+    // distance cap init
+    const stored = loadDistanceCap();
+    distanceCapMiles = (stored >= 1000000) ? Infinity : stored;
+    updateDistanceCapLabel();
+
     await resolveHomeLocation(); // pick browser or fallback location (+ toast)
     await loadAds();             // load ads and compute distances with that location
+
 })();

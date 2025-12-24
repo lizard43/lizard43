@@ -795,3 +795,47 @@ body>.modal {
 #locLon {
   font-variant-numeric: tabular-nums;
 }
+
+/* --- Distance long-press menu --- */
+.distance-caret {
+  opacity: 0.75;
+  font-size: 11px;
+  margin-left: 2px;
+}
+
+.distance-menu {
+  position: fixed;
+  z-index: 10000;
+  min-width: 170px;
+  background: #111;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+  padding: 6px;
+}
+
+.distance-menu.hidden {
+  display: none;
+}
+
+.distance-menu button {
+  width: 100%;
+  text-align: left;
+  padding: 8px 10px;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  background: transparent;
+  color: #eee;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.distance-menu button:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.distance-menu button.active {
+  background: #224422;
+  border-color: #55aa55;
+  color: #c8ffd1;
+}
