@@ -4,7 +4,6 @@ const ADS_JSON_URL = "scrapester.json";
 let allAds = [];
 let filteredAds = [];
 let sortField = "postedTime";
-let sortDir = SORT_DEFAULT_DIR[sortField] || "asc";
 
 const SORT_DEFAULT_DIR = {
     distance: "asc",      // closest first
@@ -14,6 +13,8 @@ const SORT_DEFAULT_DIR = {
     author: "asc",        // A → Z
     source: "asc"         // A → Z
 };
+
+let sortDir = SORT_DEFAULT_DIR[sortField] || "asc";
 
 let favorites = [];
 
