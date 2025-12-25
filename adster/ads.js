@@ -675,13 +675,65 @@ function updateSortIndicators() {
     });
 }
 
-// ------- Boolean search helpers (AND / OR / NOT) -------
-// (unchanged from your current file)
+// ------- Wildcard helpers (supports * inside terms) -------
+// Rules:
+// - "*" matches any number of characters (including none)
+// - Works in simple search and boolean TERM nodes
+// - Case-insensitive handled by lowercasing the blob + query
+
+const _wildcardRegexCache = new Map();
+
+function escapeRegExpLiteral(s) {
+    // escape regex meta chars EXCEPT we handle "*" separately later
+    return s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+}
+
+function termToRegex(term) {
+    // Cache compiled regex for performance
+    const key = term;
+    const cached = _wildcardRegexCache.get(key);
+    if (cached) return cached;
+
+    // Convert wildcard * to .*
+    // We escape everything, then replace escaped "\*" back to wildcard pattern.
+    const escaped = escapeRegExpLiteral(term);
+    const pattern = escaped.replace(/\\\*/g, ".*");
+
+    const re = new RegExp(pattern); // blob is already lowercased
+    _wildcardRegexCache.set(key, re);
+    return re;
+}
+
+function matchTermInBlob(term, blob) {
+    if (!term) return true;
+
+    // If term contains wildcard, use regex; otherwise fast substring includes
+    if (term.includes("*")) {
+        return termToRegex(term).test(blob);
+    }
+    return blob.includes(term);
+}
+
+// Simple (non-boolean) search tokenization: supports quoted phrases and whitespace-separated AND
+function tokenizeSimpleSearch(qLower) {
+    // tokens: "quoted phrase" OR single non-space token
+    const re = /"[^"]+"|\S+/g;
+    const out = [];
+    let m;
+    while ((m = re.exec(qLower)) !== null) {
+        let t = m[0];
+        if (t.startsWith('"') && t.endsWith('"')) t = t.slice(1, -1);
+        t = t.trim();
+        if (t) out.push(t);
+    }
+    return out;
+}
 
 function tokenizeQuery(q) {
     const tokens = [];
     const re = /(\()|(\))|(&&|&)|(\|\||\|)|(!)|("[^"]+"|[^\s&|()!]+)/g;
     let m;
+
     while ((m = re.exec(q)) !== null) {
         if (m[1]) tokens.push({ type: "LPAREN" });
         else if (m[2]) tokens.push({ type: "RPAREN" });
@@ -696,7 +748,29 @@ function tokenizeQuery(q) {
             tokens.push({ type: "TERM", value: term });
         }
     }
-    return tokens;
+
+    // Optional quality-of-life: implicit AND between adjacent terms / groups
+    // Example: (pinball stern) => (pinball & stern)
+    const out = [];
+    for (let i = 0; i < tokens.length; i++) {
+        const a = tokens[i];
+        out.push(a);
+
+        const b = tokens[i + 1];
+        if (!b) continue;
+
+        const aCanEnd =
+            a.type === "TERM" || a.type === "RPAREN";
+        const bCanStart =
+            b.type === "TERM" || b.type === "LPAREN" || b.type === "NOT";
+
+        // Insert AND if they are adjacent without an operator
+        if (aCanEnd && bCanStart) {
+            out.push({ type: "AND" });
+        }
+    }
+
+    return out;
 }
 
 function parseBooleanExpression(tokens) {
@@ -773,7 +847,7 @@ function parseBooleanExpression(tokens) {
 function evalBooleanExpression(node, blob) {
     switch (node.type) {
         case "TERM":
-            return blob.includes(node.value);
+            return matchTermInBlob(node.value, blob);
         case "AND":
             return (
                 evalBooleanExpression(node.left, blob) &&
@@ -820,7 +894,19 @@ function applyFilter() {
         const isBooleanMode = /[&|()!]/.test(q);
 
         if (!isBooleanMode) {
-            matcher = (ad) => prepareBlob(ad).includes(q);
+            // Simple mode:
+            // - space-separated tokens are AND
+            // - tokens may include * wildcards
+            // - supports "quoted phrases"
+            const terms = tokenizeSimpleSearch(q);
+
+            matcher = (ad) => {
+                const blob = prepareBlob(ad);
+                for (const t of terms) {
+                    if (!matchTermInBlob(t, blob)) return false;
+                }
+                return true;
+            };
         } else {
             try {
                 const tokens = tokenizeQuery(q);
@@ -831,7 +917,16 @@ function applyFilter() {
                 };
             } catch (err) {
                 console.error("Boolean search parse error, falling back:", err);
-                matcher = (ad) => prepareBlob(ad).includes(q);
+
+                // fallback: treat like simple mode with wildcard+AND
+                const terms = tokenizeSimpleSearch(q);
+                matcher = (ad) => {
+                    const blob = prepareBlob(ad);
+                    for (const t of terms) {
+                        if (!matchTermInBlob(t, blob)) return false;
+                    }
+                    return true;
+                };
             }
         }
     }
