@@ -880,7 +880,6 @@ function applyFilter() {
             ad.author,
             ad.price,
             ad.source,
-            ad.adUrl,
         ]
             .filter(Boolean)
             .join(" ")
