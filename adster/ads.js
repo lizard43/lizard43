@@ -697,7 +697,8 @@ function termToRegex(term) {
     // Convert wildcard * to .*
     // We escape everything, then replace escaped "\*" back to wildcard pattern.
     const escaped = escapeRegExpLiteral(term);
-    const pattern = escaped.replace(/\\\*/g, ".*");
+    // "*" matches within a token (no whitespace), so it won't span words/fields
+    const pattern = escaped.replace(/\\\*/g, "\\S*");
 
     const re = new RegExp(pattern); // blob is already lowercased
     _wildcardRegexCache.set(key, re);
