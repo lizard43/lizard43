@@ -109,7 +109,7 @@ function loadDistanceCap() {
     const n = Number(raw);
     if (Number.isFinite(n) && n > 0) return n;
     // support old/empty values
-    return 250;
+    return 500;
 }
 
 function saveDistanceCap(n) {
