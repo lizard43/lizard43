@@ -552,8 +552,8 @@ function renderTable() {
 
         const dateTimeText = formatTimestampDisplay(ad.postedTime);
         const dateTimeHtml = ad.postedTime
-        ? `<span class="ad-datetime">${escapeHtml(dateTimeText)}</span>`
-        : `<span class="ad-datetime"></span>`;        
+            ? `<span class="ad-datetime">${escapeHtml(dateTimeText)}</span>`
+            : `<span class="ad-datetime"></span>`;
 
         const isHidden = !!ad.hidden;
 
@@ -724,12 +724,25 @@ function tokenizeSimpleSearch(qLower) {
     const re = /"[^"]+"|\S+/g;
     const out = [];
     let m;
+
     while ((m = re.exec(qLower)) !== null) {
         let t = m[0];
-        if (t.startsWith('"') && t.endsWith('"')) t = t.slice(1, -1);
+
+        const isQuoted = t.startsWith('"') && t.endsWith('"');
+        if (isQuoted) {
+            // Preserve exact interior, INCLUDING leading/trailing spaces
+            t = t.slice(1, -1);
+            // Only drop completely-empty quoted tokens
+            if (t.length === 0) continue;
+            out.push(t);
+            continue;
+        }
+
+        // Unquoted tokens behave as before
         t = t.trim();
         if (t) out.push(t);
     }
+
     return out;
 }
 
@@ -872,7 +885,8 @@ function evalBooleanExpression(node, blob) {
 // --- filter logic (tweaked to respect showHidden) ---
 
 function applyFilter() {
-    const raw = searchInput.value.trim();
+    const raw = searchInput.value;          // keep exact user input
+    const qTrim = raw.trim();              // only for "is it empty?"
     const q = raw.toLowerCase();
     const filterMs = getDateFilterMs();
 
@@ -891,10 +905,10 @@ function applyFilter() {
 
     let matcher;
 
-    if (!q) {
+    if (!qTrim) {
         matcher = (ad) => true;
     } else {
-        const isBooleanMode = /[&|()!]/.test(q);
+        const isBooleanMode = /[&|()!]/.test(qTrim.toLowerCase());
 
         if (!isBooleanMode) {
             // Simple mode:
