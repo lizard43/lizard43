@@ -551,6 +551,9 @@ function renderTable() {
         const adID = ad.adID || "";
 
         const dateTimeText = formatTimestampDisplay(ad.postedTime);
+        const dateTimeHtml = ad.postedTime
+        ? `<span class="ad-datetime">${escapeHtml(dateTimeText)}</span>`
+        : `<span class="ad-datetime"></span>`;        
 
         const isHidden = !!ad.hidden;
 
@@ -610,10 +613,10 @@ function renderTable() {
 
     <div class="ad-line2">
     <span class="ad-price">${escapeHtml(price)}</span>
-    ${author ? `<span class="meta-dot">·</span>` : ""}
-    <span class="ad-seller">${authorHtml}</span>
+    ${ad.postedTime ? `<span class="meta-dot">·</span>` : ""}
+    ${dateTimeHtml}
     </div>
-
+    
     <div class="ad-line3">
     <span class="ad-distance">${distanceText}</span>
     ${location ? `<span class="meta-dot">·</span>` : ""}
@@ -623,10 +626,10 @@ function renderTable() {
     <div class="ad-line4">${descSafe}</div>
 
     <div class="ad-card-footer">
-        <span class="source-text">
+    <span class="source-text">
         ${escapeHtml(source)}
-        ${ad.postedTime ? `<span class="meta-dot">·</span>${escapeHtml(dateTimeText)}` : ""}
-        </span>
+        ${author ? `<span class="meta-dot">·</span><span class="ad-footer-author">${authorHtml}</span>` : ""}
+    </span>
         <button class="icon-btn fav-toggle ${favoriteIdSet.has(adID) ? "active" : ""}"
                 data-action="toggle-fav"
                 data-ad-id="${escapeAttr(adID)}"

@@ -406,7 +406,7 @@ a:hover {
 .ad-card {
   display: flex;
   gap: 10px;
-  padding: 10px 10px 6px 10px; 
+  padding: 10px 10px 6px 10px;
 
   background: #181818;
   border: 1px solid #333;
@@ -864,4 +864,23 @@ body>.modal {
   /* tighter */
   border-top: none;
   /* cleaner */
+}
+
+/* line 2 datetime (styled like seller) */
+.ad-line2 .ad-datetime {
+  color: #ccc;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+/* footer author should not inherit bright link blue */
+.ad-card-footer .ad-footer-author,
+.ad-card-footer .ad-footer-author a {
+  color: #888;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.ad-card-footer .ad-footer-author a:hover {
+  text-decoration: underline;
 }
