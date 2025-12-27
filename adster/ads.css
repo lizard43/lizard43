@@ -23,13 +23,22 @@ body {
   border-bottom: 1px solid #333;
 
   display: grid;
-  grid-template-columns: auto 1fr 1fr auto;
-  /* logo | flexible | flexible | gear */
+  grid-template-columns: auto 1fr 1fr auto auto;
+  /* logo | search | search | fav | gear */
   grid-template-areas:
-    "logo  search search gear"
-    "quick dt     count  gear";
+    "logo  search search fav gear"
+    "quick dt     count  .   .";
   gap: 8px;
   align-items: center;
+}
+
+/* .favorites-wrapper {
+  grid-area: fav;
+  justify-self: end;
+} */
+
+#favoritesWrapper {
+  display: none;
 }
 
 .brand-logo {
