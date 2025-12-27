@@ -215,29 +215,33 @@ body {
 }
 
 /* --- Results count pill (e.g., "37 / 1,234") --- */
+/* --- Results count: plain text on toolbar background --- */
 .results-pill {
   display: inline-flex;
   align-items: center;
-  justify-content: center;
 
-  padding: 4px 8px;
-  border-radius: 999px;
-  border: 1px solid #333;
-  background: #1a1a1a;
+  padding: 0;
+  /* no pill padding */
+  border: none;
+  /* no outline */
+  background: transparent;
+  /* no separate background */
 
   color: #bdbdbd;
-  font-size: 11px;
+  font-size: 12px;
   line-height: 1;
   white-space: nowrap;
 
-  /* don't let it stretch weirdly */
   flex: 0 0 auto;
 }
 
-/* optional: slightly brighter when there is an active filter */
 .results-pill.active {
   color: #e6e6e6;
-  border-color: #444;
+  /* just a subtle brighten when filtering is active */
+}
+
+.results-pill {
+  margin-left: 6px;
 }
 
 /* ---------------- Sort bar ---------------- */
@@ -978,9 +982,26 @@ body>.modal {
     grid-area: gear;
   }
 
-  .toolbar .brand-logo { grid-area: logo; }
-  .toolbar .search-wrapper { grid-area: search; min-width: 0; }
-  .toolbar .datetime-quick-wrapper { grid-area: quick; }
-  .toolbar .datetime-filter { grid-area: dt; width: 100%; }
-  .toolbar .results-pill { grid-area: pill; justify-self: start; }
+  .toolbar .brand-logo {
+    grid-area: logo;
+  }
+
+  .toolbar .search-wrapper {
+    grid-area: search;
+    min-width: 0;
+  }
+
+  .toolbar .datetime-quick-wrapper {
+    grid-area: quick;
+  }
+
+  .toolbar .datetime-filter {
+    grid-area: dt;
+    width: 100%;
+  }
+
+  .toolbar .results-pill {
+    grid-area: pill;
+    justify-self: start;
+  }
 }
