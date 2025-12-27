@@ -32,21 +32,30 @@ body {
   /* reserve space for gear */
 }
 
+/* --- Settings gear: icon-only, blends into toolbar --- */
 .settings-gear {
   position: absolute;
   top: 8px;
   right: 12px;
 
-  padding: 6px 10px;
-  border-radius: 4px;
-  border: 1px solid #444;
-  background: #333;
-  color: #eee;
+  padding: 4px 6px;
+  border: none;
+  background: transparent;
+  color: #bdbdbd;
   cursor: pointer;
+
+  font-size: 18px;
+  line-height: 1;
+  border-radius: 8px;
 }
 
 .settings-gear:hover {
-  background: #444;
+  background: #262626; /* subtle hover, not a "button" look */
+  color: #ffffff;
+}
+
+.settings-gear:active {
+  transform: translateY(1px);
 }
 
 .toolbar input[type="text"] {
@@ -107,26 +116,33 @@ body {
   right: 8px;
   top: 50%;
   transform: translateY(-50%);
-  height: 20px;
-  width: 20px;
-  border-radius: 50%;
+
+  height: 24px;
+  width: 24px;
+
+  border: none;
+  background: transparent;
+  color: #9a9a9a;
+
+  font-size: 20px;
+  cursor: pointer;
+  padding: 0;
+  line-height: 1;
 
   display: flex;
   align-items: center;
   justify-content: center;
 
-  background: #333;
-  border: 1px solid #444;
-  color: #ccc;
-  font-size: 14px;
-  cursor: pointer;
-  padding: 0;
-  line-height: 1;
+  border-radius: 8px; /* gives a nice hover hitbox without looking like a button */
 }
 
 .clear-btn:hover {
-  background: #444;
-  color: #fff;
+  background: #262626; /* subtle hover only */
+  color: #ffffff;
+}
+
+.clear-btn:active {
+  transform: translateY(-50%) translateY(1px);
 }
 
 .favorites-wrapper {
@@ -883,4 +899,8 @@ body>.modal {
 
 .ad-card-footer .ad-footer-author a:hover {
   text-decoration: underline;
+}
+
+.toolbar {
+  padding-right: 48px;
 }
