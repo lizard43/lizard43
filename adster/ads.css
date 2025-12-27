@@ -19,7 +19,7 @@ body {
   top: 0;
   z-index: 10;
   background: #222;
-  padding: 8px 12px;
+  padding: 8px 8px;
   border-bottom: 1px solid #333;
 
   display: grid;
@@ -27,9 +27,12 @@ body {
   grid-template-areas:
     "logo  search gear"
     "quick dt     count";
-  gap: 6px;
+  gap: 3px;
   align-items: center;
 }
+
+.datetime-quick-wrapper { margin-right: 6px; } /* gives row2 breathing room */
+.dt-row { margin-right: 6px; }
 
 .brand-logo {
   grid-area: logo;
@@ -64,7 +67,7 @@ body {
 
 /* --- Settings gear: icon-only, blends into toolbar --- */
 .settings-gear {
-  padding: 4px 6px;
+  padding: 2px 4px;
   border: none;
   background: transparent;
   color: #bdbdbd;
