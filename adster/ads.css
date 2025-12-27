@@ -933,3 +933,19 @@ body>.modal {
 .toolbar {
   padding-right: 48px;
 }
+
+/* Force gear to NOT inherit toolbar button styling */
+.toolbar .settings-gear {
+  padding: 4px 6px !important;
+  border: none !important;
+  background: transparent !important;
+  color: #bdbdbd;
+  font-size: 18px;
+  line-height: 1;
+  border-radius: 8px;
+}
+
+.toolbar .settings-gear:hover {
+  background: #262626 !important;
+  color: #fff;
+}
