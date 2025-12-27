@@ -23,28 +23,17 @@ body {
   border-bottom: 1px solid #333;
 
   display: grid;
-  grid-template-columns: auto 1fr auto auto;
-  /* logo | middle | count | gear */
+  grid-template-columns: auto 1fr 1fr auto;
+  /* logo | flexible | flexible | gear */
   grid-template-areas:
     "logo  search search gear"
     "quick dt     count  gear";
-  gap: 3px;
+  gap: 8px;
   align-items: center;
-}
-
-.datetime-quick-wrapper {
-  margin-right: 6px;
-}
-
-/* gives row2 breathing room */
-.dt-row {
-  margin-right: 6px;
 }
 
 .brand-logo {
   grid-area: logo;
-  display: flex;
-  align-items: center;
 }
 
 .search-wrapper {
@@ -52,13 +41,13 @@ body {
   min-width: 0;
 }
 
-.results-pill {
-  grid-area: count;
+.settings-gear {
+  grid-area: gear;
   justify-self: end;
 }
 
-.settings-gear {
-  grid-area: gear;
+.results-pill {
+  grid-area: count;
   justify-self: end;
 }
 
@@ -963,14 +952,4 @@ body>.modal {
 
 .ad-card-footer .ad-footer-author a:hover {
   text-decoration: underline;
-}
-
-.toolbar .settings-gear {
-  border: none;
-  background: transparent;
-  padding: 4px 6px;
-}
-
-.toolbar .settings-gear:hover {
-  background: #262626;
 }
