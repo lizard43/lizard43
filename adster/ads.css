@@ -949,3 +949,38 @@ body>.modal {
   background: #262626 !important;
   color: #fff;
 }
+
+/* Force clear X to NOT inherit toolbar button styling */
+.toolbar .clear-btn {
+  border: none !important;
+  background: transparent !important;
+  padding: 0 !important;
+}
+
+@media (max-width: 600px) {
+  .toolbar {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    grid-template-areas:
+      "logo  search gear"
+      "quick dt     pill";
+    align-items: center;
+    gap: 8px;
+
+    /* grid doesn't need reserved padding for absolute gear */
+    padding-right: 12px;
+  }
+
+  /* stop absolute positioning on mobile so grid can place it */
+  .toolbar .settings-gear {
+    position: static;
+    justify-self: end;
+    grid-area: gear;
+  }
+
+  .toolbar .brand-logo { grid-area: logo; }
+  .toolbar .search-wrapper { grid-area: search; min-width: 0; }
+  .toolbar .datetime-quick-wrapper { grid-area: quick; }
+  .toolbar .datetime-filter { grid-area: dt; width: 100%; }
+  .toolbar .results-pill { grid-area: pill; justify-self: start; }
+}
