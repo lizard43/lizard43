@@ -22,51 +22,31 @@ body {
   padding: 8px 8px;
   border-bottom: 1px solid #333;
 
-  display: grid;
-  grid-template-columns: auto 1fr 1fr auto auto;
-  /* logo | search | search | fav | gear */
-  grid-template-areas:
-    "logo  search search fav gear"
-    "quick dt     count  .   .";
-  gap: 4px;
-  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
 
-/* .favorites-wrapper {
-  grid-area: fav;
-  justify-self: end;
-} */
+.toolbar-row {
+  display: grid;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Row 1: logo | search (stretch) | gear */
+.toolbar-row.row1 {
+  grid-template-columns: auto 1fr auto;
+  gap: 4px;
+}
+
+/* Row 2: quick | datetime (stretch) | count */
+.toolbar-row.row2 {
+  grid-template-columns: auto 1fr auto;
+  gap: 8px;
+}
 
 #favoritesWrapper {
   display: none;
-}
-
-.brand-logo {
-  grid-area: logo;
-}
-
-.search-wrapper {
-  grid-area: search;
-  min-width: 0;
-}
-
-.settings-gear {
-  grid-area: gear;
-  justify-self: end;
-}
-
-.results-pill {
-  grid-area: count;
-  justify-self: end;
-}
-
-.datetime-quick-wrapper {
-  grid-area: quick;
-}
-
-.dt-row {
-  grid-area: dt;
-  min-width: 0;
 }
 
 /* --- Settings gear: icon-only, blends into toolbar --- */
@@ -174,22 +154,6 @@ body {
 
   border-radius: 8px;
   /* gives a nice hover hitbox without looking like a button */
-}
-
-.brand-logo {
-  grid-area: logo;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  margin: 0;
-  padding: 0;
-  width: fit-content;
-}
-
-.brand-logo img {
-  display: block;
-  margin: 0;
-  padding: 0;
 }
 
 .clear-btn:hover {

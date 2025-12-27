@@ -11,28 +11,32 @@
 
 <body>
   <div class="toolbar">
-    <div class="brand-logo">
-      <img id="scrapeMetaIcon" src="lizardsunning.gif" alt="Adster" />
-    </div>
-    <div class="search-wrapper">
-      <input id="searchInput" type="text" placeholder="Search title, description, location, author…" />
-      <button id="clearSearch" class="clear-btn" title="Clear search">×</button>
+    <div class="toolbar-row row1">
+      <div class="brand-logo">
+        <img id="scrapeMetaIcon" src="lizardsunning.gif" alt="Adster" />
+      </div>
+
+      <div class="search-wrapper">
+        <input id="searchInput" type="text" placeholder="Search title, description, location, author…" />
+        <button id="clearSearch" class="clear-btn" title="Clear search">×</button>
+      </div>
+
+      <button id="settingsBtn" class="settings-gear" title="Settings" aria-label="Settings">⚙️</button>
     </div>
 
-    <div class="datetime-quick-wrapper">
-      <button type="button" id="btnLast4h" class="datetime-quick-btn" title="Last 4 hours">4h</button>
-      <button type="button" id="btnLast12h" class="datetime-quick-btn" title="Last 12 hours">12h</button>
-      <button type="button" id="btnLast1d" class="datetime-quick-btn" title="Last 1 day">1d</button>
+    <div class="toolbar-row row2">
+      <div class="datetime-quick-wrapper">
+        <button type="button" id="btnLast4h" class="datetime-quick-btn" title="Last 4 hours">4h</button>
+        <button type="button" id="btnLast12h" class="datetime-quick-btn" title="Last 12 hours">12h</button>
+        <button type="button" id="btnLast1d" class="datetime-quick-btn" title="Last 1 day">1d</button>
+      </div>
+
+      <div class="dt-row">
+        <input id="dateTimeFilter" class="datetime-filter" type="datetime-local" />
+      </div>
+
+      <div id="resultsPill" class="results-pill" title=""></div>
     </div>
-
-    <div class="dt-row">
-      <input id="dateTimeFilter" class="datetime-filter" type="datetime-local" />
-    </div>
-    <div id="resultsPill" class="results-pill" title=""></div>
-
-    <div id="favoritesWrapper" class="favorites-wrapper"></div>
-    <button id="settingsBtn" class="settings-gear" title="Settings" aria-label="Settings">⚙️</button>
-
   </div>
 
   <div class="sort-bar">
