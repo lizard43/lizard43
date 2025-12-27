@@ -50,7 +50,8 @@ body {
 }
 
 .settings-gear:hover {
-  background: #262626; /* subtle hover, not a "button" look */
+  background: #262626;
+  /* subtle hover, not a "button" look */
   color: #ffffff;
 }
 
@@ -133,11 +134,13 @@ body {
   align-items: center;
   justify-content: center;
 
-  border-radius: 8px; /* gives a nice hover hitbox without looking like a button */
+  border-radius: 8px;
+  /* gives a nice hover hitbox without looking like a button */
 }
 
 .clear-btn:hover {
-  background: #262626; /* subtle hover only */
+  background: #262626;
+  /* subtle hover only */
   color: #ffffff;
 }
 
@@ -209,6 +212,32 @@ body {
   background: #224422;
   border-color: #55aa55;
   color: #c8ffd1;
+}
+
+/* --- Results count pill (e.g., "37 / 1,234") --- */
+.results-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 4px 8px;
+  border-radius: 999px;
+  border: 1px solid #333;
+  background: #1a1a1a;
+
+  color: #bdbdbd;
+  font-size: 11px;
+  line-height: 1;
+  white-space: nowrap;
+
+  /* don't let it stretch weirdly */
+  flex: 0 0 auto;
+}
+
+/* optional: slightly brighter when there is an active filter */
+.results-pill.active {
+  color: #e6e6e6;
+  border-color: #444;
 }
 
 /* ---------------- Sort bar ---------------- */

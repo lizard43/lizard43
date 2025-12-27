@@ -40,6 +40,8 @@ const distanceCapLabel = document.getElementById("distanceCapLabel");
 
 const metaIcon = document.getElementById("scrapeMetaIcon");
 
+const resultsPill = document.getElementById("resultsPill");
+
 let distanceCapMiles = 250; // default
 const DISTANCE_CAP_OPTIONS = [50, 100, 250, 500, 1000, Infinity];
 
@@ -882,6 +884,29 @@ function evalBooleanExpression(node, blob) {
     }
 }
 
+function updateResultsPill() {
+    if (!resultsPill) return;
+
+    const shown = Array.isArray(filteredAds) ? filteredAds.length : 0;
+    const total = Array.isArray(allAds) ? allAds.length : 0;
+
+    // compact display
+    resultsPill.textContent = `${shown} / ${total.toLocaleString()}`;
+
+    // tooltip (more detailed)
+    const hiddenCount = Array.from(hiddenIdSet || []).length;
+    resultsPill.title = `Showing ${shown} of ${total.toLocaleString()} • Hidden stored: ${hiddenCount.toLocaleString()}`;
+
+    // "active" look if any filtering is happening
+    const hasSearch = !!(searchInput && searchInput.value && searchInput.value.trim());
+    const hasDate = !!(dateTimeFilter && dateTimeFilter.value);
+    const hasDistanceCap = (typeof distanceCapMiles === "number" && distanceCapMiles !== Infinity);
+    const hasHiddenFiltering = !showHidden; // when false, hidden are excluded
+
+    const isActive = hasSearch || hasDate || hasDistanceCap || hasHiddenFiltering;
+    resultsPill.classList.toggle("active", isActive);
+}
+
 // --- filter logic (tweaked to respect showHidden) ---
 
 function applyFilter() {
@@ -974,6 +999,7 @@ function applyFilter() {
     });
 
     renderTable();
+    updateResultsPill();
 }
 
 // --- search & clear events ---
