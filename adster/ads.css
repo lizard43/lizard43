@@ -23,16 +23,23 @@ body {
   border-bottom: 1px solid #333;
 
   display: grid;
-  grid-template-columns: auto 1fr auto;
+  grid-template-columns: auto 1fr auto auto;
+  /* logo | middle | count | gear */
   grid-template-areas:
-    "logo  search gear"
-    "quick dt     count";
+    "logo  search search gear"
+    "quick dt     count  gear";
   gap: 3px;
   align-items: center;
 }
 
-.datetime-quick-wrapper { margin-right: 6px; } /* gives row2 breathing room */
-.dt-row { margin-right: 6px; }
+.datetime-quick-wrapper {
+  margin-right: 6px;
+}
+
+/* gives row2 breathing room */
+.dt-row {
+  margin-right: 6px;
+}
 
 .brand-logo {
   grid-area: logo;
@@ -45,10 +52,14 @@ body {
   min-width: 0;
 }
 
+.results-pill {
+  grid-area: count;
+  justify-self: end;
+}
+
 .settings-gear {
   grid-area: gear;
   justify-self: end;
-  position: static;
 }
 
 .datetime-quick-wrapper {
@@ -58,11 +69,6 @@ body {
 .dt-row {
   grid-area: dt;
   min-width: 0;
-}
-
-.results-pill {
-  grid-area: count;
-  justify-self: end;
 }
 
 /* --- Settings gear: icon-only, blends into toolbar --- */
