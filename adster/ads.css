@@ -28,8 +28,6 @@ body {
   gap: 8px;
 
   position: relative;
-  padding-right: 72px;
-  /* reserve space for gear */
 }
 
 /* --- Settings gear: icon-only, blends into toolbar --- */
@@ -104,6 +102,9 @@ body {
 .search-wrapper {
   position: relative;
   flex: 1 1 240px;
+  /* keep the desktop intent */
+  min-width: 0;
+  /* allow shrink when needed */
 }
 
 .search-wrapper input {
@@ -967,19 +968,17 @@ body>.modal {
     grid-template-columns: auto 1fr auto;
     grid-template-areas:
       "logo  search gear"
-      "quick dt     pill";
+      "quick dt     gear";
     align-items: center;
     gap: 8px;
-
-    /* grid doesn't need reserved padding for absolute gear */
     padding-right: 12px;
   }
 
-  /* stop absolute positioning on mobile so grid can place it */
-  .toolbar .settings-gear {
-    position: static;
-    justify-self: end;
-    grid-area: gear;
+  /* ensure the actual search input fills the grid cell */
+  .toolbar #searchInput {
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
   }
 
   .toolbar .brand-logo {
@@ -987,34 +986,54 @@ body>.modal {
   }
 
   .toolbar .search-wrapper {
+    min-width: 0 !important;
     grid-area: search;
+    width: 100%;
+    justify-self: stretch;
+  }
+
+  .toolbar .search-wrapper input {
+    width: 100%;
     min-width: 0;
+    display: block;
+    box-sizing: border-box;
   }
 
   .toolbar .datetime-quick-wrapper {
     grid-area: quick;
   }
 
-  .toolbar .datetime-filter {
+  .toolbar .dt-row {
     grid-area: dt;
-    width: 100%;
-  }
-
-  .toolbar .results-pill {
-    grid-area: pill;
-    justify-self: start;
-  }
-
-  /* Ensure the search field actually stretches in the grid cell */
-  .toolbar .search-wrapper {
-    width: 100%;
-  }
-
-  .toolbar .search-wrapper input {
-    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 10px;
     min-width: 0;
-    /* important for grid/flex shrink behavior */
   }
+
+  .toolbar .dt-row .datetime-filter {
+    flex: 1 1 auto;
+    min-width: 0;
+    width: 100%;
+  }
+
+  .toolbar .dt-row .results-pill {
+    flex: 0 0 auto;
+    margin-left: 0;
+    /* override your global margin-left */
+  }
+
+  /* gear stays in the far-right column */
+  .toolbar .settings-gear {
+    position: static;
+    justify-self: end;
+    grid-area: gear;
+  }
+
+  .toolbar input[type="text"] {
+    flex: initial !important;
+  }
+
 }
 
 @media (max-width: 600px) {
