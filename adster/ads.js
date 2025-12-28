@@ -38,12 +38,18 @@ const btnLast1d = document.getElementById("btnLast1d");
 const btnDistance = document.getElementById("btnDistance");
 const distanceCapLabel = document.getElementById("distanceCapLabel");
 
+const btnPrice = document.getElementById("btnPrice");
+const priceCapLabel = document.getElementById("priceCapLabel");
+
 const metaIcon = document.getElementById("scrapeMetaIcon");
 
 const resultsPill = document.getElementById("resultsPill");
 
-let distanceCapMiles = 250; // default
+let distanceCapMiles = 500; // default
 const DISTANCE_CAP_OPTIONS = [50, 100, 250, 500, 1000, Infinity];
+
+let priceCapDollars = 1000; // default
+const PRICE_CAP_OPTIONS = [100, 500, 750, 1000, 1500, 2500, 5000, 10000, Infinity];
 
 // --- Location settings storage keys ---
 const LS_LOC_MODE = "adster.location.mode";         // "browser" | "fixed"
@@ -51,7 +57,8 @@ const LS_LOC_SAVED_ID = "adster.location.savedId";
 const LS_LOC_CUSTOM_LAT = "adster.location.customLat";
 const LS_LOC_CUSTOM_LON = "adster.location.customLon";
 const LS_LOC_FALLBACK_ID = "adster.location.fallbackId";
-const LS_DISTANCE_CAP = "adster.distance.capMiles"; // number, default 250
+const LS_DISTANCE_CAP = "adster.distance.capMiles"; // number, default 500
+const LS_PRICE_CAP = "adster.price.capDollars";     // number, default 1000
 // --- Hidden ads storage key ---
 const LS_HIDDEN_AD_IDS = "adster.hiddenAdIDs"; // JSON array of adID strings
 
@@ -113,6 +120,107 @@ function loadDistanceCap() {
     // support old/empty values
     return 500;
 }
+
+function loadPriceCap() {
+    const raw = localStorage.getItem(LS_PRICE_CAP);
+    const n = Number(raw);
+
+    if (Number.isFinite(n) && n > 0) {
+        return (n >= 1000000) ? Infinity : n;
+    }
+    return 1000;
+}
+
+function savePriceCap(n) {
+    localStorage.setItem(LS_PRICE_CAP, String(n));
+}
+
+function priceToLabel(n) {
+    if (n === Infinity) return "Any";
+    return `$${Number(n).toLocaleString()}`;
+}
+
+function ensurePriceMenu() {
+    let menu = document.getElementById("priceMenu");
+    if (menu) return menu;
+
+    menu = document.createElement("div");
+    menu.id = "priceMenu";
+    menu.className = "price-menu hidden";
+
+    PRICE_CAP_OPTIONS.forEach((opt) => {
+        const b = document.createElement("button");
+        b.type = "button";
+
+        if (opt === Infinity) {
+            b.dataset.dollars = "Infinity";
+            b.textContent = "Any";
+        } else {
+            b.dataset.dollars = String(opt);
+            b.textContent = `$${Number(opt).toLocaleString()}`;
+        }
+
+        menu.appendChild(b);
+    });
+
+    document.body.appendChild(menu);
+
+    // click away to close
+    document.addEventListener("pointerdown", (e) => {
+        if (menu.classList.contains("hidden")) return;
+        if (e.target === btnPrice) return;
+        if (menu.contains(e.target)) return;
+        menu.classList.add("hidden");
+    });
+
+    // menu selection
+    menu.addEventListener("click", (e) => {
+        const b = e.target.closest("button[data-dollars]");
+        if (!b) return;
+
+        const raw = b.dataset.dollars;
+        const val = (raw === "Infinity") ? Infinity : Number(raw);
+        if (val !== Infinity && (!Number.isFinite(val) || val <= 0)) return;
+
+        priceCapDollars = val;
+
+        // store Infinity as a big number like distance does
+        savePriceCap(val === Infinity ? 1000000 : val);
+
+        updatePriceCapLabel();
+        menu.classList.add("hidden");
+        applyFilter();
+    });
+
+    return menu;
+}
+
+function openPriceMenu() {
+    if (!btnPrice) return;
+    const menu = ensurePriceMenu();
+
+    // mark active item
+    Array.from(menu.querySelectorAll("button")).forEach((b) => {
+        const val = Number(b.dataset.dollars);
+        b.classList.toggle("active", val === priceCapDollars);
+    });
+
+    // position menu under the button
+    const r = btnPrice.getBoundingClientRect();
+    const top = r.bottom + 6;
+    const left = Math.min(r.left, window.innerWidth - 190);
+
+    menu.style.top = `${top}px`;
+    menu.style.left = `${left}px`;
+
+    menu.classList.remove("hidden");
+}
+
+function updatePriceCapLabel() {
+    if (!priceCapLabel) return;
+    priceCapLabel.textContent = priceToLabel(priceCapDollars);
+}
+
 
 function saveDistanceCap(n) {
     localStorage.setItem(LS_DISTANCE_CAP, String(n));
@@ -336,8 +444,13 @@ async function resolveHomeLocation() {
 
 function normalizePrice(price) {
     if (!price) return NaN;
-    const m = String(price).match(/[\d,.]+/);
+
+    const s = String(price).trim();
+    if (/^free$/i.test(s)) return 0;
+
+    const m = s.match(/[\d,.]+/);
     if (!m) return NaN;
+
     return parseFloat(m[0].replace(/,/g, ""));
 }
 
@@ -901,9 +1014,10 @@ function updateResultsPill() {
     const hasSearch = !!(searchInput && searchInput.value && searchInput.value.trim());
     const hasDate = !!(dateTimeFilter && dateTimeFilter.value);
     const hasDistanceCap = (typeof distanceCapMiles === "number" && distanceCapMiles !== Infinity);
+    const hasPriceCap = (typeof priceCapDollars === "number" && Number.isFinite(priceCapDollars) && priceCapDollars > 0);
     const hasHiddenFiltering = !showHidden; // when false, hidden are excluded
 
-    const isActive = hasSearch || hasDate || hasDistanceCap || hasHiddenFiltering;
+    const isActive = hasSearch || hasDate || hasDistanceCap || hasPriceCap || hasHiddenFiltering;
     resultsPill.classList.toggle("active", isActive);
 }
 
@@ -993,6 +1107,13 @@ function applyFilter() {
             const d = normalizeDistance(ad.distance);
             if (!Number.isFinite(d)) return false;      // no distance => drop when capped
             if (d > distanceCapMiles) return false;
+        }
+
+        // price cap (max price)
+        if (Number.isFinite(priceCapDollars) && priceCapDollars > 0) {
+            const p = normalizePrice(ad.price);
+            if (!Number.isFinite(p)) return false;      // no price => drop when capped
+            if (p > priceCapDollars) return false;
         }
 
         return true;
@@ -1461,6 +1582,7 @@ async function loadAds() {
 document.querySelectorAll(".sort-btn").forEach((btn) => {
     const f = btn.getAttribute("data-field");
     if (f === "distance") return; // handled by hybrid handler below
+    if (f === "price") return;    // handled by hybrid handler below
 
     btn.addEventListener("click", () => {
         if (!f) return;
@@ -1478,6 +1600,17 @@ document.querySelectorAll(".sort-btn").forEach((btn) => {
 
 function sortByDistanceClick() {
     const f = "distance";
+    if (f === sortField) {
+        sortDir = sortDir === "asc" ? "desc" : "asc";
+    } else {
+        sortField = f;
+        sortDir = SORT_DEFAULT_DIR[f] || "asc";
+    }
+    renderTable();
+}
+
+function sortByPriceClick() {
+    const f = "price";
     if (f === sortField) {
         sortDir = sortDir === "asc" ? "desc" : "asc";
     } else {
@@ -1530,6 +1663,48 @@ function sortByDistanceClick() {
     btnDistance.addEventListener("pointerleave", clear);
 })();
 
+(function setupPriceHybrid() {
+    if (!btnPrice) return;
+
+    let pressTimer = null;
+    let longPressFired = false;
+
+    const LONG_PRESS_MS = 450;
+
+    btnPrice.addEventListener("pointerdown", (e) => {
+        longPressFired = false;
+        pressTimer = setTimeout(() => {
+            longPressFired = true;
+            openPriceMenu();
+        }, LONG_PRESS_MS);
+
+        btnPrice.setPointerCapture?.(e.pointerId);
+    });
+
+    const clear = () => {
+        if (pressTimer) {
+            clearTimeout(pressTimer);
+            pressTimer = null;
+        }
+    };
+
+    btnPrice.addEventListener("pointerup", (e) => {
+        clear();
+
+        // if menu opened, don't sort
+        if (longPressFired) {
+            e.preventDefault();
+            e.stopPropagation();
+            return;
+        }
+
+        sortByPriceClick();
+    });
+
+    btnPrice.addEventListener("pointercancel", clear);
+    btnPrice.addEventListener("pointerleave", clear);
+})();
+
 // initial load
 (async function init() {
     await loadSettings();        // get favorites → render hearts
@@ -1542,6 +1717,10 @@ function sortByDistanceClick() {
     const stored = loadDistanceCap();
     distanceCapMiles = (stored >= 1000000) ? Infinity : stored;
     updateDistanceCapLabel();
+
+    // price cap init
+    priceCapDollars = loadPriceCap();
+    updatePriceCapLabel();
 
     await resolveHomeLocation(); // pick browser or fallback location (+ toast)
     await loadAds();             // load ads and compute distances with that location

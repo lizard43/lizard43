@@ -864,9 +864,10 @@ body>.modal {
   font-variant-numeric: tabular-nums;
 }
 
-/* ---------------- Distance long-press menu ---------------- */
+/* ---------------- Cap menus (Distance + Price) ---------------- */
 
-.distance-menu {
+.distance-menu,
+.price-menu {
   position: fixed;
   z-index: 10000;
   min-width: 170px;
@@ -877,11 +878,13 @@ body>.modal {
   padding: 6px;
 }
 
-.distance-menu.hidden {
+.distance-menu.hidden,
+.price-menu.hidden {
   display: none;
 }
 
-.distance-menu button {
+.distance-menu button,
+.price-menu button {
   width: 100%;
   text-align: left;
   padding: 8px 10px;
@@ -893,11 +896,13 @@ body>.modal {
   font-size: 13px;
 }
 
-.distance-menu button:hover {
+.distance-menu button:hover,
+.price-menu button:hover {
   background: rgba(255, 255, 255, 0.08);
 }
 
-.distance-menu button.active {
+.distance-menu button.active,
+.price-menu button.active {
   background: #224422;
   border-color: #55aa55;
   color: #c8ffd1;
