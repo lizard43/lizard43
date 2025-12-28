@@ -200,7 +200,7 @@ async function loadLocationsJson() {
     if (cachedLocations && cachedLocations.length) return cachedLocations;
 
     try {
-        const url = new URL("locations.json", window.location.href).toString();
+        const url = new URL("locations.json?v=1", window.location.href).toString();
         console.log("[locations] fetching:", url);
 
         const r = await fetch(url, { cache: "no-store" });
