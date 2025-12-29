@@ -812,8 +812,6 @@ function escapeRegExpLiteral(s) {
 // - If the wildcard is "specific enough" (>=2 chars on BOTH ends), we also
 //   allow matching across separators by testing a "joined" blob (spaces/hyphens removed)
 
-const _wildcardRegexCache = new Map();
-
 function escapeRegExpLiteral(s) {
     // escape regex meta chars EXCEPT we handle "*" separately later
     return s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
