@@ -812,11 +812,11 @@ function termToRegex(term) {
     const cached = _wildcardRegexCache.get(key);
     if (cached) return cached;
 
-    // Convert wildcard * to .*
-    // We escape everything, then replace escaped "\*" back to wildcard pattern.
+    // Escape regex meta chars (we will re-enable "*" as wildcard below)
     const escaped = escapeRegExpLiteral(term);
-    // "*" matches within a token (no whitespace), so it won't span words/fields
-    const pattern = escaped.replace(/\\\*/g, "\\S*");
+
+    // "*" should match ANY characters, including spaces, so it can span words
+    const pattern = escaped.replace(/\\\*/g, ".*");
 
     const re = new RegExp(pattern); // blob is already lowercased
     _wildcardRegexCache.set(key, re);
