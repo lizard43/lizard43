@@ -806,31 +806,70 @@ function escapeRegExpLiteral(s) {
     return s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 }
 
+// ------- Wildcard helpers (supports * inside terms) -------
+// Behavior:
+// - Default: wildcard matches within a single token (word-ish chunk)
+// - If the wildcard is "specific enough" (>=2 chars on BOTH ends), we also
+//   allow matching across separators by testing a "joined" blob (spaces/hyphens removed)
+
+const _wildcardRegexCache = new Map();
+
+function escapeRegExpLiteral(s) {
+    // escape regex meta chars EXCEPT we handle "*" separately later
+    return s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+}
+
 function termToRegex(term) {
-    // Cache compiled regex for performance
     const key = term;
     const cached = _wildcardRegexCache.get(key);
     if (cached) return cached;
 
-    // Escape regex meta chars (we will re-enable "*" as wildcard below)
     const escaped = escapeRegExpLiteral(term);
 
-    // "*" should match ANY characters, including spaces, so it can span words
-    const pattern = escaped.replace(/\\\*/g, ".*");
+    // IMPORTANT: "*" matches within a token (no whitespace)
+    const pattern = escaped.replace(/\\\*/g, "\\S*");
 
-    const re = new RegExp(pattern); // blob is already lowercased
+    const re = new RegExp(pattern);
     _wildcardRegexCache.set(key, re);
     return re;
+}
+
+function isWildcardSpecificEnoughToBridge(term) {
+    // Allow "bridge separators" only when BOTH ends are at least 2 chars.
+    // Examples:
+    //   neo*geo  => ok (neo, geo)
+    //   m*pac    => NOT ok (m is too short)
+    const parts = term.split("*").filter(Boolean);
+    if (parts.length < 2) return false;
+
+    const first = parts[0] || "";
+    const last = parts[parts.length - 1] || "";
+    return first.length >= 2 && last.length >= 2;
 }
 
 function matchTermInBlob(term, blob) {
     if (!term) return true;
 
-    // If term contains wildcard, use regex; otherwise fast substring includes
-    if (term.includes("*")) {
-        return termToRegex(term).test(blob);
+    // Non-wildcard: fast path
+    if (!term.includes("*")) return blob.includes(term);
+
+    const re = termToRegex(term);
+
+    // 1) Token-level match (prevents m*pac from matching "mini ... pac-man")
+    // Split into word-ish chunks: letters/digits plus '-' stay together
+    const tokens = blob.split(/[^a-z0-9-]+/i).filter(Boolean);
+    for (const tok of tokens) {
+        if (re.test(tok)) return true;
     }
-    return blob.includes(term);
+
+    // 2) If specific enough, also try a "joined" version to allow spaces/hyphens
+    // e.g. "neo geo" => "neogeo", "neo-geo" => "neogeo"
+    if (isWildcardSpecificEnoughToBridge(term)) {
+        const joined = blob.replace(/[\s\-_]+/g, ""); // remove common separators
+        if (re.test(joined)) return true;
+    }
+
+    return false;
 }
 
 // Simple (non-boolean) search tokenization: supports quoted phrases and whitespace-separated AND
