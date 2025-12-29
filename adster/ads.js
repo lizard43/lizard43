@@ -837,8 +837,20 @@ function termToRegexPair(term) {
     // 2) blob regex: '*' matches up to WILDCARD_MAX_GAP chars (INCLUDING spaces/hyphens/underscores)
     // This allows "m*pac" to match "ms pac", "mrs pac", "m s pac", "ms-pac", etc.
     // but NOT "mini vintage arcade ... pac" because gap is too large.
+    // 2) blob regex with capped wildcard span, BUT fragments must start on a word boundary
+    // so "m*pac" won't match the "m" inside "game" (ga[m]e pac...)
+    const parts = term.split("*").filter(Boolean).map(escapeRegExpLiteral);
+
+    // allow limited span between fragments
     const blobGap = `[\\s\\-_a-z0-9]{0,${WILDCARD_MAX_GAP}}`;
-    const blobPattern = escaped.replace(/\\\*/g, blobGap);
+
+    // build: \bpart1 + gap + \bpart2 + gap + \bpart3 ...
+    let blobPattern = "";
+    for (let i = 0; i < parts.length; i++) {
+        if (i > 0) blobPattern += blobGap;
+        blobPattern += `\\b${parts[i]}`;
+    }
+
     const blobRe = new RegExp(blobPattern);
 
     const pair = { tokenRe, blobRe };
@@ -1063,10 +1075,10 @@ function applyFilter() {
     const prepareBlob = (ad) =>
         [
             ad.title,
+            ad.price,
             ad.description,
             ad.location,
             ad.author,
-            ad.price,
             ad.source,
         ]
             .filter(Boolean)
