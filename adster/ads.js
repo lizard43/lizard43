@@ -561,6 +561,19 @@ function formatTimestampDisplay(ts) {
     return `${monthName} ${day} ${year} ${hour}:${minutes}${ampm}`;
 }
 
+function formatTitleTimestamp(ts) {
+    const d = new Date(ts);
+    if (isNaN(d.getTime())) return "";
+
+    const yyyy = d.getFullYear();
+    const mm = String(d.getMonth() + 1).padStart(2, "0");
+    const dd = String(d.getDate()).padStart(2, "0");
+    const hh = String(d.getHours()).padStart(2, "0");
+    const min = String(d.getMinutes()).padStart(2, "0");
+
+    return `${yyyy}-${mm}-${dd} ${hh}:${min}`;
+}
+
 function getDateFilterMs() {
     if (!dateTimeFilter || !dateTimeFilter.value) return null;
 
@@ -1547,8 +1560,10 @@ async function loadAds() {
         updateGeneratedAtTooltip();
 
         if (generatedAtISO) {
-            const pretty = formatTimestampDisplay(generatedAtISO);
-            showToast(`Last Scrape: ${pretty}`);
+            const titleTime = formatTitleTimestamp(generatedAtISO);
+            document.title = titleTime
+                ? `Adster · ${titleTime}`
+                : "Adster";
         }
 
         // scrapester.json is { generated_at, ads: [...] }
