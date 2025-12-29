@@ -817,7 +817,7 @@ function updateSortIndicators() {
 // 2) Blob-level regex with a MAX GAP cap for '*' so it can span "ms pac" but not "mini ... pac"
 
 const _wildcardRegexCache = new Map();
-const WILDCARD_MAX_GAP = 16; // chars between fragments when '*' is used (tune 12–20)
+const WILDCARD_MAX_GAP = 5; // chars between fragments when '*' is used
 
 function escapeRegExpLiteral(s) {
     return String(s ?? "").replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
