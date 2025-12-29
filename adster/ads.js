@@ -794,55 +794,43 @@ function updateSortIndicators() {
 }
 
 // ------- Wildcard helpers (supports * inside terms) -------
-// Rules:
-// - "*" matches any number of characters (including none)
-// - Works in simple search and boolean TERM nodes
-// - Case-insensitive handled by lowercasing the blob + query
+// Goal:
+// - '*' should match across spaces/hyphens so "neo*geo" matches "neo geo" and "neo-geo"
+// - but prevent ridiculous matches where the left and right parts are far apart in the blob
+//   (e.g. "m*pac" should NOT match "mini ... pac-man" when far separated)
+//
+// Approach:
+// 1) Token-level regex (fast + catches "neogeo", "ms-pacman", "mspacman", etc.)
+// 2) Blob-level regex with a MAX GAP cap for '*' so it can span "ms pac" but not "mini ... pac"
 
 const _wildcardRegexCache = new Map();
+const WILDCARD_MAX_GAP = 16; // chars between fragments when '*' is used (tune 12–20)
 
 function escapeRegExpLiteral(s) {
-    // escape regex meta chars EXCEPT we handle "*" separately later
-    return s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+    return String(s ?? "").replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 }
 
-// ------- Wildcard helpers (supports * inside terms) -------
-// Behavior:
-// - Default: wildcard matches within a single token (word-ish chunk)
-// - If the wildcard is "specific enough" (>=2 chars on BOTH ends), we also
-//   allow matching across separators by testing a "joined" blob (spaces/hyphens removed)
-
-function escapeRegExpLiteral(s) {
-    // escape regex meta chars EXCEPT we handle "*" separately later
-    return s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
-}
-
-function termToRegex(term) {
+function termToRegexPair(term) {
     const key = term;
     const cached = _wildcardRegexCache.get(key);
     if (cached) return cached;
 
     const escaped = escapeRegExpLiteral(term);
 
-    // IMPORTANT: "*" matches within a token (no whitespace)
-    const pattern = escaped.replace(/\\\*/g, "\\S*");
+    // 1) token regex: '*' matches within a token (no whitespace)
+    const tokenPattern = escaped.replace(/\\\*/g, "\\S*");
+    const tokenRe = new RegExp(tokenPattern);
 
-    const re = new RegExp(pattern);
-    _wildcardRegexCache.set(key, re);
-    return re;
-}
+    // 2) blob regex: '*' matches up to WILDCARD_MAX_GAP chars (INCLUDING spaces/hyphens/underscores)
+    // This allows "m*pac" to match "ms pac", "mrs pac", "m s pac", "ms-pac", etc.
+    // but NOT "mini vintage arcade ... pac" because gap is too large.
+    const blobGap = `[\\s\\-_a-z0-9]{0,${WILDCARD_MAX_GAP}}`;
+    const blobPattern = escaped.replace(/\\\*/g, blobGap);
+    const blobRe = new RegExp(blobPattern);
 
-function isWildcardSpecificEnoughToBridge(term) {
-    // Allow "bridge separators" only when BOTH ends are at least 2 chars.
-    // Examples:
-    //   neo*geo  => ok (neo, geo)
-    //   m*pac    => NOT ok (m is too short)
-    const parts = term.split("*").filter(Boolean);
-    if (parts.length < 2) return false;
-
-    const first = parts[0] || "";
-    const last = parts[parts.length - 1] || "";
-    return first.length >= 2 && last.length >= 2;
+    const pair = { tokenRe, blobRe };
+    _wildcardRegexCache.set(key, pair);
+    return pair;
 }
 
 function matchTermInBlob(term, blob) {
@@ -851,23 +839,16 @@ function matchTermInBlob(term, blob) {
     // Non-wildcard: fast path
     if (!term.includes("*")) return blob.includes(term);
 
-    const re = termToRegex(term);
+    const { tokenRe, blobRe } = termToRegexPair(term);
 
-    // 1) Token-level match (prevents m*pac from matching "mini ... pac-man")
-    // Split into word-ish chunks: letters/digits plus '-' stay together
+    // 1) token-level match
     const tokens = blob.split(/[^a-z0-9-]+/i).filter(Boolean);
     for (const tok of tokens) {
-        if (re.test(tok)) return true;
+        if (tokenRe.test(tok)) return true;
     }
 
-    // 2) If specific enough, also try a "joined" version to allow spaces/hyphens
-    // e.g. "neo geo" => "neogeo", "neo-geo" => "neogeo"
-    if (isWildcardSpecificEnoughToBridge(term)) {
-        const joined = blob.replace(/[\s\-_]+/g, ""); // remove common separators
-        if (re.test(joined)) return true;
-    }
-
-    return false;
+    // 2) blob-level match with capped wildcard span
+    return blobRe.test(blob);
 }
 
 // Simple (non-boolean) search tokenization: supports quoted phrases and whitespace-separated AND
