@@ -35,7 +35,7 @@ body {
 
 /* Row 1: logo | search (stretch) | gear */
 .toolbar-row.row1 {
-  grid-template-columns: auto 1fr auto auto;
+  grid-template-columns: auto minmax(0, 1fr) auto auto;
   /* logo | search | hearts | gear */
   gap: 4px;
   align-items: center;
@@ -62,16 +62,27 @@ body {
   align-items: center;
   gap: 4px;
   flex: 0 0 auto;
+  white-space: nowrap;
 }
 
+/* --- Favorite searches (3 hearts beside search) --- */
+.favsearch-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex: 0 0 auto;
+  white-space: nowrap;
+}
+
+/* Make them icon-like (like gear/X), not blocky buttons */
 .favsearch-btn {
   position: relative;
-  width: 24px;
-  height: 24px;
+  width: 26px;
+  height: 26px;
 
-  border-radius: 8px;
-  border: 1px solid #444;
+  border: none;
   background: transparent;
+  border-radius: 8px;
 
   cursor: pointer;
   padding: 0;
@@ -84,13 +95,14 @@ body {
   user-select: none;
   -webkit-tap-highlight-color: transparent;
 
-  color: #7f7f7f;
-  /* empty = grey */
+  /* empty = muted (NOT bright white) */
+  color: #9a9a9a;
 }
 
+/* subtle hover hitbox, matching gear/X behavior */
 .favsearch-btn:hover {
   background: #262626;
-  color: #e6e6e6;
+  color: #cfcfcf;
 }
 
 .favsearch-btn:active {
@@ -107,6 +119,7 @@ body {
   line-height: 1;
 }
 
+/* smaller number so it fits inside the outline heart */
 .favsearch-num {
   position: absolute;
   inset: 0;
@@ -114,11 +127,12 @@ body {
   align-items: center;
   justify-content: center;
 
-  font-size: 10px;
+  font-size: 9px;
   font-weight: 800;
+  transform: translateY(0.5px);
+  /* tiny optical centering */
 
-  /* keep number readable over the heart */
-  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.6);
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.65);
   pointer-events: none;
 }
 
