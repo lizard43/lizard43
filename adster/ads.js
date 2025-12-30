@@ -1311,6 +1311,14 @@ function applyFilter() {
     // Pull out temporary cap overrides from the search text
     const overrides = parseCapOverridesFromSearch(rawInput);
 
+    // UI: show red outline on the cap buttons when search overrides are present
+    if (btnDistance) {
+        btnDistance.classList.toggle("override-active", overrides.distanceOverrideMiles !== null);
+    }
+    if (btnPrice) {
+        btnPrice.classList.toggle("override-active", overrides.priceOverrideDollars !== null);
+    }
+
     // Cleaned search text (directives removed) drives matching
     const raw = overrides.cleanedRaw;
     const qTrim = raw.trim();
@@ -1408,21 +1416,6 @@ function applyFilter() {
     });
 
     renderTable();
-
-    // Make the results pill show effective caps in tooltip
-    if (resultsPill) {
-        const distText =
-            (effectiveDistanceCap === Infinity) ? "Any" : `${Number(effectiveDistanceCap).toLocaleString()} mi`;
-        const priceText =
-            (effectivePriceCap === Infinity) ? "Any" : `$${Number(effectivePriceCap).toLocaleString()}`;
-
-        const hadOverrides =
-            overrides.distanceOverrideMiles !== null || overrides.priceOverrideDollars !== null;
-
-        if (hadOverrides) {
-            resultsPill.title = `${resultsPill.title}\nOverrides: distance ≤ ${distText}, price ≤ ${priceText}`;
-        }
-    }
 
     updateResultsPill();
 }
