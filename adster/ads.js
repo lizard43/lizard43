@@ -1228,13 +1228,100 @@ function updateResultsPill() {
     resultsPill.classList.toggle("active", isActive);
 }
 
-// --- filter logic (tweaked to respect showHidden) ---
+// --- filter logic ---
+
+function parseCapOverridesFromSearch(rawInput) {
+    // Supports:
+    //   distancecap:1000
+    //   distcap:250
+    //   dcap:Infinity / dcap:any
+    //   pricecap:500
+    //   pcap:$1,500 / pcap:any / pcap:inf
+    //
+    // Returns:
+    //   { cleanedRaw, distanceOverrideMiles, priceOverrideDollars }
+
+    const out = {
+        cleanedRaw: String(rawInput ?? ""),
+        distanceOverrideMiles: null, // null = no override
+        priceOverrideDollars: null,  // null = no override
+    };
+
+    let s = out.cleanedRaw;
+
+    function parseMaybeInfinity(v) {
+        const t = String(v ?? "").trim().toLowerCase();
+        if (!t) return null;
+        if (t === "any" || t === "inf" || t === "infinity" || t === "max") return Infinity;
+        return null;
+    }
+
+    function parseNumberLoose(v) {
+        // Accept "$1,500", "1500", "1500mi", "1,000"
+        const m = String(v ?? "").match(/[\d,.]+/);
+        if (!m) return NaN;
+        return Number(String(m[0]).replace(/,/g, ""));
+    }
+
+    // 1) distancecap directives
+    s = s.replace(/(^|\s)(distancecap|distcap|dcap)\s*:\s*([^\s&|()!]+)/gi, (full, lead, _k, val) => {
+        const inf = parseMaybeInfinity(val);
+        if (inf === Infinity) out.distanceOverrideMiles = Infinity;
+        else {
+            const n = parseNumberLoose(val);
+            if (Number.isFinite(n) && n > 0) out.distanceOverrideMiles = n;
+        }
+        return lead; // remove directive, keep whitespace leader
+    });
+
+    // 2) pricecap directives
+    s = s.replace(/(^|\s)(pricecap|pcap)\s*:\s*([^\s&|()!]+)/gi, (full, lead, _k, val) => {
+        const inf = parseMaybeInfinity(val);
+        if (inf === Infinity) out.priceOverrideDollars = Infinity;
+        else {
+            const n = parseNumberLoose(val);
+            if (Number.isFinite(n) && n >= 0) out.priceOverrideDollars = n;
+        }
+        return lead;
+    });
+
+    // Cleanup: removing directives can leave "donkey &  &" etc.
+    // - collapse spaces
+    // - collapse repeated operators
+    // - trim dangling leading/trailing operators
+    s = s.replace(/\s+/g, " ").trim();
+
+    // collapse repeated operators (e.g. "& &", "| |", "& |")
+    s = s.replace(/(\&\&|\&|\|\||\|)\s*(\&\&|\&|\|\||\|)+/g, "$1");
+
+    // remove leading operators
+    while (/^(\&\&|\&|\|\||\|)\b/.test(s)) s = s.replace(/^(\&\&|\&|\|\||\|)\s*/g, "").trim();
+
+    // remove trailing operators
+    while (/\b(\&\&|\&|\|\||\|)$/.test(s)) s = s.replace(/\s*(\&\&|\&|\|\||\|)$/g, "").trim();
+
+    out.cleanedRaw = s;
+    return out;
+}
 
 function applyFilter() {
-    const raw = searchInput.value;          // keep exact user input
-    const qTrim = raw.trim();              // only for "is it empty?"
-    const q = raw.toLowerCase();
+    const rawInput = searchInput.value;   // keep exact user input
     const filterMs = getDateFilterMs();
+
+    // Pull out temporary cap overrides from the search text
+    const overrides = parseCapOverridesFromSearch(rawInput);
+
+    // Cleaned search text (directives removed) drives matching
+    const raw = overrides.cleanedRaw;
+    const qTrim = raw.trim();
+    const q = raw.toLowerCase();
+
+    // Effective caps: override if present, else current toolbar caps
+    const effectiveDistanceCap =
+        (overrides.distanceOverrideMiles !== null) ? overrides.distanceOverrideMiles : distanceCapMiles;
+
+    const effectivePriceCap =
+        (overrides.priceOverrideDollars !== null) ? overrides.priceOverrideDollars : priceCapDollars;
 
     const prepareBlob = (ad) =>
         [
@@ -1257,10 +1344,6 @@ function applyFilter() {
         const isBooleanMode = /[&|()!]/.test(qTrim.toLowerCase());
 
         if (!isBooleanMode) {
-            // Simple mode:
-            // - space-separated tokens are AND
-            // - tokens may include * wildcards
-            // - supports "quoted phrases"
             const terms = tokenizeSimpleSearch(q);
 
             matcher = (ad) => {
@@ -1281,7 +1364,6 @@ function applyFilter() {
             } catch (err) {
                 console.error("Boolean search parse error, falling back:", err);
 
-                // fallback: treat like simple mode with wildcard+AND
                 const terms = tokenizeSimpleSearch(q);
                 matcher = (ad) => {
                     const blob = prepareBlob(ad);
@@ -1308,25 +1390,40 @@ function applyFilter() {
             if (!Number.isFinite(t) || t < filterMs) return false;
         }
 
-        // distance cap (only applies when we have a numeric distance)
-        // If cap is Infinity => don't filter by distance.
-        if (distanceCapMiles !== Infinity) {
+        // distance cap (effective)
+        if (effectiveDistanceCap !== Infinity) {
             const d = normalizeDistance(ad.distance);
-            if (!Number.isFinite(d)) return false;      // no distance => drop when capped
-            if (d > distanceCapMiles) return false;
+            if (!Number.isFinite(d)) return false; // no distance => drop when capped
+            if (d > effectiveDistanceCap) return false;
         }
 
-        // price cap (max price)
-        if (Number.isFinite(priceCapDollars) && priceCapDollars > 0) {
+        // price cap (effective max price)
+        if (effectivePriceCap !== Infinity && Number.isFinite(effectivePriceCap) && effectivePriceCap >= 0) {
             const p = normalizePrice(ad.price);
-            if (!Number.isFinite(p)) return false;      // no price => drop when capped
-            if (p > priceCapDollars) return false;
+            if (!Number.isFinite(p)) return false; // no price => drop when capped
+            if (p > effectivePriceCap) return false;
         }
 
         return true;
     });
 
     renderTable();
+
+    // Make the results pill show effective caps in tooltip
+    if (resultsPill) {
+        const distText =
+            (effectiveDistanceCap === Infinity) ? "Any" : `${Number(effectiveDistanceCap).toLocaleString()} mi`;
+        const priceText =
+            (effectivePriceCap === Infinity) ? "Any" : `$${Number(effectivePriceCap).toLocaleString()}`;
+
+        const hadOverrides =
+            overrides.distanceOverrideMiles !== null || overrides.priceOverrideDollars !== null;
+
+        if (hadOverrides) {
+            resultsPill.title = `${resultsPill.title}\nOverrides: distance ≤ ${distText}, price ≤ ${priceText}`;
+        }
+    }
+
     updateResultsPill();
 }
 
