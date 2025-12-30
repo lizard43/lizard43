@@ -107,7 +107,7 @@ body {
 }
 
 .favsearch-heart {
-  font-size: 18px;
+  font-size: 20px;
   line-height: 1;
 }
 
@@ -205,24 +205,23 @@ body {
   width: 100%;
   min-width: 0;
   box-sizing: border-box;
-  padding-right: 24px;
-  /* room for X */
+  padding-right: 40px;
+  /* room for bigger X */
 }
 
 .clear-btn {
   position: absolute;
-  right: 8px;
   top: 50%;
   transform: translateY(-50%);
-
-  height: 24px;
-  width: 24px;
-
   border: none;
   background: transparent;
   color: #9a9a9a;
 
-  font-size: 20px;
+  right: 6px;
+  height: 32px;
+  width: 32px;
+  font-size: 24px;
+
   cursor: pointer;
   padding: 0;
   line-height: 1;
@@ -235,10 +234,9 @@ body {
   /* gives a nice hover hitbox without looking like a button */
 }
 
-.clear-btn:hover {
-  background: #262626;
-  /* subtle hover only */
-  color: #ffffff;
+.favsearch-btn:hover {
+  background: rgba(255, 255, 255, 0.06);
+  color: #cfcfcf;
 }
 
 .clear-btn:active {

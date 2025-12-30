@@ -477,10 +477,6 @@ function setupFavoriteSearchHearts() {
             btn.title = stored.trim()
                 ? `Favorite search ${slot}: ${stored} (click to recall, hold to overwrite / clear)`
                 : `Favorite search ${slot} (empty) — hold to save current search`;
-
-            // keep outline heart, just tint via color
-            const heart = btn.querySelector(".favsearch-heart");
-            if (heart) heart.textContent = "♡";
         }
     }
 
