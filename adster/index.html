@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Adster</title>
   <link rel="icon" href="favicon.ico" />
-  <link rel="stylesheet" href="ads.css?v=20151230-3" />
+  <link rel="stylesheet" href="ads.css?v=20151230-4" />
 </head>
 
 <body>
@@ -23,15 +23,30 @@
 
       <div id="favSearchWrapper" class="favsearch-wrapper" aria-label="Favorite searches">
         <button type="button" class="favsearch-btn" data-slot="1" title="Favorite search 1 (hold to save / clear)">
-          <span class="favsearch-icon" aria-hidden="true">🔎</span>
+          <span class="favsearch-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" class="favsearch-svg" focusable="false" aria-hidden="true">
+              <circle cx="11" cy="11" r="6"></circle>
+              <path d="M20 20l-4.2-4.2"></path>
+            </svg>
+          </span>
         </button>
 
         <button type="button" class="favsearch-btn" data-slot="2" title="Favorite search 2 (hold to save / clear)">
-          <span class="favsearch-icon" aria-hidden="true">🔎</span>
+          <span class="favsearch-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" class="favsearch-svg" focusable="false" aria-hidden="true">
+              <circle cx="11" cy="11" r="6"></circle>
+              <path d="M20 20l-4.2-4.2"></path>
+            </svg>
+          </span>
         </button>
 
         <button type="button" class="favsearch-btn" data-slot="3" title="Favorite search 3 (hold to save / clear)">
-          <span class="favsearch-icon" aria-hidden="true">🔎</span>
+          <span class="favsearch-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" class="favsearch-svg" focusable="false" aria-hidden="true">
+              <circle cx="11" cy="11" r="6"></circle>
+              <path d="M20 20l-4.2-4.2"></path>
+            </svg>
+          </span>
         </button>
       </div>
 
@@ -51,34 +66,44 @@
 
       <div id="resultsPill" class="results-pill" title=""></div>
     </div>
-  </div>
+    <div class="toolbar-row row2">
+      <div class="datetime-quick-wrapper">
+        <button type="button" id="btnLast4h" class="datetime-quick-btn" title="Last 4 hours">4h</button>
+        <button type="button" id="btnLast12h" class="datetime-quick-btn" title="Last 12 hours">12h</button>
+        <button type="button" id="btnLast1d" class="datetime-quick-btn" title="Last 1 day">1d</button>
+      </div>
 
-  <div class="sort-bar">
-    <button type="button" class="sort-btn" data-field="postedTime">
-      Time <span class="sort-indicator"></span>
-    </button>
+      <div class="dt-row">
+        <input id="dateTimeFilter" class="datetime-filter" type="datetime-local" />
+      </div>
 
-    <button type="button" id="btnDistance" class="sort-btn" data-field="distance">
-      Distance - <span id="distanceCapLabel">250</span> <span class="distance-caret">▾</span>
-      <span class="sort-indicator"></span>
-    </button>
+      <div id="resultsPill" class="results-pill" title=""></div>
+    </div>
 
-    <button type="button" id="btnPrice" class="sort-btn" data-field="price">
-      Price - <span id="priceCapLabel">$1000</span> <span class="distance-caret">▾</span>
-      <span class="sort-indicator"></span>
-    </button>
+    <!-- keep sort bar sticky by keeping it inside .toolbar -->
+    <div class="sort-bar">
+      <button type="button" class="sort-btn" data-field="postedTime">
+        Time <span class="sort-indicator"></span>
+      </button>
 
-    <button type="button" class="sort-btn" data-field="title">
-      Title <span class="sort-indicator"></span>
-    </button>
+      <button type="button" id="btnDistance" class="sort-btn" data-field="distance">
+        Distance - <span id="distanceCapLabel">250</span> <span class="distance-caret">▾</span>
+        <span class="sort-indicator"></span>
+      </button>
 
-    <button type="button" class="sort-btn" data-field="author">
-      Seller <span class="sort-indicator"></span>
-    </button>
+      <button type="button" id="btnPrice" class="sort-btn" data-field="price">
+        Price - <span id="priceCapLabel">$1000</span> <span class="distance-caret">▾</span>
+        <span class="sort-indicator"></span>
+      </button>
 
-    <!-- <button type="button" class="sort-btn" data-field="source">
-      Source <span class="sort-indicator"></span>
-    </button> -->
+      <button type="button" class="sort-btn" data-field="title">
+        Title <span class="sort-indicator"></span>
+      </button>
+
+      <button type="button" class="sort-btn" data-field="author">
+        Seller <span class="sort-indicator"></span>
+      </button>
+    </div>
   </div>
 
   <div class="table-wrapper">
