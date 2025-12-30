@@ -555,12 +555,13 @@ function setupFavoriteSearchHearts() {
 
         btn.addEventListener("pointercancel", clear);
         btn.addEventListener("pointerleave", clear);
-    }
 
-    // prevent long-press context menu from stealing the gesture
-    btn.addEventListener("contextmenu", (ev) => {
-        ev.preventDefault();
-    });
+        // prevent long-press context menu from stealing the gesture
+        btn.addEventListener("contextmenu", (ev) => {
+            ev.preventDefault();
+        });
+
+    }
 
     // initial render
     render();
