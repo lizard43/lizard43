@@ -68,6 +68,24 @@ const LS_SHOW_HIDDEN = "adster.showHidden"; // "1" | "0"
 // --- Favorite ads storage key ---
 const LS_FAVORITE_AD_IDS = "adster.favoriteAdIDs"; // JSON array of adID strings
 
+// --- Broken image tracking (client-only) ---
+const LS_BAD_IMAGE_AD_IDS = "adster.badImageAdIDs"; // JSON array of adID strings
+
+function loadBadImageIds() {
+    try {
+        return new Set(JSON.parse(localStorage.getItem(LS_BAD_IMAGE_AD_IDS) || "[]"));
+    } catch (e) {
+        console.warn("[badimg] failed to parse localStorage, resetting:", e);
+        return new Set();
+    }
+}
+
+function saveBadImageIds(set) {
+    localStorage.setItem(LS_BAD_IMAGE_AD_IDS, JSON.stringify(Array.from(set)));
+}
+
+let badImageIdSet = loadBadImageIds();
+
 function loadFavoriteIds() {
     try {
         return new Set(JSON.parse(localStorage.getItem(LS_FAVORITE_AD_IDS) || "[]"));
@@ -1613,6 +1631,7 @@ async function loadAds() {
         // apply persisted hidden state from localStorage
         hiddenIdSet = loadHiddenIds();
         favoriteIdSet = loadFavoriteIds();
+        badImageIdSet = loadBadImageIds();
 
         allAds.forEach((ad) => {
             if (!ad) return;
@@ -1754,10 +1773,43 @@ function sortByPriceClick() {
     btnPrice.addEventListener("pointerleave", clear);
 })();
 
+function setupBrokenImageHandler() {
+    if (!tbody) return;
+
+    // Capture phase is required because <img> "error" doesn't bubble
+    tbody.addEventListener("error", (e) => {
+        const img = e.target;
+        if (!img || img.tagName !== "IMG") return;
+        if (!img.classList.contains("ad-thumb")) return;
+
+        const card = img.closest(".ad-card");
+        const adID = card?.getAttribute("data-ad-id") || "";
+        if (!adID) return;
+
+        // Record once, avoid loops / spam
+        if (!badImageIdSet.has(adID)) {
+            badImageIdSet.add(adID);
+            saveBadImageIds(badImageIdSet);
+            console.warn("[badimg] image failed; marked adID:", adID);
+        }
+
+        // Option 1 (safe default): hide just the thumbnail area
+        const wrap = img.closest(".ad-thumb-wrap");
+        if (wrap) {
+            wrap.classList.add("thumb-broken");
+            wrap.innerHTML = `<div class="thumb-fallback" title="Image unavailable">No image</div>`;
+        }
+
+        if (!favoriteIdSet.has(adID)) setAdHidden(adID, true);
+    }, true);
+}
+
 // initial load
 (async function init() {
     await loadSettings();        // get favorites → render hearts
     await setupSettingsModal();
+
+    setupBrokenImageHandler();
 
     // showHidden init (from settings)
     showHidden = loadShowHidden();
