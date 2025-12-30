@@ -65,15 +65,6 @@ body {
   white-space: nowrap;
 }
 
-/* --- Favorite searches (3 hearts beside search) --- */
-.favsearch-wrapper {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  flex: 0 0 auto;
-  white-space: nowrap;
-}
-
 /* Make them icon-like (like gear/X), not blocky buttons */
 .favsearch-btn {
   touch-action: manipulation;
@@ -112,7 +103,7 @@ body {
 
 /* stored = faint red (not loud) */
 .favsearch-btn.active {
-  color: #c05a5a;
+  color: #c05a5a !important;
 }
 
 .favsearch-heart {
@@ -179,7 +170,7 @@ body {
 }
 
 /* normal toolbar buttons (NOT the gear icon) */
-.toolbar button:not(.settings-gear):not(.clear-btn) {
+.toolbar button:not(.settings-gear):not(.clear-btn):not(.favsearch-btn) {
   padding: 6px 10px;
   border-radius: 4px;
   border: 1px solid #444;
@@ -188,7 +179,7 @@ body {
   cursor: pointer;
 }
 
-.toolbar button:not(.settings-gear):not(.clear-btn):hover {
+.toolbar button:not(.settings-gear):not(.clear-btn):not(.favsearch-btn):hover {
   background: #444;
 }
 
