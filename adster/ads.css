@@ -76,6 +76,7 @@ body {
 
 /* Make them icon-like (like gear/X), not blocky buttons */
 .favsearch-btn {
+  touch-action: manipulation;
   position: relative;
   width: 26px;
   height: 26px;

@@ -523,6 +523,11 @@ function setupFavoriteSearchHearts() {
             longPressFired = false;
             pressTimer = setTimeout(() => {
                 longPressFired = true;
+                console.log(
+                    "[favsearch] long-press",
+                    "slot =", slot,
+                    "search =", JSON.stringify(searchInput.value)
+                );
                 saveOrClear(slot);
             }, LONG_PRESS_MS);
 
@@ -551,6 +556,11 @@ function setupFavoriteSearchHearts() {
         btn.addEventListener("pointercancel", clear);
         btn.addEventListener("pointerleave", clear);
     }
+
+    // prevent long-press context menu from stealing the gesture
+    btn.addEventListener("contextmenu", (ev) => {
+        ev.preventDefault();
+    });
 
     // initial render
     render();
