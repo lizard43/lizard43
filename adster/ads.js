@@ -71,6 +71,39 @@ const LS_FAVORITE_AD_IDS = "adster.favoriteAdIDs"; // JSON array of adID strings
 // --- Broken image tracking (client-only) ---
 const LS_BAD_IMAGE_AD_IDS = "adster.badImageAdIDs"; // JSON array of adID strings
 
+// --- Favorite SEARCH presets (toolbar hearts) ---
+const LS_FAV_SEARCH_1 = "adster.favSearch.1";
+const LS_FAV_SEARCH_2 = "adster.favSearch.2";
+const LS_FAV_SEARCH_3 = "adster.favSearch.3";
+
+function favSearchKey(slot) {
+    if (slot === 1) return LS_FAV_SEARCH_1;
+    if (slot === 2) return LS_FAV_SEARCH_2;
+    return LS_FAV_SEARCH_3;
+}
+
+function loadFavSearch(slot) {
+    try {
+        return localStorage.getItem(favSearchKey(slot)) || "";
+    } catch {
+        return "";
+    }
+}
+
+function saveFavSearch(slot, value) {
+    const v = String(value ?? "");
+    const key = favSearchKey(slot);
+
+    // If empty => clear storage
+    if (!v || !v.trim()) {
+        localStorage.removeItem(key);
+        return "";
+    }
+
+    localStorage.setItem(key, v);
+    return v;
+}
+
 function loadBadImageIds() {
     try {
         return new Set(JSON.parse(localStorage.getItem(LS_BAD_IMAGE_AD_IDS) || "[]"));
@@ -427,6 +460,105 @@ function showToast(message, duration = 4000) {
             }
         }, 200);
     }, duration);
+}
+
+function setupFavoriteSearchHearts() {
+    const wrapper = document.getElementById("favSearchWrapper");
+    if (!wrapper) return;
+
+    const buttons = Array.from(wrapper.querySelectorAll(".favsearch-btn"));
+
+    function render() {
+        for (const btn of buttons) {
+            const slot = Number(btn.dataset.slot);
+            const stored = loadFavSearch(slot);
+
+            btn.classList.toggle("active", !!stored.trim());
+            btn.title = stored.trim()
+                ? `Favorite search ${slot}: ${stored} (click to recall, hold to overwrite / clear)`
+                : `Favorite search ${slot} (empty) — hold to save current search`;
+
+            // keep outline heart, just tint via color
+            const heart = btn.querySelector(".favsearch-heart");
+            if (heart) heart.textContent = "♡";
+        }
+    }
+
+    function recall(slot) {
+        const stored = loadFavSearch(slot);
+        if (!stored.trim()) return; // click does nothing when empty/grey
+
+        searchInput.value = stored;
+        applyFilter();
+        searchInput.focus();
+    }
+
+    function saveOrClear(slot) {
+        const current = String(searchInput.value ?? "");
+
+        if (!current.trim()) {
+            // empty search field => clear that heart
+            saveFavSearch(slot, "");
+            render();
+            showToast(`Favorite ${slot} cleared`);
+            return;
+        }
+
+        // save exact text (including quotes / boolean operators etc.)
+        saveFavSearch(slot, current);
+        render();
+        showToast(`Favorite ${slot} saved`);
+    }
+
+    // pointer-based click vs long-press (same hybrid pattern you used for Distance/Price)
+    const LONG_PRESS_MS = 450;
+
+    for (const btn of buttons) {
+        let pressTimer = null;
+        let longPressFired = false;
+
+        const slot = Number(btn.dataset.slot);
+
+        btn.addEventListener("pointerdown", (e) => {
+            longPressFired = false;
+            pressTimer = setTimeout(() => {
+                longPressFired = true;
+                saveOrClear(slot);
+            }, LONG_PRESS_MS);
+
+            btn.setPointerCapture?.(e.pointerId);
+        });
+
+        const clear = () => {
+            if (pressTimer) {
+                clearTimeout(pressTimer);
+                pressTimer = null;
+            }
+        };
+
+        btn.addEventListener("pointerup", (e) => {
+            clear();
+
+            if (longPressFired) {
+                e.preventDefault();
+                e.stopPropagation();
+                return;
+            }
+
+            recall(slot);
+        });
+
+        btn.addEventListener("pointercancel", clear);
+        btn.addEventListener("pointerleave", clear);
+    }
+
+    // initial render
+    render();
+
+    // OPTIONAL: re-render on page visibility changes (keeps it correct if storage changes elsewhere)
+    document.addEventListener("visibilitychange", () => {
+        if (!document.hidden) render();
+    });
 }
 
 async function resolveHomeLocation() {
@@ -1810,6 +1942,7 @@ function setupBrokenImageHandler() {
     await setupSettingsModal();
 
     setupBrokenImageHandler();
+    setupFavoriteSearchHearts();
 
     // showHidden init (from settings)
     showHidden = loadShowHidden();

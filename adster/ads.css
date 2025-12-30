@@ -35,8 +35,15 @@ body {
 
 /* Row 1: logo | search (stretch) | gear */
 .toolbar-row.row1 {
-  grid-template-columns: auto 1fr auto;
+  grid-template-columns: auto 1fr auto auto;
+  /* logo | search | hearts | gear */
   gap: 4px;
+  align-items: center;
+}
+
+/* hard rule: row1 must not wrap */
+.toolbar-row.row1>* {
+  min-width: 0;
 }
 
 /* Row 2: quick | datetime (stretch) | count */
@@ -47,6 +54,72 @@ body {
 
 #favoritesWrapper {
   display: none;
+}
+
+/* --- Favorite searches (3 hearts beside search) --- */
+.favsearch-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex: 0 0 auto;
+}
+
+.favsearch-btn {
+  position: relative;
+  width: 24px;
+  height: 24px;
+
+  border-radius: 8px;
+  border: 1px solid #444;
+  background: transparent;
+
+  cursor: pointer;
+  padding: 0;
+  line-height: 1;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+
+  color: #7f7f7f;
+  /* empty = grey */
+}
+
+.favsearch-btn:hover {
+  background: #262626;
+  color: #e6e6e6;
+}
+
+.favsearch-btn:active {
+  transform: translateY(1px);
+}
+
+/* stored = faint red (not loud) */
+.favsearch-btn.active {
+  color: #c05a5a;
+}
+
+.favsearch-heart {
+  font-size: 18px;
+  line-height: 1;
+}
+
+.favsearch-num {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 10px;
+  font-weight: 800;
+
+  /* keep number readable over the heart */
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.6);
+  pointer-events: none;
 }
 
 /* --- Settings gear: icon-only, blends into toolbar --- */
@@ -526,7 +599,7 @@ a:hover {
   justify-content: center;
   color: #777;
   font-size: 12px;
-  border: 1px dashed rgba(255,255,255,0.15);
+  border: 1px dashed rgba(255, 255, 255, 0.15);
   border-radius: 6px;
 }
 
