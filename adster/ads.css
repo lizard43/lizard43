@@ -56,24 +56,23 @@ body {
   display: none;
 }
 
-/* --- Favorite searches (3 hearts beside search) --- */
+/* --- Favorite searches (3 icons beside search) --- */
 .favsearch-wrapper {
   display: flex;
   align-items: center;
-  gap: 4px;
+  gap: 6px;
   flex: 0 0 auto;
   white-space: nowrap;
 }
 
-/* Make them icon-like (like gear/X), not blocky buttons */
 .favsearch-btn {
   touch-action: manipulation;
-  position: relative;
   width: 26px;
   height: 26px;
 
   border: none;
   background: transparent;
+  /* no blocky fill */
   border-radius: 8px;
 
   cursor: pointer;
@@ -87,45 +86,41 @@ body {
   user-select: none;
   -webkit-tap-highlight-color: transparent;
 
-  /* empty = muted (NOT bright white) */
-  color: #9a9a9a;
+  /* empty = muted */
+  color: #8e8e8e;
 }
 
-/* subtle hover hitbox, matching gear/X behavior */
 .favsearch-btn:hover {
   background: #262626;
-  color: #cfcfcf;
+  /* subtle hover hitbox */
+  color: #bdbdbd;
 }
 
 .favsearch-btn:active {
   transform: translateY(1px);
 }
 
-/* stored = faint red (not loud) */
+/* stored = faint red */
 .favsearch-btn.active {
-  color: #c05a5a !important;
+  color: #c05a5a;
 }
 
-.favsearch-heart {
-  font-size: 20px;
+.favsearch-btn.saved-flash {
+  outline: 1px solid rgba(192, 90, 90, 0.55);
+  background: rgba(192, 90, 90, 0.08);
+}
+
+/* keep it red even when hovered */
+.favsearch-btn.active:hover {
+  color: #d06a6a;
+  background: #262626;
+}
+
+.favsearch-icon {
+  font-size: 15px;
+  /* fits the 26px square */
   line-height: 1;
-}
-
-/* smaller number so it fits inside the outline heart */
-.favsearch-num {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  font-size: 9px;
-  font-weight: 800;
-  transform: translateY(0.5px);
-  /* tiny optical centering */
-
-  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.65);
-  pointer-events: none;
+  transform: translateY(0.25px);
 }
 
 /* --- Settings gear: icon-only, blends into toolbar --- */
@@ -232,11 +227,6 @@ body {
 
   border-radius: 8px;
   /* gives a nice hover hitbox without looking like a button */
-}
-
-.favsearch-btn:hover {
-  background: rgba(255, 255, 255, 0.06);
-  color: #cfcfcf;
 }
 
 .clear-btn:active {

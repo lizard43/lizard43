@@ -468,6 +468,11 @@ function setupFavoriteSearchHearts() {
 
     const buttons = Array.from(wrapper.querySelectorAll(".favsearch-btn"));
 
+    function flash(btn) {
+        btn.classList.add("saved-flash");
+        setTimeout(() => btn.classList.remove("saved-flash"), 250);
+    }
+
     function render() {
         for (const btn of buttons) {
             const slot = Number(btn.dataset.slot);
@@ -491,18 +496,19 @@ function setupFavoriteSearchHearts() {
 
     function saveOrClear(slot) {
         const current = String(searchInput.value ?? "");
+        const btn = buttons.find(b => Number(b.dataset.slot) === slot);
 
         if (!current.trim()) {
-            // empty search field => clear that heart
             saveFavSearch(slot, "");
             render();
+            if (btn) flash(btn);
             showToast(`Favorite ${slot} cleared`);
             return;
         }
 
-        // save exact text (including quotes / boolean operators etc.)
         saveFavSearch(slot, current);
         render();
+        if (btn) flash(btn);
         showToast(`Favorite ${slot} saved`);
     }
 
