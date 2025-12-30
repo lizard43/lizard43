@@ -419,7 +419,8 @@ async function resolveHomeLocation() {
         const fixed = resolveFixedLocation(locations, s.fixedId, s.userLat, s.userLon);
         homeLat = fixed.lat;
         homeLon = fixed.lon;
-        showToast(`Location: ${fixed.why}`);
+        lastLocationToastText = `Location: ${fixed.why}`;
+
         return;
     }
 
@@ -428,7 +429,7 @@ async function resolveHomeLocation() {
     if (geo) {
         homeLat = geo.lat;
         homeLon = geo.lon;
-        showToast(`Location: browser (${homeLat.toFixed(4)}, ${homeLon.toFixed(4)})`);
+        lastLocationToastText = `Location: browser (${homeLat.toFixed(4)}, ${homeLon.toFixed(4)})`;
         return;
     }
 
@@ -437,7 +438,7 @@ async function resolveHomeLocation() {
     const fixed = resolveFixedLocation(locations, fbId, s.userLat, s.userLon);
     homeLat = fixed.lat;
     homeLon = fixed.lon;
-    showToast(`Location: browser failed → ${fixed.why}`);
+    lastLocationToastText = `Location: browser failed → ${fixed.why}`;
 }
 
 // helpers (price, distance, time, boolean search, etc.)
@@ -1576,6 +1577,9 @@ async function loadAds() {
             document.title = titleTime
                 ? `Adster · ${titleTime}`
                 : "Adster";
+
+            const loc = lastLocationToastText || "Location: unknown";
+            showToast(`${loc} · Last Scrape: ${titleTime}`, 3000);
         }
 
         // scrapester.json is { generated_at, ads: [...] }
