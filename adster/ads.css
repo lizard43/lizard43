@@ -33,9 +33,9 @@ body {
   gap: 8px;
 }
 
-/* Row 1: logo | search (stretch) | gear */
+/* Row 1: search (stretch) | gear */
 .toolbar-row.row1 {
-  grid-template-columns: auto minmax(0, 1fr) auto;
+  grid-template-columns: minmax(0, 1fr) auto;
   gap: 6px;
   align-items: center;
 }
@@ -143,15 +143,15 @@ body {
 
 /* --- Settings gear: icon-only, blends into toolbar --- */
 .settings-gear {
-  padding: 2px 4px;
+  padding: 1px 2px;      /* tighter hitbox padding */
   border: none;
   background: transparent;
   color: #bdbdbd;
   cursor: pointer;
 
-  font-size: 18px;
+  font-size: 16px;
   line-height: 1;
-  border-radius: 8px;
+  border-radius: 4px;
 }
 
 .settings-gear:hover {
@@ -218,8 +218,7 @@ body {
   width: 100%;
   min-width: 0;
   box-sizing: border-box;
-  padding-right: 40px;
-  /* room for bigger X */
+  padding-right: 32px;
 }
 
 .clear-btn {
@@ -230,7 +229,7 @@ body {
   background: transparent;
   color: #9a9a9a;
 
-  right: 6px;
+  right: 2px;
   height: 32px;
   width: 32px;
   font-size: 24px;

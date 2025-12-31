@@ -42,8 +42,6 @@ const distanceCapLabel = document.getElementById("distanceCapLabel");
 const btnPrice = document.getElementById("btnPrice");
 const priceCapLabel = document.getElementById("priceCapLabel");
 
-const metaIcon = document.getElementById("scrapeMetaIcon");
-
 const resultsPill = document.getElementById("resultsPill");
 
 let distanceCapMiles = 500; // default
@@ -654,18 +652,6 @@ function haversineMilesJS(lat1, lon1, lat2, lon2) {
     const d = R * c;
 
     return d;
-}
-
-function updateGeneratedAtTooltip() {
-    if (!metaIcon) return;
-
-    if (!generatedAtISO) {
-        metaIcon.title = "Data time unknown";
-        return;
-    }
-
-    const pretty = formatTimestampDisplay(generatedAtISO);
-    metaIcon.title = `Data time: ${pretty}`;
 }
 
 function priceSortKey(priceText) {
@@ -1445,8 +1431,11 @@ function setFilterRelativeHoursToggle(idx, hoursBack) {
     updateQuickRangeButtons();
 }
 
-if (metaIcon) {
-    metaIcon.addEventListener("click", () => {
+if (resultsPill) {
+    resultsPill.style.cursor = "pointer";
+    resultsPill.title = (resultsPill.title ? (resultsPill.title + " • ") : "") + "Tap to refresh";
+
+    resultsPill.addEventListener("click", () => {
         loadAds(); // refetch JSON and re-render
     });
 }
