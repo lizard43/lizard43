@@ -52,6 +52,12 @@ body {
   align-items: center;
 }
 
+#resultsPill {
+  justify-self: end;
+  /* stick to the right edge */
+  text-align: right;
+}
+
 #favoritesWrapper {
   display: none;
 }
@@ -100,19 +106,19 @@ body {
   transform: translateY(1px);
 }
 
-/* stored = faint red */
+/* stored */
 .favsearch-btn.active {
-  color: #c05a5a;
+  color: #55aa55;
 }
 
 .favsearch-btn.saved-flash {
-  outline: 1px solid rgba(192, 90, 90, 0.55);
-  background: rgba(192, 90, 90, 0.08);
+  outline: 1px solid rgba(85, 170, 85, 0.6);
+  background: rgba(85, 170, 85, 0.12);
 }
 
-/* keep it red even when hovered */
+/* keep it green even when hovered */
 .favsearch-btn.active:hover {
-  color: #d06a6a;
+  color: #6fcf97;
   background: #262626;
 }
 

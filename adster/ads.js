@@ -1216,7 +1216,7 @@ function updateResultsPill() {
 
     // "active" look if any filtering is happening
     const hasSearch = !!(searchInput && searchInput.value && searchInput.value.trim());
-    const hasDate = !!(dateTimeFilter && dateTimeFilter.value);
+    const hasDate = (getDateFilterMs() !== null);
     const hasDistanceCap = (typeof distanceCapMiles === "number" && distanceCapMiles !== Infinity);
     const hasPriceCap = (typeof priceCapDollars === "number" && Number.isFinite(priceCapDollars) && priceCapDollars > 0);
     const hasHiddenFiltering = !showHidden; // when false, hidden are excluded
