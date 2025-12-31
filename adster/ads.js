@@ -29,11 +29,12 @@ let generatedAtISO = null;
 const searchInput = document.getElementById("searchInput");
 const tbody = document.getElementById("adsTbody");
 const favoritesWrapper = document.getElementById("favoritesWrapper");
-const dateTimeFilter = document.getElementById("dateTimeFilter");
+let dateFilterMs = null; // replaces datetime-local input
 
 const btnLast4h = document.getElementById("btnLast4h");
 const btnLast12h = document.getElementById("btnLast12h");
 const btnLast1d = document.getElementById("btnLast1d");
+const btnLast1w = document.getElementById("btnLast1w");
 
 const btnDistance = document.getElementById("btnDistance");
 const distanceCapLabel = document.getElementById("distanceCapLabel");
@@ -739,11 +740,7 @@ function formatTitleTimestamp(ts) {
 }
 
 function getDateFilterMs() {
-    if (!dateTimeFilter || !dateTimeFilter.value) return null;
-
-    const d = new Date(dateTimeFilter.value); // datetime-local -> local time
-    const ms = d.getTime();
-    return Number.isFinite(ms) ? ms : null;
+    return Number.isFinite(dateFilterMs) ? dateFilterMs : null;
 }
 
 function toDateTimeLocalValue(d) {
@@ -1423,7 +1420,7 @@ function applyFilter() {
 // --- search & clear events ---
 
 function updateQuickRangeButtons() {
-    const btns = [btnLast4h, btnLast12h, btnLast1d];
+    const btns = [btnLast4h, btnLast12h, btnLast1d, btnLast1w];
     btns.forEach((btn, idx) => {
         if (!btn) return;
         if (idx === activeQuickRange) btn.classList.add("active");
@@ -1434,16 +1431,16 @@ function updateQuickRangeButtons() {
 function setFilterRelativeHoursToggle(idx, hoursBack) {
     if (activeQuickRange === idx) {
         activeQuickRange = -1;
-        dateTimeFilter.value = "";
+        dateFilterMs = null;
         applyFilter();
         updateQuickRangeButtons();
         return;
     }
 
     activeQuickRange = idx;
-    const now = new Date();
-    const past = new Date(now.getTime() - hoursBack * 60 * 60 * 1000);
-    dateTimeFilter.value = toDateTimeLocalValue(past);
+    const now = Date.now();
+    dateFilterMs = now - (hoursBack * 60 * 60 * 1000);
+
     applyFilter();
     updateQuickRangeButtons();
 }
@@ -1464,6 +1461,9 @@ if (btnLast12h) {
 if (btnLast1d) {
     btnLast1d.addEventListener("click", () => setFilterRelativeHoursToggle(2, 24));
 }
+if (btnLast1w) {
+    btnLast1w.addEventListener("click", () => setFilterRelativeHoursToggle(3, 168));
+}
 
 searchInput.addEventListener("input", applyFilter);
 
@@ -1474,11 +1474,6 @@ clearSearch.addEventListener("click", () => {
     applyFilter();
     searchInput.focus();
 });
-
-// Date/time filter => re-apply filters
-if (dateTimeFilter) {
-    dateTimeFilter.addEventListener("change", applyFilter);
-}
 
 // ------- favorites UI -------
 // (unchanged from your current file)

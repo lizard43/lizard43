@@ -35,9 +35,8 @@ body {
 
 /* Row 1: logo | search (stretch) | gear */
 .toolbar-row.row1 {
-  grid-template-columns: auto minmax(0, 1fr) auto auto;
-  /* logo | search | hearts | gear */
-  gap: 4px;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  gap: 6px;
   align-items: center;
 }
 
@@ -46,10 +45,11 @@ body {
   min-width: 0;
 }
 
-/* Row 2: quick | datetime (stretch) | count */
+/* Row 2: quick | magnifiers | count */
 .toolbar-row.row2 {
-  grid-template-columns: auto 1fr auto;
+  grid-template-columns: auto auto 1fr;
   gap: 8px;
+  align-items: center;
 }
 
 #favoritesWrapper {
