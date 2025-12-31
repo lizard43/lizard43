@@ -848,11 +848,15 @@ function renderTable() {
         const distanceText = distance ? `${escapeHtml(String(distance))} mi` : "";
 
         // Image (left column)
-        const imgHtml = imageUrl
-            ? `<a href="${adUrl}" target="_blank" rel="noopener noreferrer">
-                 <img class="ad-thumb" src="${imageUrl}" alt="">
-               </a>`
-            : "";
+        const isImageMissing = badImageIdSet.has(adID) || !!ad.imageMissing;
+
+        const imgHtml = isImageMissing
+            ? `<div class="thumb-fallback" title="Image missing">No image</div>`
+            : (imageUrl
+                ? `<a href="${adUrl}" target="_blank" rel="noopener noreferrer">
+           <img class="ad-thumb" src="${imageUrl}" alt="">
+         </a>`
+                : `<div class="thumb-fallback" title="No image">No image</div>`);
 
         // Hide/show action
         let hideShowLabel, hideShowAction, hideShowTitle;
@@ -871,7 +875,8 @@ function renderTable() {
         const descSafe = escapeHtml(desc);
 
         return `
-<div class="ad-card ${isHidden ? "hidden-ad" : ""}" data-ad-id="${escapeAttr(adID)}">
+    <div class="ad-card ${isHidden ? "hidden-ad" : ""} ${isImageMissing ? "image-missing" : ""}" data-ad-id="...">
+
   <button class="icon-btn hide-toggle card-close"
           data-action="${hideShowAction}"
           data-ad-id="${escapeAttr(adID)}"
@@ -911,6 +916,10 @@ function renderTable() {
                 title="${favoriteIdSet.has(adID) ? "Unfavorite" : "Favorite"}">
             ${favoriteIdSet.has(adID) ? "♥" : "♡"}
         </button>
+        <div class="ad-line1">
+            ${titleHtml}
+            ${isImageMissing ? `<span class="img-missing-badge" title="Thumbnail failed to load">IMG missing</span>` : ""}
+            </div>
         </div>
     </div>
 </div>
@@ -1859,6 +1868,8 @@ async function loadAds() {
             if (!ad) return;
             const id = ad.adID || "";
             ad.hidden = hiddenIdSet.has(id) ? 1 : 0;
+
+            ad.imageMissing = badImageIdSet.has(id) ? 1 : 0;
         });
 
         applyFilter();
@@ -2022,7 +2033,17 @@ function setupBrokenImageHandler() {
             wrap.innerHTML = `<div class="thumb-fallback" title="Image unavailable">No image</div>`;
         }
 
-        if (!favoriteIdSet.has(adID)) setAdHidden(adID, true);
+        // if (!favoriteIdSet.has(adID)) setAdHidden(adID, true);
+
+        // Do NOT hide the ad anymore. Just mark as image-missing (client-only).
+        allAds = allAds.map((ad) =>
+            ad?.adID === adID ? { ...ad, imageMissing: 1 } : ad
+        );
+
+        // Optional: if you want the badge to appear immediately even before re-render,
+        // you can just leave this out (the thumb fallback already shows).
+        renderTable();
+
     }, true);
 }
 

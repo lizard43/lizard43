@@ -143,7 +143,8 @@ body {
 
 /* --- Settings gear: icon-only, blends into toolbar --- */
 .settings-gear {
-  padding: 1px 2px;      /* tighter hitbox padding */
+  padding: 1px 2px;
+  /* tighter hitbox padding */
   border: none;
   background: transparent;
   color: #bdbdbd;
@@ -504,6 +505,21 @@ a:hover {
   background: #224422;
   border-color: #55aa55;
   color: #c8ffd1;
+}
+
+.img-missing-badge {
+  margin-left: 8px;
+  font-size: 10px;
+  color: #bbb;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  padding: 1px 6px;
+  border-radius: 999px;
+  white-space: nowrap;
+  opacity: 0.9;
+}
+
+.ad-card.image-missing {
+  border-color: rgba(255, 180, 80, 0.35);
 }
 
 /* ---------------- Grid ---------------- */
