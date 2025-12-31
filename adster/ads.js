@@ -916,10 +916,6 @@ function renderTable() {
                 title="${favoriteIdSet.has(adID) ? "Unfavorite" : "Favorite"}">
             ${favoriteIdSet.has(adID) ? "♥" : "♡"}
         </button>
-        <div class="ad-line1">
-            ${titleHtml}
-            ${isImageMissing ? `<span class="img-missing-badge" title="Thumbnail failed to load">IMG missing</span>` : ""}
-            </div>
         </div>
     </div>
 </div>
