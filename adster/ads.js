@@ -1200,6 +1200,10 @@ function updateResultsPill() {
     const hiddenCount = Array.from(hiddenIdSet || []).length;
     resultsPill.title = `Showing ${shown} of ${total.toLocaleString()} • Hidden stored: ${hiddenCount.toLocaleString()}`;
 
+    const gen = generatedAtISO ? formatTimestampDisplay(generatedAtISO) : "";
+    if (gen) resultsPill.title += ` • Last scrape: ${gen}`;
+    resultsPill.title += " • Tap to refresh";
+
     // "active" look if any filtering is happening
     const hasSearch = !!(searchInput && searchInput.value && searchInput.value.trim());
     const hasDate = (getDateFilterMs() !== null);
@@ -1807,7 +1811,6 @@ async function loadAds() {
         const json = await res.json();
 
         generatedAtISO = json.generated_at || null;
-        updateGeneratedAtTooltip();
 
         if (generatedAtISO) {
             const titleTime = formatTitleTimestamp(generatedAtISO);
