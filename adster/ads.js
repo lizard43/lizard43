@@ -1256,7 +1256,7 @@ function parseCapOverridesFromSearch(rawInput) {
     }
 
     // 1) distancecap directives
-    s = s.replace(/(^|\s)(distancecap|distcap|dcap)\s*:\s*([^\s&|()!]+)/gi, (full, lead, _k, val) => {
+    s = s.replace(/(^|\s)(distance|distancecap|distcap|dcap)\s*:\s*([^\s&|()!]+)/gi, (full, lead, _k, val) => {
         const inf = parseMaybeInfinity(val);
         if (inf === Infinity) out.distanceOverrideMiles = Infinity;
         else {
@@ -1267,7 +1267,7 @@ function parseCapOverridesFromSearch(rawInput) {
     });
 
     // 2) pricecap directives
-    s = s.replace(/(^|\s)(pricecap|pcap)\s*:\s*([^\s&|()!]+)/gi, (full, lead, _k, val) => {
+    s = s.replace(/(^|\s)(price|pricecap|pcap)\s*:\s*([^\s&|()!]+)/gi, (full, lead, _k, val) => {
         const inf = parseMaybeInfinity(val);
         if (inf === Infinity) out.priceOverrideDollars = Infinity;
         else {
