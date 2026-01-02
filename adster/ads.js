@@ -833,9 +833,11 @@ function renderTable() {
         const isHidden = !!ad.hidden;
 
         // Title line (line 1)
+        const titleAttr = escapeAttr(title);
+
         const titleHtml = adUrl
-            ? `<a href="${adUrl}" target="_blank" rel="noopener noreferrer">${escapeHtml(title)}</a>`
-            : `<span>${escapeHtml(title)}</span>`;
+            ? `<a href="${adUrl}" target="_blank" rel="noopener noreferrer" title="${titleAttr}">${escapeHtml(title)}</a>`
+            : `<span title="${titleAttr}">${escapeHtml(title)}</span>`;
 
         // Seller (line 2 right side)
         const authorHtml = author
