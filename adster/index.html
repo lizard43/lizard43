@@ -62,8 +62,9 @@
 
     <!-- keep sort bar sticky by keeping it inside .toolbar -->
     <div class="sort-bar">
-      <button type="button" class="sort-btn" data-field="postedTime">
-        Time <span class="sort-indicator"></span>
+      <button type="button" id="btnTime" class="sort-btn" data-field="postedTime">
+        Time - <span id="timeCapLabel">Any</span> <span class="distance-caret">▾</span>
+        <span class="sort-indicator"></span>
       </button>
 
       <button type="button" id="btnDistance" class="sort-btn" data-field="distance">

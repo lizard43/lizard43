@@ -42,6 +42,9 @@ const distanceCapLabel = document.getElementById("distanceCapLabel");
 const btnPrice = document.getElementById("btnPrice");
 const priceCapLabel = document.getElementById("priceCapLabel");
 
+const btnTime = document.getElementById("btnTime");
+const timeCapLabel = document.getElementById("timeCapLabel");
+
 const resultsPill = document.getElementById("resultsPill");
 
 let distanceCapMiles = 500; // default
@@ -49,6 +52,9 @@ const DISTANCE_CAP_OPTIONS = [50, 100, 250, 500, 1000, Infinity];
 
 let priceCapDollars = 1000; // default
 const PRICE_CAP_OPTIONS = [100, 500, 750, 1000, 1500, 2500, 5000, 10000, Infinity];
+
+let timeCapDays = Infinity; // default (Any)
+const TIME_CAP_OPTIONS_DAYS = [30, 90, 180, Infinity]; // 1 mo, 3 mo, 6 mo, Any
 
 // --- Location settings storage keys ---
 const LS_LOC_MODE = "adster.location.mode";         // "browser" | "fixed"
@@ -58,6 +64,7 @@ const LS_LOC_CUSTOM_LON = "adster.location.customLon";
 const LS_LOC_FALLBACK_ID = "adster.location.fallbackId";
 const LS_DISTANCE_CAP = "adster.distance.capMiles"; // number, default 500
 const LS_PRICE_CAP = "adster.price.capDollars";     // number, default 1000
+const LS_TIME_CAP_DAYS = "adster.time.capDays";      // number, default Infinity
 // --- Hidden ads storage key ---
 const LS_HIDDEN_AD_IDS = "adster.hiddenAdIDs"; // JSON array of adID strings
 
@@ -181,6 +188,30 @@ function loadPriceCap() {
     return 1000;
 }
 
+function loadTimeCapDays() {
+    const raw = localStorage.getItem(LS_TIME_CAP_DAYS);
+    const n = Number(raw);
+    if (Number.isFinite(n) && n > 0) {
+        return (n >= 1000000) ? Infinity : n;
+    }
+    // default
+    return Infinity;
+}
+
+function saveTimeCapDays(n) {
+    // store Infinity as a big number (same pattern as distance/price)
+    localStorage.setItem(LS_TIME_CAP_DAYS, String(n === Infinity ? 1000000 : n));
+}
+
+function timeCapToLabel(days) {
+    if (days === Infinity) return "Any";
+    if (days === 30) return "1 mo";
+    if (days === 90) return "3 mo";
+    if (days === 180) return "6 mo";
+    // fallback
+    return `${days}d`;
+}
+
 function savePriceCap(n) {
     localStorage.setItem(LS_PRICE_CAP, String(n));
 }
@@ -269,6 +300,78 @@ function openPriceMenu() {
 function updatePriceCapLabel() {
     if (!priceCapLabel) return;
     priceCapLabel.textContent = priceToLabel(priceCapDollars);
+}
+
+function ensureTimeMenu() {
+    let menu = document.getElementById("timeMenu");
+    if (menu) return menu;
+
+    menu = document.createElement("div");
+    menu.id = "timeMenu";
+    menu.className = "time-menu hidden";
+
+    // 1 mo / 3 mo / 6 mo / any
+    TIME_CAP_OPTIONS_DAYS.forEach((days) => {
+        const b = document.createElement("button");
+        b.type = "button";
+        b.dataset.days = String(days);
+        b.textContent = timeCapToLabel(days);
+        menu.appendChild(b);
+    });
+
+    document.body.appendChild(menu);
+
+    // click away to close
+    document.addEventListener("pointerdown", (e) => {
+        if (menu.classList.contains("hidden")) return;
+        if (e.target === btnTime) return;
+        if (menu.contains(e.target)) return;
+        menu.classList.add("hidden");
+    });
+
+    // selection
+    menu.addEventListener("click", (e) => {
+        const b = e.target.closest("button[data-days]");
+        if (!b) return;
+
+        const raw = b.dataset.days;
+        const val = (raw === "Infinity") ? Infinity : Number(raw);
+        if (val !== Infinity && (!Number.isFinite(val) || val <= 0)) return;
+
+        timeCapDays = val;
+        saveTimeCapDays(val);
+        updateTimeCapLabel();
+        menu.classList.add("hidden");
+        applyFilter();
+    });
+
+    return menu;
+}
+
+function openTimeMenu() {
+    if (!btnTime) return;
+    const menu = ensureTimeMenu();
+
+    Array.from(menu.querySelectorAll("button")).forEach((b) => {
+        const raw = b.dataset.days;
+        const val = (raw === "Infinity") ? Infinity : Number(raw);
+        const active = (timeCapDays === Infinity && val === Infinity) || (val === timeCapDays);
+        b.classList.toggle("active", active);
+    });
+
+    const r = btnTime.getBoundingClientRect();
+    const top = r.bottom + 6;
+    const left = Math.min(r.left, window.innerWidth - 190);
+
+    menu.style.top = `${top}px`;
+    menu.style.left = `${left}px`;
+
+    menu.classList.remove("hidden");
+}
+
+function updateTimeCapLabel() {
+    if (!timeCapLabel) return;
+    timeCapLabel.textContent = timeCapToLabel(timeCapDays);
 }
 
 
@@ -1214,11 +1317,12 @@ function updateResultsPill() {
     // "active" look if any filtering is happening
     const hasSearch = !!(searchInput && searchInput.value && searchInput.value.trim());
     const hasDate = (getDateFilterMs() !== null);
+    const hasTimeCap = (typeof timeCapDays === "number" && timeCapDays !== Infinity);
     const hasDistanceCap = (typeof distanceCapMiles === "number" && distanceCapMiles !== Infinity);
     const hasPriceCap = (typeof priceCapDollars === "number" && Number.isFinite(priceCapDollars) && priceCapDollars > 0);
     const hasHiddenFiltering = !showHidden; // when false, hidden are excluded
 
-    const isActive = hasSearch || hasDate || hasDistanceCap || hasPriceCap || hasHiddenFiltering;
+    const isActive = hasSearch || hasDate || hasTimeCap || hasDistanceCap || hasPriceCap || hasHiddenFiltering;
     resultsPill.classList.toggle("active", isActive);
 }
 
@@ -1239,6 +1343,7 @@ function parseCapOverridesFromSearch(rawInput) {
         cleanedRaw: String(rawInput ?? ""),
         distanceOverrideMiles: null, // null = no override
         priceOverrideDollars: null,  // null = no override
+        timeOverrideDays: null,      // null = no override
     };
 
     let s = out.cleanedRaw;
@@ -1257,8 +1362,27 @@ function parseCapOverridesFromSearch(rawInput) {
         return Number(String(m[0]).replace(/,/g, ""));
     }
 
+    function parseTimeDaysToken(v) {
+        const t = String(v ?? "").trim().toLowerCase();
+        if (!t) return null;
+
+        if (t === "any" || t === "inf" || t === "infinity" || t === "max") return Infinity;
+        if (t === "1mo" || t === "1m" || t === "1month" || t === "month" || t === "mo") return 30;
+        if (t === "3mo" || t === "3m" || t === "3months") return 90;
+        if (t === "6mo" || t === "6m" || t === "6months") return 180;
+
+        // support numeric like 30d or 45days
+        const m = t.match(/^(\d+)(d|day|days)$/i);
+        if (m) {
+            const n = Number(m[1]);
+            if (Number.isFinite(n) && n > 0) return n;
+        }
+
+        return null;
+    }
+
     // 1) distancecap directives
-    s = s.replace(/(^|\s)(d|dist|distance|distancecap|distcap|dcap)\s*:\s*([^\s&|()!]+)/gi, (full, lead, _k, val) => {
+    s = s.replace(/(^|\s)(distance|distancecap|distcap|dcap)\s*:\s*([^\s&|()!]+)/gi, (full, lead, _k, val) => {
         const inf = parseMaybeInfinity(val);
         if (inf === Infinity) out.distanceOverrideMiles = Infinity;
         else {
@@ -1269,13 +1393,20 @@ function parseCapOverridesFromSearch(rawInput) {
     });
 
     // 2) pricecap directives
-    s = s.replace(/(^|\s)(p|price|pricecap|pcap)\s*:\s*([^\s&|()!]+)/gi, (full, lead, _k, val) => {
+    s = s.replace(/(^|\s)(price|pricecap|pcap)\s*:\s*([^\s&|()!]+)/gi, (full, lead, _k, val) => {
         const inf = parseMaybeInfinity(val);
         if (inf === Infinity) out.priceOverrideDollars = Infinity;
         else {
             const n = parseNumberLoose(val);
             if (Number.isFinite(n) && n >= 0) out.priceOverrideDollars = n;
         }
+        return lead;
+    });
+
+    // 3) timecap directives
+    s = s.replace(/(^|\s)(t:time|timecap|tcap)\s*:\s*([^\s&|()!]+)/gi, (full, lead, _k, val) => {
+        const days = parseTimeDaysToken(val);
+        if (days !== null) out.timeOverrideDays = days;
         return lead;
     });
 
@@ -1300,7 +1431,7 @@ function parseCapOverridesFromSearch(rawInput) {
 
 function applyFilter() {
     const rawInput = searchInput.value;   // keep exact user input
-    const filterMs = getDateFilterMs();
+    const quickFilterMs = getDateFilterMs();
 
     // Pull out temporary cap overrides from the search text
     const overrides = parseCapOverridesFromSearch(rawInput);
@@ -1311,6 +1442,9 @@ function applyFilter() {
     }
     if (btnPrice) {
         btnPrice.classList.toggle("override-active", overrides.priceOverrideDollars !== null);
+    }
+    if (btnTime) {
+        btnTime.classList.toggle("override-active", overrides.timeOverrideDays !== null);
     }
 
     // Cleaned search text (directives removed) drives matching
@@ -1324,6 +1458,19 @@ function applyFilter() {
 
     const effectivePriceCap =
         (overrides.priceOverrideDollars !== null) ? overrides.priceOverrideDollars : priceCapDollars;
+
+    const effectiveTimeCapDays =
+        (overrides.timeOverrideDays !== null) ? overrides.timeOverrideDays : timeCapDays;
+
+    // Combine quick-range cutoff and cap cutoff (tightest / most recent wins)
+    let filterMs = null;
+    if (Number.isFinite(quickFilterMs)) {
+        filterMs = quickFilterMs;
+    }
+    if (effectiveTimeCapDays !== Infinity && Number.isFinite(effectiveTimeCapDays) && effectiveTimeCapDays > 0) {
+        const capMs = Date.now() - (effectiveTimeCapDays * 24 * 60 * 60 * 1000);
+        filterMs = (filterMs === null) ? capMs : Math.max(filterMs, capMs);
+    }
 
     const prepareBlob = (ad) =>
         [
@@ -1882,6 +2029,7 @@ document.querySelectorAll(".sort-btn").forEach((btn) => {
     const f = btn.getAttribute("data-field");
     if (f === "distance") return; // handled by hybrid handler below
     if (f === "price") return;    // handled by hybrid handler below
+    if (f === "postedTime") return; // handled by hybrid handler below
 
     btn.addEventListener("click", () => {
         if (!f) return;
@@ -1904,6 +2052,17 @@ function sortByDistanceClick() {
     } else {
         sortField = f;
         sortDir = SORT_DEFAULT_DIR[f] || "asc";
+    }
+    renderTable();
+}
+
+function sortByTimeClick() {
+    const f = "postedTime";
+    if (f === sortField) {
+        sortDir = sortDir === "asc" ? "desc" : "asc";
+    } else {
+        sortField = f;
+        sortDir = SORT_DEFAULT_DIR[f] || "desc";
     }
     renderTable();
 }
@@ -2004,6 +2163,47 @@ function sortByPriceClick() {
     btnPrice.addEventListener("pointerleave", clear);
 })();
 
+(function setupTimeHybrid() {
+    if (!btnTime) return;
+
+    let pressTimer = null;
+    let longPressFired = false;
+
+    const LONG_PRESS_MS = 450;
+
+    btnTime.addEventListener("pointerdown", (e) => {
+        longPressFired = false;
+        pressTimer = setTimeout(() => {
+            longPressFired = true;
+            openTimeMenu();
+        }, LONG_PRESS_MS);
+
+        btnTime.setPointerCapture?.(e.pointerId);
+    });
+
+    const clear = () => {
+        if (pressTimer) {
+            clearTimeout(pressTimer);
+            pressTimer = null;
+        }
+    };
+
+    btnTime.addEventListener("pointerup", (e) => {
+        clear();
+
+        if (longPressFired) {
+            e.preventDefault();
+            e.stopPropagation();
+            return;
+        }
+
+        sortByTimeClick();
+    });
+
+    btnTime.addEventListener("pointercancel", clear);
+    btnTime.addEventListener("pointerleave", clear);
+})();
+
 function setupBrokenImageHandler() {
     if (!tbody) return;
 
@@ -2064,6 +2264,10 @@ function setupBrokenImageHandler() {
     // price cap init
     priceCapDollars = loadPriceCap();
     updatePriceCapLabel();
+
+    // time cap init
+    timeCapDays = loadTimeCapDays();
+    updateTimeCapLabel();
 
     await resolveHomeLocation(); // pick browser or fallback location (+ toast)
     await loadAds();             // load ads and compute distances with that location
