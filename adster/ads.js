@@ -1452,6 +1452,29 @@ function applyFilter() {
         btnTime.classList.toggle("override-active", overrides.timeOverrideDays !== null);
     }
 
+    // UI: while overridden, TEMP show the overridden value in the pill label.
+    // When override clears, revert to the real stored cap value.
+    if (distanceCapLabel) {
+        const v = (overrides.distanceOverrideMiles !== null)
+            ? overrides.distanceOverrideMiles
+            : distanceCapMiles;
+        distanceCapLabel.textContent = capToLabel(v);
+    }
+
+    if (priceCapLabel) {
+        const v = (overrides.priceOverrideDollars !== null)
+            ? overrides.priceOverrideDollars
+            : priceCapDollars;
+        priceCapLabel.textContent = priceToLabel(v);
+    }
+
+    if (timeCapLabel) {
+        const v = (overrides.timeOverrideDays !== null)
+            ? overrides.timeOverrideDays
+            : timeCapDays;
+        timeCapLabel.textContent = timeCapToLabel(v);
+    }
+
     // Cleaned search text (directives removed) drives matching
     const raw = overrides.cleanedRaw;
     const qTrim = raw.trim();
