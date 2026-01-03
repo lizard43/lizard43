@@ -998,10 +998,11 @@ body>.modal {
   font-variant-numeric: tabular-nums;
 }
 
-/* ---------------- Cap menus (Distance + Price) ---------------- */
+/* ---------------- Cap menus ---------------- */
 
 .distance-menu,
-.price-menu {
+.price-menu,
+.time-menu {
   position: fixed;
   z-index: 10000;
   min-width: 170px;
@@ -1013,12 +1014,14 @@ body>.modal {
 }
 
 .distance-menu.hidden,
-.price-menu.hidden {
+.price-menu.hidden,
+.time-menu.hidden {
   display: none;
 }
 
 .distance-menu button,
-.price-menu button {
+.price-menu button,
+.time-menu button {
   width: 100%;
   text-align: left;
   padding: 8px 10px;
@@ -1031,12 +1034,14 @@ body>.modal {
 }
 
 .distance-menu button:hover,
-.price-menu button:hover {
+.price-menu button:hover,
+.time-menu button:hover {
   background: rgba(255, 255, 255, 0.08);
 }
 
 .distance-menu button.active,
-.price-menu button.active {
+.price-menu button.active,
+.time-menu button.active {
   background: #224422;
   border-color: #55aa55;
   color: #c8ffd1;

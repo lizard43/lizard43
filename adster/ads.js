@@ -54,6 +54,8 @@ let timeCapDays = Infinity; // default (Any)
 
 const PRICE_CAP_OPTIONS = [100, 500, 750, 1000, 1500, 2500, 5000, 10000, Infinity];
 
+const TIME_CAP_OPTIONS = [30, 90, 180, Infinity];
+
 // --- Location settings storage keys ---
 const LS_LOC_MODE = "adster.location.mode";         // "browser" | "fixed"
 const LS_LOC_SAVED_ID = "adster.location.savedId";
@@ -62,6 +64,8 @@ const LS_LOC_CUSTOM_LON = "adster.location.customLon";
 const LS_LOC_FALLBACK_ID = "adster.location.fallbackId";
 const LS_DISTANCE_CAP = "adster.distance.capMiles"; // number, default 500
 const LS_PRICE_CAP = "adster.price.capDollars";     // number, default 1000
+const LS_TIME_CAP_DAYS = "adster.time.capDays"; // number, store 30/90/180 or 1000000 for Infinity
+
 // --- Hidden ads storage key ---
 const LS_HIDDEN_AD_IDS = "adster.hiddenAdIDs"; // JSON array of adID strings
 
@@ -356,6 +360,106 @@ function openDistanceMenu() {
 function updateDistanceCapLabel() {
     if (!distanceCapLabel) return;
     distanceCapLabel.textContent = capToLabel(distanceCapMiles);
+}
+
+function saveTimeCapDays(n) {
+    // store Infinity as big number like others
+    localStorage.setItem(LS_TIME_CAP_DAYS, String(n === Infinity ? 1000000 : n));
+}
+
+function loadTimeCapDays() {
+    const raw = localStorage.getItem(LS_TIME_CAP_DAYS);
+    const n = Number(raw);
+    if (Number.isFinite(n) && n > 0) {
+        return (n >= 1000000) ? Infinity : n;
+    }
+    return Infinity;
+}
+
+function timeCapToLabel(days) {
+    if (days === Infinity) return "Any";
+    if (days === 30) return "1 mo";
+    if (days === 90) return "3 mo";
+    if (days === 180) return "6 mo";
+    return `${days}d`;
+}
+
+function updateTimeCapLabel() {
+    if (!timeCapLabel) return;
+    timeCapLabel.textContent = timeCapToLabel(timeCapDays);
+}
+
+function ensureTimeMenu() {
+    let menu = document.getElementById("timeMenu");
+    if (menu) return menu;
+
+    menu = document.createElement("divिधान");
+    menu.id = "timeMenu";
+    menu.className = "time-menu hidden";
+
+    TIME_CAP_OPTIONS.forEach((opt) => {
+        const b = document.createElement("button");
+        b.type = "button";
+        b.dataset.days = String(opt);
+
+        if (opt === Infinity) b.textContent = "Any";
+        else if (opt === 30) b.textContent = "1 mo";
+        else if (opt === 90) b.textContent = "3 mo";
+        else if (opt === 180) b.textContent = "6 mo";
+        else b.textContent = `${opt} days`;
+
+        menu.appendChild(b);
+    });
+
+    document.body.appendChild(menu);
+
+    // click away to close
+    document.addEventListener("pointerdown", (e) => {
+        if (menu.classList.contains("hidden")) return;
+        if (e.target === btnTime) return;
+        if (menu.contains(e.target)) return;
+        menu.classList.add("hidden");
+    });
+
+    menu.addEventListener("click", (e) => {
+        const b = e.target.closest("button[data-days]");
+        if (!b) return;
+
+        const raw = b.dataset.days;
+        const val = (raw === "Infinity") ? Infinity : Number(raw);
+        if (val !== Infinity && (!Number.isFinite(val) || val <= 0)) return;
+
+        timeCapDays = val;
+        saveTimeCapDays(val);
+
+        updateTimeCapLabel();
+        menu.classList.add("hidden");
+        applyFilter();
+    });
+
+    return menu;
+}
+
+function openTimeMenu() {
+    if (!btnTime) return;
+    const menu = ensureTimeMenu();
+
+    // mark active item
+    Array.from(menu.querySelectorAll("button")).forEach((b) => {
+        const raw = b.dataset.days;
+        const val = (raw === "Infinity") ? Infinity : Number(raw);
+        const active = (timeCapDays === Infinity && val === Infinity) || (val === timeCapDays);
+        b.classList.toggle("active", active);
+    });
+
+    const r = btnTime.getBoundingClientRect();
+    const top = r.bottom + 6;
+    const left = Math.min(r.left, window.innerWidth - 190);
+
+    menu.style.top = `${top}px`;
+    menu.style.left = `${left}px`;
+
+    menu.classList.remove("hidden");
 }
 
 async function loadLocationsJson() {
@@ -1928,8 +2032,9 @@ async function loadAds() {
 // sort-bar button sorting
 document.querySelectorAll(".sort-btn").forEach((btn) => {
     const f = btn.getAttribute("data-field");
-    if (f === "distance") return; // handled by hybrid handler below
-    if (f === "price") return;    // handled by hybrid handler below
+    if (f === "distance") return;    // handled by hybrid handler below
+    if (f === "price") return;       // handled by hybrid handler below
+    if (f === "postedTime") return;  // handled by time hybrid handler below
 
     btn.addEventListener("click", () => {
         if (!f) return;
