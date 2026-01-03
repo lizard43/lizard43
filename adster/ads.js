@@ -393,7 +393,7 @@ function ensureTimeMenu() {
     let menu = document.getElementById("timeMenu");
     if (menu) return menu;
 
-    menu = document.createElement("divिधान");
+    menu = document.createElement("div");
     menu.id = "timeMenu";
     menu.className = "time-menu hidden";
 
@@ -2157,6 +2157,64 @@ function sortByPriceClick() {
     btnPrice.addEventListener("pointerleave", clear);
 })();
 
+function sortByTimeClick() {
+    const f = "postedTime";
+    if (f === sortField) {
+        sortDir = sortDir === "asc" ? "desc" : "asc";
+    } else {
+        sortField = f;
+        sortDir = SORT_DEFAULT_DIR[f] || "desc";
+    }
+    renderTable();
+}
+
+(function setupTimeHybrid() {
+    if (!btnTime) return;
+
+    let pressTimer = null;
+    let longPressFired = false;
+
+    const LONG_PRESS_MS = 450;
+
+    btnTime.addEventListener("pointerdown", (e) => {
+        longPressFired = false;
+        pressTimer = setTimeout(() => {
+            longPressFired = true;
+            openTimeMenu();
+        }, LONG_PRESS_MS);
+
+        btnTime.setPointerCapture?.(e.pointerId);
+    });
+
+    const clear = () => {
+        if (pressTimer) {
+            clearTimeout(pressTimer);
+            pressTimer = null;
+        }
+    };
+
+    btnTime.addEventListener("pointerup", (e) => {
+        clear();
+
+        // if menu opened, don't sort
+        if (longPressFired) {
+            e.preventDefault();
+            e.stopPropagation();
+            return;
+        }
+
+        sortByTimeClick();
+    });
+
+    btnTime.addEventListener("pointercancel", clear);
+    btnTime.addEventListener("pointerleave", clear);
+
+    // prevent long-press context menu from stealing the gesture
+    btnTime.addEventListener("contextmenu", (ev) => {
+        ev.preventDefault();
+    });
+})();
+
 function setupBrokenImageHandler() {
     if (!tbody) return;
 
@@ -2217,6 +2275,10 @@ function setupBrokenImageHandler() {
     // price cap init
     priceCapDollars = loadPriceCap();
     updatePriceCapLabel();
+
+    // time cap init
+    timeCapDays = loadTimeCapDays();
+    updateTimeCapLabel();
 
     await resolveHomeLocation(); // pick browser or fallback location (+ toast)
     await loadAds();             // load ads and compute distances with that location
