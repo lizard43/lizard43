@@ -49,6 +49,8 @@ const timeCapLabel = document.getElementById("timeCapLabel");
 
 const resultsPill = document.getElementById("resultsPill");
 
+const clearSearch = document.getElementById("clearSearch");
+
 let distanceCapMiles = 500; // default
 const DISTANCE_CAP_OPTIONS = [50, 100, 250, 500, 1000, Infinity];
 
@@ -117,6 +119,14 @@ function saveFavSearch(slot, value) {
 
     localStorage.setItem(key, v);
     return v;
+}
+
+function autosizeSearchBox() {
+    if (!searchInput) return;
+    // reset so scrollHeight is accurate
+    searchInput.style.height = "auto";
+    // allow it to grow, CSS max-height will cap it
+    searchInput.style.height = `${searchInput.scrollHeight}px`;
 }
 
 function loadBadImageIds() {
@@ -1004,7 +1014,7 @@ function renderTable() {
         const descSafe = escapeHtml(desc);
 
         return `
-    <div class="ad-card ${isHidden ? "hidden-ad" : ""} ${isImageMissing ? "image-missing" : ""}" data-ad-id="...">
+    <div class="ad-card ${isHidden ? "hidden-ad" : ""} ${isImageMissing ? "image-missing" : ""}" data-ad-id="${escapeAttr(adID)}">
 
   <button class="icon-btn hide-toggle card-close"
           data-action="${hideShowAction}"
@@ -1367,8 +1377,6 @@ function parseCapOverridesFromSearch(rawInput) {
         distanceOverrideMiles: null, // null = no override
         priceOverrideDollars: null,  // null = no override
         timeOverrideDays: null,      // null = no override
-
-        timeOverrideDays: null,      // null = no override
     };
 
     let s = out.cleanedRaw;
@@ -1661,18 +1669,24 @@ if (btnLast1w) {
 }
 
 searchInput.addEventListener("input", () => {
-    clearTimeout(searchDebounceTimer);
+    autosizeSearchBox();
 
+    clearTimeout(searchDebounceTimer);
     searchDebounceTimer = setTimeout(() => {
         applyFilter();
     }, SEARCH_DEBOUNCE_MS);
 });
 
-const clearSearch = document.getElementById("clearSearch");
+searchInput.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") {
+        e.preventDefault();
+    }
+});
 
 clearSearch.addEventListener("click", () => {
     clearTimeout(searchDebounceTimer);
     searchInput.value = "";
+    autosizeSearchBox();
     applyFilter();
     searchInput.focus();
 });
@@ -2340,5 +2354,7 @@ function setupBrokenImageHandler() {
 
     await resolveHomeLocation(); // pick browser or fallback location (+ toast)
     await loadAds();             // load ads and compute distances with that location
+
+    autosizeSearchBox();
 
 })();

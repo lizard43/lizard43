@@ -13,7 +13,7 @@
   <div class="toolbar">
     <div class="toolbar-row row1">
       <div class="search-wrapper">
-        <input id="searchInput" type="text" placeholder="Search title, description, location, author…" />
+        <textarea id="searchInput" rows="2" placeholder="Search title, description, location, author…"></textarea>
         <button id="clearSearch" class="clear-btn" title="Clear search">×</button>
       </div>
 
@@ -65,9 +65,15 @@
           </span>
         </button>
 
-        <button type="button" id="btnHiddenSearch" class="favsearch-btn hiddensearch-btn"
-          title="Include hidden ads in search">
-          👁️
+        <button type="button" id="btnHiddenSearch" class="favsearch-btn" title="Include hidden ads in search"
+          aria-label="Include hidden ads in search">
+          <span class="favsearch-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" class="favsearch-svg" focusable="false" aria-hidden="true">
+              <!-- simple “eye” outline, same stroke style via .favsearch-svg -->
+              <path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z"></path>
+              <circle cx="12" cy="12" r="3"></circle>
+            </svg>
+          </span>
         </button>
 
       </div>

@@ -222,18 +222,51 @@ body {
   padding-right: 32px;
 }
 
-/* Make search field ~2 lines tall while staying single-line input */
-.search-wrapper input#searchInput {
-  height: 48px;
-  /* ~2 lines */
-  padding-top: 12px;
-  /* keep text centered */
-  padding-bottom: 12px;
+/* Search box as a 2-line textarea that wraps, then internally scrolls (no scrollbar shown) */
+.search-wrapper #searchInput {
+  width: 100%;
+  min-width: 0;
+
+  /* match toolbar input styling */
+  padding: 6px 8px;
+  border-radius: 4px;
+  border: 1px solid #444;
+  background: #111;
+  color: #eee;
+
+  /* 2-line behavior */
+  resize: none;
+  /* no drag handle */
+  overflow-y: auto;
+  /* allow internal scroll */
+  overflow-x: hidden;
+  /* no horizontal scroll */
   line-height: 20px;
-  /* prevents weird vertical metrics */
+  min-height: calc(20px * 2 + 12px);
+  /* 2 lines + vertical padding */
+  max-height: calc(20px * 5 + 12px);
+  /* “reasonable” max (5 lines) */
+
+  /* room for the clear X */
   padding-right: 40px;
-  /* keep room for the clear X */
+
+  /* nicer typing */
+  white-space: pre-wrap;
+  word-break: break-word;
 }
+
+/* Hide scrollbar but keep scrolling working */
+.search-wrapper #searchInput::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
+.search-wrapper #searchInput {
+  scrollbar-width: none;
+  /* Firefox */
+}
+
+/* Clear button stays vertically centered (already uses top:50% translateY) */
 
 .clear-btn {
   position: absolute;
@@ -1098,9 +1131,4 @@ body>.modal {
 
 .ad-card-footer .ad-footer-author a:hover {
   text-decoration: underline;
-}
-
-/* hidden-search toggle (eye icon) */
-.hiddensearch-btn {
-  font-size: 16px;
 }
