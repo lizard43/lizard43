@@ -222,17 +222,30 @@ body {
   padding-right: 32px;
 }
 
+/* Make search field ~2 lines tall while staying single-line input */
+.search-wrapper input#searchInput {
+  height: 48px;
+  /* ~2 lines */
+  padding-top: 12px;
+  /* keep text centered */
+  padding-bottom: 12px;
+  line-height: 20px;
+  /* prevents weird vertical metrics */
+  padding-right: 40px;
+  /* keep room for the clear X */
+}
+
 .clear-btn {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
   border: none;
   background: transparent;
-  color: #9a9a9a;
+  color: #8f4949;
 
   right: 2px;
-  height: 32px;
-  width: 32px;
+  height: 40px;
+  width: 40px;
   font-size: 24px;
 
   cursor: pointer;
