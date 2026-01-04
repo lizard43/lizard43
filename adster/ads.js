@@ -998,13 +998,28 @@ function renderTable() {
                 : `<div class="thumb-fallback" title="No image">No image</div>`);
 
         // Hide/show action
-        let hideShowLabel, hideShowAction, hideShowTitle;
+        let hideShowIconHtml, hideShowAction, hideShowTitle;
+
+        const ICON_EYE = `
+  <svg viewBox="0 0 24 24" class="icon-svg" focusable="false" aria-hidden="true">
+    <path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z"></path>
+    <circle cx="12" cy="12" r="3"></circle>
+  </svg>
+`.trim();
+
+        const ICON_X = `
+  <svg viewBox="0 0 24 24" class="icon-svg" focusable="false" aria-hidden="true">
+    <path d="M6 6l12 12"></path>
+    <path d="M18 6L6 18"></path>
+  </svg>
+`.trim();
+
         if (isHidden) {
-            hideShowLabel = "👁️";
+            hideShowIconHtml = ICON_EYE;
             hideShowAction = "show";
             hideShowTitle = "Unhide ad";
         } else {
-            hideShowLabel = "✖";
+            hideShowIconHtml = ICON_X;
             hideShowAction = "hide";
             hideShowTitle = "Hide ad";
         }
@@ -1016,12 +1031,13 @@ function renderTable() {
         return `
     <div class="ad-card ${isHidden ? "hidden-ad" : ""} ${isImageMissing ? "image-missing" : ""}" data-ad-id="${escapeAttr(adID)}">
 
-  <button class="icon-btn hide-toggle card-close"
-          data-action="${hideShowAction}"
-          data-ad-id="${escapeAttr(adID)}"
-          title="${escapeAttr(hideShowTitle)}">
-    ${hideShowLabel}
-  </button>
+    <button class="icon-btn hide-toggle card-close"
+            data-action="${hideShowAction}"
+            data-ad-id="${escapeAttr(adID)}"
+            title="${escapeAttr(hideShowTitle)}"
+            aria-label="${escapeAttr(hideShowTitle)}">
+    ${hideShowIconHtml}
+    </button>
 
   <div class="ad-thumb-wrap">
     ${imgHtml}
