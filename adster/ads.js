@@ -71,6 +71,9 @@ const LS_TIME_CAP_DAYS = "adster.time.capDays"; // number, store 30/90/180 or 10
 
 // --- Hidden ads storage key ---
 const LS_HIDDEN_AD_IDS = "adster.hiddenAdIDs"; // JSON array of adID strings
+const LS_INCLUDE_HIDDEN_IN_SEARCH = "adster.includeHiddenInSearch"; // "1" | "0"
+let includeHiddenInSearch = (localStorage.getItem(LS_INCLUDE_HIDDEN_IN_SEARCH) === "1");
+const btnHiddenSearch = document.getElementById("btnHiddenSearch");
 
 // --- Show hidden ads setting key ---
 const LS_SHOW_HIDDEN = "adster.showHidden"; // "1" | "0"
@@ -85,11 +88,13 @@ const LS_BAD_IMAGE_AD_IDS = "adster.badImageAdIDs"; // JSON array of adID string
 const LS_FAV_SEARCH_1 = "adster.favSearch.1";
 const LS_FAV_SEARCH_2 = "adster.favSearch.2";
 const LS_FAV_SEARCH_3 = "adster.favSearch.3";
+const LS_FAV_SEARCH_4 = "adster.favSearch.4";
 
 function favSearchKey(slot) {
     if (slot === 1) return LS_FAV_SEARCH_1;
     if (slot === 2) return LS_FAV_SEARCH_2;
-    return LS_FAV_SEARCH_3;
+    if (slot === 3) return LS_FAV_SEARCH_3;
+    if (slot === 4) return LS_FAV_SEARCH_4;
 }
 
 function loadFavSearch(slot) {
@@ -168,6 +173,17 @@ function saveHiddenIds(set) {
 
 // in-memory set of hidden adIDs
 let hiddenIdSet = loadHiddenIds();
+
+function saveIncludeHiddenInSearch(v) {
+    localStorage.setItem(LS_INCLUDE_HIDDEN_IN_SEARCH, v ? "1" : "0");
+}
+function renderHiddenSearchToggle() {
+    if (!btnHiddenSearch) return;
+    btnHiddenSearch.classList.toggle("active", !!includeHiddenInSearch);
+    btnHiddenSearch.title = includeHiddenInSearch
+        ? "Including hidden ads in search"
+        : "Include hidden ads in search";
+}
 
 // built-in default if nothing else is available
 const DEFAULT_HOME = { lat: 30.40198, lon: -86.87008 }; // Navarre, FL (change if you want)
@@ -576,7 +592,7 @@ function setupFavoriteSearchHearts() {
     const wrapper = document.getElementById("favSearchWrapper");
     if (!wrapper) return;
 
-    const buttons = Array.from(wrapper.querySelectorAll(".favsearch-btn"));
+    const buttons = Array.from(wrapper.querySelectorAll(".favsearch-btn[data-slot]"));
 
     function flash(btn) {
         btn.classList.add("saved-flash");
@@ -1327,7 +1343,7 @@ function updateResultsPill() {
     const hasDate = (getDateFilterMs() !== null);
     const hasDistanceCap = (typeof distanceCapMiles === "number" && distanceCapMiles !== Infinity);
     const hasPriceCap = (typeof priceCapDollars === "number" && Number.isFinite(priceCapDollars) && priceCapDollars > 0);
-    const hasHiddenFiltering = !showHidden; // when false, hidden are excluded
+    const hasHiddenFiltering = (!showHidden && !includeHiddenInSearch);
 
     const isActive = hasSearch || hasDate || hasDistanceCap || hasPriceCap || hasHiddenFiltering;
     resultsPill.classList.toggle("active", isActive);
@@ -1557,8 +1573,9 @@ function applyFilter() {
     }
 
     filteredAds = allAds.filter((ad) => {
-        // respect hidden flag unless showHidden is on
-        if (!showHidden && ad.hidden) return false;
+        // - showHidden (settings) shows all hidden regardless of search
+        // - includeHiddenInSearch (new toggle) allows hidden to participate in search+filters
+        if (ad.hidden && !showHidden && !includeHiddenInSearch) return false;
 
         // text / boolean condition
         if (!matcher(ad)) return false;
@@ -1959,6 +1976,13 @@ async function setupSettingsModal() {
     });
 }
 
+btnHiddenSearch?.addEventListener("click", () => {
+    includeHiddenInSearch = !includeHiddenInSearch;
+    saveIncludeHiddenInSearch(includeHiddenInSearch);
+    renderHiddenSearchToggle();
+    applyFilter();
+});
+
 // event delegation for action buttons
 tbody.addEventListener("click", (e) => {
     const btn = e.target.closest("button[data-action]");
@@ -2299,6 +2323,7 @@ function setupBrokenImageHandler() {
 
     // showHidden init (from settings)
     showHidden = loadShowHidden();
+    renderHiddenSearchToggle();
 
     // distance cap init
     const stored = loadDistanceCap();

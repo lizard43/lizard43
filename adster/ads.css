@@ -1086,3 +1086,8 @@ body>.modal {
 .ad-card-footer .ad-footer-author a:hover {
   text-decoration: underline;
 }
+
+/* hidden-search toggle (eye icon) */
+.hiddensearch-btn {
+  font-size: 16px;
+}
