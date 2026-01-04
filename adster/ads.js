@@ -26,6 +26,9 @@ let homeLon = null;
 
 let generatedAtISO = null;
 
+let searchDebounceTimer = null;
+const SEARCH_DEBOUNCE_MS = 250;
+
 const searchInput = document.getElementById("searchInput");
 const tbody = document.getElementById("adsTbody");
 const favoritesWrapper = document.getElementById("favoritesWrapper");
@@ -1640,7 +1643,13 @@ if (btnLast1w) {
     btnLast1w.addEventListener("click", () => setFilterRelativeHoursToggle(3, 168));
 }
 
-searchInput.addEventListener("input", applyFilter);
+searchInput.addEventListener("input", () => {
+  clearTimeout(searchDebounceTimer);
+
+  searchDebounceTimer = setTimeout(() => {
+    applyFiltersAndRender();
+  }, SEARCH_DEBOUNCE_MS);
+});
 
 const clearSearch = document.getElementById("clearSearch");
 
