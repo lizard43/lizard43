@@ -1644,16 +1644,17 @@ if (btnLast1w) {
 }
 
 searchInput.addEventListener("input", () => {
-  clearTimeout(searchDebounceTimer);
+    clearTimeout(searchDebounceTimer);
 
-  searchDebounceTimer = setTimeout(() => {
-    applyFilter;
-  }, SEARCH_DEBOUNCE_MS);
+    searchDebounceTimer = setTimeout(() => {
+        applyFilter;
+    }, SEARCH_DEBOUNCE_MS);
 });
 
 const clearSearch = document.getElementById("clearSearch");
 
 clearSearch.addEventListener("click", () => {
+    clearTimeout(searchDebounceTimer);
     searchInput.value = "";
     applyFilter();
     searchInput.focus();
