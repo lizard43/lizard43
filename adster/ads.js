@@ -27,7 +27,7 @@ let homeLon = null;
 let generatedAtISO = null;
 
 let searchDebounceTimer = null;
-const SEARCH_DEBOUNCE_MS = 500;
+const SEARCH_DEBOUNCE_MS = 400;
 
 const searchInput = document.getElementById("searchInput");
 const tbody = document.getElementById("adsTbody");
