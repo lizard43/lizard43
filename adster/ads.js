@@ -1647,7 +1647,7 @@ searchInput.addEventListener("input", () => {
     clearTimeout(searchDebounceTimer);
 
     searchDebounceTimer = setTimeout(() => {
-        applyFilter;
+        applyFilter();
     }, SEARCH_DEBOUNCE_MS);
 });
 
