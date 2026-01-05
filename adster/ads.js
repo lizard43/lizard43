@@ -993,7 +993,7 @@ function renderTable() {
             ? `<div class="thumb-fallback" title="Image missing">No image</div>`
             : (imageUrl
                 ? `<a href="${adUrl}" target="_blank" rel="noopener noreferrer">
-           <img class="ad-thumb" src="${imageUrl}" alt="">
+           <img class="ad-thumb" src="${imageUrl}" alt="" loading="lazy" decoding="async">
          </a>`
                 : `<div class="thumb-fallback" title="No image">No image</div>`);
 
@@ -1779,11 +1779,68 @@ function setAdHidden(adID, hidden) {
         else hiddenIdSet.delete(adID);
         saveHiddenIds(hiddenIdSet);
 
-        // update local model
-        allAds = allAds.map((ad) =>
-            ad.adID === adID ? { ...ad, hidden: hidden ? 1 : 0 } : ad
-        );
+        // update local model (avoid rebuilding the whole array)
+        if (Array.isArray(allAds)) {
+            for (let i = 0; i < allAds.length; i++) {
+                const ad = allAds[i];
+                if (ad?.adID === adID) {
+                    ad.hidden = hidden ? 1 : 0;
+                    break;
+                }
+            }
+        }
 
+        // --- PERF: avoid full-grid re-render on every hide click ---
+        const card = tbody?.querySelector(`.ad-card[data-ad-id="${CSS.escape(adID)}"]`);
+
+        if (card) {
+            if (hidden && !showHidden) {
+                // Remove from DOM + filteredAds, then update counts.
+                card.remove();
+                if (Array.isArray(filteredAds)) {
+                    filteredAds = filteredAds.filter((a) => a?.adID !== adID);
+                }
+                updateResultsPill();
+                return;
+            }
+
+            // Update this one card’s UI (classes + hide/show button)
+            card.classList.toggle("hidden-ad", !!hidden);
+
+            const btn = card.querySelector("button.hide-toggle[data-action]");
+            if (btn) {
+                const ICON_EYE = `
+  <svg viewBox="0 0 24 24" class="icon-svg" focusable="false" aria-hidden="true">
+    <path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z"></path>
+    <circle cx="12" cy="12" r="3"></circle>
+  </svg>
+`.trim();
+
+                const ICON_X = `
+  <svg viewBox="0 0 24 24" class="icon-svg" focusable="false" aria-hidden="true">
+    <path d="M6 6l12 12"></path>
+    <path d="M18 6L6 18"></path>
+  </svg>
+`.trim();
+
+                if (hidden) {
+                    btn.dataset.action = "show";
+                    btn.title = "Unhide ad";
+                    btn.setAttribute("aria-label", "Unhide ad");
+                    btn.innerHTML = ICON_EYE;
+                } else {
+                    btn.dataset.action = "hide";
+                    btn.title = "Hide ad";
+                    btn.setAttribute("aria-label", "Hide ad");
+                    btn.innerHTML = ICON_X;
+                }
+            }
+
+            updateResultsPill();
+            return;
+        }
+
+        // Fallback: if the card isn't in the DOM, do the normal pipeline.
         applyFilter();
     } catch (err) {
         console.error("Failed to set hidden:", err);
@@ -2029,8 +2086,10 @@ tbody.addEventListener("click", (e) => {
 
             saveFavoriteIds(favoriteIdSet);
 
-            // just re-render with current filters/sort
-            renderTable();
+            // --- PERF: update the single button instead of re-rendering every card ---
+            btn.classList.toggle("active", favoriteIdSet.has(adID));
+            btn.textContent = favoriteIdSet.has(adID) ? "♥" : "♡";
+            btn.title = favoriteIdSet.has(adID) ? "Unfavorite" : "Favorite";
         } catch (err) {
             console.error("Failed to toggle favorite:", err);
         }
@@ -2322,23 +2381,26 @@ function setupBrokenImageHandler() {
             console.warn("[badimg] image failed; marked adID:", adID);
         }
 
-        // Option 1 (safe default): hide just the thumbnail area
+        // Replace only the thumb DOM (cheap)
         const wrap = img.closest(".ad-thumb-wrap");
         if (wrap) {
             wrap.classList.add("thumb-broken");
             wrap.innerHTML = `<div class="thumb-fallback" title="Image unavailable">No image</div>`;
         }
 
-        // if (!favoriteIdSet.has(adID)) setAdHidden(adID, true);
+        // Mark in local model so future renders use the fallback
+        if (Array.isArray(allAds)) {
+            for (let i = 0; i < allAds.length; i++) {
+                const ad = allAds[i];
+                if (ad?.adID === adID) {
+                    ad.imageMissing = 1;
+                    break;
+                }
+            }
+        }
 
-        // Do NOT hide the ad anymore. Just mark as image-missing (client-only).
-        allAds = allAds.map((ad) =>
-            ad?.adID === adID ? { ...ad, imageMissing: 1 } : ad
-        );
-
-        // Optional: if you want the badge to appear immediately even before re-render,
-        // you can just leave this out (the thumb fallback already shows).
-        renderTable();
+        // --- PERF: do NOT full re-render here ---
+        card?.classList.add("image-missing");
 
     }, true);
 }
