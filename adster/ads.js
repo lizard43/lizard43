@@ -219,7 +219,7 @@ function loadPriceCap() {
 }
 
 function savePriceCap(n) {
-    localStorage.setItem(LS_PRICE_CAP, String(n));
+    localStorage.setItem(LS_PRICE_CAP, String(n === Infinity ? 1000000 : n));
 }
 
 function priceToLabel(n) {
@@ -271,8 +271,7 @@ function ensurePriceMenu() {
 
         priceCapDollars = val;
 
-        // store Infinity as a big number like distance does
-        savePriceCap(val === Infinity ? 1000000 : val);
+        savePriceCap(val);
 
         updatePriceCapLabel();
         menu.classList.add("hidden");
@@ -288,8 +287,10 @@ function openPriceMenu() {
 
     // mark active item
     Array.from(menu.querySelectorAll("button")).forEach((b) => {
-        const val = Number(b.dataset.dollars);
-        b.classList.toggle("active", val === priceCapDollars);
+        const raw = b.dataset.dollars;
+        const val = (raw === "Infinity") ? Infinity : Number(raw);
+        const active = (priceCapDollars === Infinity && val === Infinity) || (val === priceCapDollars);
+        b.classList.toggle("active", active);
     });
 
     // position menu under the button
@@ -1543,18 +1544,22 @@ function applyFilter() {
         filterMs = (filterMs === null) ? capMs : Math.max(filterMs, capMs);
     }
 
-    const prepareBlob = (ad) =>
-        [
-            ad.title,
-            ad.price,
-            ad.description,
-            ad.location,
-            ad.author,
-            ad.source,
-        ]
-            .filter(Boolean)
-            .join(" ")
-            .toLowerCase();
+    const prepareBlob = (ad) => {
+        const imgToken = (badImageIdSet.has(ad?.adID || "") || !!ad?.imageMissing) ? " img:missing" : "";
+        return (
+            [
+                ad.title,
+                ad.price,
+                ad.description,
+                ad.location,
+                ad.author,
+                ad.source,
+            ]
+                .filter(Boolean)
+                .join(" ")
+                .toLowerCase() + imgToken
+        );
+    };
 
     let matcher;
 
