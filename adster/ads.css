@@ -24,20 +24,21 @@ body {
 
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 3px;
 }
 
 .toolbar-row {
   display: grid;
   align-items: center;
-  gap: 8px;
+  gap: 3px;
 }
 
 /* Row 1: search (stretch) | gear */
 .toolbar-row.row1 {
   grid-template-columns: minmax(0, 1fr) auto;
-  gap: 6px;
+  gap: 3px;
   align-items: center;
+  line-height: 1;
 }
 
 /* hard rule: row1 must not wrap */
@@ -48,7 +49,7 @@ body {
 /* Row 2: quick | magnifiers | count */
 .toolbar-row.row2 {
   grid-template-columns: auto auto 1fr;
-  gap: 8px;
+  gap: 3px;
   align-items: center;
   line-height: 1;
 }
