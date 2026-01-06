@@ -29,6 +29,11 @@ let generatedAtISO = null;
 let searchDebounceTimer = null;
 const SEARCH_DEBOUNCE_MS = 400;
 
+function applyFilterNextFrame() {
+  // Let the textarea repaint before we rebuild the whole grid
+  requestAnimationFrame(() => applyFilter());
+}
+
 const searchInput = document.getElementById("searchInput");
 const tbody = document.getElementById("adsTbody");
 const favoritesWrapper = document.getElementById("favoritesWrapper");
@@ -627,7 +632,7 @@ function setupFavoriteSearchHearts() {
         if (!stored.trim()) return; // click does nothing when empty/grey
 
         searchInput.value = stored;
-        applyFilter();
+        applyFilterNextFrame();
         searchInput.focus();
     }
 
@@ -1708,7 +1713,7 @@ clearSearch.addEventListener("click", () => {
     clearTimeout(searchDebounceTimer);
     searchInput.value = "";
     autosizeSearchBox();
-    applyFilter();
+    applyFilterNextFrame();
     searchInput.focus();
 });
 
