@@ -30,8 +30,8 @@ let searchDebounceTimer = null;
 const SEARCH_DEBOUNCE_MS = 400;
 
 function applyFilterNextFrame() {
-  // Let the textarea repaint before we rebuild the whole grid
-  requestAnimationFrame(() => applyFilter());
+    // Let the textarea repaint before we rebuild the whole grid
+    requestAnimationFrame(() => applyFilter());
 }
 
 const searchInput = document.getElementById("searchInput");
@@ -64,7 +64,13 @@ let timeCapDays = Infinity; // default (Any)
 
 const PRICE_CAP_OPTIONS = [100, 500, 750, 1000, 1500, 2500, 5000, 10000, Infinity];
 
-const TIME_CAP_OPTIONS = [30, 90, 180, Infinity];
+// Time menu options are in DAYS.
+// Include quick toolbar ranges too:
+//  4h  = 4/24
+// 12h  = 12/24
+//  1d  = 1
+//  1w  = 7
+const TIME_CAP_OPTIONS = [4 / 24, 12 / 24, 1, 7, 30, 90, 180, Infinity];
 
 // --- Location settings storage keys ---
 const LS_LOC_MODE = "adster.location.mode";         // "browser" | "fixed"
@@ -413,9 +419,22 @@ function loadTimeCapDays() {
 
 function timeCapToLabel(days) {
     if (days === Infinity) return "Any";
+
+    // handle the "quick" style options (stored as fractional days)
+    // use rounding to avoid float equality issues
+    const h = Math.round(days * 24);
+    if (h === 4) return "4h";
+    if (h === 12) return "12h";
+
+    if (days === 1) return "1d";
+    if (days === 7) return "1w";
+
     if (days === 30) return "1 mo";
     if (days === 90) return "3 mo";
     if (days === 180) return "6 mo";
+
+    // fallback
+    if (days < 1) return `${h}h`;
     return `${days}d`;
 }
 
@@ -437,11 +456,12 @@ function ensureTimeMenu() {
         b.type = "button";
         b.dataset.days = String(opt);
 
-        if (opt === Infinity) b.textContent = "Any";
-        else if (opt === 30) b.textContent = "1 mo";
-        else if (opt === 90) b.textContent = "3 mo";
-        else if (opt === 180) b.textContent = "6 mo";
-        else b.textContent = `${opt} days`;
+        if (opt === Infinity) {
+            b.textContent = "Any";
+        } else {
+            // leverage the same label logic used on the pill
+            b.textContent = timeCapToLabel(opt);
+        }
 
         menu.appendChild(b);
     });
@@ -1497,8 +1517,16 @@ function applyFilter() {
     if (btnPrice) {
         btnPrice.classList.toggle("override-active", overrides.priceOverrideDollars !== null);
     }
+    const quickTimeActive = (activeQuickRange !== -1);
+
+    // Time pill is "overridden" if:
+    // - search directive tcap:... is present, OR
+    // - a quick toolbar time filter is active
     if (btnTime) {
-        btnTime.classList.toggle("override-active", overrides.timeOverrideDays !== null);
+        btnTime.classList.toggle(
+            "override-active",
+            (overrides.timeOverrideDays !== null) || quickTimeActive
+        );
     }
 
     // UI: while overridden, TEMP show the overridden value in the pill label.
@@ -1518,9 +1546,22 @@ function applyFilter() {
     }
 
     if (timeCapLabel) {
-        const v = (overrides.timeOverrideDays !== null)
-            ? overrides.timeOverrideDays
-            : timeCapDays;
+        // Priority:
+        // 1) search directive override (tcap:...)
+        // 2) quick toolbar time filter (4h/12h/1d/1w)
+        // 3) stored time cap menu selection
+        let v = timeCapDays;
+
+        if (overrides.timeOverrideDays !== null) {
+            v = overrides.timeOverrideDays;
+        } else if (quickTimeActive) {
+            // mirror your toolbar options by activeQuickRange
+            if (activeQuickRange === 0) v = 4 / 24;      // 4h
+            else if (activeQuickRange === 1) v = 12 / 24; // 12h
+            else if (activeQuickRange === 2) v = 1;       // 1d
+            else if (activeQuickRange === 3) v = 7;       // 1w
+        }
+
         timeCapLabel.textContent = timeCapToLabel(v);
     }
 
