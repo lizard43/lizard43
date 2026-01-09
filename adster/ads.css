@@ -215,6 +215,25 @@ body {
   background: #444;
 }
 
+/* --- Toolbar message strip (2 lines above search) --- */
+.toolbar-msg {
+  padding: 6px 10px 0 10px;
+  /* small, matches toolbar vibe */
+  font-size: 12px;
+  line-height: 1.2;
+  color: #bdbdbd;
+}
+
+.toolbar-msg.hidden {
+  display: none;
+}
+
+.toolbar-msg-line {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 .brand-logo {
   display: flex;
   align-items: center;

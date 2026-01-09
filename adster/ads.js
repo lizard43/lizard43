@@ -37,6 +37,10 @@ function applyFilterNextFrame() {
 const searchInput = document.getElementById("searchInput");
 const tbody = document.getElementById("adsTbody");
 const favoritesWrapper = document.getElementById("favoritesWrapper");
+const toolbarMsg = document.getElementById("toolbarMsg");
+const toolbarMsgLine1 = document.getElementById("toolbarMsgLine1");
+const toolbarMsgLine2 = document.getElementById("toolbarMsgLine2");
+
 let dateFilterMs = null; // replaces datetime-local input
 
 const btnLast4h = document.getElementById("btnLast4h");
@@ -534,7 +538,7 @@ async function loadLocationsJson() {
     } catch (e) {
         cachedLocations = [];
         console.error("locations.json not available:", e);
-        showToast("Could not load locations.json (check Network tab)", 6000);
+        showToolbarMessage("Could not load locations.json", "Check Network tab", 6000);
     }
     return cachedLocations;
 }
@@ -592,8 +596,42 @@ async function getBrowserLatLon() {
     });
 }
 
+let toolbarMsgTimer = null;
+
+function showToolbarMessage(line1, line2 = "", duration = 4000) {
+    if (!toolbarMsg || !toolbarMsgLine1 || !toolbarMsgLine2) return;
+
+    // Set text
+    toolbarMsgLine1.textContent = String(line1 ?? "");
+    toolbarMsgLine2.textContent = String(line2 ?? "");
+
+    // Show/hide based on content
+    const hasAny = !!(toolbarMsgLine1.textContent.trim() || toolbarMsgLine2.textContent.trim());
+    toolbarMsg.classList.toggle("hidden", !hasAny);
+
+    // Reset timer
+    if (toolbarMsgTimer) {
+        clearTimeout(toolbarMsgTimer);
+        toolbarMsgTimer = null;
+    }
+
+    if (!hasAny) return;
+
+    toolbarMsgTimer = setTimeout(() => {
+        toolbarMsgLine1.textContent = "";
+        toolbarMsgLine2.textContent = "";
+        toolbarMsg.classList.add("hidden");
+        toolbarMsgTimer = null;
+    }, duration);
+}
+
+function showToast(message, duration = 3000) {
+    // Route all legacy toasts into the toolbar status (line 1)
+    showToolbarMessage(message, "", duration);
+}
+
 // ---- simple toast helper for status messages (e.g., chosen location) ----
-function showToast(message, duration = 4000) {
+function showToaster(message, duration = 4000) {
     let container = document.querySelector(".toast-container");
     if (!container) {
         container = document.createElement("div");
@@ -2175,7 +2213,7 @@ async function loadAds() {
                 : "Adster";
 
             const loc = lastLocationToastText || "Location: unknown";
-            showToast(`${loc} · Last Scrape: ${titleTime}`, 3000);
+            showToolbarMessage(loc, `Last scrape: ${titleTime}`, 3000);
         }
 
         // scrapester.json is { generated_at, ads: [...] }

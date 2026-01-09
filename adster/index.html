@@ -11,6 +11,13 @@
 
 <body>
   <div class="toolbar">
+
+    <!-- Message strip (2 lines). Hidden when empty. -->
+    <div id="toolbarMsg" class="toolbar-msg hidden" aria-live="polite">
+      <div id="toolbarMsgLine1" class="toolbar-msg-line"></div>
+      <div id="toolbarMsgLine2" class="toolbar-msg-line"></div>
+    </div>
+
     <div class="toolbar-row row1">
       <div class="search-wrapper">
         <textarea id="searchInput" rows="2" placeholder="Search title, description, location, author…"></textarea>
