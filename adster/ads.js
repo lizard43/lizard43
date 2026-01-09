@@ -20,6 +20,7 @@ let favorites = [];
 
 let activeQuickRange = -1; // -1 = none active, 0=4h, 1=12h, 2=1d
 let showHidden = false;    // global toggle
+let showOnlyPriceChanged = false; // toolbar toggle
 
 let homeLat = null;
 let homeLon = null;
@@ -47,6 +48,9 @@ const btnLast4h = document.getElementById("btnLast4h");
 const btnLast12h = document.getElementById("btnLast12h");
 const btnLast1d = document.getElementById("btnLast1d");
 const btnLast1w = document.getElementById("btnLast1w");
+
+const btnPriceChanged = document.getElementById("btnPriceChanged");
+const priceChangedBadge = document.getElementById("priceChangedBadge");
 
 const btnDistance = document.getElementById("btnDistance");
 const distanceCapLabel = document.getElementById("distanceCapLabel");
@@ -1111,7 +1115,7 @@ function renderTable() {
     <div class="ad-line1">${titleHtml}</div>
 
     <div class="ad-line2">
-    <span class="ad-price">${escapeHtml(price)}</span>
+    <span class="ad-price ${ad.priceChanged ? "price-changed" : ""}">${escapeHtml(price)}</span>
     ${ad.postedTime ? `<span class="meta-dot">·</span>` : ""}
     ${dateTimeHtml}
     </div>
@@ -1411,6 +1415,39 @@ function evalBooleanExpression(node, blob) {
     }
 }
 
+function computePriceChangedCount(list) {
+    if (!Array.isArray(list) || !list.length) return 0;
+
+    let n = 0;
+    for (const ad of list) {
+        if (!ad) continue;
+
+        // respect showHidden: if off, don't count hidden ads
+        if (ad.hidden && !showHidden) continue;
+
+        // count only current priceChanged ads
+        if (ad.priceChanged) n++;
+    }
+    return n;
+}
+
+function renderPriceChangedToggle() {
+    if (!btnPriceChanged) return;
+    btnPriceChanged.classList.toggle("active", !!showOnlyPriceChanged);
+    btnPriceChanged.title = showOnlyPriceChanged
+        ? "Showing only price-changed ads"
+        : "Show only price-changed ads";
+}
+
+function updatePriceChangedBadge() {
+    if (!priceChangedBadge) return;
+
+    // Count based on the *current filtered list before the priceChanged-only filter is applied*
+    // This matches: "number of price change ads that are current in the ad list with filtering"
+    const count = computePriceChangedCount(filteredAds);
+    priceChangedBadge.textContent = String(count);
+}
+
 function updateResultsPill() {
     if (!resultsPill) return;
 
@@ -1703,22 +1740,33 @@ function applyFilter() {
         // distance cap (effective)
         if (effectiveDistanceCap !== Infinity) {
             const d = normalizeDistance(ad.distance);
-            if (!Number.isFinite(d)) return false; // no distance => drop when capped
+            if (!Number.isFinite(d)) return false;
             if (d > effectiveDistanceCap) return false;
         }
 
         // price cap (effective max price)
         if (effectivePriceCap !== Infinity && Number.isFinite(effectivePriceCap) && effectivePriceCap >= 0) {
             const p = normalizePrice(ad.price);
-            if (!Number.isFinite(p)) return false; // no price => drop when capped
+            if (!Number.isFinite(p)) return false;
             if (p > effectivePriceCap) return false;
         }
 
         return true;
     });
 
-    renderTable();
+    // Badge count is based on "current ad list with filtering" (and showHidden rules)
+    updatePriceChangedBadge();
 
+    // Apply the extra toggle filter AFTER we compute badge count
+    if (showOnlyPriceChanged) {
+        filteredAds = filteredAds.filter((ad) => {
+            // enforce showHidden count logic too
+            if (ad.hidden && !showHidden) return false;
+            return !!ad.priceChanged;
+        });
+    }
+
+    renderTable();
     updateResultsPill();
 }
 
@@ -2160,6 +2208,12 @@ btnHiddenSearch?.addEventListener("click", () => {
     showToast("Hidden ads are " + (includeHiddenInSearch ? "shown" : "hidden"));
 });
 
+btnPriceChanged?.addEventListener("click", () => {
+    showOnlyPriceChanged = !showOnlyPriceChanged;
+    renderPriceChangedToggle();
+    applyFilter();
+});
+
 // event delegation for action buttons
 tbody.addEventListener("click", (e) => {
     const btn = e.target.closest("button[data-action]");
@@ -2506,6 +2560,10 @@ function setupBrokenImageHandler() {
     // showHidden init (from settings)
     showHidden = loadShowHidden();
     renderHiddenSearchToggle();
+
+
+    renderPriceChangedToggle();
+    updatePriceChangedBadge();
 
     // distance cap init
     const stored = loadDistanceCap();
