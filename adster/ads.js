@@ -1422,10 +1422,11 @@ function computePriceChangedCount(list) {
     for (const ad of list) {
         if (!ad) continue;
 
-        // respect showHidden: if off, don't count hidden ads
-        if (ad.hidden && !showHidden) continue;
+        // Exclude hidden ONLY when both:
+        // - showHidden is OFF
+        // - includeHiddenInSearch is OFF
+        if (ad.hidden && !showHidden && !includeHiddenInSearch) continue;
 
-        // count only current priceChanged ads
         if (ad.priceChanged) n++;
     }
     return n;
@@ -1760,8 +1761,7 @@ function applyFilter() {
     // Apply the extra toggle filter AFTER we compute badge count
     if (showOnlyPriceChanged) {
         filteredAds = filteredAds.filter((ad) => {
-            // enforce showHidden count logic too
-            if (ad.hidden && !showHidden) return false;
+            if (ad.hidden && !showHidden && !includeHiddenInSearch) return false;
             return !!ad.priceChanged;
         });
     }
