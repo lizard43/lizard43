@@ -625,7 +625,7 @@ function showToolbarMessage(line1, line2 = "", duration = 4000) {
     }, duration);
 }
 
-function showToast(message, duration = 3000) {
+function showToast(message, duration = 5000) {
     // Route all legacy toasts into the toolbar status (line 1)
     showToolbarMessage(message, "", duration);
 }
@@ -2157,6 +2157,7 @@ btnHiddenSearch?.addEventListener("click", () => {
     saveIncludeHiddenInSearch(includeHiddenInSearch);
     renderHiddenSearchToggle();
     applyFilter();
+    showToast("Hidden ads are " + (includeHiddenInSearch ? "shown" : "hidden"));
 });
 
 // event delegation for action buttons
