@@ -6,6 +6,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Adster</title>
   <link rel="icon" href="favicon.ico" />
+  <style>
+    /* Critical CSS: prevents white flash before ads.css loads */
+    html,
+    body {
+      margin: 0;
+      background: #111;
+      color: #eee;
+    }
+
+    /* Optional: prevents any unstyled layout flash */
+    body {
+      visibility: hidden;
+    }
+  </style>
+
   <script src="loader.js"></script>
 </head>
 
