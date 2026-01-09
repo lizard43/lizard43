@@ -1932,11 +1932,20 @@ function setAdHidden(adID, hidden) {
 
         if (card) {
             if (hidden && !showHidden) {
-                // Remove from DOM + filteredAds, then update counts.
-                card.remove();
-                if (Array.isArray(filteredAds)) {
-                    filteredAds = filteredAds.filter((a) => a?.adID !== adID);
+                // If "include hidden in search" is OFF, hidden ads must disappear immediately.
+                // If it's ON, they should remain visible (dimmed) even though showHidden is off.
+                if (!includeHiddenInSearch) {
+                    // Remove from DOM + filteredAds, then update counts (including price badge).
+                    card.remove();
+                    if (Array.isArray(filteredAds)) {
+                        filteredAds = filteredAds.filter((a) => a?.adID !== adID);
+                    }
+                } else {
+                    // Keep it visible but dimmed (hidden-ad class already handled below).
+                    card.classList.add("hidden-ad");
                 }
+
+                updatePriceChangedBadge();
                 updateResultsPill();
                 return;
             }
@@ -2205,7 +2214,10 @@ btnHiddenSearch?.addEventListener("click", () => {
     saveIncludeHiddenInSearch(includeHiddenInSearch);
     renderHiddenSearchToggle();
     applyFilter();
-    showToast("Hidden ads are " + (includeHiddenInSearch ? "shown" : "hidden"));
+    showToast(includeHiddenInSearch
+        ? "Hidden ads included in filtering"
+        : "Hidden ads excluded from filtering"
+    );
 });
 
 btnPriceChanged?.addEventListener("click", () => {
