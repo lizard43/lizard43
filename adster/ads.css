@@ -143,44 +143,65 @@ body {
   opacity: 0.95;
 }
 
-/* --- Price-changed toolbar toggle (icon + centered count) --- */
+/* --- Price-changed toolbar toggle (badge IS the icon) --- */
 .pricechg-icon {
   position: relative;
-  width: 26px;
-  height: 26px;
+  width: 32px;
+  height: 32px;
+
   display: inline-flex;
   align-items: center;
   justify-content: center;
+
+  border-radius: 50%;
+  border: 1px solid #3a3a3a;
+
+  background: #1a1a1a;
+  transition: background 120ms ease, border-color 120ms ease, transform 80ms ease;
 }
 
-/* Center badge inside the icon */
+/* centered count */
 .pricechg-badge {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  position: relative;
+  z-index: 1;
 
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 800;
   line-height: 1;
 
-  color: #90a795;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
+  color: #7f8f86;
   pointer-events: none;
 }
 
-/* When toggle is active, make it greenish like other active icons */
-#btnPriceChanged.active {
-  color: #6fcf97;
+/* subtle hover */
+#btnPriceChanged:hover .pricechg-icon {
   background: #262626;
-  /* same hover fill feel */
+  border-color: #555;
 }
 
-/* Keep it green on hover when active */
-#btnPriceChanged.active:hover {
-  color: #6fcf97;
-  background: #262626;
+/* ACTIVE STATE */
+#btnPriceChanged.active .pricechg-icon {
+  background: #224422;
+  border-color: #55aa55;
+}
+
+#btnPriceChanged.active .pricechg-badge {
+  color: #c8ffd1;
+}
+
+/* pressed */
+#btnPriceChanged:active .pricechg-icon {
+  transform: translateY(1px);
+}
+
+#btnPriceChanged:not(.active) .pricechg-badge {
+  opacity: 0.75;
+}
+
+.pricechg-badge {
+  max-width: 24px;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 /* SVG icons used inside card icon buttons (hide/show, etc.) */
