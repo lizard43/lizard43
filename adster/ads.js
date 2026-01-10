@@ -1443,10 +1443,15 @@ function renderPriceChangedToggle() {
 function updatePriceChangedBadge() {
     if (!priceChangedBadge) return;
 
-    // Count based on the *current filtered list before the priceChanged-only filter is applied*
-    // This matches: "number of price change ads that are current in the ad list with filtering"
     const count = computePriceChangedCount(filteredAds);
-    priceChangedBadge.textContent = String(count);
+
+    const full = String(count);
+    const shown = (full.length <= 2) ? full : full.slice(0, 2);
+
+    priceChangedBadge.textContent = shown;
+
+    // Tooltip shows the real number if it's bigger than 2 digits
+    priceChangedBadge.title = full;
 }
 
 function updateResultsPill() {

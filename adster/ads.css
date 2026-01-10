@@ -143,65 +143,53 @@ body {
   opacity: 0.95;
 }
 
-/* --- Price-changed toolbar toggle (badge IS the icon) --- */
-.pricechg-icon {
-  position: relative;
+/* --- Price-changed toolbar toggle (make icon larger, badge centered) --- */
+
+/* Make ONLY the price-changed button a bit bigger (others stay 26x26) */
+#btnPriceChanged.favsearch-btn {
   width: 32px;
   height: 32px;
+}
+
+/* Keep the inner wrapper as a positioning box (NO border, NO background) */
+.pricechg-icon {
+  position: relative;
+  width: 24px;
+  height: 24px;
 
   display: inline-flex;
   align-items: center;
   justify-content: center;
-
-  border-radius: 50%;
-  border: 1px solid #3a3a3a;
-
-  background: #1a1a1a;
-  transition: background 120ms ease, border-color 120ms ease, transform 80ms ease;
 }
 
-/* centered count */
-.pricechg-badge {
-  position: relative;
-  z-index: 1;
+/* Make the tag SVG larger than the other toolbar icons */
+#btnPriceChanged .favsearch-svg {
+  width: 24px;
+  height: 24px;
+}
 
-  font-size: 13px;
+/* Center badge INSIDE the icon */
+.pricechg-badge {
+  position: absolute;
+  inset: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 12px;
   font-weight: 800;
   line-height: 1;
 
-  color: #7f8f86;
+  color: #90a795;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
+
   pointer-events: none;
-}
 
-/* subtle hover */
-#btnPriceChanged:hover .pricechg-icon {
-  background: #262626;
-  border-color: #555;
-}
-
-/* ACTIVE STATE */
-#btnPriceChanged.active .pricechg-icon {
-  background: #224422;
-  border-color: #55aa55;
-}
-
-#btnPriceChanged.active .pricechg-badge {
-  color: #c8ffd1;
-}
-
-/* pressed */
-#btnPriceChanged:active .pricechg-icon {
-  transform: translateY(1px);
-}
-
-#btnPriceChanged:not(.active) .pricechg-badge {
-  opacity: 0.75;
-}
-
-.pricechg-badge {
-  max-width: 24px;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  /* ensure 2 digits fit cleanly */
+  width: 100%;
+  text-align: center;
+  white-space: nowrap;
 }
 
 /* SVG icons used inside card icon buttons (hide/show, etc.) */
