@@ -104,6 +104,7 @@ const LS_FAVORITE_AD_IDS = "adster.favoriteAdIDs"; // JSON array of adID strings
 
 // --- Broken image tracking (client-only) ---
 const LS_BAD_IMAGE_AD_IDS = "adster.badImageAdIDs"; // JSON array of adID strings
+const LS_BAD_IMAGE_GEN_AT = "adster.badImage.generatedAt"; // last JSON generated_at seen
 
 // --- Favorite SEARCH presets (toolbar hearts) ---
 const LS_FAV_SEARCH_1 = "adster.favSearch.1";
@@ -167,6 +168,23 @@ function saveBadImageIds(set) {
 }
 
 let badImageIdSet = loadBadImageIds();
+
+function clearBadImageIds(reason = "") {
+    badImageIdSet = new Set();
+    localStorage.setItem(LS_BAD_IMAGE_AD_IDS, "[]");
+    if (reason) console.log("[badimg] cleared bad-image set:", reason);
+}
+
+function syncBadImageSetWithGeneratedAt(incomingGen) {
+    const gen = String(incomingGen || "");
+    if (!gen) return;
+
+    const prev = String(localStorage.getItem(LS_BAD_IMAGE_GEN_AT) || "");
+    if (prev && prev !== gen) {
+        clearBadImageIds(`generated_at changed ${prev} -> ${gen}`);
+    }
+    localStorage.setItem(LS_BAD_IMAGE_GEN_AT, gen);
+}
 
 function loadFavoriteIds() {
     try {
@@ -1060,7 +1078,14 @@ function renderTable() {
         const distanceText = distance ? `${escapeHtml(String(distance))} mi` : "";
 
         // Image (left column)
-        const isImageMissing = badImageIdSet.has(adID) || !!ad.imageMissing;
+        // Server is truth: if server says missing, show fallback.
+        // Otherwise, try imageUrl ONCE per generated_at snapshot.
+        // If it already failed in this snapshot (badImageIdSet), show fallback to avoid reload hell.
+        const serverMissing = !!ad.imageMissing;
+        const urlMissing = !imageUrl;
+
+        const alreadyFailedThisSnapshot = badImageIdSet.has(adID);
+        const isImageMissing = serverMissing || urlMissing || alreadyFailedThisSnapshot;
 
         const imgHtml = isImageMissing
             ? `<div class="thumb-fallback" title="Image missing">No image</div>`
@@ -2282,6 +2307,7 @@ async function loadAds() {
         const json = await res.json();
 
         generatedAtISO = json.generated_at || null;
+        syncBadImageSetWithGeneratedAt(generatedAtISO);
 
         if (generatedAtISO) {
             const titleTime = formatTitleTimestamp(generatedAtISO);
@@ -2324,14 +2350,11 @@ async function loadAds() {
         // apply persisted hidden state from localStorage
         hiddenIdSet = loadHiddenIds();
         favoriteIdSet = loadFavoriteIds();
-        badImageIdSet = loadBadImageIds();
 
         allAds.forEach((ad) => {
             if (!ad) return;
             const id = ad.adID || "";
             ad.hidden = hiddenIdSet.has(id) ? 1 : 0;
-
-            ad.imageMissing = badImageIdSet.has(id) ? 1 : 0;
         });
 
         applyFilter();
@@ -2556,17 +2579,6 @@ function setupBrokenImageHandler() {
         if (wrap) {
             wrap.classList.add("thumb-broken");
             wrap.innerHTML = `<div class="thumb-fallback" title="Image unavailable">No image</div>`;
-        }
-
-        // Mark in local model so future renders use the fallback
-        if (Array.isArray(allAds)) {
-            for (let i = 0; i < allAds.length; i++) {
-                const ad = allAds[i];
-                if (ad?.adID === adID) {
-                    ad.imageMissing = 1;
-                    break;
-                }
-            }
         }
 
         // --- PERF: do NOT full re-render here ---
