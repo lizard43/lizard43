@@ -140,6 +140,11 @@ function saveFavSearch(slot, value) {
     return v;
 }
 
+function scrollResultsToTop() {
+    const wrapper = document.querySelector(".table-wrapper");
+    if (wrapper) wrapper.scrollTop = 0;
+}
+
 function autosizeSearchBox() {
     if (!searchInput) return;
     // reset so scrollHeight is accurate
@@ -2354,6 +2359,7 @@ document.querySelectorAll(".sort-btn").forEach((btn) => {
         }
 
         renderTable();
+        scrollResultsToTop();
     });
 });
 
@@ -2366,6 +2372,7 @@ function sortByDistanceClick() {
         sortDir = SORT_DEFAULT_DIR[f] || "asc";
     }
     renderTable();
+    scrollResultsToTop();
 }
 
 function sortByPriceClick() {
@@ -2377,6 +2384,7 @@ function sortByPriceClick() {
         sortDir = SORT_DEFAULT_DIR[f] || "asc";
     }
     renderTable();
+    scrollResultsToTop();
 }
 
 (function setupDistanceHybrid() {
@@ -2473,6 +2481,7 @@ function sortByTimeClick() {
         sortDir = SORT_DEFAULT_DIR[f] || "desc";
     }
     renderTable();
+    scrollResultsToTop();
 }
 
 (function setupTimeHybrid() {
