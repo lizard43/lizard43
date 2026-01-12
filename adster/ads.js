@@ -2258,7 +2258,16 @@ btnHiddenSearch?.addEventListener("click", () => {
 btnPriceChanged?.addEventListener("click", () => {
     showOnlyPriceChanged = !showOnlyPriceChanged;
     renderPriceChangedToggle();
+
+    // When enabling the filter, force a sensible view:
+    // sort by price (lowest first) and jump to top.
+    if (showOnlyPriceChanged) {
+        sortField = "price";
+        sortDir = "asc"; // lowest first
+    }
+
     applyFilter();
+    scrollResultsToTop();
 });
 
 // event delegation for action buttons
