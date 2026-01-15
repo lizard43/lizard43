@@ -709,6 +709,7 @@ a:hover {
    ========================================================= */
 
 .ad-card {
+  position: relative;
   display: flex;
   gap: 10px;
   padding: 10px 10px 6px 10px;
@@ -730,44 +731,26 @@ a:hover {
   transform: translateY(-1px);
 }
 
-/* ---------------- Selected ad (all cards) ---------------- */
+/* Selected ad (all cards) */
 .ad-card:focus,
 .ad-card:focus-within {
   border-color: rgba(120, 180, 255, 0.55);
   box-shadow: 0 0 0 2px rgba(120, 180, 255, 0.18);
 }
 
-/* ---------------- Hidden ads: readable when selected ---------------- */
+.ad-card:focus { outline: none; }
 
-/* Make the card itself focusable look nice */
-.ad-card:focus {
-  outline: none;
-}
-
-/* 1) Don't dim the whole card (this is what kills readability) */
-/* 1) Slight overall dim (subtle) */
+/* Hidden baseline */
 .ad-card.hidden-ad {
   opacity: 0.92;
   border-color: rgba(255, 255, 255, 0.12);
 }
 
-/* 2) Dim mostly the image area (keeps "hidden" vibe without killing text) */
 .ad-card.hidden-ad .ad-thumb-wrap {
   position: relative;
-  opacity: 0.40;
+  opacity: 0.35;
 }
 
-/* 2) Slightly stronger image dim */
-.ad-card.hidden-ad .ad-thumb-wrap {
-  opacity: 0.35; 
-}
-
-/* 3) Keep text de-emphasis subtle */
-.ad-card.hidden-ad .ad-card-body {
-  opacity: 0.75;
-}
-
-/* Add a subtle cloak overlay on the image (optional but nice) */
 .ad-card.hidden-ad .ad-thumb-wrap::after {
   content: "";
   position: absolute;
@@ -776,26 +759,22 @@ a:hover {
   pointer-events: none;
 }
 
-/* 4) When selected (focus) or interacting with anything inside (focus-within),
-      restore readability while still looking "hidden" */
-.ad-card.hidden-ad:focus,
-.ad-card.hidden-ad:focus-within {
-  border-color: rgba(120, 180, 255, 0.55);
-  box-shadow: 0 0 0 2px rgba(120, 180, 255, 0.18);
+.ad-card.hidden-ad .ad-card-body {
+  opacity: 0.75;
 }
 
+/* Readable when selected */
 .ad-card.hidden-ad:focus .ad-card-body,
 .ad-card.hidden-ad:focus-within .ad-card-body {
   opacity: 1;
 }
 
-/* Bring the image back a bit too (but keep overlay) */
 .ad-card.hidden-ad:focus .ad-thumb-wrap,
 .ad-card.hidden-ad:focus-within .ad-thumb-wrap {
   opacity: 0.70;
 }
 
-/* 5) Add a small "HIDDEN" badge so it's still obviously hidden even when readable */
+/* Badge */
 .ad-card.hidden-ad::after {
   content: "HIDDEN";
   position: absolute;
@@ -1275,11 +1254,6 @@ body>.modal {
   background: #224422;
   border-color: #55aa55;
   color: #c8ffd1;
-}
-
-/* allow absolute positioning */
-.ad-card {
-  position: relative;
 }
 
 /* top-right close (hidden) button */
