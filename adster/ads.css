@@ -730,8 +730,85 @@ a:hover {
   transform: translateY(-1px);
 }
 
+/* ---------------- Hidden ads: readable when selected ---------------- */
+
+/* Make the card itself focusable look nice */
+.ad-card:focus {
+  outline: none;
+}
+
+/* 1) Don't dim the whole card (this is what kills readability) */
 .ad-card.hidden-ad {
-  opacity: 0.45;
+  opacity: 1; /* override the old 0.45 */
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+/* 2) Dim mostly the image area (keeps "hidden" vibe without killing text) */
+.ad-card.hidden-ad .ad-thumb-wrap {
+  position: relative;
+  opacity: 0.40;
+}
+
+/* Add a subtle cloak overlay on the image (optional but nice) */
+.ad-card.hidden-ad .ad-thumb-wrap::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  pointer-events: none;
+}
+
+/* 3) Slightly de-emphasize text by default, but keep it readable */
+.ad-card.hidden-ad .ad-card-body {
+  opacity: 0.78;
+}
+
+/* 4) When selected (focus) or interacting with anything inside (focus-within),
+      restore readability while still looking "hidden" */
+.ad-card.hidden-ad:focus,
+.ad-card.hidden-ad:focus-within {
+  border-color: rgba(120, 180, 255, 0.55);
+  box-shadow: 0 0 0 2px rgba(120, 180, 255, 0.18);
+}
+
+.ad-card.hidden-ad:focus .ad-card-body,
+.ad-card.hidden-ad:focus-within .ad-card-body {
+  opacity: 1;
+}
+
+/* Bring the image back a bit too (but keep overlay) */
+.ad-card.hidden-ad:focus .ad-thumb-wrap,
+.ad-card.hidden-ad:focus-within .ad-thumb-wrap {
+  opacity: 0.70;
+}
+
+/* 5) Add a small "HIDDEN" badge so it's still obviously hidden even when readable */
+.ad-card.hidden-ad::after {
+  content: "HIDDEN";
+  position: absolute;
+  left: 8px;
+  top: 8px;
+  z-index: 4;
+
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+
+  padding: 2px 6px;
+  border-radius: 999px;
+
+  background: rgba(0, 0, 0, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  color: rgba(255, 255, 255, 0.75);
+
+  pointer-events: none;
+}
+
+.ad-card.hidden-ad:focus::after,
+.ad-card.hidden-ad:focus-within::after {
+  background: rgba(120, 180, 255, 0.18);
+  border-color: rgba(120, 180, 255, 0.45);
+  color: rgba(220, 240, 255, 0.95);
 }
 
 /* image column */

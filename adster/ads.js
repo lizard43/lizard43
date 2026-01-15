@@ -1126,8 +1126,10 @@ function renderTable() {
         // (Your CSS clamps it to a few lines.)
         const descSafe = escapeHtml(desc);
 
-        return `
-    <div class="ad-card ${isHidden ? "hidden-ad" : ""} ${isImageMissing ? "image-missing" : ""}" data-ad-id="${escapeAttr(adID)}">
+return `
+    <div class="ad-card ${isHidden ? "hidden-ad" : ""} ${isImageMissing ? "image-missing" : ""}"
+         data-ad-id="${escapeAttr(adID)}"
+         tabindex="0">
 
     <button class="icon-btn hide-toggle card-close"
             data-action="${hideShowAction}"
