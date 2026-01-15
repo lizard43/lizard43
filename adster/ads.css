@@ -730,6 +730,13 @@ a:hover {
   transform: translateY(-1px);
 }
 
+/* ---------------- Selected ad (all cards) ---------------- */
+.ad-card:focus,
+.ad-card:focus-within {
+  border-color: rgba(120, 180, 255, 0.55);
+  box-shadow: 0 0 0 2px rgba(120, 180, 255, 0.18);
+}
+
 /* ---------------- Hidden ads: readable when selected ---------------- */
 
 /* Make the card itself focusable look nice */
@@ -738,8 +745,9 @@ a:hover {
 }
 
 /* 1) Don't dim the whole card (this is what kills readability) */
+/* 1) Slight overall dim (subtle) */
 .ad-card.hidden-ad {
-  opacity: 1; /* override the old 0.45 */
+  opacity: 0.92;
   border-color: rgba(255, 255, 255, 0.12);
 }
 
@@ -749,6 +757,16 @@ a:hover {
   opacity: 0.40;
 }
 
+/* 2) Slightly stronger image dim */
+.ad-card.hidden-ad .ad-thumb-wrap {
+  opacity: 0.35; 
+}
+
+/* 3) Keep text de-emphasis subtle */
+.ad-card.hidden-ad .ad-card-body {
+  opacity: 0.75;
+}
+
 /* Add a subtle cloak overlay on the image (optional but nice) */
 .ad-card.hidden-ad .ad-thumb-wrap::after {
   content: "";
@@ -756,11 +774,6 @@ a:hover {
   inset: 0;
   background: rgba(0, 0, 0, 0.45);
   pointer-events: none;
-}
-
-/* 3) Slightly de-emphasize text by default, but keep it readable */
-.ad-card.hidden-ad .ad-card-body {
-  opacity: 0.78;
 }
 
 /* 4) When selected (focus) or interacting with anything inside (focus-within),

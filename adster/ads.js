@@ -2046,7 +2046,6 @@ async function setupSettingsModal() {
     const latInput = document.getElementById("locLat");
     const lonInput = document.getElementById("locLon");
 
-    const showHiddenCheckbox = document.getElementById("showHiddenCheckbox");
     const clearHiddenBtn = document.getElementById("clearHiddenBtn");
     const clearFavoritesBtn = document.getElementById("clearFavoritesBtn");
 
@@ -2129,8 +2128,6 @@ async function setupSettingsModal() {
     function syncUIFromStorage() {
         const s = getLocSettings();
 
-        showHiddenCheckbox.checked = loadShowHidden();
-
         setMode(s.mode);
         savedSel.value = s.fixedId || "";
         fallbackSel.value = s.fallbackId || "";
@@ -2144,8 +2141,6 @@ async function setupSettingsModal() {
 
     function syncStorageFromUI() {
         const mode = getMode();
-
-        saveShowHidden(!!showHiddenCheckbox.checked);
 
         const s = {
             mode,
@@ -2270,6 +2265,11 @@ btnPriceChanged?.addEventListener("click", () => {
 
     applyFilter();
     scrollResultsToTop();
+});
+
+tbody.addEventListener("pointerdown", (e) => {
+  const card = e.target.closest(".ad-card");
+  if (card) card.focus();
 });
 
 // event delegation for action buttons
