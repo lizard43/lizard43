@@ -5,6 +5,10 @@ let allAds = [];
 let filteredAds = [];
 let sortField = "postedTime";
 
+// Sort override from the search bar (e.g., s:da). Null = no override.
+let sortOverrideField = null;
+let sortOverrideDir = null;
+
 const SORT_DEFAULT_DIR = {
     distance: "asc",      // closest first
     price: "asc",         // cheapest first
@@ -15,6 +19,14 @@ const SORT_DEFAULT_DIR = {
 };
 
 let sortDir = SORT_DEFAULT_DIR[sortField] || "asc";
+
+function getEffectiveSortField() {
+    return sortOverrideField || sortField;
+}
+
+function getEffectiveSortDir() {
+    return sortOverrideDir || sortDir;
+}
 
 let favorites = [];
 
@@ -967,8 +979,9 @@ function toDateTimeLocalValue(d) {
 }
 
 function sortAds(list) {
-    const field = sortField;
-    const dir = sortDir === "desc" ? -1 : 1;
+    const field = getEffectiveSortField();
+    const effectiveDir = getEffectiveSortDir();
+    const dir = effectiveDir === "desc" ? -1 : 1;
 
     return list.slice().sort((a, b) => {
         if (field === "price") {
@@ -986,7 +999,7 @@ function sortAds(list) {
             if (!Number.isFinite(va)) return 1;
             if (!Number.isFinite(vb)) return -1;
 
-            return sortDir === "desc" ? vb - va : va - vb;
+            return effectiveDir === "desc" ? vb - va : va - vb;
         }
         if (field === "distance") {
             const da = normalizeDistance(a.distance);
@@ -1198,17 +1211,32 @@ function escapeAttr(s) {
 
 function updateSortIndicators() {
     const buttons = document.querySelectorAll(".sort-btn");
+    const fieldNow = getEffectiveSortField();
+    const dirNow = getEffectiveSortDir();
+    const hasSortOverride = !!sortOverrideField;
+
     buttons.forEach((btn) => {
         const f = btn.getAttribute("data-field");
         const span = btn.querySelector(".sort-indicator");
         if (!span) return;
 
-        if (f === sortField) {
-            span.textContent = sortDir === "asc" ? "▲" : "▼";
+        if (f === fieldNow) {
+            span.textContent = dirNow === "asc" ? "▲" : "▼";
             btn.classList.add("active");
         } else {
             span.textContent = "";
             btn.classList.remove("active");
+        }
+
+        // Search bar sort override: outline ONLY the active sort pill.
+        // (Cap override outline for Distance/Price/Time is handled elsewhere.)
+        if (hasSortOverride) {
+            btn.classList.toggle("override-active", f === fieldNow);
+        } else {
+            // Don't clobber cap outlines for Distance/Price/Time.
+            if (f !== "distance" && f !== "price" && f !== "postedTime") {
+                btn.classList.remove("override-active");
+            }
         }
     });
 }
@@ -1532,6 +1560,8 @@ function parseCapOverridesFromSearch(rawInput) {
         distanceOverrideMiles: null, // null = no override
         priceOverrideDollars: null,  // null = no override
         timeOverrideDays: null,      // null = no override
+        // { field: "distance"|"postedTime"|"price", dir: "asc"|"desc" } or null
+        sortOverride: null,
     };
 
     let s = out.cleanedRaw;
@@ -1597,6 +1627,27 @@ function parseCapOverridesFromSearch(rawInput) {
         return lead;
     });
 
+    // 4) sort directives
+    // Supported:
+    //   s:da (distance asc) / s:dd (distance desc)
+    //   s:ta (time asc)     / s:td (time desc)
+    //   s:pa (price asc)    / s:pd (price desc)
+    s = s.replace(/(^|\s)(s|sort)\s*:\s*(da|dd|ta|td|pa|pd)\b/gi, (full, lead, _k, codeRaw) => {
+        const code = String(codeRaw || "").toLowerCase();
+
+        const map = {
+            da: { field: "distance", dir: "asc" },
+            dd: { field: "distance", dir: "desc" },
+            ta: { field: "postedTime", dir: "asc" },
+            td: { field: "postedTime", dir: "desc" },
+            pa: { field: "price", dir: "asc" },
+            pd: { field: "price", dir: "desc" },
+        };
+
+        if (map[code]) out.sortOverride = map[code];
+        return lead;
+    });
+
     // Cleanup: removing directives can leave "donkey &  &" etc.
     // - collapse spaces
     // - collapse repeated operators
@@ -1622,6 +1673,16 @@ function applyFilter() {
 
     // Pull out temporary cap overrides from the search text
     const overrides = parseCapOverridesFromSearch(rawInput);
+
+    // Sort override (search bar): affects sorting + sort indicators, but does not mutate
+    // the user's manually-selected sortField/sortDir.
+    if (overrides.sortOverride) {
+        sortOverrideField = overrides.sortOverride.field;
+        sortOverrideDir = overrides.sortOverride.dir;
+    } else {
+        sortOverrideField = null;
+        sortOverrideDir = null;
+    }
 
     // UI: show red outline on the cap buttons when search overrides are present
     if (btnDistance) {
