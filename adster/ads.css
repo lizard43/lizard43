@@ -815,6 +815,7 @@ a:hover {
 .ad-thumb-wrap a {
   display: block;
   height: 100%;
+  cursor: pointer;
 }
 
 .ad-thumb {
@@ -844,6 +845,7 @@ a:hover {
   font-size: 12px;
   border: 1px dashed rgba(255, 255, 255, 0.15);
   border-radius: 6px;
+  cursor: pointer;
 }
 
 /* right column */

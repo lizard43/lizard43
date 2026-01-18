@@ -1091,22 +1091,23 @@ function renderTable() {
         const distanceText = distance ? `${escapeHtml(String(distance))} mi` : "";
 
         // Image (left column)
-        // Server is truth: if server says missing, show fallback.
-        // Otherwise, try imageUrl ONCE per generated_at snapshot.
-        // If it already failed in this snapshot (badImageIdSet), show fallback to avoid reload hell.
         const serverMissing = !!ad.imageMissing;
         const urlMissing = !imageUrl;
 
         const alreadyFailedThisSnapshot = badImageIdSet.has(adID);
         const isImageMissing = serverMissing || urlMissing || alreadyFailedThisSnapshot;
 
+        const wrapLink = (innerHtml) => {
+            return adUrl
+                ? `<a href="${adUrl}" target="_blank" rel="noopener noreferrer">${innerHtml}</a>`
+                : innerHtml;
+        };
+
         const imgHtml = isImageMissing
-            ? `<div class="thumb-fallback" title="Image missing">No image</div>`
+            ? wrapLink(`<div class="thumb-fallback" title="Image missing">No image</div>`)
             : (imageUrl
-                ? `<a href="${adUrl}" target="_blank" rel="noopener noreferrer">
-           <img class="ad-thumb" src="${imageUrl}" alt="" loading="lazy" decoding="async">
-         </a>`
-                : `<div class="thumb-fallback" title="No image">No image</div>`);
+                ? wrapLink(`<img class="ad-thumb" src="${imageUrl}" alt="" loading="lazy" decoding="async">`)
+                : wrapLink(`<div class="thumb-fallback" title="No image">No image</div>`));
 
         // Hide/show action
         let hideShowIconHtml, hideShowAction, hideShowTitle;
@@ -2654,7 +2655,12 @@ function setupBrokenImageHandler() {
         const wrap = img.closest(".ad-thumb-wrap");
         if (wrap) {
             wrap.classList.add("thumb-broken");
-            wrap.innerHTML = `<div class="thumb-fallback" title="Image unavailable">No image</div>`;
+            const adUrl = allAds?.find(a => String(a?.adID || "") === String(adID || ""))?.adUrl || "";
+            wrap.innerHTML = adUrl
+                ? `<a href="${adUrl}" target="_blank" rel="noopener noreferrer">
+                    <div class="thumb-fallback" title="Image unavailable">No image</div>
+                    </a>`
+                : `<div class="thumb-fallback" title="Image unavailable">No image</div>`;
         }
 
         // --- PERF: do NOT full re-render here ---
