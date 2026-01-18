@@ -1126,7 +1126,7 @@ function renderTable() {
         // (Your CSS clamps it to a few lines.)
         const descSafe = escapeHtml(desc);
 
-return `
+        return `
     <div class="ad-card ${isHidden ? "hidden-ad" : ""} ${isImageMissing ? "image-missing" : ""}"
          data-ad-id="${escapeAttr(adID)}"
          tabindex="0">
@@ -2227,17 +2227,21 @@ async function setupSettingsModal() {
     savedSel.addEventListener("change", updateEnablement);
 
     saveBtn?.addEventListener("click", async () => {
+        try {
+            // Save settings from the modal (fixed location, etc.)
+            syncStorageFromUI();
 
-        showHidden = !!showHiddenCheckbox.checked;
-        saveShowHidden(showHidden);
+            close();
 
-        syncStorageFromUI();
-        close();
+            // Re-apply location-dependent behavior
+            await resolveHomeLocation();
+            await loadAds();
 
-        // apply immediately: recompute distances, re-render
-        await resolveHomeLocation();
-        await loadAds(); // reload + recompute distances using new homeLat/homeLon
-        showToast("Settings saved");
+            showToast("Settings saved");
+        } catch (err) {
+            console.error("[settings] save failed:", err);
+            showToast("Settings save failed (see console)", 6000);
+        }
     });
 }
 
@@ -2268,8 +2272,8 @@ btnPriceChanged?.addEventListener("click", () => {
 });
 
 tbody.addEventListener("pointerdown", (e) => {
-  const card = e.target.closest(".ad-card");
-  if (card) card.focus();
+    const card = e.target.closest(".ad-card");
+    if (card) card.focus();
 });
 
 // event delegation for action buttons
