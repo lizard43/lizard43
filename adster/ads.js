@@ -1323,7 +1323,17 @@ function termToRegexPair(term) {
 
     const blobRe = new RegExp(blobPattern);
 
-    const pair = { tokenRe, blobRe };
+    // 3) "squashed" blob regex (alnum only) to allow inside-word matches like quietbert
+    // q*bert => q[a-z0-9]{0,5}bert against blobSquash like "quietbert"
+    const squashGap = `[a-z0-9]{0,${WILDCARD_MAX_GAP}}`;
+    let squashPattern = "";
+    for (let i = 0; i < parts.length; i++) {
+        if (i > 0) squashPattern += squashGap;
+        squashPattern += parts[i];
+    }
+    const squashRe = new RegExp(squashPattern);
+
+    const pair = { tokenRe, blobRe, squashRe };
     _wildcardRegexCache.set(key, pair);
     return pair;
 }
@@ -1342,8 +1352,12 @@ function matchTermInBlob(term, blob) {
         if (tokenRe.test(tok)) return true;
     }
 
-    // 2) blob-level match with capped wildcard span
-    return blobRe.test(blob);
+    // 2) blob-level match with capped wildcard span + word boundaries
+    if (blobRe.test(blob)) return true;
+
+    // 3) alnum-squashed match (enables quietbert)
+    const blobSquash = blob.replace(/[^a-z0-9]+/g, "");
+    return squashRe.test(blobSquash);
 }
 
 // Simple (non-boolean) search tokenization: supports quoted phrases and whitespace-separated AND
