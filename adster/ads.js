@@ -928,6 +928,37 @@ function priceSortKey(priceText) {
 
 // --- time helpers ---
 
+function formatLocal12h(d) {
+    if (!(d instanceof Date) || isNaN(d.getTime())) return "";
+
+    // Build a stable, friendly string without locale-inserted punctuation quirks.
+    // Example: "Jan 19, 2026 3:04 PM"
+    try {
+        const parts = new Intl.DateTimeFormat(undefined, {
+            month: "short",
+            day: "numeric",
+            year: "numeric",
+            hour: "numeric",
+            minute: "2-digit",
+            hour12: true,
+        }).formatToParts(d);
+
+        const get = (type) => (parts.find((p) => p.type === type)?.value || "");
+
+        const month = get("month");
+        const day = get("day");
+        const year = get("year");
+        const hour = get("hour");
+        const minute = get("minute");
+        const dayPeriod = (get("dayPeriod") || "").toUpperCase();
+
+        if (!month || !day || !year || !hour || !minute) return "";
+        return `${month} ${day}, ${year} ${hour}:${minute} ${dayPeriod}`.trim();
+    } catch {
+        return "";
+    }
+}
+
 function formatTimestampDisplay(ts) {
     if (!ts) return "";
 
@@ -936,33 +967,36 @@ function formatTimestampDisplay(ts) {
         return String(ts);
     }
 
-    const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
-        "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+    const pretty = formatLocal12h(d);
+    if (pretty) return pretty;
+
+    // Very old browsers: fall back to a basic formatter
+    const months = [
+        "Jan", "Feb", "Mar", "Apr", "May", "Jun",
+        "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
+    ];
 
     const year = d.getFullYear();
     const monthName = months[d.getMonth()];
-    const day = d.getDate(); // no leading zero
+    const day = d.getDate();
 
     let hour = d.getHours();
     const minutes = String(d.getMinutes()).padStart(2, "0");
-    const ampm = hour >= 12 ? "pm" : "am";
+    const ampm = hour >= 12 ? "PM" : "AM";
     hour = hour % 12;
     if (hour === 0) hour = 12;
 
-    return `${monthName} ${day} ${year} ${hour}:${minutes}${ampm}`;
+    return `${monthName} ${day}, ${year} ${hour}:${minutes} ${ampm}`;
 }
 
 function formatTitleTimestamp(ts) {
+    if (!ts) return "";
+
     const d = new Date(ts);
-    if (isNaN(d.getTime())) return "";
+    if (isNaN(d.getTime())) return String(ts);
 
-    const yyyy = d.getFullYear();
-    const mm = String(d.getMonth() + 1).padStart(2, "0");
-    const dd = String(d.getDate()).padStart(2, "0");
-    const hh = String(d.getHours()).padStart(2, "0");
-    const min = String(d.getMinutes()).padStart(2, "0");
-
-    return `${yyyy}-${mm}-${dd} ${hh}:${min}`;
+    const pretty = formatLocal12h(d);
+    return pretty || formatTimestampDisplay(ts);
 }
 
 function getDateFilterMs() {
