@@ -1304,34 +1304,31 @@ function termToRegexPair(term) {
     const tokenPattern = escaped.replace(/\\\*/g, "\\S*");
     const tokenRe = new RegExp(tokenPattern);
 
-    // 2) blob regex: '*' matches up to WILDCARD_MAX_GAP chars (INCLUDING spaces/hyphens/underscores)
-    // This allows "m*pac" to match "ms pac", "mrs pac", "m s pac", "ms-pac", etc.
-    // but NOT "mini vintage arcade ... pac" because gap is too large.
-    // 2) blob regex with capped wildcard span, BUT fragments must start on a word boundary
-    // so "m*pac" won't match the "m" inside "game" (ga[m]e pac...)
+    // 2) blob regex: '*' matches up to WILDCARD_MAX_GAP chars INCLUDING spaces/hyphens/underscores
+    //    but each fragment must start at a word boundary
     const parts = term.split("*").filter(Boolean).map(escapeRegExpLiteral);
 
-    // allow limited span between fragments
     const blobGap = `[\\s\\-_a-z0-9]{0,${WILDCARD_MAX_GAP}}`;
 
-    // build: \bpart1 + gap + \bpart2 + gap + \bpart3 ...
     let blobPattern = "";
     for (let i = 0; i < parts.length; i++) {
         if (i > 0) blobPattern += blobGap;
         blobPattern += `\\b${parts[i]}`;
     }
-
     const blobRe = new RegExp(blobPattern);
 
-    // 3) "squashed" blob regex (alnum only) to allow inside-word matches like quietbert
-    // q*bert => q[a-z0-9]{0,5}bert against blobSquash like "quietbert"
-    const squashGap = `[a-z0-9]{0,${WILDCARD_MAX_GAP}}`;
-    let squashPattern = "";
-    for (let i = 0; i < parts.length; i++) {
-        if (i > 0) squashPattern += squashGap;
-        squashPattern += parts[i];
+    // 3) NEW: "squashed" regex (alnum only) to allow inside-word matches like "quietbert"
+    // Only enable when there are at least 2 fragments, otherwise it can create surprises.
+    let squashRe = null;
+    if (parts.length >= 2) {
+        const squashGap = `[a-z0-9]{0,${WILDCARD_MAX_GAP}}`;
+        let squashPattern = "";
+        for (let i = 0; i < parts.length; i++) {
+            if (i > 0) squashPattern += squashGap;
+            squashPattern += parts[i];
+        }
+        squashRe = new RegExp(squashPattern);
     }
-    const squashRe = new RegExp(squashPattern);
 
     const pair = { tokenRe, blobRe, squashRe };
     _wildcardRegexCache.set(key, pair);
@@ -1344,20 +1341,24 @@ function matchTermInBlob(term, blob) {
     // Non-wildcard: fast path
     if (!term.includes("*")) return blob.includes(term);
 
-    const { tokenRe, blobRe } = termToRegexPair(term);
+    const { tokenRe, blobRe, squashRe } = termToRegexPair(term);
 
-    // 1) token-level match
+    // 1) token-level match (catches "neogeo", "ms-pacman", "qbert", etc.)
     const tokens = blob.split(/[^a-z0-9-]+/i).filter(Boolean);
     for (const tok of tokens) {
         if (tokenRe.test(tok)) return true;
     }
 
-    // 2) blob-level match with capped wildcard span + word boundaries
+    // 2) blob-level match (allows crossing spaces/hyphens/underscores within WILDCARD_MAX_GAP)
     if (blobRe.test(blob)) return true;
 
-    // 3) alnum-squashed match (enables quietbert)
-    const blobSquash = blob.replace(/[^a-z0-9]+/g, "");
-    return squashRe.test(blobSquash);
+    // 3) squashed match (allows inside-word matches like quietbert)
+    if (squashRe) {
+        const blobSquash = blob.replace(/[^a-z0-9]+/g, "");
+        if (squashRe.test(blobSquash)) return true;
+    }
+
+    return false;
 }
 
 // Simple (non-boolean) search tokenization: supports quoted phrases and whitespace-separated AND
