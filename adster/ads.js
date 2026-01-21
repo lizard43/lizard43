@@ -1611,6 +1611,20 @@ function updatePriceChangedBadge() {
     priceChangedBadge.title = full;
 }
 
+function updateSearchPlaceholder() {
+    if (!searchInput) return;
+
+    const base = "Search title, description, location, author…";
+
+    if (!generatedAtISO) {
+        searchInput.placeholder = base;
+        return;
+    }
+
+    const pretty = formatTimestampDisplay(generatedAtISO);
+    searchInput.placeholder = `${base}\nLast scrape: ${pretty}`;
+}
+
 function updateResultsPill() {
     if (!resultsPill) return;
 
@@ -2492,6 +2506,8 @@ async function loadAds() {
         const json = await res.json();
 
         generatedAtISO = json.generated_at || null;
+        updateSearchPlaceholder();
+
         syncBadImageSetWithGeneratedAt(generatedAtISO);
 
         if (generatedAtISO) {
