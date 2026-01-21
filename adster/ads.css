@@ -50,25 +50,24 @@ body {
 .toolbar-row.row2 {
   grid-template-columns: auto auto 1fr;
   gap: 3px;
-  align-items: center;
-  line-height: 1;
-}
 
-.toolbar-row.row2>* {
-  line-height: 1;
-}
-
-/* Vertically center toolbar icons (row 2) */
-.toolbar-row.row2 {
+  /* Give the row a stable height, then center the contents inside each cell */
   min-height: 32px;
-  align-items: center;
 }
 
-#resultsPill {
-  justify-self: end;
-  /* stick to the right edge */
-  text-align: right;
+/* Force each grid cell to fill the row height so the inner flex centering works */
+.toolbar-row.row2 > * {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  line-height: 1;
 }
+
+/* Cell-specific alignment */
+#resultsPill {
+  justify-content: flex-end; /* right align inside the 1fr cell */
+}
+
 
 #favoritesWrapper {
   display: none;
