@@ -8,11 +8,20 @@ function resolveAdsJsonUrlFromQuery() {
     const json = (sp.get("json") || "").trim();
     if (json) return json;
 
-    // Friendly alias: ?cheapo or ?cheapo=1
-    if (sp.has("cheapo")) return "scrapester_cheapo.json";
+    // Friendly alias: ?cheapo or ?cheapo=1 (also sets persisted state)
+    const cheapoRaw = sp.get("cheapo");
+    if (sp.has("cheapo")) {
+        // treat "?cheapo=0" as OFF, everything else as ON
+        if (String(cheapoRaw || "").trim() === "0") return "scrapester.json";
+        return "scrapester_cheapo.json";
+    }
+
+    // Persisted toggle state (no URL needed)
+    if (cheapoMode) return "scrapester_cheapo.json";
 
     return "scrapester.json";
 }
+
 
 let allAds = [];
 let filteredAds = [];
@@ -46,6 +55,7 @@ let favorites = [];
 let activeQuickRange = -1; // -1 = none active, 0=4h, 1=12h, 2=1d
 let showHidden = false;    // global toggle
 let showOnlyPriceChanged = false; // toolbar toggle
+let cheapoMode = false; // dataset toggle (cheapo json)
 
 let homeLat = null;
 let homeLon = null;
@@ -76,6 +86,8 @@ const btnLast1w = document.getElementById("btnLast1w");
 
 const btnPriceChanged = document.getElementById("btnPriceChanged");
 const priceChangedBadge = document.getElementById("priceChangedBadge");
+
+const btnCheapo = document.getElementById("btnCheapo");
 
 const btnDistance = document.getElementById("btnDistance");
 const distanceCapLabel = document.getElementById("distanceCapLabel");
@@ -114,6 +126,9 @@ const LS_LOC_FALLBACK_ID = "adster.location.fallbackId";
 const LS_DISTANCE_CAP = "adster.distance.capMiles"; // number, default 500
 const LS_PRICE_CAP = "adster.price.capDollars";     // number, default 1000
 const LS_TIME_CAP_DAYS = "adster.time.capDays"; // number, store 30/90/180 or 1000000 for Infinity
+
+// --- Cheapo (dataset) toggle ---
+const LS_CHEAPO_MODE = "adster.dataset.cheapo"; // "1" | "0"
 
 // --- Hidden ads storage key ---
 const LS_HIDDEN_AD_IDS = "adster.hiddenAdIDs"; // JSON array of adID strings
@@ -233,6 +248,23 @@ function loadShowHidden() {
 
 function saveShowHidden(v) {
     localStorage.setItem(LS_SHOW_HIDDEN, v ? "1" : "0");
+}
+
+
+function loadCheapoMode() {
+    return localStorage.getItem(LS_CHEAPO_MODE) === "1";
+}
+
+function saveCheapoMode(v) {
+    localStorage.setItem(LS_CHEAPO_MODE, v ? "1" : "0");
+}
+
+function renderCheapoToggle() {
+    if (!btnCheapo) return;
+    btnCheapo.classList.toggle("active", !!cheapoMode);
+    btnCheapo.title = cheapoMode
+        ? "Cheapo ON (loading scrapester_cheapo.json)"
+        : "Cheapo OFF (loading scrapester.json)";
 }
 
 function loadHiddenIds() {
@@ -2397,6 +2429,18 @@ btnPriceChanged?.addEventListener("click", () => {
     scrollResultsToTop();
 });
 
+btnCheapo?.addEventListener("click", async () => {
+    cheapoMode = !cheapoMode;
+    saveCheapoMode(cheapoMode);
+    renderCheapoToggle();
+
+    // Switch dataset and reload.
+    ADS_JSON_URL = resolveAdsJsonUrlFromQuery();
+    await loadAds();
+
+    showToast(cheapoMode ? "Cheapo ON" : "Cheapo OFF");
+});
+
 tbody.addEventListener("pointerdown", (e) => {
     const card = e.target.closest(".ad-card");
     if (card) card.focus();
@@ -2745,9 +2789,12 @@ function setupBrokenImageHandler() {
     showHidden = loadShowHidden();
     renderHiddenSearchToggle();
 
-
     renderPriceChangedToggle();
     updatePriceChangedBadge();
+
+    // cheapo dataset init
+    cheapoMode = loadCheapoMode();
+    renderCheapoToggle();
 
     // distance cap init
     const stored = loadDistanceCap();
@@ -2763,6 +2810,17 @@ function setupBrokenImageHandler() {
     updateTimeCapLabel();
 
     await resolveHomeLocation(); // pick browser or fallback location (+ toast)
+
+    // URL can force cheapo ON/OFF for this load; also persist it.
+    try {
+        const sp = new URLSearchParams(window.location.search);
+        if (sp.has("cheapo")) {
+            const raw = String(sp.get("cheapo") || "").trim();
+            cheapoMode = (raw !== "0");
+            saveCheapoMode(cheapoMode);
+            renderCheapoToggle();
+        }
+    } catch { }
 
     ADS_JSON_URL = resolveAdsJsonUrlFromQuery();
     await loadAds();
