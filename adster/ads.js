@@ -1,5 +1,18 @@
 const API_BASE_URL = "";
-const ADS_JSON_URL = "scrapester.json";
+let ADS_JSON_URL = "scrapester.json";
+
+function resolveAdsJsonUrlFromQuery() {
+    const sp = new URLSearchParams(window.location.search);
+
+    // Generic override: ?json=somefile.json
+    const json = (sp.get("json") || "").trim();
+    if (json) return json;
+
+    // Friendly alias: ?cheapo or ?cheapo=1
+    if (sp.has("cheapo")) return "scrapester_cheapo.json";
+
+    return "scrapester.json";
+}
 
 let allAds = [];
 let filteredAds = [];
@@ -2750,7 +2763,9 @@ function setupBrokenImageHandler() {
     updateTimeCapLabel();
 
     await resolveHomeLocation(); // pick browser or fallback location (+ toast)
-    await loadAds();             // load ads and compute distances with that location
+
+    ADS_JSON_URL = resolveAdsJsonUrlFromQuery();
+    await loadAds();
 
     autosizeSearchBox();
 
