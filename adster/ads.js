@@ -1122,7 +1122,9 @@ function renderTable() {
             : `<span class="ad-author-text"></span>`;
 
         // Distance text (line 3 left side)
-        const distanceText = distance ? `${escapeHtml(String(distance))} mi` : "";
+        const distanceText = distance
+            ? `<span class="distance-value">${escapeHtml(String(distance))}</span><span class="distance-unit"> mi</span>`
+            : "";
 
         // Image (left column)
         const serverMissing = !!ad.imageMissing;

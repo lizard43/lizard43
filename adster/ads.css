@@ -738,7 +738,9 @@ a:hover {
   box-shadow: 0 0 0 2px rgba(120, 180, 255, 0.18);
 }
 
-.ad-card:focus { outline: none; }
+.ad-card:focus {
+  outline: none;
+}
 
 /* Hidden baseline */
 .ad-card.hidden-ad {
@@ -924,6 +926,18 @@ a:hover {
 .ad-line3 .ad-distance {
   white-space: nowrap;
   color: #bbb;
+}
+
+.ad-line3 .distance-value {
+  color: #fff;
+  /* same brightness as price */
+  font-weight: 400;
+  /* matches non-price emphasis */
+}
+
+.ad-line3 .distance-unit {
+  color: #bbb;
+  /* keep “mi” subdued */
 }
 
 .ad-line3 .ad-location {
