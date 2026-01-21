@@ -54,6 +54,16 @@ body {
   line-height: 1;
 }
 
+.toolbar-row.row2>* {
+  line-height: 1;
+}
+
+/* Vertically center toolbar icons (row 2) */
+.toolbar-row.row2 {
+  min-height: 32px;
+  align-items: center;
+}
+
 #resultsPill {
   justify-self: end;
   /* stick to the right edge */
