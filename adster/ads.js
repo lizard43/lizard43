@@ -2516,9 +2516,20 @@ async function loadAds() {
                 ? `Adster · ${titleTime}`
                 : "Adster";
 
-            const loc = lastLocationToastText || "Location: unknown";
-            showToolbarMessage(loc, `Last scrape: ${titleTime}`, 3000);
+            if (lastLocationToastText) {
+                showToolbarMessage(lastLocationToastText, "", 3000);
+            }
         }
+
+        // if (generatedAtISO) {
+        //     const titleTime = formatTitleTimestamp(generatedAtISO);
+        //     document.title = titleTime
+        //         ? `Adster · ${titleTime}`
+        //         : "Adster";
+
+        //     const loc = lastLocationToastText || "Location: unknown";
+        //     showToolbarMessage(loc, `Last scrape: ${titleTime}`, 3000);
+        // }
 
         // scrapester.json is { generated_at, ads: [...] }
         const ads = Array.isArray(json.ads) ? json.ads : json;
