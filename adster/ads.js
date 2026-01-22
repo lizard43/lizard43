@@ -188,10 +188,21 @@ function scrollResultsToTop() {
 
 function autosizeSearchBox() {
     if (!searchInput) return;
-    // reset so scrollHeight is accurate
+
+    // Reset so scrollHeight is accurate
     searchInput.style.height = "auto";
-    // allow it to grow, CSS max-height will cap it
-    searchInput.style.height = `${searchInput.scrollHeight}px`;
+
+    // scrollHeight includes padding but not borders. Because we use border-box sizing
+    // globally, set height to scrollHeight + border widths so we don't clip the last line
+    // (notably on mobile Safari).
+    const cs = window.getComputedStyle(searchInput);
+    const bt = parseFloat(cs.borderTopWidth) || 0;
+    const bb = parseFloat(cs.borderBottomWidth) || 0;
+
+    // +1 for rounding quirks on some browsers
+    const target = Math.ceil(searchInput.scrollHeight + bt + bb + 1);
+
+    searchInput.style.height = `${target}px`;
 }
 
 function loadBadImageIds() {
