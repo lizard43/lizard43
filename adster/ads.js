@@ -65,6 +65,14 @@ let generatedAtISO = null;
 let searchDebounceTimer = null;
 const SEARCH_DEBOUNCE_MS = 400;
 
+function clearSearchBox({ focus = true } = {}) {
+    clearTimeout(searchDebounceTimer);
+    searchInput.value = "";
+    autosizeSearchBox();
+    applyFilterNextFrame();
+    if (focus) searchInput.focus();
+}
+
 function applyFilterNextFrame() {
     // Let the textarea repaint before we rebuild the whole grid
     requestAnimationFrame(() => applyFilter());
@@ -783,6 +791,14 @@ function setupFavoriteSearchHearts() {
     function recall(slot) {
         const stored = loadFavSearch(slot);
         if (!stored.trim()) return; // click does nothing when empty/grey
+
+        // QoL: if the current search already matches the slot, treat a tap as "clear search"
+        // (same effect as clicking the X at the right side of the search box).
+        const current = String(searchInput.value ?? "").trim();
+        if (current && current === String(stored).trim()) {
+            clearSearchBox({ focus: true });
+            return;
+        }
 
         searchInput.value = stored;
         applyFilterNextFrame();
@@ -2057,11 +2073,7 @@ searchInput.addEventListener("keydown", (e) => {
 });
 
 clearSearch.addEventListener("click", () => {
-    clearTimeout(searchDebounceTimer);
-    searchInput.value = "";
-    autosizeSearchBox();
-    applyFilterNextFrame();
-    searchInput.focus();
+    clearSearchBox({ focus: true });
 });
 
 // ------- favorites UI -------
