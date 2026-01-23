@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-01-23T17:21:55.332Z",
+  "generated_at": "2026-01-23T18:20:02.721Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,51 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 243,
-      "droppedPrice": 2321,
+      "exported_ads": 245,
+      "droppedPrice": 2327,
       "droppedMissingGeo": 0,
-      "droppedCircle": 1277
+      "droppedCircle": 1280
     }
   },
   "ads": [
+    {
+      "adID": "2348596018937562",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100041480700091/?product_id=2348596018937562",
+      "author": "Peggy VanDyke",
+      "postedTime": "2026-01-16T00:44:54.000Z",
+      "title": "Atari 1977",
+      "description": "We got this at a storrage auction and decluttering Model number C380 Video pinball",
+      "price": "$75",
+      "lat": 28.8358176,
+      "lon": -82.3303715,
+      "location": "Inverness, FL",
+      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/617131217_1907998040155191_3695817054934472901_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=106&ccb=1-7&_nc_sid=92e707&_nc_ohc=QcszDDzSk1wQ7kNvwHeAo30&_nc_oc=Adki15qKYOGdOP5C0thewfSxVaz3lVzCKtAXu29GOkH-ddXjtOHbldRVX1hPnmnYj2I&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=OTDTfwG4z81eWbgLPq2mtQ&oh=00_AfqLo_qafBlP203Tu4cTliSzzTTbY-B7ZKfGGlrZD4ImeA&oe=697986A1",
+      "adUrl": "https://www.facebook.com/marketplace/item/2348596018937562/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-01-23 18:09:40"
+    },
+    {
+      "adID": "1588064978990915",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100080200369547/?product_id=1588064978990915",
+      "author": "Tioshi Smith",
+      "postedTime": "2025-12-30T16:41:00.000Z",
+      "title": "Galaga Arcade Game",
+      "description": "Used - Like New",
+      "price": "$300",
+      "lat": 32.2998686,
+      "lon": -90.1830408,
+      "location": "Jackson, MS",
+      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/606077026_1403562397823398_4152108390787234975_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=101&ccb=1-7&_nc_sid=92e707&_nc_ohc=CtLEf_z8nfYQ7kNvwGM396T&_nc_oc=AdkP6pyBnwDL23o3AjHbDmQj2LCPwqAXeCSSybj66JEHNdxWVw46EtAJPaFpDsbghoU&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=rgOO6BOGzMOHfM0-9yym6w&oh=00_Afoeo6FukVnvlbTBxl2j_NgNdEpkLA2GPLVN_Zvfu9Z51w&oe=6979983B",
+      "adUrl": "https://www.facebook.com/marketplace/item/1588064978990915/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-01-23 18:02:29"
+    },
     {
       "adID": "914321597944179",
       "source": "MP",
@@ -346,7 +384,7 @@
       "source": "PS",
       "authorUrl": "https://pinside.com/pinball/community/pinsiders/enchantress/market",
       "author": "Enchantress",
-      "postedTime": "2026-01-23T01:21:02.376Z",
+      "postedTime": "2026-01-23T01:19:08.311Z",
       "title": "FS New Rottendog Williams/Bally WPC-95 driver board",
       "description": "New (selling one, non-business) - “Selling this driver board that was just purchased, decided to send original in for repair instead.”",
       "price": "$350",
@@ -1277,7 +1315,7 @@
       "source": "PS",
       "authorUrl": "https://pinside.com/pinball/community/pinsiders/filadin/market",
       "author": "Filadin",
-      "postedTime": "2026-01-18T17:21:23.864Z",
+      "postedTime": "2026-01-18T18:19:29.028Z",
       "title": "Pinglass Plus Widebody 4 Sale",
       "description": "New (selling one, non-business) - “I am an idiot. Bought multiple Pinglass plus in Widebody. Whoops. My carelessness is your gain. $100. Local pickup 30076. Roswell.”",
       "price": "$100",
