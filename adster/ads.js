@@ -74,8 +74,12 @@ function clearSearchBox({ focus = true } = {}) {
 }
 
 function applyFilterNextFrame() {
-    // Let the textarea repaint before we rebuild the whole grid
-    requestAnimationFrame(() => applyFilter());
+    // Let the textarea repaint *before* we rebuild the whole grid.
+    // NOTE: a single requestAnimationFrame runs before paint; doing it twice
+    // yields one paint so the UI updates immediately even if applyFilter is heavy.
+    requestAnimationFrame(() => {
+        requestAnimationFrame(() => applyFilter());
+    });
 }
 
 const searchInput = document.getElementById("searchInput");
