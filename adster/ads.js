@@ -2163,6 +2163,23 @@ function setAdHidden(adID, hidden) {
                 } else {
                     // Keep it visible but dimmed (hidden-ad class already handled below).
                     card.classList.add("hidden-ad");
+
+                    // Also flip the top-right icon to the "eye" so the user can unhide
+                    // the card without needing to re-render the whole grid.
+                    const btn = card.querySelector("button.hide-toggle[data-action]");
+                    if (btn) {
+                        const ICON_EYE = `
+  <svg viewBox="0 0 24 24" class="icon-svg" focusable="false" aria-hidden="true">
+    <path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z"></path>
+    <circle cx="12" cy="12" r="3"></circle>
+  </svg>
+`.trim();
+
+                        btn.dataset.action = "show";
+                        btn.title = "Unhide ad";
+                        btn.setAttribute("aria-label", "Unhide ad");
+                        btn.innerHTML = ICON_EYE;
+                    }
                 }
 
                 updatePriceChangedBadge();
