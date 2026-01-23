@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-01-22T23:11:44.754Z",
+  "generated_at": "2026-01-23T00:14:46.102Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,51 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 224,
-      "droppedPrice": 2286,
+      "exported_ads": 226,
+      "droppedPrice": 2290,
       "droppedMissingGeo": 0,
-      "droppedCircle": 1269
+      "droppedCircle": 1281
     }
   },
   "ads": [
+    {
+      "adID": "1245901960759668",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100029168648126/?product_id=1245901960759668",
+      "author": "Shal Paquette",
+      "postedTime": "2026-01-22T22:57:48.000Z",
+      "title": "Price is firm 2 Player Arcade Panel from mame cabinet",
+      "description": "Built for a mame cabinet. Fully functional. Cash only. Firm on price. Must pick up",
+      "price": "$40",
+      "lat": 28.9294316,
+      "lon": -81.6656305,
+      "location": "Umatilla, FL",
+      "imageUrl": "https://scontent-dfw5-3.xx.fbcdn.net/v/t39.84726-6/608188402_1405957231055831_3205570167956775100_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=109&ccb=1-7&_nc_sid=92e707&_nc_ohc=HcZ92kgCElUQ7kNvwFZnRvU&_nc_oc=AdkE3Iq9nLHRN1dwVWIV6RRWnDWFHDwIRGwgSVV4dXbWNSW-WYMsvj8b9nBk-5pphCc&_nc_zt=14&_nc_ht=scontent-dfw5-3.xx&_nc_gid=6NYNAS3vZGPcByhctTc9zg&oh=00_AfpugZZjbN7SfVtopJYdRBkKKUXTK1RqMz3zKRu8ixoELg&oe=69789D22",
+      "adUrl": "https://www.facebook.com/marketplace/item/1245901960759668/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-01-23 00:02:43"
+    },
+    {
+      "adID": "1391613148563758",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/61573936532359/?product_id=1391613148563758",
+      "author": "Deyvi Lopez",
+      "postedTime": "2025-08-04T01:26:06.000Z",
+      "title": "A rare cabinet arcade machine",
+      "description": "Works beautifully and prices can be adjusted",
+      "price": "$650",
+      "lat": 32.6833065,
+      "lon": -84.7380141,
+      "location": "Waverly Hall, GA",
+      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/566293519_1426001928463350_6631703275947897107_n.jpg?stp=c0.0.261.261a_dst-jpg_p261x260_tt6&_nc_cat=106&ccb=1-7&_nc_sid=92e707&_nc_ohc=aERCa8YB4gEQ7kNvwE9mlCh&_nc_oc=AdkdGufuLkx2Url1aWdH9EFCp_Z0EibwBsh2lcIbPL7BjkQeaDeStkZQHsJ07HmlSAA&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=z2HW_0depP2jNIMionlhGg&oh=00_Afq5E7ip8dRjsTLO6C3XWWUm-qsRgfmd0a02zdiA_zJ79A&oe=697875A2",
+      "adUrl": "https://www.facebook.com/marketplace/item/1391613148563758/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-01-23 00:02:35"
+    },
     {
       "adID": "1414567000361974",
       "source": "MP",
@@ -916,7 +954,7 @@
       "source": "PS",
       "authorUrl": "https://pinside.com/pinball/community/pinsiders/filadin/market",
       "author": "Filadin",
-      "postedTime": "2026-01-17T23:11:04.460Z",
+      "postedTime": "2026-01-18T00:14:05.583Z",
       "title": "Pinglass Plus Widebody 4 Sale",
       "description": "New (selling one, non-business) - “I am an idiot. Bought multiple Pinglass plus in Widebody. Whoops. My carelessness is your gain. $100. Local pickup 30076. Roswell.”",
       "price": "$100",
@@ -1581,7 +1619,7 @@
       "source": "PS",
       "authorUrl": "https://pinside.com/pinball/community/pinsiders/arcadebar/market",
       "author": "ArcadeBar",
-      "postedTime": "2026-01-19T23:11:00.006Z",
+      "postedTime": "2026-01-20T00:14:01.442Z",
       "title": "Spider-Man Back Alley Train",
       "description": "As new - New out of box (first owner) - “Red Train with graffiti from Back Alley, as new, listed on their site for $200 so here’s your chance to grab one half price!”",
       "price": "$100",
@@ -1600,7 +1638,7 @@
       "source": "PS",
       "authorUrl": "https://pinside.com/pinball/community/pinsiders/arcadebar/market",
       "author": "ArcadeBar",
-      "postedTime": "2026-01-19T23:11:00.006Z",
+      "postedTime": "2026-01-20T00:14:01.442Z",
       "title": "Spider-Man Plastic Protector Set",
       "description": "As new - New out of box (first owner) - “This is the fluorescent multicolor set from New Forest Pinball overseas and is $150 new plus shipping. Here’s your chance to get the set half price! Bought these for my 07 Spidey...”",
       "price": "$75",
@@ -2312,8 +2350,8 @@
       "location": "Atlanta, GA",
       "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t15.5256-10/495728956_2734346340096268_9122602433909567768_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=111&ccb=1-7&_nc_sid=d4195b&_nc_ohc=KlcvM9pnSEoQ7kNvwFyEA9x&_nc_oc=Adm9jpOz7kAQQmTfs1gi6LiEYDdJUfo0CGNKorMibx_vm1bkoy6HYws6OsNnHBEAey8&_nc_zt=23&_nc_ht=scontent-dfw5-1.xx&_nc_gid=cPq0saW70oXF_3GVpz0mAA&oh=00_AfruvKLAAjAO4DzIFhQw8Wk7jUPv5oEmyo1C7gD2t-rBeg&oe=69772BF3",
       "adUrl": "https://www.facebook.com/marketplace/item/856994440282298/",
-      "priceChanged": 1,
-      "priceChangedAt": "2026-01-21 00:02:37",
+      "priceChanged": 0,
+      "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-01-17 18:02:20"
     },
