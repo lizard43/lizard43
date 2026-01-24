@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-01-24T16:35:28.811Z",
+  "generated_at": "2026-01-24T17:35:09.948Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,51 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 232,
-      "droppedPrice": 2164,
+      "exported_ads": 234,
+      "droppedPrice": 2172,
       "droppedMissingGeo": 0,
-      "droppedCircle": 1204
+      "droppedCircle": 1214
     }
   },
   "ads": [
+    {
+      "adID": "3281815431965963",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100000185067999/?product_id=3281815431965963",
+      "author": "Ben Myers",
+      "postedTime": "2026-01-18T15:42:39.000Z",
+      "title": "Pinball machine backglass Man cave Bally",
+      "description": "Bally pinball backglass. Perfect for man cave. Continental $75. All others $50 each. Update. Nashville is sold",
+      "price": "$50",
+      "lat": 34.5881461,
+      "lon": -86.4588768,
+      "location": "Owens Cross Roads, AL",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/618945403_878870621558434_4327078394482072838_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=107&ccb=1-7&_nc_sid=92e707&_nc_ohc=m2acHAu_jHUQ7kNvwHwQuRD&_nc_oc=AdnxIQrDvKvGwIrFeNg2dFGPiXCpYOBJZtlvwftR85tpUKGo8elrncTfc1ynnzbfSvI&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=UMVgz31i4Y1pK0kH4TuIqQ&oh=00_Afou_6KPClhnyhdKAmSxmcwBYviZwbwFVqIda7FQNDId5w&oe=697ACE7C",
+      "adUrl": "https://www.facebook.com/marketplace/item/3281815431965963/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-01-24 17:22:33"
+    },
+    {
+      "adID": "1097786381883132",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/1735036024/?product_id=1097786381883132",
+      "author": "Chris Holifield",
+      "postedTime": "2026-01-24T16:27:54.000Z",
+      "title": "Arcade game",
+      "description": "a multi-game arcade cabinet. Great condition.",
+      "price": "$500",
+      "lat": 31.6047734,
+      "lon": -89.195641,
+      "location": "Ellisville, MS",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/569413745_1376300400502032_2229561289601504951_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=105&ccb=1-7&_nc_sid=92e707&_nc_ohc=8EUMnGIsw1YQ7kNvwGWHHmf&_nc_oc=AdmRiY0btuSHBlP-PW1t_WZYCi9oyvuS9MXAnaDB-sHfnE4idZrUchR45Q-ZM6ucad0&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=NO4m5KTBFGQi84AvnJ2LxQ&oh=00_Afol8hmRkMj4AueEe9W7ObQavLUo-xROr1s4XlO84-QPAQ&oe=697AC283",
+      "adUrl": "https://www.facebook.com/marketplace/item/1097786381883132/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-01-24 17:03:04"
+    },
     {
       "adID": "726060876971540",
       "source": "MP",
@@ -1011,7 +1049,7 @@
       "source": "PS",
       "authorUrl": "https://pinside.com/pinball/community/pinsiders/enchantress/market",
       "author": "Enchantress",
-      "postedTime": "2026-01-23T01:35:08.011Z",
+      "postedTime": "2026-01-23T01:34:45.968Z",
       "title": "FS New Rottendog Williams/Bally WPC-95 driver board",
       "description": "New (selling one, non-business) - “Selling this driver board that was just purchased, decided to send original in for repair instead.”",
       "price": "$350",
