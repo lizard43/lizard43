@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-01-27T17:38:43.437Z",
+  "generated_at": "2026-01-27T18:06:31.885Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,51 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 165,
-      "droppedPrice": 2146,
+      "exported_ads": 167,
+      "droppedPrice": 2149,
       "droppedMissingGeo": 0,
-      "droppedCircle": 1026
+      "droppedCircle": 1027
     }
   },
   "ads": [
+    {
+      "adID": "958762990048498",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/1130242343/?product_id=958762990048498",
+      "author": "Jane Boyett",
+      "postedTime": "2026-01-26T21:55:10.000Z",
+      "title": "Computer desk",
+      "description": "Office desk with pull out keyboard ledge, 2 drawers and cabinet. Some areas show a little fading. (See picture)",
+      "price": "$30",
+      "lat": 33.0142344,
+      "lon": -83.9044159,
+      "location": "Monroe, GA",
+      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/619268474_765668892668256_3324131051037262322_n.jpg?stp=c0.43.261.261a_dst-jpg_p261x260_tt6&_nc_cat=102&ccb=1-7&_nc_sid=92e707&_nc_ohc=BWkBhECNJFkQ7kNvwGtR4lx&_nc_oc=AdnXnpbMzmuZkM0xzr0XPQ7idjRzsvgynthdfvTx9R4yzXjBcIKlnfvUGLw0GT2-xOM&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=8JCtnNhtsV-y1ucUfL3eAQ&oh=00_Afr2Rcz-NzSW_mwflnHTIbu4fi602zPCHxIogNCOViwhZQ&oe=697EB9E6",
+      "adUrl": "https://www.facebook.com/marketplace/item/958762990048498/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-01-27 18:04:44"
+    },
+    {
+      "adID": "26042850781976234",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/1756798582/?product_id=26042850781976234",
+      "author": "Ian Joubert",
+      "postedTime": "2026-01-24T03:50:45.000Z",
+      "title": "2 Arcade games: Cruising USA and Arctic Thunder need repair",
+      "description": "Cruising USA needs monitor replaced, Arctic Thunder needs computer $300 each",
+      "price": "$300",
+      "lat": 28.782535,
+      "lon": -82.6065272,
+      "location": "Homosassa, FL",
+      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/619689298_1403344994563303_467375173873970759_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=101&ccb=1-7&_nc_sid=92e707&_nc_ohc=HofPKbq2tucQ7kNvwE77NDi&_nc_oc=AdmAABphDrlvpfx7-srweRZHoqsWy4LMXWXOpO21Fj7IaJOhtXNmzvrd97SUC5eEFPg&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=G78lPbScKpLY2Y5oU20nnQ&oh=00_AfpxEgACR76G6Dl1OKl6r3DaCIfiHoSgns8Lx0glFf-Vcw&oe=697EBD3E",
+      "adUrl": "https://www.facebook.com/marketplace/item/26042850781976234/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-01-27 18:02:34"
+    },
     {
       "adID": "2093666111435460",
       "source": "MP",
@@ -118,7 +156,7 @@
       "source": "PS",
       "authorUrl": "https://pinside.com/pinball/community/pinsiders/sohumvet/market",
       "author": "Sohumvet",
-      "postedTime": "2026-01-26T15:05:13.966Z",
+      "postedTime": "2026-01-26T15:06:12.234Z",
       "title": "Free Used Standard Glass: Atlanta",
       "description": "Used, good condition - “I have several used standard size glass sheet available for free for pickup. Located in south Atlanta area. Wrapped and boxed. Come and get them.”",
       "price": "$0",
