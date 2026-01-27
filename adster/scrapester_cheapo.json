@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-01-27T01:10:05.138Z",
+  "generated_at": "2026-01-27T01:31:00.398Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,70 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 214,
-      "droppedPrice": 2216,
+      "exported_ads": 215,
+      "droppedPrice": 2218,
       "droppedMissingGeo": 0,
-      "droppedCircle": 1216
+      "droppedCircle": 1218
     }
   },
   "ads": [
+    {
+      "adID": "1451768916656900",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100055231000200/?product_id=1451768916656900",
+      "author": "Kade Richburg",
+      "postedTime": "2026-01-25T21:23:18.000Z",
+      "title": "Diawa bg 3000",
+      "description": "Only used one time perfect inshore reel",
+      "price": "$80",
+      "lat": 30.421309,
+      "lon": -87.2169149,
+      "location": "Pensacola, FL",
+      "imageUrl": "https://scontent-atl3-2.xx.fbcdn.net/v/t15.5256-10/622581228_903401785502035_7493890167012936381_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=104&ccb=1-7&_nc_sid=d4195b&_nc_ohc=Lb_ajAlE_JAQ7kNvwFB8adx&_nc_oc=AdlaPa7Kepe_jAyouk7baozSnsroWgu9W6RRwvpUeYLn6WKGKLfjAScRwnmtWyPb5ok&_nc_zt=23&_nc_ht=scontent-atl3-2.xx&_nc_gid=wi911HbjJVZn1rx5OMFpvg&oh=00_AfrENwHvEfDxTxJeOWDI5YKfC7Xkr1O5q-1NzuHUAsNgMw&oe=697DD551",
+      "adUrl": "https://www.facebook.com/marketplace/item/1451768916656900/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-01-27 01:27:14"
+    },
+    {
+      "adID": "721064677553558",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100006024851603/?product_id=721064677553558",
+      "author": "Porter Wilbanks",
+      "postedTime": "2026-01-25T21:21:47.000Z",
+      "title": "Jewelry Chest",
+      "description": "Felt lined drawers. Multiple drawers with dividers.",
+      "price": "$75",
+      "lat": 34.3382257,
+      "lon": -84.3765714,
+      "location": "Ball Ground, GA",
+      "imageUrl": "https://scontent-atl3-2.xx.fbcdn.net/v/t39.84726-6/622334252_1906914696596390_8751219891161251749_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=101&ccb=1-7&_nc_sid=92e707&_nc_ohc=5K_96EmltmIQ7kNvwEWnv0H&_nc_oc=AdmMHzcqedt2keZ0XN76Y9MpBeXd8Ajz53Z7hjeQl06DR0y2sSxC-CWeCaUAi1Ll_nw&_nc_zt=14&_nc_ht=scontent-atl3-2.xx&_nc_gid=BhzshqS9j-TqYLpBIrPXGw&oh=00_AfrnYC0B6wmDbllMT54O4rQ2GOWVb7Oi-IoBXwL0HDyXNA&oe=697DFCC8",
+      "adUrl": "https://www.facebook.com/marketplace/item/721064677553558/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-01-27 01:27:14"
+    },
+    {
+      "adID": "889318247078129",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100003871339744/?product_id=889318247078129",
+      "author": "Tessa Nichols",
+      "postedTime": "2026-01-25T21:24:18.000Z",
+      "title": "Bamboo cutting board with storage",
+      "description": "Used once, has been sitting in our closet and I just cleaned it",
+      "price": "$20",
+      "lat": 27.9449854,
+      "lon": -82.4583107,
+      "location": "Tampa, FL",
+      "imageUrl": "https://scontent-atl3-3.xx.fbcdn.net/v/t39.84726-6/621813146_1384786566297737_296638252531326963_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=108&ccb=1-7&_nc_sid=92e707&_nc_ohc=6vW0_U7jpeAQ7kNvwGgI_gg&_nc_oc=AdnT7MPFSGWAbMgK1xvXrOSqyLbPdBJ8RYOwFjp7dilayB7hYmOBJBF5nSGHCsF2z94&_nc_zt=14&_nc_ht=scontent-atl3-3.xx&_nc_gid=tdctwzKft8nLG4zHwg18GA&oh=00_Afp53wOUeufmj62eQtKqtC3G83JJ5AIIcYFFsdsaANgbZg&oe=697DCDC1",
+      "adUrl": "https://www.facebook.com/marketplace/item/889318247078129/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-01-27 01:27:14"
+    },
     {
       "adID": "1580197456358513",
       "source": "MP",
@@ -133,25 +190,6 @@
       "created_at": "2026-01-27 00:07:33"
     },
     {
-      "adID": "2506985176365772",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/100035266853980/?product_id=2506985176365772",
-      "author": "Rishi Pat",
-      "postedTime": "2025-12-12T14:24:09.000Z",
-      "title": "Arcade games",
-      "description": "We are willing to ship it as long as it's not impossible to do it there will be additional fees. Alien Armageddon 3000 All Aboard 2000 Barrel of Monkey 2000 Big Bass Wheel #2 4500 Big Bass Wheel #3 4500 Crazy Tower 4500 DC Superheros 2500 Fish Bowl Frenzy 4500 Grand Piano #2 4500 Hypershoot Left 4000 Hypershoot Right 4000 Lane Master4000 Let's Bounce 4000 Minion Whacker 2500 Moto Gp Left 4500 Moto Gp Right 4500 Photo Booth #2 4000 Pirates Hook #2 4500 Super Bikes 2 2500 Super Bikes 2 2500 Ticket winner 2000 Ticket winner 2000 Tower Of Tickets 4000 Toy's World Crane 2000 Walking Dead #2 4500 Winner's Cube 2500 X Games Snowborder 2500 We are selling these arcades they're all working they're located at Flip Factory Zone in Gainesville Florida you are welcome to check it out anytime after 2:00 p.m. when the business is up and running [hidden information]",
-      "price": "Free",
-      "lat": 28.1866014,
-      "lon": -82.366121,
-      "location": "Wesley Chapel, FL",
-      "imageUrl": "https://scontent-atl3-1.xx.fbcdn.net/v/t39.84726-6/597380259_875812941624940_7776084156357306486_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=100&ccb=1-7&_nc_sid=92e707&_nc_ohc=g92R7on9tV0Q7kNvwE5Xxfq&_nc_oc=AdksdAgHvicL-2cse37Bu-UuWyqFPwfNRtSsWxI0GUK_P2WzLOweSoLmTxEaCO0FrUU&_nc_zt=14&_nc_ht=scontent-atl3-1.xx&_nc_gid=wWkqyRn4_1kPZf3XkwC5jw&oh=00_AfoK9v1WXk0qUQijh8Z0cXbGae_1-HOncNbrp_VKN9VPww&oe=697DBE08",
-      "adUrl": "https://www.facebook.com/marketplace/item/2506985176365772/",
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-01-27 00:03:18"
-    },
-    {
       "adID": "1393481748894594",
       "source": "MP",
       "authorUrl": "https://www.facebook.com/marketplace/profile/61585904462309/?product_id=1393481748894594",
@@ -175,7 +213,7 @@
       "source": "PS",
       "authorUrl": "https://pinside.com/pinball/community/pinsiders/sohumvet/market",
       "author": "Sohumvet",
-      "postedTime": "2026-01-26T15:09:46.092Z",
+      "postedTime": "2026-01-26T15:30:41.406Z",
       "title": "Free Used Standard Glass: Atlanta",
       "description": "Used, good condition - “I have several used standard size glass sheet available for free for pickup. Located in south Atlanta area. Wrapped and boxed. Come and get them.”",
       "price": "$0",
@@ -1328,25 +1366,6 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-01-24 15:37:28"
-    },
-    {
-      "adID": "1375552787312015",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/61563317364976/?product_id=1375552787312015",
-      "author": "Anthony Dale",
-      "postedTime": "2025-12-27T17:53:25.000Z",
-      "title": "Arcade Game",
-      "description": "Full size like new retro built arcade game with 1300 old games. Pac-Man, Galaga, Mario, Street Fighter, Mortal Kombat, Contra, Donkey Kong and many more.",
-      "price": "$800",
-      "lat": 34.1206564,
-      "lon": -84.0043513,
-      "location": "Buford, GA",
-      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/605795976_1503092451421349_1652317658543361548_n.jpg?stp=c0.43.261.261a_dst-jpg_p261x260_tt6&_nc_cat=107&ccb=1-7&_nc_sid=92e707&_nc_ohc=F1dn8cezcScQ7kNvwHWA7xH&_nc_oc=AdnfGJJkxEgzi8Y5qVx2_1p5a0-0-52Gg1lcwjFkuCrdfm_my1Po1gB7yzAHc7xpkOk&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=KgsdT4f_ivZf18T4uFJtHA&oh=00_AfpT1lhKgHOTMQerPa_RNmoD4qVXEMWkv5y1YPj15JrcKA&oe=6979E444",
-      "adUrl": "https://www.facebook.com/marketplace/item/1375552787312015/",
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-01-24 02:02:27"
     },
     {
       "adID": "797422180012776",
