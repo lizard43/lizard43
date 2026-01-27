@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-01-27T16:02:11.790Z",
+  "generated_at": "2026-01-27T16:14:03.660Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,70 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 168,
-      "droppedPrice": 2151,
+      "exported_ads": 171,
+      "droppedPrice": 2150,
       "droppedMissingGeo": 0,
-      "droppedCircle": 1015
+      "droppedCircle": 1028
     }
   },
   "ads": [
+    {
+      "adID": "1485689466891149",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100081932480515/?product_id=1485689466891149",
+      "author": "Mila Bista",
+      "postedTime": "2026-01-26T21:51:10.000Z",
+      "title": "Young nails 32OZ monomer",
+      "description": "Pickup Valparaiso",
+      "price": "$75",
+      "lat": 30.5085309,
+      "lon": -86.5027282,
+      "location": "Valparaiso, FL",
+      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/621608414_4680569092169978_8970014549199203677_n.jpg?stp=c0.151.261.261a_dst-jpg_p261x260_tt6&_nc_cat=103&ccb=1-7&_nc_sid=92e707&_nc_ohc=ynbEi8aB9vIQ7kNvwFqci8R&_nc_oc=AdmvrX8BlUVpJMBLcH35XbtbEWKgVThKeOskCZtTJtN7pEFS7hTUVY9hIHPFR_X_1S8&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=xVvA-6qLX-CKzYZ0-4cXug&oh=00_AfryHJ5uhcQrXHmvM-ELfqJr9wRA1qxgt2spEYOOo0YxUA&oe=697ECD23",
+      "adUrl": "https://www.facebook.com/marketplace/item/1485689466891149/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-01-27 16:09:16"
+    },
+    {
+      "adID": "2093666111435460",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/61557098864330/?product_id=2093666111435460",
+      "author": "Diane Jones",
+      "postedTime": "2026-01-27T15:58:56.000Z",
+      "title": "Six Million Dollar Man back glass",
+      "description": "In good shape. Pinball machine back glass. Husband has had this for ages. Just trying to clean out shop.",
+      "price": "$250",
+      "lat": 30.6035255,
+      "lon": -87.9036047,
+      "location": "Daphne, AL",
+      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/619959072_893332810245708_6624955729425512309_n.jpg?stp=c43.0.260.260a_dst-jpg_p261x260_tt6&_nc_cat=102&ccb=1-7&_nc_sid=92e707&_nc_ohc=43W7l84-6EsQ7kNvwHQLWxK&_nc_oc=AdkadukQR6Q0uXKVM1pwa8A8pTdAn2tPkxbQ5GOLpcSSa9iXxlyFYzSHbdCQlOk_4kI&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=q0VP6MxSqxBoBAgLNWVsEQ&oh=00_AfrITbl6YgAHwzjlJwHJW2E16eIGI2L9aKOoppn_5aYeTg&oe=697EBF92",
+      "adUrl": "https://www.facebook.com/marketplace/item/2093666111435460/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-01-27 16:09:15"
+    },
+    {
+      "adID": "1209018847951329",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100007013828361/?product_id=1209018847951329",
+      "author": "Josué Sweet",
+      "postedTime": "2026-01-26T17:15:41.000Z",
+      "title": "Asteroids arcade machine",
+      "description": "Works just don’t have space for it anymore. Will deliver or pickup Message me if interested.",
+      "price": "$200",
+      "lat": 30.4380832,
+      "lon": -84.2809332,
+      "location": "Tallahassee, FL",
+      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/577848030_1739008636783443_5115634442421708592_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=104&ccb=1-7&_nc_sid=92e707&_nc_ohc=Ev6xbtq5ofAQ7kNvwGLb3b5&_nc_oc=AdnBpeh4N2tPEXKgSVknufInrUgi0f4X7JZbV4QSWAPHrvJbt_dnfWCP6Kjue768TzA&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=z5nwb4rNzqMynIsG-JQM0w&oh=00_Afq1si8Q2PfUSkWWYKuwgmOmqOzVf4A3KX1qrS66jDPo8A&oe=697EBD3D",
+      "adUrl": "https://www.facebook.com/marketplace/item/1209018847951329/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-01-27 16:05:46"
+    },
     {
       "adID": "1195259878805334",
       "source": "MP",
@@ -99,7 +156,7 @@
       "source": "PS",
       "authorUrl": "https://pinside.com/pinball/community/pinsiders/sohumvet/market",
       "author": "Sohumvet",
-      "postedTime": "2026-01-26T15:08:13.104Z",
+      "postedTime": "2026-01-26T15:13:44.226Z",
       "title": "Free Used Standard Glass: Atlanta",
       "description": "Used, good condition - “I have several used standard size glass sheet available for free for pickup. Located in south Atlanta area. Wrapped and boxed. Come and get them.”",
       "price": "$0",
