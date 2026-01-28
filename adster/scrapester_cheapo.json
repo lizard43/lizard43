@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-01-28T17:05:24.051Z",
+  "generated_at": "2026-01-28T17:47:41.726Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,32 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 173,
+      "exported_ads": 174,
       "droppedPrice": 2188,
       "droppedMissingGeo": 0,
-      "droppedCircle": 1050
+      "droppedCircle": 1044
     }
   },
   "ads": [
+    {
+      "adID": "1696338088382561",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/837574389/?product_id=1696338088382561",
+      "author": "Dirk Smith Johnson",
+      "postedTime": "2026-01-28T17:06:05.000Z",
+      "title": "Rare Williams OXO Pinball Machine",
+      "description": "Very rare Williams OXO pinball machine. Previously featured at the Roanoke Pinball Museum in Virginia. This is a unique electro-mechanical game that plays tic-tac-toe! This game has been in fully working condition until recently when it started blowing a fuse during game restart. It's most likely a switch contact somewhere that's broken, but I've been too busy to diagnose it, and I need the room, so I'm willing to sell it for less than I paid to someone who wants a unique game, and is willing to tinker with it. This game is basically in original condition except for being upgraded with $200+ worth of LEDs to make it brighter and more reliable.",
+      "price": "$700",
+      "lat": 29.9899926,
+      "lon": -90.1505426,
+      "location": "Metairie, LA",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/619337539_763647249598346_5875743211871801271_n.jpg?stp=c0.142.255.255a_dst-jpg_p180x540_tt6&_nc_cat=107&ccb=1-7&_nc_sid=92e707&_nc_ohc=Js7NQuWv7GQQ7kNvwFi7iGY&_nc_oc=Adn4cXvPt5L5YPbCDRS0BNssJxcYAqj2FSF-O5fppjeXdf_41RLv9XJ7veudblo4Dgk&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=aV0Hmm5YCfqvgSSWtnEySA&oh=00_AfoLwSH9481e0IApM41zy6kmQzmCbDNb-8MTdtyJiw6y3g&oe=69801417",
+      "adUrl": "https://www.facebook.com/marketplace/item/1696338088382561/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-01-28 17:46:19"
+    },
     {
       "adID": "1688485285872806",
       "source": "MP",
@@ -308,7 +327,7 @@
       "source": "PS",
       "authorUrl": "https://pinside.com/pinball/community/pinsiders/sohumvet/market",
       "author": "Sohumvet",
-      "postedTime": "2026-01-26T17:05:09.267Z",
+      "postedTime": "2026-01-26T17:47:27.622Z",
       "title": "Free Used Standard Glass: Atlanta",
       "description": "Used, good condition - “I have several used standard size glass sheet available for free for pickup. Located in south Atlanta area. Wrapped and boxed. Come and get them.”",
       "price": "$0",
