@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-01-28T16:02:51.944Z",
+  "generated_at": "2026-01-28T17:05:24.051Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,32 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 172,
-      "droppedPrice": 2184,
+      "exported_ads": 173,
+      "droppedPrice": 2188,
       "droppedMissingGeo": 0,
-      "droppedCircle": 1046
+      "droppedCircle": 1050
     }
   },
   "ads": [
+    {
+      "adID": "1688485285872806",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100000094277080/?product_id=1688485285872806",
+      "author": "Stephanie Cruse Maggio",
+      "postedTime": "2026-01-16T18:10:12.000Z",
+      "title": "Star gate video game",
+      "description": "Star gate video game Multi-Williams\" arcade machine, which is a multicade cabinet featuring a collection of classic arcade games from the 1980s and 1990s. The cabinet is branded with game titles such as Moon Patrol, Defender, Sinistar, Stargate, Bubbles, Joust, and Robotron: 2084.",
+      "price": "$500",
+      "lat": 30.4388041,
+      "lon": -90.4414762,
+      "location": "Ponchatoula, LA",
+      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/568651980_1511472610185959_6195939193577671310_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=100&ccb=1-7&_nc_sid=92e707&_nc_ohc=BiCwAZlR4QIQ7kNvwFGNH1j&_nc_oc=AdnPxaiY0j5ZSPdcaLw5cypOz-M9sFBgn0XMe-zu1mCYaPy5QKXQN5o_mmr9nT_sGGc&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=2Woza6KQy1ACZIszlhjt-w&oh=00_Afocw_ZlEaXFVoIQmEuFRT41I0uibN8uK5RckI2UAIbvaw&oe=69800F20",
+      "adUrl": "https://www.facebook.com/marketplace/item/1688485285872806/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-01-28 17:02:35"
+    },
     {
       "adID": "1320837149682661",
       "source": "MP",
@@ -289,7 +308,7 @@
       "source": "PS",
       "authorUrl": "https://pinside.com/pinball/community/pinsiders/sohumvet/market",
       "author": "Sohumvet",
-      "postedTime": "2026-01-26T16:02:35.018Z",
+      "postedTime": "2026-01-26T17:05:09.267Z",
       "title": "Free Used Standard Glass: Atlanta",
       "description": "Used, good condition - “I have several used standard size glass sheet available for free for pickup. Located in south Atlanta area. Wrapped and boxed. Come and get them.”",
       "price": "$0",
