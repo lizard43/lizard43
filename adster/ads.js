@@ -1284,6 +1284,8 @@ function renderTable() {
     <span class="ad-location">${escapeHtml(location)}</span>
     </div>
 
+    <div class="ad-line-adid">${escapeHtml(adID)}</div>
+
     <div class="ad-line4">${descSafe}</div>
 
     <div class="ad-card-footer">
@@ -1909,14 +1911,16 @@ function applyFilter() {
     const prepareBlob = (ad) => {
         const imgToken = (badImageIdSet.has(ad?.adID || "") || !!ad?.imageMissing) ? " img:missing" : "";
         return (
-            [
-                ad.title,
-                ad.price,
-                ad.description,
-                ad.location,
-                ad.author,
-                ad.source,
-            ]
+[
+  ad.title,
+  ad.price,
+  ad.description,
+  ad.location,
+  ad.author,
+  ad.source,
+  ad.adID,
+  ad.adID ? `id:${ad.adID}` : "",
+]
                 .filter(Boolean)
                 .join(" ")
                 .toLowerCase() + imgToken

@@ -1315,3 +1315,10 @@ body>.modal {
 .ad-card-footer .ad-footer-author a:hover {
   text-decoration: underline;
 }
+
+.ad-line-adid {
+  margin-top: 2px;
+  font-size: 12px;
+  opacity: 0.7;
+  line-height: 1.2;
+}
