@@ -56,7 +56,7 @@ body {
 }
 
 /* Force each grid cell to fill the row height so the inner flex centering works */
-.toolbar-row.row2 > * {
+.toolbar-row.row2>* {
   height: 100%;
   display: flex;
   align-items: center;
@@ -65,7 +65,8 @@ body {
 
 /* Cell-specific alignment */
 #resultsPill {
-  justify-content: flex-end; /* right align inside the 1fr cell */
+  justify-content: flex-end;
+  /* right align inside the 1fr cell */
 }
 
 
@@ -866,7 +867,7 @@ a:hover {
 
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 3px;
 }
 
 /* line 1 */
@@ -951,6 +952,18 @@ a:hover {
 
 .ad-line3 .ad-location {
   color: #bbb;
+}
+
+.ad-line1,
+.ad-line2,
+.ad-line3 {
+  line-height: 1.15;
+  margin: 0;
+  padding: 0;
+}
+
+.ad-line2 {
+  margin-bottom: -1px;
 }
 
 /* line 4: description wraps a few lines then ellipsis */
