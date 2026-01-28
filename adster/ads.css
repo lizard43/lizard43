@@ -956,15 +956,22 @@ a:hover {
 
 .ad-line1,
 .ad-line2,
-.ad-line3 {
+.ad-line3,
+.ad-line-adid {
   line-height: 1.15;
   margin: 0;
   padding: 0;
 }
 
 .ad-line2,
-.ad-line3 {
+.ad-line3,
+.ad-line-adid {
   margin-bottom: -1px;
+}
+
+.ad-line-adid {
+  font-size: 12px;
+  opacity: 0.7;
 }
 
 /* line 4: description wraps a few lines then ellipsis */
@@ -1330,9 +1337,3 @@ body>.modal {
   text-decoration: underline;
 }
 
-.ad-line-adid {
-  margin-top: 2px;
-  font-size: 12px;
-  opacity: 0.7;
-  line-height: 1.2;
-}
