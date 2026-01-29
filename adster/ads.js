@@ -98,8 +98,9 @@ const btnLast1w = document.getElementById("btnLast1w");
 
 const btnPriceChanged = document.getElementById("btnPriceChanged");
 const priceChangedBadge = document.getElementById("priceChangedBadge");
-
 const btnCheapo = document.getElementById("btnCheapo");
+const btnCopySearchUrl = document.getElementById("btnCopySearchUrl");
+
 
 const btnDistance = document.getElementById("btnDistance");
 const distanceCapLabel = document.getElementById("distanceCapLabel");
@@ -704,6 +705,47 @@ async function getBrowserLatLon() {
 }
 
 let toolbarMsgTimer = null;
+
+function buildShareSearchUrl(searchText) {
+    // Prefer "https://lizard43.com/adster?s=..." (no index.html, no extra query)
+    const u = new URL(window.location.href);
+
+    // strip any existing query/hash
+    u.search = "";
+    u.hash = "";
+
+    // normalize pathname: remove trailing "index.html" and trailing slash
+    u.pathname = u.pathname.replace(/\/index\.html$/i, "");
+    u.pathname = u.pathname.replace(/\/$/, "");
+
+    const s = String(searchText ?? "").trim();
+    if (!s) return u.toString();
+
+    u.searchParams.set("s", s); // URLSearchParams handles encoding
+    return u.toString();
+}
+
+async function copyTextToClipboard(text) {
+    // Modern clipboard API
+    if (navigator.clipboard?.writeText) {
+        await navigator.clipboard.writeText(text);
+        return true;
+    }
+
+    // Fallback (older iOS/Safari)
+    const ta = document.createElement("textarea");
+    ta.value = text;
+    ta.setAttribute("readonly", "");
+    ta.style.position = "fixed";
+    ta.style.left = "-9999px";
+    ta.style.top = "0";
+    document.body.appendChild(ta);
+    ta.select();
+
+    const ok = document.execCommand("copy");
+    document.body.removeChild(ta);
+    return ok;
+}
 
 function showToolbarMessage(line1, line2 = "", duration = 4000) {
     if (!toolbarMsg || !toolbarMsgLine1 || !toolbarMsgLine2) return;
@@ -1911,16 +1953,16 @@ function applyFilter() {
     const prepareBlob = (ad) => {
         const imgToken = (badImageIdSet.has(ad?.adID || "") || !!ad?.imageMissing) ? " img:missing" : "";
         return (
-[
-  ad.title,
-  ad.price,
-  ad.description,
-  ad.location,
-  ad.author,
-  ad.source,
-  ad.adID,
-  ad.adID ? `id:${ad.adID}` : "",
-]
+            [
+                ad.title,
+                ad.price,
+                ad.description,
+                ad.location,
+                ad.author,
+                ad.source,
+                ad.adID,
+                ad.adID ? `id:${ad.adID}` : "",
+            ]
                 .filter(Boolean)
                 .join(" ")
                 .toLowerCase() + imgToken
@@ -2503,6 +2545,23 @@ btnCheapo?.addEventListener("click", async () => {
     showToast(cheapoMode ? "Cheapo ON" : "Cheapo OFF");
 });
 
+btnCopySearchUrl?.addEventListener("click", async () => {
+    try {
+        const url = buildShareSearchUrl(searchInput.value);
+
+        await copyTextToClipboard(url);
+
+        // little green flash using existing class (same vibe as fav-save)
+        btnCopySearchUrl.classList.add("saved-flash");
+        setTimeout(() => btnCopySearchUrl.classList.remove("saved-flash"), 250);
+
+        showToast("Search link copied");
+    } catch (err) {
+        console.error("[copy-url] failed:", err);
+        showToast("Copy failed (see console)", 5000);
+    }
+});
+
 tbody.addEventListener("pointerdown", (e) => {
     const card = e.target.closest(".ad-card");
     if (card) card.focus();
@@ -2852,6 +2911,30 @@ function setupBrokenImageHandler() {
     }, true);
 }
 
+function applySearchFromUrlOnce() {
+    try {
+        const sp = new URLSearchParams(window.location.search);
+        if (!sp.has("s")) return false;
+
+        // URLSearchParams already decodes percent-encoding.
+        let s = String(sp.get("s") || "");
+
+        // Support optional quotes: ?s="foo bar"
+        s = s.trim();
+        if ((s.startsWith('"') && s.endsWith('"')) || (s.startsWith("'") && s.endsWith("'"))) {
+            s = s.slice(1, -1);
+        }
+
+        if (!s.trim()) return false;
+
+        searchInput.value = s;
+        autosizeSearchBox();
+        return true;
+    } catch {
+        return false;
+    }
+}
+
 // initial load
 (async function init() {
     await loadSettings();        // get favorites → render hearts
@@ -2898,6 +2981,9 @@ function setupBrokenImageHandler() {
     } catch { }
 
     ADS_JSON_URL = resolveAdsJsonUrlFromQuery();
+
+    applySearchFromUrlOnce();
+
     await loadAds();
 
     autosizeSearchBox();
