@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-01-29T20:01:43.446Z",
+  "generated_at": "2026-01-29T21:44:33.445Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,32 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 179,
-      "droppedPrice": 2232,
+      "exported_ads": 180,
+      "droppedPrice": 2245,
       "droppedMissingGeo": 0,
-      "droppedCircle": 1052
+      "droppedCircle": 1058
     }
   },
   "ads": [
+    {
+      "adID": "1923453314945912",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100000500131058/?product_id=1923453314945912",
+      "author": "Bob Regard",
+      "postedTime": "2026-01-28T01:45:00.000Z",
+      "title": "Arcade machine support",
+      "description": "Looking for someone that knows how to work on a golden tee fire 2003 cabinet. I’m doing a CRT monitor to HDMI video upgrade and a course upgrade. I have the parts... needsomebody that knows how to work on these electronic boards.",
+      "price": "$0",
+      "lat": 27.9378338,
+      "lon": -82.2327525,
+      "location": "Valrico, FL",
+      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t15.5256-10/622661928_1680635996252981_7976914826875906169_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=106&ccb=1-7&_nc_sid=d4195b&_nc_ohc=unbRXY_Xe00Q7kNvwHP1rC2&_nc_oc=Adnnbo9FsOoudSCzGvdWHZXt-PE74cBSLHaQ18Sod5I02b4dpDYV3cEqkwNVdYvBxB4&_nc_zt=23&_nc_ht=scontent-dfw5-2.xx&_nc_gid=Da7PMLpOsura9xjTK_Kgag&oh=00_AfpxfC2RmQYDWvwmIlffiqpA-08dwjslUmZGTusnsAFssg&oe=698199EE",
+      "adUrl": "https://www.facebook.com/marketplace/item/1923453314945912/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-01-29 21:40:56"
+    },
     {
       "adID": "841325582213216",
       "source": "MP",
