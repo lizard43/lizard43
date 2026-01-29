@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-01-29T22:22:06.415Z",
+  "generated_at": "2026-01-29T23:08:10.524Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,32 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 181,
-      "droppedPrice": 2251,
+      "exported_ads": 182,
+      "droppedPrice": 2254,
       "droppedMissingGeo": 0,
-      "droppedCircle": 1063
+      "droppedCircle": 1073
     }
   },
   "ads": [
+    {
+      "adID": "1402867828289889",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100000280671198/?product_id=1402867828289889",
+      "author": "Monika Orendorf",
+      "postedTime": "2026-01-26T21:54:16.000Z",
+      "title": "Timothy Orchard square bales",
+      "description": "Horse quality, by appointment only",
+      "price": "$12",
+      "lat": 32.3777111,
+      "lon": -86.3090775,
+      "location": "Montgomery, AL",
+      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/619249672_1283780890464426_7102189017746997194_n.jpg?stp=c0.42.261.261a_dst-jpg_p261x260_tt6&_nc_cat=101&ccb=1-7&_nc_sid=92e707&_nc_ohc=dvjQGjg3Bz0Q7kNvwHpaYM4&_nc_oc=Adm4mjId7sUweJ56QXJIzBailY0ARWNhWnfHJoEZUrr9jLlexPyj0F_W0ioVKiLTdro&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=HJ-7yZbdSa_WRpIC4DkZzg&oh=00_AfqkfAXAhqbGXLOnEq06ic1Md_hMrUcu00qXE-lN0M4BGQ&oe=6981AB83",
+      "adUrl": "https://www.facebook.com/marketplace/item/1402867828289889/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-01-29 23:04:48"
+    },
     {
       "adID": "1480858613606549",
       "source": "MP",
