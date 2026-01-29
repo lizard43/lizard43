@@ -99,8 +99,7 @@ const btnLast1w = document.getElementById("btnLast1w");
 const btnPriceChanged = document.getElementById("btnPriceChanged");
 const priceChangedBadge = document.getElementById("priceChangedBadge");
 const btnCheapo = document.getElementById("btnCheapo");
-const btnCopySearchUrl = document.getElementById("btnCopySearchUrl");
-
+const btnShare = document.getElementById("btnShare");
 
 const btnDistance = document.getElementById("btnDistance");
 const distanceCapLabel = document.getElementById("distanceCapLabel");
@@ -2545,20 +2544,40 @@ btnCheapo?.addEventListener("click", async () => {
     showToast(cheapoMode ? "Cheapo ON" : "Cheapo OFF");
 });
 
-btnCopySearchUrl?.addEventListener("click", async () => {
+btnShare?.addEventListener("click", async () => {
     try {
         const url = buildShareSearchUrl(searchInput.value);
 
+        // Prefer native share sheet if available
+        if (navigator.share) {
+            try {
+                // Include some context text (optional but nice in Messages/Mail)
+                const text = searchInput.value && searchInput.value.trim()
+                    ? `Adster search: ${searchInput.value.trim()}`
+                    : "Adster";
+
+                await navigator.share({ url, text });
+                return; // user shared (or at least the sheet opened)
+            } catch (e) {
+                // If user cancels share sheet, do nothing (no fallback spam)
+                if (e && (e.name === "AbortError" || e.name === "NotAllowedError")) {
+                    return;
+                }
+                // Otherwise, fall through to clipboard fallback
+                console.warn("[share] navigator.share failed, falling back to copy:", e);
+            }
+        }
+
+        // Fallback: copy to clipboard
         await copyTextToClipboard(url);
 
-        // little green flash using existing class (same vibe as fav-save)
-        btnCopySearchUrl.classList.add("saved-flash");
-        setTimeout(() => btnCopySearchUrl.classList.remove("saved-flash"), 250);
+        btnShare.classList.add("saved-flash");
+        setTimeout(() => btnShare.classList.remove("saved-flash"), 250);
 
-        showToast("Search link copied");
+        showToast("Copied");
     } catch (err) {
-        console.error("[copy-url] failed:", err);
-        showToast("Copy failed (see console)", 5000);
+        console.error("[share] failed:", err);
+        showToast("Share failed (see console)", 5000);
     }
 });
 
