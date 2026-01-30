@@ -2932,22 +2932,35 @@ function setupBrokenImageHandler() {
 
 function applySearchFromUrlOnce() {
     try {
-        const sp = new URLSearchParams(window.location.search);
+        const u = new URL(window.location.href);
+        const sp = u.searchParams;
+
         if (!sp.has("s")) return false;
 
         // URLSearchParams already decodes percent-encoding.
-        let s = String(sp.get("s") || "");
+        let s = String(sp.get("s") || "").trim();
 
         // Support optional quotes: ?s="foo bar"
-        s = s.trim();
         if ((s.startsWith('"') && s.endsWith('"')) || (s.startsWith("'") && s.endsWith("'"))) {
-            s = s.slice(1, -1);
+            s = s.slice(1, -1).trim();
         }
 
-        if (!s.trim()) return false;
+        if (!s) return false;
 
+        // Apply to UI
         searchInput.value = s;
         autosizeSearchBox();
+
+        // --- CLEAN THE URL (remove all params) ---
+        u.search = "";
+        u.hash = "";
+
+        // match your share-url normalization: remove index.html + trailing slash
+        u.pathname = u.pathname.replace(/\/index\.html$/i, "");
+        u.pathname = u.pathname.replace(/\/$/, "");
+
+        history.replaceState({}, document.title, u.toString());
+
         return true;
     } catch {
         return false;
