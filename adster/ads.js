@@ -2937,7 +2937,7 @@ function applySearchFromUrlOnce() {
 
         if (!sp.has("s")) return false;
 
-        // URLSearchParams already decodes percent-encoding.
+        // read & apply "s"
         let s = String(sp.get("s") || "").trim();
 
         // Support optional quotes: ?s="foo bar"
@@ -2945,24 +2945,30 @@ function applySearchFromUrlOnce() {
             s = s.slice(1, -1).trim();
         }
 
-        if (!s) return false;
+        if (s) {
+            searchInput.value = s;
+            autosizeSearchBox();
+        }
 
-        // Apply to UI
-        searchInput.value = s;
-        autosizeSearchBox();
+        // --- CLEAN URL SAFELY ---
+        // Remove ONLY the share param, keep ?json= / ?cheapo= etc if present.
+        sp.delete("s");
 
-        // --- CLEAN THE URL (remove all params) ---
-        u.search = "";
-        u.hash = "";
+        // Important: keep directory semantics so relative fetch("scrapester.json") stays under /adster/
+        // If we're not ending with "/" and there's no file extension, force a trailing "/".
+        const p = u.pathname;
+        const looksLikeFile = /\.[a-z0-9]+$/i.test(p);
+        if (!looksLikeFile && !p.endsWith("/")) {
+            u.pathname = p + "/";
+        }
 
-        // match your share-url normalization: remove index.html + trailing slash
-        u.pathname = u.pathname.replace(/\/index\.html$/i, "");
-        u.pathname = u.pathname.replace(/\/$/, "");
+        // If after deleting "s" there are no params left, clear the querystring entirely.
+        u.search = sp.toString() ? `?${sp.toString()}` : "";
 
         history.replaceState({}, document.title, u.toString());
-
         return true;
-    } catch {
+    } catch (e) {
+        console.warn("[applySearchFromUrlOnce] failed:", e);
         return false;
     }
 }
