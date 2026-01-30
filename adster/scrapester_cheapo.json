@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-01-30T14:11:36.510Z",
+  "generated_at": "2026-01-30T15:07:26.618Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,32 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 177,
-      "droppedPrice": 2262,
+      "exported_ads": 178,
+      "droppedPrice": 2263,
       "droppedMissingGeo": 0,
-      "droppedCircle": 1072
+      "droppedCircle": 1075
     }
   },
   "ads": [
+    {
+      "adID": "867083576111425",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100001645685669/?product_id=867083576111425",
+      "author": "Ashlynn Edgerton",
+      "postedTime": "2026-01-30T14:16:22.000Z",
+      "title": "New LOL Boys Arcade Heros",
+      "description": "Both for $15. Located near Joseph Martin Elementary School in Hinesville.",
+      "price": "$12",
+      "lat": 31.8477347,
+      "lon": -81.5960705,
+      "location": "Hinesville, GA",
+      "imageUrl": "https://scontent-dfw5-3.xx.fbcdn.net/v/t39.84726-6/622433661_1602825737409753_3966763906111592912_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=92e707&_nc_eui2=AeHvIUJSCT8I3fPEAWFDwLqmRu4OmYo_w5tG7g6Zij_Dm1u_TNqIGKFCxFPhO0FVZbI&_nc_ohc=cVrgpXUyhvwQ7kNvwFIrmd4&_nc_oc=AdnL1xD_-oEq8PYd1yFy-DulQuloht7p75m995-3jHfohxHHMt9oPRHPLr72xzikigQ&_nc_zt=14&_nc_ht=scontent-dfw5-3.xx&_nc_gid=9InTgcNjhsneIoO9HIToPw&oh=00_AfpfOtk4Zh7ONPFMAZLwJKuraWO5R_7wHZBZfS8UjDnNdQ&oe=6982973C",
+      "adUrl": "https://www.facebook.com/marketplace/item/867083576111425/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-01-30 15:04:40"
+    },
     {
       "adID": "851137061091132",
       "source": "MP",
@@ -1014,7 +1033,7 @@
       "postedTime": "2026-01-23T19:58:36.000Z",
       "title": "Atari arcade machine",
       "description": "Atari racing world, rally arcade machine really have no clue about it and it’s just taking up space in the garage. Make me an offer or open to trades",
-      "price": "$0",
+      "price": "Free",
       "lat": 33.2512251,
       "lon": -86.2024731,
       "location": "Sycamore, AL",
