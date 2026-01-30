@@ -713,9 +713,9 @@ function buildShareSearchUrl(searchText) {
     u.search = "";
     u.hash = "";
 
-    // normalize pathname: remove trailing "index.html" and trailing slash
-    u.pathname = u.pathname.replace(/\/index\.html$/i, "");
-    u.pathname = u.pathname.replace(/\/$/, "");
+    // normalize pathname: remove trailing "index.html" and ENSURE trailing slash
+    u.pathname = u.pathname.replace(/\/index\.html$/i, "/");
+    if (!u.pathname.endsWith("/")) u.pathname += "/";
 
     const s = String(searchText ?? "").trim();
     if (!s) return u.toString();
@@ -2935,40 +2935,44 @@ function applySearchFromUrlOnce() {
         const u = new URL(window.location.href);
         const sp = u.searchParams;
 
-        if (!sp.has("s")) return false;
+        const hasAnyRelevantParam =
+            sp.has("s") || sp.has("cheapo") || sp.has("json");
 
-        // read & apply "s"
-        let s = String(sp.get("s") || "").trim();
+        // Apply search if present
+        if (sp.has("s")) {
+            // URLSearchParams already decodes percent-encoding.
+            let s = String(sp.get("s") || "").trim();
 
-        // Support optional quotes: ?s="foo bar"
-        if ((s.startsWith('"') && s.endsWith('"')) || (s.startsWith("'") && s.endsWith("'"))) {
-            s = s.slice(1, -1).trim();
+            // Support optional quotes: ?s="foo bar"
+            if (
+                (s.startsWith('"') && s.endsWith('"')) ||
+                (s.startsWith("'") && s.endsWith("'"))
+            ) {
+                s = s.slice(1, -1).trim();
+            }
+
+            if (s) {
+                searchInput.value = s;
+                autosizeSearchBox();
+            }
         }
 
-        if (s) {
-            searchInput.value = s;
-            autosizeSearchBox();
-        }
+        // Clean URL if we consumed anything relevant
+        if (!hasAnyRelevantParam) return false;
 
-        // --- CLEAN URL SAFELY ---
-        // Remove ONLY the share param, keep ?json= / ?cheapo= etc if present.
-        sp.delete("s");
+        // Remove all params + hash, but KEEP correct base path for relative fetches
+        u.search = "";
+        u.hash = "";
 
-        // Important: keep directory semantics so relative fetch("scrapester.json") stays under /adster/
-        // If we're not ending with "/" and there's no file extension, force a trailing "/".
-        const p = u.pathname;
-        const looksLikeFile = /\.[a-z0-9]+$/i.test(p);
-        if (!looksLikeFile && !p.endsWith("/")) {
-            u.pathname = p + "/";
-        }
-
-        // If after deleting "s" there are no params left, clear the querystring entirely.
-        u.search = sp.toString() ? `?${sp.toString()}` : "";
+        // Normalize pathname:
+        // - if we're at /adster/index.html -> /adster/
+        // - if we're at /adster -> /adster/
+        u.pathname = u.pathname.replace(/\/index\.html$/i, "/");
+        if (!u.pathname.endsWith("/")) u.pathname += "/";
 
         history.replaceState({}, document.title, u.toString());
         return true;
     } catch (e) {
-        console.warn("[applySearchFromUrlOnce] failed:", e);
         return false;
     }
 }
