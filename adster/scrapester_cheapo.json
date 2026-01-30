@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-01-30T18:43:46.800Z",
+  "generated_at": "2026-01-30T19:05:29.717Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,32 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 186,
-      "droppedPrice": 2268,
+      "exported_ads": 187,
+      "droppedPrice": 2273,
       "droppedMissingGeo": 0,
-      "droppedCircle": 1084
+      "droppedCircle": 1085
     }
   },
   "ads": [
+    {
+      "adID": "1900508424188177",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/1828896853/?product_id=1900508424188177",
+      "author": "Jerahme Ryan",
+      "postedTime": "2026-01-30T18:11:03.000Z",
+      "title": "Full size stand up arcade game",
+      "description": "Awesome arcade game with all of the good stuff... Galaga Pac-Man Donkey Kong centipede Millipede and a lot of others. COIN function is not set up, but can be made to take quarters. Need to make space in the house.",
+      "price": "$500",
+      "lat": 30.4380832,
+      "lon": -84.2809332,
+      "location": "Tallahassee, FL",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/623276797_828033903585927_4761001798013753298_n.jpg?stp=c0.43.261.261a_dst-jpg_p261x260_tt6&_nc_cat=111&ccb=1-7&_nc_sid=92e707&_nc_eui2=AeHSs1iUECPXA7uZJdOLXFSRJHNr1rI6DTokc2vWsjoNOox0WIh8CC6usUmmuzznQrA&_nc_ohc=odF0RRxcqFwQ7kNvwHy1jB4&_nc_oc=Adkj0dG_FF-pLJqhrxW2K-z0Wy2HXYu4q7GgCFIo9vpLjzkCUzyPm8HOKx7uRKq2SAk&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=l2HMk8fACVNexNTwL66c7w&oh=00_AfpRQhgfbuQgEZHigQKGCwgUxZfF_AMb8M29BlF4IUzv3A&oe=6982BDDE",
+      "adUrl": "https://www.facebook.com/marketplace/item/1900508424188177/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-01-30 19:03:49"
+    },
     {
       "adID": "2111284089624678",
       "source": "MP",
@@ -764,7 +783,7 @@
       "source": "PS",
       "authorUrl": "https://pinside.com/pinball/community/pinsiders/sohumvet/market",
       "author": "Sohumvet",
-      "postedTime": "2026-01-26T19:03:01.955Z",
+      "postedTime": "2026-01-26T19:05:26.690Z",
       "title": "Free Used Standard Glass: Atlanta",
       "description": "Used, good condition - “I have several used standard size glass sheet available for free for pickup. Located in south Atlanta area. Wrapped and boxed. Come and get them.”",
       "price": "$0",
