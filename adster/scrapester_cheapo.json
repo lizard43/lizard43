@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-01-29T23:22:36.347Z",
+  "generated_at": "2026-01-30T00:07:30.355Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,32 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 181,
-      "droppedPrice": 2249,
+      "exported_ads": 182,
+      "droppedPrice": 2256,
       "droppedMissingGeo": 0,
-      "droppedCircle": 1069
+      "droppedCircle": 1070
     }
   },
   "ads": [
+    {
+      "adID": "869300749147311",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100000217412571/?product_id=869300749147311",
+      "author": "Brandie Jones Dinkins",
+      "postedTime": "2026-01-29T20:49:15.000Z",
+      "title": "Trying to find out if this is authentic and who it is ..",
+      "description": "",
+      "price": "$0",
+      "lat": 28.9294316,
+      "lon": -81.6656305,
+      "location": "Umatilla, FL",
+      "imageUrl": "https://scontent-dfw5-3.xx.fbcdn.net/v/t39.84726-6/615433092_1366096688625681_91709743394520939_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=109&ccb=1-7&_nc_sid=92e707&_nc_ohc=bote8bUU_0AQ7kNvwHnmmVm&_nc_oc=Adnm5tBfeEICG_KxpaB2cIson5KRkWW4nC56QKWr-O7mgUy1fNsOsoxO1L3IBnG09D8&_nc_zt=14&_nc_ht=scontent-dfw5-3.xx&_nc_gid=ZocKZiJzH4Vh-dyjGPPMVA&oh=00_AfrVIF2bjH2VGHqrrPeVtIYt6xGqH1LVEJxPJWseb1-GyA&oe=6981AD67",
+      "adUrl": "https://www.facebook.com/marketplace/item/869300749147311/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-01-30 00:06:00"
+    },
     {
       "adID": "1480858613606549",
       "source": "MP",
