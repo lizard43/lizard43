@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-01-30T23:08:14.660Z",
+  "generated_at": "2026-01-31T00:08:19.691Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,32 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 190,
-      "droppedPrice": 2277,
+      "exported_ads": 191,
+      "droppedPrice": 2281,
       "droppedMissingGeo": 0,
-      "droppedCircle": 1100
+      "droppedCircle": 1104
     }
   },
   "ads": [
+    {
+      "adID": "654859300985988",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100042806342731/?product_id=654859300985988",
+      "author": "Michael Roxy Bandy Arguelles",
+      "postedTime": "2026-01-12T04:33:08.000Z",
+      "title": "Mobile Retro Arcade",
+      "description": "Mobile Retro Arcade Rental. Xbox, Nintendo Switch, PlayStation 5, Classic Consoles, Retro Arcade Machines.",
+      "price": "$0",
+      "lat": 27.9658533,
+      "lon": -82.8001026,
+      "location": "Clearwater, FL",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t15.5256-10/615027480_887571563737684_6415134595721248626_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=105&ccb=1-7&_nc_sid=d4195b&_nc_eui2=AeEgeVyl-Oe4UqFLEZ7X1VMMXLIbYqYndXRcshtipid1dJUn543c8NnOjqZmJ1xvIkk&_nc_ohc=GuUL_ClA85UQ7kNvwG95B_R&_nc_oc=AdnNKXuprGj-b23TMxbFqp_W0L4vFESmGkqH1-5Hy4H8Xs8E5S8Ii_bDD6AmfUuw_zw&_nc_zt=23&_nc_ht=scontent-dfw5-1.xx&_nc_gid=D9OJhKKogBXFUas_WauedQ&oh=00_Afv_C32jHrlctTH707J8i38loye6gjxnV9cSKictWZL4QQ&oe=698304D0",
+      "adUrl": "https://www.facebook.com/marketplace/item/654859300985988/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-01-31 00:05:04"
+    },
     {
       "adID": "1259141219365942",
       "source": "MP",
