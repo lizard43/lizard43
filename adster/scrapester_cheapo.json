@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-01-31T15:08:48.623Z",
+  "generated_at": "2026-01-31T16:06:49.002Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,10 +11,10 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 180,
-      "droppedPrice": 2270,
+      "exported_ads": 175,
+      "droppedPrice": 2272,
       "droppedMissingGeo": 0,
-      "droppedCircle": 1104
+      "droppedCircle": 1095
     }
   },
   "ads": [
@@ -76,25 +76,6 @@
       "created_at": "2026-01-31 04:56:32"
     },
     {
-      "adID": "910795408562309",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/100000234617835/?product_id=910795408562309",
-      "author": "Ahmed Hamada",
-      "postedTime": "2026-01-30T04:31:19.000Z",
-      "title": "NEW AC UNITS",
-      "description": "NEW Heating and Air units! All Sizes Available! Message for Quote!! All Units are NEW and Come With 10 year manufacturer warranty!!!",
-      "price": "$900",
-      "lat": 33.5801103,
-      "lon": -85.0766113,
-      "location": "Carrollton, GA",
-      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/622388277_1429806914772615_5134988065997757837_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=103&ccb=1-7&_nc_sid=92e707&_nc_eui2=AeFKCpa52DdhKM8Gzdw6foMss4Q0h1i9go-zhDSHWL2Cj9mDlzsQWhbsMEebarhtA3w&_nc_ohc=XF1T05KoVfcQ7kNvwGWh5Nu&_nc_oc=Adm2r6EkoUAE45maYlKcxqYp7t4_ElAPTN6jZe_pa1rIhoUvlFhyd6-5ooPmZfx9CaY&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=lmG454eEzgfhRJZ6ApkrcQ&oh=00_AfvqQRKHaHlv7WwXiR9KzHnAQpsL1wRLHNSZnj85OSQwcw&oe=69835C64",
-      "adUrl": "https://www.facebook.com/marketplace/item/910795408562309/",
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-01-31 04:56:31"
-    },
-    {
       "adID": "2281310955677319",
       "source": "MP",
       "authorUrl": "https://www.facebook.com/marketplace/profile/1454284795/?product_id=2281310955677319",
@@ -150,82 +131,6 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-01-30 23:04:57"
-    },
-    {
-      "adID": "1601601804314893",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/100009496959995/?product_id=1601601804314893",
-      "author": "Jorge Romero",
-      "postedTime": "2026-01-30T03:47:07.000Z",
-      "title": "Waders",
-      "description": "New",
-      "price": "$80",
-      "lat": 27.9449854,
-      "lon": -82.4583107,
-      "location": "Tampa, FL",
-      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/622381695_1899257380715238_2123286458347308432_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=110&ccb=1-7&_nc_sid=92e707&_nc_eui2=AeEv3AcLnfEw0SiDsahkjvrOMwUA7wyCuXYzBQDvDIK5djsIceYGLdRozoXXK3Z7u8E&_nc_ohc=Ptm9N6nSSkMQ7kNvwF4ZFpd&_nc_oc=AdmzKx77fD8wuK6HL0zmbstjSFGuFWSgXf2Gvln8fGiV9xdRgreYXxq08bDOHrUlRmc&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=xNSN5MIraBXWtJSjh2nMrA&oh=00_AfvqkeKd2cTXQRt6imJoW937zWLO3WA7LEiJWfmIP2SHjg&oe=6982FABE",
-      "adUrl": "https://www.facebook.com/marketplace/item/1601601804314893/",
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-01-30 22:06:07"
-    },
-    {
-      "adID": "3928502980617963",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/100002533461110/?product_id=3928502980617963",
-      "author": "Calvin Dong",
-      "postedTime": "2026-01-30T03:34:09.000Z",
-      "title": "Mike V Powell Peralta Reissue",
-      "description": "Mike Vallely Powell Peralta elephant reissue deck.",
-      "price": "$80",
-      "lat": 28.2441768,
-      "lon": -82.7192671,
-      "location": "New Port Richey, FL",
-      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/622704067_1829241144431537_5511791541499953226_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=106&ccb=1-7&_nc_sid=92e707&_nc_eui2=AeFC93Bs4pfoo-HCogpF9BKEhtX--buAz42G1f75u4DPjf-ko8ve5cetEuJv8JVmU8Q&_nc_ohc=_3DmLnzTc9QQ7kNvwGuPqfR&_nc_oc=AdkziMljJlBGSd42-XqOn4Pgyg_KWAhz72up73vIiCxg2oY-536dmE5sqO0_BedQsRM&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=AEePTA0xY9BcBStM8ccxKA&oh=00_AfuP61uBVnn9ELGNgCnfrW_g7nedy4zi0fx3WFUi__AZgQ&oe=6983131E",
-      "adUrl": "https://www.facebook.com/marketplace/item/3928502980617963/",
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-01-30 22:06:07"
-    },
-    {
-      "adID": "768972549017866",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/100064013207243/?product_id=768972549017866",
-      "author": "Burnamane LeeLee",
-      "postedTime": "2026-01-30T04:29:20.000Z",
-      "title": "Hoverboard-1 (no charger)",
-      "description": "No charger come get it",
-      "price": "$50",
-      "lat": 30.3321838,
-      "lon": -81.655651,
-      "location": "Jacksonville, FL",
-      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t15.5256-10/623012855_1605618520465370_972504197443438087_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=104&ccb=1-7&_nc_sid=d4195b&_nc_eui2=AeE8ystc28JYJGMiIly91CQ-V9886tUVLUZX3zzq1RUtRo3lSq1fasX4sFzNIUuEBeo&_nc_ohc=PfsLnXLOJL4Q7kNvwF0Zd3v&_nc_oc=AdnFe8Q1qrYDrH8WkzsdPXWIlms8vQG2XeCfLqXOcUEN2MM7KiJmLDV8KGEE3sLUxGs&_nc_zt=23&_nc_ht=scontent-dfw5-2.xx&_nc_gid=0yyXwl4u9QKWXo0Q9SUmBA&oh=00_AfvKnl4mLXlpnVOzJ2i2FBK0kvSdRN9iabil6Ol6z8VqmQ&oe=6982EAE0",
-      "adUrl": "https://www.facebook.com/marketplace/item/768972549017866/",
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-01-30 22:06:07"
-    },
-    {
-      "adID": "807497975694123",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/100000477335209/?product_id=807497975694123",
-      "author": "Charles Reid",
-      "postedTime": "2026-01-30T03:21:01.000Z",
-      "title": "24 inch SE rims",
-      "description": "They good rims jus need a little work one has a good maaxis hook worm tire on it jus give 50 for both Thas a steal for se rims bin sittin come get it. Rush me!!!",
-      "price": "$50",
-      "lat": 29.1871986,
-      "lon": -82.1400923,
-      "location": "Ocala, FL",
-      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/624781061_900700512319308_2031623405060132065_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=103&ccb=1-7&_nc_sid=92e707&_nc_eui2=AeGz4C7pl_SwdDhQOf_1p_ddMiATdVQejLQyIBN1VB6MtDvmKBcx_7v5rilJ4uiUnp0&_nc_ohc=0q45R1ipz_EQ7kNvwFOb5wO&_nc_oc=Adn457FgZwBAUmXTaN1UIXqkrRKV-sNfVz0dukYUZ4iFvathn1-IO8NgElND2mF_bxg&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=91D_0qPQZIvndONh7Un_aw&oh=00_AfvZrKDiy9dEmQxQpGuHgsUZZtRP9nB3w6QdpMoFFjhUsA&oe=6983157D",
-      "adUrl": "https://www.facebook.com/marketplace/item/807497975694123/",
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-01-30 22:06:06"
     },
     {
       "adID": "1249216933760633",
