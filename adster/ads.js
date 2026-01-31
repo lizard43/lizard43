@@ -1936,6 +1936,11 @@ function applyFilter() {
     // Cleaned search text (directives removed) drives matching
     const raw = overrides.cleanedRaw;
     const qTrim = raw.trim();
+
+    for (const ad of allAds) {
+        if (ad) delete ad._matchedTerms;
+    }
+
     const q = raw.toLowerCase();
 
     // Effective caps: override if present, else current toolbar caps
@@ -1986,16 +1991,12 @@ function applyFilter() {
         return out;
     }
 
-    const tokens = tokenizeQuery(q);
-    const expr = parseBooleanExpression(tokens);
-    const allTerms = collectTerms(expr);
-
     let matcher;
 
     if (!qTrim) {
         matcher = (ad) => true;
     } else {
-        const isBooleanMode = /[&|()!]/.test(qTrim.toLowerCase());
+        const isBooleanMode = /[|&!]/.test(qTrim);
 
         if (!isBooleanMode) {
             const terms = tokenizeSimpleSearch(q);
@@ -2011,16 +2012,23 @@ function applyFilter() {
             try {
                 const tokens = tokenizeQuery(q);
                 const expr = parseBooleanExpression(tokens);
+                const allTerms = collectTerms(expr);
+
                 matcher = (ad) => {
                     const blob = prepareBlob(ad);
                     if (!evalBooleanExpression(expr, blob)) return false;
 
-                    // NEW: collect which terms actually matched
+                    // collect which terms actually matched
                     const hits = [];
-                    for (const term of allTerms) {
-                        if (matchTermInBlob(term, blob)) hits.push(term);
-                    }
+                    const seen = new Set();
 
+                    for (const term of allTerms) {
+                        if (seen.has(term)) continue;
+                        if (matchTermInBlob(term, blob)) {
+                            seen.add(term);
+                            hits.push(term);
+                        }
+                    }
                     ad._matchedTerms = hits;
                     return true;
                 };
