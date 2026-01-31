@@ -1323,6 +1323,15 @@ body>.modal {
   white-space: nowrap;
 }
 
+.ad-match-reason {
+  font-size: 11px;
+  color: #7fbfff;
+  opacity: 0.85;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 /* footer author should not inherit bright link blue */
 .ad-card-footer .ad-footer-author,
 .ad-card-footer .ad-footer-author a {

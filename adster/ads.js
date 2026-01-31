@@ -1231,6 +1231,13 @@ function renderTable() {
             ? `<a href="${adUrl}" target="_blank" rel="noopener noreferrer" title="${titleAttr}">${escapeHtml(title)}</a>`
             : `<span title="${titleAttr}">${escapeHtml(title)}</span>`;
 
+        const matchBadgeHtml = ad._matchedTerms?.length
+            ? `<div class="ad-match-reason">
+       matched: ${ad._matchedTerms.slice(0, 2).join(", ")}
+       ${ad._matchedTerms.length > 2 ? "…" : ""}
+     </div>`
+            : "";
+
         // Seller (line 2 right side)
         const authorHtml = author
             ? (authorUrl
@@ -1328,6 +1335,8 @@ function renderTable() {
     <div class="ad-line-adid">${escapeHtml(adID)}</div>
 
     <div class="ad-line4">${descSafe}</div>
+
+    ${matchBadgeHtml}
 
     <div class="ad-card-footer">
     <span class="source-text">
@@ -1968,6 +1977,19 @@ function applyFilter() {
         );
     };
 
+    function collectTerms(node, out = []) {
+        if (!node) return out;
+        if (node.type === "TERM") out.push(node.value);
+        if (node.left) collectTerms(node.left, out);
+        if (node.right) collectTerms(node.right, out);
+        if (node.expr) collectTerms(node.expr, out);
+        return out;
+    }
+
+    const tokens = tokenizeQuery(q);
+    const expr = parseBooleanExpression(tokens);
+    const allTerms = collectTerms(expr);
+
     let matcher;
 
     if (!qTrim) {
@@ -1991,7 +2013,16 @@ function applyFilter() {
                 const expr = parseBooleanExpression(tokens);
                 matcher = (ad) => {
                     const blob = prepareBlob(ad);
-                    return evalBooleanExpression(expr, blob);
+                    if (!evalBooleanExpression(expr, blob)) return false;
+
+                    // NEW: collect which terms actually matched
+                    const hits = [];
+                    for (const term of allTerms) {
+                        if (matchTermInBlob(term, blob)) hits.push(term);
+                    }
+
+                    ad._matchedTerms = hits;
+                    return true;
                 };
             } catch (err) {
                 console.error("Boolean search parse error, falling back:", err);
