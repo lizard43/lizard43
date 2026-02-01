@@ -1655,6 +1655,51 @@ function evalBooleanExpression(node, blob) {
     }
 }
 
+// Return the terms that *actually contributed* to a boolean expression matching.
+// - AND: only returns terms if BOTH sides are true
+// - OR: returns terms from the FIRST side that is true (left-biased, consistent)
+// - NOT: returns nothing (we don't credit negated terms)
+function collectMatchedTerms(node, blob) {
+    if (!node) return [];
+
+    switch (node.type) {
+        case "TERM":
+            return matchTermInBlob(node.value, blob) ? [node.value] : [];
+
+        case "AND": {
+            // Only credit AND terms if the AND as a whole is true.
+            if (!evalBooleanExpression(node.left, blob)) return [];
+            if (!evalBooleanExpression(node.right, blob)) return [];
+            return collectMatchedTerms(node.left, blob).concat(collectMatchedTerms(node.right, blob));
+        }
+
+        case "OR": {
+            // Credit whichever OR side actually matched (left-first).
+            if (evalBooleanExpression(node.left, blob)) return collectMatchedTerms(node.left, blob);
+            if (evalBooleanExpression(node.right, blob)) return collectMatchedTerms(node.right, blob);
+            return [];
+        }
+
+        case "NOT":
+            return [];
+
+        default:
+            return [];
+    }
+}
+
+function uniquePreserveOrder(list) {
+    const out = [];
+    const seen = new Set();
+    for (const x of list || []) {
+        const k = String(x);
+        if (seen.has(k)) continue;
+        seen.add(k);
+        out.push(x);
+    }
+    return out;
+}
+
 function computePriceChangedCount(list) {
     if (!Array.isArray(list) || !list.length) return 0;
 
@@ -2018,18 +2063,9 @@ function applyFilter() {
                     const blob = prepareBlob(ad);
                     if (!evalBooleanExpression(expr, blob)) return false;
 
-                    // collect which terms actually matched
-                    const hits = [];
-                    const seen = new Set();
-
-                    for (const term of allTerms) {
-                        if (seen.has(term)) continue;
-                        if (matchTermInBlob(term, blob)) {
-                            seen.add(term);
-                            hits.push(term);
-                        }
-                    }
-                    ad._matchedTerms = hits;
+                    // collect which terms actually contributed to the boolean expression being true
+                    const hits = collectMatchedTerms(expr, blob);
+                    ad._matchedTerms = uniquePreserveOrder(hits);
                     return true;
                 };
             } catch (err) {
