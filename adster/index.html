@@ -33,25 +33,53 @@
       <div id="toolbarMsgLine2" class="toolbar-msg-line"></div>
     </div>
 
+    <!-- ROW 1: sort pills (left) | settings gear (right) -->
     <div class="toolbar-row row1">
-      <div class="search-wrapper">
-        <textarea id="searchInput" rows="2" placeholder="Search title, description, location, author…"></textarea>
-        <button id="clearSearch" class="clear-btn" title="Clear search">×</button>
+      <div class="sort-bar">
+        <button type="button" id="btnTime" class="sort-btn" data-field="postedTime">
+          Time - <span id="timeCapLabel">Any</span> <span class="distance-caret">▾</span>
+          <span class="sort-indicator"></span>
+        </button>
+
+        <button type="button" id="btnDistance" class="sort-btn" data-field="distance">
+          Distance - <span id="distanceCapLabel">250</span> <span class="distance-caret">▾</span>
+          <span class="sort-indicator"></span>
+        </button>
+
+        <button type="button" id="btnPrice" class="sort-btn" data-field="price">
+          Price - <span id="priceCapLabel">$1000</span> <span class="distance-caret">▾</span>
+          <span class="sort-indicator"></span>
+        </button>
+
+        <button type="button" class="sort-btn" data-field="title">
+          Title <span class="sort-indicator"></span>
+        </button>
+
+        <button type="button" class="sort-btn" data-field="author">
+          Seller <span class="sort-indicator"></span>
+        </button>
       </div>
 
       <button id="settingsBtn" class="settings-gear" title="Settings" aria-label="Settings">⚙️</button>
     </div>
 
+    <!-- ROW 2: search (left) | count/total (right) -->
     <div class="toolbar-row row2">
-      <div class="datetime-quick-wrapper">
-        <!-- <button type="button" id="btnLast4h" class="datetime-quick-btn" title="Last 4 hours">4h</button> -->
-        <!-- <button type="button" id="btnLast12h" class="datetime-quick-btn" title="Last 12 hours">12h</button> -->
-        <!-- <button type="button" id="btnLast1d" class="datetime-quick-btn" title="Last 1 day">1d</button> -->
-        <!-- <button type="button" id="btnLast1w" class="datetime-quick-btn" title="Last 1 week">1w</button> -->
+      <div class="search-wrapper">
+        <textarea id="searchInput" rows="2" placeholder="Search title, description, location, author…"></textarea>
+        <button id="clearSearch" class="clear-btn" title="Clear search" aria-label="Clear search">×</button>
       </div>
 
-      <div id="favSearchWrapper" class="favsearch-wrapper" aria-label="Favorite searches">
-        <button type="button" class="favsearch-btn" data-slot="1" title="Favorite search 1 (hold to save / clear)">
+      <div id="resultsPill" class="results-pill" title=""></div>
+    </div>
+
+    <!-- ROW 3: magnifiers + toggles + priceguide + share -->
+    <div class="toolbar-row row3">
+      <div id="favSearchWrapper" class="favsearch-wrapper" aria-label="Toolbar actions">
+
+        <!-- Favorite search slots (magnifier SVGs) -->
+        <button type="button" class="favsearch-btn" data-slot="1" title="Favorite search 1 (hold to save / clear)"
+          aria-label="Favorite search 1">
           <span class="favsearch-icon" aria-hidden="true">
             <svg viewBox="0 0 24 24" class="favsearch-svg" focusable="false" aria-hidden="true">
               <circle cx="11" cy="11" r="6"></circle>
@@ -60,7 +88,8 @@
           </span>
         </button>
 
-        <button type="button" class="favsearch-btn" data-slot="2" title="Favorite search 2 (hold to save / clear)">
+        <button type="button" class="favsearch-btn" data-slot="2" title="Favorite search 2 (hold to save / clear)"
+          aria-label="Favorite search 2">
           <span class="favsearch-icon" aria-hidden="true">
             <svg viewBox="0 0 24 24" class="favsearch-svg" focusable="false" aria-hidden="true">
               <circle cx="11" cy="11" r="6"></circle>
@@ -69,7 +98,8 @@
           </span>
         </button>
 
-        <button type="button" class="favsearch-btn" data-slot="3" title="Favorite search 3 (hold to save / clear)">
+        <button type="button" class="favsearch-btn" data-slot="3" title="Favorite search 3 (hold to save / clear)"
+          aria-label="Favorite search 3">
           <span class="favsearch-icon" aria-hidden="true">
             <svg viewBox="0 0 24 24" class="favsearch-svg" focusable="false" aria-hidden="true">
               <circle cx="11" cy="11" r="6"></circle>
@@ -78,7 +108,8 @@
           </span>
         </button>
 
-        <button type="button" class="favsearch-btn" data-slot="4" title="Favorite search 4 (hold to save / clear)">
+        <button type="button" class="favsearch-btn" data-slot="4" title="Favorite search 4 (hold to save / clear)"
+          aria-label="Favorite search 4">
           <span class="favsearch-icon" aria-hidden="true">
             <svg viewBox="0 0 24 24" class="favsearch-svg" focusable="false" aria-hidden="true">
               <circle cx="11" cy="11" r="6"></circle>
@@ -87,40 +118,33 @@
           </span>
         </button>
 
+        <!-- Include hidden ads in search toggle (eye) -->
         <button type="button" id="btnHiddenSearch" class="favsearch-btn" title="Include hidden ads in search"
           aria-label="Include hidden ads in search">
           <span class="favsearch-icon" aria-hidden="true">
             <svg viewBox="0 0 24 24" class="favsearch-svg" focusable="false" aria-hidden="true">
-              <!-- simple “eye” outline, same stroke style via .favsearch-svg -->
               <path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z"></path>
               <circle cx="12" cy="12" r="3"></circle>
             </svg>
           </span>
         </button>
 
+        <!-- Price changed toggle (tag + centered badge) -->
         <button type="button" id="btnPriceChanged" class="favsearch-btn" title="Show price-changed ads"
           aria-label="Show price-changed ads">
           <span class="favsearch-icon pricechg-icon" aria-hidden="true">
-            <!-- tag/price-change style icon -->
             <svg viewBox="0 0 24 24" class="favsearch-svg" focusable="false" aria-hidden="true">
               <path d="M20 12V7a2 2 0 0 0-2-2h-5L4 14l6 6 10-8z"></path>
-              <path d="M14 7h0"></path>
               <circle cx="14" cy="7" r="1.5"></circle>
             </svg>
-
-            <!-- centered count badge -->
             <span id="priceChangedBadge" class="pricechg-badge">0</span>
           </span>
         </button>
 
-
-        <!-- <button type="button" id="btnCheapo" class="favsearch-btn" title="Cheapo mode (load cheapo json)"
-          aria-label="Cheapo mode"> -->
-        <!-- <button type="button" id="btnCheapo" class="favsearch-btn" title="Open Price Guide" -->
+        <!-- Priceguide (opens /priceguide/ in new tab) -->
         <button type="button" id="btnPriceGuide" class="favsearch-btn" title="Open Price Guide"
           aria-label="Open Price Guide">
           <span class="favsearch-icon" aria-hidden="true">
-            <!-- dollar sign icon -->
             <svg viewBox="0 0 24 24" class="favsearch-svg" focusable="false" aria-hidden="true">
               <path d="M12 1v22"></path>
               <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
@@ -128,47 +152,20 @@
           </span>
         </button>
 
+        <!-- Share (copies share URL or opens native share) -->
         <button type="button" id="btnShare" class="favsearch-btn" title="Share search" aria-label="Share search">
           <span class="favsearch-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" class="favsearch-svg" focusable="false" aria-hidden="true" fill="none"
-              stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
-              <!-- outline share/reply arrow (right-pointing) -->
+            <svg viewBox="0 0 24 24" class="favsearch-svg" focusable="false" aria-hidden="true">
+              <!-- outline share/reply arrow (right-pointing; mirrored via transform) -->
               <path transform="translate(24,0) scale(-1,1)"
-                d="M10 9V5l-7 7 7 7v-4.1c5 0 8.5 1.6 11 5.1-1-5-4-10-11-11z" />
+                d="M10 9V5l-7 7 7 7v-4.1c5 0 8.5 1.6 11 5.1-1-5-4-10-11-11z"></path>
             </svg>
           </span>
         </button>
 
       </div>
-
-      <div id="resultsPill" class="results-pill" title=""></div>
     </div>
 
-    <!-- keep sort bar sticky by keeping it inside .toolbar -->
-    <div class="sort-bar">
-      <button type="button" id="btnTime" class="sort-btn" data-field="postedTime">
-        Time - <span id="timeCapLabel">Any</span> <span class="distance-caret">▾</span>
-        <span class="sort-indicator"></span>
-      </button>
-
-      <button type="button" id="btnDistance" class="sort-btn" data-field="distance">
-        Distance - <span id="distanceCapLabel">250</span> <span class="distance-caret">▾</span>
-        <span class="sort-indicator"></span>
-      </button>
-
-      <button type="button" id="btnPrice" class="sort-btn" data-field="price">
-        Price - <span id="priceCapLabel">$1000</span> <span class="distance-caret">▾</span>
-        <span class="sort-indicator"></span>
-      </button>
-
-      <button type="button" class="sort-btn" data-field="title">
-        Title <span class="sort-indicator"></span>
-      </button>
-
-      <button type="button" class="sort-btn" data-field="author">
-        Seller <span class="sort-indicator"></span>
-      </button>
-    </div>
   </div>
 
   <div class="table-wrapper">

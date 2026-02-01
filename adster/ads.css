@@ -33,42 +33,31 @@ body {
   gap: 3px;
 }
 
-/* Row 1: search (stretch) | gear */
+/* Row 1: sort pills (stretch) | gear */
 .toolbar-row.row1 {
   grid-template-columns: minmax(0, 1fr) auto;
-  gap: 3px;
+  gap: 6px;
   align-items: center;
   line-height: 1;
 }
 
-/* hard rule: row1 must not wrap */
 .toolbar-row.row1>* {
   min-width: 0;
 }
 
-/* Row 2: quick | magnifiers | count */
+/* Row 2: search (stretch) | count/total (auto) */
 .toolbar-row.row2 {
-  grid-template-columns: auto auto 1fr;
-  gap: 3px;
-
-  /* Give the row a stable height, then center the contents inside each cell */
-  min-height: 32px;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 6px;
+  align-items: center;
 }
 
-/* Force each grid cell to fill the row height so the inner flex centering works */
-.toolbar-row.row2>* {
-  height: 100%;
+/* Row 3: icon strip */
+.toolbar-row.row3 {
   display: flex;
   align-items: center;
-  line-height: 1;
+  gap: 6px;
 }
-
-/* Cell-specific alignment */
-#resultsPill {
-  justify-content: flex-end;
-  /* right align inside the 1fr cell */
-}
-
 
 #favoritesWrapper {
   display: none;
@@ -528,18 +517,24 @@ body {
   /* just a subtle brighten when filtering is active */
 }
 
+#resultsPill {
+  justify-self: end;
+  align-self: center;
+}
+
 /* ---------------- Sort bar ---------------- */
 
 .sort-bar {
   background: #181818;
   padding: 4px 6px;
-  /* tighter */
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   gap: 4px;
-  /* tighter */
-  border-bottom: 1px solid #333;
+
+  /* In row1 now — no extra divider needed here */
+  border-bottom: none;
+  border-radius: 8px;
 }
 
 .sort-btn {
