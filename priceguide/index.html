@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Image Pager</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+    <header class="toolbar" role="toolbar" aria-label="Navigation">
+        <div class="left">
+            <button id="btnPrev" title="Previous (← / PageUp)">◀</button>
+            <button id="btnNext" title="Next (→ / PageDown)">▶</button>
+
+            <label class="field">
+                <span>Page</span>
+                <input id="pageInput" type="number" min="1" step="1" value="1" />
+            </label>
+
+            <button id="btnGo" title="Go to page">Go</button>
+
+            <span class="status" id="statusText">—</span>
+        </div>
+
+        <div class="right">
+            <label class="field">
+                <span>Bookmark</span>
+                <select id="bookmarkSelect">
+                    <option value="">(none)</option>
+                </select>
+            </label>
+
+            <button id="btnBookmarkGo" title="Jump to bookmark">Jump</button>
+        </div>
+    </header>
+
+    <main class="stage">
+        <img id="pageImage" alt="Page" draggable="false" />
+        <div id="toast" class="toast" aria-live="polite"></div>
+    </main>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
