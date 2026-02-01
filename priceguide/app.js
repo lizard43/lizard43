@@ -125,16 +125,7 @@ function setImg(imgEl, page) {
 const SNAP_INSET = 80; // px
 
 function snapToCurrent() {
-    // prevent maybeFlipByScroll from firing due to this programmatic scroll
-    snapLockUntil = Date.now() + 300;
-
-    const curTop = el.img.offsetTop;
-    const curH = el.img.offsetHeight;
-
-    // Clamp inset so small images still work
-    const inset = Math.min(SNAP_INSET, Math.max(0, curH - 1));
-
-    el.stage.scrollTop = curTop + inset;
+    el.stage.scrollTop = el.img.offsetTop;
 }
 
 async function renderStrip(centerPage) {
@@ -168,36 +159,6 @@ function prevPage() {
 function nextPage() {
     const p = (state.page >= state.maxPage) ? START_PAGE : (state.page + 1);
     renderStrip(p);
-}
-
-let scrollLockUntil = 0;
-let snapLockUntil = 0;
-
-function maybeFlipByScroll() {
-    const now = Date.now();
-    if (now < scrollLockUntil) return;
-    if (now < snapLockUntil) return;
-
-    const curTop = el.img.offsetTop;
-    const curBottom = curTop + el.img.offsetHeight;
-
-    const viewTop = el.stage.scrollTop;
-    const viewBottom = viewTop + el.stage.clientHeight;
-
-    const threshold = 24;
-    const SNAP_INSET = 80; // px inside the current page so we don't immediately flip
-
-    if (viewBottom >= curBottom - threshold) {
-        scrollLockUntil = now + 250;
-        nextPage();
-        return;
-    }
-
-    if (viewTop <= curTop + 2) {
-        scrollLockUntil = now + 250;
-        prevPage();
-        return;
-    }
 }
 
 function loadBookmarks() {
@@ -284,10 +245,54 @@ function onKeyDown(e) {
     }
 }
 
+let touchStartY = 0;
+let touchStartX = 0;
+let touchStartT = 0;
+let gestureActive = false;
+
+const SWIPE_MIN_PX = 70;     // how far to swipe
+const SWIPE_MAX_MS = 600;    // time window
+const SWIPE_MAX_X = 80;      // avoid diagonal/side swipes
+
+function onTouchStart(e) {
+    if (e.touches.length !== 1) return;
+    const t = e.touches[0];
+    touchStartY = t.clientY;
+    touchStartX = t.clientX;
+    touchStartT = Date.now();
+    gestureActive = true;
+}
+
+function onTouchEnd(e) {
+    if (!gestureActive) return;
+    gestureActive = false;
+
+    const dt = Date.now() - touchStartT;
+    if (dt > SWIPE_MAX_MS) return;
+
+    const t = (e.changedTouches && e.changedTouches[0]) ? e.changedTouches[0] : null;
+    if (!t) return;
+
+    const dy = t.clientY - touchStartY;
+    const dx = t.clientX - touchStartX;
+
+    // ignore mostly-horizontal gestures (let the browser do its thing)
+    if (Math.abs(dx) > SWIPE_MAX_X) return;
+
+    if (dy <= -SWIPE_MIN_PX) {
+        // swipe up -> next page
+        nextPage();
+    } else if (dy >= SWIPE_MIN_PX) {
+        // swipe down -> prev page
+        prevPage();
+    }
+}
+
 function wireUI() {
     el.btnPrev.addEventListener("click", prevPage);
     el.btnNext.addEventListener("click", nextPage);
-    el.stage.addEventListener("scroll", maybeFlipByScroll, { passive: true });
+    el.stage.addEventListener("touchstart", onTouchStart, { passive: true });
+    el.stage.addEventListener("touchend", onTouchEnd, { passive: true });
 
     // handle clicks on # and A..Z
     el.rail.addEventListener("click", (e) => {
