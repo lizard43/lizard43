@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-02-01T22:07:30.150Z",
+  "generated_at": "2026-02-01T23:07:17.728Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,32 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 166,
-      "droppedPrice": 2298,
+      "exported_ads": 167,
+      "droppedPrice": 2306,
       "droppedMissingGeo": 0,
-      "droppedCircle": 1109
+      "droppedCircle": 1111
     }
   },
   "ads": [
+    {
+      "adID": "891036820064176",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/1086404590/?product_id=891036820064176",
+      "author": "Simon Dunning",
+      "postedTime": "2026-01-20T04:52:18.000Z",
+      "title": "Star Wars Han Solo bust from Gentle Giant.",
+      "description": "This statue is in great condition. The bust is flawless. But there was a crack in the medal. The crack was in the back and glued for support. No visible break on the front and when displayed (see picture). Statue otherwise and box are in great condition.",
+      "price": "$50",
+      "lat": 33.9566391,
+      "lon": -83.9890066,
+      "location": "Lawrenceville, GA",
+      "imageUrl": "https://scontent-atl3-2.xx.fbcdn.net/v/t45.5328-4/617605449_1330522498828974_6926933919151849621_n.jpg?stp=c0.71.261.261a_dst-jpg_p261x260_tt6&_nc_cat=101&ccb=1-7&_nc_sid=247b10&_nc_eui2=AeEspzo6NzerqYZBR5Izh2E7e6el0iHTEWF7p6XSIdMRYa4PKBCiyIFhos-myytXuZo&_nc_ohc=ptFC6DNvDqUQ7kNvwE6yd62&_nc_oc=Adkiv7fqW6ceOiLg7bQf-Uviz1daks2jLlHd6bGqxztMh7ZCce45liDlDWpz-cViq8k&_nc_zt=23&_nc_ht=scontent-atl3-2.xx&_nc_gid=TZePdeKfTT0NTDEJKytr2g&oh=00_Aftce9Sq5uCwUmnyuZNIatByTR-HsnJNpkh_CtEUVolc6w&oe=6985C3B9",
+      "adUrl": "https://www.facebook.com/marketplace/item/891036820064176/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-02-01 23:05:51"
+    },
     {
       "adID": "842420052018357",
       "source": "MP",
