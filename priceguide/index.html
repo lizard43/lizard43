@@ -4,39 +4,26 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Image Pager</title>
+    <title>Vintage Arcade Gal's Price Guide</title>
     <link rel="stylesheet" href="styles.css" />
 </head>
 
 <body>
-    <header class="toolbar" role="toolbar" aria-label="Navigation">
-        <div class="left">
-            <button id="btnPrev" title="Previous (← / PageUp)">◀</button>
-            <button id="btnNext" title="Next (→ / PageDown)">▶</button>
+    <nav class="toolbar-rail" id="rail" aria-label="Navigation">
+        <button class="rail-btn" id="btnHome" title="Home">🏠</button>
+        <button class="rail-btn" id="btnNext" title="Next">▶</button>
+        <button class="rail-btn" id="btnPrev" title="Previous">◀</button>
 
-            <label class="field">
-                <span>Page</span>
-                <input id="pageInput" type="number" min="1" step="1" value="1" />
-            </label>
+        <div class="rail-divider"></div>
 
-            <button id="btnGo" title="Go to page">Go</button>
-
-            <span class="status" id="statusText">—</span>
+        <div class="rail-keys" id="railKeys" aria-label="Letter bookmarks">
+            <!-- JS will populate A..Z buttons here -->
         </div>
 
-        <div class="right">
-            <label class="field">
-                <span>Bookmark</span>
-                <select id="bookmarkSelect">
-                    <option value="">(none)</option>
-                </select>
-            </label>
+        <div class="rail-divider"></div>
+    </nav>
 
-            <button id="btnBookmarkGo" title="Jump to bookmark">Jump</button>
-        </div>
-    </header>
-
-    <main class="stage">
+    <main class="stage" id="stage">
         <img id="pageImage" alt="Page" draggable="false" />
         <div id="toast" class="toast" aria-live="polite"></div>
     </main>

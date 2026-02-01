@@ -5,26 +5,59 @@ const FILE_EXT = ".jpg";
 const PAD = 3;                         // 001, 002, ...
 const START_PAGE = 62;
 const MAX_PAGE_GUESS = 419;            // can be overridden by bookmarks.json if it has totalPages
-const BOOKMARKS_FILE = "bookmarks.json";
 // =========================================
+
+const BOOKMARKS = {
+    totalPages: 419,
+    byKey: {
+        "#": 62,
+        "A": 65,
+        "B": 82,
+        "C": 105,
+        "D": 126,
+        "E": 143,
+        "F": 156,
+        "G": 171,
+        "H": 189,
+        "I": 200,
+        "J": 205,
+        "K": 212,
+        "L": 219,
+        "M": 229,
+        "N": 252,
+        "O": 262,
+        "P": 267,
+        "Q": 287,
+        "R": 290,
+        "S": 308,
+        "T": 368,
+        "U": 392,
+        "V": 395,
+        "W": 404,
+        "X": 414,
+        "Y": 416,
+        "Z": 416
+    }
+};
 
 let state = {
     page: START_PAGE,
     maxPage: MAX_PAGE_GUESS,
-    bookmarks: [],
+    keyMap: {},   // e.g. { "#": 62, "A": 65, ... }
     wheelLockUntil: 0
 };
 
 const el = {
     img: document.getElementById("pageImage"),
-    status: document.getElementById("statusText"),
     toast: document.getElementById("toast"),
-    pageInput: document.getElementById("pageInput"),
-    btnGo: document.getElementById("btnGo"),
+    stage: document.getElementById("stage"),
+
+    rail: document.getElementById("rail"),
+    railKeys: document.getElementById("railKeys"),
+
+    btnHome: document.getElementById("btnHome"),
     btnPrev: document.getElementById("btnPrev"),
     btnNext: document.getElementById("btnNext"),
-    bmSelect: document.getElementById("bookmarkSelect"),
-    bmGo: document.getElementById("btnBookmarkGo"),
 };
 
 function pad(n, width) {
@@ -45,33 +78,64 @@ function showToast(msg) {
 
 function clampPage(n) {
     if (!Number.isFinite(n)) return state.page;
-    if (n < 1) return 1;
+    if (n < START_PAGE) return START_PAGE;
     if (n > state.maxPage) return state.maxPage;
     return n;
 }
 
-function setStatus(text) {
-    el.status.textContent = text;
+function buildAZButtons() {
+    el.railKeys.innerHTML = "";
+
+    // First: #
+    const hashBtn = document.createElement("button");
+    hashBtn.className = "rail-btn rail-key";
+    hashBtn.textContent = "#";
+    hashBtn.dataset.key = "#";
+    hashBtn.title = "Bookmark #";
+    el.railKeys.appendChild(hashBtn);
+
+    // Then: A..Z
+    for (let i = 65; i <= 90; i++) {
+        const letter = String.fromCharCode(i);
+        const b = document.createElement("button");
+        b.className = "rail-btn rail-key";
+        b.textContent = letter;
+        b.dataset.key = letter;
+        b.title = `Bookmark ${letter}`;
+        el.railKeys.appendChild(b);
+    }
 }
 
-async function loadPage(page) {
+function preloadPage(page) {
+    page = clampPage(page);
+    const src = filenameForPage(page);
+    const img = new Image();
+    img.src = src;
+}
+
+async function loadPage(page, { scrollTo } = {}) {
     page = clampPage(page);
     state.page = page;
-    el.pageInput.value = page;
 
     const src = filenameForPage(page);
-    setStatus(`Loading ${src} …`);
 
     // Load with error handling so we can try to determine max page if unknown
     return new Promise((resolve) => {
         const img = new Image();
         img.onload = () => {
             el.img.src = src;
-            setStatus(`Page ${state.page} • ${src}`);
+            console.log(`PAGE ${state.page}: ${src}`);
+            // Let layout happen, then position scroll
+            requestAnimationFrame(() => {
+                if (scrollTo === "top") el.stage.scrollTop = 0;
+                if (scrollTo === "bottom") el.stage.scrollTop = el.stage.scrollHeight - el.stage.clientHeight;
+
+            });
+            preloadPage(state.page + 1);
+            preloadPage(state.page - 1);
             resolve(true);
         };
         img.onerror = () => {
-            setStatus(`Missing: ${src}`);
 
             // If we hit a missing file while moving forward, assume we found the end.
             // Step back one page if this page doesn't exist.
@@ -81,7 +145,6 @@ async function loadPage(page) {
                 // If current page missing, go to last known valid
                 if (state.page > state.maxPage) {
                     state.page = state.maxPage;
-                    el.pageInput.value = state.page;
                 }
             } else {
                 showToast(`Can't load ${src}`);
@@ -94,85 +157,79 @@ async function loadPage(page) {
 
 function prevPage() {
     const p = (state.page <= START_PAGE) ? state.maxPage : (state.page - 1);
-    loadPage(p);
+    loadPage(p, { scrollTo: "bottom" });
 }
 
 function nextPage() {
     const p = (state.page >= state.maxPage) ? START_PAGE : (state.page + 1);
-    loadPage(p);
+    loadPage(p, { scrollTo: "top" });
 }
 
-function goToPage(n) {
-    n = Math.floor(Number(n));
-    if (!Number.isFinite(n)) return;
-    loadPage(n);
-}
+function loadBookmarks() {
+    const data = BOOKMARKS;
 
-function populateBookmarks(bookmarks) {
-    el.bmSelect.innerHTML = `<option value="">(none)</option>`;
-    for (const bm of bookmarks) {
-        const opt = document.createElement("option");
-        opt.value = String(bm.page);
-        opt.textContent = `${bm.label} (p.${bm.page})`;
-        el.bmSelect.appendChild(opt);
+    if (typeof data.totalPages === "number" && data.totalPages > 0) {
+        state.maxPage = Math.floor(data.totalPages);
     }
+
+    state.keyMap = {};
+    if (data && typeof data.byKey === "object" && data.byKey) {
+        for (const [k, v] of Object.entries(data.byKey)) {
+            const page = Math.floor(Number(v));
+            // Respect your "never below START_PAGE" rule:
+            if (k && Number.isFinite(page) && page >= START_PAGE) {
+                state.keyMap[k] = page;
+            }
+        }
+    }
+
+    showToast("Bookmarks loaded");
 }
 
-async function loadBookmarks() {
-    try {
-        const res = await fetch(BOOKMARKS_FILE, { cache: "no-store" });
-        if (!res.ok) throw new Error(`HTTP ${res.status}`);
-        const data = await res.json();
-
-        // Expected shape:
-        // { "totalPages": 123, "bookmarks":[{"label":"...", "page": 12}, ...] }
-        if (typeof data.totalPages === "number" && data.totalPages > 0) {
-            state.maxPage = Math.floor(data.totalPages);
-        }
-        if (Array.isArray(data.bookmarks)) {
-            state.bookmarks = data.bookmarks
-                .filter(b => b && typeof b.page === "number" && typeof b.label === "string")
-                .map(b => ({ label: b.label, page: Math.floor(b.page) }))
-                .filter(b => b.page >= 1);
-            populateBookmarks(state.bookmarks);
-        }
-
-        showToast("Bookmarks loaded");
-    } catch (e) {
-        // Bookmarks are optional; viewer still works.
-        setStatus(`No bookmarks (${BOOKMARKS_FILE} not loaded)`);
+function jumpByKey(k) {
+    const page = state.keyMap?.[k];
+    if (!page) {
+        showToast(`No bookmark for ${k}`);
+        return;
     }
+    loadPage(page, { scrollTo: "top" });
+}
+
+function atTop() {
+    return el.stage.scrollTop <= 0;
+}
+
+function atBottom() {
+    // allow a small epsilon
+    return el.stage.scrollTop + el.stage.clientHeight >= el.stage.scrollHeight - 1;
 }
 
 function onWheel(e) {
-    // Prevent browser scroll/zoom gestures from fighting us
-    e.preventDefault();
-
     const now = Date.now();
     if (now < state.wheelLockUntil) return;
 
-    // Trackpad produces small deltas; wheel produces larger.
-    // Use deltaY sign and a threshold.
     const dy = e.deltaY;
 
-    const threshold = 18;
-    if (Math.abs(dy) < threshold) return;
+    // If user is scrolling down but we're already at bottom -> next page
+    if (dy > 0 && atBottom()) {
+        e.preventDefault();
+        nextPage();
+        state.wheelLockUntil = now + 220;
+        return;
+    }
 
-    if (dy > 0) nextPage();
-    else prevPage();
+    // If user is scrolling up but we're already at top -> previous page
+    if (dy < 0 && atTop()) {
+        e.preventDefault();
+        prevPage();
+        state.wheelLockUntil = now + 220;
+        return;
+    }
 
-    // Simple debounce/lock to avoid blasting through pages
-    state.wheelLockUntil = now + 220;
+    // Otherwise: let the browser perform normal scrolling inside the stage
 }
 
 function onKeyDown(e) {
-    if (["INPUT", "SELECT"].includes(document.activeElement?.tagName)) {
-        // Let user type in the page field naturally
-        if (e.key === "Enter" && document.activeElement === el.pageInput) {
-            goToPage(el.pageInput.value);
-        }
-        return;
-    }
 
     switch (e.key) {
         case "ArrowLeft":
@@ -184,7 +241,7 @@ function onKeyDown(e) {
             nextPage();
             break;
         case "Home":
-            loadPage(1);
+            loadPage(START_PAGE, { scrollTo: "top" });
             break;
         case "End":
             loadPage(state.maxPage);
@@ -193,31 +250,28 @@ function onKeyDown(e) {
 }
 
 function wireUI() {
+    el.btnHome.addEventListener("click", () =>
+        loadPage(START_PAGE, { scrollTo: "top" })
+    );
     el.btnPrev.addEventListener("click", prevPage);
     el.btnNext.addEventListener("click", nextPage);
 
-    el.btnGo.addEventListener("click", () => goToPage(el.pageInput.value));
-    el.pageInput.addEventListener("keydown", (e) => {
-        if (e.key === "Enter") goToPage(el.pageInput.value);
+    // handle clicks on # and A..Z
+    el.rail.addEventListener("click", (e) => {
+        const btn = e.target.closest("button[data-key]");
+        if (!btn) return;
+        jumpByKey(btn.dataset.key);
     });
 
-    el.bmGo.addEventListener("click", () => {
-        const v = el.bmSelect.value;
-        if (!v) return;
-        goToPage(v);
-    });
-
-    // Wheel navigation: attach to the whole document (and prevent default)
-    // Note: needs { passive: false } or preventDefault won't work.
-    document.addEventListener("wheel", onWheel, { passive: false });
-
+    el.stage.addEventListener("wheel", onWheel, { passive: false });
     document.addEventListener("keydown", onKeyDown);
 }
 
 async function init() {
+    buildAZButtons();
     wireUI();
-    await loadBookmarks();
-    await loadPage(START_PAGE);
+    loadBookmarks();
+    await loadPage(START_PAGE, { scrollTo: "top" });
 }
 
 init();

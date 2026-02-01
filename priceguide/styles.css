@@ -6,6 +6,8 @@
     --text: #e7e9ee;
     --muted: #a8acb8;
     --border: #2a2f3a;
+    --rail-w: 56px;
+    --rail-pad: 8px;
 }
 
 * {
@@ -26,23 +28,75 @@ body {
     /* important for wheel navigation */
 }
 
-.toolbar {
-    height: var(--toolbar-h);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: var(--gap);
-    padding: 8px 10px;
+.toolbar-rail {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+
+    width: var(--rail-w);
+    padding: var(--rail-pad) 6px;
+
     background: var(--panel);
-    border-bottom: 1px solid var(--border);
+    border-left: 1px solid var(--border);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+
+    z-index: 60;
+
+    overflow-x: hidden;
 }
 
-.toolbar .left,
-.toolbar .right {
+.rail-btn {
+    width: 44px;
+    height: 44px;
+    border-radius: 14px;
+    border: 1px solid var(--border);
+    background: #1b1f2a;
+    color: var(--text);
+    cursor: pointer;
+    display: grid;
+    place-items: center;
+    font-size: 16px;
+}
+
+.rail-btn:active {
+    transform: translateY(1px);
+}
+
+.rail-btn:hover {
+    filter: brightness(1.1);
+}
+
+.rail-divider {
+    width: 70%;
+    height: 1px;
+    background: var(--border);
+    opacity: 0.9;
+}
+
+.rail-keys {
+    flex: 1 1 auto;
+    /* this is what makes it pannable */
+    width: 100%;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+    padding: 4px 0;
+
     display: flex;
+    flex-direction: column;
     align-items: center;
-    gap: var(--gap);
-    min-width: 0;
+    gap: 8px;
+
+    overflow-x: hidden;
+    scrollbar-gutter: stable;
+}
+
+.rail-key {
+    font-weight: 700;
 }
 
 button {
@@ -96,18 +150,25 @@ select:focus {
 }
 
 .stage {
-    height: calc(100vh - var(--toolbar-h));
-    width: 100vw;
-    display: grid;
-    place-items: center;
-    position: relative;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: var(--rail-w);
+    bottom: 0;
+
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+
+    display: block;
+    padding: 0;
 }
 
 /* This is the key: fill the stage while preserving aspect */
 #pageImage {
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: contain;
+    display: block;
+    width: 100%;
+    height: auto;
+    /* preserve aspect */
     user-select: none;
     -webkit-user-drag: none;
 }
