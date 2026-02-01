@@ -4,6 +4,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
     <title>Vintage Arcade Gal's Price Guide</title>
     <link rel="stylesheet" href="styles.css" />
 </head>
@@ -23,7 +24,11 @@
     </nav>
 
     <main class="stage" id="stage">
-        <img id="pageImage" alt="Page" draggable="false" />
+        <div class="strip" id="strip">
+            <img id="pagePrev" class="pageImg" alt="Previous page" draggable="false" />
+            <img id="pageImage" class="pageImg" alt="Page" draggable="false" />
+            <img id="pageNext" class="pageImg" alt="Next page" draggable="false" />
+        </div>
         <div id="toast" class="toast" aria-live="polite"></div>
     </main>
 

@@ -163,6 +163,19 @@ select:focus {
     padding: 0;
 }
 
+.strip {
+    display: flex;
+    flex-direction: column;
+}
+
+.pageImg {
+    display: block;
+    width: 100%;
+    height: auto;
+    user-select: none;
+    -webkit-user-drag: none;
+}
+
 /* This is the key: fill the stage while preserving aspect */
 #pageImage {
     display: block;

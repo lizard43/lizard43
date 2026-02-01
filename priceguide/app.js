@@ -48,7 +48,11 @@ let state = {
 };
 
 const el = {
+    imgPrev: document.getElementById("pagePrev"),
     img: document.getElementById("pageImage"),
+    imgNext: document.getElementById("pageNext"),
+    strip: document.getElementById("strip"),
+
     toast: document.getElementById("toast"),
     stage: document.getElementById("stage"),
 
@@ -112,56 +116,88 @@ function preloadPage(page) {
     img.src = src;
 }
 
-async function loadPage(page, { scrollTo } = {}) {
-    page = clampPage(page);
-    state.page = page;
+function setImg(imgEl, page) {
+    const p = clampPage(page);
+    imgEl.dataset.page = String(p);
+    imgEl.src = filenameForPage(p);
+}
 
-    const src = filenameForPage(page);
+const SNAP_INSET = 80; // px
 
-    // Load with error handling so we can try to determine max page if unknown
-    return new Promise((resolve) => {
-        const img = new Image();
-        img.onload = () => {
-            el.img.src = src;
-            console.log(`PAGE ${state.page}: ${src}`);
-            // Let layout happen, then position scroll
-            requestAnimationFrame(() => {
-                if (scrollTo === "top") el.stage.scrollTop = 0;
-                if (scrollTo === "bottom") el.stage.scrollTop = el.stage.scrollHeight - el.stage.clientHeight;
+function snapToCurrent() {
+    // prevent maybeFlipByScroll from firing due to this programmatic scroll
+    snapLockUntil = Date.now() + 300;
 
-            });
-            preloadPage(state.page + 1);
-            preloadPage(state.page - 1);
-            resolve(true);
-        };
-        img.onerror = () => {
+    const curTop = el.img.offsetTop;
+    const curH = el.img.offsetHeight;
 
-            // If we hit a missing file while moving forward, assume we found the end.
-            // Step back one page if this page doesn't exist.
-            if (page > 1) {
-                state.maxPage = Math.min(state.maxPage, page - 1);
-                showToast(`End at page ${state.maxPage}`);
-                // If current page missing, go to last known valid
-                if (state.page > state.maxPage) {
-                    state.page = state.maxPage;
-                }
-            } else {
-                showToast(`Can't load ${src}`);
-            }
-            resolve(false);
-        };
-        img.src = src;
-    });
+    // Clamp inset so small images still work
+    const inset = Math.min(SNAP_INSET, Math.max(0, curH - 1));
+
+    el.stage.scrollTop = curTop + inset;
+}
+
+async function renderStrip(centerPage) {
+    const p = clampPage(centerPage);
+    state.page = p;
+
+    const prev = (p <= START_PAGE) ? state.maxPage : (p - 1);
+    const next = (p >= state.maxPage) ? START_PAGE : (p + 1);
+
+    setImg(el.imgPrev, prev);
+    setImg(el.img, p);
+    setImg(el.imgNext, next);
+
+    console.log(`PAGE ${state.page}: ${filenameForPage(state.page)}`);
+
+    // Snap AFTER current image has layout (it might not be loaded yet)
+    if (el.img.complete && el.img.naturalHeight > 0) {
+        requestAnimationFrame(snapToCurrent);
+    } else {
+        el.img.addEventListener("load", () => requestAnimationFrame(snapToCurrent), { once: true });
+        el.img.addEventListener("error", () => requestAnimationFrame(snapToCurrent), { once: true });
+    }
+
 }
 
 function prevPage() {
     const p = (state.page <= START_PAGE) ? state.maxPage : (state.page - 1);
-    loadPage(p, { scrollTo: "bottom" });
+    renderStrip(p);
 }
 
 function nextPage() {
     const p = (state.page >= state.maxPage) ? START_PAGE : (state.page + 1);
-    loadPage(p, { scrollTo: "top" });
+    renderStrip(p);
+}
+
+let scrollLockUntil = 0;
+let snapLockUntil = 0;
+
+function maybeFlipByScroll() {
+    const now = Date.now();
+    if (now < scrollLockUntil) return;
+    if (now < snapLockUntil) return;
+
+    const curTop = el.img.offsetTop;
+    const curBottom = curTop + el.img.offsetHeight;
+
+    const viewTop = el.stage.scrollTop;
+    const viewBottom = viewTop + el.stage.clientHeight;
+
+    const threshold = 24;
+    const SNAP_INSET = 80; // px inside the current page so we don't immediately flip
+
+    if (viewBottom >= curBottom - threshold) {
+        scrollLockUntil = now + 250;
+        nextPage();
+        return;
+    }
+
+    if (viewTop <= curTop + 2) {
+        scrollLockUntil = now + 250;
+        prevPage();
+        return;
+    }
 }
 
 function loadBookmarks() {
@@ -191,7 +227,7 @@ function jumpByKey(k) {
         showToast(`No bookmark for ${k}`);
         return;
     }
-    loadPage(page, { scrollTo: "top" });
+    renderStrip(page);
 }
 
 function atTop() {
@@ -240,10 +276,10 @@ function onKeyDown(e) {
             nextPage();
             break;
         case "Home":
-            loadPage(START_PAGE, { scrollTo: "top" });
+            renderStrip(START_PAGE);
             break;
         case "End":
-            loadPage(state.maxPage);
+            renderStrip(state.maxPage);
             break;
     }
 }
@@ -251,6 +287,7 @@ function onKeyDown(e) {
 function wireUI() {
     el.btnPrev.addEventListener("click", prevPage);
     el.btnNext.addEventListener("click", nextPage);
+    el.stage.addEventListener("scroll", maybeFlipByScroll, { passive: true });
 
     // handle clicks on # and A..Z
     el.rail.addEventListener("click", (e) => {
@@ -267,7 +304,7 @@ async function init() {
     buildAZButtons();
     wireUI();
     loadBookmarks();
-    await loadPage(START_PAGE, { scrollTo: "top" });
+    await renderStrip(START_PAGE);
 }
 
 init();
