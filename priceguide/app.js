@@ -55,7 +55,6 @@ const el = {
     rail: document.getElementById("rail"),
     railKeys: document.getElementById("railKeys"),
 
-    btnHome: document.getElementById("btnHome"),
     btnPrev: document.getElementById("btnPrev"),
     btnNext: document.getElementById("btnNext"),
 };
@@ -250,9 +249,6 @@ function onKeyDown(e) {
 }
 
 function wireUI() {
-    el.btnHome.addEventListener("click", () =>
-        loadPage(START_PAGE, { scrollTo: "top" })
-    );
     el.btnPrev.addEventListener("click", prevPage);
     el.btnNext.addEventListener("click", nextPage);
 
