@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-02-01T13:07:15.786Z",
+  "generated_at": "2026-02-01T14:08:11.993Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,32 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 170,
-      "droppedPrice": 2312,
+      "exported_ads": 171,
+      "droppedPrice": 2302,
       "droppedMissingGeo": 0,
-      "droppedCircle": 1119
+      "droppedCircle": 1121
     }
   },
   "ads": [
+    {
+      "adID": "2367819043693503",
+      "source": "MP",
+      "authorUrl": null,
+      "author": "",
+      "postedTime": "2026-02-01T14:04:52.541Z",
+      "title": "Hummingbird Helix 10 G2 GPS DI & SI",
+      "description": "",
+      "price": "$400",
+      "lat": 30.4868564,
+      "lon": -90.9562125,
+      "location": "Denham Springs, LA",
+      "imageUrl": "https://scontent-atl3-2.xx.fbcdn.net/v/t39.84726-6/625223307_25911909165143243_3902350377013918257_n.jpg?stp=c43.0.260.260a_dst-jpg_p261x260_tt6&_nc_cat=105&ccb=1-7&_nc_sid=92e707&_nc_eui2=AeFbs8f-JMS2GGxbkvFO8tPcBfjIfyMzOtgF-Mh_IzM62EIQiUldC2loJ4QbOUg6ST0&_nc_ohc=sbS2r0m6hXoQ7kNvwFDbrRe&_nc_oc=AdmRLK86vWiLxU40vM3jZ156FpJVfLFooXT0_ZfDNgPXn6Z0J5pt2-qRdsYzNF-3sJg&_nc_zt=14&_nc_ht=scontent-atl3-2.xx&_nc_gid=S1faIa6zlp8CNG3yk5z5Cw&oh=00_AfvJSfSmTtDBo-0c5odRVRf_U9si3jVlp8KzpEbUxjJ6lA&oe=69853397",
+      "adUrl": "https://www.facebook.com/marketplace/item/2367819043693503/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-02-01 14:04:52"
+    },
     {
       "adID": "1602373470905595",
       "source": "MP",
