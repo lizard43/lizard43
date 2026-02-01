@@ -151,6 +151,29 @@ body {
   opacity: 0.85;
 }
 
+/* --- Hidden ads toggle (eye icon) --- */
+
+/* OFF = subtle red warning (hidden ads are excluded) */
+#btnHiddenSearch {
+  color: #a06060;
+  /* muted red */
+}
+
+/* hover should still feel interactive, not alarming */
+#btnHiddenSearch:hover {
+  color: #c07070;
+}
+
+/* ON = green (explicit, intentional state) */
+#btnHiddenSearch.active {
+  color: #55aa55;
+}
+
+/* keep green even on hover */
+#btnHiddenSearch.active:hover {
+  color: #6fcf97;
+}
+
 /* --- Price-changed toolbar toggle (make icon larger, badge centered) --- */
 
 /* Make ONLY the price-changed button a bit bigger (others stay 26x26) */
@@ -198,6 +221,28 @@ body {
   width: 100%;
   text-align: center;
   white-space: nowrap;
+}
+
+/* --- Price changed toggle emphasis --- */
+
+/* OFF = current muted state (do nothing) */
+
+/* ON = brighter + more confident */
+#btnPriceChanged.active {
+  color: #6fcf97;
+  /* brighter green */
+}
+
+/* Make the tag feel more “important” */
+#btnPriceChanged.active .favsearch-svg {
+  stroke-width: 2.4;
+  opacity: 1;
+}
+
+/* Make the badge pop slightly more */
+#btnPriceChanged.active .pricechg-badge {
+  color: #c8ffd1;
+  font-weight: 900;
 }
 
 /* SVG icons used inside card icon buttons (hide/show, etc.) */
