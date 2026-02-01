@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-02-01T14:08:11.993Z",
+  "generated_at": "2026-02-01T15:08:14.938Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,32 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 171,
-      "droppedPrice": 2302,
+      "exported_ads": 172,
+      "droppedPrice": 2305,
       "droppedMissingGeo": 0,
-      "droppedCircle": 1121
+      "droppedCircle": 1125
     }
   },
   "ads": [
+    {
+      "adID": "3447222552100785",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100039360223128/?product_id=3447222552100785",
+      "author": "Cooper Blalock",
+      "postedTime": "2026-01-31T20:28:47.000Z",
+      "title": "35/12.50/20 2015 ltz",
+      "description": "35/12.50/20 2015 ltz Bald mud grapps Wheels are in good shape I have all 4 hub caps Willing to trade for something interesting (no wheels) Need gone make me an offer",
+      "price": "$800",
+      "lat": 34.2073196,
+      "lon": -84.1401926,
+      "location": "Cumming, GA",
+      "imageUrl": "https://scontent-atl3-1.xx.fbcdn.net/v/t39.84726-6/626301220_919988770979429_2537323109447443495_n.jpg?stp=c0.43.261.261a_dst-jpg_p261x260_tt6&_nc_cat=106&ccb=1-7&_nc_sid=92e707&_nc_eui2=AeEeGcnxd9LM9nHU0s6o89HP3G2vx9bCivPcba_H1sKK80xMtBiWyGoz1QAlzjk80Ko&_nc_ohc=GAWf5fZiDSQQ7kNvwEIT7zY&_nc_oc=Admsv1AuH7X66CeU68-Q4AV6uRLIijcjxvZ7cBnn1oWn15cwiuxJ6134BttGGx5k4eI&_nc_zt=14&_nc_ht=scontent-atl3-1.xx&_nc_gid=x0-Gu_wnKuOxMkpZ-9auzw&oh=00_AftOpb8XcOqhDnO4etBx7sMIchin4Qk3L-mg2Uj20_pYDg&oe=698555CE",
+      "adUrl": "https://www.facebook.com/marketplace/item/3447222552100785/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-02-01 15:05:48"
+    },
     {
       "adID": "2367819043693503",
       "source": "MP",
