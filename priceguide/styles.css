@@ -166,6 +166,9 @@ select:focus {
 .strip {
     display: flex;
     flex-direction: column;
+    transform-origin: 0 0;
+    touch-action: pan-y;
+    /* allow vertical scrolling while we handle pinch */
 }
 
 .pageImg {
