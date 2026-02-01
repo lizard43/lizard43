@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-02-01T16:33:06.186Z",
+  "generated_at": "2026-02-01T17:08:18.549Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,32 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 168,
-      "droppedPrice": 2302,
+      "exported_ads": 169,
+      "droppedPrice": 2306,
       "droppedMissingGeo": 0,
-      "droppedCircle": 1109
+      "droppedCircle": 1112
     }
   },
   "ads": [
+    {
+      "adID": "1675301090519443",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100000724625572/?product_id=1675301090519443",
+      "author": "Angela Cooper",
+      "postedTime": "2026-01-31T20:27:25.000Z",
+      "title": "Munchkin safety gate in great condition extends up to 43 inches and is 27 inches in height",
+      "description": "pick up is on Kennington Circle in Milton",
+      "price": "$12",
+      "lat": 30.6324149,
+      "lon": -87.0396881,
+      "location": "Milton, FL",
+      "imageUrl": "https://scontent-atl3-3.xx.fbcdn.net/v/t39.84726-6/623156757_4357720547881248_2634971316811427102_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=108&ccb=1-7&_nc_sid=92e707&_nc_eui2=AeHZYm40oBtpyZ_GBg7d0PIxZmqbjwwdhElmapuPDB2ESQWfTIqss1Daxr_pjVcAL4o&_nc_ohc=HLOZDJWyXX0Q7kNvwGi6Feh&_nc_oc=AdkFgyLIFIPkidsNoXBTb6mxPKy2XqDt_CYZUudMTRRZXHVTjlX8n33Xv5QGkx8NmUE&_nc_zt=14&_nc_ht=scontent-atl3-3.xx&_nc_gid=OA9YHFVGwYb2xsbPvNm-dA&oh=00_AfseqWyczzjPIVLqB8WVRD0agwtwMN5kjXKLr6eBEd8fFA&oe=698548B3",
+      "adUrl": "https://www.facebook.com/marketplace/item/1675301090519443/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-02-01 17:04:42"
+    },
     {
       "adID": "3447222552100785",
       "source": "MP",
