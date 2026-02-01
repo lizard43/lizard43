@@ -98,7 +98,8 @@ const btnLast1w = document.getElementById("btnLast1w");
 
 const btnPriceChanged = document.getElementById("btnPriceChanged");
 const priceChangedBadge = document.getElementById("priceChangedBadge");
-const btnCheapo = document.getElementById("btnCheapo");
+// const btnCheapo = document.getElementById("btnCheapo");
+const btnPriceGuide = document.getElementById("btnPriceGuide");
 const btnShare = document.getElementById("btnShare");
 
 const btnDistance = document.getElementById("btnDistance");
@@ -2607,16 +2608,25 @@ btnPriceChanged?.addEventListener("click", () => {
     scrollResultsToTop();
 });
 
-btnCheapo?.addEventListener("click", async () => {
-    cheapoMode = !cheapoMode;
-    saveCheapoMode(cheapoMode);
-    renderCheapoToggle();
+// btnCheapo?.addEventListener("click", async () => {
+//     cheapoMode = !cheapoMode;
+//     saveCheapoMode(cheapoMode);
+//     renderCheapoToggle();
 
-    // Switch dataset and reload.
-    ADS_JSON_URL = resolveAdsJsonUrlFromQuery();
-    await loadAds();
+//     // Switch dataset and reload.
+//     ADS_JSON_URL = resolveAdsJsonUrlFromQuery();
+//     await loadAds();
 
-    showToast(cheapoMode ? "Cheapo ON" : "Cheapo OFF");
+//     showToast(cheapoMode ? "Cheapo ON" : "Cheapo OFF");
+// });
+
+btnPriceGuide?.addEventListener("click", (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+
+    // Open priceguide in a new tab. (priceguide is parallel to /adster/)
+    const url = new URL("../priceguide/", window.location.href).toString();
+    window.open(url, "_blank", "noopener,noreferrer");
 });
 
 btnShare?.addEventListener("click", async () => {
@@ -3068,8 +3078,8 @@ function applySearchFromUrlOnce() {
     updatePriceChangedBadge();
 
     // cheapo dataset init
-    cheapoMode = loadCheapoMode();
-    renderCheapoToggle();
+    // cheapoMode = loadCheapoMode();
+    // renderCheapoToggle();
 
     // distance cap init
     const stored = loadDistanceCap();
