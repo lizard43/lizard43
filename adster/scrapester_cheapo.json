@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-02-01T23:07:17.728Z",
+  "generated_at": "2026-02-02T00:07:18.701Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,51 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 167,
-      "droppedPrice": 2306,
+      "exported_ads": 169,
+      "droppedPrice": 2304,
       "droppedMissingGeo": 0,
-      "droppedCircle": 1111
+      "droppedCircle": 1113
     }
   },
   "ads": [
+    {
+      "adID": "2026958544812237",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100038904311898/?product_id=2026958544812237",
+      "author": "David Garrett",
+      "postedTime": "2025-11-21T07:17:53.000Z",
+      "title": "Arcade Cabinets (Gorf, Silver Strike Bowling, Guanlet, Harley Davidson, Marvel. Must pick up.",
+      "description": "Project arcade cabinets",
+      "price": "$700",
+      "lat": 30.4065868,
+      "lon": -87.6835974,
+      "location": "Foley, AL",
+      "imageUrl": "https://scontent-atl3-3.xx.fbcdn.net/v/t39.84726-6/586528932_1388612052793222_4066229669229707136_n.jpg?stp=c0.118.261.261a_dst-jpg_p261x260_tt6&_nc_cat=109&ccb=1-7&_nc_sid=92e707&_nc_eui2=AeEK2Ul3y8DPfiXaNh1AJDmBL6_lBo8NCEIvr-UGjw0IQh-5h-zLTdfhOc4yBr7LgBw&_nc_ohc=eAg_e6L-1S4Q7kNvwEPog9M&_nc_oc=Adm5n9vE0XUs65IoWt0rR0h4mwTwQi-KW3kLujNXuPSJoXB23IOZNEUu86QcnMah9zE&_nc_zt=14&_nc_ht=scontent-atl3-3.xx&_nc_gid=uSO-1ATJyFN33hVOtjNzzg&oh=00_AftfkLO-qr16pouIxIr0wATnigp3RsHi7WS6wGRL_NmXQw&oe=6985B355",
+      "adUrl": "https://www.facebook.com/marketplace/item/2026958544812237/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-02-02 00:05:58"
+    },
+    {
+      "adID": "2085980758822178",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/537969843/?product_id=2085980758822178",
+      "author": "Alex Chambers",
+      "postedTime": "2026-02-01T23:30:09.000Z",
+      "title": "Wack a Mole Arcade Game",
+      "description": "Fun wack a mole game for the family.",
+      "price": "$450",
+      "lat": 33.9528472,
+      "lon": -84.5496148,
+      "location": "Marietta, GA",
+      "imageUrl": "https://scontent-atl3-3.xx.fbcdn.net/v/t15.5256-10/623845269_1520130312406064_8946697045607335730_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=108&ccb=1-7&_nc_sid=d4195b&_nc_eui2=AeFjP-9whjQ_FMy24BmkZLcdsRUFb8QPseuxFQVvxA-x68I9OzxcWzxrPMIK-ky5AYs&_nc_ohc=1djvUwln0ccQ7kNvwH3NA6V&_nc_oc=AdkkojBQOVt7mBop_E8bpgmTqpJDQ1BQHRqPQi8liy0scowDp5iQ_VlKMPYOL13T0Mo&_nc_zt=23&_nc_ht=scontent-atl3-3.xx&_nc_gid=VUArvqzfpWULzCUfSMn4pA&oh=00_Afs2uO59wUKtyIHbrIXiD50wKiwwSGN_sVOqu8MYGpro0Q&oe=6985C6C4",
+      "adUrl": "https://www.facebook.com/marketplace/item/2085980758822178/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-02-02 00:04:44"
+    },
     {
       "adID": "891036820064176",
       "source": "MP",
