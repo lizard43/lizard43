@@ -202,7 +202,10 @@ function updateBookmarkHighlight(page) {
     const btn = state.keyBtns[activeKey];
     if (btn) {
         btn.classList.add("is-active");
-        btn.scrollIntoView({ block: "nearest" });
+
+        const rail = el.railKeys;
+        const top = btn.offsetTop - rail.clientHeight / 2 + btn.clientHeight / 2;
+        rail.scrollTo({ top, behavior: "auto" });
     }
 }
 
@@ -448,7 +451,9 @@ function onTouchEnd(e) {
 
     // If user actually scrolled the stage, treat it as scrolling, not navigation
     const scrolled = Math.abs(el.stage.scrollTop - touchStartScrollTop);
-    if (scrolled > 12) return;
+
+    // Allow swipe navigation if we're at the edges (wrap case)
+    if (scrolled > 12 && !atTop() && !atBottom()) return;
 
     const t = (e.changedTouches && e.changedTouches[0]) ? e.changedTouches[0] : null;
     if (!t) return;

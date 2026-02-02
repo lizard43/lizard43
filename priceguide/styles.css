@@ -161,6 +161,8 @@ select:focus {
 
     display: block;
     padding: 0;
+
+    touch-action: pan-y;
 }
 
 .strip {
