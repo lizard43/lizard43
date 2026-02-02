@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-02-02T16:08:10.106Z",
+  "generated_at": "2026-02-02T17:06:22.297Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,32 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 149,
-      "droppedPrice": 2255,
+      "exported_ads": 150,
+      "droppedPrice": 2257,
       "droppedMissingGeo": 0,
-      "droppedCircle": 1071
+      "droppedCircle": 1073
     }
   },
   "ads": [
+    {
+      "adID": "901776699169713",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100001873647214/?product_id=901776699169713",
+      "author": "Sirena Christensen",
+      "postedTime": "2026-02-01T21:08:27.000Z",
+      "title": "Baskets",
+      "description": "Round cream basket $5 2 white metal baskets with liners $8 2 brown rectangle baskets with liners $5",
+      "price": "$5",
+      "lat": 31.2237285,
+      "lon": -85.3934375,
+      "location": "Dothan, AL",
+      "imageUrl": "https://scontent-atl3-1.xx.fbcdn.net/v/t39.84726-6/622816206_749634667829679_1538858045897867596_n.jpg?stp=c43.0.260.260a_dst-jpg_p261x260_tt6&_nc_cat=100&ccb=1-7&_nc_sid=92e707&_nc_eui2=AeFkVy_-oIGZwfSyTd8zsJbmxKIBSLhyc67EogFIuHJzrvVeSouEKE4LoecjhV1E-p8&_nc_ohc=f1JGxvolrNsQ7kNvwFSPcMA&_nc_oc=AdmdTgLhX6dtc8CUl8s_gSd-qxIrJZYzcFuLZ-dbQ5a_1D4ehqXhUKdt2F--M2dTew0&_nc_zt=14&_nc_ht=scontent-atl3-1.xx&_nc_gid=YXuOw0ZoYiTWdXmdIdyMpA&oh=00_AfuNkZA5x6Q48JM8NBT0ydrKH-nn_KW6vcTHLDOXT4ChKQ&oe=6986C135",
+      "adUrl": "https://www.facebook.com/marketplace/item/901776699169713/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-02-02 17:05:15"
+    },
     {
       "adID": "2686609878389922",
       "source": "MP",
