@@ -85,16 +85,21 @@ poolImgs.push(el.img0, el.img1, el.img2, el.img3, el.img4);
 poolPages.length = POOL;
 poolPages.fill(null);
 
+function logPage(reason) {
+    console.log(`[${reason}] page=${state.page} scrollTop=${Math.round(el.stage.scrollTop)} scale=${scale.toFixed(2)}`);
+}
+
 function jumpToPage(page) {
     const p = clampPage(page);
     state.page = p;
-    el.stage.scrollTop = (p - START_PAGE) * pageH;
+    el.stage.scrollTop = ((p - START_PAGE) * pageH) * scale;
     updateVisible();
+    logPage(`jumpTo(${p})`);
 }
 
 function computePageH() {
     const w = el.stage.clientWidth;
-    pageH = w * ASPECT * scale;
+    pageH = w * ASPECT; // no *scale
 }
 
 function setDocumentHeight() {
@@ -103,7 +108,8 @@ function setDocumentHeight() {
 }
 
 function pageFromScrollTop() {
-    const idx = Math.floor(el.stage.scrollTop / pageH);
+    const viewMid = (el.stage.scrollTop + (el.stage.clientHeight / 2)) / scale;
+    const idx = Math.floor(viewMid / pageH);
     return clampPage(START_PAGE + idx);
 }
 
@@ -113,7 +119,7 @@ function placeImg(imgEl, page) {
     imgEl.src = filenameForPage(p);
 
     const idx = (p - START_PAGE);
-    imgEl.style.top = `${idx * pageH}px`;
+    imgEl.style.top = `${idx * pageH}px`; // unscaled, transform handles scaling
 }
 
 let rafPending = false;
@@ -133,6 +139,7 @@ function updateVisible() {
             poolImgs[i].style.top = `${idx * pageH}px`;
         }
     }
+    logPage("update");
 }
 
 function onScroll() {
@@ -221,35 +228,56 @@ function jumpByKey(k) {
 }
 
 function prevPage() {
-    jumpToPage(state.page <= START_PAGE ? state.maxPage : state.page - 1);
+    const cur = pageFromScrollTop();
+    jumpToPage(cur <= START_PAGE ? state.maxPage : cur - 1);
+    logPage("prev");
 }
 
 function nextPage() {
-    jumpToPage(state.page >= state.maxPage ? START_PAGE : state.page + 1);
-
+    const cur = pageFromScrollTop();
+    jumpToPage(cur >= state.maxPage ? START_PAGE : cur + 1);
+    logPage("next");
 }
 
 function applyScale(newScale) {
-    const oldH = pageH;
-    const pageIndex = state.page - START_PAGE;
-    const oldOffset = el.stage.scrollTop - pageIndex * oldH;
-    const ratio = oldH > 0 ? (oldOffset / oldH) : 0;
+    // Preserve position within current page in *unscaled* units
+    const oldScale = scale;
+    const unscaledScroll = el.stage.scrollTop / oldScale;
 
+    const cur = pageFromScrollTop();
+    const pageIndex = cur - START_PAGE;
+
+    const oldOffsetUnscaled = unscaledScroll - pageIndex * pageH;
+    const ratio = pageH > 0 ? (oldOffsetUnscaled / pageH) : 0;
+
+    // Apply new scale + visual transform
     scale = Math.max(1, Math.min(4, newScale));
+    el.strip.style.transform = `scale(${scale})`;
 
+    // pageH is based on width/aspect only (as you wrote)
     computePageH();
     setDocumentHeight();
 
-    el.stage.scrollTop = pageIndex * pageH + ratio * pageH;
+    // Restore scroll position at same within-page ratio
+    const newUnscaledScroll = pageIndex * pageH + ratio * pageH;
+    el.stage.scrollTop = newUnscaledScroll * scale;
+
     updateVisible();
 }
 
-function atTop() { return el.stage.scrollTop <= 0; }
-function atBottom() { return el.stage.scrollTop + el.stage.clientHeight >= el.stage.scrollHeight - 1; }
+function atBottom() {
+    return el.stage.scrollTop + el.stage.clientHeight >= el.stage.scrollHeight - 8;
+}
+function atTop() {
+    return el.stage.scrollTop <= 8;
+}
 
 function onWheel(e) {
     const now = Date.now();
-    if (now < state.wheelLockUntil) return;
+    if (now < state.wheelLockUntil) {
+        e.preventDefault();
+        return;
+    }
 
     // Only wrap if user is trying to scroll past the edge
     if (e.deltaY < 0 && atTop()) {
@@ -257,7 +285,8 @@ function onWheel(e) {
         state.wheelLockUntil = now + 200;
         jumpToPage(state.maxPage);
         // Put them at the bottom of the last page
-        el.stage.scrollTop = (state.maxPage - START_PAGE + 1) * pageH - el.stage.clientHeight - 2;
+        el.stage.scrollTop = (((state.maxPage - START_PAGE + 1) * pageH) * scale) - el.stage.clientHeight - 2;
+
         return;
     }
 
@@ -303,6 +332,7 @@ const SWIPE_MAX_X = 80;      // avoid diagonal/side swipes
 let pinchActive = false;
 let pinchStartDist = 0;
 let pinchStartScale = 1;
+let pinchCooldownUntil = 0;
 
 function pinchDist(t1, t2) {
     const dx = t1.clientX - t2.clientX;
@@ -313,6 +343,7 @@ function pinchDist(t1, t2) {
 function onPinchStart(e) {
     if (e.touches.length !== 2) return;
     pinchActive = true;
+    gestureActive = false; // cancel swipe tracking if pinch begins mid-gesture
     pinchStartDist = pinchDist(e.touches[0], e.touches[1]);
     pinchStartScale = scale;
 }
@@ -326,7 +357,10 @@ function onPinchMove(e) {
 }
 
 function onPinchEnd(e) {
-    if (e.touches.length < 2) pinchActive = false;
+    if (e.touches.length < 2) {
+        pinchActive = false;
+        pinchCooldownUntil = Date.now() + 250; // 250ms is plenty
+    }
 }
 
 function onTouchStart(e) {
@@ -340,6 +374,8 @@ function onTouchStart(e) {
 }
 
 function onTouchEnd(e) {
+    if (Date.now() < pinchCooldownUntil) return;
+
     if (!gestureActive) return;
     gestureActive = false;
 
@@ -358,8 +394,8 @@ function onTouchEnd(e) {
 
     if (Math.abs(dx) > SWIPE_MAX_X) return;
 
-    if (dy <= -SWIPE_MIN_PX) nextPage();
-    else if (dy >= SWIPE_MIN_PX) prevPage();
+    if (dy <= -SWIPE_MIN_PX) prevPage();      // swipe up
+    else if (dy >= SWIPE_MIN_PX) nextPage(); // swipe down
 }
 
 function wireUI() {
@@ -376,9 +412,9 @@ function wireUI() {
     el.stage.addEventListener("touchmove", onPinchMove, { passive: false });
 
     el.stage.addEventListener("touchend", (e) => {
+        onPinchEnd(e);
         if (pinchActive) return;
         onTouchEnd(e);
-        onPinchEnd(e);
     }, { passive: true });
 
     el.stage.addEventListener("touchcancel", onPinchEnd, { passive: true });
