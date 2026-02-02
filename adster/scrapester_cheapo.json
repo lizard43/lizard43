@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-02-02T21:08:15.257Z",
+  "generated_at": "2026-02-02T22:07:46.420Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,19 +11,57 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 149,
-      "droppedPrice": 2267,
+      "exported_ads": 151,
+      "droppedPrice": 2271,
       "droppedMissingGeo": 0,
-      "droppedCircle": 1071
+      "droppedCircle": 1076
     }
   },
   "ads": [
+    {
+      "adID": "1241255024522437",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100008870356060/?product_id=1241255024522437",
+      "author": "Rosie Sanchez",
+      "postedTime": "2026-01-19T12:30:05.000Z",
+      "title": "Electronic Target Game",
+      "description": "Brand new in box, never opened Electronic Wild West Target Game",
+      "price": "$5",
+      "lat": 28.1866014,
+      "lon": -82.366121,
+      "location": "Wesley Chapel, FL",
+      "imageUrl": "https://scontent-atl3-3.xx.fbcdn.net/v/t39.84726-6/616492713_2862076387331876_970419406709208610_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=109&ccb=1-7&_nc_sid=92e707&_nc_eui2=AeFrAAecrX2y0LzlcXgfPQIZ38B6p0NJ3UffwHqnQ0ndR6XzB2C7ewWAbwSAVZNAd3w&_nc_ohc=4mwb-ESM5-8Q7kNvwG9DG46&_nc_oc=Adm4gRoVfDwmVMHrL0AV-aFxH2Rs3_c9-PD67COB4eeC4y0QbYRV-5Bi1XjJbt5K1ao&_nc_zt=14&_nc_ht=scontent-atl3-3.xx&_nc_gid=NDZnevguiSmGwrZ1re59xA&oh=00_AfvwwQZkOyhMip6ubAz0e_FU993wzWP-sbWGEuELBn5mWw&oe=6986FAB8",
+      "adUrl": "https://www.facebook.com/marketplace/item/1241255024522437/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-02-02 22:06:00"
+    },
+    {
+      "adID": "905830781843743",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100026035043246/?product_id=905830781843743",
+      "author": "Ann Marie Lockrem",
+      "postedTime": "2026-02-01T21:02:46.000Z",
+      "title": "Chinoiserie Style Art",
+      "description": "41”x29”x1.5”",
+      "price": "$20",
+      "lat": 30.1586518,
+      "lon": -85.6602936,
+      "location": "Panama City, FL",
+      "imageUrl": "https://scontent-atl3-3.xx.fbcdn.net/v/t39.84726-6/625115811_26159623850355193_1013234093416875169_n.jpg?stp=c42.0.260.260a_dst-jpg_p261x260_tt6&_nc_cat=108&ccb=1-7&_nc_sid=92e707&_nc_eui2=AeEBd71pXqDPAagEOF2ZPm7PeZvhaeS7JKF5m-Fp5LskoR-mhiweYYufyGgnT6RFVug&_nc_ohc=XPaK_8P_svsQ7kNvwH1iX3F&_nc_oc=AdnlaMXBqXB8SjrTBbuSE5hMdPMPssCmQk7fLXZ_X9Xri6wj7lC398HH0tygdPuXPYs&_nc_zt=14&_nc_ht=scontent-atl3-3.xx&_nc_gid=UhGV3xNVm8ldq7eTytw52w&oh=00_AftxuMHpUNai3sOdPYcj0cFvsIw5SFWFO7Hdpa51HcH86A&oe=6986E6C4",
+      "adUrl": "https://www.facebook.com/marketplace/item/905830781843743/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-02-02 22:04:39"
+    },
     {
       "adID": "PI-208860",
       "source": "PS",
       "authorUrl": "https://pinside.com/pinball/community/pinsiders/jamwin/market",
       "author": "Jamwin",
-      "postedTime": "2026-02-02T20:15:55.377Z",
+      "postedTime": "2026-02-02T21:07:23.159Z",
       "title": "Godzilla Art of Pinball Sculpted MechaGZ Shield & UFO Bumper",
       "description": "New (selling one, non-business) - “Lior Art of Pinball Godzilla Sculpted Mechagodzilla Shield and Sculpted UFO Bumper mod. Never installed, still in original packaging. Have to purchase both together. Will ship. Ph...”",
       "price": "$215",
