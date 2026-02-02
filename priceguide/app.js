@@ -3,11 +3,11 @@ const IMAGE_DIR = "";           // "" if images are alongside index.html
 const FILE_PREFIX = "page_";           // page_001.jpg
 const FILE_EXT = ".jpg";
 const PAD = 3;                         // 001, 002, ...
-const START_PAGE = 62;
-const MAX_PAGE_GUESS = 419;            // can be overridden by bookmarks.json if it has totalPages
+const START_PAGE = 122;
+const END_PAGE = 837;            // can be overridden by bookmarks.json if it has totalPages
 // =========================================
 
-const IMG_W = 1484;
+const IMG_W = 742;
 const IMG_H = 1920;
 const ASPECT = IMG_H / IMG_W;
 
@@ -21,41 +21,41 @@ const poolImgs = [];            // DOM elements
 const poolPages = [];           // which page number each img currently shows
 
 const BOOKMARKS = {
-    totalPages: 419,
+    totalPages: 837,
     byKey: {
-        "#": 62,
-        "A": 65,
-        "B": 82,
-        "C": 105,
-        "D": 126,
-        "E": 143,
-        "F": 156,
-        "G": 171,
-        "H": 189,
-        "I": 200,
-        "J": 205,
-        "K": 212,
-        "L": 219,
-        "M": 229,
-        "N": 252,
-        "O": 262,
-        "P": 267,
-        "Q": 287,
-        "R": 290,
-        "S": 308,
-        "T": 368,
-        "U": 392,
-        "V": 395,
-        "W": 404,
-        "X": 414,
-        "Y": 416,
-        "Z": 416
+        "#": 122,
+        "A": 128,
+        "B": 162,
+        "C": 208,
+        "D": 251,
+        "E": 296,
+        "F": 311,
+        "G": 341,
+        "H": 378,
+        "I": 399,
+        "J": 409,
+        "K": 423,
+        "L": 437,
+        "M": 456,
+        "N": 504,
+        "O": 522,
+        "P": 533,
+        "Q": 572,
+        "R": 578,
+        "S": 614,
+        "T": 735,
+        "U": 782,
+        "V": 788,
+        "W": 806,
+        "X": 826,
+        "Y": 830,
+        "Z": 831
     }
 };
 
 let state = {
     page: START_PAGE,
-    maxPage: MAX_PAGE_GUESS,
+    maxPage: END_PAGE,
     keyMap: {},   // e.g. { "#": 62, "A": 65, ... }
     wheelLockUntil: 0
 };
