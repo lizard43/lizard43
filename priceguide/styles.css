@@ -197,3 +197,9 @@ select:focus {
 .toast.show {
     opacity: 1;
 }
+
+/* Highlight current bookmark key */
+.rail-btn.is-active {
+    border-color: #6aa3ff;
+    box-shadow: 0 0 0 2px rgba(106, 163, 255, 0.25);
+}

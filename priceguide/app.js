@@ -56,7 +56,10 @@ const BOOKMARKS = {
 let state = {
     page: START_PAGE,
     maxPage: END_PAGE,
-    keyMap: {},   // e.g. { "#": 62, "A": 65, ... }
+    keyMap: {},        // e.g. { "#": 122, "A": 128, ... }
+    pageToKey: {},     // e.g. { "122": "#", "128": "A", ... }  <-- add
+    keyBtns: {},       // e.g. { "#": <button>, "A": <button>, ... } <-- add
+    lastPage: START_PAGE, // <-- add
     wheelLockUntil: 0
 };
 
@@ -127,6 +130,14 @@ let rafPending = false;
 function updateVisible() {
     state.page = pageFromScrollTop();
 
+    const prev = state.lastPage;
+    if (state.page !== prev) {
+        // pulseDirection(state.page > prev ? "down" : "up");
+        state.lastPage = state.page;
+    }
+
+    updateBookmarkHighlight(state.page);
+
     const base = state.page - POOL_HALF;
     for (let i = 0; i < POOL; i++) {
         const p = clampPage(base + i);
@@ -159,6 +170,48 @@ function pad(n, width) {
 function filenameForPage(page) {
     return `${IMAGE_DIR}${FILE_PREFIX}${pad(page, PAD)}${FILE_EXT}`;
 }
+
+let activeKey = null;
+
+function updateBookmarkHighlight(page) {
+    // Find the "current" bookmark as the most recent bookmark page <= current page
+    let bestKey = null;
+    let bestPage = -Infinity;
+
+    for (const [k, p] of Object.entries(state.keyMap)) {
+        if (p <= page && p > bestPage) {
+            bestPage = p;
+            bestKey = k;
+        }
+    }
+
+    // If we didn't find any (shouldn't happen given your START_PAGE matches '#'),
+    // do nothing and keep whatever is currently active.
+    if (!bestKey) return;
+
+    // If it didn't change, do nothing (keeps highlight stable while scrolling)
+    if (bestKey === activeKey) return;
+
+    // Remove old highlight
+    if (activeKey && state.keyBtns[activeKey]) {
+        state.keyBtns[activeKey].classList.remove("is-active");
+    }
+
+    // Apply new highlight
+    activeKey = bestKey;
+    const btn = state.keyBtns[activeKey];
+    if (btn) {
+        btn.classList.add("is-active");
+        btn.scrollIntoView({ block: "nearest" });
+    }
+}
+
+// function pulseDirection(dir /* "up" | "down" */) {
+//     const btn = (dir === "up") ? el.btnPrev : el.btnNext;
+//     btn.classList.add("is-dir");
+//     clearTimeout(pulseDirection._t);
+//     pulseDirection._t = setTimeout(() => btn.classList.remove("is-dir"), 140);
+// }
 
 function showToast(msg) {
     el.toast.textContent = msg;
@@ -195,6 +248,12 @@ function buildAZButtons() {
         b.title = `Bookmark ${letter}`;
         el.railKeys.appendChild(b);
     }
+
+    // Cache button refs for fast highlight updates
+    state.keyBtns = {};
+    el.railKeys.querySelectorAll("button[data-key]").forEach(btn => {
+        state.keyBtns[btn.dataset.key] = btn;
+    });
 }
 
 function loadBookmarks() {
@@ -213,6 +272,11 @@ function loadBookmarks() {
                 state.keyMap[k] = page;
             }
         }
+    }
+
+    state.pageToKey = {};
+    for (const [k, p] of Object.entries(state.keyMap)) {
+        state.pageToKey[String(p)] = k;
     }
 
     showToast("Bookmarks loaded");
@@ -441,17 +505,18 @@ window.addEventListener("resize", () => {
 async function init() {
     computePageH();
     loadBookmarks();
+
+    buildAZButtons();          // <-- move up so keyBtns exist
     setDocumentHeight();
-    updateVisible();
+
+    updateVisible();           // now highlight can apply
+    jumpToPage(START_PAGE);    // this calls updateVisible again, which is fine
 
     for (const im of poolImgs) {
         im.loading = "eager";
         im.decoding = "async";
     }
 
-    jumpToPage(START_PAGE);
-
-    buildAZButtons();
     wireUI();
 }
 
