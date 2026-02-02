@@ -164,27 +164,16 @@ select:focus {
 }
 
 .strip {
-    display: flex;
-    flex-direction: column;
+    position: relative;
     transform-origin: 0 0;
     touch-action: pan-y;
-    /* allow vertical scrolling while we handle pinch */
 }
 
 .pageImg {
-    display: block;
+    position: absolute;
+    left: 0;
     width: 100%;
     height: auto;
-    user-select: none;
-    -webkit-user-drag: none;
-}
-
-/* This is the key: fill the stage while preserving aspect */
-#pageImage {
-    display: block;
-    width: 100%;
-    height: auto;
-    /* preserve aspect */
     user-select: none;
     -webkit-user-drag: none;
 }

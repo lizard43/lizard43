@@ -7,6 +7,19 @@ const START_PAGE = 62;
 const MAX_PAGE_GUESS = 419;            // can be overridden by bookmarks.json if it has totalPages
 // =========================================
 
+const IMG_W = 1484;
+const IMG_H = 1920;
+const ASPECT = IMG_H / IMG_W;
+
+const POOL = 5;                 // 3 or 5
+const POOL_HALF = Math.floor(POOL / 2);
+
+let pageH = 1000;               // computed
+let scale = 1;                  // keep your pinch scaling
+
+const poolImgs = [];            // DOM elements
+const poolPages = [];           // which page number each img currently shows
+
 const BOOKMARKS = {
     totalPages: 419,
     byKey: {
@@ -48,12 +61,16 @@ let state = {
 };
 
 const el = {
-    imgPrev: document.getElementById("pagePrev"),
-    img: document.getElementById("pageImage"),
-    imgNext: document.getElementById("pageNext"),
+    img0: document.getElementById("img0"),
+    img1: document.getElementById("img1"),
+    img2: document.getElementById("img2"),
+    img3: document.getElementById("img3"),
+    img4: document.getElementById("img4"),
+
     strip: document.getElementById("strip"),
 
     toast: document.getElementById("toast"),
+
     stage: document.getElementById("stage"),
 
     rail: document.getElementById("rail"),
@@ -62,6 +79,70 @@ const el = {
     btnPrev: document.getElementById("btnPrev"),
     btnNext: document.getElementById("btnNext"),
 };
+
+poolImgs.length = 0;
+poolImgs.push(el.img0, el.img1, el.img2, el.img3, el.img4);
+poolPages.length = POOL;
+poolPages.fill(null);
+
+function jumpToPage(page) {
+    const p = clampPage(page);
+    state.page = p;
+    el.stage.scrollTop = (p - START_PAGE) * pageH;
+    updateVisible();
+}
+
+function computePageH() {
+    const w = el.stage.clientWidth;
+    pageH = w * ASPECT * scale;
+}
+
+function setDocumentHeight() {
+    const total = (state.maxPage - START_PAGE + 1);
+    el.strip.style.height = `${total * pageH}px`;
+}
+
+function pageFromScrollTop() {
+    const idx = Math.floor(el.stage.scrollTop / pageH);
+    return clampPage(START_PAGE + idx);
+}
+
+function placeImg(imgEl, page) {
+    const p = clampPage(page);
+    imgEl.dataset.page = String(p);
+    imgEl.src = filenameForPage(p);
+
+    const idx = (p - START_PAGE);
+    imgEl.style.top = `${idx * pageH}px`;
+}
+
+let rafPending = false;
+
+function updateVisible() {
+    state.page = pageFromScrollTop();
+
+    const base = state.page - POOL_HALF;
+    for (let i = 0; i < POOL; i++) {
+        const p = clampPage(base + i);
+        if (poolPages[i] !== p) {
+            poolPages[i] = p;
+            placeImg(poolImgs[i], p);
+        } else {
+            // still need to update top if zoom/resize changes pageH
+            const idx = (p - START_PAGE);
+            poolImgs[i].style.top = `${idx * pageH}px`;
+        }
+    }
+}
+
+function onScroll() {
+    if (rafPending) return;
+    rafPending = true;
+    requestAnimationFrame(() => {
+        rafPending = false;
+        updateVisible();
+    });
+}
 
 function pad(n, width) {
     const s = String(n);
@@ -109,166 +190,6 @@ function buildAZButtons() {
     }
 }
 
-function getCurrentTop() {
-    return el.img.offsetTop; // top of the middle image
-}
-
-function preloadPage(page) {
-    page = clampPage(page);
-    const src = filenameForPage(page);
-    const img = new Image();
-    img.src = src;
-}
-
-function setImg(imgEl, page) {
-    const p = clampPage(page);
-    imgEl.dataset.page = String(p);
-    imgEl.src = filenameForPage(p);
-}
-
-function snapToCurrent() {
-    el.stage.scrollTop = el.img.offsetTop;
-}
-
-function rotateForwardKeepView() {
-    // We are moving from current -> next
-    // After rotation, the old "next" becomes the new current.
-    // To keep the viewport showing the same visual point, subtract the height of the old current page.
-    const h = el.img.offsetHeight || 0;
-
-    const newPrevPage = state.page; // old current
-    const newCurrentPage = (state.page >= state.maxPage) ? START_PAGE : (state.page + 1);
-    const newNextPage = (newCurrentPage >= state.maxPage) ? START_PAGE : (newCurrentPage + 1);
-
-    state.page = newCurrentPage;
-
-    // Rotate DOM sources
-    setImg(el.imgPrev, newPrevPage);
-    setImg(el.img, newCurrentPage);
-    setImg(el.imgNext, newNextPage);
-
-    // Keep view continuous
-    el.stage.scrollTop -= h;
-
-    console.log(`PAGE ${state.page}: ${filenameForPage(state.page)}`);
-
-    preloadPage(newPrevPage);
-    preloadPage(newNextPage);
-}
-
-function rotateBackwardKeepView() {
-    // We are moving from current -> prev
-    // After rotation, the old "prev" becomes the new current.
-    // To keep the viewport showing the same visual point, add the height of the new current page (old prev).
-    const h = el.imgPrev.offsetHeight || 0;
-
-    const newNextPage = state.page; // old current
-    const newCurrentPage = (state.page <= START_PAGE) ? state.maxPage : (state.page - 1);
-    const newPrevPage = (newCurrentPage <= START_PAGE) ? state.maxPage : (newCurrentPage - 1);
-
-    state.page = newCurrentPage;
-
-    setImg(el.imgPrev, newPrevPage);
-    setImg(el.img, newCurrentPage);
-    setImg(el.imgNext, newNextPage);
-
-    el.stage.scrollTop += h;
-
-    console.log(`PAGE ${state.page}: ${filenameForPage(state.page)}`);
-
-    preloadPage(newPrevPage);
-    preloadPage(newNextPage);
-}
-
-function currentTop() { return el.img.offsetTop; }
-function currentBottom() { return el.img.offsetTop + el.img.offsetHeight; }
-
-let rotateLock = 0;
-
-function maybeRotateByPosition() {
-    const now = Date.now();
-    if (now < rotateLock) return;
-
-    const viewTop = el.stage.scrollTop;
-    const viewBottom = viewTop + el.stage.clientHeight;
-
-    // If you've scrolled into the next page far enough that the current page is mostly off-screen, rotate forward.
-    if (viewTop >= currentBottom() - 40) {
-        rotateLock = now + 120;
-        rotateForwardKeepView();
-        return;
-    }
-
-    // If you've scrolled above the current page into prev, rotate backward.
-    if (viewBottom <= currentTop() + 40) {
-        rotateLock = now + 120;
-        rotateBackwardKeepView();
-        return;
-    }
-}
-
-async function renderStrip(centerPage, { snap = false } = {}) {
-
-    const p = clampPage(centerPage);
-    state.page = p;
-
-    const prev = (p <= START_PAGE) ? state.maxPage : (p - 1);
-    const next = (p >= state.maxPage) ? START_PAGE : (p + 1);
-
-    setImg(el.imgPrev, prev);
-    setImg(el.img, p);
-    setImg(el.imgNext, next);
-
-    console.log(`PAGE ${state.page}: ${filenameForPage(state.page)}`);
-
-    // Snap AFTER current image has layout (it might not be loaded yet)
-    if (snap) {
-        if (el.img.complete && el.img.naturalHeight > 0) {
-            requestAnimationFrame(snapToCurrent);
-        } else {
-            el.img.addEventListener("load", () => requestAnimationFrame(snapToCurrent), { once: true });
-            el.img.addEventListener("error", () => requestAnimationFrame(snapToCurrent), { once: true });
-        }
-    }
-
-    preloadPage(prev);
-    preloadPage(next);
-}
-
-function nextFrame() {
-    return new Promise(r => requestAnimationFrame(r));
-}
-
-async function prevPage() {
-    // Preserve where we are in the strip before changing anything
-    const oldScroll = el.stage.scrollTop;
-    const oldCurTop = el.img.offsetTop;
-
-    const p = (state.page <= START_PAGE) ? state.maxPage : (state.page - 1);
-    await renderStrip(p, { snap: false });
-
-    // Wait a frame so offsets reflect the new images
-    await nextFrame();
-
-    const newCurTop = el.img.offsetTop;
-
-    // Adjust scroll so the viewport stays on the same visual content
-    el.stage.scrollTop = oldScroll + (newCurTop - oldCurTop);
-}
-
-async function nextPage() {
-    const oldScroll = el.stage.scrollTop;
-    const oldCurTop = el.img.offsetTop;
-
-    const p = (state.page >= state.maxPage) ? START_PAGE : (state.page + 1);
-    await renderStrip(p, { snap: false });
-
-    await nextFrame();
-
-    const newCurTop = el.img.offsetTop;
-    el.stage.scrollTop = oldScroll + (newCurTop - oldCurTop);
-}
-
 function loadBookmarks() {
     const data = BOOKMARKS;
 
@@ -292,20 +213,61 @@ function loadBookmarks() {
 
 function jumpByKey(k) {
     const page = state.keyMap?.[k];
+    if (page) jumpToPage(page);
     if (!page) {
         showToast(`No bookmark for ${k}`);
         return;
     }
-    renderStrip(page, { snap: true }); // ok for jumps
 }
 
-function atTop() {
-    return el.stage.scrollTop <= 0;
+function prevPage() {
+    jumpToPage(state.page <= START_PAGE ? state.maxPage : state.page - 1);
 }
 
-function atBottom() {
-    // allow a small epsilon
-    return el.stage.scrollTop + el.stage.clientHeight >= el.stage.scrollHeight - 1;
+function nextPage() {
+    jumpToPage(state.page >= state.maxPage ? START_PAGE : state.page + 1);
+
+}
+
+function applyScale(newScale) {
+    const oldH = pageH;
+    const pageIndex = state.page - START_PAGE;
+    const oldOffset = el.stage.scrollTop - pageIndex * oldH;
+    const ratio = oldH > 0 ? (oldOffset / oldH) : 0;
+
+    scale = Math.max(1, Math.min(4, newScale));
+
+    computePageH();
+    setDocumentHeight();
+
+    el.stage.scrollTop = pageIndex * pageH + ratio * pageH;
+    updateVisible();
+}
+
+function atTop() { return el.stage.scrollTop <= 0; }
+function atBottom() { return el.stage.scrollTop + el.stage.clientHeight >= el.stage.scrollHeight - 1; }
+
+function onWheel(e) {
+    const now = Date.now();
+    if (now < state.wheelLockUntil) return;
+
+    // Only wrap if user is trying to scroll past the edge
+    if (e.deltaY < 0 && atTop()) {
+        e.preventDefault();
+        state.wheelLockUntil = now + 200;
+        jumpToPage(state.maxPage);
+        // Put them at the bottom of the last page
+        el.stage.scrollTop = (state.maxPage - START_PAGE + 1) * pageH - el.stage.clientHeight - 2;
+        return;
+    }
+
+    if (e.deltaY > 0 && atBottom()) {
+        e.preventDefault();
+        state.wheelLockUntil = now + 200;
+        jumpToPage(START_PAGE);
+        el.stage.scrollTop = 0;
+        return;
+    }
 }
 
 function onKeyDown(e) {
@@ -320,10 +282,10 @@ function onKeyDown(e) {
             nextPage();
             break;
         case "Home":
-            renderStrip(START_PAGE);
+            jumpToPage(START_PAGE)
             break;
         case "End":
-            renderStrip(state.maxPage);
+            jumpToPage(state.maxPage)
             break;
     }
 }
@@ -341,17 +303,11 @@ const SWIPE_MAX_X = 80;      // avoid diagonal/side swipes
 let pinchActive = false;
 let pinchStartDist = 0;
 let pinchStartScale = 1;
-let scale = 1;
 
 function pinchDist(t1, t2) {
     const dx = t1.clientX - t2.clientX;
     const dy = t1.clientY - t2.clientY;
     return Math.hypot(dx, dy);
-}
-
-function applyScale(newScale) {
-    scale = Math.max(1, Math.min(4, newScale)); // 1x..4x
-    el.strip.style.transform = `scale(${scale})`;
 }
 
 function onPinchStart(e) {
@@ -407,25 +363,28 @@ function onTouchEnd(e) {
 }
 
 function wireUI() {
-    el.btnNext.addEventListener("click", () => {
-        // Jump to just past the bottom of current to force a forward rotate
-        el.stage.scrollTop = currentBottom() + 10;
-        maybeRotateByPosition();
-    });
+    el.btnPrev.addEventListener("click", prevPage);
+    el.btnNext.addEventListener("click", nextPage);
 
-    el.btnPrev.addEventListener("click", () => {
-        // Jump to just before the top of current to force a backward rotate
-        el.stage.scrollTop = currentTop() - 10;
-        maybeRotateByPosition();
-    });
+    el.stage.addEventListener("scroll", onScroll, { passive: true });
 
-    el.stage.addEventListener("touchstart", onPinchStart, { passive: true });
+    el.stage.addEventListener("touchstart", (e) => {
+        onTouchStart(e);
+        onPinchStart(e);
+    }, { passive: true });
+
     el.stage.addEventListener("touchmove", onPinchMove, { passive: false });
-    el.stage.addEventListener("touchend", onPinchEnd, { passive: true });
-    el.stage.addEventListener("touchcancel", onPinchEnd, { passive: true });
-    el.stage.addEventListener("scroll", maybeRotateByPosition, { passive: true });
 
-    // handle clicks on # and A..Z
+    el.stage.addEventListener("touchend", (e) => {
+        if (pinchActive) return;
+        onTouchEnd(e);
+        onPinchEnd(e);
+    }, { passive: true });
+
+    el.stage.addEventListener("touchcancel", onPinchEnd, { passive: true });
+
+    el.stage.addEventListener("wheel", onWheel, { passive: false });
+
     el.rail.addEventListener("click", (e) => {
         const btn = e.target.closest("button[data-key]");
         if (!btn) return;
@@ -435,12 +394,29 @@ function wireUI() {
     document.addEventListener("keydown", onKeyDown);
 }
 
+window.addEventListener("resize", () => {
+    computePageH();
+    // preserve current page anchor in scroll space:
+    const curIndex = state.page - START_PAGE;
+    el.stage.scrollTop = curIndex * pageH;
+    updateVisible();
+});
+
 async function init() {
+    computePageH();
+    loadBookmarks();
+    setDocumentHeight();
+    updateVisible();
+
+    for (const im of poolImgs) {
+        im.loading = "eager";
+        im.decoding = "async";
+    }
+
+    jumpToPage(START_PAGE);
+
     buildAZButtons();
     wireUI();
-    loadBookmarks();
-    await renderStrip(START_PAGE, { snap: true });
-
 }
 
 init();
