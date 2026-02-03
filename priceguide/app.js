@@ -391,6 +391,8 @@ let touchStartY = 0;
 let touchStartX = 0;
 let touchStartT = 0;
 let gestureActive = false;
+let touchStartAtTop = false;
+let touchStartAtBottom = false;
 
 const SWIPE_MIN_PX = 70;     // how far to swipe
 const SWIPE_MAX_MS = 600;    // time window
@@ -431,6 +433,9 @@ function onPinchEnd(e) {
 }
 
 function onTouchStart(e) {
+    touchStartAtTop = atTop();
+    touchStartAtBottom = atBottom();
+
     if (e.touches.length !== 1) return;
     const t = e.touches[0];
     touchStartY = t.clientY;
@@ -441,7 +446,7 @@ function onTouchStart(e) {
 }
 
 function onTouchEnd(e) {
-    if (Date.now() < pinchCooldownUntil) return;
+    // if (Date.now() < pinchCooldownUntil) return;
 
     if (!gestureActive) return;
     gestureActive = false;
@@ -449,11 +454,10 @@ function onTouchEnd(e) {
     const dt = Date.now() - touchStartT;
     if (dt > SWIPE_MAX_MS) return;
 
-    // If user actually scrolled the stage, treat it as scrolling, not navigation
     const scrolled = Math.abs(el.stage.scrollTop - touchStartScrollTop);
 
-    // Allow swipe navigation if we're at the edges (wrap case)
-    if (scrolled > 12 && !atTop() && !atBottom()) return;
+    // If we scrolled a lot AND we did NOT start at an edge, treat as scroll
+    if (scrolled > 12 && !touchStartAtTop && !touchStartAtBottom) return;
 
     const t = (e.changedTouches && e.changedTouches[0]) ? e.changedTouches[0] : null;
     if (!t) return;
@@ -473,20 +477,23 @@ function wireUI() {
 
     el.stage.addEventListener("scroll", onScroll, { passive: true });
 
-    el.stage.addEventListener("touchstart", (e) => {
-        onTouchStart(e);
-        onPinchStart(e);
-    }, { passive: true });
+    // el.stage.addEventListener("touchstart", (e) => {
+    //     onTouchStart(e);
+    //     onPinchStart(e);
+    // }, { passive: true });
 
-    el.stage.addEventListener("touchmove", onPinchMove, { passive: false });
+    // el.stage.addEventListener("touchmove", onPinchMove, { passive: false });
 
-    el.stage.addEventListener("touchend", (e) => {
-        onPinchEnd(e);
-        if (pinchActive) return;
-        onTouchEnd(e);
-    }, { passive: true });
+    // el.stage.addEventListener("touchend", (e) => {
+    //     onPinchEnd(e);
+    //     if (pinchActive) return;
+    //     onTouchEnd(e);
+    // }, { passive: true });
 
-    el.stage.addEventListener("touchcancel", onPinchEnd, { passive: true });
+    // el.stage.addEventListener("touchcancel", onPinchEnd, { passive: true });
+
+    el.stage.addEventListener("touchstart", onTouchStart, { passive: true });
+    el.stage.addEventListener("touchend", onTouchEnd, { passive: true });
 
     el.stage.addEventListener("wheel", onWheel, { passive: false });
 
