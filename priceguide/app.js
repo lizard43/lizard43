@@ -332,11 +332,13 @@ function applyScale(newScale) {
     updateVisible();
 }
 
+const EDGE_EPS = 40; // 40–80px tends to be safe on mobile
+
 function atBottom() {
-    return el.stage.scrollTop + el.stage.clientHeight >= el.stage.scrollHeight - 8;
+    return el.stage.scrollTop + el.stage.clientHeight >= el.stage.scrollHeight - EDGE_EPS;
 }
 function atTop() {
-    return el.stage.scrollTop <= 8;
+    return el.stage.scrollTop <= EDGE_EPS;
 }
 
 function onWheel(e) {
