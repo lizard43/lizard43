@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-02-03T21:06:58.001Z",
+  "generated_at": "2026-02-03T22:07:21.094Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,32 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 151,
-      "droppedPrice": 2311,
+      "exported_ads": 152,
+      "droppedPrice": 2313,
       "droppedMissingGeo": 0,
       "droppedCircle": 1109
     }
   },
   "ads": [
+    {
+      "adID": "1343195260578824",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100021708856967/?product_id=1343195260578824",
+      "author": "Chase Spencer",
+      "postedTime": "2025-11-03T17:42:31.000Z",
+      "title": "X Arcade Tankstick",
+      "description": "Just upgraded to tri mode PCB boards and brand new trackball as well",
+      "price": "$120",
+      "lat": 33.350293,
+      "lon": -86.851123,
+      "location": "Hoover, AL",
+      "imageUrl": "https://scontent-dfw5-3.xx.fbcdn.net/v/t39.84726-6/577109247_2224102008072113_7231176704386186075_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=108&ccb=1-7&_nc_sid=92e707&_nc_eui2=AeFdvejJ6udEai4EM3b8sZREr4-XGGtqpvOvj5cYa2qm85_hVUKSU-lMF0l0mB-wP1Y&_nc_ohc=bFhRjs3o09wQ7kNvwHCYfPn&_nc_oc=AdkykxnuyOI5fj5DFGzDdO3fqGJiYqfIHiS2qf5eqT9eOPvorkgXec8PeA79lTRt7Do&_nc_zt=14&_nc_ht=scontent-dfw5-3.xx&_nc_gid=YlQYvYf1evUkpW5tAqg5cw&oh=00_Afu1XECvcchDU58aqP3WvBnyX6OWahHpUVIeW2BO6wSe-A&oe=69884345",
+      "adUrl": "https://www.facebook.com/marketplace/item/1343195260578824/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-02-03 22:04:59"
+    },
     {
       "adID": "740498285385362",
       "source": "MP",
@@ -270,7 +289,7 @@
       "source": "PS",
       "authorUrl": "https://pinside.com/pinball/community/pinsiders/jamwin/market",
       "author": "Jamwin",
-      "postedTime": "2026-02-02T21:06:35.691Z",
+      "postedTime": "2026-02-02T21:07:05.461Z",
       "title": "Godzilla Art of Pinball Sculpted MechaGZ Shield & UFO Bumper",
       "description": "New (selling one, non-business) - “Lior Art of Pinball Godzilla Sculpted Mechagodzilla Shield and Sculpted UFO Bumper mod. Never installed, still in original packaging. Have to purchase both together. Will ship. Ph...”",
       "price": "$215",
