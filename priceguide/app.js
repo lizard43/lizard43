@@ -7,8 +7,8 @@ const START_PAGE = 122;
 const END_PAGE = 837;            // can be overridden by bookmarks.json if it has totalPages
 // =========================================
 
-const IMG_W = 742;
-const IMG_H = 1920;
+const IMG_W = 550;
+const IMG_H = 1600;
 const ASPECT = IMG_H / IMG_W;
 
 const POOL = 5;                 // 3 or 5
@@ -467,8 +467,15 @@ function onTouchEnd(e) {
 
     if (Math.abs(dx) > SWIPE_MAX_X) return;
 
-    if (dy <= -SWIPE_MIN_PX) prevPage();      // swipe up
-    else if (dy >= SWIPE_MIN_PX) nextPage(); // swipe down
+    // Edge-wrap behavior for swipe (do NOT rely on pageFromScrollTop midpoint here)
+    if (dy <= -SWIPE_MIN_PX) { // swipe up = go "back"
+        if (touchStartAtTop) jumpToPage(state.maxPage);
+        else prevPage();
+    }
+    else if (dy >= SWIPE_MIN_PX) { // swipe down = go "forward"
+        if (touchStartAtBottom) jumpToPage(START_PAGE);
+        else nextPage();
+    }
 }
 
 function wireUI() {
