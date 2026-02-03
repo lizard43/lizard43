@@ -438,6 +438,12 @@ function onTouchStart(e) {
     touchStartAtTop = atTop();
     touchStartAtBottom = atBottom();
 
+    console.log("touchStart", {
+        scrollTop: Math.round(el.stage.scrollTop),
+        atTop: atTop(),
+        atBottom: atBottom()
+    });
+
     if (e.touches.length !== 1) return;
     const t = e.touches[0];
     touchStartY = t.clientY;
@@ -470,14 +476,18 @@ function onTouchEnd(e) {
     if (Math.abs(dx) > SWIPE_MAX_X) return;
 
     // Edge-wrap behavior for swipe (do NOT rely on pageFromScrollTop midpoint here)
-    if (dy <= -SWIPE_MIN_PX) { // swipe up = go "back"
-        if (touchStartAtTop) jumpToPage(state.maxPage);
-        else prevPage();
-    }
-    else if (dy >= SWIPE_MIN_PX) { // swipe down = go "forward"
-        if (touchStartAtBottom) jumpToPage(START_PAGE);
-        else nextPage();
-    }
+    // if (dy <= -SWIPE_MIN_PX) { // swipe up = go "back"
+    //     if (touchStartAtTop) jumpToPage(state.maxPage);
+    //     else prevPage();
+    // }
+    // else if (dy >= SWIPE_MIN_PX) { // swipe down = go "forward"
+    //     if (touchStartAtBottom) jumpToPage(START_PAGE);
+    //     else nextPage();
+    // }
+
+    if (dy <= -SWIPE_MIN_PX) prevPage();
+    else if (dy >= SWIPE_MIN_PX) nextPage();
+
 }
 
 function wireUI() {
