@@ -26,6 +26,7 @@ function resolveAdsJsonUrlFromQuery() {
 let allAds = [];
 let filteredAds = [];
 let sortField = "postedTime";
+let currentHomeOverrideLabel = ""; // e.g. "New Orleans, LA" when h:"..." is active+valid
 
 // Sort override from the search bar (e.g., s:da). Null = no override.
 let sortOverrideField = null;
@@ -1266,6 +1267,10 @@ function renderTable() {
             ? `<a href="${adUrl}" target="_blank" rel="noopener noreferrer" title="${titleAttr}">${escapeHtml(title)}</a>`
             : `<span title="${titleAttr}">${escapeHtml(title)}</span>`;
 
+        const fromHomeHtml = currentHomeOverrideLabel
+            ? `<div class="ad-match-reason">from: ${escapeHtml(currentHomeOverrideLabel)}</div>`
+            : "";
+
         const matchBadgeHtml = ad._matchedTerms?.length
             ? `<div class="ad-match-reason">
        matched: ${ad._matchedTerms.slice(0, 2).join(", ")}
@@ -1366,6 +1371,8 @@ function renderTable() {
     ${location ? `<span class="meta-dot">·</span>` : ""}
     <span class="ad-location">${escapeHtml(location)}</span>
     </div>
+
+    ${fromHomeHtml}
 
     <div class="ad-line-adid">${escapeHtml(adID)}</div>
 
@@ -1972,6 +1979,9 @@ function applyFilter() {
     // --- override:true behavior (search-only) ---
     const overrideActive = (overrides.overrideActive === true);
 
+    // If override:true, ignore ALL caps (distance/price/time) regardless of pills or directives.
+    const capsBypassed = overrideActive;
+
     // --- home override behavior (search-only) ---
     // Default: use the already-resolved homeLat/homeLon (browser/fixed)
     let effectiveHomeLat = homeLat;
@@ -2021,6 +2031,8 @@ function applyFilter() {
         }
     }
 
+    // Card UI hint: show "from X" under distance only when h:"..." is present AND valid
+    currentHomeOverrideLabel = (overrides.homeOverrideRaw && effectiveHomeLabel) ? effectiveHomeLabel : "";
 
     // Sort override (search bar): affects sorting + sort indicators, but does not mutate
     // the user's manually-selected sortField/sortDir.
@@ -2033,58 +2045,71 @@ function applyFilter() {
     }
 
     // UI: show red outline on the cap buttons when search overrides are present
+    // ALSO show it when override:true is active (because caps are effectively "Any")
     if (btnDistance) {
-        btnDistance.classList.toggle("override-active", overrides.distanceOverrideMiles !== null);
+        btnDistance.classList.toggle("override-active", overrideActive || (overrides.distanceOverrideMiles !== null));
     }
     if (btnPrice) {
-        btnPrice.classList.toggle("override-active", overrides.priceOverrideDollars !== null);
+        btnPrice.classList.toggle("override-active", overrideActive || (overrides.priceOverrideDollars !== null));
     }
     const quickTimeActive = (activeQuickRange !== -1);
 
     // Time pill is "overridden" if:
+    // - override:true is active, OR
     // - search directive tcap:... is present, OR
     // - a quick toolbar time filter is active
     if (btnTime) {
         btnTime.classList.toggle(
             "override-active",
-            (overrides.timeOverrideDays !== null) || quickTimeActive
+            overrideActive || (overrides.timeOverrideDays !== null) || quickTimeActive
         );
     }
 
     // UI: while overridden, TEMP show the overridden value in the pill label.
     // When override clears, revert to the real stored cap value.
     if (distanceCapLabel) {
-        const v = (overrides.distanceOverrideMiles !== null)
-            ? overrides.distanceOverrideMiles
-            : distanceCapMiles;
-        distanceCapLabel.textContent = capToLabel(v);
+        if (overrideActive) {
+            distanceCapLabel.textContent = "Any";
+        } else {
+            const v = (overrides.distanceOverrideMiles !== null)
+                ? overrides.distanceOverrideMiles
+                : distanceCapMiles;
+            distanceCapLabel.textContent = capToLabel(v);
+        }
     }
 
     if (priceCapLabel) {
-        const v = (overrides.priceOverrideDollars !== null)
-            ? overrides.priceOverrideDollars
-            : priceCapDollars;
-        priceCapLabel.textContent = priceToLabel(v);
+        if (overrideActive) {
+            priceCapLabel.textContent = "Any";
+        } else {
+            const v = (overrides.priceOverrideDollars !== null)
+                ? overrides.priceOverrideDollars
+                : priceCapDollars;
+            priceCapLabel.textContent = priceToLabel(v);
+        }
     }
 
     if (timeCapLabel) {
-        // Priority:
-        // 1) search directive override (tcap:...)
-        // 2) quick toolbar time filter (4h/12h/1d/1w)
-        // 3) stored time cap menu selection
-        let v = timeCapDays;
+        if (overrideActive) {
+            timeCapLabel.textContent = "Any";
+        } else {
+            // Priority:
+            // 1) search directive override (tcap:...)
+            // 2) quick toolbar time filter (4h/12h/1d/1w)
+            // 3) stored time cap menu selection
+            let v = timeCapDays;
 
-        if (overrides.timeOverrideDays !== null) {
-            v = overrides.timeOverrideDays;
-        } else if (quickTimeActive) {
-            // mirror your toolbar options by activeQuickRange
-            if (activeQuickRange === 0) v = 4 / 24;      // 4h
-            else if (activeQuickRange === 1) v = 12 / 24; // 12h
-            else if (activeQuickRange === 2) v = 1;       // 1d
-            else if (activeQuickRange === 3) v = 7;       // 1w
+            if (overrides.timeOverrideDays !== null) {
+                v = overrides.timeOverrideDays;
+            } else if (quickTimeActive) {
+                if (activeQuickRange === 0) v = 4 / 24;      // 4h
+                else if (activeQuickRange === 1) v = 12 / 24; // 12h
+                else if (activeQuickRange === 2) v = 1;       // 1d
+                else if (activeQuickRange === 3) v = 7;       // 1w
+            }
+
+            timeCapLabel.textContent = timeCapToLabel(v);
         }
-
-        timeCapLabel.textContent = timeCapToLabel(v);
     }
 
     // Cleaned search text (directives removed) drives matching
@@ -2097,19 +2122,21 @@ function applyFilter() {
 
     const q = raw.toLowerCase();
 
-    // Effective caps: override if present, else current toolbar caps
-    const effectiveDistanceCap =
-        (overrides.distanceOverrideMiles !== null) ? overrides.distanceOverrideMiles : distanceCapMiles;
+    const effectiveDistanceCap = capsBypassed
+        ? Infinity
+        : ((overrides.distanceOverrideMiles !== null) ? overrides.distanceOverrideMiles : distanceCapMiles);
 
-    const effectivePriceCap =
-        (overrides.priceOverrideDollars !== null) ? overrides.priceOverrideDollars : priceCapDollars;
+    const effectivePriceCap = capsBypassed
+        ? Infinity
+        : ((overrides.priceOverrideDollars !== null) ? overrides.priceOverrideDollars : priceCapDollars);
 
-    const effectiveTimeCapDays =
-        (overrides.timeOverrideDays !== null) ? overrides.timeOverrideDays : timeCapDays;
+    const effectiveTimeCapDays = capsBypassed
+        ? Infinity
+        : ((overrides.timeOverrideDays !== null) ? overrides.timeOverrideDays : timeCapDays);
 
     // Combine quick-range cutoff and cap cutoff (tightest / most recent wins)
     let filterMs = null;
-    if (Number.isFinite(quickFilterMs)) {
+    if (!capsBypassed && Number.isFinite(quickFilterMs)) {
         filterMs = quickFilterMs;
     }
     if (effectiveTimeCapDays !== Infinity && Number.isFinite(effectiveTimeCapDays) && effectiveTimeCapDays > 0) {
