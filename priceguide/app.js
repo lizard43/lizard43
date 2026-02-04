@@ -487,9 +487,11 @@ function onTouchEnd(e) {
     //     else nextPage();
     // }
 
+    // If gesture started at an edge, NEVER page-turn. Period.
+    if (touchStartAtTop || touchStartAtBottom) return;
+
     if (dy <= -SWIPE_MIN_PX) prevPage();
     else if (dy >= SWIPE_MIN_PX) nextPage();
-
 }
 
 function wireUI() {
