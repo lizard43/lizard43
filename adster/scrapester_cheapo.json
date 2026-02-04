@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-02-04T13:06:20.989Z",
+  "generated_at": "2026-02-04T14:07:31.675Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,32 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 149,
-      "droppedPrice": 2310,
+      "exported_ads": 150,
+      "droppedPrice": 2313,
       "droppedMissingGeo": 0,
-      "droppedCircle": 1081
+      "droppedCircle": 1083
     }
   },
   "ads": [
+    {
+      "adID": "1530894071353138",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100007177336710/?product_id=1530894071353138",
+      "author": "Dezi Quinn",
+      "postedTime": "2026-02-03T04:10:33.000Z",
+      "title": "SPAGHETTI DINNER",
+      "description": "$15 spaghetti dinner with side salad and garlic bread",
+      "price": "$15",
+      "lat": 27.4989278,
+      "lon": -82.5748194,
+      "location": "Bradenton, FL",
+      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/626921993_2362086007537732_388673089805661184_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=106&ccb=1-7&_nc_sid=92e707&_nc_eui2=AeGK-ClQyyurlJcCsQavyVSt72xdCuoVwkbvbF0K6hXCRilDwBbzytTpvVFhv9slPHI&_nc_ohc=JPXyZo4z2IYQ7kNvwGWFpj3&_nc_oc=AdmeVWsqfxmMJk7BTNbsRMg7n-hIENeLnCngzFbOSLx6LBP80QMs9zRmJ_jocBvanig&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=CBuNGsQeoRAnUc1fNURbew&oh=00_Afty-ZUyQ70l6doq_KDHLml1BZ5hlp9k0rm1yhXq02DUrg&oe=69893E4F",
+      "adUrl": "https://www.facebook.com/marketplace/item/1530894071353138/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-02-04 14:06:22"
+    },
     {
       "adID": "2142138603230417",
       "source": "MP",
@@ -232,7 +251,7 @@
       "source": "PS",
       "authorUrl": "https://pinside.com/pinball/community/pinsiders/jamwin/market",
       "author": "Jamwin",
-      "postedTime": "2026-02-02T21:06:05.883Z",
+      "postedTime": "2026-02-02T21:07:15.959Z",
       "title": "Godzilla Art of Pinball Sculpted MechaGZ Shield & UFO Bumper",
       "description": "New (selling one, non-business) - “Lior Art of Pinball Godzilla Sculpted Mechagodzilla Shield and Sculpted UFO Bumper mod. Never installed, still in original packaging. Have to purchase both together. Will ship. Ph...”",
       "price": "$215",
