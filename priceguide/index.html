@@ -5,10 +5,23 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
     <title>Vintage Arcade Gal's Price Guide</title>
-    <link rel="stylesheet" href="styles.css?v=1" />
+    <link rel="stylesheet" href="styles.css?v=2" />
 </head>
 
 <body>
+    <header class="topbar" id="topbar" aria-label="Search">
+        <div class="searchWrap">
+            <input id="searchInput" class="searchInput" type="text" placeholder="Search title / mfg / date / genre / type…" autocomplete="off" />
+            <button id="searchClear" class="searchBtn" title="Clear" aria-label="Clear search">✕</button>
+        </div>
+
+        <div class="searchNav">
+            <button id="searchPrev" class="searchBtn" title="Previous match" aria-label="Previous match">◀</button>
+            <button id="searchNext" class="searchBtn" title="Next match" aria-label="Next match">▶</button>
+            <div id="searchStatus" class="searchStatus" aria-live="polite"></div>
+        </div>
+    </header>
+
     <nav class="toolbar-rail" id="rail" aria-label="Navigation">
         <button class="rail-btn" id="btnNext" title="Next">▶</button>
         <button class="rail-btn" id="btnPrev" title="Previous">◀</button>
@@ -33,7 +46,7 @@
         <div id="toast" class="toast" aria-live="polite"></div>
     </main>
 
-    <script src="app.js?v=1"></script>
+    <script src="app.js?v=2"></script>
 </body>
 
 </html>

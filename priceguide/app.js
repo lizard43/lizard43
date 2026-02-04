@@ -81,6 +81,12 @@ const el = {
 
     btnPrev: document.getElementById("btnPrev"),
     btnNext: document.getElementById("btnNext"),
+
+    searchInput: document.getElementById("searchInput"),
+    searchClear: document.getElementById("searchClear"),
+    searchPrev: document.getElementById("searchPrev"),
+    searchNext: document.getElementById("searchNext"),
+    searchStatus: document.getElementById("searchStatus"),
 };
 
 poolImgs.length = 0;
@@ -223,6 +229,106 @@ function showToast(msg) {
     showToast._t = setTimeout(() => el.toast.classList.remove("show"), 900);
 }
 
+// ===================== Search (vagal.json) =====================
+
+let games = [];              // raw objects from vagal.json
+let gameBlobs = [];          // parallel array of searchable strings
+let matches = [];            // indices into games[]
+let matchPos = 0;
+let lastQuery = "";
+
+function normalizeText(s) {
+    return String(s || "")
+        .toLowerCase()
+        .replace(/['’`]/g, "")
+        .replace(/[^a-z0-9]+/g, " ")
+        .trim();
+}
+
+function buildSearchBlob(g) {
+    const types = Array.isArray(g?.variant) ? g.variant.map(v => v?.type).filter(Boolean).join(" ") : "";
+    return normalizeText([g?.title, g?.manufacturer, g?.date, g?.genre, types].join(" "));
+}
+
+function setSearchNavEnabled(enabled) {
+    if (el.searchPrev) el.searchPrev.disabled = !enabled;
+    if (el.searchNext) el.searchNext.disabled = !enabled;
+}
+
+function renderSearchStatus() {
+    if (!el.searchStatus) return;
+    if (!lastQuery) {
+        el.searchStatus.textContent = "";
+        return;
+    }
+    if (matches.length === 0) {
+        el.searchStatus.textContent = "0 matches";
+        return;
+    }
+    const g = games[matches[matchPos]];
+    const page = g?.page ?? "?";
+    const title = g?.title ?? "";
+    const mfg = g?.manufacturer ? ` — ${g.manufacturer}` : "";
+    el.searchStatus.textContent = `${matchPos + 1}/${matches.length}: ${title}${mfg} (p${page})`;
+}
+
+function jumpToMatch(pos) {
+    if (matches.length === 0) return;
+    // Wrap within match list
+    const n = matches.length;
+    matchPos = ((pos % n) + n) % n;
+    const g = games[matches[matchPos]];
+    if (g && Number.isFinite(g.page)) {
+        jumpToPage(Number(g.page));
+        showToast(`${g.title} (p${g.page})`);
+    }
+    renderSearchStatus();
+}
+
+function runSearch(rawQuery) {
+    lastQuery = rawQuery;
+    const q = normalizeText(rawQuery);
+
+    if (!q) {
+        matches = [];
+        matchPos = 0;
+        setSearchNavEnabled(false);
+        renderSearchStatus();
+        return;
+    }
+
+    matches = [];
+    for (let i = 0; i < gameBlobs.length; i++) {
+        if (gameBlobs[i].includes(q)) matches.push(i);
+    }
+    matchPos = 0;
+
+    // Enable nav even for 1 match (wrapping will keep it stable)
+    setSearchNavEnabled(matches.length > 0);
+    renderSearchStatus();
+
+    if (matches.length > 0) {
+        jumpToMatch(0);
+    }
+}
+
+async function loadGameIndex() {
+    try {
+        const res = await fetch("vagal.json", { cache: "no-store" });
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        const data = await res.json();
+        if (!Array.isArray(data)) throw new Error("vagal.json is not an array");
+        games = data;
+        gameBlobs = games.map(buildSearchBlob);
+        console.log(`[search] loaded ${games.length} entries from vagal.json`);
+    } catch (err) {
+        console.warn("[search] failed to load vagal.json", err);
+        showToast("Search index failed to load");
+    }
+}
+
+// ===============================================================
+
 function clampPage(n) {
     if (!Number.isFinite(n)) return state.page;
     if (n < START_PAGE) return START_PAGE;
@@ -296,15 +402,13 @@ function jumpByKey(k) {
 
 function prevPage() {
     const cur = pageFromScrollTop();
-    if (cur <= START_PAGE) return;          // STOP at first page
-    jumpToPage(cur - 1);
+    jumpToPage(cur <= START_PAGE ? state.maxPage : cur - 1);
     logPage("prev");
 }
 
 function nextPage() {
     const cur = pageFromScrollTop();
-    if (cur >= state.maxPage) return;       // STOP at last page
-    jumpToPage(cur + 1);
+    jumpToPage(cur >= state.maxPage ? START_PAGE : cur + 1);
     logPage("next");
 }
 
@@ -487,11 +591,9 @@ function onTouchEnd(e) {
     //     else nextPage();
     // }
 
-    // If gesture started at an edge, NEVER page-turn. Period.
-    if (touchStartAtTop || touchStartAtBottom) return;
-
     if (dy <= -SWIPE_MIN_PX) prevPage();
     else if (dy >= SWIPE_MIN_PX) nextPage();
+
 }
 
 function wireUI() {
@@ -527,6 +629,47 @@ function wireUI() {
     });
 
     document.addEventListener("keydown", onKeyDown);
+
+    // Search UI (vagal.json)
+    if (el.searchInput) {
+        el.searchInput.addEventListener("input", (e) => {
+            runSearch(e.target.value);
+        });
+
+        el.searchInput.addEventListener("keydown", (e) => {
+            if (e.key === "Enter") {
+                // Enter cycles forward through matches (handy on mobile)
+                if (matches.length > 0) {
+                    const next = (matchPos + 1) % matches.length;
+                    jumpToMatch(next);
+                }
+            }
+        });
+    }
+
+    if (el.searchClear) {
+        el.searchClear.addEventListener("click", () => {
+            if (el.searchInput) el.searchInput.value = "";
+            runSearch("");
+            if (el.searchInput) el.searchInput.focus();
+        });
+    }
+
+    if (el.searchPrev) {
+        el.searchPrev.addEventListener("click", () => {
+            if (matches.length === 0) return;
+            // wrap
+            jumpToMatch(matchPos - 1);
+        });
+    }
+
+    if (el.searchNext) {
+        el.searchNext.addEventListener("click", () => {
+            if (matches.length === 0) return;
+            // wrap
+            jumpToMatch(matchPos + 1);
+        });
+    }
 }
 
 window.addEventListener("resize", () => {
@@ -553,6 +696,10 @@ async function init() {
     }
 
     wireUI();
+
+    // Load search index last (async fetch). UI still works without it.
+    await loadGameIndex();
+    setSearchNavEnabled(false);
 }
 
 init();

@@ -10,6 +10,62 @@
     --rail-pad: 8px;
 }
 
+.topbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: var(--rail-w);
+    height: var(--toolbar-h);
+
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 10px;
+
+    background: var(--panel);
+    border-bottom: 1px solid var(--border);
+    z-index: 70;
+}
+
+.searchWrap {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex: 1 1 auto;
+    min-width: 160px;
+}
+
+.searchInput {
+    width: 100%;
+    max-width: 520px;
+}
+
+.searchNav {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex: 0 0 auto;
+}
+
+.searchBtn {
+    width: 40px;
+    height: 36px;
+    border-radius: 12px;
+    padding: 0;
+    display: grid;
+    place-items: center;
+}
+
+.searchStatus {
+    color: var(--muted);
+    font-size: 12px;
+    min-width: 140px;
+    max-width: 45vw;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
 * {
     box-sizing: border-box;
 }
@@ -151,7 +207,7 @@ select:focus {
 
 .stage {
     position: fixed;
-    top: 0;
+    top: var(--toolbar-h);
     left: 0;
     right: var(--rail-w);
     bottom: 0;
