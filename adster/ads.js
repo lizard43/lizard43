@@ -2772,9 +2772,10 @@ btnShare?.addEventListener("click", async () => {
         if (navigator.share) {
             try {
                 // Include some context text (optional but nice in Messages/Mail)
-                const text = searchInput.value && searchInput.value.trim()
-                    ? `Adster search: ${searchInput.value.trim()}`
-                    : "Adster";
+                const text = "Adster search:\n";
+                // const text = searchInput.value && searchInput.value.trim()
+                //     ? `Adster search: ${searchInput.value.trim()}`
+                //     : "Adster";
 
                 await navigator.share({ url, text });
                 return; // user shared (or at least the sheet opened)
