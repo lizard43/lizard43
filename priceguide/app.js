@@ -98,6 +98,18 @@ function logPage(reason) {
     console.log(`[${reason}] page=${state.page} scrollTop=${Math.round(el.stage.scrollTop)} scale=${scale.toFixed(2)}`);
 }
 
+function jumpToPageAt(page, frac /* 0..1 */) {
+    const p = clampPage(page);
+    state.page = p;
+
+    const f = Math.max(0, Math.min(1, Number(frac) || 0));
+    const within = f * pageH;
+
+    el.stage.scrollTop = (((p - START_PAGE) * pageH) + within) * scale;
+    updateVisible();
+    logPage(`jumpToAt(${p}, ${f.toFixed(2)})`);
+}
+
 function jumpToPage(page) {
     const p = clampPage(page);
     state.page = p;
@@ -237,6 +249,30 @@ let matches = [];            // indices into games[]
 let matchPos = 0;
 let lastQuery = "";
 
+function withinPageFracForMatch(matchIndexInGames) {
+    const g = games[matchIndexInGames];
+    const page = Number(g?.page);
+    if (!Number.isFinite(page)) return 0;
+
+    // all entries on this page, in JSON order (assumed top->bottom)
+    const samePage = [];
+    for (let i = 0; i < games.length; i++) {
+        if (Number(games[i]?.page) === page) samePage.push(i);
+    }
+    if (samePage.length <= 1) return 0; // only one entry => top
+
+    const rank = samePage.indexOf(matchIndexInGames);
+    if (rank < 0) return 0;
+
+    // Map rank to a safe fraction so we don't land exactly at the page boundary.
+    // e.g. for 4 entries: 0.08, 0.33, 0.58, 0.83
+    const topPad = 0.08;
+    const bottomPad = 0.10;
+    const usable = 1 - topPad - bottomPad;
+
+    return topPad + (rank / (samePage.length - 1)) * usable;
+}
+
 function normalizeText(s) {
     return String(s || "")
         .toLowerCase()
@@ -279,7 +315,9 @@ function jumpToMatch(pos) {
     matchPos = ((pos % n) + n) % n;
     const g = games[matches[matchPos]];
     if (g && Number.isFinite(g.page)) {
-        jumpToPage(Number(g.page));
+        const gameIdx = matches[matchPos];
+        const frac = withinPageFracForMatch(gameIdx);
+        jumpToPageAt(Number(g.page), frac);
         showToast(`${g.title} (p${g.page})`);
     }
     renderSearchStatus();
