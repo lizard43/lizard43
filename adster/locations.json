@@ -2,6 +2,7 @@
   "locations": [
     { "id": "user", "label": "User Defined", "lat": 0, "lon": 0 },
 
+    { "id": "albany_ny", "label": "Albany, NY", "lat": 42.6526, "lon": -73.7562 },
     { "id": "albuquerque_nm", "label": "Albuquerque, NM", "lat": 35.0844, "lon": -106.6504 },
     { "id": "anaheim_ca", "label": "Anaheim, CA", "lat": 33.8366, "lon": -117.9143 },
     { "id": "anchorage_ak", "label": "Anchorage, AK", "lat": 61.2181, "lon": -149.9003 },
@@ -9,6 +10,7 @@
     { "id": "austin_tx", "label": "Austin, TX", "lat": 30.2672, "lon": -97.7431 },
 
     { "id": "baltimore_md", "label": "Baltimore, MD", "lat": 39.2904, "lon": -76.6122 },
+    { "id": "billings_mt", "label": "Billings, MT", "lat": 45.7833, "lon": -108.5007 },
     { "id": "birmingham_al", "label": "Birmingham, AL", "lat": 33.5207, "lon": -86.8025 },
     { "id": "boise_id", "label": "Boise, ID", "lat": 43.6150, "lon": -116.2023 },
     { "id": "boston_ma", "label": "Boston, MA", "lat": 42.3601, "lon": -71.0589 },
@@ -18,8 +20,9 @@
     { "id": "chicago_il", "label": "Chicago, IL", "lat": 41.8781, "lon": -87.6298 },
     { "id": "cincinnati_oh", "label": "Cincinnati, OH", "lat": 39.1031, "lon": -84.5120 },
     { "id": "cleveland_oh", "label": "Cleveland, OH", "lat": 41.4993, "lon": -81.6944 },
-    { "id": "columbus_oh", "label": "Columbus, OH", "lat": 39.9612, "lon": -82.9988 },
     { "id": "colorado_springs_co", "label": "Colorado Springs, CO", "lat": 38.8339, "lon": -104.8214 },
+    { "id": "columbia_sc", "label": "Columbia, SC", "lat": 34.0007, "lon": -81.0348 },
+    { "id": "columbus_oh", "label": "Columbus, OH", "lat": 39.9612, "lon": -82.9988 },
 
     { "id": "dallas_tx", "label": "Dallas, TX", "lat": 32.7767, "lon": -96.7970 },
     { "id": "denver_co", "label": "Denver, CO", "lat": 39.7392, "lon": -104.9903 },
@@ -28,6 +31,7 @@
     { "id": "dothan_al", "label": "Dothan, AL", "lat": 31.2234, "lon": -85.3893 },
 
     { "id": "el_paso_tx", "label": "El Paso, TX", "lat": 31.7619, "lon": -106.4850 },
+    { "id": "eugene_or", "label": "Eugene, OR", "lat": 44.0521, "lon": -123.0868 },
 
     { "id": "fort_walton_fl", "label": "Fort Walton, FL", "lat": 30.4201, "lon": -86.6170 },
     { "id": "fort_wayne_in", "label": "Fort Wayne, IN", "lat": 41.0795, "lon": -85.1363 },
@@ -36,8 +40,10 @@
     { "id": "fresno_ca", "label": "Fresno, CA", "lat": 36.7378, "lon": -119.7871 },
 
     { "id": "gainesville_fl", "label": "Gainesville, FL", "lat": 29.6516, "lon": -82.3248 },
+    { "id": "green_bay_wi", "label": "Green Bay, WI", "lat": 44.5133, "lon": -88.0133 },
 
     { "id": "halletsville_tx", "label": "Halletsville, TX", "lat": 29.4439, "lon": -96.9411 },
+    { "id": "hartford_ct", "label": "Hartford, CT", "lat": 41.7658, "lon": -72.6734 },
     { "id": "houston_tx", "label": "Houston, TX", "lat": 29.7604, "lon": -95.3698 },
     { "id": "huntsville_al", "label": "Huntsville, AL", "lat": 34.7304, "lon": -86.5861 },
 
@@ -47,44 +53,60 @@
 
     { "id": "kansas_city_mo", "label": "Kansas City, MO", "lat": 39.0997, "lon": -94.5786 },
 
+    { "id": "las_cruces_nm", "label": "Las Cruces, NM", "lat": 32.3199, "lon": -106.7637 },
     { "id": "las_vegas_nv", "label": "Las Vegas, NV", "lat": 36.1699, "lon": -115.1398 },
+    { "id": "lincoln_ne", "label": "Lincoln, NE", "lat": 40.8136, "lon": -96.7026 },
+    { "id": "little_rock_ar", "label": "Little Rock, AR", "lat": 34.7465, "lon": -92.2896 },
     { "id": "los_angeles_ca", "label": "Los Angeles, CA", "lat": 34.0522, "lon": -118.2437 },
     { "id": "louisville_ky", "label": "Louisville, KY", "lat": 38.2527, "lon": -85.7585 },
 
+    { "id": "madison_wi", "label": "Madison, WI", "lat": 43.0731, "lon": -89.4012 },
     { "id": "memphis_tn", "label": "Memphis, TN", "lat": 35.1495, "lon": -90.0490 },
     { "id": "miami_fl", "label": "Miami, FL", "lat": 25.7617, "lon": -80.1918 },
     { "id": "milwaukee_wi", "label": "Milwaukee, WI", "lat": 43.0389, "lon": -87.9065 },
     { "id": "minneapolis_mn", "label": "Minneapolis, MN", "lat": 44.9778, "lon": -93.2650 },
+    { "id": "missoula_mt", "label": "Missoula, MT", "lat": 46.8721, "lon": -113.9940 },
     { "id": "mobile_al", "label": "Mobile, AL", "lat": 30.6954, "lon": -88.0399 },
     { "id": "montgomery_al", "label": "Montgomery, AL", "lat": 32.3668, "lon": -86.3000 },
 
     { "id": "nashville_tn", "label": "Nashville, TN", "lat": 36.1627, "lon": -86.7816 },
     { "id": "new_orleans_la", "label": "New Orleans, LA", "lat": 29.9511, "lon": -90.0715 },
     { "id": "new_york_ny", "label": "New York, NY", "lat": 40.7128, "lon": -74.0060 },
+    { "id": "newark_nj", "label": "Newark, NJ", "lat": 40.7357, "lon": -74.1724 },
     { "id": "niceville_fl", "label": "Niceville, FL", "lat": 30.5169, "lon": -86.4822 },
 
     { "id": "oakland_ca", "label": "Oakland, CA", "lat": 37.8044, "lon": -122.2712 },
     { "id": "oklahoma_city_ok", "label": "Oklahoma City, OK", "lat": 35.4676, "lon": -97.5164 },
+    { "id": "omaha_ne", "label": "Omaha, NE", "lat": 41.2565, "lon": -95.9345 },
     { "id": "orlando_fl", "label": "Orlando, FL", "lat": 28.5383, "lon": -81.3792 },
 
     { "id": "panama_city_beach_fl", "label": "Panama City Beach, FL", "lat": 30.1766, "lon": -85.8055 },
+    { "id": "philadelphia_pa", "label": "Philadelphia, PA", "lat": 39.9526, "lon": -75.1652 },
     { "id": "phoenix_az", "label": "Phoenix, AZ", "lat": 33.4484, "lon": -112.0740 },
     { "id": "pittsburgh_pa", "label": "Pittsburgh, PA", "lat": 40.4406, "lon": -79.9959 },
     { "id": "portland_or", "label": "Portland, OR", "lat": 45.5051, "lon": -122.6750 },
+    { "id": "provo_ut", "label": "Provo, UT", "lat": 40.2338, "lon": -111.6585 },
 
     { "id": "raleigh_nc", "label": "Raleigh, NC", "lat": 35.7796, "lon": -78.6382 },
     { "id": "reno_nv", "label": "Reno, NV", "lat": 39.5296, "lon": -119.8138 },
+    { "id": "rochester_ny", "label": "Rochester, NY", "lat": 43.1566, "lon": -77.6088 },
 
+    { "id": "salt_lake_city_ut", "label": "Salt Lake City, UT", "lat": 40.7608, "lon": -111.8910 },
     { "id": "san_antonio_tx", "label": "San Antonio, TX", "lat": 29.4241, "lon": -98.4936 },
+    { "id": "san_bernardino_ca", "label": "San Bernardino, CA", "lat": 34.1083, "lon": -117.2898 },
     { "id": "san_diego_ca", "label": "San Diego, CA", "lat": 32.7157, "lon": -117.1611 },
     { "id": "san_francisco_ca", "label": "San Francisco, CA", "lat": 37.7749, "lon": -122.4194 },
     { "id": "san_jose_ca", "label": "San Jose, CA", "lat": 37.3382, "lon": -121.8863 },
+    { "id": "savannah_ga", "label": "Savannah, GA", "lat": 32.0809, "lon": -81.0912 },
     { "id": "seattle_wa", "label": "Seattle, WA", "lat": 47.6062, "lon": -122.3321 },
+    { "id": "spokane_wa", "label": "Spokane, WA", "lat": 47.6588, "lon": -117.4260 },
     { "id": "st_louis_mo", "label": "St. Louis, MO", "lat": 38.6270, "lon": -90.1994 },
 
     { "id": "tampa_fl", "label": "Tampa, FL", "lat": 27.9506, "lon": -82.4572 },
     { "id": "tucson_az", "label": "Tucson, AZ", "lat": 32.2226, "lon": -110.9747 },
 
-    { "id": "washington_dc", "label": "Washington, DC", "lat": 38.9072, "lon": -77.0369 }
+    { "id": "washington_dc", "label": "Washington, DC", "lat": 38.9072, "lon": -77.0369 },
+    { "id": "wichita_ks", "label": "Wichita, KS", "lat": 37.6872, "lon": -97.3301 },
+    { "id": "yuma_az", "label": "Yuma, AZ", "lat": 32.6927, "lon": -114.6277 }
   ]
 }
