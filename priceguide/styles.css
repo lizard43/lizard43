@@ -66,11 +66,13 @@
 .searchStatus {
     color: var(--muted);
     font-size: 12px;
-    min-width: 140px;
-    max-width: 45vw;
+
+    max-width: min(45vw, 320px);
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+
+    flex: 0 1 auto;
 }
 
 * {
