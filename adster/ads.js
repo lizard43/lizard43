@@ -60,6 +60,10 @@ let cheapoMode = false; // dataset toggle (cheapo json)
 let homeLat = null;
 let homeLon = null;
 
+let lastDistanceHomeKey = "";     // tracks which home coords were used to compute ad.distance
+let lastOverrideActive = false;   // for one-time toast when override toggles
+let lastHomeOverrideRaw = "";     // for one-time toast when h:"..." changes
+
 let generatedAtISO = null;
 
 let searchDebounceTimer = null;
@@ -987,6 +991,36 @@ function deg2rad(deg) {
     return deg * (Math.PI / 180);
 }
 
+function recomputeDistancesForAllAds(baseLat, baseLon) {
+    const haveHome =
+        typeof baseLat === "number" &&
+        typeof baseLon === "number" &&
+        Number.isFinite(baseLat) &&
+        Number.isFinite(baseLon);
+
+    if (!Array.isArray(allAds)) return;
+
+    for (const ad of allAds) {
+        if (!ad) continue;
+
+        // always reset to blank unless we can compute
+        ad.distance = ad.distance || "";
+
+        if (
+            haveHome &&
+            typeof ad.lat === "number" &&
+            typeof ad.lon === "number" &&
+            Number.isFinite(ad.lat) &&
+            Number.isFinite(ad.lon)
+        ) {
+            const miles = haversineMilesJS(baseLat, baseLon, ad.lat, ad.lon);
+            if (Number.isFinite(miles)) {
+                ad.distance = miles.toFixed(1);
+            }
+        }
+    }
+}
+
 function haversineMilesJS(lat1, lon1, lat2, lon2) {
     if (
         lat1 == null || lon1 == null ||
@@ -1802,6 +1836,9 @@ function parseCapOverridesFromSearch(rawInput) {
         timeOverrideDays: null,      // null = no override
         // { field: "distance"|"postedTime"|"price", dir: "asc"|"desc" } or null
         sortOverride: null,
+        overrideActive: null,      // null = not specified, true/false = specified
+        homeOverrideRaw: null,     // raw string from h:"..."
+
     };
 
     let s = out.cleanedRaw;
@@ -1888,6 +1925,24 @@ function parseCapOverridesFromSearch(rawInput) {
         return lead;
     });
 
+    // 5) override directives (override:true / override:false)
+    // - true values: true, 1, yes, on
+    // - false values: false, 0, no, off
+    s = s.replace(/(^|\s)(override)\s*:\s*(true|1|yes|on|false|0|no|off)\b/gi, (full, lead, _k, valRaw) => {
+        const v = String(valRaw || "").trim().toLowerCase();
+        if (v === "true" || v === "1" || v === "yes" || v === "on") out.overrideActive = true;
+        if (v === "false" || v === "0" || v === "no" || v === "off") out.overrideActive = false;
+        return lead;
+    });
+
+    // 6) home override: h:"some place"
+    // Only the quoted form supports spaces reliably.
+    s = s.replace(/(^|\s)(h)\s*:\s*("([^"]+)")/gi, (full, lead, _k, quoted, inner) => {
+        const v = String(inner || "").trim();
+        if (v) out.homeOverrideRaw = v;
+        return lead;
+    });
+
     // Cleanup: removing directives can leave "donkey &  &" etc.
     // - collapse spaces
     // - collapse repeated operators
@@ -1913,6 +1968,59 @@ function applyFilter() {
 
     // Pull out temporary cap overrides from the search text
     const overrides = parseCapOverridesFromSearch(rawInput);
+
+    // --- override:true behavior (search-only) ---
+    const overrideActive = (overrides.overrideActive === true);
+
+    // --- home override behavior (search-only) ---
+    // Default: use the already-resolved homeLat/homeLon (browser/fixed)
+    let effectiveHomeLat = homeLat;
+    let effectiveHomeLon = homeLon;
+    let effectiveHomeLabel = "";
+
+    // If h:"..." present, ONLY accept if it matches locations.json
+    if (overrides.homeOverrideRaw && String(overrides.homeOverrideRaw).trim()) {
+        const needle = String(overrides.homeOverrideRaw).trim().toLowerCase();
+        const list = Array.isArray(cachedLocations) ? cachedLocations : [];
+
+        // match by label OR id (case-insensitive)
+        const loc =
+            list.find(x => String(x?.label || "").trim().toLowerCase() === needle) ||
+            list.find(x => String(x?.id || "").trim().toLowerCase() === needle) ||
+            null;
+
+        if (loc && Number.isFinite(loc.lat) && Number.isFinite(loc.lon)) {
+            effectiveHomeLat = loc.lat;
+            effectiveHomeLon = loc.lon;
+            effectiveHomeLabel = loc.label || loc.id || overrides.homeOverrideRaw;
+        }
+    }
+
+    // Recompute distances if the effective home changed (so sort/filter/display stay consistent)
+    const homeKey = (Number.isFinite(effectiveHomeLat) && Number.isFinite(effectiveHomeLon))
+        ? `${effectiveHomeLat.toFixed(6)},${effectiveHomeLon.toFixed(6)}`
+        : "";
+
+    if (homeKey && homeKey !== lastDistanceHomeKey) {
+        lastDistanceHomeKey = homeKey;
+        recomputeDistancesForAllAds(effectiveHomeLat, effectiveHomeLon);
+    }
+
+    // One-time toast when override or home override changes
+    if (overrideActive !== lastOverrideActive) {
+        lastOverrideActive = overrideActive;
+        showToast(overrideActive ? "override:true (show hidden + ignore pricecut-only)" : "override:false");
+    }
+
+    const homeRawNow = String(overrides.homeOverrideRaw || "").trim();
+    if (homeRawNow !== lastHomeOverrideRaw) {
+        lastHomeOverrideRaw = homeRawNow;
+        if (homeRawNow) {
+            if (effectiveHomeLabel) showToast(`Home override: ${effectiveHomeLabel}`);
+            else showToast(`Home override ignored (not in locations.json): ${homeRawNow}`, 5000);
+        }
+    }
+
 
     // Sort override (search bar): affects sorting + sort indicators, but does not mutate
     // the user's manually-selected sortField/sortDir.
@@ -2087,7 +2195,7 @@ function applyFilter() {
     filteredAds = allAds.filter((ad) => {
         // - showHidden (settings) shows all hidden regardless of search
         // - includeHiddenInSearch (new toggle) allows hidden to participate in search+filters
-        if (ad.hidden && !showHidden && !includeHiddenInSearch) return false;
+        if (!overrideActive && ad.hidden && !showHidden && !includeHiddenInSearch) return false;
 
         // text / boolean condition
         if (!matcher(ad)) return false;
@@ -2120,7 +2228,7 @@ function applyFilter() {
     updatePriceChangedBadge();
 
     // Apply the extra toggle filter AFTER we compute badge count
-    if (showOnlyPriceChanged) {
+    if (showOnlyPriceChanged && !overrideActive) {
         filteredAds = filteredAds.filter((ad) => {
             if (ad.hidden && !showHidden && !includeHiddenInSearch) return false;
             return !!ad.priceChanged;
@@ -2745,28 +2853,8 @@ async function loadAds() {
         // scrapester.json is { generated_at, ads: [...] }
         const ads = Array.isArray(json.ads) ? json.ads : json;
 
-        const haveHome =
-            typeof homeLat === "number" &&
-            typeof homeLon === "number" &&
-            Number.isFinite(homeLat) &&
-            Number.isFinite(homeLon);
-
-        ads.forEach((ad) => {
-            ad.distance = ad.distance || "";
-
-            if (
-                haveHome &&
-                typeof ad.lat === "number" &&
-                typeof ad.lon === "number" &&
-                Number.isFinite(ad.lat) &&
-                Number.isFinite(ad.lon)
-            ) {
-                const miles = haversineMilesJS(homeLat, homeLon, ad.lat, ad.lon);
-                if (Number.isFinite(miles)) {
-                    ad.distance = miles.toFixed(1);
-                }
-            }
-        });
+        allAds = ads; // set first so helper uses the same array
+        recomputeDistancesForAllAds(homeLat, homeLon);
 
         allAds = ads;
 
