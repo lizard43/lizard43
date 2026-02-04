@@ -296,13 +296,15 @@ function jumpByKey(k) {
 
 function prevPage() {
     const cur = pageFromScrollTop();
-    jumpToPage(cur <= START_PAGE ? state.maxPage : cur - 1);
+    if (cur <= START_PAGE) return;          // STOP at first page
+    jumpToPage(cur - 1);
     logPage("prev");
 }
 
 function nextPage() {
     const cur = pageFromScrollTop();
-    jumpToPage(cur >= state.maxPage ? START_PAGE : cur + 1);
+    if (cur >= state.maxPage) return;       // STOP at last page
+    jumpToPage(cur + 1);
     logPage("next");
 }
 
