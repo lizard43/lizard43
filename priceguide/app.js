@@ -70,6 +70,8 @@ const el = {
     img3: document.getElementById("img3"),
     img4: document.getElementById("img4"),
 
+    btnGear: document.getElementById("btnGear"),
+
     strip: document.getElementById("strip"),
 
     toast: document.getElementById("toast"),
@@ -298,7 +300,7 @@ function renderSearchStatus() {
         return;
     }
     if (matches.length === 0) {
-        el.searchStatus.textContent = "0 matches";
+        el.searchStatus.textContent = "";
         return;
     }
     const g = games[matches[matchPos]];
@@ -640,20 +642,12 @@ function wireUI() {
 
     el.stage.addEventListener("scroll", onScroll, { passive: true });
 
-    // el.stage.addEventListener("touchstart", (e) => {
-    //     onTouchStart(e);
-    //     onPinchStart(e);
-    // }, { passive: true });
-
-    // el.stage.addEventListener("touchmove", onPinchMove, { passive: false });
-
-    // el.stage.addEventListener("touchend", (e) => {
-    //     onPinchEnd(e);
-    //     if (pinchActive) return;
-    //     onTouchEnd(e);
-    // }, { passive: true });
-
-    // el.stage.addEventListener("touchcancel", onPinchEnd, { passive: true });
+    if (el.btnGear) {
+        el.btnGear.addEventListener("click", () => {
+            showToast("Settings (todo)");
+            // Later: open settings panel/modal
+        });
+    }
 
     el.stage.addEventListener("touchstart", onTouchStart, { passive: true });
     el.stage.addEventListener("touchend", onTouchEnd, { passive: true });

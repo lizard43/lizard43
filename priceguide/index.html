@@ -10,22 +10,23 @@
 
 <body>
     <header class="topbar" id="topbar" aria-label="Search">
-        <div class="searchWrap">
+        <div class="searchRow">
             <input id="searchInput" class="searchInput" type="text"
                 placeholder="Search title / mfg / date / genre / type…" autocomplete="off" />
-            <button id="searchClear" class="searchBtn" title="Clear" aria-label="Clear search">✕</button>
+
+            <button id="searchPrev" class="searchBtn searchBtnSm" title="Previous match"
+                aria-label="Previous match">◀</button>
+            <button id="searchNext" class="searchBtn searchBtnSm" title="Next match" aria-label="Next match">▶</button>
+
+            <button id="searchClear" class="searchBtn searchBtnSm" title="Clear" aria-label="Clear search">✕</button>
         </div>
 
-        <div class="searchNav">
-            <div class="searchArrows">
-                <button id="searchPrev" class="searchBtn" title="Previous match">◀</button>
-                <button id="searchNext" class="searchBtn" title="Next match">▶</button>
-            </div>
-            <div id="searchStatus" class="searchStatus"></div>
-        </div>
+        <div id="searchStatus" class="searchStatusLine" aria-live="polite"></div>
     </header>
 
     <nav class="toolbar-rail" id="rail" aria-label="Navigation">
+        <button class="rail-btn rail-gear" id="btnGear" title="Settings" aria-label="Settings">⚙</button>
+
         <button class="rail-btn" id="btnNext" title="Next">▶</button>
         <button class="rail-btn" id="btnPrev" title="Previous">◀</button>
 

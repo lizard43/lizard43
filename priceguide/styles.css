@@ -1,5 +1,6 @@
 :root {
-    --toolbar-h: 52px;
+    --toolbar-h: 76px;
+    /* includes status line */
     --gap: 10px;
     --bg: #0b0c10;
     --panel: #12141a;
@@ -14,65 +15,57 @@
     position: fixed;
     top: 0;
     left: 0;
-    right: var(--rail-w);
-    height: var(--toolbar-h);
+    right: 0;
+    /* <-- extend under/behind sidebar */
+    min-height: var(--toolbar-h);
 
     display: flex;
-    align-items: center;
-    gap: 10px;
+    flex-direction: column;
+    justify-content: center;
+    gap: 6px;
+
     padding: 8px 10px;
+    padding-right: calc(var(--rail-w) + 10px);
+    /* keep content left of sidebar */
 
     background: var(--panel);
     border-bottom: 1px solid var(--border);
     z-index: 70;
 }
 
-.searchWrap {
+.searchRow {
     display: flex;
     align-items: center;
     gap: 8px;
-    flex: 1 1 auto;
-    min-width: 160px;
 }
 
 .searchInput {
+    flex: 1 1 auto;
     width: 100%;
-    max-width: 520px;
-}
-
-.searchArrows {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    flex: 0 0 auto;
-}
-
-.searchNav {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    flex: 0 0 auto;
+    min-width: 120px;
+    max-width: none;
 }
 
 .searchBtn {
-    width: 40px;
-    height: 36px;
     border-radius: 12px;
     padding: 0;
     display: grid;
     place-items: center;
 }
 
-.searchStatus {
+.searchBtnSm {
+    width: 42px;
+    height: 36px;
+}
+
+.searchStatusLine {
     color: var(--muted);
     font-size: 12px;
-
-    max-width: min(45vw, 320px);
+    line-height: 1.2;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-
-    flex: 0 1 auto;
+    padding-left: 2px;
 }
 
 * {
@@ -269,4 +262,8 @@ select:focus {
 .rail-btn.is-active {
     border-color: #6aa3ff;
     box-shadow: 0 0 0 2px rgba(106, 163, 255, 0.25);
+}
+
+.rail-gear {
+    font-size: 18px;
 }
