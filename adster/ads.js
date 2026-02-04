@@ -2766,7 +2766,7 @@ btnPriceGuide?.addEventListener("click", (e) => {
 
 btnShare?.addEventListener("click", async () => {
     try {
-        const url = buildShareSearchUrl(searchInput.value);
+        const url = buildShareSearchUrl(searchInput.value) + " override:true";
 
         // Prefer native share sheet if available
         if (navigator.share) {
