@@ -1065,7 +1065,7 @@ function upsertHomeDirective(raw, newHomeLabel) {
     if (s) s += " ";
     s += `h:"${home}"`;
 
-    s += `d:75`;
+    s += ` d:75`;
 
     return s;
 }
