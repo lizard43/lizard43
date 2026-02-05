@@ -729,9 +729,35 @@ async function init() {
 
     wireUI();
 
+    // accept incoming ?s= query, then clean URL ---
+    let pendingUrlSearch = "";
+    try {
+        const params = new URLSearchParams(window.location.search);
+        const s = params.get("s");
+        if (s && String(s).trim()) {
+            pendingUrlSearch = String(s).trim();
+
+            // Populate the box immediately (even before index loads)
+            if (el.searchInput) el.searchInput.value = pendingUrlSearch;
+
+            // Clean address bar to plain URL (keep hash if any)
+            const clean = window.location.pathname + window.location.hash;
+            history.replaceState(null, "", clean);
+        }
+    } catch (e) {
+        // ignore URL parsing issues
+    }
+    // ------------------------------------------------------
+
     // Load search index last (async fetch). UI still works without it.
     await loadGameIndex();
     setSearchNavEnabled(false);
+
+    // --- NEW: run the search after the index is loaded ---
+    if (pendingUrlSearch) {
+        runSearch(pendingUrlSearch);
+        if (el.searchInput) el.searchInput.focus();
+    }
 }
 
 init();
