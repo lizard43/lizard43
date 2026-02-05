@@ -1109,10 +1109,15 @@ function buildPriceGuideQueryFromAd(ad) {
 function openPriceGuideSearch(searchText) {
     const q = String(searchText || "").trim();
     const base = new URL("../priceguide/", window.location.href);
-    if (q) base.searchParams.set("s", q); // handles encoding
-    const w = window.open(base.toString(), PRICEGUIDE_TAB_NAME, "noopener,noreferrer");
-    w?.focus?.();
+    if (q) base.searchParams.set("s", q);
 
+    // IMPORTANT: don't use "noopener" here or Chrome may not reuse the named tab
+    const w = window.open(base.toString(), PRICEGUIDE_TAB_NAME);
+
+    // Security: emulate noopener while still allowing retargeting
+    try { if (w) w.opener = null; } catch { }
+
+    try { w?.focus?.(); } catch { }
 }
 
 function normalizePrice(price) {
@@ -2976,8 +2981,9 @@ btnPriceGuide?.addEventListener("click", (e) => {
 
     // Open priceguide in a new tab. (priceguide is parallel to /adster/)
     const url = new URL("../priceguide/", window.location.href).toString();
-    const w = window.open(url, PRICEGUIDE_TAB_NAME, "noopener,noreferrer");
-    w?.focus?.();
+    const w = window.open(url, PRICEGUIDE_TAB_NAME);
+    try { if (w) w.opener = null; } catch { }
+    try { w?.focus?.(); } catch { }
 });
 
 btnShare?.addEventListener("click", async () => {
