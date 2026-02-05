@@ -1166,6 +1166,19 @@ body>.modal {
   padding: 14px;
 }
 
+/* Ensure modal dropdown options are readable across platforms */
+.modal select,
+.modal option {
+  background-color: #fff;
+  color: #000;
+}
+
+.modal select:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+
 .hidden {
   display: none !important;
 }
@@ -1277,13 +1290,6 @@ body>.modal {
 .checkbox-row input[type="checkbox"] {
   width: 18px;
   height: 18px;
-}
-
-/* Ensure modal dropdown options are readable across platforms */
-.modal select,
-.modal option {
-  background-color: #fff;
-  color: #000;
 }
 
 #locLat,

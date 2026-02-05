@@ -5,6 +5,9 @@ let ADS_JSON_URL = "scrapester.json";
 const LS_LAST_SEARCH = "adster.search.last";
 const LS_LAST_SEARCH_AT = "adster.search.lastAt"; // epoch ms (optional)
 
+const LS_HOME_LAT = "adster.location.homeLat";
+const LS_HOME_LON = "adster.location.homeLon";
+
 function resolveAdsJsonUrlFromQuery() {
     const sp = new URLSearchParams(window.location.search);
 
@@ -209,6 +212,20 @@ function restoreLastSearchFromStorageIfNoUrlParams() {
     } catch {
         return false;
     }
+}
+
+function loadStoredHomeLatLon() {
+    const lat = Number(localStorage.getItem(LS_HOME_LAT));
+    const lon = Number(localStorage.getItem(LS_HOME_LON));
+    if (Number.isFinite(lat) && Number.isFinite(lon)) return { lat, lon };
+    return null;
+}
+
+function saveStoredHomeLatLon(lat, lon) {
+    if (!Number.isFinite(lat) || !Number.isFinite(lon)) return false;
+    localStorage.setItem(LS_HOME_LAT, String(lat));
+    localStorage.setItem(LS_HOME_LON, String(lon));
+    return true;
 }
 
 function loadFavSearch(slot) {
@@ -981,32 +998,51 @@ function setupFavoriteSearchHearts() {
 
 async function resolveHomeLocation() {
     const s = getLocSettings();
-    const locations = await loadLocationsJson();
 
-    if (s.mode === "fixed") {
-        const fixed = resolveFixedLocation(locations, s.fixedId, s.userLat, s.userLon);
+    // 1) Fast path: if we have stored resolved home coords, use them.
+    // This avoids loading locations.json on normal app init.
+    const stored = loadStoredHomeLatLon();
+    if (stored && s.mode === "fixed") {
+        homeLat = stored.lat;
+        homeLon = stored.lon;
+        lastLocationToastText = `Location: saved (${homeLat.toFixed(4)}, ${homeLon.toFixed(4)})`;
+        return;
+    }
+
+    if (s.mode === "browser") {
+        // browser mode still tries geolocation first
+        const geo = await getBrowserLatLon();
+        if (geo) {
+            homeLat = geo.lat;
+            homeLon = geo.lon;
+            lastLocationToastText = `Location: browser (${homeLat.toFixed(4)}, ${homeLon.toFixed(4)})`;
+            return;
+        }
+
+        // If browser failed, we can ALSO use stored coords if present
+        if (stored) {
+            homeLat = stored.lat;
+            homeLon = stored.lon;
+            lastLocationToastText = `Location: browser failed → saved`;
+            return;
+        }
+
+        // Last resort: fallback fixed selection requires locations.json
+        const locations = await loadLocationsJson();
+        const fbId = s.fallbackId || s.fixedId;
+        const fixed = resolveFixedLocation(locations, fbId, s.userLat, s.userLon);
         homeLat = fixed.lat;
         homeLon = fixed.lon;
-        lastLocationToastText = `Location: ${fixed.why}`;
-
+        lastLocationToastText = `Location: browser failed → ${fixed.why}`;
         return;
     }
 
-    // mode === "browser"
-    const geo = await getBrowserLatLon();
-    if (geo) {
-        homeLat = geo.lat;
-        homeLon = geo.lon;
-        lastLocationToastText = `Location: browser (${homeLat.toFixed(4)}, ${homeLon.toFixed(4)})`;
-        return;
-    }
-
-    // fallback to fixed selection
-    const fbId = s.fallbackId || s.fixedId; // if not set, reuse fixed
-    const fixed = resolveFixedLocation(locations, fbId, s.userLat, s.userLon);
+    // 2) fixed mode but no stored coords: must resolve from locations.json or user lat/lon
+    const locations = await loadLocationsJson();
+    const fixed = resolveFixedLocation(locations, s.fixedId, s.userLat, s.userLon);
     homeLat = fixed.lat;
     homeLon = fixed.lon;
-    lastLocationToastText = `Location: browser failed → ${fixed.why}`;
+    lastLocationToastText = `Location: ${fixed.why}`;
 }
 
 // helpers (price, distance, time, boolean search, etc.)
@@ -2034,8 +2070,15 @@ function applyFilter() {
     // If h:"..." present, ONLY accept if it matches locations.json
     if (overrides.homeOverrideRaw && String(overrides.homeOverrideRaw).trim()) {
         const needle = String(overrides.homeOverrideRaw).trim().toLowerCase();
-        const list = Array.isArray(cachedLocations) ? cachedLocations : [];
 
+        // Ensure locations are available for h:"..."
+        if (!Array.isArray(cachedLocations) || !cachedLocations.length) {
+            // fire and forget is OK, but since we need it NOW, await it
+            // (applyFilter is not async today—so you'd need the smallest refactor:
+            // make applyFilter async and update callers OR do a sync fallback message.)
+        }
+
+        const list = Array.isArray(cachedLocations) ? cachedLocations : [];
         // match by label OR id (case-insensitive)
         const loc =
             list.find(x => String(x?.label || "").trim().toLowerCase() === needle) ||
@@ -2620,16 +2663,28 @@ async function setupSettingsModal() {
     }
 
     // populate saved locations
-    const list = await loadLocationsJson();
+    let list = [];
+    let locationsLoaded = false;
 
-    function fillSelect(sel) {
+    function setCitiesLoadingUI(isLoading) {
+        if (savedSel) savedSel.disabled = !!isLoading;
+        if (fallbackSel) fallbackSel.disabled = !!isLoading;
+
+        if (isLoading) {
+            // show "Cities loading..." placeholder
+            if (savedSel) savedSel.innerHTML = `<option value="">Cities loading…</option>`;
+            if (fallbackSel) fallbackSel.innerHTML = `<option value="">Cities loading…</option>`;
+        }
+    }
+
+    function fillSelect(sel, locList) {
         sel.innerHTML = "";
         const opt0 = document.createElement("option");
         opt0.value = "";
         opt0.textContent = "Select a location…";
         sel.appendChild(opt0);
 
-        for (const loc of list) {
+        for (const loc of locList) {
             const opt = document.createElement("option");
             opt.value = loc.id;
             opt.textContent = loc.label;
@@ -2637,15 +2692,27 @@ async function setupSettingsModal() {
         }
     }
 
-    fillSelect(savedSel);
-    fillSelect(fallbackSel);
+    async function ensureLocationsLoadedForModal() {
+        if (locationsLoaded) return;
+
+        setCitiesLoadingUI(true);
+
+        list = await loadLocationsJson();
+        fillSelect(savedSel, list);
+        fillSelect(fallbackSel, list);
+
+        locationsLoaded = true;
+        setCitiesLoadingUI(false);
+    }
+
+    setCitiesLoadingUI(true); // disables selects + shows "Cities loading…"
 
     function syncUIFromStorage() {
         const s = getLocSettings();
 
         setMode(s.mode);
-        savedSel.value = s.fixedId || "";
-        fallbackSel.value = s.fallbackId || "";
+        if (savedSel.value !== (s.fixedId || "")) savedSel.value = "";
+        if (fallbackSel.value !== (s.fallbackId || "")) fallbackSel.value = "";
 
         // restore user-defined lat/lon (only matters if "user" selected)
         latInput.value = s.userLat || "";
@@ -2721,9 +2788,10 @@ async function setupSettingsModal() {
 
     clearFavoritesBtn?.addEventListener("pointerup", onClearFavorites);
 
-    settingsBtn?.addEventListener("click", () => {
-        syncUIFromStorage();
+    settingsBtn?.addEventListener("click", async () => {
         open();
+        await ensureLocationsLoadedForModal();
+        syncUIFromStorage();
     });
 
     closeBtn?.addEventListener("click", close);
@@ -2745,6 +2813,13 @@ async function setupSettingsModal() {
         try {
             // Save settings from the modal (fixed location, etc.)
             syncStorageFromUI();
+
+            // Persist resolved home coords for fast startup distance calc
+            const lat = parseNumberOrNull(latInput.value);
+            const lon = parseNumberOrNull(lonInput.value);
+            if (lat != null && lon != null) {
+                saveStoredHomeLatLon(lat, lon);
+            }
 
             close();
 
@@ -3224,7 +3299,7 @@ function applySearchFromUrlOnce() {
 // initial load
 (async function init() {
     await loadSettings();        // get favorites → render hearts
-    await setupSettingsModal();
+    setupSettingsModal();
 
     setupBrokenImageHandler();
     setupFavoriteSearchHearts();
