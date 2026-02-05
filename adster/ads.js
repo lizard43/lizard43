@@ -8,6 +8,8 @@ const LS_LAST_SEARCH_AT = "adster.search.lastAt"; // epoch ms (optional)
 const LS_HOME_LAT = "adster.location.homeLat";
 const LS_HOME_LON = "adster.location.homeLon";
 
+const PRICEGUIDE_TAB_NAME = "adster_priceguide";
+
 function resolveAdsJsonUrlFromQuery() {
     const sp = new URLSearchParams(window.location.search);
 
@@ -1089,6 +1091,12 @@ function buildPriceGuideQueryFromAd(ad) {
     // Keep it reasonable
     if (s.length > 80) s = s.slice(0, 80).trim();
 
+    // Limit to first 3 words (front-loaded, best signal)
+    const words = s.split(" ").filter(Boolean);
+    if (words.length > 3) {
+        s = words.slice(0, 3).join(" ");
+    }
+
     return s;
 }
 
@@ -1096,7 +1104,9 @@ function openPriceGuideSearch(searchText) {
     const q = String(searchText || "").trim();
     const base = new URL("../priceguide/", window.location.href);
     if (q) base.searchParams.set("s", q); // handles encoding
-    window.open(base.toString(), "_blank", "noopener,noreferrer");
+    const w = window.open(base.toString(), PRICEGUIDE_TAB_NAME, "noopener,noreferrer");
+    w?.focus?.();
+
 }
 
 function normalizePrice(price) {
@@ -2960,7 +2970,8 @@ btnPriceGuide?.addEventListener("click", (e) => {
 
     // Open priceguide in a new tab. (priceguide is parallel to /adster/)
     const url = new URL("../priceguide/", window.location.href).toString();
-    window.open(url, "_blank", "noopener,noreferrer");
+    const w = window.open(url, PRICEGUIDE_TAB_NAME, "noopener,noreferrer");
+    w?.focus?.();
 });
 
 btnShare?.addEventListener("click", async () => {
