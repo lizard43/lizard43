@@ -379,7 +379,8 @@ function renderHiddenSearchToggle() {
 // built-in default if nothing else is available
 const DEFAULT_HOME = { lat: 30.40198, lon: -86.87008 }; // Navarre, FL (change if you want)
 
-let cachedLocations = null;
+let cachedLocations = null; // settings / fixed location list (locations.json)
+let cachedCities = null;    // h:"..." lookup list (cities.json)
 
 function loadDistanceCap() {
     const raw = localStorage.getItem(LS_DISTANCE_CAP);
@@ -716,6 +717,34 @@ async function loadLocationsJson() {
         showToolbarMessage("Could not load locations.json", "Check Network tab", 6000);
     }
     return cachedLocations;
+}
+
+async function loadCitiesJson() {
+    if (cachedCities && cachedCities.length) return cachedCities;
+
+    try {
+        const url = new URL("cities.json?v=1", window.location.href).toString();
+        console.log("[cities] fetching:", url);
+
+        const r = await fetch(url, { cache: "no-store" });
+        console.log("[cities] status:", r.status, r.ok);
+
+        if (!r.ok) throw new Error(`HTTP ${r.status}`);
+        const j = await r.json();
+
+        // Support both { cities:[...] } and { locations:[...] } formats
+        cachedCities = Array.isArray(j.cities)
+            ? j.cities
+            : (Array.isArray(j.locations) ? j.locations : []);
+
+        console.log("[cities] loaded count:", cachedCities.length);
+    } catch (e) {
+        cachedCities = [];
+        console.error("cities.json not available:", e);
+        showToolbarMessage("Could not load cities.json", "Check Network tab", 6000);
+    }
+
+    return cachedCities;
 }
 
 function getSavedLocationById(list, id) {
@@ -2168,18 +2197,18 @@ function applyFilter() {
     let effectiveHomeLon = homeLon;
     let effectiveHomeLabel = "";
 
-    // If h:"..." present, ONLY accept if it matches locations.json
+    // If h:"..." present, ONLY accept if it matches cities.json (big list)
     if (overrides.homeOverrideRaw && String(overrides.homeOverrideRaw).trim()) {
         const needle = String(overrides.homeOverrideRaw).trim().toLowerCase();
 
-        // Ensure locations are available for h:"..."
-        if (!Array.isArray(cachedLocations) || !cachedLocations.length) {
-            // fire and forget is OK, but since we need it NOW, await it
-            // (applyFilter is not async today—so you'd need the smallest refactor:
-            // make applyFilter async and update callers OR do a sync fallback message.)
+        // Ensure cities are available for h:"..."
+        if (!Array.isArray(cachedCities) || !cachedCities.length) {
+            // Kick off load and re-run filter once available (applyFilter is sync)
+            loadCitiesJson().then(() => applyFilterNextFrame());
         }
 
-        const list = Array.isArray(cachedLocations) ? cachedLocations : [];
+        const list = Array.isArray(cachedCities) ? cachedCities : [];
+
         // match by label OR id (case-insensitive)
         const loc =
             list.find(x => String(x?.label || "").trim().toLowerCase() === needle) ||
@@ -3044,7 +3073,7 @@ tbody.addEventListener("click", (e) => {
         autosizeSearchBox();
 
         // Lazy-load cities so h:"..." can resolve immediately
-        loadLocationsJson().then(() => applyFilterNextFrame());
+        loadCitiesJson().then(() => applyFilterNextFrame());
 
         searchInput.focus();
         return;
