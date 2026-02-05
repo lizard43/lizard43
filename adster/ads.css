@@ -1464,6 +1464,20 @@ body>.modal {
   transform: translateY(1px);
 }
 
+/* route hint under distance */
+.ad-route-hint {
+  font-size: 11px;
+  color: #9aa0a6;
+  opacity: 0.9;
+  margin-top: 1px;
+  line-height: 1.15;
+}
+
+.ad-route-hint .route-hint-dot {
+  opacity: 0.6;
+  margin: 0 6px;
+}
+
 .ad-match-reason {
   font-size: 11px;
   color: #7fbfff;

@@ -1083,18 +1083,19 @@ async function resolveHomeLocation() {
 
 // helpers (price, distance, time, boolean search, etc.)
 
-function upsertRouteDirective(raw, on) {
+function upsertToDirective(raw, toLabelOrEmpty) {
     let s = String(raw ?? "");
 
-    // remove any existing route directives
-    s = s.replace(/(^|\s)(route|r)\s*:\s*(on|true|1|off|false|0)\b/gi, " ");
+    // Remove ALL existing to:"..."
+    s = s.replace(/(^|\s)to\s*:\s*"[^"]*"/gi, " ");
 
     s = s.replace(/\s+/g, " ").trim();
 
-    if (!on) return s;
+    const label = String(toLabelOrEmpty ?? "").replace(/"/g, "").trim();
+    if (!label) return s;
 
     if (s) s += " ";
-    s += "r:on";
+    s += `to:"${label}"`;
     return s;
 }
 
@@ -1125,6 +1126,33 @@ function pointToSegmentDistanceMiles(p, a, b) {
     const projY = a.y + t * vy;
 
     return Math.hypot(p.x - projX, p.y - projY);
+}
+
+function computePerpDistanceToRouteMiles(ad, homeLat, homeLon, destLat, destLon) {
+    if (!ad) return NaN;
+    if (!Number.isFinite(ad.lat) || !Number.isFinite(ad.lon)) return NaN;
+    if (!Number.isFinite(homeLat) || !Number.isFinite(homeLon)) return NaN;
+    if (!Number.isFinite(destLat) || !Number.isFinite(destLon)) return NaN;
+
+    const lat0 = (homeLat + destLat) / 2;
+
+    const H = projectToMiles(homeLat, homeLon, lat0);
+    const D = projectToMiles(destLat, destLon, lat0);
+    const P = projectToMiles(ad.lat, ad.lon, lat0);
+
+    return pointToSegmentDistanceMiles(P, H, D);
+}
+
+function getEffectiveDistanceMiles(ad, routeModeOn) {
+    if (routeModeOn) {
+        return Number.isFinite(ad?._routeDistanceMiles) ? ad._routeDistanceMiles : NaN;
+    }
+    // normal mode
+    if (Number.isFinite(ad?._homeDistanceMiles)) return ad._homeDistanceMiles;
+
+    // fallback to string distance if needed
+    const d = normalizeDistance(ad?.distance);
+    return Number.isFinite(d) ? d : NaN;
 }
 
 function isAdInRouteCorridor(ad, homeLat, homeLon, destLat, destLon, halfWidthMiles) {
@@ -1189,7 +1217,7 @@ function buildPriceGuideQueryFromAd(ad) {
     s = s.replace(/[^\w\s-]/g, " ");                 // drop weird punctuation
 
     // Remove low-signal words for priceguide searches
-    s = s.replace(/\b(for\s+sale|pending|arcade|game)\b/gi, " ");
+    s = s.replace(/\b(for\s+sale|pending|vintage|antique|arcade|game|fs:)\b/gi, " ");
 
     s = s.replace(/\s+/g, " ").trim();
 
@@ -1266,8 +1294,14 @@ function recomputeDistancesForAllAds(baseLat, baseLon) {
             Number.isFinite(ad.lon)
         ) {
             const miles = haversineMilesJS(baseLat, baseLon, ad.lat, ad.lon);
+
             if (Number.isFinite(miles)) {
+                ad._homeDistanceMiles = miles;
                 ad.distance = miles.toFixed(1);
+            } else {
+                ad._homeDistanceMiles = NaN;
+                // leave ad.distance as-is or blank
+                ad.distance = "";
             }
         }
     }
@@ -1440,11 +1474,15 @@ function sortAds(list) {
             return effectiveDir === "desc" ? vb - va : va - vb;
         }
         if (field === "distance") {
-            const da = normalizeDistance(a.distance);
-            const db = normalizeDistance(b.distance);
-            if (isNaN(da) && isNaN(db)) return 0;
-            if (isNaN(da)) return 1;
-            if (isNaN(db)) return -1;
+            const routeModeOn = !!(routeTarget && Number.isFinite(routeTarget.lat) && Number.isFinite(routeTarget.lon));
+
+            const da = getEffectiveDistanceMiles(a, routeModeOn);
+            const db = getEffectiveDistanceMiles(b, routeModeOn);
+
+            if (!Number.isFinite(da) && !Number.isFinite(db)) return 0;
+            if (!Number.isFinite(da)) return 1;
+            if (!Number.isFinite(db)) return -1;
+
             return (da - db) * dir;
         }
 
@@ -1494,7 +1532,6 @@ function renderTable() {
     const cardsHtml = sorted.map((ad) => {
         const title = ad.title || "";
         const desc = ad.description || "";
-        const distance = ad.distance || "";
         const location = ad.location || "";
         const author = ad.author || "";
         const price = ad.price || "";
@@ -1536,9 +1573,22 @@ function renderTable() {
                 : `<span class="ad-author-text">${escapeHtml(author)}</span>`)
             : `<span class="ad-author-text"></span>`;
 
-        // Distance text (line 3 left side)
-        const distanceText = distance
-            ? `<span class="distance-value">${escapeHtml(String(distance))}</span><span class="distance-unit"> mi</span>`
+        const routeModeOn = !!(routeTarget && Number.isFinite(routeTarget.lat) && Number.isFinite(routeTarget.lon));
+
+        const offRouteMiles = Number.isFinite(ad?._routeDistanceMiles) ? ad._routeDistanceMiles : NaN;
+        const fromHomeMiles = Number.isFinite(ad?._homeDistanceMiles) ? ad._homeDistanceMiles : NaN;
+
+        // Main number in the UI: route mode => perpendicular “off-route” distance,
+        // otherwise => normal from-home distance (your existing behavior)
+        const dMiles = getEffectiveDistanceMiles(ad, routeModeOn);
+
+        const distanceText = Number.isFinite(dMiles)
+            ? `<span class="distance-value">${escapeHtml(dMiles.toFixed(1))}</span><span class="distance-unit"> mi</span>`
+            : "";
+
+        // Tiny hint only when route mode is active and we have both distances
+        const routeHintHtml = (routeModeOn && Number.isFinite(offRouteMiles) && Number.isFinite(fromHomeMiles))
+            ? `<div class="ad-route-hint">off-route: ${offRouteMiles.toFixed(1)} mi <span class="route-hint-dot">·</span> from home: ${fromHomeMiles.toFixed(1)} mi</div>`
             : "";
 
         // Image (left column)
@@ -1671,6 +1721,7 @@ function renderTable() {
                 : ""}
     </div>
 
+    ${routeHintHtml}
     ${fromHomeHtml}
 
     <div class="ad-line-adid">${escapeHtml(adID)}</div>
@@ -2144,7 +2195,7 @@ function parseCapOverridesFromSearch(rawInput) {
         sortOverride: null,
         overrideActive: null,      // null = not specified, true/false = specified
         homeOverrideRaw: null,     // raw string from h:"..."
-        routeActive: null, // null = not specified, true/false when specified
+        toRaw: null, // raw destination label from to:"..."
     };
 
     let s = out.cleanedRaw;
@@ -2249,11 +2300,10 @@ function parseCapOverridesFromSearch(rawInput) {
         return lead;
     });
 
-    // 7) route directive: r:on / route:true / r:off
-    s = s.replace(/(^|\s)(route|r)\s*:\s*(on|true|1|off|false|0)\b/gi, (full, lead, _k, valRaw) => {
-        const v = String(valRaw || "").trim().toLowerCase();
-        if (v === "on" || v === "true" || v === "1") out.routeActive = true;
-        if (v === "off" || v === "false" || v === "0") out.routeActive = false;
+    // 7) route destination: to:"some place"
+    s = s.replace(/(^|\s)to\s*:\s*("([^"]+)")/gi, (full, lead, quoted, inner) => {
+        const v = String(inner || "").trim();
+        if (v) out.toRaw = v;
         return lead;
     });
 
@@ -2282,6 +2332,10 @@ function applyFilter() {
 
     // Pull out temporary cap overrides from the search text
     const overrides = parseCapOverridesFromSearch(rawInput);
+
+    // --- route is ON when to:"..." exists ---
+    const routeActive = !!(overrides.toRaw && String(overrides.toRaw).trim());
+    const toNeedle = routeActive ? String(overrides.toRaw).trim().toLowerCase() : "";
 
     // --- override:true behavior (search-only) ---
     const overrideActive = (overrides.overrideActive === true);
@@ -2317,6 +2371,61 @@ function applyFilter() {
             effectiveHomeLat = loc.lat;
             effectiveHomeLon = loc.lon;
             effectiveHomeLabel = loc.label || loc.id || overrides.homeOverrideRaw;
+        }
+    }
+
+    // --- destination (to:"...") behavior (search-only) ---
+    let effectiveDestLat = null;
+    let effectiveDestLon = null;
+    let effectiveDestLabel = "";
+
+    if (routeActive) {
+        // 1) If we already have a routeTarget from a card-click and label matches, use it
+        if (routeTarget && String(routeTarget.label || "").trim().toLowerCase() === toNeedle) {
+            effectiveDestLat = routeTarget.lat;
+            effectiveDestLon = routeTarget.lon;
+            effectiveDestLabel = routeTarget.label || overrides.toRaw;
+        } else {
+            // 2) Otherwise try to resolve via cities.json (same match style as h:"...")
+            if (!Array.isArray(cachedCities) || !cachedCities.length) {
+                loadCitiesJson().then(() => applyFilterNextFrame());
+            }
+
+            const list = Array.isArray(cachedCities) ? cachedCities : [];
+
+            const loc =
+                list.find(x => String(x?.label || "").trim().toLowerCase() === toNeedle) ||
+                list.find(x => String(x?.id || "").trim().toLowerCase() === toNeedle) ||
+                null;
+
+            if (loc && Number.isFinite(loc.lat) && Number.isFinite(loc.lon)) {
+                effectiveDestLat = loc.lat;
+                effectiveDestLon = loc.lon;
+                effectiveDestLabel = loc.label || loc.id || overrides.toRaw;
+
+                // keep routeTarget in sync so the corridor uses it
+                routeTarget = { lat: effectiveDestLat, lon: effectiveDestLon, adID: "", label: effectiveDestLabel };
+            }
+        }
+
+        if (!Number.isFinite(effectiveDestLat) || !Number.isFinite(effectiveDestLon)) {
+            showToast(`to:"${overrides.toRaw}" not found (need cities.json match)`, 6000);
+        }
+    }
+
+    const routeReady =
+        routeActive &&
+        Number.isFinite(effectiveHomeLat) && Number.isFinite(effectiveHomeLon) &&
+        Number.isFinite(effectiveDestLat) && Number.isFinite(effectiveDestLon);
+
+    if (routeReady) {
+        for (const ad of allAds) {
+            if (!ad) continue;
+            ad._routeDistanceMiles = computePerpDistanceToRouteMiles(
+                ad,
+                effectiveHomeLat, effectiveHomeLon,
+                effectiveDestLat, effectiveDestLon
+            );
         }
     }
 
@@ -2533,10 +2642,12 @@ function applyFilter() {
         }
     }
 
-    const routeActive = (overrides.routeActive === true);
-
-    if (routeActive && !routeTarget) {
-        showToast('Route is ON — click a card’s route icon to choose destination', 5000);
+    // If route is not active, clear target + clear computed route distances
+    if (!routeActive) {
+        routeTarget = null;
+        for (const ad of allAds) {
+            if (ad) ad._routeDistanceMiles = NaN;
+        }
     }
 
     filteredAds = allAds.filter((ad) => {
@@ -2556,7 +2667,7 @@ function applyFilter() {
 
         // distance cap (effective)
         if (effectiveDistanceCap !== Infinity) {
-            const d = normalizeDistance(ad.distance);
+            const d = getEffectiveDistanceMiles(ad, routeReady);
             if (!Number.isFinite(d)) return false;
             if (d > effectiveDistanceCap) return false;
         }
@@ -2570,17 +2681,14 @@ function applyFilter() {
 
         // route corridor filter (applied after normal filters/caps)
         if (routeActive) {
-            if (!routeTarget || !Number.isFinite(routeTarget.lat) || !Number.isFinite(routeTarget.lon)) {
-                // route requested but no target picked yet: show nothing (forces user to pick)
-                return false;
-            }
+            if (!routeReady) return false;
 
             const ok = isAdInRouteCorridor(
                 ad,
                 effectiveHomeLat,
                 effectiveHomeLon,
-                routeTarget.lat,
-                routeTarget.lon,
+                effectiveDestLat,
+                effectiveDestLon,
                 ROUTE_CORRIDOR_HALF_WIDTH_MILES
             );
 
@@ -3214,7 +3322,7 @@ tbody.addEventListener("click", (e) => {
         return;
     }
 
-    // Card route button (sets corridor target + enables route mode)
+    // Card route button (sets destination + enables route via to:"...")
     if (action === "route") {
         e.preventDefault();
         e.stopPropagation();
@@ -3225,26 +3333,36 @@ tbody.addEventListener("click", (e) => {
 
         if (!Number.isFinite(lat) || !Number.isFinite(lon)) return;
 
-        // Toggle behavior: clicking same target again turns route off
+        // Use the ad's LOCATION TEXT for the directive (stakeholder request)
+        const adObj = allAds?.find(a => a?.adID === adID) || null;
+        const locLabel = String(adObj?.location || "").trim();
+        if (!locLabel) {
+            showToast("Route needs a location label on the card (missing ad.location)", 6000);
+            return;
+        }
+
+        const needle = locLabel.toLowerCase();
+
+        // Toggle off if clicking same destination again
         const same =
             routeTarget &&
-            routeTarget.adID === adID &&
+            String(routeTarget.label || "").trim().toLowerCase() === needle &&
             routeTarget.lat === lat &&
             routeTarget.lon === lon;
 
         if (same) {
             routeTarget = null;
-            searchInput.value = upsertRouteDirective(searchInput.value, false);
+            searchInput.value = upsertToDirective(searchInput.value, "");
             autosizeSearchBox();
             applyFilterNextFrame();
-            showToast("Route OFF");
+            showToast('Route OFF (cleared to:"...")');
             return;
         }
 
-        // Set route target and turn on
-        routeTarget = { lat, lon, adID, label: (allAds?.find(a => a?.adID === adID)?.title || adID) };
+        // Set route target (coords from this ad), AND set to:"location"
+        routeTarget = { lat, lon, adID, label: locLabel };
 
-        searchInput.value = upsertRouteDirective(searchInput.value, true);
+        searchInput.value = upsertToDirective(searchInput.value, locLabel);
         autosizeSearchBox();
         applyFilterNextFrame();
 
