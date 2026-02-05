@@ -1422,6 +1422,48 @@ body>.modal {
   transform: translateY(1px);
 }
 
+/* --- Card Route button (right of location on line 3) --- */
+.card-route-btn {
+  border: none;
+  background: transparent;
+  padding: 0 2px;
+  margin: 0;
+  cursor: pointer;
+
+  color: #bdbdbd;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 6px;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.card-route-btn:hover {
+  background: #262626;
+  color: #ffffff;
+}
+
+.card-route-btn:active {
+  transform: translateY(1px);
+}
+
+.card-route-svg {
+  width: 14px;
+  height: 14px;
+
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  opacity: 0.9;
+
+  pointer-events: none;
+  transform: translateY(1px);
+}
+
 .ad-match-reason {
   font-size: 11px;
   color: #7fbfff;

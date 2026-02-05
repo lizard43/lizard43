@@ -10,6 +10,10 @@ const LS_HOME_LON = "adster.location.homeLon";
 
 const PRICEGUIDE_TAB_NAME = "adster_priceguide";
 
+// --- Route corridor (home -> selected ad) ---
+const ROUTE_CORRIDOR_HALF_WIDTH_MILES = 50; // hardcode for now (50 each side)
+let routeTarget = null; // { lat, lon, adID, label }
+
 function resolveAdsJsonUrlFromQuery() {
     const sp = new URLSearchParams(window.location.search);
 
@@ -1079,6 +1083,72 @@ async function resolveHomeLocation() {
 
 // helpers (price, distance, time, boolean search, etc.)
 
+function upsertRouteDirective(raw, on) {
+    let s = String(raw ?? "");
+
+    // remove any existing route directives
+    s = s.replace(/(^|\s)(route|r)\s*:\s*(on|true|1|off|false|0)\b/gi, " ");
+
+    s = s.replace(/\s+/g, " ").trim();
+
+    if (!on) return s;
+
+    if (s) s += " ";
+    s += "r:on";
+    return s;
+}
+
+// Equirectangular projection to "miles space" (fast + good enough for 50–500mi)
+function projectToMiles(lat, lon, lat0Deg) {
+    const milesPerDeg = 69.172; // ~ (2πR/360) with R in miles
+    const lat0 = (lat0Deg * Math.PI) / 180;
+    return {
+        x: lon * milesPerDeg * Math.cos(lat0),
+        y: lat * milesPerDeg
+    };
+}
+
+function pointToSegmentDistanceMiles(p, a, b) {
+    const vx = b.x - a.x;
+    const vy = b.y - a.y;
+    const wx = p.x - a.x;
+    const wy = p.y - a.y;
+
+    const c1 = wx * vx + wy * vy;
+    if (c1 <= 0) return Math.hypot(wx, wy);
+
+    const c2 = vx * vx + vy * vy;
+    if (c2 <= c1) return Math.hypot(p.x - b.x, p.y - b.y);
+
+    const t = c1 / c2;
+    const projX = a.x + t * vx;
+    const projY = a.y + t * vy;
+
+    return Math.hypot(p.x - projX, p.y - projY);
+}
+
+function isAdInRouteCorridor(ad, homeLat, homeLon, destLat, destLon, halfWidthMiles) {
+    if (!ad) return false;
+    if (!Number.isFinite(ad.lat) || !Number.isFinite(ad.lon)) return false;
+
+    const lat0 = (homeLat + destLat) / 2;
+
+    const H = projectToMiles(homeLat, homeLon, lat0);
+    const D = projectToMiles(destLat, destLon, lat0);
+    const P = projectToMiles(ad.lat, ad.lon, lat0);
+
+    // quick reject bounding box expanded by corridor width (cheap)
+    const minX = Math.min(H.x, D.x) - halfWidthMiles;
+    const maxX = Math.max(H.x, D.x) + halfWidthMiles;
+    const minY = Math.min(H.y, D.y) - halfWidthMiles;
+    const maxY = Math.max(H.y, D.y) + halfWidthMiles;
+
+    if (P.x < minX || P.x > maxX || P.y < minY || P.y > maxY) return false;
+
+    const d = pointToSegmentDistanceMiles(P, H, D);
+    return d <= halfWidthMiles;
+}
+
 function upsertHomeDirective(raw, newHomeLabel) {
     const home = String(newHomeLabel ?? "").replace(/"/g, "").trim();
     if (!home) return String(raw ?? "");
@@ -1570,15 +1640,35 @@ function renderTable() {
 </div>
     
     <div class="ad-line3">
-    <span class="ad-distance">${distanceText}</span>
-    ${location ? `<span class="meta-dot">·</span>` : ""}
-${location
+      <span class="ad-distance">${distanceText}</span>
+
+      ${location ? `<span class="meta-dot">·</span>` : ""}
+
+      ${location
                 ? `<a href="#" class="ad-location-link"
-        data-action="set-home"
-        data-home="${escapeAttr(location)}"
-        title="Set home to: ${escapeAttr(location)}">${escapeHtml(location)}</a>`
+              data-action="set-home"
+              data-home="${escapeAttr(location)}"
+              title="Set home to: ${escapeAttr(location)}">${escapeHtml(location)}</a>`
                 : `<span class="ad-location"></span>`}
 
+      ${(Number.isFinite(ad.lat) && Number.isFinite(ad.lon))
+                ? `
+          <span class="meta-dot">·</span>
+          <button class="card-route-btn"
+                  type="button"
+                  data-action="route"
+                  data-ad-id="${escapeAttr(adID)}"
+                  data-lat="${escapeAttr(String(ad.lat))}"
+                  data-lon="${escapeAttr(String(ad.lon))}"
+                  title="Show ads along route (home → this ad)"
+                  aria-label="Show ads along route (home → this ad)">
+            <svg viewBox="0 0 24 24" class="card-route-svg" focusable="false" aria-hidden="true">
+              <path d="M4 6h9a3 3 0 0 1 0 6H8a3 3 0 0 0 0 6h12"></path>
+              <path d="M19 16l3 2-3 2"></path>
+            </svg>
+          </button>
+        `
+                : ""}
     </div>
 
     ${fromHomeHtml}
@@ -2054,7 +2144,7 @@ function parseCapOverridesFromSearch(rawInput) {
         sortOverride: null,
         overrideActive: null,      // null = not specified, true/false = specified
         homeOverrideRaw: null,     // raw string from h:"..."
-
+        routeActive: null, // null = not specified, true/false when specified
     };
 
     let s = out.cleanedRaw;
@@ -2156,6 +2246,14 @@ function parseCapOverridesFromSearch(rawInput) {
     s = s.replace(/(^|\s)(h)\s*:\s*("([^"]+)")/gi, (full, lead, _k, quoted, inner) => {
         const v = String(inner || "").trim();
         if (v) out.homeOverrideRaw = v;
+        return lead;
+    });
+
+    // 7) route directive: r:on / route:true / r:off
+    s = s.replace(/(^|\s)(route|r)\s*:\s*(on|true|1|off|false|0)\b/gi, (full, lead, _k, valRaw) => {
+        const v = String(valRaw || "").trim().toLowerCase();
+        if (v === "on" || v === "true" || v === "1") out.routeActive = true;
+        if (v === "off" || v === "false" || v === "0") out.routeActive = false;
         return lead;
     });
 
@@ -2435,6 +2533,12 @@ function applyFilter() {
         }
     }
 
+    const routeActive = (overrides.routeActive === true);
+
+    if (routeActive && !routeTarget) {
+        showToast('Route is ON — click a card’s route icon to choose destination', 5000);
+    }
+
     filteredAds = allAds.filter((ad) => {
         // - showHidden (settings) shows all hidden regardless of search
         // - includeHiddenInSearch (new toggle) allows hidden to participate in search+filters
@@ -2462,6 +2566,25 @@ function applyFilter() {
             const p = normalizePrice(ad.price);
             if (!Number.isFinite(p)) return false;
             if (p > effectivePriceCap) return false;
+        }
+
+        // route corridor filter (applied after normal filters/caps)
+        if (routeActive) {
+            if (!routeTarget || !Number.isFinite(routeTarget.lat) || !Number.isFinite(routeTarget.lon)) {
+                // route requested but no target picked yet: show nothing (forces user to pick)
+                return false;
+            }
+
+            const ok = isAdInRouteCorridor(
+                ad,
+                effectiveHomeLat,
+                effectiveHomeLon,
+                routeTarget.lat,
+                routeTarget.lon,
+                ROUTE_CORRIDOR_HALF_WIDTH_MILES
+            );
+
+            if (!ok) return false;
         }
 
         return true;
@@ -3088,6 +3211,45 @@ tbody.addEventListener("click", (e) => {
         e.preventDefault();
         e.stopPropagation();
         openPriceGuideSearch(btn.dataset.query || "");
+        return;
+    }
+
+    // Card route button (sets corridor target + enables route mode)
+    if (action === "route") {
+        e.preventDefault();
+        e.stopPropagation();
+
+        const lat = Number(btn.dataset.lat);
+        const lon = Number(btn.dataset.lon);
+        const adID = String(btn.dataset.adId || "");
+
+        if (!Number.isFinite(lat) || !Number.isFinite(lon)) return;
+
+        // Toggle behavior: clicking same target again turns route off
+        const same =
+            routeTarget &&
+            routeTarget.adID === adID &&
+            routeTarget.lat === lat &&
+            routeTarget.lon === lon;
+
+        if (same) {
+            routeTarget = null;
+            searchInput.value = upsertRouteDirective(searchInput.value, false);
+            autosizeSearchBox();
+            applyFilterNextFrame();
+            showToast("Route OFF");
+            return;
+        }
+
+        // Set route target and turn on
+        routeTarget = { lat, lon, adID, label: (allAds?.find(a => a?.adID === adID)?.title || adID) };
+
+        searchInput.value = upsertRouteDirective(searchInput.value, true);
+        autosizeSearchBox();
+        applyFilterNextFrame();
+
+        showToast("Route ON (50 mi corridor)");
+        searchInput.focus();
         return;
     }
 
