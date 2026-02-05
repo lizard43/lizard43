@@ -992,6 +992,16 @@ a:hover {
   color: #bbb;
 }
 
+.ad-location-link {
+  color: inherit;
+  text-decoration: none;
+}
+
+.ad-location-link:hover {
+  text-decoration: underline;
+  color: #fff;
+}
+
 .ad-line1,
 .ad-line2,
 .ad-line3,
@@ -1396,16 +1406,20 @@ body>.modal {
 }
 
 .card-priceguide-svg {
-  width: 16px;
-  height: 16px;
+  width: 13px;
+  height: 13px;
+
   fill: none;
   stroke: currentColor;
   stroke-width: 2;
+
   stroke-linecap: round;
   stroke-linejoin: round;
   opacity: 0.9;
   pointer-events: none;
-  /* click hits the button, not the svg */
+
+  /* helps baseline alignment inside the price/date line */
+  transform: translateY(1px);
 }
 
 .ad-match-reason {

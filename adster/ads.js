@@ -912,6 +912,7 @@ function setupFavoriteSearchHearts() {
         }
 
         searchInput.value = stored;
+        autosizeSearchBox();          // <-- needed for big multi-line searches
         applyFilterNextFrame();
         searchInput.focus();
     }
@@ -1046,6 +1047,24 @@ async function resolveHomeLocation() {
 }
 
 // helpers (price, distance, time, boolean search, etc.)
+
+function upsertHomeDirective(raw, newHomeLabel) {
+    const home = String(newHomeLabel ?? "").replace(/"/g, "").trim();
+    if (!home) return String(raw ?? "");
+
+    let s = String(raw ?? "");
+
+    // Remove ALL existing h:"...".
+    s = s.replace(/(^|\s)h\s*:\s*"[^"]*"/gi, " ");
+
+    s = s.replace(/\s+/g, " ").trim();
+
+    // Append at end
+    if (s) s += " ";
+    s += `h:"${home}"`;
+
+    return s;
+}
 
 function buildPriceGuideQueryFromAd(ad) {
     // Prefer a future "game" field if you ever add it.
@@ -1503,7 +1522,13 @@ function renderTable() {
     <div class="ad-line3">
     <span class="ad-distance">${distanceText}</span>
     ${location ? `<span class="meta-dot">·</span>` : ""}
-    <span class="ad-location">${escapeHtml(location)}</span>
+${location
+                ? `<a href="#" class="ad-location-link"
+        data-action="set-home"
+        data-home="${escapeAttr(location)}"
+        title="Set home to: ${escapeAttr(location)}">${escapeHtml(location)}</a>`
+                : `<span class="ad-location"></span>`}
+
     </div>
 
     ${fromHomeHtml}
@@ -2514,7 +2539,8 @@ function renderFavorites() {
             if (activeFavoriteIndex !== idx) {
                 activeFavoriteIndex = idx;
                 searchInput.value = fav;
-                applyFilter();
+                autosizeSearchBox();
+                applyFilterNextFrame(); // (or applyFilter(), but NextFrame feels nicer)
                 renderFavorites();
                 return;
             }
@@ -2982,9 +3008,27 @@ tbody.addEventListener("pointerdown", (e) => {
 
 // event delegation for action buttons
 tbody.addEventListener("click", (e) => {
+    // Click on location → set home override in search bar
+    const homeLink = e.target.closest("a.ad-location-link[data-action='set-home']");
+    if (homeLink) {
+        e.preventDefault();
+        e.stopPropagation();
+
+        const loc = homeLink.dataset.home || "";
+        if (!loc.trim()) return;
+
+        searchInput.value = upsertHomeDirective(searchInput.value, loc);
+        autosizeSearchBox();
+
+        // Lazy-load cities so h:"..." can resolve immediately
+        loadLocationsJson().then(() => applyFilterNextFrame());
+
+        searchInput.focus();
+        return;
+    }
+
     const btn = e.target.closest("button[data-action]");
     if (!btn) return;
-
     const action = btn.dataset.action;
 
     // Card priceguide button (does not require adID)
