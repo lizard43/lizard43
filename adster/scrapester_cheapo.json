@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-02-05T00:20:20.566Z",
+  "generated_at": "2026-02-05T01:07:26.268Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -12,12 +12,31 @@
     },
     "counts": {
       "exported_ads": 150,
-      "droppedPrice": 2333,
+      "droppedPrice": 2338,
       "droppedMissingGeo": 0,
-      "droppedCircle": 1083
+      "droppedCircle": 1088
     }
   },
   "ads": [
+    {
+      "adID": "2297047214112570",
+      "source": "FB",
+      "authorUrl": null,
+      "author": "Don Walden",
+      "postedTime": "2026-02-05T00:36:04.164Z",
+      "title": "Apollo Moon Shot Backglass",
+      "description": "I am selling this Apollo Moon Shot back glass from Chicago Coin. It has some flaking on the bottom but is in decent shape. $100.00 cash",
+      "price": "$100",
+      "lat": 28.1470965,
+      "lon": -82.756367,
+      "location": "TARPON SPRINGS, FL",
+      "imageUrl": "https://scontent-dfw5-3.xx.fbcdn.net/v/t39.30808-6/627834326_26131453513117834_6365726947038344888_n.jpg?stp=cp6_dst-jpegr_s590x590_tt6&_nc_cat=108&ccb=1-7&_nc_sid=aa7b47&_nc_eui2=AeEZojk1ZE6GGVsDXZ6Opt83gnipMbEzDD6CeKkxsTMMPrf0TanZDCcBw2ao9SY6v9Q&_nc_ohc=0f2rUYO3kYIQ7kNvwGU54Xq&_nc_oc=AdlTh-hIq3EcD5PA2foD7-swprTZVVuhhNsV3g9_LT4RcaP96gqAxVHJCkUTAoH-ewQ&_nc_zt=23&se=-1&_nc_ht=scontent-dfw5-3.xx&_nc_gid=bwB41xw3KbzGcn6UlQu0Dg&oh=00_AfsuPmxncplYdBg2BB7_JgSyKJEQZtSKFb-8XtbZ5kU5_g&oe=6989BB98",
+      "adUrl": "https://www.facebook.com/commerce/listing/2297047214112570/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-02-05 01:02:04"
+    },
     {
       "adID": "1449841612982529",
       "source": "MP",
@@ -74,25 +93,6 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-04 20:04:54"
-    },
-    {
-      "adID": "1599688374815735",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/61582014277781/?product_id=1599688374815735",
-      "author": "Mileo Messer",
-      "postedTime": "2026-02-03T03:25:39.000Z",
-      "title": "Ezgo robins 29c",
-      "description": "A Eh29c PRE-MCI 295cc engine Cylinders bored oversize with matching piston/rings. Block decked, cylinder head resurfaced, valve seats cut, new valves, crank polished/measured, connecting rods replaced/oem spec oil clearance set, all bearings/seals/gaskets replaced, hot tank cleaned and reassembled with a new timing belt and HD oil pump plate. Includes intake/exh gaskets.",
-      "price": "$200",
-      "lat": 30.4380832,
-      "lon": -84.2809332,
-      "location": "Tallahassee, FL",
-      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/627171749_1907718209830975_8829071110920554139_n.jpg?stp=c0.152.261.261a_dst-jpg_p261x260_tt6&_nc_cat=110&ccb=1-7&_nc_sid=92e707&_nc_eui2=AeE5oJ8BJuKIO0DUk2zm4jhF7YPMCdQJcqXtg8wJ1AlypQSpQXJFq59J9GljnFRAJtI&_nc_ohc=ZSU9R1WHDRAQ7kNvwGBEfoB&_nc_oc=AdmBD3UwKyvhWEebrHT7eA4o-BjzSFewWTJ1LfdPguWpgJKJKmXvl6Oi_mmU_37f-H4&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=F0cE6MGb4MYnW8Gz_4VW0A&oh=00_AftScZJkLk7Qm95D3kklXm6Wfsp3sYvDazivGtbKlTfv0A&oe=698976F2",
-      "adUrl": "https://www.facebook.com/marketplace/item/1599688374815735/",
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-02-04 19:06:30"
     },
     {
       "adID": "854498054080808",
@@ -289,7 +289,7 @@
       "source": "PS",
       "authorUrl": "https://pinside.com/pinball/community/pinsiders/jamwin/market",
       "author": "Jamwin",
-      "postedTime": "2026-02-03T00:07:28.563Z",
+      "postedTime": "2026-02-03T01:07:10.721Z",
       "title": "Godzilla Art of Pinball Sculpted MechaGZ Shield & UFO Bumper",
       "description": "New (selling one, non-business) - “Lior Art of Pinball Godzilla Sculpted Mechagodzilla Shield and Sculpted UFO Bumper mod. Never installed, still in original packaging. Have to purchase both together. Will ship. Ph...”",
       "price": "$215",
