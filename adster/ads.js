@@ -1,6 +1,10 @@
 const API_BASE_URL = "";
 let ADS_JSON_URL = "scrapester.json";
 
+// --- Last search (for mobile pull-to-refresh / accidental reload) ---
+const LS_LAST_SEARCH = "adster.search.last";
+const LS_LAST_SEARCH_AT = "adster.search.lastAt"; // epoch ms (optional)
+
 function resolveAdsJsonUrlFromQuery() {
     const sp = new URLSearchParams(window.location.search);
 
@@ -175,6 +179,36 @@ function favSearchKey(slot) {
     if (slot === 2) return LS_FAV_SEARCH_2;
     if (slot === 3) return LS_FAV_SEARCH_3;
     if (slot === 4) return LS_FAV_SEARCH_4;
+}
+
+function saveLastSearchToStorage() {
+    try {
+        const s = String(searchInput?.value ?? "");
+        localStorage.setItem(LS_LAST_SEARCH, s);
+        localStorage.setItem(LS_LAST_SEARCH_AT, String(Date.now()));
+    } catch { }
+}
+
+function restoreLastSearchFromStorageIfNoUrlParams() {
+    try {
+        const u = new URL(window.location.href);
+        const sp = u.searchParams;
+
+        // If URL explicitly controls state, do NOT restore.
+        if (sp.has("s") || sp.has("cheapo") || sp.has("json")) return false;
+
+        // Only restore if current box is empty and we have something saved.
+        if (searchInput && String(searchInput.value || "").trim()) return false;
+
+        const saved = String(localStorage.getItem(LS_LAST_SEARCH) || "");
+        if (!saved.trim()) return false;
+
+        searchInput.value = saved;
+        autosizeSearchBox();
+        return true;
+    } catch {
+        return false;
+    }
 }
 
 function loadFavSearch(slot) {
@@ -408,6 +442,15 @@ function ensurePriceMenu() {
 
     return menu;
 }
+
+// Save search state on navigations/reloads (mobile pull-to-refresh, etc.)
+window.addEventListener("pagehide", saveLastSearchToStorage, { capture: true });
+window.addEventListener("beforeunload", saveLastSearchToStorage, { capture: true });
+
+// Extra safety: if the tab is backgrounded (some mobile browsers skip beforeunload)
+document.addEventListener("visibilitychange", () => {
+    if (document.hidden) saveLastSearchToStorage();
+});
 
 function openPriceMenu() {
     if (!btnPrice) return;
@@ -3225,10 +3268,12 @@ function applySearchFromUrlOnce() {
 
     ADS_JSON_URL = resolveAdsJsonUrlFromQuery();
 
-    applySearchFromUrlOnce();
+    const appliedFromUrl = applySearchFromUrlOnce();
+    if (!appliedFromUrl) {
+        restoreLastSearchFromStorageIfNoUrlParams();
+    }
 
     await loadAds();
 
     autosizeSearchBox();
-
 })();
