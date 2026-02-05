@@ -1047,6 +1047,39 @@ async function resolveHomeLocation() {
 
 // helpers (price, distance, time, boolean search, etc.)
 
+function buildPriceGuideQueryFromAd(ad) {
+    // Prefer a future "game" field if you ever add it.
+    const raw = String(ad?.game || ad?.title || "").trim();
+    if (!raw) return "";
+
+    let s = raw;
+
+    // Strip obvious noise that hurts the priceguide search
+    s = s.replace(/\$[\d,]+(\.\d+)?/g, " ");         // prices like $6,000
+    s = s.replace(/\bobo\b/gi, " ");
+    s = s.replace(/\bfor\s+sale\b/gi, " ");
+    s = s.replace(/\bfs\b/gi, " ");
+    s = s.replace(/\bwanted\b/gi, " ");
+    s = s.replace(/\bwtt\b/gi, " ");
+    s = s.replace(/\btrade\b/gi, " ");
+    s = s.replace(/\blot\b/gi, " ");
+    s = s.replace(/\bbundle\b/gi, " ");
+    s = s.replace(/[^\w\s-]/g, " ");                 // drop weird punctuation
+    s = s.replace(/\s+/g, " ").trim();
+
+    // Keep it reasonable
+    if (s.length > 80) s = s.slice(0, 80).trim();
+
+    return s;
+}
+
+function openPriceGuideSearch(searchText) {
+    const q = String(searchText || "").trim();
+    const base = new URL("../priceguide/", window.location.href);
+    if (q) base.searchParams.set("s", q); // handles encoding
+    window.open(base.toString(), "_blank", "noopener,noreferrer");
+}
+
 function normalizePrice(price) {
     if (!price) return NaN;
 
@@ -1439,11 +1472,33 @@ function renderTable() {
   <div class="ad-card-body">
     <div class="ad-line1">${titleHtml}</div>
 
-    <div class="ad-line2">
-    <span class="ad-price ${ad.priceChanged ? "price-changed" : ""}">${escapeHtml(price)}</span>
-    ${ad.postedTime ? `<span class="meta-dot">·</span>` : ""}
-    ${dateTimeHtml}
-    </div>
+<div class="ad-line2">
+  <span class="ad-price ${ad.priceChanged ? "price-changed" : ""}">${escapeHtml(price)}</span>
+
+  ${(() => {
+                const src = String(source || "").trim().toUpperCase();
+                if (src === "PS") return ""; // Pin Sides: no priceguide
+                const q = buildPriceGuideQueryFromAd(ad);
+                if (!q) return "";
+                return `
+        <span class="meta-dot">·</span>
+        <button class="card-priceguide-btn"
+                type="button"
+                data-action="priceguide"
+                data-query="${escapeAttr(q)}"
+                title="Open Price Guide search"
+                aria-label="Open Price Guide search">
+          <svg viewBox="0 0 24 24" class="card-priceguide-svg" focusable="false" aria-hidden="true">
+            <path d="M12 1v22"></path>
+            <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+          </svg>
+        </button>
+      `;
+            })()}
+
+  ${ad.postedTime ? `<span class="meta-dot">·</span>` : ""}
+  ${dateTimeHtml}
+</div>
     
     <div class="ad-line3">
     <span class="ad-distance">${distanceText}</span>
@@ -2931,6 +2986,15 @@ tbody.addEventListener("click", (e) => {
     if (!btn) return;
 
     const action = btn.dataset.action;
+
+    // Card priceguide button (does not require adID)
+    if (action === "priceguide") {
+        e.preventDefault();
+        e.stopPropagation();
+        openPriceGuideSearch(btn.dataset.query || "");
+        return;
+    }
+
     const adID = btn.dataset.adId;
     if (!adID) return;
 
