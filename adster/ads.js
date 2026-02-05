@@ -1065,6 +1065,8 @@ function upsertHomeDirective(raw, newHomeLabel) {
     if (s) s += " ";
     s += `h:"${home}"`;
 
+    s += `d:75`;
+
     return s;
 }
 
@@ -1086,6 +1088,10 @@ function buildPriceGuideQueryFromAd(ad) {
     s = s.replace(/\blot\b/gi, " ");
     s = s.replace(/\bbundle\b/gi, " ");
     s = s.replace(/[^\w\s-]/g, " ");                 // drop weird punctuation
+
+    // Remove low-signal words for priceguide searches
+    s = s.replace(/\b(for\s+sale|pending|arcade|game)\b/gi, " ");
+
     s = s.replace(/\s+/g, " ").trim();
 
     // Keep it reasonable
