@@ -2144,7 +2144,7 @@ function parseCapOverridesFromSearch(rawInput) {
     // 5) override directives (override:true / override:false)
     // - true values: true, 1, yes, on
     // - false values: false, 0, no, off
-    s = s.replace(/(^|\s)(override)\s*:\s*(true|1|yes|on|false|0|no|off)\b/gi, (full, lead, _k, valRaw) => {
+    s = s.replace(/(^|\s)(override|o)\s*:\s*(true|1|yes|on|false|0|no|off)\b/gi, (full, lead, _k, valRaw) => {
         const v = String(valRaw || "").trim().toLowerCase();
         if (v === "true" || v === "1" || v === "yes" || v === "on") out.overrideActive = true;
         if (v === "false" || v === "0" || v === "no" || v === "off") out.overrideActive = false;
@@ -3017,7 +3017,7 @@ btnPriceGuide?.addEventListener("click", (e) => {
 
 btnShare?.addEventListener("click", async () => {
     try {
-        const url = buildShareSearchUrl(searchInput.value) + " override:true";
+        const url = buildShareSearchUrl(searchInput.value) + " o:on";
 
         // Prefer native share sheet if available
         if (navigator.share) {
