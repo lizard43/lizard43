@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-02-06T17:07:24.856Z",
+  "generated_at": "2026-02-06T18:08:29.548Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,51 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 145,
-      "droppedPrice": 2387,
+      "exported_ads": 147,
+      "droppedPrice": 2393,
       "droppedMissingGeo": 0,
-      "droppedCircle": 1095
+      "droppedCircle": 1101
     }
   },
   "ads": [
+    {
+      "adID": "1307232681180573",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/1013088364/?product_id=1307232681180573",
+      "author": "Jared Bannister",
+      "postedTime": "2026-02-06T17:55:31.000Z",
+      "title": "Pinball game",
+      "description": "MLB pinball tabletop game",
+      "price": "$50",
+      "lat": 34.257038,
+      "lon": -85.1646726,
+      "location": "Rome, GA",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/626718056_2143454663148624_7302282357601062937_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=105&ccb=1-7&_nc_sid=92e707&_nc_ohc=QzvmRolDi7kQ7kNvwGo9fmU&_nc_oc=AdmYJ8u8PqhuImfBus0dmOmYVXSvOEogzCPsrUAeTv5ISaGYMu7c9Nm5hDZuaYhcVvU&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=ym26nLsKueQCSVMtm9KTag&oh=00_AfvReZMRNSSMaTpQZ2xOvd3rBrnS82FYRpAa7wweaxr5lw&oe=698C071D",
+      "adUrl": "https://www.facebook.com/marketplace/item/1307232681180573/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-02-06 18:07:11"
+    },
+    {
+      "adID": "1587182572497947",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100012520119116/?product_id=1587182572497947",
+      "author": "Will Davis",
+      "postedTime": "2026-02-06T17:14:30.000Z",
+      "title": "Miyoo a30",
+      "description": "Great shape over 1000 games Super Nintendo Sega PlayStation Atari Arcade PSP Pc So many games very good deal",
+      "price": "$60",
+      "lat": 30.3321838,
+      "lon": -81.655651,
+      "location": "Jacksonville, FL",
+      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/629222782_1186326076995201_6006543207241863588_n.jpg?stp=c0.43.261.261a_dst-jpg_p261x260_tt6&_nc_cat=100&ccb=1-7&_nc_sid=92e707&_nc_ohc=3sm0SfSyPhsQ7kNvwGMEAZ1&_nc_oc=AdmgwPN8BIJ6QdhXZzcRUNu8x7QRfDS1OVK93-A3S_WXH_DF2yBEq72TxqJ42R-V70I&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=BrikFfdmu4D0eNET_mVHyg&oh=00_AfuArRMnwlBzOo336dtxAHGJBYRsUuwCPHxFsXFGdfQhJw&oe=698C0437",
+      "adUrl": "https://www.facebook.com/marketplace/item/1587182572497947/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-02-06 18:04:49"
+    },
     {
       "adID": "872870595101654",
       "source": "MP",
@@ -156,7 +194,7 @@
       "source": "PS",
       "authorUrl": "https://pinside.com/pinball/community/pinsiders/veith/market",
       "author": "Veith",
-      "postedTime": "2026-02-05T15:07:04.435Z",
+      "postedTime": "2026-02-05T15:08:04.423Z",
       "title": "Strato-Flite",
       "description": "Used - shows wear, needs some work - “Selling for a neighbor. Game in good shape overall. Playfield needs a new rubbers and a cleaning. Everything works as it should. Backglass real nice. Cabinet has some child \"artwo...”",
       "price": "$775",
