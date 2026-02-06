@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-02-06T01:06:42.108Z",
+  "generated_at": "2026-02-06T02:10:01.535Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,51 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 143,
-      "droppedPrice": 2360,
+      "exported_ads": 145,
+      "droppedPrice": 2373,
       "droppedMissingGeo": 0,
-      "droppedCircle": 1094
+      "droppedCircle": 1098
     }
   },
   "ads": [
+    {
+      "adID": "829559626809212",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100059085745600/?product_id=829559626809212",
+      "author": "Teresa McMahon",
+      "postedTime": "2026-02-06T00:49:52.000Z",
+      "title": "2000 S 10",
+      "description": "2000 S 10 black single cab two wheel drive 5 speed transmission 2.2 4 cylinder failed head gasket not ran to extreme temperature",
+      "price": "$500",
+      "lat": 29.6067589,
+      "lon": -81.5846959,
+      "location": "San Mateo, FL",
+      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/628216723_3411433762338190_5788136202359202231_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=106&ccb=1-7&_nc_sid=92e707&_nc_ohc=BIC2R0ZAKPgQ7kNvwH_HMp6&_nc_oc=AdnrTzitHxYa2mk1N1PT_2KrQf1k8Typ4xg-q_k7mGJVWScNj0exbUgwLbcqIM73B_E&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=JrHbsZkhFWAH5sFKmSH3Ew&oh=00_AfuwDGHm-6WP0X2Z_xUpD9e1qFbnI6_GCGxY13w8KFVqiQ&oe=698B2E7A",
+      "adUrl": "https://www.facebook.com/marketplace/item/829559626809212/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-02-06 02:04:41"
+    },
+    {
+      "adID": "880842541605869",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100007009505854/?product_id=880842541605869",
+      "author": "Mike Rodrigues",
+      "postedTime": "2026-02-05T15:52:26.000Z",
+      "title": "Kobe Rookie card graded",
+      "description": "Kobe rookie graded 8 PSA",
+      "price": "$80",
+      "lat": 30.421309,
+      "lon": -87.2169149,
+      "location": "Pensacola, FL",
+      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/629459089_780556474452383_4083909980265501893_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=104&ccb=1-7&_nc_sid=92e707&_nc_ohc=6qzbn5XQWAYQ7kNvwGqxKS6&_nc_oc=AdkuY2F2TuhxeM7VpR3rgDZSCLGsAZeYWUAwmmuOhpFy36HOhjlEl5tHL845XArF7zY&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=bHUikb2A7G3ubBDoq11OwA&oh=00_AfsRZ-iFPt32_H6W8QItO3s_51BnnsfediI04O8B3KW8RQ&oe=698B0876",
+      "adUrl": "https://www.facebook.com/marketplace/item/880842541605869/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-02-06 02:04:38"
+    },
     {
       "adID": "1886002225617236",
       "source": "MP",
@@ -61,7 +99,7 @@
       "source": "PS",
       "authorUrl": "https://pinside.com/pinball/community/pinsiders/veith/market",
       "author": "Veith",
-      "postedTime": "2026-02-05T15:06:21.559Z",
+      "postedTime": "2026-02-05T15:09:42.429Z",
       "title": "Strato-Flite",
       "description": "Used - shows wear, needs some work - “Selling for a neighbor. Game in good shape overall. Playfield needs a new rubbers and a cleaning. Everything works as it should. Backglass real nice. Cabinet has some child \"artwo...”",
       "price": "$775",
