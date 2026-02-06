@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-02-06T13:21:06.629Z",
+  "generated_at": "2026-02-06T14:07:25.338Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,32 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 139,
-      "droppedPrice": 2376,
+      "exported_ads": 140,
+      "droppedPrice": 2382,
       "droppedMissingGeo": 0,
-      "droppedCircle": 1086
+      "droppedCircle": 1089
     }
   },
   "ads": [
+    {
+      "adID": "1423489639183997",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100027725294536/?product_id=1423489639183997",
+      "author": "Manuel Vasquez",
+      "postedTime": "2026-02-05T16:07:50.000Z",
+      "title": "Römertopf Clay Roaster (R4S2)",
+      "description": "Used but in good condition. Measurements are located in pictures. Pickup in Freeport FL.",
+      "price": "$20",
+      "lat": 30.4982516,
+      "lon": -86.1360517,
+      "location": "Freeport, FL",
+      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/629402938_830325876698270_3316456489810816390_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=101&ccb=1-7&_nc_sid=92e707&_nc_ohc=9QuvHQFxKmQQ7kNvwGDIUV2&_nc_oc=AdksEPplN4EsXM_IdfVBHpRKNPtewWaNGjpYfmKmlMArTcwoww5xp0zQV1dh_ZOY6jE&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=G8Q4GHyXDu6QlSjkSNdClQ&oh=00_AfsrV5Pg4dDnQ18CrVx0_U8lZbwW9IGZ_WEE9oLoOVg3Xg&oe=698BB740",
+      "adUrl": "https://www.facebook.com/marketplace/item/1423489639183997/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-02-06 14:06:31"
+    },
     {
       "adID": "826666276666100",
       "source": "MP",
@@ -61,7 +80,7 @@
       "source": "PS",
       "authorUrl": "https://pinside.com/pinball/community/pinsiders/veith/market",
       "author": "Veith",
-      "postedTime": "2026-02-05T15:08:07.857Z",
+      "postedTime": "2026-02-05T15:07:04.463Z",
       "title": "Strato-Flite",
       "description": "Used - shows wear, needs some work - “Selling for a neighbor. Game in good shape overall. Playfield needs a new rubbers and a cleaning. Everything works as it should. Backglass real nice. Cabinet has some child \"artwo...”",
       "price": "$775",
