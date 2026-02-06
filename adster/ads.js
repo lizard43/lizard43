@@ -14,6 +14,10 @@ const PRICEGUIDE_TAB_NAME = "adster_priceguide";
 const ROUTE_CORRIDOR_HALF_WIDTH_MILES = 50; // hardcode for now (50 each side)
 let routeTarget = null; // { lat, lon, adID, label }
 
+// Route state derived from the *current search* (to:"...")
+let routeActive = false; // to:"..." present
+let routeReady = false;  // we have home + dest coords resolved
+
 function resolveAdsJsonUrlFromQuery() {
     const sp = new URLSearchParams(window.location.search);
 
@@ -386,6 +390,14 @@ const DEFAULT_HOME = { lat: 30.40198, lon: -86.87008 }; // Navarre, FL (change i
 let cachedLocations = null; // settings / fixed location list (locations.json)
 let cachedCities = null;    // h:"..." lookup list (cities.json)
 
+// cities.json load state (prevents multi-fetch + toast spam)
+let citiesLoading = false;
+let citiesLoadPromise = null;
+
+// rate-limit "to not found" toast
+let lastToNotFoundKey = "";
+let lastToNotFoundAt = 0;
+
 function loadDistanceCap() {
     const raw = localStorage.getItem(LS_DISTANCE_CAP);
     const n = Number(raw);
@@ -726,29 +738,41 @@ async function loadLocationsJson() {
 async function loadCitiesJson() {
     if (cachedCities && cachedCities.length) return cachedCities;
 
-    try {
-        const url = new URL("cities.json?v=1", window.location.href).toString();
-        console.log("[cities] fetching:", url);
+    // If already loading, wait for the in-flight request
+    if (citiesLoadPromise) return citiesLoadPromise;
 
-        const r = await fetch(url, { cache: "no-store" });
-        console.log("[cities] status:", r.status, r.ok);
+    citiesLoading = true;
 
-        if (!r.ok) throw new Error(`HTTP ${r.status}`);
-        const j = await r.json();
+    citiesLoadPromise = (async () => {
+        try {
+            const url = new URL("cities.json?v=1", window.location.href).toString();
+            console.log("[cities] fetching:", url);
 
-        // Support both { cities:[...] } and { locations:[...] } formats
-        cachedCities = Array.isArray(j.cities)
-            ? j.cities
-            : (Array.isArray(j.locations) ? j.locations : []);
+            const r = await fetch(url, { cache: "no-store" });
+            console.log("[cities] status:", r.status, r.ok);
 
-        console.log("[cities] loaded count:", cachedCities.length);
-    } catch (e) {
-        cachedCities = [];
-        console.error("cities.json not available:", e);
-        showToolbarMessage("Could not load cities.json", "Check Network tab", 6000);
-    }
+            if (!r.ok) throw new Error(`HTTP ${r.status}`);
+            const j = await r.json();
 
-    return cachedCities;
+            // Support both { cities:[...] } and { locations:[...] } formats
+            cachedCities = Array.isArray(j.cities)
+                ? j.cities
+                : (Array.isArray(j.locations) ? j.locations : []);
+
+            console.log("[cities] loaded count:", cachedCities.length);
+        } catch (e) {
+            cachedCities = [];
+            console.error("cities.json not available:", e);
+            showToolbarMessage("Could not load cities.json", "Check Network tab", 6000);
+        } finally {
+            citiesLoading = false;
+            citiesLoadPromise = null;
+        }
+
+        return cachedCities;
+    })();
+
+    return citiesLoadPromise;
 }
 
 function getSavedLocationById(list, id) {
@@ -1474,10 +1498,8 @@ function sortAds(list) {
             return effectiveDir === "desc" ? vb - va : va - vb;
         }
         if (field === "distance") {
-            const routeModeOn = !!(routeTarget && Number.isFinite(routeTarget.lat) && Number.isFinite(routeTarget.lon));
-
-            const da = getEffectiveDistanceMiles(a, routeModeOn);
-            const db = getEffectiveDistanceMiles(b, routeModeOn);
+            const da = getEffectiveDistanceMiles(a, routeReady);
+            const db = getEffectiveDistanceMiles(b, routeReady);
 
             if (!Number.isFinite(da) && !Number.isFinite(db)) return 0;
             if (!Number.isFinite(da)) return 1;
@@ -1573,7 +1595,7 @@ function renderTable() {
                 : `<span class="ad-author-text">${escapeHtml(author)}</span>`)
             : `<span class="ad-author-text"></span>`;
 
-        const routeModeOn = !!(routeTarget && Number.isFinite(routeTarget.lat) && Number.isFinite(routeTarget.lon));
+        const routeModeOn = !!routeReady;
 
         const offRouteMiles = Number.isFinite(ad?._routeDistanceMiles) ? ad._routeDistanceMiles : NaN;
         const fromHomeMiles = Number.isFinite(ad?._homeDistanceMiles) ? ad._homeDistanceMiles : NaN;
@@ -2334,7 +2356,7 @@ function applyFilter() {
     const overrides = parseCapOverridesFromSearch(rawInput);
 
     // --- route is ON when to:"..." exists ---
-    const routeActive = !!(overrides.toRaw && String(overrides.toRaw).trim());
+    routeActive = !!(overrides.toRaw && String(overrides.toRaw).trim());
     const toNeedle = routeActive ? String(overrides.toRaw).trim().toLowerCase() : "";
 
     // --- override:true behavior (search-only) ---
@@ -2409,11 +2431,24 @@ function applyFilter() {
         }
 
         if (!Number.isFinite(effectiveDestLat) || !Number.isFinite(effectiveDestLon)) {
-            showToast(`to:"${overrides.toRaw}" not found (need cities.json match)`, 6000);
+            // If cities are still loading, don't spam "not found"
+            if (citiesLoading) {
+                // optional: show a single gentle hint (no spam)
+                // showToolbarMessage(`Route: loading cities for to:"${overrides.toRaw}"…`, "", 2000);
+            } else if (Array.isArray(cachedCities) && cachedCities.length) {
+                // cities loaded but still not found => rate-limit toast per destination
+                const key = String(overrides.toRaw || "").trim().toLowerCase();
+                const now = Date.now();
+                if (key && (key !== lastToNotFoundKey || (now - lastToNotFoundAt) > 6000)) {
+                    lastToNotFoundKey = key;
+                    lastToNotFoundAt = now;
+                    showToast(`to:"${overrides.toRaw}" not found (need cities.json match)`, 6000);
+                }
+            }
         }
     }
 
-    const routeReady =
+    routeReady =
         routeActive &&
         Number.isFinite(effectiveHomeLat) && Number.isFinite(effectiveHomeLon) &&
         Number.isFinite(effectiveDestLat) && Number.isFinite(effectiveDestLon);
@@ -2450,7 +2485,7 @@ function applyFilter() {
         lastHomeOverrideRaw = homeRawNow;
         if (homeRawNow) {
             if (effectiveHomeLabel) showToast(`Home override: ${effectiveHomeLabel}`);
-            else showToast(`Home override ignored (not in locations.json): ${homeRawNow}`, 5000);
+            else showToast(`Home override ignored (not in cities.json): ${homeRawNow}`, 5000);
         }
     }
 
