@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-02-05T23:07:50.268Z",
+  "generated_at": "2026-02-06T00:08:09.964Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,19 +11,38 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 147,
-      "droppedPrice": 2349,
+      "exported_ads": 148,
+      "droppedPrice": 2354,
       "droppedMissingGeo": 0,
-      "droppedCircle": 1092
+      "droppedCircle": 1095
     }
   },
   "ads": [
+    {
+      "adID": "1433191165151201",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/1401602476/?product_id=1433191165151201",
+      "author": "Heather Thornberg",
+      "postedTime": "2026-01-22T14:45:19.000Z",
+      "title": "Electronic Shooter Target Game",
+      "description": "Electronic Shooter Target Game $10 Porch pickup only exit 16 off 400 by chattahoochee elem school Cash, venmo, zelle",
+      "price": "$10",
+      "lat": 34.2073196,
+      "lon": -84.1401926,
+      "location": "Cumming, GA",
+      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/619402360_878757088408791_5236441545830261398_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=104&ccb=1-7&_nc_sid=92e707&_nc_ohc=PnoMnI7_PSgQ7kNvwEsjm2Q&_nc_oc=AdmEOsZjUv3t99UOgqLOEKhesNMVtIzv4o9cVsHJbFOJjAAPxdY2f6z1xWxJlbX7c-8&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=P1Z-eGYvz5VnYZd-vbWJkw&oh=00_AfvNoEjPSN8d22upEorBKf7NN0uqd4-G6403L4FfuY-9QA&oe=698AF79F",
+      "adUrl": "https://www.facebook.com/marketplace/item/1433191165151201/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-02-06 00:05:57"
+    },
     {
       "adID": "PI-202301",
       "source": "PS",
       "authorUrl": "https://pinside.com/pinball/community/pinsiders/veith/market",
       "author": "Veith",
-      "postedTime": "2026-02-05T15:07:30.113Z",
+      "postedTime": "2026-02-05T15:07:50.544Z",
       "title": "Strato-Flite",
       "description": "Used - shows wear, needs some work - “Selling for a neighbor. Game in good shape overall. Playfield needs a new rubbers and a cleaning. Everything works as it should. Backglass real nice. Cabinet has some child \"artwo...”",
       "price": "$775",
