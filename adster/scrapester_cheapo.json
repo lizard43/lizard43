@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-02-07T20:07:54.137Z",
+  "generated_at": "2026-02-07T21:08:40.800Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,51 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 146,
-      "droppedPrice": 2433,
+      "exported_ads": 148,
+      "droppedPrice": 2438,
       "droppedMissingGeo": 0,
-      "droppedCircle": 1113
+      "droppedCircle": 1122
     }
   },
   "ads": [
+    {
+      "adID": "4349515895283411",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/61566405591624/?product_id=4349515895283411",
+      "author": "Seth Junkins",
+      "postedTime": "2026-02-07T08:55:27.000Z",
+      "title": "ToughBuilt",
+      "description": "Sat in storage since I’ve bought it",
+      "price": "$70",
+      "lat": 30.4099215,
+      "lon": -86.6630098,
+      "location": "Mary Esther, FL",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/627528294_1916224572320906_8149419631857232261_n.jpg?stp=c0.43.261.261a_dst-jpg_p261x260_tt6&_nc_cat=105&ccb=1-7&_nc_sid=92e707&_nc_ohc=5QET9787iAkQ7kNvwF64iWv&_nc_oc=AdmsbLOXmSu-5YUo8mCj4-HC8q55RKju6Q6co7Bl1__1OA0_E5uMOG1jlA7Ez8WAZjk&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=Ux6aS_remE5fkuuHJwe9mA&oh=00_Afvb-uH2aiCoehrn7MIyHcla8ONLxGPQ2U6ZH39zkVCg_w&oe=698D78A7",
+      "adUrl": "https://www.facebook.com/marketplace/item/4349515895283411/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-02-07 21:04:44"
+    },
+    {
+      "adID": "922686130440387",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/61572892580172/?product_id=922686130440387",
+      "author": "Valeriia Khubenova",
+      "postedTime": "2026-02-07T20:30:31.000Z",
+      "title": "Free. Galaga arcade machine (cabinet)",
+      "description": "We are giving away a Galaga arcade machine (Midway/Bally) for free. No motherboard (game board) Suitable for restoration, custom project, or spare parts. Used condition, shows wear and tear — everything is visible in the photos. Pickup only No help with loading provided Pick up from garage Send a private message",
+      "price": "$0",
+      "lat": 28.1300994,
+      "lon": -82.4591842,
+      "location": "Lutz, FL",
+      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/627928937_2800087680326631_4976774800277180469_n.jpg?stp=c0.101.261.261a_dst-jpg_p261x260_tt6&_nc_cat=103&ccb=1-7&_nc_sid=92e707&_nc_ohc=poCTalroMIoQ7kNvwH3Anjo&_nc_oc=AdmUjf4hrTSwf9WKIIUfLPXrrdX4APTQDwIwtOLPYCV9VjBU_qhTz82wCG273ZCaHfg&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=tlTj9dZC7Vja7SOZR1zEbQ&oh=00_AfvgDgAGdcPGQ93UUJHf0yOaSuwIHyBPmi_i6qbNZs_Y_w&oe=698D7F60",
+      "adUrl": "https://www.facebook.com/marketplace/item/922686130440387/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-02-07 21:04:43"
+    },
     {
       "adID": "1506421060616385",
       "source": "MP",
@@ -270,7 +308,7 @@
       "source": "PS",
       "authorUrl": "https://pinside.com/pinball/community/pinsiders/veith/market",
       "author": "Veith",
-      "postedTime": "2026-02-05T20:07:37.670Z",
+      "postedTime": "2026-02-05T21:08:24.264Z",
       "title": "Strato-Flite",
       "description": "Used - shows wear, needs some work - “Selling for a neighbor. Game in good shape overall. Playfield needs a new rubbers and a cleaning. Everything works as it should. Backglass real nice. Cabinet has some child \"artwo...”",
       "price": "$775",
