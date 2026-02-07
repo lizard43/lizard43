@@ -11,7 +11,8 @@ const LS_HOME_LON = "adster.location.homeLon";
 const PRICEGUIDE_TAB_NAME = "adster_priceguide";
 
 // --- Route corridor (home -> selected ad) ---
-const ROUTE_CORRIDOR_HALF_WIDTH_MILES = 50; // hardcode for now (50 each side)
+const LS_ROUTE_CORRIDOR_MILES = "adster.route.corridorMiles"; // miles off-route (each side)
+const ROUTE_CORRIDOR_DEFAULT_MILES = 50; // default off-route miles each side
 let routeTarget = null; // { lat, lon, adID, label }
 
 // Route state derived from the *current search* (to:"...")
@@ -222,6 +223,20 @@ function restoreLastSearchFromStorageIfNoUrlParams() {
     } catch {
         return false;
     }
+}
+
+function loadRouteCorridorMiles() {
+    const raw = localStorage.getItem(LS_ROUTE_CORRIDOR_MILES);
+    const n = Number(raw);
+    if (Number.isFinite(n) && n > 0) return n;
+    return ROUTE_CORRIDOR_DEFAULT_MILES;
+}
+
+function saveRouteCorridorMiles(n) {
+    const v = Number(n);
+    if (!Number.isFinite(v) || v <= 0) return false;
+    localStorage.setItem(LS_ROUTE_CORRIDOR_MILES, String(v));
+    return true;
 }
 
 function loadStoredHomeLatLon() {
@@ -2352,6 +2367,8 @@ function applyFilter() {
     const rawInput = searchInput.value;   // keep exact user input
     const quickFilterMs = getDateFilterMs();
 
+    const routeCorridorMiles = loadRouteCorridorMiles(); // fresh each filter pass
+
     // Pull out temporary cap overrides from the search text
     const overrides = parseCapOverridesFromSearch(rawInput);
 
@@ -2718,16 +2735,20 @@ function applyFilter() {
         if (routeActive) {
             if (!routeReady) return false;
 
-            const ok = isAdInRouteCorridor(
+            const inCorridor = isAdInRouteCorridor(
                 ad,
                 effectiveHomeLat,
                 effectiveHomeLon,
                 effectiveDestLat,
                 effectiveDestLon,
-                ROUTE_CORRIDOR_HALF_WIDTH_MILES
+                routeCorridorMiles
             );
 
-            if (!ok) return false;
+            const inDestRadius =
+                Number.isFinite(ad.lat) && Number.isFinite(ad.lon) &&
+                (haversineMilesJS(effectiveDestLat, effectiveDestLon, ad.lat, ad.lon) <= routeCorridorMiles);
+
+            if (!inCorridor && !inDestRadius) return false;
         }
 
         return true;
@@ -3001,6 +3022,8 @@ async function setupSettingsModal() {
     const latInput = document.getElementById("locLat");
     const lonInput = document.getElementById("locLon");
 
+    const routeCorridorInput = document.getElementById("routeCorridorMiles");
+
     const clearHiddenBtn = document.getElementById("clearHiddenBtn");
     const clearFavoritesBtn = document.getElementById("clearFavoritesBtn");
 
@@ -3115,6 +3138,10 @@ async function setupSettingsModal() {
         latInput.value = s.userLat || "";
         lonInput.value = s.userLon || "";
 
+        if (routeCorridorInput) {
+            routeCorridorInput.value = String(loadRouteCorridorMiles());
+        }
+
         updateEnablement();
     }
 
@@ -3130,6 +3157,10 @@ async function setupSettingsModal() {
         };
 
         setLocSettings(s);
+
+        if (routeCorridorInput) {
+            saveRouteCorridorMiles(routeCorridorInput.value);
+        }
     }
 
     const onClearHidden = (e) => {
@@ -3401,7 +3432,7 @@ tbody.addEventListener("click", (e) => {
         autosizeSearchBox();
         applyFilterNextFrame();
 
-        showToast("Route ON (50 mi corridor)");
+        showToast(`Route ON (${loadRouteCorridorMiles()} mi off-route)`);
         searchInput.focus();
         return;
     }
