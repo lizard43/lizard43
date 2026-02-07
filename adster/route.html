@@ -16,6 +16,7 @@
   <style>
     html, body { height: 100%; margin: 0; }
     #map { height: 100%; width: 100%; }
+
     .topbar {
       position: absolute;
       top: 10px;
@@ -40,13 +41,37 @@
       cursor: pointer;
     }
     .topbar button:active { transform: translateY(1px); }
+
+    /* tiny legend pill */
+    .legend {
+      position: absolute;
+      bottom: 10px;
+      left: 10px;
+      z-index: 1000;
+      background: rgba(255,255,255,0.92);
+      border-radius: 12px;
+      padding: 8px 10px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+      font: 13px/1.2 system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+    }
+    .legend-row { display:flex; gap:8px; align-items:center; margin: 2px 0; }
+    .swatch { width: 14px; height: 14px; border-radius: 50%; border: 2px solid #2b73ff; background: rgba(43,115,255,0.35); }
+    .swatch-line { width: 18px; height: 0; border-top: 3px solid #2b73ff; border-radius: 2px; }
+    .swatch-band { width: 18px; height: 10px; border: 2px solid rgba(43,115,255,0.45); background: rgba(43,115,255,0.08); border-radius: 3px; }
   </style>
 </head>
 <body>
   <div id="map"></div>
+
   <div class="topbar">
     <button id="btnReload">Reload payload</button>
     <div class="meta" id="meta">No payload loaded</div>
+  </div>
+
+  <div class="legend" aria-hidden="true">
+    <div class="legend-row"><span class="swatch-line"></span><span>route line</span></div>
+    <div class="legend-row"><span class="swatch-band"></span><span>corridor band</span></div>
+    <div class="legend-row"><span class="swatch"></span><span>ads</span></div>
   </div>
 
   <script>
@@ -58,8 +83,55 @@
       }[c]));
     }
 
+    // Convert miles → meters
+    function milesToMeters(mi) {
+      const n = Number(mi);
+      if (!Number.isFinite(n) || n <= 0) return 0;
+      return n * 1609.344;
+    }
+
+    // Approx meters-per-degree conversion at a given latitude.
+    // Good enough for ~0–500 mile drawings (corridor visualization).
+    function metersPerDegLat() { return 111320; }
+    function metersPerDegLon(latDeg) {
+      return 111320 * Math.cos((latDeg * Math.PI) / 180);
+    }
+
+    function buildCorridorPolygon(home, dest, halfWidthMiles) {
+      const wMeters = milesToMeters(halfWidthMiles);
+      if (!wMeters) return null;
+
+      const lat0 = (home.lat + dest.lat) / 2;
+
+      const mx = metersPerDegLon(lat0);
+      const my = metersPerDegLat();
+
+      // vector H->D in meters-space
+      const dx = (dest.lon - home.lon) * mx;
+      const dy = (dest.lat - home.lat) * my;
+
+      const len = Math.hypot(dx, dy);
+      if (!Number.isFinite(len) || len < 1) return null;
+
+      // unit perpendicular (to the left)
+      const px = -dy / len;
+      const py =  dx / len;
+
+      // offset in degrees
+      const dLon = (px * wMeters) / mx;
+      const dLat = (py * wMeters) / my;
+
+      // 4 corners (a band around the segment)
+      const h1 = [home.lat + dLat, home.lon + dLon];
+      const h2 = [home.lat - dLat, home.lon - dLon];
+      const d2 = [dest.lat - dLat, dest.lon - dLon];
+      const d1 = [dest.lat + dLat, dest.lon + dLon];
+
+      return [h1, d1, d2, h2];
+    }
+
     const map = L.map("map", { zoomControl: true });
-    const tiles = L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+    L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
       maxZoom: 19,
       attribution: "&copy; OpenStreetMap contributors"
     }).addTo(map);
@@ -88,8 +160,12 @@
 
       const home = payload.home;
       const dest = payload.destination;
+
+      // Corridor is "miles off-route (each side)" from Adster settings.
       const corridorMiles = Number(payload.corridorMiles || 0);
-      const radiusMeters = corridorMiles * 1609.344;
+
+      // Destination radius can be separate later; for now default it to corridorMiles.
+      const destRadiusMiles = Number(payload.destRadiusMiles ?? corridorMiles);
 
       const bounds = [];
 
@@ -102,12 +178,31 @@
         .bindPopup("<b>Destination</b><br>" + escapeHtml(dest.label || ""));
       bounds.push([dest.lat, dest.lon]);
 
-      // Simple line home->dest
-      L.polyline([[home.lat, home.lon], [dest.lat, dest.lon]], { weight: 3 }).addTo(layer);
+      // Route line
+      const routeLine = L.polyline([[home.lat, home.lon], [dest.lat, dest.lon]], { weight: 3 }).addTo(layer);
 
-      // Destination radius circle (corridor miles)
-      if (Number.isFinite(radiusMeters) && radiusMeters > 0) {
-        L.circle([dest.lat, dest.lon], { radius: radiusMeters, fillOpacity: 0.05 }).addTo(layer);
+      // Corridor band (rectangle around the route line)
+      const polyPts = buildCorridorPolygon(home, dest, corridorMiles);
+      if (polyPts) {
+        L.polygon(polyPts, {
+          weight: 2,
+          color: "#2b73ff",
+          opacity: 0.45,
+          fillOpacity: 0.08
+        }).addTo(layer);
+        for (const p of polyPts) bounds.push(p);
+      }
+
+      // Destination radius circle
+      const radiusMeters = milesToMeters(destRadiusMiles);
+      if (radiusMeters > 0) {
+        L.circle([dest.lat, dest.lon], {
+          radius: radiusMeters,
+          weight: 2,
+          color: "#2b73ff",
+          opacity: 0.45,
+          fillOpacity: 0.05
+        }).addTo(layer);
       }
 
       // Ads
@@ -119,6 +214,7 @@
         const title = escapeHtml(a.title || "");
         const price = escapeHtml(a.price || "");
         const url = a.url ? String(a.url) : "";
+
         const distBits = [];
         if (a.routeDistanceMiles != null) distBits.push("off-route: " + Number(a.routeDistanceMiles).toFixed(1) + " mi");
         if (a.fromHomeMiles != null) distBits.push("from home: " + Number(a.fromHomeMiles).toFixed(1) + " mi");
@@ -132,14 +228,19 @@
           "</div>"
         ].join("");
 
-        L.circleMarker([a.lat, a.lon], { radius: 6, weight: 2, fillOpacity: 0.25 })
-          .addTo(layer)
-          .bindPopup(popup);
+        L.circleMarker([a.lat, a.lon], {
+          radius: 6,
+          weight: 2,
+          color: "#2b73ff",
+          opacity: 0.9,
+          fillColor: "#2b73ff",
+          fillOpacity: 0.35
+        }).addTo(layer).bindPopup(popup);
       }
 
       const adCount = ads.length;
       document.getElementById("meta").textContent =
-        `Loaded ${adCount} ads • corridor ${corridorMiles || 0} mi • ${payload.generatedAtISO || ""}`;
+        `Loaded ${adCount} ads • corridor ${corridorMiles || 0} mi • dest radius ${destRadiusMiles || 0} mi • ${payload.generatedAtISO || ""}`;
 
       if (bounds.length >= 2) {
         map.fitBounds(bounds, { padding: [30, 30] });
