@@ -1194,6 +1194,18 @@ function computePerpDistanceToRouteMiles(ad, homeLat, homeLon, destLat, destLon)
     const D = projectToMiles(destLat, destLon, lat0);
     const P = projectToMiles(ad.lat, ad.lon, lat0);
 
+
+    // Exclude points "behind" home or past destination along the route direction.
+    // (Without this, points near the HOME endpoint can be counted "in corridor" even if they lie off the
+    //  segment extension behind us, because point-to-segment distance snaps to the endpoint.)
+    const vx = D.x - H.x;
+    const vy = D.y - H.y;
+    const wx = P.x - H.x;
+    const wy = P.y - H.y;
+    const segLen2 = (vx * vx + vy * vy);
+    const t = segLen2 > 0 ? ((wx * vx + wy * vy) / segLen2) : NaN;
+    if (!Number.isFinite(t) || t < 0 || t > 1) return false;
+
     return pointToSegmentDistanceMiles(P, H, D);
 }
 

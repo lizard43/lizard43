@@ -97,6 +97,46 @@
       return 111320 * Math.cos((latDeg * Math.PI) / 180);
     }
 
+    function rad(deg){ return (deg * Math.PI) / 180; }
+    function deg(radVal){ return (radVal * 180) / Math.PI; }
+
+    // Bearing from point A to B (degrees, 0=N, 90=E)
+    function bearingDeg(a, b) {
+      const lat1 = rad(a.lat), lat2 = rad(b.lat);
+      const dLon = rad(b.lon - a.lon);
+      const y = Math.sin(dLon) * Math.cos(lat2);
+      const x = Math.cos(lat1) * Math.sin(lat2) - Math.sin(lat1) * Math.cos(lat2) * Math.cos(dLon);
+      const brng = deg(Math.atan2(y, x));
+      return (brng + 360) % 360;
+    }
+
+    // Build a filled semi-circle (180° wedge) polygon.
+    // midBearingDeg points in the direction the semi-circle faces (center line).
+    function buildSemiCirclePolygon(center, radiusMeters, midBearingDeg, steps=90) {
+      if (!radiusMeters || radiusMeters <= 0) return null;
+      const start = midBearingDeg - 90;
+      const end = midBearingDeg + 90;
+
+      const pts = [];
+      pts.push([center.lat, center.lon]);
+
+      const my = metersPerDegLat();
+      const mx = metersPerDegLon(center.lat);
+
+      for (let i = 0; i <= steps; i++) {
+        const t = i / steps;
+        const b = start + (end - start) * t;
+        const ang = rad(b);
+
+        // Local approx (meters -> degrees)
+        const dLat = (Math.cos(ang) * radiusMeters) / my;
+        const dLon = (Math.sin(ang) * radiusMeters) / mx;
+
+        pts.push([center.lat + dLat, center.lon + dLon]);
+      }
+      return pts;
+    }
+
     function buildCorridorPolygon(home, dest, halfWidthMiles) {
       const wMeters = milesToMeters(halfWidthMiles);
       if (!wMeters) return null;
@@ -138,6 +178,23 @@
 
     const layer = L.layerGroup().addTo(map);
 
+    // Home marker: simple "house" SVG using a Leaflet divIcon
+    const homeIcon = L.divIcon({
+      className: "",
+      iconSize: [28, 28],
+      iconAnchor: [14, 28],
+      popupAnchor: [0, -24],
+      html: `
+        <div style="width:28px;height:28px;display:flex;align-items:flex-end;justify-content:center;">
+          <svg viewBox="0 0 64 64" width="28" height="28" aria-hidden="true">
+            <path d="M8 30 L32 10 L56 30" fill="none" stroke="#2b73ff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M16 28 V54 H48 V28" fill="rgba(43,115,255,0.18)" stroke="#2b73ff" stroke-width="6" stroke-linejoin="round"/>
+            <path d="M28 54 V38 H36 V54" fill="rgba(43,115,255,0.08)" stroke="#2b73ff" stroke-width="6" stroke-linejoin="round"/>
+          </svg>
+        </div>
+      `
+    });
+
     function loadPayload() {
       try {
         const raw = localStorage.getItem(STORAGE_KEY);
@@ -170,7 +227,7 @@
       const bounds = [];
 
       // Markers
-      const homeMarker = L.marker([home.lat, home.lon]).addTo(layer)
+      const homeMarker = L.marker([home.lat, home.lon], { icon: homeIcon }).addTo(layer)
         .bindPopup("<b>Home</b><br>" + escapeHtml(home.label || ""));
       bounds.push([home.lat, home.lon]);
 
@@ -193,16 +250,38 @@
         for (const p of polyPts) bounds.push(p);
       }
 
-      // Destination radius circle
+
+      // Home "forward" half: visualize that we exclude ads behind us.
+      const homeSemiMeters = milesToMeters(corridorMiles);
+      if (homeSemiMeters > 0) {
+        const brngHomeToDest = bearingDeg(home, dest);
+        const semiPtsHome = buildSemiCirclePolygon(home, homeSemiMeters, brngHomeToDest, 90);
+        if (semiPtsHome) {
+          L.polygon(semiPtsHome, {
+            weight: 2,
+            color: "#2b73ff",
+            opacity: 0.25,
+            fillOpacity: 0.03
+          }).addTo(layer);
+          for (const p of semiPtsHome) bounds.push(p);
+        }
+      }
+      // Destination radius: draw ONLY the "forward" half (away from home) so the route line
+      // doesn't bisect the circle inside the corridor.
       const radiusMeters = milesToMeters(destRadiusMiles);
       if (radiusMeters > 0) {
-        L.circle([dest.lat, dest.lon], {
-          radius: radiusMeters,
-          weight: 2,
-          color: "#2b73ff",
-          opacity: 0.45,
-          fillOpacity: 0.05
-        }).addTo(layer);
+        const brngDestToHome = bearingDeg(dest, home);
+        const forward = (brngDestToHome + 180) % 360; // facing away from home
+        const semiPts = buildSemiCirclePolygon(dest, radiusMeters, forward, 90);
+        if (semiPts) {
+          L.polygon(semiPts, {
+            weight: 2,
+            color: "#2b73ff",
+            opacity: 0.45,
+            fillOpacity: 0.05
+          }).addTo(layer);
+          for (const p of semiPts) bounds.push(p);
+        }
       }
 
       // Ads
@@ -221,7 +300,7 @@
 
         const popup = [
           "<div style='max-width:260px'>",
-          "<b>" + title + "</b>",
+          (url ? ("<a target=\'_blank\' rel=\'noopener noreferrer\' href=\'" + escapeHtml(url) + "\' style=\'font-weight:700;text-decoration:none\'>" + title + "</a>") : ("<b>" + title + "</b>")),
           price ? ("<div>" + price + "</div>") : "",
           distBits.length ? ("<div style='opacity:.8;margin-top:4px'>" + escapeHtml(distBits.join(" • ")) + "</div>") : "",
           url ? ("<div style='margin-top:8px'><a target='_blank' rel='noopener noreferrer' href='" + escapeHtml(url) + "'>Open ad</a></div>") : "",
