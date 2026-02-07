@@ -3370,7 +3370,7 @@ btnMap?.addEventListener("click", () => {
 
         localStorage.setItem("adster.route.mapPayload", JSON.stringify(payload));
 
-        const url = new URL("../map/", window.location.href).toString() + "?t=" + Date.now();
+        const url = new URL("./route.html/", window.location.href).toString() + "?t=" + Date.now();
         const w = window.open(url, MAP_TAB_NAME);
         try { if (w) w.opener = null; } catch { }
         try { w?.focus?.(); } catch { }
