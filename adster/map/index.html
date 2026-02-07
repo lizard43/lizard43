@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Adster Route Map</title>
+
+  <!-- Leaflet (free) -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+        crossorigin="" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+          integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+          crossorigin=""></script>
+
+  <style>
+    html, body { height: 100%; margin: 0; }
+    #map { height: 100%; width: 100%; }
+    .topbar {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      right: 10px;
+      z-index: 1000;
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      padding: 8px 10px;
+      border-radius: 12px;
+      background: rgba(255,255,255,0.92);
+      box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+      font: 14px/1.2 system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+    }
+    .topbar .meta { opacity: 0.8; }
+    .topbar button {
+      padding: 6px 10px;
+      border-radius: 10px;
+      border: 1px solid rgba(0,0,0,0.15);
+      background: white;
+      cursor: pointer;
+    }
+    .topbar button:active { transform: translateY(1px); }
+  </style>
+</head>
+<body>
+  <div id="map"></div>
+  <div class="topbar">
+    <button id="btnReload">Reload payload</button>
+    <div class="meta" id="meta">No payload loaded</div>
+  </div>
+
+  <script>
+    const STORAGE_KEY = "adster.route.mapPayload";
+
+    function escapeHtml(s) {
+      return String(s ?? "").replace(/[&<>"']/g, c => ({
+        "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"
+      }[c]));
+    }
+
+    const map = L.map("map", { zoomControl: true });
+    const tiles = L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+      maxZoom: 19,
+      attribution: "&copy; OpenStreetMap contributors"
+    }).addTo(map);
+
+    const layer = L.layerGroup().addTo(map);
+
+    function loadPayload() {
+      try {
+        const raw = localStorage.getItem(STORAGE_KEY);
+        if (!raw) return null;
+        return JSON.parse(raw);
+      } catch (e) {
+        console.warn("Failed to parse payload:", e);
+        return null;
+      }
+    }
+
+    function draw(payload) {
+      layer.clearLayers();
+
+      if (!payload || !payload.home || !payload.destination) {
+        document.getElementById("meta").textContent = "No payload found in localStorage.";
+        map.setView([39.5, -98.35], 4); // US-ish
+        return;
+      }
+
+      const home = payload.home;
+      const dest = payload.destination;
+      const corridorMiles = Number(payload.corridorMiles || 0);
+      const radiusMeters = corridorMiles * 1609.344;
+
+      const bounds = [];
+
+      // Markers
+      const homeMarker = L.marker([home.lat, home.lon]).addTo(layer)
+        .bindPopup("<b>Home</b><br>" + escapeHtml(home.label || ""));
+      bounds.push([home.lat, home.lon]);
+
+      const destMarker = L.marker([dest.lat, dest.lon]).addTo(layer)
+        .bindPopup("<b>Destination</b><br>" + escapeHtml(dest.label || ""));
+      bounds.push([dest.lat, dest.lon]);
+
+      // Simple line home->dest
+      L.polyline([[home.lat, home.lon], [dest.lat, dest.lon]], { weight: 3 }).addTo(layer);
+
+      // Destination radius circle (corridor miles)
+      if (Number.isFinite(radiusMeters) && radiusMeters > 0) {
+        L.circle([dest.lat, dest.lon], { radius: radiusMeters, fillOpacity: 0.05 }).addTo(layer);
+      }
+
+      // Ads
+      const ads = Array.isArray(payload.ads) ? payload.ads : [];
+      for (const a of ads) {
+        if (!a || !Number.isFinite(a.lat) || !Number.isFinite(a.lon)) continue;
+        bounds.push([a.lat, a.lon]);
+
+        const title = escapeHtml(a.title || "");
+        const price = escapeHtml(a.price || "");
+        const url = a.url ? String(a.url) : "";
+        const distBits = [];
+        if (a.routeDistanceMiles != null) distBits.push("off-route: " + Number(a.routeDistanceMiles).toFixed(1) + " mi");
+        if (a.fromHomeMiles != null) distBits.push("from home: " + Number(a.fromHomeMiles).toFixed(1) + " mi");
+
+        const popup = [
+          "<div style='max-width:260px'>",
+          "<b>" + title + "</b>",
+          price ? ("<div>" + price + "</div>") : "",
+          distBits.length ? ("<div style='opacity:.8;margin-top:4px'>" + escapeHtml(distBits.join(" • ")) + "</div>") : "",
+          url ? ("<div style='margin-top:8px'><a target='_blank' rel='noopener noreferrer' href='" + escapeHtml(url) + "'>Open ad</a></div>") : "",
+          "</div>"
+        ].join("");
+
+        L.circleMarker([a.lat, a.lon], { radius: 6, weight: 2, fillOpacity: 0.25 })
+          .addTo(layer)
+          .bindPopup(popup);
+      }
+
+      const adCount = ads.length;
+      document.getElementById("meta").textContent =
+        `Loaded ${adCount} ads • corridor ${corridorMiles || 0} mi • ${payload.generatedAtISO || ""}`;
+
+      if (bounds.length >= 2) {
+        map.fitBounds(bounds, { padding: [30, 30] });
+      } else {
+        map.setView([dest.lat, dest.lon], 10);
+      }
+    }
+
+    document.getElementById("btnReload").addEventListener("click", () => draw(loadPayload()));
+
+    // initial
+    draw(loadPayload());
+  </script>
+</body>
+</html>

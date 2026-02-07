@@ -1501,3 +1501,9 @@ body>.modal {
 .ad-card-footer .ad-footer-author a:hover {
   text-decoration: underline;
 }
+
+/* Toolbar disabled state */
+.favsearch-btn:disabled {
+  opacity: 0.35;
+  cursor: default;
+}

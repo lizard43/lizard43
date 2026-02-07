@@ -10,6 +10,8 @@ const LS_HOME_LON = "adster.location.homeLon";
 
 const PRICEGUIDE_TAB_NAME = "adster_priceguide";
 
+
+const MAP_TAB_NAME = "adster_map";
 // --- Route corridor (home -> selected ad) ---
 const LS_ROUTE_CORRIDOR_MILES = "adster.route.corridorMiles"; // miles off-route (each side)
 const ROUTE_CORRIDOR_DEFAULT_MILES = 50; // default off-route miles each side
@@ -18,6 +20,9 @@ let routeTarget = null; // { lat, lon, adID, label }
 // Route state derived from the *current search* (to:"...")
 let routeActive = false; // to:"..." present
 let routeReady = false;  // we have home + dest coords resolved
+
+// Cached route state for the map tab
+let lastRouteMapState = null; // { home:{lat,lon,label}, dest:{lat,lon,label}, corridorMiles:number }
 
 function resolveAdsJsonUrlFromQuery() {
     const sp = new URLSearchParams(window.location.search);
@@ -123,10 +128,20 @@ const btnPriceChanged = document.getElementById("btnPriceChanged");
 const priceChangedBadge = document.getElementById("priceChangedBadge");
 // const btnCheapo = document.getElementById("btnCheapo");
 const btnPriceGuide = document.getElementById("btnPriceGuide");
+const btnMap = document.getElementById("btnMap");
 const btnShare = document.getElementById("btnShare");
 
 const btnDistance = document.getElementById("btnDistance");
 const distanceCapLabel = document.getElementById("distanceCapLabel");
+
+function syncRouteMapButtonUI() {
+    if (!btnMap) return;
+    // Only show in route mode (to:"...")
+    btnMap.classList.toggle("hidden", !routeActive);
+    // Only clickable when route coords are ready
+    btnMap.disabled = !routeReady;
+}
+
 
 const btnPrice = document.getElementById("btnPrice");
 const priceCapLabel = document.getElementById("priceCapLabel");
@@ -2470,6 +2485,15 @@ function applyFilter() {
         Number.isFinite(effectiveHomeLat) && Number.isFinite(effectiveHomeLon) &&
         Number.isFinite(effectiveDestLat) && Number.isFinite(effectiveDestLon);
 
+    // cache route state for map tab
+    lastRouteMapState = routeReady ? {
+        home: { lat: effectiveHomeLat, lon: effectiveHomeLon, label: overrides.homeRaw ? String(overrides.homeRaw) : "home" },
+        dest: { lat: effectiveDestLat, lon: effectiveDestLon, label: overrides.toRaw ? String(overrides.toRaw) : "destination" },
+        corridorMiles: routeCorridorMiles
+    } : null;
+
+    syncRouteMapButtonUI();
+
     if (routeReady) {
         for (const ad of allAds) {
             if (!ad) continue;
@@ -3310,6 +3334,50 @@ btnPriceGuide?.addEventListener("click", (e) => {
     const w = window.open(url, PRICEGUIDE_TAB_NAME);
     try { if (w) w.opener = null; } catch { }
     try { w?.focus?.(); } catch { }
+});
+
+
+btnMap?.addEventListener("click", () => {
+    try {
+        if (!routeReady || !lastRouteMapState) {
+            showToast("Route not ready yet", 2500);
+            return;
+        }
+
+        // Only include ads that have coordinates (and are in the current filtered set)
+        const adsForMap = (filteredAds || [])
+            .filter(a => a && Number.isFinite(a.lat) && Number.isFinite(a.lon))
+            .map(a => ({
+                adID: a.adID || a.id || a.uid || null,
+                title: a.title || a.name || "",
+                price: a.price || "",
+                url: a.url || a.href || "",
+                lat: a.lat,
+                lon: a.lon,
+                // Keep any already-computed route/home distances if present
+                routeDistanceMiles: Number.isFinite(a?._routeDistanceMiles) ? a._routeDistanceMiles : null,
+                fromHomeMiles: Number.isFinite(a?._homeDistanceMiles) ? a._homeDistanceMiles : null
+            }));
+
+        const payload = {
+            version: 1,
+            generatedAtISO: new Date().toISOString(),
+            home: lastRouteMapState.home,
+            destination: lastRouteMapState.dest,
+            corridorMiles: lastRouteMapState.corridorMiles,
+            ads: adsForMap
+        };
+
+        localStorage.setItem("adster.route.mapPayload", JSON.stringify(payload));
+
+        const url = new URL("../map/", window.location.href).toString() + "?t=" + Date.now();
+        const w = window.open(url, MAP_TAB_NAME);
+        try { if (w) w.opener = null; } catch { }
+        try { w?.focus?.(); } catch { }
+    } catch (err) {
+        console.error("[map] failed:", err);
+        showToast("Map failed (see console)", 5000);
+    }
 });
 
 btnShare?.addEventListener("click", async () => {
