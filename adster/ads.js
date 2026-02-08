@@ -110,6 +110,16 @@ function applyFilterNextFrame() {
     });
 }
 
+function applySearchAndStore() {
+    autosizeSearchBox();
+
+    // Persist for pull-to-refresh reloads
+    saveLastSearchToStorage();
+
+    // Re-run filter + route logic (applyFilter recalcs routeActive/routeReady)
+    applyFilterNextFrame();
+}
+
 const searchInput = document.getElementById("searchInput");
 const tbody = document.getElementById("adsTbody");
 const favoritesWrapper = document.getElementById("favoritesWrapper");
@@ -2411,7 +2421,7 @@ function parseCapOverridesFromSearch(rawInput) {
         return lead; // remove directive, keep whitespace leader
     });
 
-    
+
     // 1b) width directives (route corridor half-width, miles). Only applied when route is active.
     s = s.replace(/(^|\s)(w|width)\s*:\s*([^\s&|()!]+)/gi, (full, lead, _k, val) => {
         const inf = parseMaybeInfinity(val);
@@ -2424,7 +2434,7 @@ function parseCapOverridesFromSearch(rawInput) {
         return lead;
     });
 
-// 2) pricecap directives
+    // 2) pricecap directives
     s = s.replace(/(^|\s)(p|price|pricecap|pcap)\s*:\s*([^\s&|()!]+)/gi, (full, lead, _k, val) => {
         const inf = parseMaybeInfinity(val);
         if (inf === Infinity) out.priceOverrideDollars = Infinity;
