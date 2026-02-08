@@ -101,19 +101,12 @@ function clearSearchBox({ focus = true } = {}) {
     if (focus) searchInput.focus();
 }
 
-let _applyFilterRafPending = false;
-
 function applyFilterNextFrame() {
-    // Coalesce: if one is already queued, don't queue another.
-    if (_applyFilterRafPending) return;
-    _applyFilterRafPending = true;
-
-    // Keep your “double rAF” behavior, but only one outstanding at a time.
+    // Let the textarea repaint *before* we rebuild the whole grid.
+    // NOTE: a single requestAnimationFrame runs before paint; doing it twice
+    // yields one paint so the UI updates immediately even if applyFilter is heavy.
     requestAnimationFrame(() => {
-        requestAnimationFrame(() => {
-            _applyFilterRafPending = false;
-            applyFilter();
-        });
+        requestAnimationFrame(() => applyFilter());
     });
 }
 
@@ -2524,6 +2517,15 @@ function parseCapOverridesFromSearch(rawInput) {
     return out;
 }
 
+// Remove any search-bar sort directive (s:da, sort:pd, etc.)
+function stripSortDirective(rawInput) {
+    let s = String(rawInput ?? "");
+    s = s.replace(/(^|\s)(s|sort)\s*:\s*(da|dd|ta|td|pa|pd)\b/gi, "$1");
+    s = s.replace(/\s+/g, " ").trim();
+    return s;
+}
+
+
 function applyFilter() {
     const rawInput = searchInput.value;   // keep exact user input
     const quickFilterMs = getDateFilterMs();
@@ -3775,6 +3777,16 @@ document.querySelectorAll(".sort-btn").forEach((btn) => {
     btn.addEventListener("click", () => {
         if (!f) return;
 
+        // Manual sort tap should override any s:.. search directive
+        if (searchInput) {
+            const cleaned = stripSortDirective(searchInput.value);
+            if (cleaned !== searchInput.value) {
+                searchInput.value = cleaned;
+                sortOverrideField = null;
+                sortOverrideDir = null;
+            }
+        }
+
         if (f === sortField) {
             sortDir = sortDir === "asc" ? "desc" : "asc";
         } else {
@@ -3788,6 +3800,16 @@ document.querySelectorAll(".sort-btn").forEach((btn) => {
 });
 
 function sortByDistanceClick() {
+    // Manual sort tap should override any s:.. search directive
+    if (searchInput) {
+        const cleaned = stripSortDirective(searchInput.value);
+        if (cleaned !== searchInput.value) {
+            searchInput.value = cleaned;
+            sortOverrideField = null;
+            sortOverrideDir = null;
+        }
+    }
+
     const f = "distance";
     if (f === sortField) {
         sortDir = sortDir === "asc" ? "desc" : "asc";
@@ -3800,6 +3822,16 @@ function sortByDistanceClick() {
 }
 
 function sortByPriceClick() {
+    // Manual sort tap should override any s:.. search directive
+    if (searchInput) {
+        const cleaned = stripSortDirective(searchInput.value);
+        if (cleaned !== searchInput.value) {
+            searchInput.value = cleaned;
+            sortOverrideField = null;
+            sortOverrideDir = null;
+        }
+    }
+
     const f = "price";
     if (f === sortField) {
         sortDir = sortDir === "asc" ? "desc" : "asc";
@@ -3897,6 +3929,16 @@ function sortByPriceClick() {
 })();
 
 function sortByTimeClick() {
+    // Manual sort tap should override any s:.. search directive
+    if (searchInput) {
+        const cleaned = stripSortDirective(searchInput.value);
+        if (cleaned !== searchInput.value) {
+            searchInput.value = cleaned;
+            sortOverrideField = null;
+            sortOverrideDir = null;
+        }
+    }
+
     const f = "postedTime";
     if (f === sortField) {
         sortDir = sortDir === "asc" ? "desc" : "asc";
