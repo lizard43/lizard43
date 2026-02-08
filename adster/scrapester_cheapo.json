@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-02-08T00:07:21.237Z",
+  "generated_at": "2026-02-08T00:11:32.945Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,10 +11,10 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 151,
+      "exported_ads": 150,
       "droppedPrice": 2440,
       "droppedMissingGeo": 0,
-      "droppedCircle": 1123
+      "droppedCircle": 1122
     }
   },
   "ads": [
@@ -188,25 +188,6 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-07 12:04:45"
-    },
-    {
-      "adID": "1941711376698837",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/100000538673344/?product_id=1941711376698837",
-      "author": "Carolyn Chucci",
-      "postedTime": "2026-02-07T01:02:41.000Z",
-      "title": "(PENDING) Mata Hari Pinball",
-      "description": "True collectible! Bally Pinball machine from 1978. Has not been used in several years. Turns on but not operational at this time. Once you get it running it has estimated value up to $1800.",
-      "price": "$300",
-      "lat": 33.8389977,
-      "lon": -83.9007382,
-      "location": "Loganville, GA",
-      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/629142625_4463798387167840_2181269121575318392_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=111&ccb=1-7&_nc_sid=92e707&_nc_ohc=F93Ao_zfsacQ7kNvwGW33FZ&_nc_oc=Adln_RUmpDbwLjWfW944CmfdnkzfmOQCNe_AGU5OESbL3_qnFThFOoHAG4H17RgZQJ4&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=GFoVdUPNdfhobFwP1wXk1w&oh=00_Afv__jhM8wRA_teG_pTB07kqRUN4GodaXOVXwqijoTzB0Q&oe=698D0ECF",
-      "adUrl": "https://www.facebook.com/marketplace/item/1941711376698837/",
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-02-07 02:05:53"
     },
     {
       "adID": "1074538484855370",
