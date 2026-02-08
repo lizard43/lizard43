@@ -101,12 +101,19 @@ function clearSearchBox({ focus = true } = {}) {
     if (focus) searchInput.focus();
 }
 
+let _applyFilterRafPending = false;
+
 function applyFilterNextFrame() {
-    // Let the textarea repaint *before* we rebuild the whole grid.
-    // NOTE: a single requestAnimationFrame runs before paint; doing it twice
-    // yields one paint so the UI updates immediately even if applyFilter is heavy.
+    // Coalesce: if one is already queued, don't queue another.
+    if (_applyFilterRafPending) return;
+    _applyFilterRafPending = true;
+
+    // Keep your “double rAF” behavior, but only one outstanding at a time.
     requestAnimationFrame(() => {
-        requestAnimationFrame(() => applyFilter());
+        requestAnimationFrame(() => {
+            _applyFilterRafPending = false;
+            applyFilter();
+        });
     });
 }
 
