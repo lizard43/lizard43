@@ -146,8 +146,8 @@ const sideTapWGroup = document.getElementById("sideTapWGroup");
 
 // Hardcoded tap step sizes (later we can move to Settings)
 const TAP_STEP_PRICE = 100;    // dollars
-const TAP_STEP_DISTANCE = 50;  // miles
-const TAP_STEP_WIDTH = 50;     // miles (route corridor half-width)
+const TAP_STEP_DISTANCE = 25;  // miles
+const TAP_STEP_WIDTH = 10;     // miles (route corridor half-width)
 
 function syncSideTapBarUI(routeActive) {
     if (!sideTapBar) return;
