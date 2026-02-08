@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-02-07T23:07:27.187Z",
+  "generated_at": "2026-02-08T00:07:21.237Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,51 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 149,
+      "exported_ads": 151,
       "droppedPrice": 2440,
       "droppedMissingGeo": 0,
-      "droppedCircle": 1127
+      "droppedCircle": 1123
     }
   },
   "ads": [
+    {
+      "adID": "1542750186781411",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/1636270429/?product_id=1542750186781411",
+      "author": "Johnny Cee",
+      "postedTime": "2026-02-07T23:44:06.000Z",
+      "title": "NFL Blitz Arcade Game",
+      "description": "NFL Blitz arcade game, 4 player capable. Game sits on stand for height. Perfect working order. Located in Seven Hills in Dallas. Must be able to move it on your own.",
+      "price": "$375",
+      "lat": 33.9237141,
+      "lon": -84.8407732,
+      "location": "Dallas, GA",
+      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/629156856_827516910308690_9125230240880365595_n.jpg?stp=c0.75.261.261a_dst-jpg_p261x260_tt6&_nc_cat=103&ccb=1-7&_nc_sid=92e707&_nc_ohc=Du-KVX49wDIQ7kNvwEMAHQR&_nc_oc=AdlwjaQj6A9GRZWNJq7NEvH5QSFk-6a1E0oCfoDH9cMErYTQZ7vwweNv6QCcD81Izzs&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=R3_gnnWUDrMudethveLt1g&oh=00_Afu1cLVjLcJ5-o30McDrvQhoqrna-z1eU6lK10xNkh4PvA&oe=698D8AEF",
+      "adUrl": "https://www.facebook.com/marketplace/item/1542750186781411/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-02-08 00:04:40"
+    },
+    {
+      "adID": "1152782193455780",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/601285700/?product_id=1152782193455780",
+      "author": "Bj Johnson",
+      "postedTime": "2026-02-07T23:02:26.000Z",
+      "title": "GALAGA arcade game three and a half feet tall",
+      "description": "In great working condition has minor signs of use pick up in Holly Springs Georgia near Holly Springs Elementary",
+      "price": "$200",
+      "lat": 34.2367621,
+      "lon": -84.4907621,
+      "location": "Canton, GA",
+      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/630613853_942222998461650_2969817761019145377_n.jpg?stp=c0.43.261.261a_dst-jpg_p261x260_tt6&_nc_cat=104&ccb=1-7&_nc_sid=92e707&_nc_ohc=7hJuFwNczTUQ7kNvwF2Mota&_nc_oc=AdmaZHxmbAbbnbAM6GljeNoYOdbl-tB3fn68YOhcar3-gQXz1TVyqSvY7dSgASAN9yE&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=DSG4a85Pl6624gVygRLmYg&oh=00_Aft-Hvjw0h_dytWpyghZknWmZdSLKLSkK-XibqMOu7WauQ&oe=698D8EA8",
+      "adUrl": "https://www.facebook.com/marketplace/item/1152782193455780/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-02-08 00:04:40"
+    },
     {
       "adID": "857988707061717",
       "source": "MP",
@@ -327,7 +365,7 @@
       "source": "PS",
       "authorUrl": "https://pinside.com/pinball/community/pinsiders/veith/market",
       "author": "Veith",
-      "postedTime": "2026-02-05T23:07:11.098Z",
+      "postedTime": "2026-02-06T00:07:05.951Z",
       "title": "Strato-Flite",
       "description": "Used - shows wear, needs some work - “Selling for a neighbor. Game in good shape overall. Playfield needs a new rubbers and a cleaning. Everything works as it should. Backglass real nice. Cabinet has some child \"artwo...”",
       "price": "$775",
