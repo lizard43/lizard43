@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
@@ -7,15 +8,21 @@
 
   <!-- Leaflet (free) -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
-        crossorigin="" />
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-          integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
-          crossorigin=""></script>
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 
   <style>
-    html, body { height: 100%; margin: 0; }
-    #map { height: 100%; width: 100%; }
+    html,
+    body {
+      height: 100%;
+      margin: 0;
+    }
+
+    #map {
+      height: 100%;
+      width: 100%;
+    }
 
     .topbar {
       position: absolute;
@@ -28,31 +35,40 @@
       align-items: center;
       padding: 8px 10px;
       border-radius: 12px;
-      background: rgba(255,255,255,0.92);
-      box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+      background: rgba(255, 255, 255, 0.92);
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
       font: 14px/1.2 system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
     }
-    .topbar .meta { opacity: 0.8; }
+
+    .topbar .meta {
+      opacity: 0.8;
+    }
+
     .topbar button {
       padding: 6px 10px;
       border-radius: 10px;
-      border: 1px solid rgba(0,0,0,0.15);
+      border: 1px solid rgba(0, 0, 0, 0.15);
       background: white;
       cursor: pointer;
     }
-    .topbar button:active { transform: translateY(1px); }
 
-    
+    .topbar button:active {
+      transform: translateY(1px);
+    }
+
+
     /* --- Adster-style mini card inside Leaflet popups --- */
     .leaflet-popup.adster-popup .leaflet-popup-content-wrapper {
-      background: rgba(0,0,0,0.92);
+      background: rgba(0, 0, 0, 0.92);
       color: #fff;
       border-radius: 14px;
-      box-shadow: 0 10px 26px rgba(0,0,0,0.35);
+      box-shadow: 0 10px 26px rgba(0, 0, 0, 0.35);
     }
+
     .leaflet-popup.adster-popup .leaflet-popup-tip {
-      background: rgba(0,0,0,0.92);
+      background: rgba(0, 0, 0, 0.92);
     }
+
     .route-card {
       display: flex;
       gap: 10px;
@@ -60,25 +76,28 @@
       min-width: 260px;
       max-width: 380px;
     }
+
     .route-thumb {
       width: 92px;
       min-width: 92px;
       height: 68px;
       border-radius: 10px;
       overflow: hidden;
-      background: rgba(255,255,255,0.08);
+      background: rgba(255, 255, 255, 0.08);
       display: flex;
       align-items: center;
       justify-content: center;
       font: 12px/1.2 system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
-      color: rgba(255,255,255,0.7);
+      color: rgba(255, 255, 255, 0.7);
     }
+
     .route-thumb img {
       width: 100%;
       height: 100%;
       object-fit: cover;
       display: block;
     }
+
     .route-body {
       display: flex;
       flex-direction: column;
@@ -86,6 +105,7 @@
       font: 13px/1.25 system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
       min-width: 0;
     }
+
     .route-title {
       color: #fff;
       font-weight: 700;
@@ -95,28 +115,73 @@
       text-overflow: ellipsis;
       max-width: 260px;
     }
-    .route-title:hover { text-decoration: underline; }
-    .route-price { font-weight: 700; }
-    .route-loc { opacity: 0.8; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 260px; }
-    .route-dist { opacity: 0.85; font-size: 12px; }
-/* tiny legend pill */
+
+    .route-title:hover {
+      text-decoration: underline;
+    }
+
+    .route-price {
+      font-weight: 700;
+    }
+
+    .route-loc {
+      opacity: 0.8;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 260px;
+    }
+
+    .route-dist {
+      opacity: 0.85;
+      font-size: 12px;
+    }
+
+    /* tiny legend pill */
     .legend {
       position: absolute;
       bottom: 10px;
       left: 10px;
       z-index: 1000;
-      background: rgba(255,255,255,0.92);
+      background: rgba(255, 255, 255, 0.92);
       border-radius: 12px;
       padding: 8px 10px;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
       font: 13px/1.2 system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
     }
-    .legend-row { display:flex; gap:8px; align-items:center; margin: 2px 0; }
-    .swatch { width: 14px; height: 14px; border-radius: 50%; border: 2px solid #2b73ff; background: rgba(43,115,255,0.35); }
-    .swatch-line { width: 18px; height: 0; border-top: 3px solid #2b73ff; border-radius: 2px; }
-    .swatch-band { width: 18px; height: 10px; border: 2px solid rgba(43,115,255,0.45); background: rgba(43,115,255,0.08); border-radius: 3px; }
+
+    .legend-row {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      margin: 2px 0;
+    }
+
+    .swatch {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      border: 2px solid #2b73ff;
+      background: rgba(43, 115, 255, 0.35);
+    }
+
+    .swatch-line {
+      width: 18px;
+      height: 0;
+      border-top: 3px solid #2b73ff;
+      border-radius: 2px;
+    }
+
+    .swatch-band {
+      width: 18px;
+      height: 10px;
+      border: 2px solid rgba(43, 115, 255, 0.45);
+      background: rgba(43, 115, 255, 0.08);
+      border-radius: 3px;
+    }
   </style>
 </head>
+
 <body>
   <div id="map"></div>
 
@@ -136,7 +201,7 @@
 
     function escapeHtml(s) {
       return String(s ?? "").replace(/[&<>"']/g, c => ({
-        "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"
+        "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#039;"
       }[c]));
     }
 
@@ -154,8 +219,8 @@
       return 111320 * Math.cos((latDeg * Math.PI) / 180);
     }
 
-    function rad(deg){ return (deg * Math.PI) / 180; }
-    function deg(radVal){ return (radVal * 180) / Math.PI; }
+    function rad(deg) { return (deg * Math.PI) / 180; }
+    function deg(radVal) { return (radVal * 180) / Math.PI; }
 
     // Bearing from point A to B (degrees, 0=N, 90=E)
     function bearingDeg(a, b) {
@@ -169,7 +234,7 @@
 
     // Build a filled semi-circle (180° wedge) polygon.
     // midBearingDeg points in the direction the semi-circle faces (center line).
-    function buildSemiCirclePolygon(center, radiusMeters, midBearingDeg, steps=90) {
+    function buildSemiCirclePolygon(center, radiusMeters, midBearingDeg, steps = 90) {
       if (!radiusMeters || radiusMeters <= 0) return null;
       const start = midBearingDeg - 90;
       const end = midBearingDeg + 90;
@@ -212,7 +277,7 @@
 
       // unit perpendicular (to the left)
       const px = -dy / len;
-      const py =  dx / len;
+      const py = dx / len;
 
       // offset in degrees
       const dLon = (px * wMeters) / mx;
@@ -355,18 +420,27 @@
         const locationText = a.location ? String(a.location) : "";
 
         const distBits = [];
-        if (const popup = [
+        if (a.offRouteMiles != null) distBits.push(`off-route ${a.offRouteMiles} mi`);
+        if (a.fromHomeMiles != null) distBits.push(`from home ${a.fromHomeMiles} mi`);
+
+        const popup = [
           "<div class='route-card'>",
-          (imgUrl ? ("<div class='route-thumb'><img src='" + escapeHtml(imgUrl) + "' alt='' loading='lazy' decoding='async'></div>") : "<div class='route-thumb route-thumb-fallback'>No image</div>"),
+
+          imgUrl
+            ? `<div class="route-thumb"><img src="${escapeHtml(imgUrl)}" loading="lazy"></div>`
+            : `<div class="route-thumb">No image</div>`,
+
           "<div class='route-body'>",
-          (url ? ("<a class='route-title' target='_blank' rel='noopener noreferrer' href='" + escapeHtml(url) + "'>" + title + "</a>") : ("<div class='route-title'>" + title + "</div>")),
-          (price ? ("<div class='route-price'>" + price + "</div>") : ""),
-          (locationText ? ("<div class='route-loc'>" + escapeHtml(locationText) + "</div>") : ""),
-          (distBits.length ? ("<div class='route-dist'>" + escapeHtml(distBits.join(" · ")) + "</div>") : ""),
+
+          url
+            ? `<a class="route-title" target="_blank" rel="noopener noreferrer" href="${escapeHtml(url)}">${title}</a>`
+            : `<div class="route-title">${title}</div>`,
+
+          price ? `<div class="route-price">${price}</div>` : "",
+          locationText ? `<div class="route-loc">${escapeHtml(locationText)}</div>` : "",
+          distBits.length ? `<div class="route-dist">${escapeHtml(distBits.join(" · "))}</div>` : "",
+
           "</div>",
-          "</div>"
-        ].join("");Html(distBits.join(" • ")) + "</div>") : "",
-          url ? ("<div style='margin-top:8px'><a target='_blank' rel='noopener noreferrer' href='" + escapeHtml(url) + "'>Open ad</a></div>") : "",
           "</div>"
         ].join("");
 
@@ -397,4 +471,5 @@
     draw(loadPayload());
   </script>
 </body>
+
 </html>
