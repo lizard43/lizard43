@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-02-08T18:01:31.049Z",
+  "generated_at": "2026-02-08T18:11:39.036Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,32 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 146,
-      "droppedPrice": 2452,
+      "exported_ads": 147,
+      "droppedPrice": 2456,
       "droppedMissingGeo": 0,
       "droppedCircle": 1113
     }
   },
   "ads": [
+    {
+      "adID": "2106309840121025",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100001213118716/?product_id=2106309840121025",
+      "author": "Andres Garcia",
+      "postedTime": "2026-02-08T16:59:52.000Z",
+      "title": "American Legend Arcade",
+      "description": "American Legend Courtside arcade basketball shootout 2, like-new condition. This basketball game pits two players against each other and has an electronic scoring system to keep you on track. It offers eight different game options for hours of play time. Foldable for easy storage. No Balls",
+      "price": "$60",
+      "lat": 34.1206564,
+      "lon": -84.0043513,
+      "location": "Buford, GA",
+      "imageUrl": "https://scontent-atl3-2.xx.fbcdn.net/v/t39.84726-6/628392273_1002471156280401_7114089852567665383_n.jpg?stp=c0.43.261.261a_dst-jpg_p261x260_tt6&_nc_cat=105&ccb=1-7&_nc_sid=92e707&_nc_ohc=Yb0XM4NS9B4Q7kNvwH5QfoT&_nc_oc=Adnnal1aPdQ_HoSA1Wh_wHWpJxzcrXhC-PlJ_a-PM1aiqUP0F-NLY8cVNDRrW4Z4Xl0&_nc_zt=14&_nc_ht=scontent-atl3-2.xx&_nc_gid=gI9mROHzZdhSMx4j0ObEwA&oh=00_AfuJakxGhV3QhaSYTuyYb8w_HDrSsklUHYe6v_2HmNfDtQ&oe=698E904D",
+      "adUrl": "https://www.facebook.com/marketplace/item/2106309840121025/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-02-08 18:08:31"
+    },
     {
       "adID": "1016641853832905",
       "source": "MP",
