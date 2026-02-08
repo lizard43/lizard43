@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-02-08T02:06:53.578Z",
+  "generated_at": "2026-02-08T03:07:15.953Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,32 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 148,
-      "droppedPrice": 2445,
+      "exported_ads": 149,
+      "droppedPrice": 2448,
       "droppedMissingGeo": 0,
-      "droppedCircle": 1115
+      "droppedCircle": 1116
     }
   },
   "ads": [
+    {
+      "adID": "25480583854937088",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/71102512/?product_id=25480583854937088",
+      "author": "Brittany Davis Powell",
+      "postedTime": "2026-02-07T23:56:48.000Z",
+      "title": "Pinball",
+      "description": "I have 3 of these available. New, in box. Tabletop baseball pinball games. $28 on Amazon, currently unavailable. Just in time for Christmas. These are great gifts. $20 each. If you need more than one, let’s make a deal.",
+      "price": "$20",
+      "lat": 34.0136673,
+      "lon": -83.8273406,
+      "location": "Auburn, GA",
+      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/600129615_1885590178710199_1585431984701334273_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=100&ccb=1-7&_nc_sid=92e707&_nc_ohc=MrwUP5IiPnAQ7kNvwHRhzty&_nc_oc=AdknjQjAj_AVDplAQlD4rTeN_ruSfIv_eOFBir7HfaqH_7ivf_ovLx1-mPmKdSz42zA&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=qhV2eph56fF_M7Chagxz2A&oh=00_Afuplc-DVdocVbAn4iBlyqV4oLlPtM420e37OZPKuIAVeg&oe=698DDD63",
+      "adUrl": "https://www.facebook.com/marketplace/item/25480583854937088/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-02-08 03:05:47"
+    },
     {
       "adID": "1542750186781411",
       "source": "MP",
@@ -308,17 +327,17 @@
       "source": "PS",
       "authorUrl": "https://pinside.com/pinball/community/pinsiders/veith/market",
       "author": "Veith",
-      "postedTime": "2026-02-06T02:06:37.165Z",
+      "postedTime": "2026-02-06T03:06:59.179Z",
       "title": "Strato-Flite",
       "description": "Used - shows wear, needs some work - “Selling for a neighbor. Game in good shape overall. Playfield needs a new rubbers and a cleaning. Everything works as it should. Backglass real nice. Cabinet has some child \"artwo...”",
-      "price": "$775",
+      "price": "$695",
       "lat": 34.1014112,
       "lon": -84.5192192,
       "location": "Woodstock, GA",
       "imageUrl": "https://imgproxy.pinside.com/rLZb8HsSYPKc8mpkOpYQ3lKbgcPMgjWUZxXA1f1_V8s/rs:fit:640:480/fn:pinside_3bc4b5060794/enc/uKP2s-7moYsSI3RxEwaFL5fhvhe_EHf0VfznPBPfeot-4BuClENiH_tWjv7R67Li2qP1AB1UbXJKG5Pg9q11BpD56ulz5I9t0vdF6wjGGx3HHrgqCOY-XBhlFu3aMoHH.jpg",
       "adUrl": "https://pinside.com/pinball/market/classifieds/ad/202301",
-      "priceChanged": 0,
-      "priceChangedAt": null,
+      "priceChanged": 1,
+      "priceChangedAt": "2026-02-08 03:07:01",
       "hidden": 0,
       "created_at": "2026-02-05 22:03:09"
     },
