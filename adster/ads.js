@@ -3359,17 +3359,32 @@ btnMap?.addEventListener("click", () => {
         // Only include ads that have coordinates (and are in the current filtered set)
         const adsForMap = (filteredAds || [])
             .filter(a => a && Number.isFinite(a.lat) && Number.isFinite(a.lon))
-            .map(a => ({
-                adID: a.adID || a.id || a.uid || null,
-                title: a.title || a.name || "",
-                price: a.price || "",
-                url: a.url || a.href || "",
-                lat: a.lat,
-                lon: a.lon,
-                // Keep any already-computed route/home distances if present
-                routeDistanceMiles: Number.isFinite(a?._routeDistanceMiles) ? a._routeDistanceMiles : null,
-                fromHomeMiles: Number.isFinite(a?._homeDistanceMiles) ? a._homeDistanceMiles : null
-            }));
+            .map(a => {
+                const adID = a.adID || a.id || a.uid || null;
+                const title = a.title || a.name || "";
+                const price = a.price || "";
+
+                // Use the same fields your main cards use
+                const adUrl = a.adUrl || a.AdUrl || a.url || a.href || "";
+                const imageUrl = a.imageUrl || "";
+
+                const location = a.location || "";
+                const offRouteMiles = Number.isFinite(a?._routeDistanceMiles) ? a._routeDistanceMiles : null;
+                const fromHomeMiles = Number.isFinite(a?._homeDistanceMiles) ? a._homeDistanceMiles : null;
+
+                return {
+                    adID,
+                    title,
+                    price,
+                    adUrl,
+                    imageUrl,
+                    location,
+                    lat: a.lat,
+                    lon: a.lon,
+                    offRouteMiles,
+                    fromHomeMiles
+                };
+            });
 
         const payload = {
             version: 1,
@@ -3377,6 +3392,7 @@ btnMap?.addEventListener("click", () => {
             home: lastRouteMapState.home,
             destination: lastRouteMapState.dest,
             corridorMiles: lastRouteMapState.corridorMiles,
+            destRadiusMiles: lastRouteMapState.destRadiusMiles,
             ads: adsForMap
         };
 
