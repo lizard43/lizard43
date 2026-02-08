@@ -42,7 +42,64 @@
     }
     .topbar button:active { transform: translateY(1px); }
 
-    /* tiny legend pill */
+    
+    /* --- Adster-style mini card inside Leaflet popups --- */
+    .leaflet-popup.adster-popup .leaflet-popup-content-wrapper {
+      background: rgba(0,0,0,0.92);
+      color: #fff;
+      border-radius: 14px;
+      box-shadow: 0 10px 26px rgba(0,0,0,0.35);
+    }
+    .leaflet-popup.adster-popup .leaflet-popup-tip {
+      background: rgba(0,0,0,0.92);
+    }
+    .route-card {
+      display: flex;
+      gap: 10px;
+      align-items: stretch;
+      min-width: 260px;
+      max-width: 380px;
+    }
+    .route-thumb {
+      width: 92px;
+      min-width: 92px;
+      height: 68px;
+      border-radius: 10px;
+      overflow: hidden;
+      background: rgba(255,255,255,0.08);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font: 12px/1.2 system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      color: rgba(255,255,255,0.7);
+    }
+    .route-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .route-body {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      font: 13px/1.25 system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      min-width: 0;
+    }
+    .route-title {
+      color: #fff;
+      font-weight: 700;
+      text-decoration: none;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 260px;
+    }
+    .route-title:hover { text-decoration: underline; }
+    .route-price { font-weight: 700; }
+    .route-loc { opacity: 0.8; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 260px; }
+    .route-dist { opacity: 0.85; font-size: 12px; }
+/* tiny legend pill */
     .legend {
       position: absolute;
       bottom: 10px;
@@ -251,11 +308,12 @@
       }
 
 
-      // Home "forward" half: visualize that we exclude ads behind us.
+      // Home "behind" half: visualize what we're leaving behind.
       const homeSemiMeters = milesToMeters(corridorMiles);
       if (homeSemiMeters > 0) {
         const brngHomeToDest = bearingDeg(home, dest);
-        const semiPtsHome = buildSemiCirclePolygon(home, homeSemiMeters, brngHomeToDest, 90);
+        const behind = (brngHomeToDest + 180) % 360; // facing away from destination (behind us)
+        const semiPtsHome = buildSemiCirclePolygon(home, homeSemiMeters, behind, 90);
         if (semiPtsHome) {
           L.polygon(semiPtsHome, {
             weight: 2,
@@ -292,17 +350,22 @@
 
         const title = escapeHtml(a.title || "");
         const price = escapeHtml(a.price || "");
-        const url = a.url ? String(a.url) : "";
+        const url = (a.url || a.adUrl || a.href || a.link || a.AdUrl) ? String(a.url || a.adUrl || a.href || a.link || a.AdUrl) : "";
+        const imgUrl = a.imageUrl || a.image || a.thumb || a.thumbnail || "";
+        const locationText = a.location ? String(a.location) : "";
 
         const distBits = [];
-        if (a.routeDistanceMiles != null) distBits.push("off-route: " + Number(a.routeDistanceMiles).toFixed(1) + " mi");
-        if (a.fromHomeMiles != null) distBits.push("from home: " + Number(a.fromHomeMiles).toFixed(1) + " mi");
-
-        const popup = [
-          "<div style='max-width:260px'>",
-          (url ? ("<a target=\'_blank\' rel=\'noopener noreferrer\' href=\'" + escapeHtml(url) + "\' style=\'font-weight:700;text-decoration:none\'>" + title + "</a>") : ("<b>" + title + "</b>")),
-          price ? ("<div>" + price + "</div>") : "",
-          distBits.length ? ("<div style='opacity:.8;margin-top:4px'>" + escapeHtml(distBits.join(" • ")) + "</div>") : "",
+        if (const popup = [
+          "<div class='route-card'>",
+          (imgUrl ? ("<div class='route-thumb'><img src='" + escapeHtml(imgUrl) + "' alt='' loading='lazy' decoding='async'></div>") : "<div class='route-thumb route-thumb-fallback'>No image</div>"),
+          "<div class='route-body'>",
+          (url ? ("<a class='route-title' target='_blank' rel='noopener noreferrer' href='" + escapeHtml(url) + "'>" + title + "</a>") : ("<div class='route-title'>" + title + "</div>")),
+          (price ? ("<div class='route-price'>" + price + "</div>") : ""),
+          (locationText ? ("<div class='route-loc'>" + escapeHtml(locationText) + "</div>") : ""),
+          (distBits.length ? ("<div class='route-dist'>" + escapeHtml(distBits.join(" · ")) + "</div>") : ""),
+          "</div>",
+          "</div>"
+        ].join("");Html(distBits.join(" • ")) + "</div>") : "",
           url ? ("<div style='margin-top:8px'><a target='_blank' rel='noopener noreferrer' href='" + escapeHtml(url) + "'>Open ad</a></div>") : "",
           "</div>"
         ].join("");
@@ -314,7 +377,7 @@
           opacity: 0.9,
           fillColor: "#2b73ff",
           fillOpacity: 0.35
-        }).addTo(layer).bindPopup(popup);
+        }).addTo(layer).bindPopup(popup, { maxWidth: 420, className: 'adster-popup' });
       }
 
       const adCount = ads.length;
