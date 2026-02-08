@@ -164,7 +164,7 @@
       : `<div class="route-thumb">No image</div>`;
 
     const titleHtml = url
-      ? `<a class="route-title" target="_blank" rel="noopener noreferrer" href="${escapeHtml(url)}">${titleText}</a>`
+      ? `<a class="route-title" href="${escapeHtml(url)}" data-adster-open="ad">${titleText}</a>`
       : `<div class="route-title">${titleText}</div>`;
 
     return [
@@ -206,7 +206,7 @@
       .bindPopup("<b>Destination</b><br>" + escapeHtml(dest.label || ""));
     bounds.push([dest.lat, dest.lon]);
 
-    L.polyline([[home.lat, home.lon], [dest.lat, dest.lon]], { weight: 3, color: "#2b73ff", opacity: 0.9 }).addTo(layer);
+    L.polyline([[home.lat, home.lon], [dest.lat, dest.lon]], { weight: 3 }).addTo(layer);
 
     const band = buildCorridorPolygon(home, dest, corridorMiles);
     if (band) {
@@ -221,7 +221,7 @@
       const behind = (brng + 180) % 360;
       const pts = buildSemiCirclePolygon(home, homeSemiMeters, behind, 90);
       if (pts) {
-        L.polygon(pts, { weight: 2, color: "#2b73ff", opacity: 0.45, fillOpacity: 0.08 }).addTo(layer);
+        L.polygon(pts, { weight: 2, color: "#2b73ff", opacity: 0.35, fillOpacity: 0.06 }).addTo(layer);
         for (const p of pts) bounds.push(p);
       }
     }
@@ -233,7 +233,7 @@
       const forward = (brng + 180) % 360;
       const pts = buildSemiCirclePolygon(dest, radiusMeters, forward, 90);
       if (pts) {
-        L.polygon(pts, { weight: 2, color: "#2b73ff", opacity: 0.45, fillOpacity: 0.08 }).addTo(layer);
+        L.polygon(pts, { weight: 2, color: "#2b73ff", opacity: 0.45, fillOpacity: 0.05 }).addTo(layer);
         for (const p of pts) bounds.push(p);
       }
     }
@@ -261,6 +261,21 @@
         if (!el) return;
         L.DomEvent.disableClickPropagation(el);
         L.DomEvent.disableScrollPropagation(el);
+
+        // Reuse a single "ad tab" when opening ad links from the map.
+        // Using a named window causes subsequent opens to reuse the same tab.
+        const links = el.querySelectorAll('a.route-title[data-adster-open="ad"]');
+        for (const a of links) {
+          if (a.__adsterBound) continue;
+          a.__adsterBound = true;
+          a.addEventListener("click", (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            const href = a.getAttribute("href");
+            if (!href) return;
+            window.open(href, "adster_ad");
+          }, { passive: false });
+        }
       });
     }
 
