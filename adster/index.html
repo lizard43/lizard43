@@ -261,6 +261,29 @@
       </div>
     </div>
   </div>
+
+
+  <!-- Thin right-side tap toolbar: quick adjust caps -->
+  <div id="sideTapBar" class="side-tapbar" aria-label="Quick adjust caps">
+    <div class="side-tapgroup" aria-label="Distance adjust">
+      <button type="button" class="side-tapbtn" data-kind="d" data-delta="1" aria-label="Increase distance">+</button>
+      <div class="side-taplabel" aria-hidden="true">D</div>
+      <button type="button" class="side-tapbtn" data-kind="d" data-delta="-1" aria-label="Decrease distance">−</button>
+    </div>
+
+    <div class="side-tapgroup" aria-label="Price adjust">
+      <button type="button" class="side-tapbtn" data-kind="p" data-delta="1" aria-label="Increase price">+</button>
+      <div class="side-taplabel" aria-hidden="true">P</div>
+      <button type="button" class="side-tapbtn" data-kind="p" data-delta="-1" aria-label="Decrease price">−</button>
+    </div>
+
+    <div id="sideTapWGroup" class="side-tapgroup hidden" aria-label="Route width adjust">
+      <button type="button" class="side-tapbtn" data-kind="w" data-delta="1" aria-label="Increase route width">+</button>
+      <div class="side-taplabel" aria-hidden="true">W</div>
+      <button type="button" class="side-tapbtn" data-kind="w" data-delta="-1" aria-label="Decrease route width">−</button>
+    </div>
+  </div>
+
 </body>
 
 </html>

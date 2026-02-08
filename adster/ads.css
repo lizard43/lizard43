@@ -1507,3 +1507,76 @@ body>.modal {
   opacity: 0.35;
   cursor: default;
 }
+
+
+/* ---------------- Right-side tap toolbar (quick adjust caps) ---------------- */
+
+.side-tapbar{
+  position: fixed;
+  top: 50%;
+  right: calc(6px + env(safe-area-inset-right));
+  transform: translateY(-50%);
+  z-index: 50;
+
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  pointer-events: auto;
+}
+
+.side-tapgroup{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+
+  background: rgba(0,0,0,0.35);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 12px;
+  padding: 6px 5px;
+
+  backdrop-filter: blur(6px);
+}
+
+.side-tapbtn{
+  width: 28px;
+  height: 26px;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.18);
+  background: rgba(255,255,255,0.06);
+  color: rgba(255,255,255,0.92);
+  font: 700 16px/1 system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  cursor: pointer;
+}
+
+.side-tapbtn:active{
+  transform: translateY(1px);
+}
+
+.side-taplabel{
+  width: 28px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255,255,255,0.75);
+  font: 800 12px/1 system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  letter-spacing: 0.5px;
+}
+
+@media (max-width: 520px){
+  .side-tapbar{
+    right: calc(4px + env(safe-area-inset-right));
+  }
+  .side-tapbtn{
+    width: 30px;
+    height: 28px;
+  }
+  .side-taplabel{
+    width: 30px;
+  }
+}

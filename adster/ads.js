@@ -131,6 +131,109 @@ const btnPriceGuide = document.getElementById("btnPriceGuide");
 const btnMap = document.getElementById("btnMap");
 const btnShare = document.getElementById("btnShare");
 
+const sideTapBar = document.getElementById("sideTapBar");
+const sideTapWGroup = document.getElementById("sideTapWGroup");
+
+// Hardcoded tap step sizes (later we can move to Settings)
+const TAP_STEP_PRICE = 100;    // dollars
+const TAP_STEP_DISTANCE = 50;  // miles
+const TAP_STEP_WIDTH = 50;     // miles (route corridor half-width)
+
+function syncSideTapBarUI(routeActive) {
+    if (!sideTapBar) return;
+    // W control only shows when route is active
+    if (sideTapWGroup) sideTapWGroup.classList.toggle("hidden", !routeActive);
+}
+
+function clampNumber(n, { min = -Infinity, max = Infinity } = {}) {
+    const x = Number(n);
+    if (!Number.isFinite(x)) return null;
+    return Math.min(max, Math.max(min, x));
+}
+
+function normalizeAdjustBase(val, kind) {
+    // If cap is "Any" (Infinity), pick a reasonable base so - works.
+    if (kind === "d") {
+        if (!Number.isFinite(val)) return 1000;
+        return val;
+    }
+    if (kind === "p") {
+        if (!Number.isFinite(val)) return 10000;
+        return val;
+    }
+    if (kind === "w") {
+        if (!Number.isFinite(val) || val <= 0) return TAP_STEP_WIDTH;
+        return val;
+    }
+    return val;
+}
+
+function upsertNumericDirective(raw, kind, value) {
+    const s = String(raw || "");
+    const v = Number(value);
+
+    const patterns = {
+        d: /(^|\s)(d|dist|distance|distancecap|distcap|dcap)\s*:\s*[^\s&|()!]+/gi,
+        p: /(^|\s)(p|price|pricecap|pcap)\s*:\s*[^\s&|()!]+/gi,
+        w: /(^|\s)(w|width)\s*:\s*[^\s&|()!]+/gi,
+    };
+
+    let out = s.replace(patterns[kind] || /$^/, " ");
+    out = out.replace(/\s{2,}/g, " ").trim();
+
+    if (!Number.isFinite(v)) return out;
+
+    const key = kind; // keep it short: d:, p:, w:
+    const token = `${key}:${Math.round(v)}`;
+    return (out ? (out + " " + token) : token).trim();
+}
+
+function bindSideTapBar() {
+    if (!sideTapBar) return;
+
+    sideTapBar.addEventListener("click", (e) => {
+        const btn = e.target.closest("button[data-kind][data-delta]");
+        if (!btn) return;
+
+        const kind = btn.getAttribute("data-kind"); // d | p | w
+        const delta = Number(btn.getAttribute("data-delta") || 0);
+        if (!kind || !delta) return;
+
+        // Route width control only valid when route is active
+        if (kind === "w" && !routeActive) return;
+
+        const raw = searchInput ? searchInput.value : "";
+        const ov = parseCapOverridesFromSearch(raw);
+
+        let cur;
+        if (kind === "d") cur = ov.distanceOverrideMiles;
+        if (kind === "p") cur = ov.priceOverrideDollars;
+        if (kind === "w") cur = ov.widthOverrideMiles;
+
+        if (cur == null) {
+            if (kind === "d") cur = normalizeAdjustBase(distanceCapMiles, "d");
+            else if (kind === "p") cur = normalizeAdjustBase(priceCapDollars, "p");
+            else if (kind === "w") cur = normalizeAdjustBase(loadRouteCorridorMiles(), "w");
+        }
+
+        const step = (kind === "d") ? TAP_STEP_DISTANCE : (kind === "p") ? TAP_STEP_PRICE : TAP_STEP_WIDTH;
+
+        let next = Number(cur) + (delta * step);
+
+        // Sensible minimums
+        if (kind === "p") next = Math.max(0, next);
+        if (kind === "d") next = Math.max(1, next);
+        if (kind === "w") next = Math.max(1, next);
+
+        const nextSearch = upsertNumericDirective(raw, kind, next);
+        if (searchInput) searchInput.value = nextSearch;
+
+        applySearchAndStore();
+        showToast(`${kind.toUpperCase()}: ${Math.round(next)}`);
+    }, { passive: true });
+}
+
+
 const btnDistance = document.getElementById("btnDistance");
 const distanceCapLabel = document.getElementById("distanceCapLabel");
 
@@ -2248,11 +2351,12 @@ function parseCapOverridesFromSearch(rawInput) {
     //   pcap:$1,500 / pcap:any / pcap:inf
     //
     // Returns:
-    //   { cleanedRaw, distanceOverrideMiles, priceOverrideDollars }
+    //   { cleanedRaw, distanceOverrideMiles, priceOverrideDollars, widthOverrideMiles }
 
     const out = {
         cleanedRaw: String(rawInput ?? ""),
         distanceOverrideMiles: null, // null = no override
+        widthOverrideMiles: null,    // route corridor half-width miles (only used when route is active)
         priceOverrideDollars: null,  // null = no override
         timeOverrideDays: null,      // null = no override
         // { field: "distance"|"postedTime"|"price", dir: "asc"|"desc" } or null
@@ -2307,7 +2411,20 @@ function parseCapOverridesFromSearch(rawInput) {
         return lead; // remove directive, keep whitespace leader
     });
 
-    // 2) pricecap directives
+    
+    // 1b) width directives (route corridor half-width, miles). Only applied when route is active.
+    s = s.replace(/(^|\s)(w|width)\s*:\s*([^\s&|()!]+)/gi, (full, lead, _k, val) => {
+        const inf = parseMaybeInfinity(val);
+        if (inf === Infinity) {
+            // Width "any" doesn't make sense; ignore.
+        } else {
+            const n = parseNumberLoose(val);
+            if (Number.isFinite(n) && n > 0) out.widthOverrideMiles = n;
+        }
+        return lead;
+    });
+
+// 2) pricecap directives
     s = s.replace(/(^|\s)(p|price|pricecap|pcap)\s*:\s*([^\s&|()!]+)/gi, (full, lead, _k, val) => {
         const inf = parseMaybeInfinity(val);
         if (inf === Infinity) out.priceOverrideDollars = Infinity;
@@ -2394,7 +2511,8 @@ function applyFilter() {
     const rawInput = searchInput.value;   // keep exact user input
     const quickFilterMs = getDateFilterMs();
 
-    const routeCorridorMiles = loadRouteCorridorMiles(); // fresh each filter pass
+    // Route corridor (miles off-route each side). Defaults from Settings, but can be overridden via w:
+    let routeCorridorMiles = loadRouteCorridorMiles(); // fresh each filter pass
 
     // Pull out temporary cap overrides from the search text
     const overrides = parseCapOverridesFromSearch(rawInput);
@@ -2402,6 +2520,13 @@ function applyFilter() {
     // --- route is ON when to:"..." exists ---
     routeActive = !!(overrides.toRaw && String(overrides.toRaw).trim());
     const toNeedle = routeActive ? String(overrides.toRaw).trim().toLowerCase() : "";
+    syncSideTapBarUI(routeActive);
+
+    // Apply width override only when route is active
+    if (routeActive && overrides.widthOverrideMiles != null) {
+        routeCorridorMiles = overrides.widthOverrideMiles;
+    }
+
 
     // --- override:true behavior (search-only) ---
     const overrideActive = (overrides.overrideActive === true);
@@ -3905,6 +4030,7 @@ function applySearchFromUrlOnce() {
 
     setupBrokenImageHandler();
     setupFavoriteSearchHearts();
+    bindSideTapBar();
 
     // showHidden init (from settings)
     showHidden = loadShowHidden();
