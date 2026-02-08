@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-02-08T14:07:22.593Z",
+  "generated_at": "2026-02-08T15:07:05.905Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,32 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 149,
-      "droppedPrice": 2456,
+      "exported_ads": 150,
+      "droppedPrice": 2461,
       "droppedMissingGeo": 0,
-      "droppedCircle": 1120
+      "droppedCircle": 1121
     }
   },
   "ads": [
+    {
+      "adID": "864277163174120",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100007778553613/?product_id=864277163174120",
+      "author": "Bridget McKay",
+      "postedTime": "2026-01-02T00:05:56.000Z",
+      "title": "Velcro / sticky ball target game",
+      "description": "Velcro ball target game with scoring mat and soft balls. Great for kids, parties, and indoor or outdoor play. No sharp darts. Clean and in good condition. $15",
+      "price": "$15",
+      "lat": 30.4380832,
+      "lon": -84.2809332,
+      "location": "Tallahassee, FL",
+      "imageUrl": "https://scontent-atl3-3.xx.fbcdn.net/v/t39.84726-6/606881891_881463304474318_7193474511588348497_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=109&ccb=1-7&_nc_sid=92e707&_nc_ohc=mV4n6Cp1It4Q7kNvwEUMObu&_nc_oc=Adk4DpWYCx0jEhnaLb_Kz21nIczonOVNDxbXAY7r61bEJmCLChVFDHnfF6I9r9xPr9g&_nc_zt=14&_nc_ht=scontent-atl3-3.xx&_nc_gid=Gn_aFiXzo_6xQUKWdoZVfw&oh=00_Afvuc72KX1gAIG7Uo2Xrnlau4f8KpXsoVhyCknKfltIBrw&oe=698E9279",
+      "adUrl": "https://www.facebook.com/marketplace/item/864277163174120/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-02-08 15:06:03"
+    },
     {
       "adID": "1456954952624750",
       "source": "MP",
@@ -526,8 +545,8 @@
       "location": "Talmo, GA",
       "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/625328593_772971942518164_7952271802155367158_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=104&ccb=1-7&_nc_sid=92e707&_nc_ohc=Ib-g9V2hQH8Q7kNvwEa7Tws&_nc_oc=AdlzLPcvfANIU1JEr1KbCa-PyFRuiXdW2R6ivbNxMu2TzY8aUdQlBR-TnfsiMIZ7GL4&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=enh52Wp4_QNy6QUblszDmQ&oh=00_AfsiEYfuz0skiblvWICYZd4W6khM2avJ1982TggfST0VuA&oe=698BC30D",
       "adUrl": "https://www.facebook.com/marketplace/item/1571135127530551/",
-      "priceChanged": 1,
-      "priceChangedAt": "2026-02-06 15:04:45",
+      "priceChanged": 0,
+      "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-03 01:04:42"
     },
