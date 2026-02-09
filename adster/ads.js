@@ -265,6 +265,53 @@ const resultsPill = document.getElementById("resultsPill");
 
 const clearSearch = document.getElementById("clearSearch");
 
+// --- AdID toggle search (click adID line on a card) ---
+// We keep a trailing group like: (id:123 | id:456)
+// and AND it with the rest of the user's search.
+//
+// IMPORTANT: Your boolean pipeline is whitespace-sensitive in a few places.
+// In particular, users observed that "... & id:123" could fail while
+// "... &id:123" works. To avoid that trap, we generate a group that's
+// syntactically stable and survives directive stripping.
+function toggleAdIdInSearch(rawInput, adId) {
+    const id = String(adId || "").trim();
+    if (!id) return String(rawInput || "");
+
+    let s = String(rawInput || "");
+
+    // Find an existing trailing " & ( ... )" group we own.
+    // We only manage the LAST parenthesized group if it's made purely of id: tokens + | separators.
+    const groupRe = /\s*(?:\&\s*)?\(\s*(?:id\s*:\s*\d+\s*(?:\|\s*id\s*:\s*\d+\s*)*)\)\s*$/i;
+    const m = s.match(groupRe);
+
+    let base = s;
+    let ids = [];
+
+    if (m) {
+        const groupText = m[0];
+        base = s.slice(0, s.length - groupText.length).trimEnd();
+
+        // Extract ids from the group
+        const found = groupText.match(/id\s*:\s*(\d+)/gi) || [];
+        ids = found.map(x => String(x).replace(/\s+/g, "").split(":")[1]).filter(Boolean);
+    }
+
+    const idSet = new Set(ids);
+    if (idSet.has(id)) idSet.delete(id);
+    else idSet.add(id);
+
+    const nextIds = Array.from(idSet);
+    if (!nextIds.length) {
+        // No ids selected => just return base (no group)
+        return base.trim();
+    }
+
+    // Build stable group with a space after & so it reads nicely,
+    // but rely on parseCapOverridesFromSearch() cleanup to strip leading/trailing ops.
+    const group = `(${nextIds.map(x => `id:${x}`).join(" | ")})`;
+    return (base ? `${base} & ${group}` : group).trim();
+}
+
 let distanceCapMiles = 500; // default
 const DISTANCE_CAP_OPTIONS = [50, 100, 250, 500, 1000, Infinity];
 
@@ -3598,6 +3645,22 @@ tbody.addEventListener("pointerdown", (e) => {
 
 // event delegation for action buttons
 tbody.addEventListener("click", (e) => {
+    // Click on adID line → toggle this adID into/out of the search bar
+    const adIdLine = e.target.closest(".ad-line-adid");
+    if (adIdLine) {
+        e.preventDefault();
+        e.stopPropagation();
+
+        const card = adIdLine.closest(".ad-card");
+        const adID = String(card?.getAttribute("data-ad-id") || adIdLine.textContent || "").trim();
+        if (!adID) return;
+
+        searchInput.value = toggleAdIdInSearch(searchInput.value, adID);
+        applySearchAndStore();
+        searchInput.focus();
+        return;
+    }
+
     // Click on location → set home override in search bar
     const homeLink = e.target.closest("a.ad-location-link[data-action='set-home']");
     if (homeLink) {
