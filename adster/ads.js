@@ -3523,7 +3523,7 @@ btnMap?.addEventListener("click", () => {
                     adUrl,
                     imageUrl,
                     location,
-                    description: ad.description || ad.desc || "",
+                    description: a.description || a.desc || "",
                     lat: a.lat,
                     lon: a.lon,
                     offRouteMiles,
