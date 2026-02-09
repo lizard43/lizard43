@@ -1376,57 +1376,6 @@ function upsertHomeDirective(raw, newHomeLabel) {
     return s;
 }
 
-// --- AdID pick-list in search bar (click adID on card) ---
-// Managed group lives at the END of the search so we can safely edit it.
-// Format:
-//   <base search> & (id:AAA | id:BBB)
-// If base search is empty:
-//   (id:AAA | id:BBB)
-function toggleAdIdInSearch(rawInput, adIdRaw) {
-    const adID = String(adIdRaw || "").trim();
-    if (!adID) return String(rawInput ?? "");
-
-    let s = String(rawInput ?? "").trim();
-
-    // Detect a trailing managed group like:  & (id:... | id:...)
-    // We only manage the END group so we don't unexpectedly rewrite user boolean expressions.
-    const tailRe = /(\s*(?:&&|&)\s*)?\(\s*(?:id\s*:\s*[^()]+?)\s*\)\s*$/i;
-    const tailMatch = s.match(tailRe);
-
-    let base = s;
-    let existingIds = [];
-
-    if (tailMatch) {
-        const start = tailMatch.index ?? (s.length - tailMatch[0].length);
-        const tail = s.slice(start);
-        base = s.slice(0, start).trim();
-
-        const ids = [];
-        const idRe = /\bid\s*:\s*([a-z0-9_-]+)/gi;
-        let m;
-        while ((m = idRe.exec(tail)) !== null) {
-            ids.push(m[1]);
-        }
-        existingIds = ids;
-    }
-
-    const set = new Set(existingIds.map(x => String(x)));
-    if (set.has(adID)) set.delete(adID);
-    else set.add(adID);
-
-    const idsSorted = Array.from(set);
-
-    if (!idsSorted.length) {
-        // No selected adIDs left; drop the group.
-        return base;
-    }
-
-    const group = `(${idsSorted.map(id => `id:${id}`).join(" | ")})`;
-    if (!base) return group;
-
-    return `${base} & ${group}`.trim();
-}
-
 function buildPriceGuideQueryFromAd(ad) {
     // Prefer a future "game" field if you ever add it.
     const raw = String(ad?.game || ad?.title || "").trim();
@@ -2559,10 +2508,10 @@ function parseCapOverridesFromSearch(rawInput) {
     s = s.replace(/(\&\&|\&|\|\||\|)\s*(\&\&|\&|\|\||\|)+/g, "$1");
 
     // remove leading operators
-    while (/^(\&\&|\&|\|\||\|)\b/.test(s)) s = s.replace(/^(\&\&|\&|\|\||\|)\s*/g, "").trim();
+    while (/^(\&\&|\&|\|\||\|)/.test(s)) s = s.replace(/^(\&\&|\&|\|\||\|)\s*/g, "").trim();
 
     // remove trailing operators
-    while (/\b(\&\&|\&|\|\||\|)$/.test(s)) s = s.replace(/\s*(\&\&|\&|\|\||\|)$/g, "").trim();
+    while (/(\&\&|\&|\|\||\|)$/.test(s)) s = s.replace(/\s*(\&\&|\&|\|\||\|)$/g, "").trim();
 
     out.cleanedRaw = s;
     return out;
@@ -3649,27 +3598,6 @@ tbody.addEventListener("pointerdown", (e) => {
 
 // event delegation for action buttons
 tbody.addEventListener("click", (e) => {
-    // Click on adID line → toggle id:... selection in the search bar
-    const adIdLine = e.target.closest(".ad-line-adid");
-    if (adIdLine) {
-        e.preventDefault();
-        e.stopPropagation();
-
-        const card = adIdLine.closest(".ad-card");
-        const adID = String(card?.getAttribute("data-ad-id") || adIdLine.textContent || "").trim();
-        if (!adID) return;
-
-        const before = String(searchInput.value || "");
-        const had = new RegExp(`\\bid\\s*:\\s*${escapeRegExpLiteral(adID)}\\b`, "i").test(before);
-
-        searchInput.value = toggleAdIdInSearch(before, adID);
-        autosizeSearchBox();
-        applyFilterNextFrame();
-
-        showToast(had ? `Removed id:${adID} from search` : `Added id:${adID} to search`);
-        return;
-    }
-
     // Click on location → set home override in search bar
     const homeLink = e.target.closest("a.ad-location-link[data-action='set-home']");
     if (homeLink) {
