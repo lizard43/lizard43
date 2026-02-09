@@ -1,78 +1,211 @@
-html, body { height: 100%; margin: 0; }
-#map { height: 100%; width: 100%; }
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
 
-.topbar{
-  position:absolute; top:10px; left:10px; right:10px; z-index:1000;
-  display:flex; gap:10px; align-items:center;
-  padding:8px 10px; border-radius:12px;
-  background:rgba(255,255,255,.92);
-  box-shadow:0 6px 18px rgba(0,0,0,.12);
-  font:14px/1.2 system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+#map {
+  height: 100%;
+  width: 100%;
 }
-.topbar .meta{ opacity:.8; }
-.topbar button{
-  padding:6px 10px; border-radius:10px;
-  border:1px solid rgba(0,0,0,.15);
-  background:#fff; cursor:pointer;
+
+.topbar {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  right: 10px;
+  z-index: 1000;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  padding: 8px 10px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, .92);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, .12);
+  font: 14px/1.2 system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
 }
-.topbar button:active{ transform:translateY(1px); }
+
+.topbar .meta {
+  opacity: .8;
+}
+
+.topbar button {
+  padding: 6px 10px;
+  border-radius: 10px;
+  border: 1px solid rgba(0, 0, 0, .15);
+  background: #fff;
+  cursor: pointer;
+}
+
+.topbar button:active {
+  transform: translateY(1px);
+}
 
 /* legend pill */
-.legend{
-  position:absolute; bottom:10px; left:10px; z-index:1000;
-  background:rgba(255,255,255,.92);
-  border-radius:12px; padding:8px 10px;
-  box-shadow:0 6px 18px rgba(0,0,0,.12);
-  font:13px/1.2 system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+.legend {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  z-index: 1000;
+  background: rgba(255, 255, 255, .92);
+  border-radius: 12px;
+  padding: 8px 10px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, .12);
+  font: 13px/1.2 system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
 }
-.legend-row{ display:flex; gap:8px; align-items:center; margin:2px 0; }
-.swatch{ width:14px; height:14px; border-radius:50%; border:2px solid #2b73ff; background:rgba(43,115,255,.35); }
-.swatch-line{ width:18px; height:0; border-top:3px solid #2b73ff; border-radius:2px; }
-.swatch-band{ width:18px; height:10px; border:2px solid rgba(43,115,255,.45); background:rgba(43,115,255,.08); border-radius:3px; }
+
+.legend-row {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin: 2px 0;
+}
+
+.swatch {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 2px solid #2b73ff;
+  background: rgba(43, 115, 255, .35);
+}
+
+.swatch-line {
+  width: 18px;
+  height: 0;
+  border-top: 3px solid #2b73ff;
+  border-radius: 2px;
+}
+
+.swatch-band {
+  width: 18px;
+  height: 10px;
+  border: 2px solid rgba(43, 115, 255, .45);
+  background: rgba(43, 115, 255, .08);
+  border-radius: 3px;
+}
 
 /* --- Adster-style mini card inside Leaflet popups --- */
-.leaflet-popup.adster-popup .leaflet-popup-content-wrapper{
-  background:rgba(0,0,0,.92);
-  color:#fff;
-  border-radius:14px;
-  box-shadow:0 10px 26px rgba(0,0,0,.35);
+.leaflet-popup.adster-popup .leaflet-popup-content-wrapper {
+  background: rgba(0, 0, 0, .92);
+  color: #fff;
+  border-radius: 14px;
+  box-shadow: 0 10px 26px rgba(0, 0, 0, .35);
 }
-.leaflet-popup.adster-popup .leaflet-popup-tip{ background:rgba(0,0,0,.92); }
+
+.leaflet-popup.adster-popup .leaflet-popup-tip {
+  background: rgba(0, 0, 0, .92);
+}
 
 /* Make links in popups actually clickable */
-.leaflet-popup.adster-popup a { cursor: pointer; pointer-events: auto; }
+.leaflet-popup.adster-popup a {
+  cursor: pointer;
+  pointer-events: auto;
+}
 
-.route-card{
-  display:flex;
-  gap:10px;
-  align-items:stretch;
-  min-width:260px;
-  max-width:380px;
+.route-card {
+  display: flex;
+  gap: 10px;
+  align-items: stretch;
+  min-width: 260px;
+  max-width: 380px;
   user-select: none;
 }
-.route-thumb{
-  width:92px; min-width:92px; height:68px;
-  border-radius:10px; overflow:hidden;
-  background:rgba(255,255,255,.08);
-  display:flex; align-items:center; justify-content:center;
-  font:12px/1.2 system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
-  color:rgba(255,255,255,.7);
+
+.route-thumb {
+  width: 92px;
+  min-width: 92px;
+  height: 68px;
+  border-radius: 10px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, .08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font: 12px/1.2 system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  color: rgba(255, 255, 255, .7);
 }
-.route-thumb img{
-  width:100%; height:100%;
-  object-fit:cover; display:block;
+
+.route-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
-.route-body{
-  display:flex; flex-direction:column; gap:4px;
-  font:13px/1.25 system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
-  min-width:0;
+
+.route-body {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font: 13px/1.25 system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  min-width: 0;
 }
-.route-title{
-  color:#fff; font-weight:700; text-decoration:none;
-  white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
-  max-width:260px;
+
+.route-title {
+  color: #fff;
+  font-weight: 700;
+  text-decoration: none;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 260px;
 }
-.route-title:hover{ text-decoration:underline; }
-.route-price{ font-weight:700; }
-.route-loc{ opacity:.8; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; max-width:260px; }
-.route-dist{ opacity:.85; font-size:12px; }
+
+.route-title:hover {
+  text-decoration: underline;
+}
+
+.route-price {
+  font-weight: 700;
+}
+
+.route-loc {
+  opacity: .8;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 260px;
+}
+
+.route-dist {
+  opacity: .85;
+  font-size: 12px;
+}
+
+.route-meta-line {
+  display: flex;
+  gap: 6px;
+  align-items: baseline;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.route-price {
+  color: #fff;
+  font-weight: 700;
+}
+
+.route-loc {
+  opacity: .85;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.route-dist {
+  font-size: 12px;
+  opacity: .85;
+}
+
+.route-desc {
+  font-size: 12px;
+  line-height: 1.25;
+  color: rgba(255, 255, 255, .8);
+
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+
+  margin-top: 2px;
+}

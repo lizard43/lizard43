@@ -76,7 +76,7 @@
     if (!Number.isFinite(len) || len < 1) return null;
 
     const px = -dy / len;
-    const py =  dx / len;
+    const py = dx / len;
 
     const dLon = (px * wMeters) / mx;
     const dLat = (py * wMeters) / my;
@@ -167,15 +167,34 @@
       ? `<a class="route-title" href="${escapeHtml(url)}" data-adster-open="ad">${titleText}</a>`
       : `<div class="route-title">${titleText}</div>`;
 
+    const descText = escapeHtml(ad.description || ad.desc || "");
+
     return [
       `<div class="route-card">`,
-        thumbHtml,
-        `<div class="route-body">`,
-          titleHtml,
-          priceText ? `<div class="route-price">${priceText}</div>` : ``,
-          locationText ? `<div class="route-loc">${locationText}</div>` : ``,
-          distBits.length ? `<div class="route-dist">${escapeHtml(distBits.join(" · "))}</div>` : ``,
-        `</div>`,
+      thumbHtml,
+      `<div class="route-body">`,
+      titleHtml,
+
+      // Line 2: price + location
+      (priceText || locationText)
+        ? `<div class="route-meta-line">
+             ${priceText ? `<span class="route-price">${priceText}</span>` : ``}
+             ${priceText && locationText ? `<span class="meta-dot">•</span>` : ``}
+             ${locationText ? `<span class="route-loc">${locationText}</span>` : ``}
+           </div>`
+        : ``,
+
+      // Line 3: distances
+      distBits.length
+        ? `<div class="route-dist">${escapeHtml(distBits.join(" · "))}</div>`
+        : ``,
+
+      // Line 4: description
+      descText
+        ? `<div class="route-desc">${descText}</div>`
+        : ``,
+
+      `</div>`,
       `</div>`
     ].join("");
   }
