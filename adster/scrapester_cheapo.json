@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-02-09T22:07:54.647Z",
+  "generated_at": "2026-02-09T23:08:34.752Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,51 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 160,
-      "droppedPrice": 2514,
+      "exported_ads": 162,
+      "droppedPrice": 2521,
       "droppedMissingGeo": 0,
-      "droppedCircle": 1128
+      "droppedCircle": 1140
     }
   },
   "ads": [
+    {
+      "adID": "1553750629068250",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100002027742526/?product_id=1553750629068250",
+      "author": "Cashley Nicole Dollar",
+      "postedTime": "2026-02-09T08:33:19.000Z",
+      "title": "$5 quarter round",
+      "description": "",
+      "price": "$5",
+      "lat": 30.421309,
+      "lon": -87.2169149,
+      "location": "Pensacola, FL",
+      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/628871663_2114967319071788_215471305765117711_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=100&ccb=1-7&_nc_sid=92e707&_nc_ohc=NpPxQiBLRBgQ7kNvwH6e4nK&_nc_oc=AdngzBXFbCxkIrAA1YoBjQjDvG60HCPF0MftCQwW4bLTEuaDDEGJPKTH6UQbgNVNAoc&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=C5A444kvHjvQuPL_3GGLfw&oh=00_AfuL19XDdWJY02lu62vTBCBEXqlNQRZUTploOWcmo4DBWw&oe=69904432",
+      "adUrl": "https://www.facebook.com/marketplace/item/1553750629068250/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-02-09 23:06:33"
+    },
+    {
+      "adID": "1626022355492452",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/509185787/?product_id=1626022355492452",
+      "author": "Jessica N Dmitriy",
+      "postedTime": "2026-02-09T22:31:31.000Z",
+      "title": "NFL Blitz Arcade",
+      "description": "Played a handful of times by my husband and son. Fun game! In excellent condition and works perfectly! Anesthetically, it's in like-new condition. NFL Blitz arcade game. Originally $600, purchased in summer of 2025. Pick up in Dacula 30019 off Old Fountain Rd.",
+      "price": "$300",
+      "lat": 33.9887165,
+      "lon": -83.8979573,
+      "location": "Dacula, GA",
+      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t15.5256-10/631405334_2212356012905375_6934759799222417787_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=104&ccb=1-7&_nc_sid=d4195b&_nc_ohc=xmCSZNE_LVEQ7kNvwHZ_zoA&_nc_oc=AdkP9NoKffkjXjFS2jo83je08Td2OQuZUd8OIXMKihYdJV443_bz7-AsogtIZF3jf2A&_nc_zt=23&_nc_ht=scontent-dfw5-2.xx&_nc_gid=ltYBPpayQZdnyAHsDq6_QQ&oh=00_AfsDsPBsE0n39QxtQ7ojGhK3mnWV-KTeT7ifA5RCK00Ihg&oe=699023C1",
+      "adUrl": "https://www.facebook.com/marketplace/item/1626022355492452/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-02-09 23:04:42"
+    },
     {
       "adID": "25689308707404911",
       "source": "MP",
@@ -697,8 +735,8 @@
       "location": "Decatur, AL",
       "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/628102976_3261460470727791_8481085969393401338_n.jpg?stp=c0.43.261.261a_dst-jpg_p261x260_tt6&_nc_cat=110&ccb=1-7&_nc_sid=92e707&_nc_ohc=2t8eykrkyTYQ7kNvwFVbpNm&_nc_oc=AdlBdFJzawV7fI6oUFhUhPLbuwSVRukvVLUf2HRMt7Os-xdYtSVpdZyCoqbg2ZUY9Jk&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=WlPEoAnCU3Hpb7E93Ap8Vg&oh=00_AfvneQlM6VnbQ1x5CgwbAn3rTMIZSwTesKZdGR6Qhq-oow&oe=698D9EFA",
       "adUrl": "https://www.facebook.com/marketplace/item/913939037668563/",
-      "priceChanged": 1,
-      "priceChangedAt": "2026-02-07 23:04:43",
+      "priceChanged": 0,
+      "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-05 03:04:42"
     },
