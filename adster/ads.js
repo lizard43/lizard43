@@ -279,21 +279,32 @@ function toggleAdIdInSearch(rawInput, adId) {
 
     let s = String(rawInput || "");
 
-    // Find an existing trailing " & ( ... )" group we own.
-    // We only manage the LAST parenthesized group if it's made purely of id: tokens + | separators.
-    const groupRe = /\s*(?:\&\s*)?\(\s*(?:id\s*:\s*\d+\s*(?:\|\s*id\s*:\s*\d+\s*)*)\)\s*$/i;
-    const m = s.match(groupRe);
+    // Find an existing trailing group we own.
+    // We manage either:
+    //   1) a trailing OR group: (id:123 | id:456)
+    //   2) a single trailing token: id:123
+    // NOTE: We intentionally avoid leaving a leading "&" after directive-stripping
+    // (e.g. when the user's search is only price/distance + our id filter).
+    const groupRe = /\s*\(\s*(?:id\s*:\s*\d+\s*(?:\|\s*id\s*:\s*\d+\s*)*)\)\s*$/i;
+    const singleRe = /\s+id\s*:\s*(\d+)\s*$/i;
+
+    const mGroup = s.match(groupRe);
+    const mSingle = mGroup ? null : s.match(singleRe);
 
     let base = s;
     let ids = [];
 
-    if (m) {
-        const groupText = m[0];
+    if (mGroup) {
+        const groupText = mGroup[0];
         base = s.slice(0, s.length - groupText.length).trimEnd();
 
         // Extract ids from the group
         const found = groupText.match(/id\s*:\s*(\d+)/gi) || [];
         ids = found.map(x => String(x).replace(/\s+/g, "").split(":")[1]).filter(Boolean);
+    } else if (mSingle) {
+        const tokenText = mSingle[0];
+        base = s.slice(0, s.length - tokenText.length).trimEnd();
+        ids = [String(mSingle[1] || "").trim()].filter(Boolean);
     }
 
     const idSet = new Set(ids);
@@ -306,10 +317,16 @@ function toggleAdIdInSearch(rawInput, adId) {
         return base.trim();
     }
 
-    // Build stable group with a space after & so it reads nicely,
-    // but rely on parseCapOverridesFromSearch() cleanup to strip leading/trailing ops.
-    const group = `(${nextIds.map(x => `id:${x}`).join(" | ")})`;
-    return (base ? `${base} & ${group}` : group).trim();
+    // If only one id is selected, DO NOT wrap in parentheses.
+    // Reason: the non-boolean matcher treats "(id:123)" as a literal term and it won't match
+    // the blob token "id:123". Keeping it as "id:123" works in both modes.
+    const tail = (nextIds.length === 1)
+        ? `id:${nextIds[0]}`
+        : `(${nextIds.map(x => `id:${x}`).join(" | ")})`;
+
+    // Join with whitespace (implicit AND). If tail is a group containing '|',
+    // the boolean tokenizer will insert an AND between the previous term and '(' automatically.
+    return (base ? `${base} ${tail}` : tail).trim();
 }
 
 let distanceCapMiles = 500; // default
@@ -2879,7 +2896,10 @@ function applyFilter() {
     if (!qTrim) {
         matcher = (ad) => true;
     } else {
-        const isBooleanMode = /[|&!]/.test(qTrim);
+        // Boolean mode should engage not only for explicit operators, but also
+        // when the user uses parentheses for grouping (e.g. "(id:123)").
+        // Otherwise, "(id:123)" becomes a literal token in simple mode and never matches.
+        const isBooleanMode = /[|&!()]/.test(qTrim);
 
         if (!isBooleanMode) {
             const terms = tokenizeSimpleSearch(q);
