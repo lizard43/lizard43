@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-02-09T02:06:48.791Z",
+  "generated_at": "2026-02-09T03:07:09.611Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,32 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 165,
-      "droppedPrice": 2493,
+      "exported_ads": 164,
+      "droppedPrice": 2494,
       "droppedMissingGeo": 0,
       "droppedCircle": 1123
     }
   },
   "ads": [
+    {
+      "adID": "755049094324871",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100040472739270/?product_id=755049094324871",
+      "author": "Brodie Pugh",
+      "postedTime": "2026-02-08T02:45:02.000Z",
+      "title": "Golden Tee Arcade Boards and EPROMs",
+      "description": "All of this is sold as is. The Golden Tee 2k board does not work and is for parts. The Golden Tee 99 powered on but had reset issues. The big capacitor from the 2k looks to have been swapped to the 99, they seem easy to rip off if stored incorrectly. I will retest the 99, but the 2k does not work for certain. Also included are a bunch of golden tee 98 and 99 EPROMs. I also have these boards if interested: US Classic - not working Outrun - not working Hyper Pacman - recapped and new sound chips but has graphics issue Super Pacman - for parts Super Pacman - powers on but needs two replacement CPU chips to get fully working Top Racer - pole position bootleg, untested, and probably doesn’t work Hard Yardage - Works but tends to reset/ no boot if it doesn’t get exactly 5v Also have a bunch of marquees listed",
+      "price": "$50",
+      "lat": 34.729847,
+      "lon": -86.5859011,
+      "location": "Huntsville, AL",
+      "imageUrl": "https://scontent-atl3-2.xx.fbcdn.net/v/t39.84726-6/626440837_917568470711029_7772041899376752392_n.jpg?stp=c58.0.253.253a_dst-jpg_p370x247_tt6&_nc_cat=104&ccb=1-7&_nc_sid=92e707&_nc_ohc=mS27MtAmt3UQ7kNvwFiDIEw&_nc_oc=Adn1lcEh3GrJMg6sntjBnc9E_sfKSxLVB-NltL-drm3KdaskgUZhhH8ItZa-q8l0JYE&_nc_zt=14&_nc_ht=scontent-atl3-2.xx&_nc_gid=yi2QmdT_1oOEh_F5ilx7Qg&oh=00_Afs2swFyVrMIKuslAhL8Ee_qw0N5OmXcf3JZIMsBMO7Eqw&oe=698F146C",
+      "adUrl": "https://www.facebook.com/marketplace/item/755049094324871/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-02-09 03:04:39"
+    },
     {
       "adID": "1349265126980732",
       "source": "MP",
@@ -112,25 +131,6 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-09 00:04:46"
-    },
-    {
-      "adID": "907976474980249",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/61577926237073/?product_id=907976474980249",
-      "author": "Ruben Martinez",
-      "postedTime": "2026-02-08T22:24:57.000Z",
-      "title": "Mortal combat arcade machine",
-      "description": "Comes with the height booster and is in perfect conditions",
-      "price": "$250",
-      "lat": 30.7621326,
-      "lon": -86.5705084,
-      "location": "Crestview, FL",
-      "imageUrl": "https://scontent-atl3-2.xx.fbcdn.net/v/t39.84726-6/630311595_1868213740496758_8110371901200496452_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=104&ccb=1-7&_nc_sid=92e707&_nc_ohc=Xovh4g8cbakQ7kNvwH7Ddid&_nc_oc=AdlMH5etyDFmLivA68QtLjLI3CV_pCk-pY1lRE0K5qghIsXuOHNmfWK-iIL__PZcXqw&_nc_zt=14&_nc_ht=scontent-atl3-2.xx&_nc_gid=VUisOdK0gPOH4wYmlEPyzg&oh=00_AfvFAE1oMUQFhoyyqPczetNe1HP38vRa3raAxetVaRe5_w&oe=698EEFFD",
-      "adUrl": "https://www.facebook.com/marketplace/item/907976474980249/",
-      "priceChanged": 1,
-      "priceChangedAt": "2026-02-09 01:04:37",
-      "hidden": 0,
-      "created_at": "2026-02-08 23:04:57"
     },
     {
       "adID": "1300493535309144",
@@ -663,25 +663,6 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-06 23:04:39"
-    },
-    {
-      "adID": "25257130180637746",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/100000064160308/?product_id=25257130180637746",
-      "author": "Joseph Wilkins",
-      "postedTime": "2025-12-17T02:23:00.000Z",
-      "title": "Mortal Combat II Arcade machine",
-      "description": "Mortal Combat II",
-      "price": "$650",
-      "lat": 33.4473361,
-      "lon": -84.1468616,
-      "location": "McDonough, GA",
-      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/597932041_1382847000238400_5538400341869135454_n.jpg?stp=c0.43.261.261a_dst-jpg_p261x260_tt6&_nc_cat=102&ccb=1-7&_nc_sid=92e707&_nc_ohc=Ei1-c6KpLJoQ7kNvwFkJv2a&_nc_oc=Adn-uaXetuuHpT-28x6GmaC1QiDhssM8jaEUeChB4SpGFLzzkhmHFlzgrIpBAqvsYDg&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=KRAqBFBAG1RR2H76HTLIVA&oh=00_Aft8qEwWLmxb4kQjqRHkmGtsX52TKQZkZkU_SK7xOwxrlg&oe=698C0A93",
-      "adUrl": "https://www.facebook.com/marketplace/item/25257130180637746/",
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-02-06 17:04:46"
     },
     {
       "adID": "861537290066459",
