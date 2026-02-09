@@ -308,11 +308,13 @@ body {
 
 /* --- Toolbar message strip (2 lines above search) --- */
 .toolbar-msg {
-  padding: 6px 10px 0 10px;
-  /* small, matches toolbar vibe */
+  padding: 6px 10px 6px 10px;
   font-size: 12px;
-  line-height: 1.2;
+  line-height: 1.25;
   color: #bdbdbd;
+
+  border-top: 1px solid #333;
+  margin-top: 2px;
 }
 
 .ad .toolbar-msg.hidden {
@@ -1511,7 +1513,7 @@ body>.modal {
 
 /* ---------------- Right-side tap toolbar (quick adjust caps) ---------------- */
 
-.side-tapbar{
+.side-tapbar {
   position: fixed;
   top: 50%;
   right: calc(6px + env(safe-area-inset-right));
@@ -1528,55 +1530,57 @@ body>.modal {
   pointer-events: auto;
 }
 
-.side-tapgroup{
+.side-tapgroup {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 4px;
 
-  background: rgba(0,0,0,0.35);
-  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 12px;
   padding: 6px 5px;
 
   backdrop-filter: blur(6px);
 }
 
-.side-tapbtn{
+.side-tapbtn {
   width: 28px;
   height: 26px;
   border-radius: 10px;
-  border: 1px solid rgba(255,255,255,0.18);
-  background: rgba(255,255,255,0.06);
-  color: rgba(255,255,255,0.92);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.06);
+  color: rgba(255, 255, 255, 0.92);
   font: 700 16px/1 system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
   cursor: pointer;
 }
 
-.side-tapbtn:active{
+.side-tapbtn:active {
   transform: translateY(1px);
 }
 
-.side-taplabel{
+.side-taplabel {
   width: 28px;
   height: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: rgba(255,255,255,0.75);
+  color: rgba(255, 255, 255, 0.75);
   font: 800 12px/1 system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
   letter-spacing: 0.5px;
 }
 
-@media (max-width: 520px){
-  .side-tapbar{
+@media (max-width: 520px) {
+  .side-tapbar {
     right: calc(4px + env(safe-area-inset-right));
   }
-  .side-tapbtn{
+
+  .side-tapbtn {
     width: 30px;
     height: 28px;
   }
-  .side-taplabel{
+
+  .side-taplabel {
     width: 30px;
   }
 }

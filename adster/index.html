@@ -27,12 +27,6 @@
 <body>
   <div class="toolbar">
 
-    <!-- Message strip (2 lines). Hidden when empty. -->
-    <div id="toolbarMsg" class="toolbar-msg hidden" aria-live="polite">
-      <div id="toolbarMsgLine1" class="toolbar-msg-line"></div>
-      <div id="toolbarMsgLine2" class="toolbar-msg-line"></div>
-    </div>
-
     <!-- ROW 1: sort pills (left) | settings gear (right) -->
     <div class="toolbar-row row1">
       <div class="sort-bar">
@@ -176,6 +170,12 @@
       </div>
     </div>
 
+    <!-- Message strip (2 lines). Hidden when empty. -->
+    <div id="toolbarMsg" class="toolbar-msg hidden" aria-live="polite">
+      <div id="toolbarMsgLine1" class="toolbar-msg-line"></div>
+      <div id="toolbarMsgLine2" class="toolbar-msg-line"></div>
+    </div>
+
   </div>
 
   <div class="table-wrapper">
@@ -278,9 +278,11 @@
     </div>
 
     <div id="sideTapWGroup" class="side-tapgroup hidden" aria-label="Route width adjust">
-      <button type="button" class="side-tapbtn" data-kind="w" data-delta="1" aria-label="Increase route width">+</button>
+      <button type="button" class="side-tapbtn" data-kind="w" data-delta="1"
+        aria-label="Increase route width">+</button>
       <div class="side-taplabel" aria-hidden="true">W</div>
-      <button type="button" class="side-tapbtn" data-kind="w" data-delta="-1" aria-label="Decrease route width">−</button>
+      <button type="button" class="side-tapbtn" data-kind="w" data-delta="-1"
+        aria-label="Decrease route width">−</button>
     </div>
   </div>
 
