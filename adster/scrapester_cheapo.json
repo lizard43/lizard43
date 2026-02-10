@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-02-10T03:06:56.846Z",
+  "generated_at": "2026-02-10T12:07:18.846Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,32 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 149,
-      "droppedPrice": 2529,
+      "exported_ads": 150,
+      "droppedPrice": 2541,
       "droppedMissingGeo": 0,
-      "droppedCircle": 1144
+      "droppedCircle": 1151
     }
   },
   "ads": [
+    {
+      "adID": "2004227616790006",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/61563354693786/?product_id=2004227616790006",
+      "author": "J'hayden Pippen",
+      "postedTime": "2026-02-10T07:26:03.000Z",
+      "title": "Pinball machine",
+      "description": "Works 4119 vassie dr Tuscaloosa,al [hidden information]",
+      "price": "$20",
+      "lat": 33.2095614,
+      "lon": -87.5675258,
+      "location": "Tuscaloosa, AL",
+      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/631861204_838145212600954_607709644100431050_n.jpg?stp=c0.43.261.261a_dst-jpg_p261x260_tt6&_nc_cat=100&ccb=1-7&_nc_sid=92e707&_nc_ohc=A6OgkB1nH94Q7kNvwH_aJo2&_nc_oc=Admzvax3tERh3H62VC2r05iKTBPHyG7sPWLTvIwVpvKnnO5vaHLDGolmm6ZEmprg4Io&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=10NXDFgYn5-V5CbAfeHLbw&oh=00_Afu2iaglEBv9Q8Ie-C1Gr5RDCUQC-EziCLfMDjRcntMEiQ&oe=6990D6B3",
+      "adUrl": "https://www.facebook.com/marketplace/item/2004227616790006/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-02-10 12:06:22"
+    },
     {
       "adID": "1663816254993219",
       "source": "MP",
@@ -564,8 +583,8 @@
       "location": "Woodstock, GA",
       "imageUrl": "https://imgproxy.pinside.com/rLZb8HsSYPKc8mpkOpYQ3lKbgcPMgjWUZxXA1f1_V8s/rs:fit:640:480/fn:pinside_3bc4b5060794/enc/uKP2s-7moYsSI3RxEwaFL5fhvhe_EHf0VfznPBPfeot-4BuClENiH_tWjv7R67Li2qP1AB1UbXJKG5Pg9q11BpD56ulz5I9t0vdF6wjGGx3HHrgqCOY-XBhlFu3aMoHH.jpg",
       "adUrl": "https://pinside.com/pinball/market/classifieds/ad/202301",
-      "priceChanged": 1,
-      "priceChangedAt": "2026-02-08 03:07:01",
+      "priceChanged": 0,
+      "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-05 22:03:09"
     },
