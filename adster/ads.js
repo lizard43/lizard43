@@ -5,6 +5,7 @@ let ADS_JSON_URL = "scrapester.json";
 const LS_LAST_SEARCH = "adster.search.last";
 const LS_LAST_SEARCH_AT = "adster.search.lastAt"; // epoch ms (optional)
 
+const LS_HOME_LABEL = "adster.location.homeLabel";
 const LS_HOME_LAT = "adster.location.homeLat";
 const LS_HOME_LON = "adster.location.homeLon";
 
@@ -23,6 +24,8 @@ let routeReady = false;  // we have home + dest coords resolved
 
 // Cached route state for the map tab
 let lastRouteMapState = null; // { home:{lat,lon,label}, dest:{lat,lon,label}, corridorMiles:number }
+
+let lastLocationToastText = "";
 
 function resolveAdsJsonUrlFromQuery() {
     const sp = new URLSearchParams(window.location.search);
@@ -434,7 +437,9 @@ function saveRouteCorridorMiles(n) {
 function loadStoredHomeLatLon() {
     const lat = Number(localStorage.getItem(LS_HOME_LAT));
     const lon = Number(localStorage.getItem(LS_HOME_LON));
-    if (Number.isFinite(lat) && Number.isFinite(lon)) return { lat, lon };
+    const label = String(localStorage.getItem(LS_HOME_LABEL) || "").trim();
+
+    if (Number.isFinite(lat) && Number.isFinite(lon)) return { lat, lon, label };
     return null;
 }
 
@@ -1272,7 +1277,9 @@ async function resolveHomeLocation() {
     if (stored && s.mode === "fixed") {
         homeLat = stored.lat;
         homeLon = stored.lon;
-        lastLocationToastText = `Location: saved (${homeLat.toFixed(4)}, ${homeLon.toFixed(4)})`;
+
+        const name = stored.label ? ` (${stored.label})` : "";
+        lastLocationToastText = `Location: ${name} (${homeLat.toFixed(4)}, ${homeLon.toFixed(4)})`;
         return;
     }
 
@@ -1286,11 +1293,12 @@ async function resolveHomeLocation() {
             return;
         }
 
-        // If browser failed, we can ALSO use stored coords if present
         if (stored) {
             homeLat = stored.lat;
             homeLon = stored.lon;
-            lastLocationToastText = `Location: browser failed → saved`;
+
+            const name = stored.label ? ` (${stored.label})` : "";
+            lastLocationToastText = `Location: browser failed → ${name}`;
             return;
         }
 
@@ -3378,8 +3386,12 @@ async function setupSettingsModal() {
         const s = getLocSettings();
 
         setMode(s.mode);
-        if (savedSel.value !== (s.fixedId || "")) savedSel.value = "";
-        if (fallbackSel.value !== (s.fallbackId || "")) fallbackSel.value = "";
+
+        // Restore dropdowns from storage (do NOT blank them)
+        if (savedSel) savedSel.value = s.fixedId || "";
+
+        // Browser fallback: if user never set one, default it to fixedId
+        if (fallbackSel) fallbackSel.value = (s.fallbackId || s.fixedId || "");
 
         // restore user-defined lat/lon (only matters if "user" selected)
         latInput.value = s.userLat || "";
@@ -3395,10 +3407,19 @@ async function setupSettingsModal() {
     function syncStorageFromUI() {
         const mode = getMode();
 
+        let fixedId = savedSel.value || "";
+        let fallbackId = fallbackSel.value || "";
+
+        // If user selects browser mode and hasn't explicitly chosen a fallback,
+        // keep the last fixed selection as the fallback.
+        if (mode === "browser" && !fallbackId) {
+            fallbackId = fixedId;
+        }
+
         const s = {
             mode,
-            fixedId: savedSel.value || "",
-            fallbackId: fallbackSel.value || "",
+            fixedId,
+            fallbackId,
             userLat: latInput.value,
             userLon: lonInput.value,
         };
@@ -3489,11 +3510,23 @@ async function setupSettingsModal() {
             // Save settings from the modal (fixed location, etc.)
             syncStorageFromUI();
 
-            // Persist resolved home coords for fast startup distance calc
+            // Persist resolved home coords for fast startup distance calc (+ label)
             const lat = parseNumberOrNull(latInput.value);
             const lon = parseNumberOrNull(lonInput.value);
+
+            let label = "";
+            try {
+                // We can infer label from the selected ID (or "user defined")
+                const mode = getMode();
+                const id = (mode === "fixed") ? (savedSel.value || "") : (fallbackSel.value || savedSel.value || "");
+                const loc = getSavedLocationById(list, id);
+
+                if (loc?.id === "user") label = "User defined";
+                else if (loc?.label) label = loc.label;
+            } catch { }
+
             if (lat != null && lon != null) {
-                saveStoredHomeLatLon(lat, lon);
+                saveStoredHomeLatLon(lat, lon, label);
             }
 
             close();
@@ -3805,27 +3838,7 @@ async function loadAds() {
 
         syncBadImageSetWithGeneratedAt(generatedAtISO);
 
-        if (generatedAtISO) {
-            const titleTime = formatTitleTimestamp(generatedAtISO);
-            document.title = titleTime
-                ? `Adster · ${titleTime}`
-                : "Adster";
-
-            if (lastLocationToastText) {
-                showToolbarMessage(lastLocationToastText, "", 3000);
-            }
-        }
-
-        // if (generatedAtISO) {
-        //     const titleTime = formatTitleTimestamp(generatedAtISO);
-        //     document.title = titleTime
-        //         ? `Adster · ${titleTime}`
-        //         : "Adster";
-
-        //     const loc = lastLocationToastText || "Location: unknown";
-        //     showToolbarMessage(loc, `Last scrape: ${titleTime}`, 3000);
-        // }
-
+        lastLocationToastText
         // scrapester.json is { generated_at, ads: [...] }
         const ads = Array.isArray(json.ads) ? json.ads : json;
 
