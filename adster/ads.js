@@ -443,10 +443,16 @@ function loadStoredHomeLatLon() {
     return null;
 }
 
-function saveStoredHomeLatLon(lat, lon) {
+function saveStoredHomeLatLon(lat, lon, label = "") {
     if (!Number.isFinite(lat) || !Number.isFinite(lon)) return false;
+
     localStorage.setItem(LS_HOME_LAT, String(lat));
     localStorage.setItem(LS_HOME_LON, String(lon));
+
+    const lab = String(label || "").trim();
+    if (lab) localStorage.setItem(LS_HOME_LABEL, lab);
+    else localStorage.removeItem(LS_HOME_LABEL);
+
     return true;
 }
 
@@ -3858,6 +3864,20 @@ async function loadAds() {
         });
 
         applyFilter();
+
+        // Toast location + last scrape (line2) while keeping the searchbar hint
+        const locLine = (lastLocationToastText && String(lastLocationToastText).trim())
+            ? lastLocationToastText
+            : "Location: unknown";
+
+        let scrapeLine = "";
+        if (generatedAtISO) {
+            const pretty = formatTimestampDisplay(generatedAtISO);
+            if (pretty) scrapeLine = `Last scrape: ${pretty}`;
+        }
+
+        showToolbarMessage(locLine, scrapeLine, 4000);
+
     } catch (err) {
         console.error("Failed to load ads:", err);
         tbody.innerHTML = "Error loading ads.";
