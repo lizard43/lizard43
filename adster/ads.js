@@ -2087,7 +2087,7 @@ function renderTable() {
     ${routeHintHtml}
     ${fromHomeHtml}
 
-    <div class="ad-line-adid">${escapeHtml(adID)}</div>
+    <div class="ad-line-adid">${escapeHtml(adID)}${ad.lastSeen ? ` - ${escapeHtml(formatTimestampDisplay(ad.lastSeen))}` : ""}</div>
 
     <div class="ad-line4">${descSafe}</div>
 
