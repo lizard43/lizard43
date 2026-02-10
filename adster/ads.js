@@ -1017,16 +1017,18 @@ function setLocSettings(s) {
 
 function resolveFixedLocation(locations, locId, userLatStr, userLonStr) {
     const chosen = getSavedLocationById(locations, locId);
-    if (!chosen) return { lat: DEFAULT_HOME.lat, lon: DEFAULT_HOME.lon, why: "built-in default" };
+    if (!chosen) {
+        return { lat: DEFAULT_HOME.lat, lon: DEFAULT_HOME.lon, label: "" };
+    }
 
     if (chosen.id === "user") {
         const lat = parseNumberOrNull(userLatStr);
         const lon = parseNumberOrNull(userLonStr);
-        if (lat != null && lon != null) return { lat, lon, why: "user defined" };
-        return { lat: DEFAULT_HOME.lat, lon: DEFAULT_HOME.lon, why: "user defined (invalid) → default" };
+        if (lat != null && lon != null) return { lat, lon, label: "User defined" };
+        return { lat: DEFAULT_HOME.lat, lon: DEFAULT_HOME.lon, label: "User defined" };
     }
 
-    return { lat: chosen.lat, lon: chosen.lon, why: `fixed: ${chosen.label}` };
+    return { lat: chosen.lat, lon: chosen.lon, label: String(chosen.label || "").trim() };
 }
 
 function parseNumberOrNull(v) {
@@ -1087,6 +1089,14 @@ async function copyTextToClipboard(text) {
     const ok = document.execCommand("copy");
     document.body.removeChild(ta);
     return ok;
+}
+function formatLocationLine(label, lat, lon) {
+    const ll = (Number.isFinite(lat) && Number.isFinite(lon))
+        ? `(${lat.toFixed(4)}, ${lon.toFixed(4)})`
+        : "";
+
+    const lab = String(label || "").trim();
+    return lab ? `Location: ${lab} ${ll}`.trim() : `Location: ${ll}`.trim();
 }
 
 function showToolbarMessage(line1, line2 = "", duration = 4000) {
@@ -1284,8 +1294,17 @@ async function resolveHomeLocation() {
         homeLat = stored.lat;
         homeLon = stored.lon;
 
-        const name = stored.label ? ` (${stored.label})` : "";
-        lastLocationToastText = `Location: ${name} (${homeLat.toFixed(4)}, ${homeLon.toFixed(4)})`;
+        let label = String(stored.label || "").trim();
+
+        // Backfill: old users may have lat/lon saved but no label yet
+        if (!label) {
+            const locations = await loadLocationsJson();
+            const fixed = resolveFixedLocation(locations, s.fixedId, s.userLat, s.userLon);
+            label = String(fixed.label || "").trim();
+            if (label) saveStoredHomeLatLon(homeLat, homeLon, label);
+        }
+
+        lastLocationToastText = formatLocationLine(label, homeLat, homeLon);
         return;
     }
 
@@ -1303,8 +1322,16 @@ async function resolveHomeLocation() {
             homeLat = stored.lat;
             homeLon = stored.lon;
 
-            const name = stored.label ? ` (${stored.label})` : "";
-            lastLocationToastText = `Location: browser failed → ${name}`;
+            let label = String(stored.label || "").trim();
+            if (!label) {
+                const locations = await loadLocationsJson();
+                const fbId = s.fallbackId || s.fixedId;
+                const fixed = resolveFixedLocation(locations, fbId, s.userLat, s.userLon);
+                label = String(fixed.label || "").trim();
+                if (label) saveStoredHomeLatLon(homeLat, homeLon, label);
+            }
+
+            lastLocationToastText = formatLocationLine(label, homeLat, homeLon);
             return;
         }
 
@@ -1314,7 +1341,9 @@ async function resolveHomeLocation() {
         const fixed = resolveFixedLocation(locations, fbId, s.userLat, s.userLon);
         homeLat = fixed.lat;
         homeLon = fixed.lon;
-        lastLocationToastText = `Location: browser failed → ${fixed.why}`;
+
+        if (fixed.label) saveStoredHomeLatLon(homeLat, homeLon, fixed.label);
+        lastLocationToastText = formatLocationLine(fixed.label, homeLat, homeLon);
         return;
     }
 
