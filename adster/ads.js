@@ -9,6 +9,11 @@ const LS_HOME_LABEL = "adster.location.homeLabel";
 const LS_HOME_LAT = "adster.location.homeLat";
 const LS_HOME_LON = "adster.location.homeLon";
 
+// Cache "near <City, ST>" for browser geolocation so we don't scan cities.json every reload
+const LS_BROWSER_CITY_LAT = "adster.browserCity.lat";
+const LS_BROWSER_CITY_LON = "adster.browserCity.lon";
+const LS_BROWSER_CITY_LABEL = "adster.browserCity.label"; // e.g. "near Freeport, FL"
+
 const PRICEGUIDE_TAB_NAME = "adster_priceguide";
 
 
@@ -1284,6 +1289,25 @@ function setupFavoriteSearchHearts() {
     });
 }
 
+function loadBrowserCityCache() {
+    const lat = Number(localStorage.getItem(LS_BROWSER_CITY_LAT));
+    const lon = Number(localStorage.getItem(LS_BROWSER_CITY_LON));
+    const label = String(localStorage.getItem(LS_BROWSER_CITY_LABEL) || "").trim();
+    if (!Number.isFinite(lat) || !Number.isFinite(lon) || !label) return null;
+    return { lat, lon, label };
+}
+
+function saveBrowserCityCache(lat, lon, label) {
+    if (!Number.isFinite(lat) || !Number.isFinite(lon)) return false;
+    const lab = String(label || "").trim();
+    if (!lab) return false;
+
+    localStorage.setItem(LS_BROWSER_CITY_LAT, String(lat));
+    localStorage.setItem(LS_BROWSER_CITY_LON, String(lon));
+    localStorage.setItem(LS_BROWSER_CITY_LABEL, lab);
+    return true;
+}
+
 async function resolveHomeLocation() {
     const s = getLocSettings();
 
@@ -1314,7 +1338,33 @@ async function resolveHomeLocation() {
         if (geo) {
             homeLat = geo.lat;
             homeLon = geo.lon;
-            lastLocationToastText = `Location: browser (${homeLat.toFixed(4)}, ${homeLon.toFixed(4)})`;
+
+            // Use cached "near City, ST" if the browser location hasn't meaningfully moved
+            let label = "";
+            const cached = loadBrowserCityCache();
+            if (cached) {
+                // threshold in miles before we recompute nearest city
+                const movedMiles = haversineMilesJS(homeLat, homeLon, cached.lat, cached.lon);
+                if (Number.isFinite(movedMiles) && movedMiles < 2.0) {
+                    label = cached.label; // e.g. "near Freeport, FL"
+                }
+            }
+
+            // If no valid cache (or moved), compute once and persist
+            if (!label) {
+                try {
+                    const cities = await loadCitiesJson();
+                    const near = findNearestCityLabel(cities, homeLat, homeLon); // returns "near X"
+                    if (near) {
+                        label = near;
+                        saveBrowserCityCache(homeLat, homeLon, label);
+                    }
+                } catch { }
+            }
+
+            if (!label) label = "browser";
+
+            lastLocationToastText = formatLocationLine(label, homeLat, homeLon);
             return;
         }
 
@@ -1616,6 +1666,35 @@ function haversineMilesJS(lat1, lon1, lat2, lon2) {
     const d = R * c;
 
     return d;
+}
+
+function findNearestCityLabel(cities, lat, lon) {
+    if (!Array.isArray(cities) || !cities.length) return "";
+
+    let best = null;
+    let bestMiles = Infinity;
+
+    for (const c of cities) {
+        if (!c) continue;
+        const clat = Number(c.lat);
+        const clon = Number(c.lon);
+        if (!Number.isFinite(clat) || !Number.isFinite(clon)) continue;
+
+        const d = haversineMilesJS(lat, lon, clat, clon);
+        if (!Number.isFinite(d)) continue;
+
+        if (d < bestMiles) {
+            bestMiles = d;
+            best = c;
+        }
+    }
+
+    const label = String(best?.label || best?.id || "").trim();
+    if (!label) return "";
+
+    // Optional: include distance if you want later:
+    // return `near ${label} (${bestMiles.toFixed(1)} mi)`;
+    return `near ${label}`;
 }
 
 function priceSortKey(priceText) {
