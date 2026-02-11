@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-02-11T16:29:22.097Z",
+  "generated_at": "2026-02-11T17:07:34.488Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,33 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 137,
-      "droppedPrice": 2543,
+      "exported_ads": 138,
+      "droppedPrice": 2545,
       "droppedMissingGeo": 0,
-      "droppedCircle": 1149
+      "droppedCircle": 1151
     }
   },
   "ads": [
+    {
+      "adID": "1417434986505926",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100017589609842/?product_id=1417434986505926",
+      "author": "Cole Risgaard",
+      "postedTime": "2026-02-11T16:10:51.000Z",
+      "title": "Atari Lynx Collection 1 Evercade #13 New Sealed",
+      "description": "The Atari Lynx Collection 1 Evercade #13 is a new and sealed video game package featuring arcade games for the Atari Lynx platform. Published by Atari and with a PEGI 12 rating, this collection offers a variety of nostalgic games in the region-free format. Perfect for fans of retro gaming, this collection provides hours of entertainment with its classic arcade games.",
+      "price": "$130",
+      "lat": 27.9378338,
+      "lon": -82.2327525,
+      "location": "Valrico, FL",
+      "imageUrl": "https://scontent-dfw5-3.xx.fbcdn.net/v/t39.84726-6/631325367_1666455557807481_2302300080510718299_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=109&ccb=1-7&_nc_sid=92e707&_nc_ohc=nO_SyvlAKSwQ7kNvwHaAq9N&_nc_oc=Adm8zJgYSs8YhwxTibRmO63dK3Fn7eJ-ShRGWKj8pqBjqQMJzo8wPOsZERoqeQEyM4Q&_nc_zt=14&_nc_ht=scontent-dfw5-3.xx&_nc_gid=CzWse2heigW5IQpJKP0XeQ&oh=00_Afu6aXmsu8w6zSCVuYJ2VqJ1JHSaYzI1bC6i1FzKX--NCg&oe=699299D1",
+      "adUrl": "https://www.facebook.com/marketplace/item/1417434986505926/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-02-11 17:04:42",
+      "lastSeen": "2026-02-11T17:05:33.158Z"
+    },
     {
       "adID": "2016516708928766",
       "source": "MP",
@@ -36,7 +56,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-11 16:06:39",
-      "lastSeen": "2026-02-11T16:08:00.024Z"
+      "lastSeen": "2026-02-11T17:06:27.495Z"
     },
     {
       "adID": "1869523700434458",
@@ -136,7 +156,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-10 20:04:52",
-      "lastSeen": "2026-02-11T16:04:42.610Z"
+      "lastSeen": "2026-02-11T17:04:41.439Z"
     },
     {
       "adID": "1216014067331160",
@@ -156,7 +176,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-10 17:04:55",
-      "lastSeen": "2026-02-11T16:04:42.435Z"
+      "lastSeen": "2026-02-11T17:04:41.067Z"
     },
     {
       "adID": "1663816254993219",
@@ -196,7 +216,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-09 20:07:19",
-      "lastSeen": "2026-02-11T16:06:33.885Z"
+      "lastSeen": "2026-02-11T17:06:23.230Z"
     },
     {
       "adID": "2076230456465508",
@@ -296,7 +316,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-09 00:06:31",
-      "lastSeen": "2026-02-11T16:06:30.883Z"
+      "lastSeen": "2026-02-11T17:06:19.101Z"
     },
     {
       "adID": "1173857111626932",
@@ -336,7 +356,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-08 21:06:45",
-      "lastSeen": "2026-02-11T16:06:31.050Z"
+      "lastSeen": "2026-02-11T17:06:19.202Z"
     },
     {
       "adID": "2119340195511544",
@@ -376,7 +396,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-08 20:06:40",
-      "lastSeen": "2026-02-11T16:06:31.771Z"
+      "lastSeen": "2026-02-11T17:06:21.404Z"
     },
     {
       "adID": "1417620300062703",
@@ -396,7 +416,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-08 20:06:40",
-      "lastSeen": "2026-02-11T16:06:31.319Z"
+      "lastSeen": "2026-02-11T17:06:19.303Z"
     },
     {
       "adID": "2022276341963884",
@@ -776,7 +796,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-03 01:04:42",
-      "lastSeen": "2026-02-11T16:04:43.011Z"
+      "lastSeen": "2026-02-11T17:04:41.672Z"
     },
     {
       "adID": "817589824672344",
@@ -856,7 +876,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-02 00:05:58",
-      "lastSeen": "2026-02-11T14:06:14.389Z"
+      "lastSeen": "2026-02-11T17:06:27.184Z"
     },
     {
       "adID": "842420052018357",
@@ -1076,7 +1096,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-01-28 17:46:19",
-      "lastSeen": "2026-02-11T16:06:32.815Z"
+      "lastSeen": "2026-02-11T17:06:21.044Z"
     },
     {
       "adID": "1431260001702916",
@@ -1396,7 +1416,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-01-25 03:23:15",
-      "lastSeen": "2026-02-11T16:06:41.383Z"
+      "lastSeen": "2026-02-11T17:06:27.767Z"
     },
     {
       "adID": "1971059903787467",
@@ -1556,7 +1576,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-01-23 19:02:28",
-      "lastSeen": "2026-02-11T16:06:36.541Z"
+      "lastSeen": "2026-02-11T17:06:21.601Z"
     },
     {
       "adID": "26066354906334369",
@@ -2096,7 +2116,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-01-16 16:02:29",
-      "lastSeen": "2026-02-11T16:04:43.678Z"
+      "lastSeen": "2026-02-11T17:04:42.631Z"
     },
     {
       "adID": "1628202541849277",
@@ -2116,7 +2136,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-01-16 16:02:29",
-      "lastSeen": "2026-02-11T16:04:44.391Z"
+      "lastSeen": "2026-02-11T17:04:41.874Z"
     },
     {
       "adID": "1552992022558742",
@@ -2716,7 +2736,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-01-01 15:17:08",
-      "lastSeen": "2026-02-11T14:04:47.349Z"
+      "lastSeen": "2026-02-11T17:04:42.053Z"
     },
     {
       "adID": "1852227435375010",
