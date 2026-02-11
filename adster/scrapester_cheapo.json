@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-02-11T21:02:11.063Z",
+  "generated_at": "2026-02-11T22:09:34.149Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,53 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 140,
-      "droppedPrice": 2551,
+      "exported_ads": 142,
+      "droppedPrice": 2559,
       "droppedMissingGeo": 0,
-      "droppedCircle": 1159
+      "droppedCircle": 1167
     }
   },
   "ads": [
+    {
+      "adID": "1241711804003974",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/1043122358/?product_id=1241711804003974",
+      "author": "Jan Brown",
+      "postedTime": "2025-12-23T17:57:04.000Z",
+      "title": "Globe",
+      "description": "Smoke free home. Pickup north crestview",
+      "price": "$10",
+      "lat": 30.7621326,
+      "lon": -86.5705084,
+      "location": "Crestview, FL",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/631018453_1770365693630512_8334695885972310218_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=105&ccb=1-7&_nc_sid=92e707&_nc_ohc=d8C3ob5Nk9QQ7kNvwGExOUr&_nc_oc=Adnop72reLsHJgkewDl2iDHc0KLIINTvjzua84GdodJbiiKE0RFokKDNPpwsx5cg3I8&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=_GMQeUmgTq9DrDIjw6a92w&oh=00_AfuenGuI9i0tmMulKBzSTW96b8tklisIUkh0MbiJnDuOfQ&oe=6992CDDA",
+      "adUrl": "https://www.facebook.com/marketplace/item/1241711804003974/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-02-11 22:06:37",
+      "lastSeen": "2026-02-11T22:08:49.028Z"
+    },
+    {
+      "adID": "2163795024450775",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/61550303121908/?product_id=2163795024450775",
+      "author": "Grandmas Primitive Antiques",
+      "postedTime": "2026-02-11T20:48:36.000Z",
+      "title": "Antique Arcade Jack Dolly",
+      "description": "This is an arcade jack also used to lift and move antique wood burning stoves. It’s in great shape",
+      "price": "$150",
+      "lat": 28.5552719,
+      "lon": -82.3878709,
+      "location": "Brooksville, FL",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/631064588_1832930487418358_1528828854500054306_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=105&ccb=1-7&_nc_sid=92e707&_nc_ohc=qG2Xbg7US0EQ7kNvwFnS0dw&_nc_oc=AdnAieYOF3ErL8TGhdigG_unBFyl7cPlfojBjYsxxVMIj8kzllCjf7HjPwf_l44UL7E&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=xOK2vGBtI-mxMdzdd8JhdQ&oh=00_AfukYuBpvmeBeS-iZaUNWKFNv7dNI99PBc6kceVW8-kMzg&oe=6992DD4D",
+      "adUrl": "https://www.facebook.com/marketplace/item/2163795024450775/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-02-11 22:04:48",
+      "lastSeen": "2026-02-11T22:05:33.465Z"
+    },
     {
       "adID": "25898162483168310",
       "source": "MP",
@@ -56,7 +96,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-11 19:06:55",
-      "lastSeen": "2026-02-11T19:19:58.412Z"
+      "lastSeen": "2026-02-11T22:06:34.689Z"
     },
     {
       "adID": "2816154345421197",
@@ -196,7 +236,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-10 20:04:52",
-      "lastSeen": "2026-02-11T19:18:31.609Z"
+      "lastSeen": "2026-02-11T22:04:47.282Z"
     },
     {
       "adID": "1216014067331160",
@@ -216,7 +256,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-10 17:04:55",
-      "lastSeen": "2026-02-11T19:18:31.437Z"
+      "lastSeen": "2026-02-11T22:04:46.602Z"
     },
     {
       "adID": "1663816254993219",
@@ -256,7 +296,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-09 20:07:19",
-      "lastSeen": "2026-02-11T19:20:01.604Z"
+      "lastSeen": "2026-02-11T22:06:28.738Z"
     },
     {
       "adID": "2076230456465508",
@@ -276,7 +316,7 @@
       "priceChangedAt": "2026-02-11 16:04:45",
       "hidden": 0,
       "created_at": "2026-02-09 20:04:50",
-      "lastSeen": "2026-02-11T16:05:43.854Z"
+      "lastSeen": "2026-02-11T22:04:48.145Z"
     },
     {
       "adID": "2324396931413954",
@@ -356,7 +396,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-09 00:06:31",
-      "lastSeen": "2026-02-11T19:19:58.144Z"
+      "lastSeen": "2026-02-11T22:06:25.447Z"
     },
     {
       "adID": "1173857111626932",
@@ -396,7 +436,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-08 21:06:45",
-      "lastSeen": "2026-02-11T19:19:58.278Z"
+      "lastSeen": "2026-02-11T22:06:25.782Z"
     },
     {
       "adID": "2119340195511544",
@@ -436,7 +476,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-08 20:06:40",
-      "lastSeen": "2026-02-11T19:19:59.017Z"
+      "lastSeen": "2026-02-11T22:06:26.471Z"
     },
     {
       "adID": "1417620300062703",
@@ -456,7 +496,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-08 20:06:40",
-      "lastSeen": "2026-02-11T19:19:58.513Z"
+      "lastSeen": "2026-02-11T22:06:25.681Z"
     },
     {
       "adID": "2022276341963884",
@@ -576,7 +616,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-07 12:04:45",
-      "lastSeen": "2026-02-11T19:18:33.872Z"
+      "lastSeen": "2026-02-11T22:04:49.031Z"
     },
     {
       "adID": "1226296462734688",
@@ -836,7 +876,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-03 01:04:42",
-      "lastSeen": "2026-02-11T19:18:31.943Z"
+      "lastSeen": "2026-02-11T22:04:47.451Z"
     },
     {
       "adID": "817589824672344",
@@ -1136,7 +1176,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-01-28 17:46:19",
-      "lastSeen": "2026-02-11T19:20:00.561Z"
+      "lastSeen": "2026-02-11T22:06:28.795Z"
     },
     {
       "adID": "1431260001702916",
@@ -1456,7 +1496,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-01-25 03:23:15",
-      "lastSeen": "2026-02-11T19:20:07.825Z"
+      "lastSeen": "2026-02-11T22:06:28.625Z"
     },
     {
       "adID": "1971059903787467",
@@ -1616,7 +1656,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-01-23 19:02:28",
-      "lastSeen": "2026-02-11T19:20:00.662Z"
+      "lastSeen": "2026-02-11T22:06:28.179Z"
     },
     {
       "adID": "26066354906334369",
@@ -1776,7 +1816,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-01-21 22:08:38",
-      "lastSeen": "2026-02-11T14:06:14.288Z"
+      "lastSeen": "2026-02-11T22:06:39.201Z"
     },
     {
       "adID": "PI-205987",
@@ -1856,7 +1896,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-01-21 00:02:29",
-      "lastSeen": "2026-02-11T19:18:33.669Z"
+      "lastSeen": "2026-02-11T22:04:48.852Z"
     },
     {
       "adID": "2193576348053106",
@@ -2016,7 +2056,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-01-18 22:02:28",
-      "lastSeen": "2026-02-11T19:18:33.308Z"
+      "lastSeen": "2026-02-11T22:04:48.717Z"
     },
     {
       "adID": "2243727616138292",
@@ -2136,7 +2176,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-01-16 19:13:07",
-      "lastSeen": "2026-02-11T19:18:34.614Z"
+      "lastSeen": "2026-02-11T22:06:32.832Z"
     },
     {
       "adID": "2185352358965594",
@@ -2156,7 +2196,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-01-16 16:02:29",
-      "lastSeen": "2026-02-11T19:18:33.177Z"
+      "lastSeen": "2026-02-11T22:04:48.526Z"
     },
     {
       "adID": "1628202541849277",
@@ -2176,7 +2216,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-01-16 16:02:29",
-      "lastSeen": "2026-02-11T18:04:50.315Z"
+      "lastSeen": "2026-02-11T22:04:47.852Z"
     },
     {
       "adID": "1552992022558742",
@@ -2256,7 +2296,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-01-14 18:07:37",
-      "lastSeen": "2026-02-11T14:06:15.003Z"
+      "lastSeen": "2026-02-11T22:06:38.951Z"
     },
     {
       "adID": "1277104864246616",
@@ -2776,7 +2816,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-01-01 15:17:08",
-      "lastSeen": "2026-02-11T19:20:09.173Z"
+      "lastSeen": "2026-02-11T22:06:34.485Z"
     },
     {
       "adID": "1852227435375010",
