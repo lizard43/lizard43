@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-02-12T03:08:40.921Z",
+  "generated_at": "2026-02-12T12:10:00.258Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,53 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 135,
-      "droppedPrice": 2577,
+      "exported_ads": 137,
+      "droppedPrice": 2580,
       "droppedMissingGeo": 0,
-      "droppedCircle": 1148
+      "droppedCircle": 1156
     }
   },
   "ads": [
+    {
+      "adID": "3720048994792896",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100021860313277/?product_id=3720048994792896",
+      "author": "Ceci Lore",
+      "postedTime": "2026-02-12T03:43:43.000Z",
+      "title": "Spider-Man Revenge of the Green Goblin Pinball Machine",
+      "description": "Good condition",
+      "price": "$120",
+      "lat": 33.9528472,
+      "lon": -84.5496148,
+      "location": "Marietta, GA",
+      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/634094741_1220586720269986_6946490164150748768_n.jpg?stp=c0.68.261.261a_dst-jpg_p261x260_tt6&_nc_cat=102&ccb=1-7&_nc_sid=92e707&_nc_ohc=RPtT6OMaVDQQ7kNvwGmqCE2&_nc_oc=Adk1Nc_chvpJmj8vzurQyfceVZoE1I5LtW7AV4c_D53sbmg7VYQsouvM5g8Ib3IB7t0&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=IKXLYGfZyUBbsZBuJe9pUQ&oh=00_Afv3N5LBFQJQ7OlmUelAkPnoC-agXWFtlHGKJbs9RuUCBg&oe=69937E24",
+      "adUrl": "https://www.facebook.com/marketplace/item/3720048994792896/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-02-12 12:06:47",
+      "lastSeen": "2026-02-12T12:09:15.911Z"
+    },
+    {
+      "adID": "1118494103222985",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/1399430380/?product_id=1118494103222985",
+      "author": "Austin Aldridge",
+      "postedTime": "2025-10-11T22:50:33.000Z",
+      "title": "Vintage 50's Pinball Glass",
+      "description": "Pick up Downtown Covington near square",
+      "price": "$150",
+      "lat": 33.5966005,
+      "lon": -83.8598742,
+      "location": "Covington, GA",
+      "imageUrl": "https://scontent-dfw5-3.xx.fbcdn.net/v/t39.84726-6/567714169_1673816543575252_7524014396748781906_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=108&ccb=1-7&_nc_sid=92e707&_nc_ohc=g6JnW2ZmcgkQ7kNvwEBA87H&_nc_oc=AdmUpLt0a-JLJztx17NFJmTqLZthghJH6QSdB8p3kodo5JsnHjR6GBNckJJBN4fxvjg&_nc_zt=14&_nc_ht=scontent-dfw5-3.xx&_nc_gid=kbJ6Ki0QqbmMsHsIWpTWng&oh=00_AfuRGblMwsRTrNK3JiAQJdooBA4MkLAGZKsiPHfZN_9JhA&oe=69939442",
+      "adUrl": "https://www.facebook.com/marketplace/item/1118494103222985/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-02-12 12:06:45",
+      "lastSeen": "2026-02-12T12:09:15.845Z"
+    },
     {
       "adID": "1929543967631079",
       "source": "MP",
@@ -96,7 +136,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-10 23:07:47",
-      "lastSeen": "2026-02-11T03:07:37.696Z"
+      "lastSeen": "2026-02-12T12:06:46.149Z"
     },
     {
       "adID": "1090190863233240",
@@ -116,7 +156,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-10 20:04:52",
-      "lastSeen": "2026-02-12T03:04:46.521Z"
+      "lastSeen": "2026-02-12T12:05:06.051Z"
     },
     {
       "adID": "1216014067331160",
@@ -176,7 +216,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-09 20:07:19",
-      "lastSeen": "2026-02-12T03:07:09.975Z"
+      "lastSeen": "2026-02-12T12:06:44.641Z"
     },
     {
       "adID": "2076230456465508",
@@ -276,7 +316,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-09 00:06:31",
-      "lastSeen": "2026-02-12T03:07:09.304Z"
+      "lastSeen": "2026-02-12T12:06:44.442Z"
     },
     {
       "adID": "1173857111626932",
@@ -316,7 +356,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-08 21:06:45",
-      "lastSeen": "2026-02-12T03:07:09.438Z"
+      "lastSeen": "2026-02-12T12:06:44.909Z"
     },
     {
       "adID": "2119340195511544",
@@ -326,17 +366,17 @@
       "postedTime": "2026-02-08T20:06:51.000Z",
       "title": "1997 NFL Blitz Commercial Arcade Machine",
       "description": "Working 1997 NFL Blitz arcade machine.. comes with original midway board, Original CRT TV, and wood grain conversion cabinet! Has original manual. Only flaws are scrapes on wooden sides and coin door is a little dented. Also last picture shows plug is a little iffy. Super sturdy and heavy duty but pretty heavy to move. This is the commercial grade not the 1Up Arcade edition. Located in Arlington Regency area",
-      "price": "$650",
+      "price": "$575",
       "lat": 30.3321838,
       "lon": -81.655651,
       "location": "Jacksonville, FL",
-      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/626760639_914319531108813_3240361641473061132_n.jpg?stp=c0.152.261.261a_dst-jpg_p261x260_tt6&_nc_cat=107&ccb=1-7&_nc_sid=92e707&_nc_ohc=kDP64GCeLBQQ7kNvwEA68PU&_nc_oc=Admxd1eSWlEv4ncEcw0KpF6rS81cuZ0QJVf5jxyLn3UU48_L7dT-4uzQf1YBeZ1_QUA&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=t9sBc65RnPQKJS7As65Mmw&oh=00_AftMq2NBB60cPuLoWAySXnQpy8DwoNWmXGuGXisQsXGhFw&oe=69916F72",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/626760639_914319531108813_3240361641473061132_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=107&ccb=1-7&_nc_sid=92e707&_nc_ohc=DzbdZRszVZYQ7kNvwH4dqGH&_nc_oc=AdkZ0E599BooePNytlDHLxRwSvi_GaFY4DAgJGCmtNL2C8nvwLXG0N1r5ZjFSPGOTeg&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=m616-7LLGwsVp7yTkpbqyQ&oh=00_AfshsuBJSY44ylfBX4RIGjJI3RFqz-gbFSsIUZLICEINqg&oe=6993A1F2",
       "adUrl": "https://www.facebook.com/marketplace/item/2119340195511544/",
       "priceChanged": 1,
-      "priceChangedAt": "2026-02-10 21:04:44",
+      "priceChangedAt": "2026-02-12 12:05:07",
       "hidden": 0,
       "created_at": "2026-02-08 21:04:51",
-      "lastSeen": "2026-02-11T19:18:34.670Z"
+      "lastSeen": "2026-02-12T12:06:47.677Z"
     },
     {
       "adID": "894332870244155",
@@ -356,7 +396,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-08 20:06:40",
-      "lastSeen": "2026-02-12T03:07:09.539Z"
+      "lastSeen": "2026-02-12T12:06:45.010Z"
     },
     {
       "adID": "1417620300062703",
@@ -376,7 +416,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-08 20:06:40",
-      "lastSeen": "2026-02-12T03:07:09.136Z"
+      "lastSeen": "2026-02-12T12:06:44.842Z"
     },
     {
       "adID": "2022276341963884",
@@ -736,7 +776,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-03 01:04:42",
-      "lastSeen": "2026-02-12T03:04:45.097Z"
+      "lastSeen": "2026-02-12T12:05:06.958Z"
     },
     {
       "adID": "817589824672344",
@@ -1036,7 +1076,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-01-28 17:46:19",
-      "lastSeen": "2026-02-12T03:07:12.002Z"
+      "lastSeen": "2026-02-12T12:06:47.103Z"
     },
     {
       "adID": "1431260001702916",
@@ -1336,7 +1376,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-01-25 03:45:10",
-      "lastSeen": "2026-02-11T23:05:37.848Z"
+      "lastSeen": "2026-02-12T12:06:54.372Z"
     },
     {
       "adID": "1439038534888656",
@@ -1356,7 +1396,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-01-25 03:23:15",
-      "lastSeen": "2026-02-11T22:06:28.625Z"
+      "lastSeen": "2026-02-12T12:06:52.571Z"
     },
     {
       "adID": "1971059903787467",
@@ -1516,7 +1556,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-01-23 19:02:28",
-      "lastSeen": "2026-02-12T03:07:10.947Z"
+      "lastSeen": "2026-02-12T12:06:46.655Z"
     },
     {
       "adID": "26066354906334369",
@@ -1676,7 +1716,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-01-21 22:08:38",
-      "lastSeen": "2026-02-12T03:07:15.022Z"
+      "lastSeen": "2026-02-12T12:06:53.563Z"
     },
     {
       "adID": "PI-205987",
@@ -2156,7 +2196,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-01-14 18:07:37",
-      "lastSeen": "2026-02-12T01:07:05.404Z"
+      "lastSeen": "2026-02-12T12:06:47.058Z"
     },
     {
       "adID": "1277104864246616",
