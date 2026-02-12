@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-02-12T00:08:57.383Z",
+  "generated_at": "2026-02-12T01:08:57.581Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,33 +11,13 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 139,
-      "droppedPrice": 2572,
+      "exported_ads": 137,
+      "droppedPrice": 2575,
       "droppedMissingGeo": 0,
-      "droppedCircle": 1159
+      "droppedCircle": 1163
     }
   },
   "ads": [
-    {
-      "adID": "1382751540545879",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/1625586520/?product_id=1382751540545879",
-      "author": "Carla Ann",
-      "postedTime": "2026-02-11T09:24:06.000Z",
-      "title": "Hoka Bondi 9's",
-      "description": "Less than a month old basically new wanting a different color. Size 7 DO NOT ASK IS THIS AVAILABLE!! I will not respond",
-      "price": "$120",
-      "lat": 30.6035255,
-      "lon": -87.9036047,
-      "location": "Daphne, AL",
-      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/630248947_25834181282912551_3285475586339244512_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=100&ccb=1-7&_nc_sid=92e707&_nc_ohc=ISw5pg7p-94Q7kNvwHSDsi3&_nc_oc=AdmFPgWnAV_UdQq5uKQQHsaS8cTDHTdpuztmiOS2EcjK7vIijwHBvBCj1A0N_if6z9s&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=4JWNs5jIOhYVbzgsDMk9WA&oh=00_Afsph9EuWWeQr9U3JTJ8kcSLliqBS8LL1_A0ts7RM8EX2g&oe=6992FDF8",
-      "adUrl": "https://www.facebook.com/marketplace/item/1382751540545879/",
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-02-12 00:06:11",
-      "lastSeen": "2026-02-12T00:08:15.082Z"
-    },
     {
       "adID": "1175843148097010",
       "source": "MP",
@@ -57,26 +37,6 @@
       "hidden": 0,
       "created_at": "2026-02-12 00:06:08",
       "lastSeen": "2026-02-12T00:08:15.014Z"
-    },
-    {
-      "adID": "1574132017216232",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/100027302262625/?product_id=1574132017216232",
-      "author": "Aaron Lin",
-      "postedTime": "2026-02-11T23:19:45.000Z",
-      "title": "Arcade Machine",
-      "description": "It’s dusty but was lightly used. In excellent, working condition. Originally purchased from Sam’s Club I believe. Amazing arcade machine with many games and multiplayer on some. model: HA8802S",
-      "price": "$300",
-      "lat": 30.4019789,
-      "lon": -86.8700821,
-      "location": "Navarre, FL",
-      "imageUrl": "https://scontent-dfw5-3.xx.fbcdn.net/v/t39.84726-6/631632258_797880595920402_640920382463752940_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=108&ccb=1-7&_nc_sid=92e707&_nc_ohc=xN0BEJDbkOQQ7kNvwEBVkx8&_nc_oc=AdnV1w3mFFSpK5OacexyIHRhz-ZFJ4JWqtSwehnu8ZgOMxm-Y7XnXbNDXe4QCbOXtOM&_nc_zt=14&_nc_ht=scontent-dfw5-3.xx&_nc_gid=dXdNH4EHLW5lHOtm12Mn9g&oh=00_AfvLc4DhjkgMYuYnBtFsMiG3HWnR-ZH-Bj2qVACP2yxZpA&oe=6992E8DD",
-      "adUrl": "https://www.facebook.com/marketplace/item/1574132017216232/",
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-02-12 00:04:52",
-      "lastSeen": "2026-02-12T00:05:15.242Z"
     },
     {
       "adID": "25898162483168310",
@@ -176,7 +136,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-10 20:04:52",
-      "lastSeen": "2026-02-12T00:04:51.984Z"
+      "lastSeen": "2026-02-12T01:04:48.490Z"
     },
     {
       "adID": "1216014067331160",
@@ -236,7 +196,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-09 20:07:19",
-      "lastSeen": "2026-02-12T00:06:08.434Z"
+      "lastSeen": "2026-02-12T01:07:02.407Z"
     },
     {
       "adID": "2076230456465508",
@@ -256,7 +216,7 @@
       "priceChangedAt": "2026-02-11 16:04:45",
       "hidden": 0,
       "created_at": "2026-02-09 20:04:50",
-      "lastSeen": "2026-02-12T00:04:53.577Z"
+      "lastSeen": "2026-02-12T01:04:52.842Z"
     },
     {
       "adID": "2324396931413954",
@@ -336,7 +296,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-09 00:06:31",
-      "lastSeen": "2026-02-12T00:06:06.916Z"
+      "lastSeen": "2026-02-12T01:07:01.368Z"
     },
     {
       "adID": "1173857111626932",
@@ -376,7 +336,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-08 21:06:45",
-      "lastSeen": "2026-02-12T00:06:07.390Z"
+      "lastSeen": "2026-02-12T01:07:01.335Z"
     },
     {
       "adID": "2119340195511544",
@@ -416,7 +376,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-08 20:06:40",
-      "lastSeen": "2026-02-12T00:06:07.926Z"
+      "lastSeen": "2026-02-12T01:07:01.536Z"
     },
     {
       "adID": "1417620300062703",
@@ -436,7 +396,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-08 20:06:40",
-      "lastSeen": "2026-02-12T00:06:07.491Z"
+      "lastSeen": "2026-02-12T01:07:01.301Z"
     },
     {
       "adID": "2022276341963884",
@@ -676,7 +636,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-05 21:54:33",
-      "lastSeen": "2026-02-11T03:04:49.897Z"
+      "lastSeen": "2026-02-12T01:04:50.109Z"
     },
     {
       "adID": "913939037668563",
@@ -816,7 +776,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-03 01:04:42",
-      "lastSeen": "2026-02-12T00:04:52.521Z"
+      "lastSeen": "2026-02-12T01:04:46.535Z"
     },
     {
       "adID": "817589824672344",
@@ -1116,7 +1076,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-01-28 17:46:19",
-      "lastSeen": "2026-02-12T00:06:09.533Z"
+      "lastSeen": "2026-02-12T01:07:03.314Z"
     },
     {
       "adID": "1431260001702916",
@@ -1136,7 +1096,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-01-28 12:02:27",
-      "lastSeen": "2026-02-10T19:45:15.607Z"
+      "lastSeen": "2026-02-12T01:04:46.569Z"
     },
     {
       "adID": "4357654341222628",
@@ -1172,8 +1132,8 @@
       "location": "Daphne, AL",
       "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/619959072_893332810245708_6624955729425512309_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=102&ccb=1-7&_nc_sid=92e707&_nc_ohc=F_hdGQ74v8wQ7kNvwEjZJ-F&_nc_oc=AdmFTFx_6zji0vh2RSgw3IdXsp5EgZtbgc2uhBxtcBSvsNz2md-Vb1vWFXfHonsiTT0&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=tkYZ70_DFNjjDZwHgat03g&oh=00_AfvlnaJnIQrwcRWz87Mkvr3A9LT6lp3PJ1DttmQzY9-F_g&oe=69905392",
       "adUrl": "https://www.facebook.com/marketplace/item/2093666111435460/",
-      "priceChanged": 1,
-      "priceChangedAt": "2026-02-10 01:08:49",
+      "priceChanged": 0,
+      "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-01-27 16:09:15",
       "lastSeen": null
@@ -1596,7 +1556,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-01-23 19:02:28",
-      "lastSeen": "2026-02-12T00:06:09.033Z"
+      "lastSeen": "2026-02-12T01:07:02.989Z"
     },
     {
       "adID": "26066354906334369",
@@ -1996,7 +1956,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-01-18 22:02:28",
-      "lastSeen": "2026-02-12T00:04:52.856Z"
+      "lastSeen": "2026-02-12T01:04:46.803Z"
     },
     {
       "adID": "2243727616138292",
@@ -2036,7 +1996,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-01-18 02:51:31",
-      "lastSeen": "2026-02-10T15:04:33.345Z"
+      "lastSeen": "2026-02-12T01:04:46.368Z"
     },
     {
       "adID": "2212151079315265",
@@ -2136,7 +2096,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-01-16 16:02:29",
-      "lastSeen": "2026-02-12T00:04:53.302Z"
+      "lastSeen": "2026-02-12T01:04:46.736Z"
     },
     {
       "adID": "1628202541849277",
@@ -2236,7 +2196,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-01-14 18:07:37",
-      "lastSeen": "2026-02-12T00:06:13.001Z"
+      "lastSeen": "2026-02-12T01:07:05.404Z"
     },
     {
       "adID": "1277104864246616",
