@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-02-12T23:07:43.287Z",
+  "generated_at": "2026-02-13T00:09:37.382Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,53 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 139,
-      "droppedPrice": 2587,
+      "exported_ads": 141,
+      "droppedPrice": 2590,
       "droppedMissingGeo": 0,
-      "droppedCircle": 1171
+      "droppedCircle": 1172
     }
   },
   "ads": [
+    {
+      "adID": "1013277428532196",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100003228787247/?product_id=1013277428532196",
+      "author": "Sherry Walsh",
+      "postedTime": "2026-02-01T23:00:13.000Z",
+      "title": "salt and pepper shakers silver",
+      "description": "Needs cleaning vintage silver shakers with acanthus leaf Close to tyndall bridge",
+      "price": "$15",
+      "lat": 30.1586518,
+      "lon": -85.6602936,
+      "location": "Panama City, FL",
+      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/633182553_1363977932149340_2828816019732079701_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=103&ccb=1-7&_nc_sid=92e707&_nc_ohc=OV-3nwgVSMUQ7kNvwGOzuUz&_nc_oc=AdmtyMIbnSmbpys-FPnbqn-81iZ5IlvX2IFZNHys4-Sw_zQJ7GkI7BpIo4yuFshpqP8&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=YF5Ezp9ujnLYOqM3vHOSVg&oh=00_AfsiSo1IZvxXQuGJnwkavD8YqlRUc1gdUDSeIJyKarhImg&oe=6994537D",
+      "adUrl": "https://www.facebook.com/marketplace/item/1013277428532196/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-02-13 00:06:56",
+      "lastSeen": "2026-02-13T00:08:53.357Z"
+    },
+    {
+      "adID": "1577674573561560",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100067624210892/?product_id=1577674573561560",
+      "author": "Nathan Hillery",
+      "postedTime": "2026-02-12T23:50:40.000Z",
+      "title": "Arcade Game cabinet forsale",
+      "description": "Used Arcade Game cabinet. standard size Arcade Game cabinet",
+      "price": "$250",
+      "lat": 33.7544657,
+      "lon": -84.3898151,
+      "location": "Atlanta, GA",
+      "imageUrl": "https://scontent-dfw5-3.xx.fbcdn.net/v/t39.84726-6/631559368_1261088062747867_1650974177723268984_n.jpg?stp=c0.166.261.261a_dst-jpg_p261x260_tt6&_nc_cat=108&ccb=1-7&_nc_sid=92e707&_nc_ohc=FcswoHBKS2AQ7kNvwFm9aaP&_nc_oc=AdkqepncusVV28f3F6ReCJ-dvCuBVz9Qa1hbROlLVSoAXOt-ivLBduM_q0bLqY4Iddk&_nc_zt=14&_nc_ht=scontent-dfw5-3.xx&_nc_gid=cXoV-pxKyZYbtQsnsRiwMw&oh=00_Aftj56LkWQDsO63mPoXEmm22Q23rNcIiXvh4tyAhYI2urg&oe=69945697",
+      "adUrl": "https://www.facebook.com/marketplace/item/1577674573561560/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-02-13 00:04:46",
+      "lastSeen": "2026-02-13T00:05:54.363Z"
+    },
     {
       "adID": "1640837823942975",
       "source": "MP",
@@ -56,7 +96,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-12 23:05:56",
-      "lastSeen": "2026-02-12T23:07:00.212Z"
+      "lastSeen": "2026-02-13T00:06:46.366Z"
     },
     {
       "adID": "1547080583000521",
@@ -76,7 +116,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-12 21:07:18",
-      "lastSeen": "2026-02-12T23:05:55.136Z"
+      "lastSeen": "2026-02-13T00:06:46.232Z"
     },
     {
       "adID": "2316607105516142",
@@ -136,7 +176,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-12 17:06:08",
-      "lastSeen": "2026-02-12T23:05:56.952Z"
+      "lastSeen": "2026-02-13T00:06:46.875Z"
     },
     {
       "adID": "1118494103222985",
@@ -176,7 +216,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-12 03:04:46",
-      "lastSeen": "2026-02-12T23:04:47.025Z"
+      "lastSeen": "2026-02-13T00:04:44.441Z"
     },
     {
       "adID": "940130271697607",
@@ -216,7 +256,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-10 20:04:52",
-      "lastSeen": "2026-02-12T23:04:46.958Z"
+      "lastSeen": "2026-02-13T00:04:44.360Z"
     },
     {
       "adID": "1216014067331160",
@@ -276,7 +316,7 @@
       "priceChangedAt": "2026-02-12 17:06:23",
       "hidden": 0,
       "created_at": "2026-02-09 20:07:19",
-      "lastSeen": "2026-02-12T23:05:55.779Z"
+      "lastSeen": "2026-02-13T00:06:46.909Z"
     },
     {
       "adID": "2076230456465508",
@@ -376,7 +416,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-09 00:06:31",
-      "lastSeen": "2026-02-12T23:05:56.180Z"
+      "lastSeen": "2026-02-13T00:06:47.177Z"
     },
     {
       "adID": "1173857111626932",
@@ -416,7 +456,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-08 21:06:45",
-      "lastSeen": "2026-02-12T23:05:58.649Z"
+      "lastSeen": "2026-02-13T00:06:47.578Z"
     },
     {
       "adID": "2119340195511544",
@@ -456,7 +496,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-08 20:06:40",
-      "lastSeen": "2026-02-12T23:05:55.980Z"
+      "lastSeen": "2026-02-13T00:06:47.411Z"
     },
     {
       "adID": "1417620300062703",
@@ -476,7 +516,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-08 20:06:40",
-      "lastSeen": "2026-02-12T23:05:56.650Z"
+      "lastSeen": "2026-02-13T00:06:48.793Z"
     },
     {
       "adID": "2022276341963884",
@@ -596,7 +636,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-07 12:04:45",
-      "lastSeen": "2026-02-12T23:04:48.728Z"
+      "lastSeen": "2026-02-13T00:04:46.794Z"
     },
     {
       "adID": "1226296462734688",
@@ -816,7 +856,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-03 01:04:42",
-      "lastSeen": "2026-02-12T23:05:57.470Z"
+      "lastSeen": "2026-02-13T00:06:48.496Z"
     },
     {
       "adID": "817589824672344",
@@ -876,7 +916,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-02 12:07:19",
-      "lastSeen": "2026-02-12T22:06:28.822Z"
+      "lastSeen": "2026-02-13T00:06:56.763Z"
     },
     {
       "adID": "2026958544812237",
@@ -1116,7 +1156,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-01-28 17:46:19",
-      "lastSeen": "2026-02-12T23:05:58.134Z"
+      "lastSeen": "2026-02-13T00:06:50.013Z"
     },
     {
       "adID": "1431260001702916",
@@ -1416,7 +1456,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-01-25 03:45:10",
-      "lastSeen": "2026-02-12T23:06:05.211Z"
+      "lastSeen": "2026-02-13T00:06:56.950Z"
     },
     {
       "adID": "1439038534888656",
@@ -1436,7 +1476,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-01-25 03:23:15",
-      "lastSeen": "2026-02-12T23:06:03.897Z"
+      "lastSeen": "2026-02-13T00:06:47.746Z"
     },
     {
       "adID": "1971059903787467",
@@ -1596,7 +1636,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-01-23 19:02:28",
-      "lastSeen": "2026-02-12T23:05:57.218Z"
+      "lastSeen": "2026-02-13T00:06:48.575Z"
     },
     {
       "adID": "26066354906334369",
@@ -1616,7 +1656,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-01-23 15:12:35",
-      "lastSeen": null
+      "lastSeen": "2026-02-13T00:06:48.026Z"
     },
     {
       "adID": "1132671308771230",
@@ -1756,7 +1796,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-01-21 22:08:38",
-      "lastSeen": "2026-02-12T23:05:57.319Z"
+      "lastSeen": "2026-02-13T00:06:54.443Z"
     },
     {
       "adID": "PI-205987",
@@ -1836,7 +1876,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-01-21 00:02:29",
-      "lastSeen": "2026-02-12T23:04:48.528Z"
+      "lastSeen": "2026-02-13T00:06:59.251Z"
     },
     {
       "adID": "2193576348053106",
@@ -1896,7 +1936,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-01-19 20:02:52",
-      "lastSeen": "2026-02-12T21:04:48.863Z"
+      "lastSeen": "2026-02-13T00:04:45.950Z"
     },
     {
       "adID": "PI-208196",
@@ -1976,7 +2016,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-01-19 02:09:55",
-      "lastSeen": "2026-02-12T22:04:44.519Z"
+      "lastSeen": "2026-02-13T00:04:47.028Z"
     },
     {
       "adID": "2948138838710326",
@@ -1996,7 +2036,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-01-18 22:02:28",
-      "lastSeen": "2026-02-12T23:04:48.795Z"
+      "lastSeen": "2026-02-13T00:04:45.110Z"
     },
     {
       "adID": "2243727616138292",
@@ -2136,7 +2176,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-01-16 16:02:29",
-      "lastSeen": "2026-02-12T23:04:48.661Z"
+      "lastSeen": "2026-02-13T00:04:46.218Z"
     },
     {
       "adID": "1628202541849277",
@@ -2236,7 +2276,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-01-14 18:07:37",
-      "lastSeen": "2026-02-12T23:06:03.648Z"
+      "lastSeen": "2026-02-13T00:06:49.631Z"
     },
     {
       "adID": "1277104864246616",
@@ -2336,7 +2376,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-01-13 12:08:51",
-      "lastSeen": "2026-02-12T23:05:57.774Z"
+      "lastSeen": "2026-02-13T00:06:48.144Z"
     },
     {
       "adID": "1765428154841422",
@@ -2356,7 +2396,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-01-12 19:50:39",
-      "lastSeen": "2026-02-12T23:05:56.348Z"
+      "lastSeen": "2026-02-13T00:06:58.115Z"
     },
     {
       "adID": "1614456422883304",
@@ -2436,7 +2476,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-01-11 15:43:55",
-      "lastSeen": "2026-02-10T19:09:55.177Z"
+      "lastSeen": "2026-02-13T00:04:46.051Z"
     },
     {
       "adID": "907784598437499",
@@ -2776,7 +2816,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2025-12-31 16:43:10",
-      "lastSeen": "2026-02-12T21:04:50.369Z"
+      "lastSeen": "2026-02-13T00:06:52.442Z"
     },
     {
       "adID": "1497135504849761",
