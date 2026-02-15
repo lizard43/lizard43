@@ -745,7 +745,8 @@ function saveDistanceCap(n) {
 }
 
 function capToLabel(n) {
-    if (n === Infinity) return "1000+";
+    // Keep cap labels consistent with Time/Price: Infinity means "Any"
+    if (n === Infinity) return "Any";
     return String(n);
 }
 
@@ -761,7 +762,7 @@ function ensureDistanceMenu() {
         const b = document.createElement("button");
         b.type = "button";
         b.dataset.miles = String(opt);
-        b.textContent = (opt === Infinity) ? "1000+" : `${opt} miles`;
+        b.textContent = (opt === Infinity) ? "Any" : `${opt} miles`;
         menu.appendChild(b);
     });
 
