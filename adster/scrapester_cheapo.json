@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-02-16T21:26:10.056Z",
+  "generated_at": "2026-02-16T22:09:00.634Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,33 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 38,
-      "droppedPrice": 203,
+      "exported_ads": 39,
+      "droppedPrice": 207,
       "droppedMissingGeo": 0,
-      "droppedCircle": 263
+      "droppedCircle": 262
     }
   },
   "ads": [
+    {
+      "adID": "848181248241877",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/1542463210/?product_id=848181248241877",
+      "author": "Alex Kline",
+      "postedTime": "2026-02-16T21:42:38.000Z",
+      "title": "PGA Tour Golf Challenge Arcade Game",
+      "description": "Fun arcade golf game. PGA Tour Golf Challenge machine. Has coin mechanism. Great for game room or man cave. Comes with manuals, but does not work. $150 OBO",
+      "price": "$150",
+      "lat": 32.2998686,
+      "lon": -90.1830408,
+      "location": "Jackson, MS",
+      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/634165145_25699945946352732_5490461220621140370_n.jpg?stp=c0.101.261.261a_dst-jpg_p261x260_tt6&_nc_cat=106&ccb=1-7&_nc_sid=92e707&_nc_ohc=JPiz3fyGrgQQ7kNvwGdTygn&_nc_oc=Adm2sTUiyAfiD-yRRjWaPbTu_y86WjZzd17P6GTDSJh9dApxsEEmkWkdlca-ipNhIaI&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=D8iLAiBHBxPn3Q5DnFVFqg&oh=00_Aft4XdyCddLvo1tWpWBHCbZskooLUgL5mpE8omzlPzjctg&oe=69995F15",
+      "adUrl": "https://www.facebook.com/marketplace/item/848181248241877/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-02-16 22:05:00",
+      "lastSeen": "2026-02-16T22:06:39.244Z"
+    },
     {
       "adID": "842430258814840",
       "source": "MP",
@@ -36,7 +56,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-16 21:04:41",
-      "lastSeen": "2026-02-16T21:06:32.041Z"
+      "lastSeen": "2026-02-16T22:04:59.465Z"
     },
     {
       "adID": "1434134954762889",
@@ -56,7 +76,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-16 20:07:31",
-      "lastSeen": "2026-02-16T21:07:20.239Z"
+      "lastSeen": "2026-02-16T22:07:24.745Z"
     },
     {
       "adID": "4247732398835563",
@@ -636,7 +656,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 18:10:39",
-      "lastSeen": "2026-02-16T21:07:20.350Z"
+      "lastSeen": "2026-02-16T22:07:23.493Z"
     },
     {
       "adID": "2076230456465508",
@@ -676,7 +696,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 17:22:24",
-      "lastSeen": "2026-02-16T21:07:21.360Z"
+      "lastSeen": "2026-02-16T22:07:24.626Z"
     },
     {
       "adID": "2948138838710326",
@@ -696,7 +716,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 17:22:24",
-      "lastSeen": "2026-02-16T21:04:42.843Z"
+      "lastSeen": "2026-02-16T22:04:58.887Z"
     },
     {
       "adID": "2185352358965594",
@@ -776,7 +796,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 17:22:18",
-      "lastSeen": "2026-02-16T21:07:22.590Z"
+      "lastSeen": "2026-02-16T22:04:59.242Z"
     }
   ]
 }
