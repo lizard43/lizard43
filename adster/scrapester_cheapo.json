@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-02-16T02:09:46.226Z",
+  "generated_at": "2026-02-16T03:08:40.894Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,10 +11,10 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 104,
-      "droppedPrice": 678,
+      "exported_ads": 86,
+      "droppedPrice": 275,
       "droppedMissingGeo": 0,
-      "droppedCircle": 464
+      "droppedCircle": 406
     }
   },
   "ads": [
@@ -39,26 +39,6 @@
       "lastSeen": "2026-02-16T02:06:34.482Z"
     },
     {
-      "adID": "2166462317497305",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/100003128848070/?product_id=2166462317497305",
-      "author": "Danny Atkins",
-      "postedTime": "2026-02-10T17:08:46.000Z",
-      "title": "Non-working IGT's",
-      "description": "Wanted. Your old machines that you need gone. Value $ according to condition.",
-      "price": "$1",
-      "lat": 34.0026005,
-      "lon": -85.0416133,
-      "location": "Rockmart, GA",
-      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/625459617_1432795241588367_4458300098318863744_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=100&ccb=1-7&_nc_sid=92e707&_nc_ohc=yUJd7z1zYYMQ7kNvwF5aMcP&_nc_oc=AdkHxZNyz2gCxBlStJ2-bBolCii2vQfSlo6AzOBNPi_5BIY_E8XjevI5us1jOl72eEk&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=TDndVpU8-WIaxeF900pz2Q&oh=00_AfvnAL_cGt5zJgnfeggFgKi9ch3q2zUSawu4OACQuqHhnQ&oe=69982B75",
-      "adUrl": "https://www.facebook.com/marketplace/item/2166462317497305/",
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-02-16 01:07:42",
-      "lastSeen": "2026-02-16T01:08:51.142Z"
-    },
-    {
       "adID": "1231406535761068",
       "source": "MP",
       "authorUrl": "https://www.facebook.com/marketplace/profile/100013662791005/?product_id=1231406535761068",
@@ -77,26 +57,6 @@
       "hidden": 0,
       "created_at": "2026-02-16 01:04:38",
       "lastSeen": "2026-02-16T01:07:35.132Z"
-    },
-    {
-      "adID": "3305205056293161",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/100027694490179/?product_id=3305205056293161",
-      "author": "Ben Chertok",
-      "postedTime": "2025-10-03T23:27:56.000Z",
-      "title": "arcade machine cabinet",
-      "description": "Nice arcade machine cabinet. First $100 need gone this weekend, have several working pinball machines for sale too Ben [hidden information] text pls",
-      "price": "$100",
-      "lat": 27.7712264,
-      "lon": -82.6340259,
-      "location": "St Petersburg, FL",
-      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/566357341_1198821712136163_3652349553430788569_n.jpg?stp=c0.43.261.261a_dst-jpg_p261x260_tt6&_nc_cat=105&ccb=1-7&_nc_sid=92e707&_nc_ohc=mCUOB5SQjDEQ7kNvwEmEAO2&_nc_oc=AdnXWUTQAymus57OcQ9N4VbBBrYyyIpMRpe2LPxsZRN97N_XGRHS33ifgs4AXy6tTDU&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=kUd7rvW4GLNWy0qP95rC2A&oh=00_Aft4fOzqF7FvykPDsGF8ynH6SQNlmH8bLhnaTtNNztpxMw&oe=69982CD5",
-      "adUrl": "https://www.facebook.com/marketplace/item/3305205056293161/",
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-02-16 00:07:44",
-      "lastSeen": "2026-02-16T01:07:41.467Z"
     },
     {
       "adID": "2228629834212633",
@@ -136,27 +96,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-16 00:04:59",
-      "lastSeen": "2026-02-16T02:04:47.214Z"
-    },
-    {
-      "adID": "1515225540002283",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/100040472739270/?product_id=1515225540002283",
-      "author": "Brodie Pugh",
-      "postedTime": "2026-02-05T12:11:40.000Z",
-      "title": "Taito US Classic Jamma Arcade Board",
-      "description": "Does not work. Last time I tried it there were bad graphic glitches and no audio. Sold as is $20",
-      "price": "$20",
-      "lat": 34.729847,
-      "lon": -86.5859011,
-      "location": "Huntsville, AL",
-      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/633448807_2352495515232860_9029220265763542946_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=111&ccb=1-7&_nc_sid=92e707&_nc_ohc=i-xWCh4XIZ8Q7kNvwH9kBAw&_nc_oc=AdnAq9A43KsFrbC1gGsxGNxUVtiZKCQpEz9fDHwBnxXam6QaCbEyrTqUJODMJY3VfWM&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=NmoSilBejRM-D0rQhCoCYQ&oh=00_AftLIZogiM0pa95GJopuzqUG_FJuFgHDACUxYHzlUMJrDw&oe=6998240E",
-      "adUrl": "https://www.facebook.com/marketplace/item/1515225540002283/",
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-02-15 22:20:50",
-      "lastSeen": "2026-02-15T22:57:55.399Z"
+      "lastSeen": "2026-02-16T03:04:50.240Z"
     },
     {
       "adID": "1145733684313176",
@@ -177,26 +117,6 @@
       "hidden": 0,
       "created_at": "2026-02-15 19:04:51",
       "lastSeen": "2026-02-15T22:20:45.006Z"
-    },
-    {
-      "adID": "1265531125422198",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/100008147865288/?product_id=1265531125422198",
-      "author": "Yongjia Song",
-      "postedTime": "2026-02-15T01:52:21.000Z",
-      "title": "Hoya Lacunosa Louis Silver",
-      "description": "-Porch pick up only. Close to Fowler Park: 4110 Carolene Way, Cumming, GA 30040. - Accept Venmo FF, PayPal FF, Zelle, or cash. - Only hold for returning buyer without payment.",
-      "price": "$15",
-      "lat": 34.2073196,
-      "lon": -84.1401926,
-      "location": "Cumming, GA",
-      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/635533942_1534447977648727_5589050500124230665_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=105&ccb=1-7&_nc_sid=92e707&_nc_ohc=HlRF_8pYV3EQ7kNvwF9kd6w&_nc_oc=AdlVHZJUMQXMIJMml7h_ZPPNQBj0g2wvOWmZsiF3JjX39mixgSFdnAxngVB9lRS6Zw0&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=LcdMkBP4PoS2-x2gsgR4MQ&oh=00_Aftc7_e2nybVj-sCaQXgSgYand6c5NKmwDhXgW3mcgDfFQ&oe=6997CCD0",
-      "adUrl": "https://www.facebook.com/marketplace/item/1265531125422198/",
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-02-15 18:08:22",
-      "lastSeen": "2026-02-15T18:09:30.643Z"
     },
     {
       "adID": "3816528098637566",
@@ -237,26 +157,6 @@
       "hidden": 0,
       "created_at": "2026-02-15 17:09:25",
       "lastSeen": "2026-02-15T17:11:11.229Z"
-    },
-    {
-      "adID": "885016187362420",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/1006774583/?product_id=885016187362420",
-      "author": "Ashley Kinsey",
-      "postedTime": "2026-01-04T17:18:05.000Z",
-      "title": "Asteroid Arcade Game",
-      "description": "Used good condition. Asteroid / Tempest / Major Havoc / Lunar Landing arcade game. Small in home unit!!!",
-      "price": "$80",
-      "lat": 27.8428025,
-      "lon": -82.6995444,
-      "location": "Pinellas Park, FL",
-      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t15.5256-10/611261865_1180487484195881_9140607215470436183_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=100&ccb=1-7&_nc_sid=d4195b&_nc_ohc=hD-ciknUZxoQ7kNvwGdGWls&_nc_oc=Adk3j-lG-DB8bW8EViZ8JVYtu4awZrR--p2Nzcy2_SSJUwkCC3Iy768LUI91yjlBKk0&_nc_zt=23&_nc_ht=scontent-dfw5-2.xx&_nc_gid=RBAuaZ7PJuZHqRKkXeYNAA&oh=00_AfvfXMCMBwbfcVD5if02wwDVoI_Oy8udqT6Xh1J9kRBL1A&oe=6997A596",
-      "adUrl": "https://www.facebook.com/marketplace/item/885016187362420/",
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-02-15 14:04:59",
-      "lastSeen": "2026-02-16T02:04:47.548Z"
     },
     {
       "adID": "1906688003242074",
@@ -376,7 +276,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-15 01:04:48",
-      "lastSeen": "2026-02-15T22:57:50.570Z"
+      "lastSeen": "2026-02-16T03:04:48.973Z"
     },
     {
       "adID": "842420052018357",
@@ -459,26 +359,6 @@
       "lastSeen": "2026-02-14T20:06:49.150Z"
     },
     {
-      "adID": "797422180012776",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/61582714463379/?product_id=797422180012776",
-      "author": "Liam Shields",
-      "postedTime": "2025-12-12T04:15:35.000Z",
-      "title": "Vintage pinball machines",
-      "description": "These are pinball machines from the mid to late 1940s they need to be restored I'm asking 40 on each unplayable they are very old need to be restored All working mechanical parts but the display case is rotted and needs to be restored I am willing to negotiate the price or am open to a trade, preferably an Xbox One mic and Xbox One wireless controller. Serious inquiries only! thank you. text my personal # [hidden information] if I do not answer leave a text message saying who it is and why you have called thank you have a blessed and happy Christmas, and have a safe blessed and happy Hanukkah",
-      "price": "$65",
-      "lat": 27.9449854,
-      "lon": -82.4583107,
-      "location": "Tampa, FL",
-      "imageUrl": "https://scontent-dfw5-3.xx.fbcdn.net/v/t39.84726-6/597286412_842521565620209_2912442536938490488_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=109&ccb=1-7&_nc_sid=92e707&_nc_ohc=47H5aOaOzw4Q7kNvwHIAclf&_nc_oc=AdkIVuWNAeLQXPw21uaxxcBwMODCG9Lo8yM3dc6ENW8aWXDvaupBGR0Jp6CwYqquv1w&_nc_zt=14&_nc_ht=scontent-dfw5-3.xx&_nc_gid=KpSsvwUIBM_Jxogcm4okNA&oh=00_AfvPyVVv0FvcRxnnzcxvUN34Ff2lnzShmRhZf9KOsdzh1w&oe=6996A88D",
-      "adUrl": "https://www.facebook.com/marketplace/item/797422180012776/",
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-02-14 19:09:47",
-      "lastSeen": "2026-02-15T15:08:05.809Z"
-    },
-    {
       "adID": "1534914217804773",
       "source": "MP",
       "authorUrl": "https://www.facebook.com/marketplace/profile/543013669/?product_id=1534914217804773",
@@ -516,7 +396,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-14 19:04:47",
-      "lastSeen": "2026-02-15T18:08:14.829Z"
+      "lastSeen": "2026-02-16T03:04:49.194Z"
     },
     {
       "adID": "788719020916987",
@@ -759,46 +639,6 @@
       "lastSeen": "2026-02-15T01:04:47.443Z"
     },
     {
-      "adID": "1602373470905595",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/1781109444/?product_id=1602373470905595",
-      "author": "Bart Mecum",
-      "postedTime": "2026-02-01T03:25:03.000Z",
-      "title": "New FS-U Universal Fluorescent Starter replaces FS2, 4, 5 Arcade Pinball Machine",
-      "description": "New FS-U Universal Fluorescent Starter replaces FS2, 4, 5 Arcade Pinball Machine",
-      "price": "$10",
-      "lat": 27.937801,
-      "lon": -82.2859247,
-      "location": "Brandon, FL",
-      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/626680099_1206730198290209_5174048965904027843_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=103&ccb=1-7&_nc_sid=92e707&_nc_ohc=AP3Z00e9yXsQ7kNvwGeaH_v&_nc_oc=AdlsSkeNvsTFgYpT79p5bz3-qxrMDKHGMsBzk338TN7FXaW9CwtxTogUCUvmNZz6EsE&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=sdIQTSsQEuCrNrRlCcVvXg&oh=00_AfshDLxIceQTRunvynLxsFan7dVKK1p7B8NAOgKVm1XqBw&oe=6995D0B5",
-      "adUrl": "https://www.facebook.com/marketplace/item/1602373470905595/",
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-02-14 03:08:33",
-      "lastSeen": "2026-02-14T03:12:48.064Z"
-    },
-    {
-      "adID": "1572455354073992",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/100005741086576/?product_id=1572455354073992",
-      "author": "Allen L Higbee",
-      "postedTime": "2026-01-05T01:18:54.000Z",
-      "title": "Pinball lift",
-      "description": "Pinball or table lift, heavy duty",
-      "price": "$100",
-      "lat": 30.4380832,
-      "lon": -84.2809332,
-      "location": "Tallahassee, FL",
-      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/608141683_871130485657433_886655121094516888_n.jpg?stp=c43.0.260.260a_dst-jpg_p261x260_tt6&_nc_cat=103&ccb=1-7&_nc_sid=92e707&_nc_ohc=jiT1z6PNZe8Q7kNvwHDM8Kv&_nc_oc=AdmeG1Gk53Eur33xMkuGxmhZUm0kOkX65pFffk_F-vTx7y17CG-fKCzTaWJVEOHncO8&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=ho5SEXXEv3NYOIfrfRBH_A&oh=00_AfuGBaPSWN9vu6D5wBE8jMSFveAJfMMbdh0P3dbhLharng&oe=6995A837",
-      "adUrl": "https://www.facebook.com/marketplace/item/1572455354073992/",
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-02-14 03:08:24",
-      "lastSeen": "2026-02-15T03:10:58.486Z"
-    },
-    {
       "adID": "962128883425991",
       "source": "MP",
       "authorUrl": "https://www.facebook.com/marketplace/profile/1238274722/?product_id=962128883425991",
@@ -837,26 +677,6 @@
       "hidden": 0,
       "created_at": "2026-02-14 03:04:51",
       "lastSeen": "2026-02-15T19:04:55.885Z"
-    },
-    {
-      "adID": "1552992022558742",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/1246094147/?product_id=1552992022558742",
-      "author": "Bailey Mills",
-      "postedTime": "2025-11-14T16:43:55.000Z",
-      "title": "Metroid Prime Pinball with Rumble Pack",
-      "description": "Basically new. Comes with the complete box, manual, game and rumble pack.",
-      "price": "$100",
-      "lat": 34.729847,
-      "lon": -86.5859011,
-      "location": "Huntsville, AL",
-      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/583021418_1333134024963553_868285134432202520_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=100&ccb=1-7&_nc_sid=92e707&_nc_ohc=uUyCg_-bkQUQ7kNvwFaLZ_7&_nc_oc=AdkLpF8Gulm0pNPzBJXVi4EfKgse_TTUCs0M7KiDkAj_DFdn2RkW2h7E0rYCSJmcA6Y&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=8A_nzai18GiBfSsdUI_tvA&oh=00_AftGG32FaiRFlKf8WzLO4Xly_poL4YEVgN-tU54O5sRN2w&oe=6995C094",
-      "adUrl": "https://www.facebook.com/marketplace/item/1552992022558742/",
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-02-14 02:08:33",
-      "lastSeen": "2026-02-14T02:12:13.340Z"
     },
     {
       "adID": "851137061091132",
@@ -1079,26 +899,6 @@
       "lastSeen": "2026-02-15T23:02:48.637Z"
     },
     {
-      "adID": "1943334079938963",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/100066675222307/?product_id=1943334079938963",
-      "author": "Drew Mckenzie Stover",
-      "postedTime": "2026-01-12T05:23:15.000Z",
-      "title": "Centipede Arcade Machine Parts",
-      "description": "Centipede Marquee, bezel, and control panel overlay $375 Electrohome G07 arcade monitor $600 Wells Garner K7203 Chassis $280 Back door sheets (missle command and centipede) $30 each All of this is OBO! Message for questions!",
-      "price": "$1",
-      "lat": 33.1998045,
-      "lon": -87.4530148,
-      "location": "Cottondale, AL",
-      "imageUrl": "https://scontent-dfw5-3.xx.fbcdn.net/v/t39.84726-6/615430041_1285172640123859_6074325463406514860_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=109&ccb=1-7&_nc_sid=92e707&_nc_ohc=eHAwIMN71OIQ7kNvwFhMGBO&_nc_oc=AdnENxu44LsQhk8DzafsSJ4Mh6Pu3JItNytWBS9S5NSljHlk5XAoDjkf8eJ8aUwAVUQ&_nc_zt=14&_nc_ht=scontent-dfw5-3.xx&_nc_gid=ykkmjkgFSoTsKQReK_If0Q&oh=00_AfspD4hKLQmxNcd_xZ4cdakhiUluk0YolWAvjsbB_lvtgQ&oe=69956C43",
-      "adUrl": "https://www.facebook.com/marketplace/item/1943334079938963/",
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-02-13 23:05:00",
-      "lastSeen": "2026-02-13T23:09:22.180Z"
-    },
-    {
       "adID": "915988124423796",
       "source": "MP",
       "authorUrl": "https://www.facebook.com/marketplace/profile/100001403845925/?product_id=915988124423796",
@@ -1117,26 +917,6 @@
       "hidden": 0,
       "created_at": "2026-02-13 23:04:59",
       "lastSeen": "2026-02-15T17:04:50.106Z"
-    },
-    {
-      "adID": "929279502943173",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/100078819997024/?product_id=929279502943173",
-      "author": "Алена Лежнина",
-      "postedTime": "2026-02-13T21:48:39.000Z",
-      "title": "Pinball Games Space Race",
-      "description": "10” Rye Rd",
-      "price": "$5",
-      "lat": 27.4989278,
-      "lon": -82.5748194,
-      "location": "Bradenton, FL",
-      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/633767947_1617386212792908_8240728629628754709_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=104&ccb=1-7&_nc_sid=92e707&_nc_ohc=4F5pCMEqJqkQ7kNvwGWKiKp&_nc_oc=AdmtMnbQ6lN37B2KgCa-0i5agMVIcKfjYVFroltVGWVneQCvLZRpisQI4x_0Y9e3wDU&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=nrKdytqRWpdsI2iuJ7rWMg&oh=00_AftzZ-3B3Arp7sQWC0ahWB_TleNsK0hJU_GiT0dE68edDw&oe=69955BC1",
-      "adUrl": "https://www.facebook.com/marketplace/item/929279502943173/",
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-02-13 22:14:38",
-      "lastSeen": "2026-02-14T02:08:42.109Z"
     },
     {
       "adID": "1784314505859513",
@@ -1359,26 +1139,6 @@
       "lastSeen": "2026-02-14T00:04:58.280Z"
     },
     {
-      "adID": "899595306393596",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/100040472739270/?product_id=899595306393596",
-      "author": "Brodie Pugh",
-      "postedTime": "2026-02-13T19:36:36.000Z",
-      "title": "Top Racer Arcade Board",
-      "description": "Untested and assumed not working This is a pole position bootleg board. It is a 3 stack. I believe the top one is the sound board, middle is the cpu bd, and bottom is video bd. The EPROMs on the sound bd have broken and corroded legs. I tried to test a couple that had exposed windows and they did not verify against the good rom. The good thing is the roms are available online for this board and a pdf of the schematic for power and video hookup. The only thing I’ve done is clean it and remove a leaky save battery. The leaky battery caused corrosion on the middle board. As far as I can tell it appears to be complete. I’m unsure if this could be fixed or not, so this is sold as is. It may be good to take chips from. $50 obo. Also open to trades for other arcade boards",
-      "price": "$50",
-      "lat": 34.729847,
-      "lon": -86.5859011,
-      "location": "Huntsville, AL",
-      "imageUrl": "https://scontent-dfw5-3.xx.fbcdn.net/v/t39.84726-6/633948493_1618274882421102_1232850767916474161_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=109&ccb=1-7&_nc_sid=92e707&_nc_ohc=NkuT3M9cpMYQ7kNvwHMQdAt&_nc_oc=AdlfdMk0Fwn-k6aCbolS_Z3g4a_a666rrlz1tbJ9eRRny6hh4q3JklV-tBqOjUf9cr8&_nc_zt=14&_nc_ht=scontent-dfw5-3.xx&_nc_gid=FQEwYBU7IPnRke4hrtbqsw&oh=00_AfsEuQ_GpHg8FaLKiyr34fTd2sj1kyWXAgRxHPZPpx2JFA&oe=69956116",
-      "adUrl": "https://www.facebook.com/marketplace/item/899595306393596/",
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-02-13 20:04:51",
-      "lastSeen": "2026-02-15T02:04:56.630Z"
-    },
-    {
       "adID": "4214589638820445",
       "source": "MP",
       "authorUrl": "https://www.facebook.com/marketplace/profile/100017088605710/?product_id=4214589638820445",
@@ -1496,7 +1256,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 18:10:59",
-      "lastSeen": "2026-02-15T23:02:54.170Z"
+      "lastSeen": "2026-02-16T03:06:58.973Z"
     },
     {
       "adID": "1606377337439823",
@@ -1519,26 +1279,6 @@
       "lastSeen": "2026-02-16T00:07:42.700Z"
     },
     {
-      "adID": "1639481304079183",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/100012715114117/?product_id=1639481304079183",
-      "author": "Boomer Dixi",
-      "postedTime": "2026-02-12T14:29:29.000Z",
-      "title": "Vintage pinball board",
-      "description": "Pinball board with switches / contacts /relays and coils, unknown machine, as pictured, FOR PARTS",
-      "price": "$100",
-      "lat": 29.0491426,
-      "lon": -82.4609331,
-      "location": "Dunnellon, FL",
-      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/631874142_822576554137448_2259767271965724920_n.jpg?stp=c0.43.261.261a_dst-jpg_p261x260_tt6&_nc_cat=104&ccb=1-7&_nc_sid=92e707&_nc_ohc=WRn7I7aPhIMQ7kNvwG0j3Pe&_nc_oc=AdluHML896BbjW9Ufti5UnOEehj-YNH8Ye84OtJfTeI_m_CYBqpNfupXL52wvs3QEpw&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=l7SDY4ni5kRyYmKyFCgopg&oh=00_Afsl7MWERh2CtKmxxKeQUO4sXksHj-BwG4DktXG-CFXM1A&oe=69955B4D",
-      "adUrl": "https://www.facebook.com/marketplace/item/1639481304079183/",
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-02-13 18:10:45",
-      "lastSeen": "2026-02-15T23:02:52.864Z"
-    },
-    {
       "adID": "1937314130515670",
       "source": "MP",
       "authorUrl": "https://www.facebook.com/marketplace/profile/675706858/?product_id=1937314130515670",
@@ -1559,26 +1299,6 @@
       "lastSeen": "2026-02-16T00:07:35.484Z"
     },
     {
-      "adID": "1417620300062703",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/100001953336128/?product_id=1417620300062703",
-      "author": "Michael Calabresi",
-      "postedTime": "2026-02-08T19:47:49.000Z",
-      "title": "Bally bow and arrow pinball",
-      "description": "Plays pretty good with somewhere on the playfield and cabinet. Did replace all lights and new ring kit in.. $1500 obo",
-      "price": "$1",
-      "lat": 29.9534895,
-      "lon": -90.000289,
-      "location": "Arabi, LA",
-      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/628405460_1407176514214192_4681068317321195654_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=111&ccb=1-7&_nc_sid=92e707&_nc_ohc=QkjYr0zrF6gQ7kNvwHdof0P&_nc_oc=AdkLeCsgj2eq8leUUL9-PsE92H18nv8RYNVPuZ__zxWsPIARkpHn8big81o0h1JJpxo&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=QDumhCPc_mfdky6gesrdAQ&oh=00_Afv63Ox59ZZkgvAiPL_ovQL2t4iPo_VcoCKL0HulQRpgng&oe=69952F6F",
-      "adUrl": "https://www.facebook.com/marketplace/item/1417620300062703/",
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-02-13 18:10:44",
-      "lastSeen": "2026-02-16T02:07:28.806Z"
-    },
-    {
       "adID": "1407558901080985",
       "source": "MP",
       "authorUrl": "https://www.facebook.com/marketplace/profile/100000614471600/?product_id=1407558901080985",
@@ -1596,27 +1316,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 18:10:43",
-      "lastSeen": "2026-02-16T02:07:25.422Z"
-    },
-    {
-      "adID": "894332870244155",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/100001953336128/?product_id=894332870244155",
-      "author": "Michael Calabresi",
-      "postedTime": "2026-02-08T19:56:03.000Z",
-      "title": "Wizard pinball",
-      "description": "Works as it should. Replaced all lights to l e d s and put new ring kit.. asking $2500 are reasonable offer",
-      "price": "$1",
-      "lat": 29.9534895,
-      "lon": -90.000289,
-      "location": "Arabi, LA",
-      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/631173337_932821602638412_6860771221556286869_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=105&ccb=1-7&_nc_sid=92e707&_nc_ohc=gtrka1fizwcQ7kNvwFgvTQh&_nc_oc=AdnT5rq1FGTX29R7JjF6v7CZerXm3bC53WfQbpnH98pKb2mEAcz3iGRHiHQJhuRxEx0&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=MjFIujix9hP9460RLREZ2Q&oh=00_Afs-uKK67fyUi2M6vWpMDlpBK6pqeUiipOmO-hWsMccQpg&oe=699554B5",
-      "adUrl": "https://www.facebook.com/marketplace/item/894332870244155/",
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-02-13 18:10:41",
-      "lastSeen": "2026-02-16T02:07:25.288Z"
+      "lastSeen": "2026-02-16T03:06:57.044Z"
     },
     {
       "adID": "1555193142453309",
@@ -1636,7 +1336,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 18:10:40",
-      "lastSeen": "2026-02-16T02:07:24.510Z"
+      "lastSeen": "2026-02-16T03:06:57.455Z"
     },
     {
       "adID": "901860995627959",
@@ -1656,7 +1356,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 18:10:39",
-      "lastSeen": "2026-02-16T02:07:25.199Z"
+      "lastSeen": "2026-02-16T03:06:56.289Z"
     },
     {
       "adID": "4316212291951607",
@@ -1716,27 +1416,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 17:22:28",
-      "lastSeen": "2026-02-15T18:08:14.311Z"
-    },
-    {
-      "adID": "1200371552286290",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/100018245370461/?product_id=1200371552286290",
-      "author": "Unboxed Furniture",
-      "postedTime": "2025-10-10T18:07:35.000Z",
-      "title": "Arcade games",
-      "description": "4 are put together outside the box, boxes are included and topper new in the box all come together drop off only! Can be tested upon drop off inside the trailer. We renovate and buy homes even fully furnished. We are interested in buying yours!",
-      "price": "$500",
-      "lat": 33.7544657,
-      "lon": -84.3898151,
-      "location": "Atlanta, GA",
-      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t15.5256-10/513891075_9954202274678567_7453767345292632190_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=101&ccb=1-7&_nc_sid=d4195b&_nc_ohc=lenBMg2klGUQ7kNvwGaaZUL&_nc_oc=AdltWL8FcLuCNeUPqbEhCFY03C4UlJxgKpUg7BowvFXpFOGh0k4lx6ov4JJYqOV7sPI&_nc_zt=23&_nc_ht=scontent-dfw6-1.xx&_nc_gid=8eMrK2F09vEbMb8I0RtMqw&oh=00_Aftsbp3W70J_1R9nN7XyeGSLGBsA4CKMcErrB96hm2m85g&oe=69953051",
-      "adUrl": "https://www.facebook.com/marketplace/item/1200371552286290/",
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-02-13 17:22:25",
-      "lastSeen": "2026-02-15T16:04:51.662Z"
+      "lastSeen": "2026-02-16T03:04:50.284Z"
     },
     {
       "adID": "2076230456465508",
@@ -1759,26 +1439,6 @@
       "lastSeen": "2026-02-14T00:04:59.600Z"
     },
     {
-      "adID": "786690537112415",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/100000161245601/?product_id=786690537112415",
-      "author": "Bubba Brannan",
-      "postedTime": "2025-08-19T11:44:47.000Z",
-      "title": "Arcades",
-      "description": "I have some Vintage arcade machines for sale. Working: may need minor repairs Cruis’n USA Cruis’n World Cruis’n Exotica California Speed Original Ms. Pac-Man Non working: NFL Blitz/ NBA Jam comes on but monitor needs adjustments Wing Shooting Championship powers on but needs monitor and gun These sell at a very wide range of prices so do some research and make me an offer. If you buy multiple I would do a lower price. I’m open to offers. If interested I can send more pics and videos or come check them out and let’s make a deal. Located in Magee Ms",
-      "price": "$1",
-      "lat": 31.8724469,
-      "lon": -89.7323162,
-      "location": "Magee, MS",
-      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/570139601_1191732836146617_8246444537818111845_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=106&ccb=1-7&_nc_sid=92e707&_nc_ohc=j98sFTpqtwYQ7kNvwEdZvps&_nc_oc=AdkQIJYCVW8di7lRZKMQRC_QjwNMKcQNsJgNYjD__xJPrDVlj52btsF8eBnJ3i6q_YU&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=o0pdBmV4UtDA1Bv1fNJ14Q&oh=00_AftVdXPc9WcQgmrGAuckQBaDKeBRnkraDtc9OooDgu40Kg&oe=699546FE",
-      "adUrl": "https://www.facebook.com/marketplace/item/786690537112415/",
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-02-13 17:22:24",
-      "lastSeen": "2026-02-16T02:04:48.512Z"
-    },
-    {
       "adID": "690402343752905",
       "source": "MP",
       "authorUrl": "https://www.facebook.com/marketplace/profile/100002111414013/?product_id=690402343752905",
@@ -1796,7 +1456,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 17:22:24",
-      "lastSeen": "2026-02-16T02:07:35.994Z"
+      "lastSeen": "2026-02-16T03:04:49.017Z"
     },
     {
       "adID": "660378560430535",
@@ -1896,7 +1556,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 17:22:21",
-      "lastSeen": "2026-02-16T02:07:28.269Z"
+      "lastSeen": "2026-02-16T03:06:58.673Z"
     },
     {
       "adID": "1155487896662233",
@@ -1937,26 +1597,6 @@
       "hidden": 0,
       "created_at": "2026-02-13 17:22:20",
       "lastSeen": "2026-02-15T19:04:57.395Z"
-    },
-    {
-      "adID": "1577674573561560",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/100067624210892/?product_id=1577674573561560",
-      "author": "Nathan Hillery",
-      "postedTime": "2026-02-12T23:50:40.000Z",
-      "title": "Arcade Game cabinet forsale",
-      "description": "Used Arcade Game cabinet. standard size Arcade Game cabinet",
-      "price": "$250",
-      "lat": 33.7544657,
-      "lon": -84.3898151,
-      "location": "Atlanta, GA",
-      "imageUrl": "https://scontent-dfw5-3.xx.fbcdn.net/v/t39.84726-6/631559368_1261088062747867_1650974177723268984_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=108&ccb=1-7&_nc_sid=92e707&_nc_ohc=GVxWOO6iQmYQ7kNvwFXzyL-&_nc_oc=AdkFP9rs-cEw3s0LafCEuCVII7Sbrc8gUvfWSGpYT_cAv_9r6cbCYK5wWvYzB8WTSjo&_nc_zt=14&_nc_ht=scontent-dfw5-3.xx&_nc_gid=gPVt6-QVqyfhKZdOUWtX_Q&oh=00_AftmU2jfCFR99JWcYmy1M3X8Gxt2o8M9fxAvYg9fWbf_Jw&oe=69953797",
-      "adUrl": "https://www.facebook.com/marketplace/item/1577674573561560/",
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-02-13 17:22:19",
-      "lastSeen": "2026-02-16T02:04:48.469Z"
     },
     {
       "adID": "1439038534888656",
@@ -2016,7 +1656,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 17:22:19",
-      "lastSeen": "2026-02-16T02:07:29.275Z"
+      "lastSeen": "2026-02-16T03:06:58.507Z"
     },
     {
       "adID": "1474940270236168",
@@ -2070,13 +1710,13 @@
       "lat": 30.1586518,
       "lon": -85.6602936,
       "location": "Panama City, FL",
-      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t15.5256-10/450566981_1516847855924631_9173339285626187213_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=106&ccb=1-7&_nc_sid=4f5f82&_nc_ohc=5JWlHfTulK0Q7kNvwFHrDIl&_nc_oc=AdnyQN6pnDdbllKZrt96BoArXuDaa4ZVlWet6Wj57ExN-5BJXuHWhT9DFTdtf4JogSA&_nc_zt=23&_nc_ht=scontent-dfw5-2.xx&_nc_gid=gGsMUEPX_6n7T9tSJwrp1g&oh=00_AfsEgYeq_ZEWHPlLzVrto6Nwa_um_sxVkHo-POxWKBYGXA&oe=69985657",
+      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t15.5256-10/450566981_1516847855924631_9173339285626187213_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=106&ccb=1-7&_nc_sid=4f5f82&_nc_ohc=5JWlHfTulK0Q7kNvwFHrDIl&_nc_oc=AdnyQN6pnDdbllKZrt96BoArXuDaa4ZVlWet6Wj57ExN-5BJXuHWhT9DFTdtf4JogSA&_nc_zt=23&_nc_ht=scontent-dfw5-2.xx&_nc_gid=ZGmr7RIkOeh4L2FAD_aHrw&oh=00_AfsWD1qAjuJxUZIXbRm0x23EaulN1lTRv-8Be67ABJ_a0g&oe=69985657",
       "adUrl": "https://www.facebook.com/marketplace/item/1228025148844990/",
       "priceChanged": 0,
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 17:22:17",
-      "lastSeen": "2026-02-16T02:06:34.203Z"
+      "lastSeen": "2026-02-16T03:06:03.819Z"
     },
     {
       "adID": "1236057705126164",
@@ -2096,7 +1736,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 17:22:17",
-      "lastSeen": "2026-02-16T02:07:28.079Z"
+      "lastSeen": "2026-02-16T03:06:58.286Z"
     }
   ]
 }
