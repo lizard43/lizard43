@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-02-16T14:07:36.894Z",
+  "generated_at": "2026-02-16T15:10:48.200Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,53 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 38,
-      "droppedPrice": 184,
+      "exported_ads": 40,
+      "droppedPrice": 195,
       "droppedMissingGeo": 0,
-      "droppedCircle": 255
+      "droppedCircle": 264
     }
   },
   "ads": [
+    {
+      "adID": "710006835413234",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100009234069572/?product_id=710006835413234",
+      "author": "Randy Brewer",
+      "postedTime": "2026-02-16T14:43:34.000Z",
+      "title": "Buckaroo Classic Pinball Machine",
+      "description": "Classic 1960's Gotlieb Buckaroo pinball machine in good working order. New glass and rubber bands. If you see this ad it is available.",
+      "price": "$550",
+      "lat": 28.1470965,
+      "lon": -82.756367,
+      "location": "Tarpon Springs, FL",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/634639527_1255696063107349_1774577133902132847_n.jpg?stp=c0.43.261.261a_dst-jpg_p261x260_tt6&_nc_cat=110&ccb=1-7&_nc_sid=92e707&_nc_ohc=zCZNRPrf5LQQ7kNvwH328wh&_nc_oc=Adm3qZbvirhCJdevyAi_covg4agZf73l8EGll-lpEDJ5asiyjZloUH0IxDEbosh8rAg&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=vArnU2RdnIIvfqK6nESi7w&oh=00_Afuq-cV0RfxMPP-za67pDHa6yzGiM0SBu9Zlv6wapCO9Hw&oe=6998EEF2",
+      "adUrl": "https://www.facebook.com/marketplace/item/710006835413234/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-02-16 15:09:00",
+      "lastSeen": "2026-02-16T15:10:08.050Z"
+    },
+    {
+      "adID": "747773614794761",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100055848931840/?product_id=747773614794761",
+      "author": "Kelly's Furniture",
+      "postedTime": "2026-02-16T14:37:05.000Z",
+      "title": "Vintage pengo arcade game",
+      "description": "This is a vintage arcade game. Two players. Sit across from each other. Original case. Works well look at it on Trout River Boulevard.",
+      "price": "$375",
+      "lat": 30.3321838,
+      "lon": -81.655651,
+      "location": "Jacksonville, FL",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t15.5256-10/519961364_1107646294571024_8029420294226648876_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=105&ccb=1-7&_nc_sid=d4195b&_nc_ohc=XseYSAuGsn0Q7kNvwFxw3AM&_nc_oc=AdnvbiNhwGD3VywkWF1SvXBTs0EAzabby1LWaBkpCvKFU1EGsSqZf7UBgRt2KHwRNIw&_nc_zt=23&_nc_ht=scontent-dfw5-1.xx&_nc_gid=g7Q1OL5fntwIL5m8Rt9xWg&oh=00_AfuuL62_FqrQ_p-NU0O8xjUA3nLUNMNowthegzWuohlVBw&oe=6998FFD6",
+      "adUrl": "https://www.facebook.com/marketplace/item/747773614794761/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-02-16 15:04:44",
+      "lastSeen": "2026-02-16T15:08:06.323Z"
+    },
     {
       "adID": "26066354906334369",
       "source": "MP",
@@ -56,7 +96,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-16 13:04:51",
-      "lastSeen": "2026-02-16T14:04:41.377Z"
+      "lastSeen": "2026-02-16T15:04:47.909Z"
     },
     {
       "adID": "1074538484855370",
@@ -236,7 +276,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-14 18:04:54",
-      "lastSeen": "2026-02-16T14:04:42.044Z"
+      "lastSeen": "2026-02-16T15:04:47.498Z"
     },
     {
       "adID": "1421925122678291",
@@ -336,7 +376,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-14 13:04:47",
-      "lastSeen": "2026-02-16T14:04:41.422Z"
+      "lastSeen": "2026-02-16T15:04:45.504Z"
     },
     {
       "adID": "1075157164560540",
@@ -616,7 +656,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 18:10:39",
-      "lastSeen": "2026-02-16T14:07:11.260Z"
+      "lastSeen": "2026-02-16T15:09:00.818Z"
     },
     {
       "adID": "4316212291951607",
@@ -676,7 +716,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 17:22:24",
-      "lastSeen": "2026-02-16T14:04:41.878Z"
+      "lastSeen": "2026-02-16T15:09:01.541Z"
     },
     {
       "adID": "2948138838710326",
@@ -736,7 +776,7 @@
       "priceChangedAt": "2026-02-15 01:04:56",
       "hidden": 0,
       "created_at": "2026-02-13 17:22:23",
-      "lastSeen": "2026-02-16T14:07:14.243Z"
+      "lastSeen": "2026-02-16T15:09:03.653Z"
     },
     {
       "adID": "1571135127530551",
@@ -776,7 +816,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 17:22:18",
-      "lastSeen": "2026-02-16T14:07:13.410Z"
+      "lastSeen": "2026-02-16T15:04:47.742Z"
     }
   ]
 }
