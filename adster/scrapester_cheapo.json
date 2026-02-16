@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-02-16T15:10:48.200Z",
+  "generated_at": "2026-02-16T16:09:35.210Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,53 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 40,
-      "droppedPrice": 195,
+      "exported_ads": 42,
+      "droppedPrice": 199,
       "droppedMissingGeo": 0,
-      "droppedCircle": 264
+      "droppedCircle": 265
     }
   },
   "ads": [
+    {
+      "adID": "931982736151288",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100007795302713/?product_id=931982736151288",
+      "author": "JD Robsons Wood Works",
+      "postedTime": "2026-02-11T17:57:57.000Z",
+      "title": "Guncart for Cowboy Action Shooting",
+      "description": "Cart works well, enough room for shotgun and 2 rifles. Also has cartridge box. 41 inches tall to top of handle, 15 inches wide. Homemade.",
+      "price": "$100",
+      "lat": 30.421309,
+      "lon": -87.2169149,
+      "location": "Pensacola, FL",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/631672209_936276895485425_6559533114248885266_n.jpg?stp=c0.43.261.261a_dst-jpg_p261x260_tt6&_nc_cat=111&ccb=1-7&_nc_sid=92e707&_nc_ohc=DYo8r9xzk-IQ7kNvwHf_g4u&_nc_oc=Adnh8_7uTM6yektrjBYtfQLMurYouzjDlj5H6JJEcrE2Jfz1g5lz6YDa0NoaFCdnUMc&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=4Li7mu4k52e1HQPOF1zKKw&oh=00_Aftqlxd8spgPvO7AMOI6i8wOnmoWuKLOSCM7qZa6k0d-Gg&oe=69992800",
+      "adUrl": "https://www.facebook.com/marketplace/item/931982736151288/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-02-16 16:08:04",
+      "lastSeen": "2026-02-16T16:08:55.218Z"
+    },
+    {
+      "adID": "1612905036429441",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/1683158648/?product_id=1612905036429441",
+      "author": "Troy Haun",
+      "postedTime": "2026-02-16T14:59:33.000Z",
+      "title": "Need for Speed Underground arcade game",
+      "description": "Does not work.",
+      "price": "$700",
+      "lat": 28.8527675,
+      "lon": -81.6853534,
+      "location": "Eustis, FL",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/633878082_4434276876853854_1799201501203372495_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=110&ccb=1-7&_nc_sid=92e707&_nc_ohc=wFvZBHobGQUQ7kNvwHfXxMJ&_nc_oc=AdmZ9Jr8Rz7Lw7KKnRZb6jEvtUOLjbhOdMSn0COkRt9SkXjW77srGTJakSgWYMAOT-c&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=aAsVb12ZomIefqoK9qk7Ng&oh=00_AfvcycPXw3iMlm9ZHT7MYZGkxCH6Yv1LS1bg-kdynzKXlQ&oe=69990A25",
+      "adUrl": "https://www.facebook.com/marketplace/item/1612905036429441/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-02-16 16:04:43",
+      "lastSeen": "2026-02-16T16:07:08.315Z"
+    },
     {
       "adID": "710006835413234",
       "source": "MP",
@@ -36,7 +76,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-16 15:09:00",
-      "lastSeen": "2026-02-16T15:10:08.050Z"
+      "lastSeen": "2026-02-16T16:08:00.694Z"
     },
     {
       "adID": "747773614794761",
@@ -56,7 +96,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-16 15:04:44",
-      "lastSeen": "2026-02-16T15:08:06.323Z"
+      "lastSeen": "2026-02-16T16:04:40.762Z"
     },
     {
       "adID": "26066354906334369",
@@ -276,7 +316,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-14 18:04:54",
-      "lastSeen": "2026-02-16T15:04:47.498Z"
+      "lastSeen": "2026-02-16T16:04:43.235Z"
     },
     {
       "adID": "1421925122678291",
@@ -656,7 +696,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 18:10:39",
-      "lastSeen": "2026-02-16T15:09:00.818Z"
+      "lastSeen": "2026-02-16T16:08:01.127Z"
     },
     {
       "adID": "4316212291951607",
@@ -716,7 +756,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 17:22:24",
-      "lastSeen": "2026-02-16T15:09:01.541Z"
+      "lastSeen": "2026-02-16T16:08:02.139Z"
     },
     {
       "adID": "2948138838710326",
@@ -776,7 +816,7 @@
       "priceChangedAt": "2026-02-15 01:04:56",
       "hidden": 0,
       "created_at": "2026-02-13 17:22:23",
-      "lastSeen": "2026-02-16T15:09:03.653Z"
+      "lastSeen": "2026-02-16T16:08:04.716Z"
     },
     {
       "adID": "1571135127530551",
@@ -816,7 +856,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 17:22:18",
-      "lastSeen": "2026-02-16T15:04:47.742Z"
+      "lastSeen": "2026-02-16T16:04:42.902Z"
     }
   ]
 }
