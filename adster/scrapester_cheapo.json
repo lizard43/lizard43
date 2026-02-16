@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-02-16T13:07:50.473Z",
+  "generated_at": "2026-02-16T13:42:57.080Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,10 +11,10 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 39,
-      "droppedPrice": 189,
+      "exported_ads": 38,
+      "droppedPrice": 182,
       "droppedMissingGeo": 0,
-      "droppedCircle": 255
+      "droppedCircle": 254
     }
   },
   "ads": [
@@ -37,26 +37,6 @@
       "hidden": 0,
       "created_at": "2026-02-16 13:06:36",
       "lastSeen": "2026-02-16T13:07:15.809Z"
-    },
-    {
-      "adID": "1340237784429590",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/1699788370/?product_id=1340237784429590",
-      "author": "Jakob Werner",
-      "postedTime": "2025-11-04T20:51:25.000Z",
-      "title": "Original Pinball Glass Framed Flash Gordon $400 or SilverBall Mania $250",
-      "description": "Framed one is $400 Silverball mania is $250 These are all in excellent shape. The frames are custom light boxes with custom paint. Measurements are in the pics. Buck Rogers is SOLD",
-      "price": "$400",
-      "lat": 29.6519684,
-      "lon": -82.3249846,
-      "location": "Gainesville, FL",
-      "imageUrl": "https://scontent-dfw5-3.xx.fbcdn.net/v/t39.84726-6/575128657_822683993809879_3108009146435011746_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=109&ccb=1-7&_nc_sid=92e707&_nc_ohc=6Df22a9ONKAQ7kNvwHI98Cw&_nc_oc=AdkFPRAPHD-s7DRykkx3JJo4A3DD6eP0VjebRoYpC0wF5_BpW48WERngxwF8lw1teOk&_nc_zt=14&_nc_ht=scontent-dfw5-3.xx&_nc_gid=i6xhSOlSlemAPFFru3d2qA&oh=00_Aft3UsI-x5m6bi5nyQUWGcYHOcA_sfVG0kAsGFm4Ml0t8g&oe=6998CF30",
-      "adUrl": "https://www.facebook.com/marketplace/item/1340237784429590/",
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-02-16 13:06:34",
-      "lastSeen": "2026-02-16T13:07:15.752Z"
     },
     {
       "adID": "896723299784555",
