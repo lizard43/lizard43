@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-02-17T20:16:34.471Z",
+  "generated_at": "2026-02-17T21:15:16.053Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,53 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 47,
-      "droppedPrice": 218,
+      "exported_ads": 49,
+      "droppedPrice": 221,
       "droppedMissingGeo": 0,
       "droppedCircle": 216
     }
   },
   "ads": [
+    {
+      "adID": "KLOV-560549",
+      "source": "KLOV",
+      "authorUrl": "https://forums.arcade-museum.com/members/smart-bomb.64303/",
+      "author": "Smart Bomb",
+      "postedTime": "2026-02-17T20:54:01.000Z",
+      "title": "Mr. Do's Wild Ride, not working",
+      "description": "I have a Mr. Do's Wild Ride for $300 that would need some bottom cosmetic work. Unknown working condition. It's missing back door, bezel & power plug (though I may wire in a plug to see if it works or not). Located Hammond, La, 70401. I will not ship nor deliver.",
+      "price": "$300",
+      "lat": 29.9942265,
+      "lon": -90.2417806,
+      "location": "Kenner, Louisiana",
+      "imageUrl": "https://forums.arcade-museum.com/favicon.ico",
+      "adUrl": "https://forums.arcade-museum.com/threads/560549/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-02-17 21:15:15",
+      "lastSeen": "2026-02-17T21:15:15.522Z"
+    },
+    {
+      "adID": "KLOV-560552",
+      "source": "KLOV",
+      "authorUrl": "https://forums.arcade-museum.com/members/smart-bomb.64303/",
+      "author": "Smart Bomb",
+      "postedTime": "2026-02-17T20:32:47.000Z",
+      "title": "Gorf arcade project $100",
+      "description": "(Is this where we post project cabs? If not I apologize in advance) I have a non working Gorf arcade project. It was converted to a Wheel of Fortune game so no Gorf boards present but it seems like all original Gorf wiring still in the game. It's a 4600 tube but does not have the chassis to go with...",
+      "price": "$100",
+      "lat": 29.9942265,
+      "lon": -90.2417806,
+      "location": "Kenner, Louisiana",
+      "imageUrl": "https://forums.arcade-museum.com/favicon.ico",
+      "adUrl": "https://forums.arcade-museum.com/threads/560552/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-02-17 21:15:15",
+      "lastSeen": "2026-02-17T21:15:15.568Z"
+    },
     {
       "adID": "1431126431886913",
       "source": "MP",
@@ -96,7 +136,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-17 18:08:03",
-      "lastSeen": "2026-02-17T20:16:34.024Z"
+      "lastSeen": "2026-02-17T21:15:15.612Z"
     },
     {
       "adID": "25841299345490904",
