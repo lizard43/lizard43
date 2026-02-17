@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-02-17T12:26:06.941Z",
+  "generated_at": "2026-02-17T13:07:20.625Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,33 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 40,
-      "droppedPrice": 195,
+      "exported_ads": 41,
+      "droppedPrice": 201,
       "droppedMissingGeo": 0,
-      "droppedCircle": 252
+      "droppedCircle": 259
     }
   },
   "ads": [
+    {
+      "adID": "1242731981285873",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100000928047814/?product_id=1242731981285873",
+      "author": "Mark Connelly",
+      "postedTime": "2026-02-16T16:53:20.000Z",
+      "title": "JPX hot metal pro 919, 2 up, +1/2, dynamic gold s300 105",
+      "description": "",
+      "price": "$400",
+      "lat": 30.4982516,
+      "lon": -86.1360517,
+      "location": "Freeport, FL",
+      "imageUrl": "https://scontent-dfw5-3.xx.fbcdn.net/v/t39.84726-6/634685968_2097488431034801_2433824892435893585_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=109&ccb=1-7&_nc_sid=92e707&_nc_ohc=S_GE95PBeWwQ7kNvwEv_cYc&_nc_oc=AdlqX0dDgcxxgN6KhRpbHIW6r75OyjqmhzJzIQ8wjO8IDJiA3_Zh4jvmfRQmuNvs1ys&_nc_zt=14&_nc_ht=scontent-dfw5-3.xx&_nc_gid=mknyhJKBzrFyxAcXOnOaCQ&oh=00_AfubvV4xHgwYX5EivarKzmR67XLmvUDvM22fBcBGvkriWw&oe=699A557D",
+      "adUrl": "https://www.facebook.com/marketplace/item/1242731981285873/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-02-17 13:05:53",
+      "lastSeen": "2026-02-17T13:06:46.673Z"
+    },
     {
       "adID": "802403349247989",
       "source": "MP",
@@ -136,7 +156,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-16 21:04:41",
-      "lastSeen": "2026-02-17T12:04:46.017Z"
+      "lastSeen": "2026-02-17T13:04:38.864Z"
     },
     {
       "adID": "1121522413403787",
@@ -376,7 +396,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-14 18:04:54",
-      "lastSeen": "2026-02-17T12:04:47.295Z"
+      "lastSeen": "2026-02-17T13:04:40.016Z"
     },
     {
       "adID": "1593983198622164",
@@ -556,7 +576,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 23:10:53",
-      "lastSeen": "2026-02-15T23:02:48.637Z"
+      "lastSeen": "2026-02-17T13:05:51.516Z"
     },
     {
       "adID": "713775278226272",
@@ -676,7 +696,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 18:10:39",
-      "lastSeen": "2026-02-17T12:06:48.524Z"
+      "lastSeen": "2026-02-17T13:05:50.671Z"
     },
     {
       "adID": "2076230456465508",
@@ -716,7 +736,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 17:22:24",
-      "lastSeen": "2026-02-17T12:04:46.494Z"
+      "lastSeen": "2026-02-17T13:04:39.220Z"
     },
     {
       "adID": "2948138838710326",
@@ -736,7 +756,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 17:22:24",
-      "lastSeen": "2026-02-17T12:04:46.550Z"
+      "lastSeen": "2026-02-17T13:04:39.087Z"
     },
     {
       "adID": "2185352358965594",
@@ -756,7 +776,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 17:22:23",
-      "lastSeen": "2026-02-17T12:04:46.772Z"
+      "lastSeen": "2026-02-17T13:04:39.706Z"
     },
     {
       "adID": "2119340195511544",
@@ -816,7 +836,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 17:22:18",
-      "lastSeen": "2026-02-17T12:04:45.838Z"
+      "lastSeen": "2026-02-17T13:05:52.793Z"
     }
   ]
 }
