@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-02-17T17:08:32.083Z",
+  "generated_at": "2026-02-17T18:08:03.814Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,53 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 42,
-      "droppedPrice": 205,
+      "exported_ads": 44,
+      "droppedPrice": 208,
       "droppedMissingGeo": 0,
-      "droppedCircle": 209
+      "droppedCircle": 212
     }
   },
   "ads": [
+    {
+      "adID": "KLOV-560543",
+      "source": "KLOV",
+      "authorUrl": "https://forums.arcade-museum.com/members/smart-bomb.64303/",
+      "author": "Smart Bomb",
+      "postedTime": "2026-02-17T18:05:47.000Z",
+      "title": "Chase H.Q. , not working, no back door.",
+      "description": "I have a Chase H.Q. I picked up in a group purchase and just looking to unload it. Monitor getting 120ac, but no neck glow. No back door or bezel..other than that it seems complete. $200/will not ship/will not deliver. Located Hammond, La. 70401. Cab needs some paint. I also have it advertised on F...",
+      "price": "$200",
+      "lat": 29.9942265,
+      "lon": -90.2417806,
+      "location": "Kenner, Louisiana",
+      "imageUrl": "https://forums.arcade-museum.com/favicon.ico",
+      "adUrl": "https://forums.arcade-museum.com/threads/560543/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-02-17 18:08:03",
+      "lastSeen": "2026-02-17T18:08:03.406Z"
+    },
+    {
+      "adID": "25841299345490904",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/1605076987/?product_id=25841299345490904",
+      "author": "Deborah Hoey",
+      "postedTime": "2026-02-17T16:03:09.000Z",
+      "title": "Sorelli earrings",
+      "description": "Sorelli",
+      "price": "$30",
+      "lat": 30.1586518,
+      "lon": -85.6602936,
+      "location": "Panama City, FL",
+      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/637119811_1248737877231700_1826079419448459257_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=104&ccb=1-7&_nc_sid=92e707&_nc_ohc=h8dydRZPMCUQ7kNvwFCwxKE&_nc_oc=AdmlF6VBJQJBO-il3h9OxS12o_U9mL_tEeRRxUheNMqkK2gbtSf0uFWSOZ2ToMgbzQY&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=VsfP-x-Wq0KHrlFy8lL98g&oh=00_AftmpbnvFFADQZ7dHA1lyxcuGks7RlC2rQZdu6FOGfaQQA&oe=699A95C3",
+      "adUrl": "https://www.facebook.com/marketplace/item/25841299345490904/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-02-17 18:04:44",
+      "lastSeen": "2026-02-17T18:07:00.578Z"
+    },
     {
       "adID": "1962783471342567",
       "source": "MP",
@@ -36,7 +76,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-17 16:04:46",
-      "lastSeen": "2026-02-17T17:04:48.847Z"
+      "lastSeen": "2026-02-17T18:04:44.062Z"
     },
     {
       "adID": "2789013254602712",
@@ -56,7 +96,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-17 16:04:46",
-      "lastSeen": "2026-02-17T17:04:48.747Z"
+      "lastSeen": "2026-02-17T18:04:43.951Z"
     },
     {
       "adID": "25095258510153346",
@@ -316,7 +356,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-16 21:04:41",
-      "lastSeen": "2026-02-17T17:04:48.224Z"
+      "lastSeen": "2026-02-17T18:04:42.957Z"
     },
     {
       "adID": "1612905036429441",
@@ -716,7 +756,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 18:10:39",
-      "lastSeen": "2026-02-17T17:06:36.198Z"
+      "lastSeen": "2026-02-17T18:06:58.972Z"
     },
     {
       "adID": "2076230456465508",
@@ -856,7 +896,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 17:22:18",
-      "lastSeen": "2026-02-17T16:04:45.860Z"
+      "lastSeen": "2026-02-17T18:04:44.862Z"
     }
   ]
 }
