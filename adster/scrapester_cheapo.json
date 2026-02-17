@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-02-17T03:08:09.209Z",
+  "generated_at": "2026-02-17T12:07:44.260Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,10 +11,10 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 41,
-      "droppedPrice": 197,
+      "exported_ads": 40,
+      "droppedPrice": 196,
       "droppedMissingGeo": 0,
-      "droppedCircle": 270
+      "droppedCircle": 253
     }
   },
   "ads": [
@@ -57,26 +57,6 @@
       "hidden": 0,
       "created_at": "2026-02-17 03:05:00",
       "lastSeen": "2026-02-17T03:05:48.908Z"
-    },
-    {
-      "adID": "1141360117954653",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/61580511872144/?product_id=1141360117954653",
-      "author": "Will Herring",
-      "postedTime": "2025-09-21T17:14:09.000Z",
-      "title": "Retro Arcade game",
-      "description": "looks like a mini arcade game & has 100 different retro video games u can play. defeat boredom & get into the classics! an all-in-one gaming unit to take anywhere. features screen, speaker, controller with joystick & buttons, and 100 games! Batteries are included. Not included when purchased in the store.",
-      "price": "$4",
-      "lat": 32.4490141,
-      "lon": -81.7832912,
-      "location": "Statesboro, GA",
-      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/566200110_1234203735411463_8825408005455390360_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=106&ccb=1-7&_nc_sid=92e707&_nc_ohc=d3e8u-vCgNIQ7kNvwGCq-zh&_nc_oc=AdlTnztH6sbyVV4uwsHy9XWRxFea-nE7mFw8MMlBpy4PvVJNM6jUtz8OsFzAGlpE4vQ&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=U4KbXaITTz5BZta8xVSfAg&oh=00_AftsCH7NCuaAvsOi42pa0R4z9ZcKEtDn3txga3oUeiSyXw&oe=699999CF",
-      "adUrl": "https://www.facebook.com/marketplace/item/1141360117954653/",
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-02-17 02:04:37",
-      "lastSeen": "2026-02-17T02:07:21.509Z"
     },
     {
       "adID": "878206671360608",
@@ -156,7 +136,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-16 21:04:41",
-      "lastSeen": "2026-02-17T03:04:59.129Z"
+      "lastSeen": "2026-02-17T12:04:46.017Z"
     },
     {
       "adID": "1121522413403787",
@@ -396,7 +376,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-14 18:04:54",
-      "lastSeen": "2026-02-17T03:04:59.772Z"
+      "lastSeen": "2026-02-17T12:04:47.295Z"
     },
     {
       "adID": "1593983198622164",
@@ -696,7 +676,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 18:10:39",
-      "lastSeen": "2026-02-17T03:06:35.332Z"
+      "lastSeen": "2026-02-17T12:06:48.524Z"
     },
     {
       "adID": "2076230456465508",
@@ -736,7 +716,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 17:22:24",
-      "lastSeen": "2026-02-17T01:04:38.925Z"
+      "lastSeen": "2026-02-17T12:04:46.494Z"
     },
     {
       "adID": "2948138838710326",
@@ -756,7 +736,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 17:22:24",
-      "lastSeen": "2026-02-17T02:04:40.529Z"
+      "lastSeen": "2026-02-17T12:04:46.550Z"
     },
     {
       "adID": "2185352358965594",
@@ -776,7 +756,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 17:22:23",
-      "lastSeen": "2026-02-17T01:04:39.501Z"
+      "lastSeen": "2026-02-17T12:04:46.772Z"
     },
     {
       "adID": "2119340195511544",
@@ -836,7 +816,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 17:22:18",
-      "lastSeen": "2026-02-17T03:06:38.218Z"
+      "lastSeen": "2026-02-17T12:04:45.838Z"
     }
   ]
 }
