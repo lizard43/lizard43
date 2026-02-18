@@ -2,7 +2,7 @@
 
 /*
   Expects pinside_machines_sorted.json in the same folder:
-    { "machines": [ ... ] }
+    { "generated_at": "...", "machines": [ ... ] }
 
   Supports incoming URL param:
     ?s=search terms
@@ -27,21 +27,18 @@ const el = {
   countStatus: document.getElementById("countStatus"),
 
   railKeys: document.getElementById("railKeys"),
-  btnPrev: document.getElementById("btnPrev"),
-  btnNext: document.getElementById("btnNext"),
-  btnGear: document.getElementById("btnGear"),
 };
 
 let machines = [];
 let generatedAt = null;
 let filtered = [];
-let filteredBlobs = [];     // searchable strings aligned with filtered[]
-let matches = [];           // indices into filtered[]
+let filteredBlobs = [];
+let matches = [];
 let matchPos = 0;
 let lastQuery = "";
 
-let keyBtns = {};           // { "A": <button>, ... }
-let keyToIndex = {};        // { "A": 12, ... } first index in filtered[] for that letter
+let keyBtns = {};
+let keyToIndex = {};
 let activeKey = null;
 
 let imgObserver = null;
@@ -57,7 +54,7 @@ function normalizeText(s) {
   return String(s || "")
     .toLowerCase()
     .normalize("NFKD")
-    .replace(/[\u0300-\u036f]/g, "")  // strip accents
+    .replace(/[\u0300-\u036f]/g, "")
     .replace(/['’`]/g, "")
     .replace(/[^a-z0-9]+/g, " ")
     .trim();
@@ -102,8 +99,6 @@ function buildBlob(m) {
 function setSearchNavEnabled(enabled) {
   el.searchPrev.disabled = !enabled;
   el.searchNext.disabled = !enabled;
-  el.btnPrev.disabled = !enabled;
-  el.btnNext.disabled = !enabled;
 }
 
 function renderSearchStatus() {
@@ -221,18 +216,16 @@ function cardHTML(m, idx) {
   const type = m.type || null;
   const players = (m.players == null) ? null : String(m.players);
 
-  const vLine = valueLine(m); // "low – high" or null
+  const vLine = valueLine(m);
   const msrp = (m.msrp == null) ? null : money(Number(m.msrp));
-
   const score = (m.score == null) ? null : Number(m.score).toFixed(3);
 
-  // Build stacked lines (hide if null)
   const line1 = `
     <div class="lineTitle">
       ${pinsideUrl
-      ? `<a class="titleLink" href="${escapeAttr(pinsideUrl)}" target="_blank" rel="noopener">${escapeHtml(m.name || "—")}</a>`
-      : `<span class="titleText">${escapeHtml(m.name || "—")}</span>`
-    }
+        ? `<a class="titleLink" href="${escapeAttr(pinsideUrl)}" target="_blank" rel="noopener">${escapeHtml(m.name || "—")}</a>`
+        : `<span class="titleText">${escapeHtml(m.name || "—")}</span>`
+      }
     </div>`;
 
   const line2Parts = [];
@@ -258,10 +251,6 @@ function cardHTML(m, idx) {
 
   const line5 = score ? `<div class="lineMeta">Score <strong>${escapeHtml(score)}</strong></div>` : "";
 
-  // True lazy load:
-  // - no src set
-  // - put URL in data-src
-  // - observer will populate src when near viewport
   const imgTag = m.imageUrl
     ? `<img class="thumb js-lazy" data-src="${escapeAttr(m.imageUrl)}" alt="${escapeAttr(m.name)}" decoding="async">`
     : `<div class="thumbFallback">No image</div>`;
@@ -292,13 +281,13 @@ function creditCardHTML() {
       const d = new Date(generatedAt);
       const dateOnly = d.toISOString().split("T")[0];
       dateLine = `<div class="creditDate">Data generated: ${dateOnly}</div>`;
-    } catch (_) { }
+    } catch (_) {}
   }
 
   return `
   <article class="creditCard">
     <div class="creditInner">
-      <img 
+      <img
         src="https://s.pinside.com/img/logo/2018/pinside-logo-website.svg"
         alt="Pinside Logo"
         class="creditLogo"
@@ -316,12 +305,10 @@ function creditCardHTML() {
 }
 
 function setupImageObserver() {
-  // If we rebuild the card list, disconnect old observer and recreate.
   if (imgObserver) {
-    try { imgObserver.disconnect(); } catch (_) { }
+    try { imgObserver.disconnect(); } catch (_) {}
   }
 
-  // root = scrolling container
   imgObserver = new IntersectionObserver((entries) => {
     for (const e of entries) {
       if (!e.isIntersecting) continue;
@@ -335,7 +322,7 @@ function setupImageObserver() {
     }
   }, {
     root: el.stage,
-    rootMargin: "600px 0px",   // start loading before it scrolls into view
+    rootMargin: "600px 0px",
     threshold: 0.01
   });
 
@@ -350,17 +337,15 @@ function renderCards() {
   rebuildKeyIndex();
   renderCountStatus();
   updateActiveKeyFromScroll();
-
-  // Important: set up true lazy loading after render
   setupImageObserver();
 }
 
 function runSearch(rawQuery) {
   lastQuery = rawQuery || "";
 
-  const qNorm = normalizeText(rawQuery);                 // e.g. "space lab"
-  const terms = qNorm ? qNorm.split(" ").filter(Boolean) : [];  // ["space","lab"]
-  const qJoined = terms.join("");                        // "spacelab"
+  const qNorm = normalizeText(rawQuery);
+  const terms = qNorm ? qNorm.split(" ").filter(Boolean) : [];
+  const qJoined = terms.join("");
 
   if (terms.length === 0) {
     filtered = machines.slice();
@@ -377,13 +362,10 @@ function runSearch(rawQuery) {
   const blobs = [];
 
   for (const m of machines) {
-    const b = buildBlob(m);               // already normalized
-    const bNoSpace = b.replace(/\s+/g, ""); // "spacelab..."
+    const b = buildBlob(m);
+    const bNoSpace = b.replace(/\s+/g, "");
 
-    // AND semantics: every token must appear somewhere in the blob
     const andHit = terms.every(t => b.includes(t));
-
-    // Fallback for split words: "space lab" should hit "spacelab"
     const joinedHit = qJoined.length >= 4 && bNoSpace.includes(qJoined);
 
     if (andHit || joinedHit) {
@@ -395,8 +377,6 @@ function runSearch(rawQuery) {
   filtered = out;
   filteredBlobs = blobs;
 
-  // matches list for next/prev navigation:
-  // use the same hit logic against filteredBlobs (keep consistent)
   matches = [];
   for (let i = 0; i < filteredBlobs.length; i++) {
     const b = filteredBlobs[i];
@@ -454,12 +434,6 @@ function wireUI() {
 
   el.searchPrev.addEventListener("click", () => jumpToMatch(matchPos - 1));
   el.searchNext.addEventListener("click", () => jumpToMatch(matchPos + 1));
-  el.btnPrev.addEventListener("click", () => jumpToMatch(matchPos - 1));
-  el.btnNext.addEventListener("click", () => jumpToMatch(matchPos + 1));
-
-  el.btnGear.addEventListener("click", () => {
-    showToast("Settings (todo)");
-  });
 
   let raf = false;
   el.stage.addEventListener("scroll", () => {
@@ -494,7 +468,6 @@ async function loadData() {
       imageUrl: m.imageUrl ?? null,
     }));
 
-  // Data is already sorted, but keep a stable sort just in case.
   machines.sort((a, b) => (a.name || "").localeCompare(b.name || "", undefined, { sensitivity: "base", numeric: true }));
 
   filtered = machines.slice();
@@ -512,7 +485,7 @@ function applyIncomingSearchParam() {
       const clean = window.location.pathname + window.location.hash;
       history.replaceState(null, "", clean);
     }
-  } catch (_) { }
+  } catch (_) {}
 
   if (pending) {
     el.searchInput.value = pending;
