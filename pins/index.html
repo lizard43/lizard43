@@ -5,7 +5,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
   <title>Pinside Machines</title>
-  <link rel="stylesheet" href="styles.css?v=3" />
+  <link rel="stylesheet" href="styles.css?v=5" />
 </head>
 
 <body>
@@ -16,15 +16,18 @@
 
       <button id="searchPrev" class="searchBtn searchBtnSm" title="Previous match"
         aria-label="Previous match">◀</button>
+
       <button id="searchNext" class="searchBtn searchBtnSm" title="Next match"
         aria-label="Next match">▶</button>
+
+      <!-- moved count up into the search row -->
+      <div id="countStatus" class="countPill" aria-live="polite"></div>
 
       <button id="searchClear" class="searchBtn searchBtnSm" title="Clear" aria-label="Clear search">✕</button>
     </div>
 
     <div class="statusRow">
       <div id="searchStatus" class="searchStatusLine" aria-live="polite"></div>
-      <div id="countStatus" class="countStatusLine" aria-live="polite"></div>
     </div>
   </header>
 
@@ -55,7 +58,7 @@
     <div id="toast" class="toast" aria-live="polite"></div>
   </main>
 
-  <script src="app.js?v=3"></script>
+  <script src="app.js?v=5"></script>
 </body>
 
 </html>

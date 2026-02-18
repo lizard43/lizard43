@@ -1,13 +1,13 @@
 :root{
   --toolbar-h: 84px;
 
-  /* Light theme */
-  --bg: #f5f3ee;         /* off-white page */
-  --panel: #fbfaf7;      /* topbar/rail */
-  --card: #ffffff;       /* cards */
-  --text: #111213;       /* main text */
-  --muted: #5b6068;      /* subtle lines */
-  --border: #e3e1db;     /* borders */
+  /* New: darker page background */
+  --page-bg: #dedad1;     /* darker than the surface */
+  --panel: #fbfaf7;       /* your previous page bg becomes the surface */
+  --card: #fbfaf7;        /* cards match the surface */
+  --text: #111213;
+  --muted: #5b6068;
+  --border: #e3e1db;
   --shadow: 0 10px 26px rgba(0,0,0,0.10);
 
   --rail-w: 56px;
@@ -18,7 +18,7 @@
 html,body{ height:100%; margin:0; }
 
 body{
-  background: var(--bg);
+  background: var(--page-bg);
   color: var(--text);
   font-family: system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
   overflow:hidden;
@@ -29,7 +29,7 @@ body{
   position:fixed; top:0; left:0; right:0;
   min-height: var(--toolbar-h);
   display:flex; flex-direction:column; justify-content:center;
-  gap:6px;
+  gap:4px;
   padding:8px 10px;
   padding-right: calc(var(--rail-w) + 10px + env(safe-area-inset-right, 0px));
   background: var(--panel);
@@ -44,7 +44,7 @@ body{
   flex:1 1 auto;
   width:100%;
   min-width:120px;
-  background:#ffffff;
+  background: var(--panel);
   color: var(--text);
   border:1px solid var(--border);
   border-radius: 12px;
@@ -61,7 +61,7 @@ body{
   padding:0;
   display:grid;
   place-items:center;
-  background:#ffffff;
+  background: var(--panel);
   color: var(--text);
   border:1px solid var(--border);
   cursor:pointer;
@@ -69,17 +69,29 @@ body{
 .searchBtnSm{ width:42px; height:38px; }
 .searchBtn:disabled{ opacity:0.45; cursor:default; }
 
+/* Count moved into search row */
+.countPill{
+  font-size: 12px;
+  color: var(--muted);
+  padding: 7px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: #ffffff;
+  white-space: nowrap;
+  min-width: 84px;
+  text-align: center;
+}
+
 .statusRow{ display:flex; justify-content:space-between; gap:10px; }
-.searchStatusLine,
-.countStatusLine{
+
+.searchStatusLine{
   color: var(--muted);
   font-size:12px;
-  line-height:1.2;
+  line-height:1.15;
   white-space:nowrap;
   overflow:hidden;
   text-overflow:ellipsis;
 }
-.countStatusLine{ text-align:right; min-width:120px; }
 
 /* Right rail */
 .toolbar-rail{
@@ -174,7 +186,7 @@ body{
 }
 
 .thumbWrap{
-  background:#fafafa;
+  background:#ffffff;
   border-right:1px solid var(--border);
   display:grid;
   place-items:center;
@@ -198,10 +210,16 @@ body{
   padding:10px 12px 12px 0;
   display:flex;
   flex-direction:column;
-  gap:6px;
+
+  /* tighter vertical rhythm */
+  gap:3px;
 }
 
-.lineTitle{ padding-top:10px; line-height:1.15; }
+.lineTitle{
+  /* tighter space between title and manufacturer */
+  padding-top:6px;
+  line-height:1.12;
+}
 
 .titleLink,
 .titleText{
@@ -215,7 +233,9 @@ body{
 .lineMeta{
   font-size:12px;
   color: var(--muted);
-  line-height:1.35;
+
+  /* tighter between price and type lines */
+  line-height:1.20;
 }
 
 /* Manufacturer should NOT be bold */
