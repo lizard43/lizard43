@@ -1597,23 +1597,39 @@ function buildTitleQueryFromAd(ad, {
     return s;
 }
 
+const PRICE_STOP_WORDS = [
+    "for sale",
+    "pending",
+    "game",
+    "fs:",
+    "pinball",
+    "vintage",
+    "machine",
+    "rare",
+    "antique",
+    "project",
+
+    // manufacturers
+    "stern",
+    "gottlieb",
+    "williams",
+    "bally",
+];
+
+function buildStopWordRegex(words) {
+    const escaped = words.map(w =>
+        w.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")
+    );
+    return new RegExp(`\\b(${escaped.join("|")})\\b`, "gi");
+}
+
 function buildPriceGuideQueryFromAd(ad) {
     // priceguide: keep it tight, and remove extra marketplace-ish words
     return buildTitleQueryFromAd(ad, {
         maxChars: 50,
         maxWords: 3,
-        removeDates: false,
-        stopWordsRe: /\b(for\s+sale|pending|vintage|antique|arcade|game|fs:)\b/gi,
-    });
-}
-
-function buildPinsIndexQueryFromAd(ad) {
-    // pins index: strip dates/years/decades and a few pinball-specific low-signal words
-    return buildTitleQueryFromAd(ad, {
-        maxChars: 50,
-        maxWords: 3,
         removeDates: true,
-        stopWordsRe: /\b(pinball|vintage|machine|rare|antique|project|stern|gottlieb|williams|bally)\b/gi,
+        stopWordsRe: buildStopWordRegex(PRICE_STOP_WORDS),
     });
 }
 
@@ -1622,7 +1638,12 @@ function shouldUsePinsLinkForAd(ad) {
     if (src === "PS") return true;
 
     const t = String(ad?.title || "").toLowerCase();
-    return t.includes("pinball");
+
+    return (
+        t.includes("pinball") ||
+        t.includes("gottlieb") ||
+        t.includes("stern")
+    );
 }
 
 function openPriceGuideSearch(searchText) {
@@ -2104,7 +2125,7 @@ ${(() => {
                 // - Pinside ads OR title contains "pinball" => use /pins/index.html?s="..."
                 // - otherwise => keep Price Guide search
                 if (shouldUsePinsLinkForAd(ad)) {
-                    const q = buildPinsIndexQueryFromAd(ad);
+                    const q = buildPriceGuideQueryFromAd(ad);
                     if (!q) return "";
                     return `
         <span class="meta-dot">·</span>
