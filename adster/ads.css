@@ -1517,6 +1517,18 @@ body>.modal {
   cursor: default;
 }
 
+/* --- Pinside Price toolbar button (P$ text icon) --- */
+#btnPinsidePrice.favsearch-btn {
+  width: 34px;
+  /* a bit wider than 26px so "P$" fits nicely */
+}
+
+.favsearch-texticon {
+  font-weight: 800;
+  font-size: 12px;
+  letter-spacing: -0.3px;
+  line-height: 1;
+}
 
 /* ---------------- Right-side tap toolbar (quick adjust caps) ---------------- */
 

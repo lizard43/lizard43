@@ -15,7 +15,7 @@ const LS_BROWSER_CITY_LON = "adster.browserCity.lon";
 const LS_BROWSER_CITY_LABEL = "adster.browserCity.label"; // e.g. "near Freeport, FL"
 
 const PRICEGUIDE_TAB_NAME = "adster_priceguide";
-
+const PINSIDE_PRICE_TAB_NAME = "adster_pinside_price";
 
 const MAP_TAB_NAME = "adster_map";
 // --- Route corridor (home -> selected ad) ---
@@ -146,6 +146,8 @@ const btnPriceChanged = document.getElementById("btnPriceChanged");
 const priceChangedBadge = document.getElementById("priceChangedBadge");
 // const btnCheapo = document.getElementById("btnCheapo");
 const btnPriceGuide = document.getElementById("btnPriceGuide");
+const btnPinsidePrice = document.getElementById("btnPinsidePrice");
+
 const btnMap = document.getElementById("btnMap");
 const btnShare = document.getElementById("btnShare");
 
@@ -3707,6 +3709,16 @@ btnPriceGuide?.addEventListener("click", (e) => {
     try { w?.focus?.(); } catch { }
 });
 
+btnPinsidePrice?.addEventListener("click", (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+
+    // Open pinside prices in a reused tab. (pins is parallel to /adster/)
+    const url = new URL("../pins/index.html", window.location.href).toString();
+    const w = window.open(url, PINSIDE_PRICE_TAB_NAME);
+    try { if (w) w.opener = null; } catch { }
+    try { w?.focus?.(); } catch { }
+});
 
 btnMap?.addEventListener("click", () => {
     try {
