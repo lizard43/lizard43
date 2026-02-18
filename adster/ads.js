@@ -1601,7 +1601,7 @@ function buildTitleQueryFromAd(ad, {
 function buildPriceGuideQueryFromAd(ad) {
     // priceguide: keep it tight, and remove extra marketplace-ish words
     return buildTitleQueryFromAd(ad, {
-        maxChars: 80,
+        maxChars: 50,
         maxWords: 3,
         removeDates: false,
         stopWordsRe: /\b(for\s+sale|pending|vintage|antique|arcade|game|fs:)\b/gi,
@@ -1611,10 +1611,10 @@ function buildPriceGuideQueryFromAd(ad) {
 function buildPinsIndexQueryFromAd(ad) {
     // pins index: strip dates/years/decades and a few pinball-specific low-signal words
     return buildTitleQueryFromAd(ad, {
-        maxChars: 90,
-        maxWords: 4,
+        maxChars: 50,
+        maxWords: 3,
         removeDates: true,
-        stopWordsRe: /\b(pinball|vintage|machine|rare|antique)\b/gi,
+        stopWordsRe: /\b(pinball|vintage|machine|rare|antique|gottlieb|williams|bally)\b/gi,
     });
 }
 
