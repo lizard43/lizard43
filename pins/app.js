@@ -229,9 +229,9 @@ function cardHTML(m, idx) {
   const line1 = `
     <div class="lineTitle">
       ${pinsideUrl
-        ? `<a class="titleLink" href="${escapeAttr(pinsideUrl)}" target="_blank" rel="noopener">${escapeHtml(m.name || "—")}</a>`
-        : `<span class="titleText">${escapeHtml(m.name || "—")}</span>`
-      }
+      ? `<a class="titleLink" href="${escapeAttr(pinsideUrl)}" target="_blank" rel="noopener">${escapeHtml(m.name || "—")}</a>`
+      : `<span class="titleText">${escapeHtml(m.name || "—")}</span>`
+    }
     </div>`;
 
   const line2Parts = [];
@@ -246,7 +246,7 @@ function cardHTML(m, idx) {
   const line2 = line2Parts.length ? `<div class="lineMeta">${line2Parts.join(" · ")}</div>` : "";
 
   const line3Parts = [];
-  if (vLine) line3Parts.push(`<span>${escapeHtml(vLine)}</span>`);
+  if (vLine) line3Parts.push(`<span class="priceStrong">${escapeHtml(vLine)}</span>`);
   if (msrp) line3Parts.push(`<span class="dim">MSRP ${escapeHtml(msrp)}</span>`);
   const line3 = line3Parts.length ? `<div class="lineMeta">${line3Parts.join(" · ")}</div>` : "";
 
@@ -287,7 +287,7 @@ function cardHTML(m, idx) {
 function setupImageObserver() {
   // If we rebuild the card list, disconnect old observer and recreate.
   if (imgObserver) {
-    try { imgObserver.disconnect(); } catch (_) {}
+    try { imgObserver.disconnect(); } catch (_) { }
   }
 
   // root = scrolling container
@@ -326,9 +326,12 @@ function renderCards() {
 
 function runSearch(rawQuery) {
   lastQuery = rawQuery || "";
-  const q = normalizeText(rawQuery);
 
-  if (!q) {
+  const qNorm = normalizeText(rawQuery);                 // e.g. "space lab"
+  const terms = qNorm ? qNorm.split(" ").filter(Boolean) : [];  // ["space","lab"]
+  const qJoined = terms.join("");                        // "spacelab"
+
+  if (terms.length === 0) {
     filtered = machines.slice();
     filteredBlobs = filtered.map(buildBlob);
     matches = [];
@@ -341,19 +344,35 @@ function runSearch(rawQuery) {
 
   const out = [];
   const blobs = [];
+
   for (const m of machines) {
-    const b = buildBlob(m);
-    if (b.includes(q)) {
+    const b = buildBlob(m);               // already normalized
+    const bNoSpace = b.replace(/\s+/g, ""); // "spacelab..."
+
+    // AND semantics: every token must appear somewhere in the blob
+    const andHit = terms.every(t => b.includes(t));
+
+    // Fallback for split words: "space lab" should hit "spacelab"
+    const joinedHit = qJoined.length >= 4 && bNoSpace.includes(qJoined);
+
+    if (andHit || joinedHit) {
       out.push(m);
       blobs.push(b);
     }
   }
+
   filtered = out;
   filteredBlobs = blobs;
 
+  // matches list for next/prev navigation:
+  // use the same hit logic against filteredBlobs (keep consistent)
   matches = [];
   for (let i = 0; i < filteredBlobs.length; i++) {
-    if (filteredBlobs[i].includes(q)) matches.push(i);
+    const b = filteredBlobs[i];
+    const bNoSpace = b.replace(/\s+/g, "");
+    const andHit = terms.every(t => b.includes(t));
+    const joinedHit = qJoined.length >= 4 && bNoSpace.includes(qJoined);
+    if (andHit || joinedHit) matches.push(i);
   }
   matchPos = 0;
 
@@ -460,7 +479,7 @@ function applyIncomingSearchParam() {
       const clean = window.location.pathname + window.location.hash;
       history.replaceState(null, "", clean);
     }
-  } catch (_) {}
+  } catch (_) { }
 
   if (pending) {
     el.searchInput.value = pending;
