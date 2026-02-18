@@ -15,7 +15,6 @@ const LS_BROWSER_CITY_LON = "adster.browserCity.lon";
 const LS_BROWSER_CITY_LABEL = "adster.browserCity.label"; // e.g. "near Freeport, FL"
 
 const PRICEGUIDE_TAB_NAME = "adster_priceguide";
-const PINSIDE_PRICE_TAB_NAME = "adster_pinside_price";
 
 const MAP_TAB_NAME = "adster_map";
 // --- Route corridor (home -> selected ad) ---
@@ -1646,34 +1645,42 @@ function shouldUsePinsLinkForAd(ad) {
     );
 }
 
-function openPriceGuideSearch(searchText) {
+function openSearchInNamedTab(baseUrl, tabName, searchText, priceText) {
     const q = String(searchText || "").trim();
-    const base = new URL("../priceguide/", window.location.href);
-    if (q) base.searchParams.set("s", q);
+    const base = new URL(baseUrl, window.location.href);
 
-    // IMPORTANT: don't use "noopener" here or Chrome may not reuse the named tab
-    const w = window.open(base.toString(), PRICEGUIDE_TAB_NAME);
+    if (q) {
+        base.searchParams.set("s", q);
+    }
 
-    // Security: emulate noopener while still allowing retargeting
+    const p = normalizePrice(priceText);
+    if (Number.isFinite(p)) {
+        base.searchParams.set("p", String(Math.round(p)));
+    }
+
+    const w = window.open(base.toString(), tabName);
+
+    // emulate noopener but still allow tab reuse
     try { if (w) w.opener = null; } catch { }
-
     try { w?.focus?.(); } catch { }
 }
 
-function openPinsIndexSearch(searchText) {
-    const q = String(searchText || "").trim();
+function openPriceGuideSearch(searchText, priceText) {
+    openSearchInNamedTab(
+        "../priceguide/",
+        PRICEGUIDE_TAB_NAME,
+        searchText,
+        priceText
+    );
+}
 
-    // Exact base requested
-    const base = new URL("https://lizard43.com/pins/index.html");
-
-    if (q) base.searchParams.set("s", q);
-
-    // Reuse your existing tab name for pins
-    const w = window.open(base.toString(), PINSIDE_PRICE_TAB_NAME);
-
-    // Security: emulate noopener while still allowing retargeting
-    try { if (w) w.opener = null; } catch { }
-    try { w?.focus?.(); } catch { }
+function openPinsIndexSearch(searchText, priceText) {
+    openSearchInNamedTab(
+        ".../pins/",
+        PRICEGUIDE_TAB_NAME,
+        searchText,
+        priceText
+    );
 }
 
 function normalizePrice(price) {
@@ -3825,7 +3832,7 @@ btnPinsidePrice?.addEventListener("click", (e) => {
 
     // Open pinside prices in a reused tab. (pins is parallel to /adster/)
     const url = new URL("../pins/index.html", window.location.href).toString();
-    const w = window.open(url, PINSIDE_PRICE_TAB_NAME);
+    const w = window.open(url, PRICEGUIDE_TAB_NAME);
     try { if (w) w.opener = null; } catch { }
     try { w?.focus?.(); } catch { }
 });
@@ -3978,7 +3985,7 @@ tbody.addEventListener("click", (e) => {
     if (action === "priceguide") {
         e.preventDefault();
         e.stopPropagation();
-        openPriceGuideSearch(btn.dataset.query || "");
+        openPriceGuideSearch(btn.dataset.query || "", btn.dataset.price || "");
         return;
     }
 
@@ -3986,7 +3993,7 @@ tbody.addEventListener("click", (e) => {
     if (action === "pinssearch") {
         e.preventDefault();
         e.stopPropagation();
-        openPinsIndexSearch(btn.dataset.query || "");
+        openPinsIndexSearch(btn.dataset.query || "", btn.dataset.price || "");
         return;
     }
 
