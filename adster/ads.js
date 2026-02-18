@@ -1536,49 +1536,18 @@ function upsertHomeDirective(raw, newHomeLabel) {
     return s;
 }
 
-function buildPriceGuideQueryFromAd(ad) {
-    // Prefer a future "game" field if you ever add it.
+function buildTitleQueryFromAd(ad, {
+    maxChars = 90,
+    maxWords = 4,
+    removeDates = false,
+    stopWordsRe = null, // optional extra stopwords for this specific search
+} = {}) {
     const raw = String(ad?.game || ad?.title || "").trim();
     if (!raw) return "";
 
     let s = raw;
 
-    // Strip obvious noise that hurts the priceguide search
-    s = s.replace(/\$[\d,]+(\.\d+)?/g, " ");         // prices like $6,000
-    s = s.replace(/\bobo\b/gi, " ");
-    s = s.replace(/\bfor\s+sale\b/gi, " ");
-    s = s.replace(/\bfs\b/gi, " ");
-    s = s.replace(/\bwanted\b/gi, " ");
-    s = s.replace(/\bwtt\b/gi, " ");
-    s = s.replace(/\btrade\b/gi, " ");
-    s = s.replace(/\blot\b/gi, " ");
-    s = s.replace(/\bbundle\b/gi, " ");
-    s = s.replace(/[^\w\s-]/g, " ");                 // drop weird punctuation
-
-    // Remove low-signal words for priceguide searches
-    s = s.replace(/\b(for\s+sale|pending|vintage|antique|arcade|game|fs:)\b/gi, " ");
-
-    s = s.replace(/\s+/g, " ").trim();
-
-    // Keep it reasonable
-    if (s.length > 80) s = s.slice(0, 80).trim();
-
-    // Limit to first 3 words (front-loaded, best signal)
-    const words = s.split(" ").filter(Boolean);
-    if (words.length > 3) {
-        s = words.slice(0, 3).join(" ");
-    }
-
-    return s;
-}
-
-function buildPinsIndexQueryFromAd(ad) {
-    const raw = String(ad?.game || ad?.title || "").trim();
-    if (!raw) return "";
-
-    let s = raw;
-
-    // Strip prices, sale noise
+    // --- common "sale noise" ---
     s = s.replace(/\$[\d,]+(\.\d+)?/g, " ");   // $6,000
     s = s.replace(/\bobo\b/gi, " ");
     s = s.replace(/\bfor\s+sale\b/gi, " ");
@@ -1589,42 +1558,64 @@ function buildPinsIndexQueryFromAd(ad) {
     s = s.replace(/\blot\b/gi, " ");
     s = s.replace(/\bbundle\b/gi, " ");
 
-    // Fix possessives EARLY (before we delete tokens like years)
-    // Gottlieb’s / Gottlieb's -> Gottliebs  (prevents "Gottlieb s")
+    // --- common "possessive / curly apostrophe" fixes ---
+    // Gottlieb’s / Gottlieb's -> Gottliebs
     s = s.replace(/(\w)[’']s\b/gi, "$1s");
     // plural possessive: Williams’ -> Williams
     s = s.replace(/(\w)s[’']\b/gi, "$1s");
-
-    // Special case: "1960’s" / "1976’s" where we might remove the year next
-    // Convert 1960’s -> 1960s so the next step can remove the whole token cleanly.
+    // 1960’s -> 1960s (so it can be removed as a single token if removeDates is enabled)
     s = s.replace(/\b((?:18|19|20)\d{2})[’']s\b/gi, "$1s");
 
-    // Remove "dates" (years + decades like 1960s)
-    s = s.replace(/\b(18|19|20)\d{2}s?\b/g, " "); // 1997, 2023, 1960s
-    s = s.replace(/\b(?:jan|january|feb|february|mar|march|apr|april|may|jun|june|jul|july|aug|august|sep|sept|september|oct|october|nov|november|dec|december)\b/gi, " ");
-    s = s.replace(/\b\d{1,2}[\/\-]\d{1,2}([\/\-]\d{2,4})?\b/g, " "); // 2/18/26, 02-18-2026, etc.
-    s = s.replace(/\b\d{1,2}(st|nd|rd|th)\b/gi, " "); // 1st, 2nd...
+    // --- optional date stripping (pins index wants this; priceguide probably doesn't need it) ---
+    if (removeDates) {
+        s = s.replace(/\b(18|19|20)\d{2}s?\b/g, " "); // 1997, 2023, 1960s
+        s = s.replace(/\b(?:jan|january|feb|february|mar|march|apr|april|may|jun|june|jul|july|aug|august|sep|sept|september|oct|october|nov|november|dec|december)\b/gi, " ");
+        s = s.replace(/\b\d{1,2}[\/\-]\d{1,2}([\/\-]\d{2,4})?\b/g, " "); // 2/18/26, 02-18-2026, etc.
+        s = s.replace(/\b\d{1,2}(st|nd|rd|th)\b/gi, " "); // 1st, 2nd...
+        // If a year got removed earlier and left behind a bare "'s" / "’s", kill it
+        s = s.replace(/\b[’']s\b/gi, " ");
+    }
 
-    // Remove low-signal words
-    s = s.replace(/\b(pinball|vintage|machine|rare|antique)\b/gi, " ");
+    // --- common low-signal pruning ---
+    // (caller can add more stopwords via stopWordsRe)
+    if (stopWordsRe instanceof RegExp) {
+        s = s.replace(stopWordsRe, " ");
+    }
 
-    // Drop weird punctuation (so "(" doesn't survive into the 4-word truncation)
+    // Drop weird punctuation (so "(" doesn't survive into truncation)
     s = s.replace(/[^\w\s-]/g, " ");
-
-    // If a year got removed earlier and left behind a bare "'s" / "’s", kill it
-    s = s.replace(/\b[’']s\b/gi, " ");
 
     // Normalize whitespace
     s = s.replace(/\s+/g, " ").trim();
 
     // Keep it reasonable
-    if (s.length > 90) s = s.slice(0, 90).trim();
+    if (s.length > maxChars) s = s.slice(0, maxChars).trim();
 
-    // Keep first ~4 words
+    // Limit to first N words (front-loaded signal)
     const words = s.split(" ").filter(Boolean);
-    if (words.length > 4) s = words.slice(0, 4).join(" ");
+    if (words.length > maxWords) s = words.slice(0, maxWords).join(" ");
 
     return s;
+}
+
+function buildPriceGuideQueryFromAd(ad) {
+    // priceguide: keep it tight, and remove extra marketplace-ish words
+    return buildTitleQueryFromAd(ad, {
+        maxChars: 80,
+        maxWords: 3,
+        removeDates: false,
+        stopWordsRe: /\b(for\s+sale|pending|vintage|antique|arcade|game|fs:)\b/gi,
+    });
+}
+
+function buildPinsIndexQueryFromAd(ad) {
+    // pins index: strip dates/years/decades and a few pinball-specific low-signal words
+    return buildTitleQueryFromAd(ad, {
+        maxChars: 90,
+        maxWords: 4,
+        removeDates: true,
+        stopWordsRe: /\b(pinball|vintage|machine|rare|antique)\b/gi,
+    });
 }
 
 function shouldUsePinsLinkForAd(ad) {
