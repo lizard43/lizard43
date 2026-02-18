@@ -1589,8 +1589,18 @@ function buildPinsIndexQueryFromAd(ad) {
     s = s.replace(/\blot\b/gi, " ");
     s = s.replace(/\bbundle\b/gi, " ");
 
-    // Remove "dates"
-    s = s.replace(/\b(19|20)\d{2}\b/g, " "); // years like 1997, 2023
+    // Fix possessives EARLY (before we delete tokens like years)
+    // Gottlieb’s / Gottlieb's -> Gottliebs  (prevents "Gottlieb s")
+    s = s.replace(/(\w)[’']s\b/gi, "$1s");
+    // plural possessive: Williams’ -> Williams
+    s = s.replace(/(\w)s[’']\b/gi, "$1s");
+
+    // Special case: "1960’s" / "1976’s" where we might remove the year next
+    // Convert 1960’s -> 1960s so the next step can remove the whole token cleanly.
+    s = s.replace(/\b((?:18|19|20)\d{2})[’']s\b/gi, "$1s");
+
+    // Remove "dates" (years + decades like 1960s)
+    s = s.replace(/\b(18|19|20)\d{2}s?\b/g, " "); // 1997, 2023, 1960s
     s = s.replace(/\b(?:jan|january|feb|february|mar|march|apr|april|may|jun|june|jul|july|aug|august|sep|sept|september|oct|october|nov|november|dec|december)\b/gi, " ");
     s = s.replace(/\b\d{1,2}[\/\-]\d{1,2}([\/\-]\d{2,4})?\b/g, " "); // 2/18/26, 02-18-2026, etc.
     s = s.replace(/\b\d{1,2}(st|nd|rd|th)\b/gi, " "); // 1st, 2nd...
@@ -1598,12 +1608,11 @@ function buildPinsIndexQueryFromAd(ad) {
     // Remove low-signal words
     s = s.replace(/\b(pinball|vintage|machine|rare|antique)\b/gi, " ");
 
-    // Fix possessives BEFORE dropping punctuation
-    // Gottlieb’s / Gottlieb's  -> Gottliebs   (prevents "Gottlieb s")
-    s = s.replace(/(\w)[’']s\b/gi, "$1s");
+    // Drop weird punctuation (so "(" doesn't survive into the 4-word truncation)
+    s = s.replace(/[^\w\s-]/g, " ");
 
-    // Optional: plural possessive: Williams’ -> Williams
-    s = s.replace(/(\w)s[’']\b/gi, "$1s");
+    // If a year got removed earlier and left behind a bare "'s" / "’s", kill it
+    s = s.replace(/\b[’']s\b/gi, " ");
 
     // Normalize whitespace
     s = s.replace(/\s+/g, " ").trim();
@@ -1611,7 +1620,7 @@ function buildPinsIndexQueryFromAd(ad) {
     // Keep it reasonable
     if (s.length > 90) s = s.slice(0, 90).trim();
 
-    // Keep first ~4 words (pins search seems to benefit from slightly longer than priceguide)
+    // Keep first ~4 words
     const words = s.split(" ").filter(Boolean);
     if (words.length > 4) s = words.slice(0, 4).join(" ");
 
