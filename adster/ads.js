@@ -1613,6 +1613,7 @@ const PRICE_STOP_WORDS = [
     "original",
     "pending",
     "pinball",
+    "projects",
     "project",
     "video",
     "vintage",
@@ -1628,6 +1629,8 @@ const PRICE_STOP_WORDS = [
     "bally",
     "gottlieb",
     "midway",
+    "nintendo",
+    "sega",
     "stern",
     "williams",
 ];
