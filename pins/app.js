@@ -386,7 +386,8 @@ function runSearch(rawQuery) {
     const bNoSpace = b.replace(/\s+/g, "");
 
     const andHit = terms.every(t => b.includes(t));
-    const joinedHit = qJoined.length >= 4 && bNoSpace.includes(qJoined);
+    const hasDigit = /\d/.test(qJoined);
+    const joinedHit = (qJoined.length >= 4 || (hasDigit && qJoined.length >= 2)) && bNoSpace.includes(qJoined);
 
     if (andHit || joinedHit) {
       out.push(m);
@@ -402,7 +403,8 @@ function runSearch(rawQuery) {
     const b = filteredBlobs[i];
     const bNoSpace = b.replace(/\s+/g, "");
     const andHit = terms.every(t => b.includes(t));
-    const joinedHit = qJoined.length >= 4 && bNoSpace.includes(qJoined);
+    const hasDigit = /\d/.test(qJoined);
+    const joinedHit = (qJoined.length >= 4 || (hasDigit && qJoined.length >= 2)) && bNoSpace.includes(qJoined);
     if (andHit || joinedHit) matches.push(i);
   }
   matchPos = 0;
