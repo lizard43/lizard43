@@ -33,6 +33,7 @@ const el = {
 };
 
 let machines = [];
+let generatedAt = null;
 let filtered = [];
 let filteredBlobs = [];     // searchable strings aligned with filtered[]
 let matches = [];           // indices into filtered[]
@@ -284,6 +285,36 @@ function cardHTML(m, idx) {
   </article>`;
 }
 
+function creditCardHTML() {
+  let dateLine = "";
+  if (generatedAt) {
+    try {
+      const d = new Date(generatedAt);
+      const dateOnly = d.toISOString().split("T")[0];
+      dateLine = `<div class="creditDate">Data generated: ${dateOnly}</div>`;
+    } catch (_) { }
+  }
+
+  return `
+  <article class="creditCard">
+    <div class="creditInner">
+      <img 
+        src="https://s.pinside.com/img/logo/2018/pinside-logo-website.svg"
+        alt="Pinside Logo"
+        class="creditLogo"
+        loading="lazy"
+      />
+      <div class="creditText">
+        <div class="creditLine">
+          Game info and prices are property of <a href="https://pinside.com" target="_blank" rel="noopener">pinside.com</a>
+        </div>
+        ${dateLine}
+      </div>
+    </div>
+  </article>
+  `;
+}
+
 function setupImageObserver() {
   // If we rebuild the card list, disconnect old observer and recreate.
   if (imgObserver) {
@@ -313,8 +344,8 @@ function setupImageObserver() {
 }
 
 function renderCards() {
-  const html = filtered.map((m, idx) => cardHTML(m, idx)).join("\n");
-  el.cards.innerHTML = html;
+  const cardsHtml = filtered.map((m, idx) => cardHTML(m, idx)).join("\n");
+  el.cards.innerHTML = creditCardHTML() + cardsHtml;
 
   rebuildKeyIndex();
   renderCountStatus();
@@ -449,6 +480,8 @@ async function loadData() {
   if (!data || !Array.isArray(data.machines)) {
     throw new Error("JSON must be: { \"machines\": [...] }");
   }
+
+  generatedAt = data.generated_at || null;
 
   machines = data.machines
     .filter(m => m && typeof m === "object")
