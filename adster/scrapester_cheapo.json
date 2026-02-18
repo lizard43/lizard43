@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-02-18T22:09:18.406Z",
+  "generated_at": "2026-02-18T23:10:01.982Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -12,12 +12,32 @@
     },
     "counts": {
       "exported_ads": 25,
-      "droppedPrice": 162,
+      "droppedPrice": 166,
       "droppedMissingGeo": 0,
-      "droppedCircle": 177
+      "droppedCircle": 185
     }
   },
   "ads": [
+    {
+      "adID": "1195259878805334",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100002917509300/?product_id=1195259878805334",
+      "author": "Cory Miller",
+      "postedTime": "2026-02-18T21:30:54.000Z",
+      "title": "Blast Game Center Arcade & Gem Mine",
+      "description": "Have you been to the Blast Game Center arcade lately? We got 12 NEW GAMES this month!! Plus spend $20 in tokens, get $5 FREE in bonus tokens! Plus we relocated the Baker County Gem mine into the arcade too! This weekend you get $3 off any size mine rough! Open 12-8 Friday and 11-8 Saturday We host birthday parties and special events too! Starting at just $150 for 2 hours!",
+      "price": "$10",
+      "lat": 30.2821807,
+      "lon": -82.1220569,
+      "location": "Macclenny, FL",
+      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/597387757_720368297806947_5843583002007313772_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=108&ccb=1-7&_nc_sid=92e707&_nc_ohc=xn9bA6eSFAUQ7kNvwGNdvzm&_nc_oc=Adk3OeRdnX8jApaWkZNVPMnaG8qAbTFK8neyFL7wz31gXrpURL5rSJTZawDg-RZxX8c&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=jYpbHuskaEwsgTLBIPWRaw&oh=00_Afs8tMRosIP4S2hwBRUlPVF-t8OUUza9gQdUAL083xFKWw&oe=699C0D27",
+      "adUrl": "https://www.facebook.com/marketplace/item/1195259878805334/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-02-18 23:05:00",
+      "lastSeen": "2026-02-18T23:08:01.522Z"
+    },
     {
       "adID": "2014914106098647",
       "source": "MP",
@@ -36,27 +56,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-18 22:07:01",
-      "lastSeen": "2026-02-18T22:08:36.954Z"
-    },
-    {
-      "adID": "1327477665854744",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/100003949173193/?product_id=1327477665854744",
-      "author": "Phillip Moody",
-      "postedTime": "2026-02-13T13:12:43.000Z",
-      "title": "Arcade cabinet",
-      "description": "2 crane machines. Parts are removed. But nice cabinet 3 available Pickup Chula ga",
-      "price": "$0",
-      "lat": 31.5943567,
-      "lon": -83.2504328,
-      "location": "Ocilla, GA",
-      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/636937279_1214279784153478_5791518504485830468_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=105&ccb=1-7&_nc_sid=92e707&_nc_ohc=x92dSDqZ7kUQ7kNvwHorzaU&_nc_oc=Adn9oXWnK5PTvgDIOZJOqagvCSFZ__78kZPVplZIVJfH7zipUVXWoOvQh0JM6QgWUQU&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=EXN6sFyakKMmyRUH0wu4Uw&oh=00_AfsvqX1Yz_RGcI44b-WmkVGWqZn-5ss7jvM8A__Zsuiilg&oe=699BF091",
-      "adUrl": "https://www.facebook.com/marketplace/item/1327477665854744/",
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-02-18 22:04:42",
-      "lastSeen": "2026-02-18T22:06:11.489Z"
+      "lastSeen": "2026-02-18T23:08:52.931Z"
     },
     {
       "adID": "1285196646716293",
@@ -136,7 +136,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-18 15:44:56",
-      "lastSeen": "2026-02-18T22:04:42.767Z"
+      "lastSeen": "2026-02-18T23:05:00.171Z"
     },
     {
       "adID": "1539689973994771",
@@ -156,7 +156,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-18 15:44:56",
-      "lastSeen": "2026-02-18T22:04:42.935Z"
+      "lastSeen": "2026-02-18T23:04:59.969Z"
     },
     {
       "adID": "2039851953256802",
@@ -216,7 +216,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-17 16:04:46",
-      "lastSeen": "2026-02-18T19:04:51.417Z"
+      "lastSeen": "2026-02-18T23:04:59.937Z"
     },
     {
       "adID": "1960384798247194",
@@ -436,7 +436,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 18:10:39",
-      "lastSeen": "2026-02-18T22:07:00.433Z"
+      "lastSeen": "2026-02-18T23:08:51.920Z"
     },
     {
       "adID": "2076230456465508",
@@ -476,7 +476,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 17:22:24",
-      "lastSeen": "2026-02-18T22:04:43.169Z"
+      "lastSeen": "2026-02-18T23:05:00.840Z"
     },
     {
       "adID": "2185352358965594",
@@ -496,7 +496,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 17:22:23",
-      "lastSeen": "2026-02-18T22:04:43.035Z"
+      "lastSeen": "2026-02-18T23:05:00.919Z"
     },
     {
       "adID": "880228111053501",
@@ -516,7 +516,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 17:22:18",
-      "lastSeen": "2026-02-18T22:04:42.800Z"
+      "lastSeen": "2026-02-18T23:05:00.506Z"
     }
   ]
 }
