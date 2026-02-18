@@ -223,7 +223,7 @@ function cardHTML(m, idx) {
   const line1 = `
     <div class="lineTitle">
       ${pinsideUrl
-      ? `<a class="titleLink" href="${escapeAttr(pinsideUrl)}" target="_blank" rel="noopener">${escapeHtml(m.name || "—")}</a>`
+      ? `<a class="titleLink" href="${escapeAttr(pinsideUrl)}" rel="noopener">${escapeHtml(m.name || "—")}</a>`
       : `<span class="titleText">${escapeHtml(m.name || "—")}</span>`
     }
     </div>`;
@@ -232,7 +232,7 @@ function cardHTML(m, idx) {
   if (mfgName) {
     line2Parts.push(
       mfgUrl
-        ? `<a class="mfgLink" href="${escapeAttr(mfgUrl)}" target="_blank" rel="noopener">${escapeHtml(mfgName)}</a>`
+        ? `<a class="mfgLink" href="${escapeAttr(mfgUrl)}" rel="noopener">${escapeHtml(mfgName)}</a>`
         : `<span class="mfgText">${escapeHtml(mfgName)}</span>`
     );
   }
@@ -259,7 +259,7 @@ function cardHTML(m, idx) {
     line5 = `
     <div class="lineMeta">
       Score ${ratingsUrl
-        ? `<a href="${escapeAttr(ratingsUrl)}" target="_blank" rel="noopener"><strong>${escapeHtml(score)}</strong></a>`
+        ? `<a href="${escapeAttr(ratingsUrl)}" rel="noopener"><strong>${escapeHtml(score)}</strong></a>`
         : `<strong>${escapeHtml(score)}</strong>`
       }
     </div>`;
@@ -277,7 +277,7 @@ function cardHTML(m, idx) {
 `;
 
   const thumb = pinsideUrl
-    ? `<a class="thumbLink" href="${escapeAttr(pinsideUrl)}" target="_blank" rel="noopener">${imgTag}</a>`
+    ? `<a class="thumbLink" href="${escapeAttr(pinsideUrl)}" rel="noopener">${imgTag}</a>`
     : imgTag;
 
   return `
@@ -316,7 +316,7 @@ function creditCardHTML() {
       />
       <div class="creditText">
         <div class="creditLine">
-          Game info and prices are property of <a href="https://pinside.com" target="_blank" rel="noopener">pinside.com</a>
+          Game info and prices are property of <a href="https://pinside.com" rel="noopener">pinside.com</a>
         </div>
         ${dateLine}
       </div>
