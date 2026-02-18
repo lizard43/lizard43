@@ -223,9 +223,9 @@ function cardHTML(m, idx) {
   const line1 = `
     <div class="lineTitle">
       ${pinsideUrl
-        ? `<a class="titleLink" href="${escapeAttr(pinsideUrl)}" target="_blank" rel="noopener">${escapeHtml(m.name || "—")}</a>`
-        : `<span class="titleText">${escapeHtml(m.name || "—")}</span>`
-      }
+      ? `<a class="titleLink" href="${escapeAttr(pinsideUrl)}" target="_blank" rel="noopener">${escapeHtml(m.name || "—")}</a>`
+      : `<span class="titleText">${escapeHtml(m.name || "—")}</span>`
+    }
     </div>`;
 
   const line2Parts = [];
@@ -251,9 +251,16 @@ function cardHTML(m, idx) {
 
   const line5 = score ? `<div class="lineMeta">Score <strong>${escapeHtml(score)}</strong></div>` : "";
 
-  const imgTag = m.imageUrl
-    ? `<img class="thumb js-lazy" data-src="${escapeAttr(m.imageUrl)}" alt="${escapeAttr(m.name)}" decoding="async">`
-    : `<div class="thumbFallback">No image</div>`;
+  const imgSrc = m.imageUrl || "questionmark.png";
+
+  const imgTag = `
+  <img 
+    class="thumb js-lazy"
+    data-src="${escapeAttr(imgSrc)}"
+    alt="${escapeAttr(m.name || "Unknown machine")}"
+    decoding="async"
+  >
+`;
 
   const thumb = pinsideUrl
     ? `<a class="thumbLink" href="${escapeAttr(pinsideUrl)}" target="_blank" rel="noopener">${imgTag}</a>`
@@ -281,7 +288,7 @@ function creditCardHTML() {
       const d = new Date(generatedAt);
       const dateOnly = d.toISOString().split("T")[0];
       dateLine = `<div class="creditDate">Data generated: ${dateOnly}</div>`;
-    } catch (_) {}
+    } catch (_) { }
   }
 
   return `
@@ -306,7 +313,7 @@ function creditCardHTML() {
 
 function setupImageObserver() {
   if (imgObserver) {
-    try { imgObserver.disconnect(); } catch (_) {}
+    try { imgObserver.disconnect(); } catch (_) { }
   }
 
   imgObserver = new IntersectionObserver((entries) => {
@@ -485,7 +492,7 @@ function applyIncomingSearchParam() {
       const clean = window.location.pathname + window.location.hash;
       history.replaceState(null, "", clean);
     }
-  } catch (_) {}
+  } catch (_) { }
 
   if (pending) {
     el.searchInput.value = pending;
