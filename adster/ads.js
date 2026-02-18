@@ -1559,8 +1559,7 @@ function buildTitleQueryFromAd(ad, {
     s = s.replace(/\bbundle\b/gi, " ");
 
     // --- common "possessive / curly apostrophe" fixes ---
-    // Gottlieb’s / Gottlieb's -> Gottliebs
-    s = s.replace(/(\w)[’']s\b/gi, "$1s");
+    s = s.replace(/(\w)[’']s\b/gi, "$1");
     // plural possessive: Williams’ -> Williams
     s = s.replace(/(\w)s[’']\b/gi, "$1s");
     // 1960’s -> 1960s (so it can be removed as a single token if removeDates is enabled)
@@ -1614,7 +1613,7 @@ function buildPinsIndexQueryFromAd(ad) {
         maxChars: 50,
         maxWords: 3,
         removeDates: true,
-        stopWordsRe: /\b(pinball|vintage|machine|rare|antique|gottlieb|williams|bally)\b/gi,
+        stopWordsRe: /\b(pinball|vintage|machine|rare|antique|project|stern|gottlieb|williams|bally)\b/gi,
     });
 }
 
