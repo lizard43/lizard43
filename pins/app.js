@@ -249,7 +249,21 @@ function cardHTML(m, idx) {
   if (players) line4Parts.push(`<span class="dim">${escapeHtml(players)}P</span>`);
   const line4 = line4Parts.length ? `<div class="lineMeta">${line4Parts.join(" · ")}</div>` : "";
 
-  const line5 = score ? `<div class="lineMeta">Score <strong>${escapeHtml(score)}</strong></div>` : "";
+  let line5 = "";
+
+  if (score) {
+    const ratingsUrl = pinsideUrl
+      ? `${pinsideUrl.replace(/\/$/, "")}/ratings`
+      : null;
+
+    line5 = `
+    <div class="lineMeta">
+      Score ${ratingsUrl
+        ? `<a href="${escapeAttr(ratingsUrl)}" target="_blank" rel="noopener"><strong>${escapeHtml(score)}</strong></a>`
+        : `<strong>${escapeHtml(score)}</strong>`
+      }
+    </div>`;
+  }
 
   const imgSrc = m.imageUrl || "questionmark.png";
 
