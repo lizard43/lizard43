@@ -180,12 +180,14 @@ body{
   .cards{ grid-template-columns: repeat(auto-fit, minmax(420px, 1fr)); }
 }
 
-/* Cards now match the surface (same as page) */
 .card{
   display:grid;
   grid-template-columns: 110px 1fr;
   gap: 12px;
-  background: var(--surface);
+
+  /* off-white card color */
+  background: #fbfaf7;
+
   border: 1px solid var(--border);
   border-radius: 16px;
   box-shadow: var(--shadow);
