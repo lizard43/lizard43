@@ -1597,16 +1597,19 @@ function buildTitleQueryFromAd(ad, {
 }
 
 const PRICE_STOP_WORDS = [
-    "for sale",
-    "pending",
-    "game",
-    "fs:",
-    "pinball",
-    "vintage",
-    "machine",
-    "rare",
     "antique",
+    "coinop",
+    "coin-op",
+    "coin op",
+    "for sale",
+    "fs:",
+    "game",
+    "machine",
+    "pending",
+    "pinball",
     "project",
+    "vintage",
+    "rare",
 
     // manufacturers
     "stern",
