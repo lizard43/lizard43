@@ -1,19 +1,15 @@
 "use strict";
 
 /*
-  Expects pinside_machines.json in the same folder:
+  Expects pinside_machines_sorted.json in the same folder:
     { "machines": [ ... ] }
 
   Supports incoming URL param:
     ?s=search terms
 
-  Right rail:
-    - A..Z jumps to first visible card of that letter (based on current filtered list)
-    - Prev/Next cycles search matches
-
-  Notes:
-    - If you open index.html directly with file://, fetch() may be blocked.
-      Use a simple local server (e.g. `python3 -m http.server`).
+  IMPORTANT: true lazy image loading
+    - We do NOT set <img src> initially.
+    - We set data-src and use IntersectionObserver to populate src only when near viewport.
 */
 
 const DATA_URL = "pinside_machines_sorted.json";
@@ -47,6 +43,8 @@ let keyBtns = {};           // { "A": <button>, ... }
 let keyToIndex = {};        // { "A": 12, ... } first index in filtered[] for that letter
 let activeKey = null;
 
+let imgObserver = null;
+
 function showToast(msg) {
   el.toast.textContent = msg;
   el.toast.classList.add("show");
@@ -78,15 +76,12 @@ function money(n) {
   return "$" + v.toLocaleString();
 }
 
-function fmtRange(m) {
+function valueLine(m) {
   const lo = m.lowvalue;
   const hi = m.highvalue;
-  const avg = m.avgvalue;
-
-  if (lo == null && hi == null) return "Value: —";
-  if (lo != null && hi != null && lo !== hi) return `Value: ${money(lo)} – ${money(hi)} (avg ${money(avg)})`;
-  if (lo != null) return `Value: ${money(lo)}`;
-  return "Value: —";
+  if (lo == null || hi == null) return null;
+  if (!Number.isFinite(Number(lo)) || !Number.isFinite(Number(hi))) return null;
+  return `${money(lo)} – ${money(hi)}`;
 }
 
 function buildBlob(m) {
@@ -152,7 +147,6 @@ function setActiveKey(k) {
   activeKey = k;
   if (activeKey && keyBtns[activeKey]) {
     keyBtns[activeKey].classList.add("is-active");
-    // keep it visible in rail
     const rail = el.railKeys;
     const btn = keyBtns[activeKey];
     const top = btn.offsetTop - rail.clientHeight / 2 + btn.clientHeight / 2;
@@ -166,7 +160,6 @@ function scrollToCardIndex(idx) {
     showToast("No entries");
     return;
   }
-  // Scroll the stage so the card is visible under topbar
   card.scrollIntoView({ behavior: "smooth", block: "start" });
 }
 
@@ -191,12 +184,11 @@ function updateActiveKeyFromScroll() {
   const cards = el.cards.querySelectorAll(".card");
   if (!cards.length) return;
 
-  // find first card whose top is within viewport-ish
   const stageTop = el.stage.getBoundingClientRect().top;
   let bestIdx = null;
   for (const c of cards) {
     const r = c.getBoundingClientRect();
-    if (r.bottom > stageTop + 8) { // first visible-ish
+    if (r.bottom > stageTop + 8) {
       bestIdx = Number(c.dataset.idx);
       break;
     }
@@ -205,51 +197,6 @@ function updateActiveKeyFromScroll() {
 
   const k = firstKeyForName(filtered[bestIdx]?.name);
   if (k && k !== activeKey) setActiveKey(k);
-}
-
-function cardHTML(m, idx) {
-  const score = (m.score == null) ? null : Number(m.score).toFixed(3);
-  const msrp = (m.msrp == null) ? null : money(Number(m.msrp));
-
-  const badges = [];
-  if (m.type) badges.push(`<span class="badge">${escapeHtml(m.type)}</span>`);
-  if (m.players != null) badges.push(`<span class="badge">${escapeHtml(String(m.players))}P</span>`);
-  if (score != null) badges.push(`<span class="badge">Score ${escapeHtml(score)}</span>`);
-
-  const mfgLine = [
-    m.manufacturer ? `<strong>${escapeHtml(m.manufacturer)}</strong>` : "<strong>—</strong>",
-    m.date ? escapeHtml(m.date) : "—",
-  ].join(" · ");
-
-  const msrpLine = `MSRP: ${msrp ?? "—"}`;
-  const valLine = escapeHtml(fmtRange(m));
-
-  const img = m.imageUrl
-    ? `<img class="thumb" loading="lazy" decoding="async" src="${escapeAttr(m.imageUrl)}" alt="${escapeAttr(m.name)}">`
-    : `<div class="thumbFallback">No image</div>`;
-
-  const mfgUrl = m.manufacturerURL ? m.manufacturerURL : null;
-
-  return `
-  <article class="card" data-idx="${idx}">
-    <div class="thumbWrap">
-      ${img}
-    </div>
-    <div class="cardBody">
-      <div class="cardTitleRow">
-        <h3 class="cardTitle">${escapeHtml(m.name || "—")}</h3>
-        <div class="badges">${badges.join("")}</div>
-      </div>
-
-      <div class="metaLine">${mfgLine}</div>
-      <div class="metaLine">${escapeHtml(msrpLine)} · ${valLine}</div>
-
-      <div class="actions">
-        ${m.url ? `<a class="linkBtn" href="${escapeAttr(m.url)}" target="_blank" rel="noopener">Open</a>` : ""}
-        ${mfgUrl ? `<a class="linkBtn" href="${escapeAttr(mfgUrl)}" target="_blank" rel="noopener">Mfg</a>` : ""}
-      </div>
-    </div>
-  </article>`;
 }
 
 function escapeHtml(s) {
@@ -261,16 +208,120 @@ function escapeHtml(s) {
     .replace(/'/g, "&#39;");
 }
 function escapeAttr(s) {
-  // for attributes like src/href
   return escapeHtml(s).replace(/`/g, "&#96;");
+}
+
+function cardHTML(m, idx) {
+  const pinsideUrl = m.url || "";
+  const mfgName = m.manufacturer || "";
+  const mfgUrl = m.manufacturerURL || "";
+
+  const date = m.date || null;
+  const type = m.type || null;
+  const players = (m.players == null) ? null : String(m.players);
+
+  const vLine = valueLine(m); // "low – high" or null
+  const msrp = (m.msrp == null) ? null : money(Number(m.msrp));
+
+  const score = (m.score == null) ? null : Number(m.score).toFixed(3);
+
+  // Build stacked lines (hide if null)
+  const line1 = `
+    <div class="lineTitle">
+      ${pinsideUrl
+        ? `<a class="titleLink" href="${escapeAttr(pinsideUrl)}" target="_blank" rel="noopener">${escapeHtml(m.name || "—")}</a>`
+        : `<span class="titleText">${escapeHtml(m.name || "—")}</span>`
+      }
+    </div>`;
+
+  const line2Parts = [];
+  if (mfgName) {
+    line2Parts.push(
+      mfgUrl
+        ? `<a class="mfgLink" href="${escapeAttr(mfgUrl)}" target="_blank" rel="noopener">${escapeHtml(mfgName)}</a>`
+        : `<span class="mfgText">${escapeHtml(mfgName)}</span>`
+    );
+  }
+  if (date) line2Parts.push(`<span class="dim"> ${escapeHtml(date)}</span>`);
+  const line2 = line2Parts.length ? `<div class="lineMeta">${line2Parts.join(" · ")}</div>` : "";
+
+  const line3Parts = [];
+  if (vLine) line3Parts.push(`<span>${escapeHtml(vLine)}</span>`);
+  if (msrp) line3Parts.push(`<span class="dim">MSRP ${escapeHtml(msrp)}</span>`);
+  const line3 = line3Parts.length ? `<div class="lineMeta">${line3Parts.join(" · ")}</div>` : "";
+
+  const line4Parts = [];
+  if (type) line4Parts.push(`<span>${escapeHtml(type)}</span>`);
+  if (players) line4Parts.push(`<span class="dim">${escapeHtml(players)}P</span>`);
+  const line4 = line4Parts.length ? `<div class="lineMeta">${line4Parts.join(" · ")}</div>` : "";
+
+  const line5 = score ? `<div class="lineMeta">Score <strong>${escapeHtml(score)}</strong></div>` : "";
+
+  // True lazy load:
+  // - no src set
+  // - put URL in data-src
+  // - observer will populate src when near viewport
+  const imgTag = m.imageUrl
+    ? `<img class="thumb js-lazy" data-src="${escapeAttr(m.imageUrl)}" alt="${escapeAttr(m.name)}" decoding="async">`
+    : `<div class="thumbFallback">No image</div>`;
+
+  const thumb = pinsideUrl
+    ? `<a class="thumbLink" href="${escapeAttr(pinsideUrl)}" target="_blank" rel="noopener">${imgTag}</a>`
+    : imgTag;
+
+  return `
+  <article class="card" data-idx="${idx}">
+    <div class="thumbWrap">
+      ${thumb}
+    </div>
+    <div class="cardBody">
+      ${line1}
+      ${line2}
+      ${line3}
+      ${line4}
+      ${line5}
+    </div>
+  </article>`;
+}
+
+function setupImageObserver() {
+  // If we rebuild the card list, disconnect old observer and recreate.
+  if (imgObserver) {
+    try { imgObserver.disconnect(); } catch (_) {}
+  }
+
+  // root = scrolling container
+  imgObserver = new IntersectionObserver((entries) => {
+    for (const e of entries) {
+      if (!e.isIntersecting) continue;
+      const img = e.target;
+      const src = img.getAttribute("data-src");
+      if (src && !img.getAttribute("src")) {
+        img.setAttribute("src", src);
+        img.setAttribute("loading", "lazy");
+      }
+      imgObserver.unobserve(img);
+    }
+  }, {
+    root: el.stage,
+    rootMargin: "600px 0px",   // start loading before it scrolls into view
+    threshold: 0.01
+  });
+
+  const imgs = el.cards.querySelectorAll("img.js-lazy[data-src]");
+  imgs.forEach(img => imgObserver.observe(img));
 }
 
 function renderCards() {
   const html = filtered.map((m, idx) => cardHTML(m, idx)).join("\n");
   el.cards.innerHTML = html;
+
   rebuildKeyIndex();
   renderCountStatus();
   updateActiveKeyFromScroll();
+
+  // Important: set up true lazy loading after render
+  setupImageObserver();
 }
 
 function runSearch(rawQuery) {
@@ -288,7 +339,6 @@ function runSearch(rawQuery) {
     return;
   }
 
-  // filter
   const out = [];
   const blobs = [];
   for (const m of machines) {
@@ -301,7 +351,6 @@ function runSearch(rawQuery) {
   filtered = out;
   filteredBlobs = blobs;
 
-  // match nav uses filtered list
   matches = [];
   for (let i = 0; i < filteredBlobs.length; i++) {
     if (filteredBlobs[i].includes(q)) matches.push(i);
@@ -312,9 +361,7 @@ function runSearch(rawQuery) {
   renderSearchStatus();
   renderCards();
 
-  if (matches.length > 0) {
-    jumpToMatch(0);
-  }
+  if (matches.length > 0) jumpToMatch(0);
 }
 
 function jumpToMatch(pos) {
@@ -326,7 +373,6 @@ function jumpToMatch(pos) {
   const m = filtered[idx];
   renderSearchStatus();
 
-  // jump + toast
   const k = firstKeyForName(m?.name);
   setActiveKey(k);
   scrollToCardIndex(idx);
@@ -365,7 +411,6 @@ function wireUI() {
     showToast("Settings (todo)");
   });
 
-  // highlight the current letter while scrolling
   let raf = false;
   el.stage.addEventListener("scroll", () => {
     if (raf) return;
@@ -386,7 +431,6 @@ async function loadData() {
     throw new Error("JSON must be: { \"machines\": [...] }");
   }
 
-  // Defensive: ensure url exists & is absolute if possible
   machines = data.machines
     .filter(m => m && typeof m === "object")
     .map(m => ({
@@ -394,12 +438,13 @@ async function loadData() {
       name: m.name ?? "",
       url: m.url ?? "",
       manufacturer: m.manufacturer ?? null,
+      manufacturerURL: m.manufacturerURL ?? null,
+      imageUrl: m.imageUrl ?? null,
     }));
 
-  // default sort by name (stable-ish)
+  // Data is already sorted, but keep a stable sort just in case.
   machines.sort((a, b) => (a.name || "").localeCompare(b.name || "", undefined, { sensitivity: "base", numeric: true }));
 
-  // initial view
   filtered = machines.slice();
   filteredBlobs = filtered.map(buildBlob);
 }
@@ -411,7 +456,6 @@ function applyIncomingSearchParam() {
     const s = params.get("s");
     if (s && String(s).trim()) pending = String(s).trim();
 
-    // clean URL (keep hash if any)
     if (pending) {
       const clean = window.location.pathname + window.location.hash;
       history.replaceState(null, "", clean);
@@ -438,7 +482,7 @@ async function init() {
     renderCountStatus();
   } catch (e) {
     console.error(e);
-    el.cards.innerHTML = `<div class="metaLine">Failed to load data. Put <strong>${DATA_URL}</strong> next to index.html and run a local web server.</div>`;
+    el.cards.innerHTML = `<div class="lineMeta">Failed to load data. Put <strong>${DATA_URL}</strong> next to index.html and run a local web server.</div>`;
     showToast("Data load failed");
   }
 }
