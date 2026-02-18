@@ -1598,6 +1598,8 @@ function buildTitleQueryFromAd(ad, {
 
 const PRICE_STOP_WORDS = [
     "antique",
+    "arcade",
+    "cocktail",
     "coinop",
     "coin-op",
     "coin op",
@@ -1610,6 +1612,7 @@ const PRICE_STOP_WORDS = [
     "project",
     "vintage",
     "rare",
+    "trade",
 
     // manufacturers
     "stern",
