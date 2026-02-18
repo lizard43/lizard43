@@ -13,6 +13,7 @@
 */
 
 const DATA_URL = "pinside_machines_sorted.json";
+const PINSIDE_TAB_NAME = "pinside_tab";
 
 const el = {
   stage: document.getElementById("stage"),
@@ -41,6 +42,12 @@ let keyToIndex = {};
 let activeKey = null;
 
 let imgObserver = null;
+
+function openPinsideInReusableTab(url) {
+  if (!url) return;
+  const w = window.open(url, PINSIDE_TAB_NAME);
+  try { w?.focus?.(); } catch (_) { }
+}
 
 function showToast(msg) {
   el.toast.textContent = msg;
@@ -447,6 +454,21 @@ function wireUI() {
 
   el.searchPrev.addEventListener("click", () => jumpToMatch(matchPos - 1));
   el.searchNext.addEventListener("click", () => jumpToMatch(matchPos + 1));
+
+  el.cards.addEventListener("click", (e) => {
+    const a = e.target.closest("a[href]");
+    if (!a) return;
+
+    const href = a.getAttribute("href") || "";
+    if (!href) return;
+
+    // Only intercept pinside.com links
+    if (/^https:\/\/pinside\.com\//i.test(href)) {
+      e.preventDefault();
+      e.stopPropagation();
+      openPinsideInReusableTab(href);
+    }
+  });
 
   let raf = false;
   el.stage.addEventListener("scroll", () => {
