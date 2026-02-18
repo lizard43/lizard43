@@ -1595,11 +1595,15 @@ function buildPinsIndexQueryFromAd(ad) {
     s = s.replace(/\b\d{1,2}[\/\-]\d{1,2}([\/\-]\d{2,4})?\b/g, " "); // 2/18/26, 02-18-2026, etc.
     s = s.replace(/\b\d{1,2}(st|nd|rd|th)\b/gi, " "); // 1st, 2nd...
 
-    // Remove low-signal words (per your request)
-    s = s.replace(/\b(pinball|vintage|machine|rare)\b/gi, " ");
+    // Remove low-signal words
+    s = s.replace(/\b(pinball|vintage|machine|rare|antique)\b/gi, " ");
 
-    // Drop weird punctuation
-    s = s.replace(/[^\w\s-]/g, " ");
+    // Fix possessives BEFORE dropping punctuation
+    // Gottlieb’s / Gottlieb's  -> Gottliebs   (prevents "Gottlieb s")
+    s = s.replace(/(\w)[’']s\b/gi, "$1s");
+
+    // Optional: plural possessive: Williams’ -> Williams
+    s = s.replace(/(\w)s[’']\b/gi, "$1s");
 
     // Normalize whitespace
     s = s.replace(/\s+/g, " ").trim();
@@ -1642,9 +1646,7 @@ function openPinsIndexSearch(searchText) {
     // Exact base requested
     const base = new URL("https://lizard43.com/pins/index.html");
 
-    // Your format: ?s="terms"
-    // (URLSearchParams will encode the quotes correctly)
-    if (q) base.searchParams.set("s", `"${q}"`);
+    if (q) base.searchParams.set("s", q);
 
     // Reuse your existing tab name for pins
     const w = window.open(base.toString(), PINSIDE_PRICE_TAB_NAME);
