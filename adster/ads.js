@@ -1572,6 +1572,56 @@ function buildPriceGuideQueryFromAd(ad) {
     return s;
 }
 
+function buildPinsIndexQueryFromAd(ad) {
+    const raw = String(ad?.game || ad?.title || "").trim();
+    if (!raw) return "";
+
+    let s = raw;
+
+    // Strip prices, sale noise
+    s = s.replace(/\$[\d,]+(\.\d+)?/g, " ");   // $6,000
+    s = s.replace(/\bobo\b/gi, " ");
+    s = s.replace(/\bfor\s+sale\b/gi, " ");
+    s = s.replace(/\bfs\b/gi, " ");
+    s = s.replace(/\bwanted\b/gi, " ");
+    s = s.replace(/\bwtt\b/gi, " ");
+    s = s.replace(/\btrade\b/gi, " ");
+    s = s.replace(/\blot\b/gi, " ");
+    s = s.replace(/\bbundle\b/gi, " ");
+
+    // Remove "dates"
+    s = s.replace(/\b(19|20)\d{2}\b/g, " "); // years like 1997, 2023
+    s = s.replace(/\b(?:jan|january|feb|february|mar|march|apr|april|may|jun|june|jul|july|aug|august|sep|sept|september|oct|october|nov|november|dec|december)\b/gi, " ");
+    s = s.replace(/\b\d{1,2}[\/\-]\d{1,2}([\/\-]\d{2,4})?\b/g, " "); // 2/18/26, 02-18-2026, etc.
+    s = s.replace(/\b\d{1,2}(st|nd|rd|th)\b/gi, " "); // 1st, 2nd...
+
+    // Remove low-signal words (per your request)
+    s = s.replace(/\b(pinball|vintage|machine|rare)\b/gi, " ");
+
+    // Drop weird punctuation
+    s = s.replace(/[^\w\s-]/g, " ");
+
+    // Normalize whitespace
+    s = s.replace(/\s+/g, " ").trim();
+
+    // Keep it reasonable
+    if (s.length > 90) s = s.slice(0, 90).trim();
+
+    // Keep first ~4 words (pins search seems to benefit from slightly longer than priceguide)
+    const words = s.split(" ").filter(Boolean);
+    if (words.length > 4) s = words.slice(0, 4).join(" ");
+
+    return s;
+}
+
+function shouldUsePinsLinkForAd(ad) {
+    const src = String(ad?.source || "").trim().toUpperCase();
+    if (src === "PS") return true;
+
+    const t = String(ad?.title || "").toLowerCase();
+    return t.includes("pinball");
+}
+
 function openPriceGuideSearch(searchText) {
     const q = String(searchText || "").trim();
     const base = new URL("../priceguide/", window.location.href);
@@ -1583,6 +1633,24 @@ function openPriceGuideSearch(searchText) {
     // Security: emulate noopener while still allowing retargeting
     try { if (w) w.opener = null; } catch { }
 
+    try { w?.focus?.(); } catch { }
+}
+
+function openPinsIndexSearch(searchText) {
+    const q = String(searchText || "").trim();
+
+    // Exact base requested
+    const base = new URL("https://lizard43.com/pins/index.html");
+
+    // Your format: ?s="terms"
+    // (URLSearchParams will encode the quotes correctly)
+    if (q) base.searchParams.set("s", `"${q}"`);
+
+    // Reuse your existing tab name for pins
+    const w = window.open(base.toString(), PINSIDE_PRICE_TAB_NAME);
+
+    // Security: emulate noopener while still allowing retargeting
+    try { if (w) w.opener = null; } catch { }
     try { w?.focus?.(); } catch { }
 }
 
@@ -2030,9 +2098,29 @@ function renderTable() {
 <div class="ad-line2">
   <span class="ad-price ${ad.priceChanged ? "price-changed" : ""}">${escapeHtml(price)}</span>
 
-  ${(() => {
-                const src = String(source || "").trim().toUpperCase();
-                if (src === "PS") return ""; // Pin Sides: no priceguide
+${(() => {
+                // New behavior:
+                // - Pinside ads OR title contains "pinball" => use /pins/index.html?s="..."
+                // - otherwise => keep Price Guide search
+                if (shouldUsePinsLinkForAd(ad)) {
+                    const q = buildPinsIndexQueryFromAd(ad);
+                    if (!q) return "";
+                    return `
+        <span class="meta-dot">·</span>
+        <button class="card-priceguide-btn"
+                type="button"
+                data-action="pinssearch"
+                data-query="${escapeAttr(q)}"
+                title="Open Pinside price search"
+                aria-label="Open Pinside price search">
+          <svg viewBox="0 0 24 24" class="card-priceguide-svg" focusable="false" aria-hidden="true">
+            <path d="M12 1v22"></path>
+            <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+          </svg>
+        </button>
+      `;
+                }
+
                 const q = buildPriceGuideQueryFromAd(ad);
                 if (!q) return "";
                 return `
@@ -3864,11 +3952,19 @@ tbody.addEventListener("click", (e) => {
     if (!btn) return;
     const action = btn.dataset.action;
 
-    // Card priceguide button (does not require adID)
+    // Card $ button: Price Guide
     if (action === "priceguide") {
         e.preventDefault();
         e.stopPropagation();
         openPriceGuideSearch(btn.dataset.query || "");
+        return;
+    }
+
+    // Card $ button: Pinside price search
+    if (action === "pinssearch") {
+        e.preventDefault();
+        e.stopPropagation();
+        openPinsIndexSearch(btn.dataset.query || "");
         return;
     }
 

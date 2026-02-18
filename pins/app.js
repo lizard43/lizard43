@@ -56,6 +56,10 @@ function showToast(msg) {
   showToast._t = setTimeout(() => el.toast.classList.remove("show"), 900);
 }
 
+function normalizeNoSpace(s) {
+  return normalizeText(s).replace(/\s+/g, "");
+}
+
 function normalizeText(s) {
   return String(s || "")
     .toLowerCase()
@@ -363,9 +367,14 @@ function renderCards() {
 function runSearch(rawQuery) {
   lastQuery = rawQuery || "";
 
-  const qNorm = normalizeText(rawQuery);
+  const raw = String(rawQuery || "").trim();
+  const qNorm = normalizeText(raw);                 // e.g. "f 14"
   const terms = qNorm ? qNorm.split(" ").filter(Boolean) : [];
-  const qJoined = terms.join("");
+
+  // special: if user typed a hyphen, prefer matching the joined form in the NAME only
+  const wantsHyphenExact = /[-–—]/.test(raw);       // hyphen/en-dash/em-dash
+  const qJoined = terms.join("");                   // e.g. "f14"
+  const qJoinedLen = qJoined.length;
 
   if (terms.length === 0) {
     filtered = machines.slice();
@@ -383,13 +392,18 @@ function runSearch(rawQuery) {
 
   for (const m of machines) {
     const b = buildBlob(m);
-    const bNoSpace = b.replace(/\s+/g, "");
 
-    const andHit = terms.every(t => b.includes(t));
-    const hasDigit = /\d/.test(qJoined);
-    const joinedHit = (qJoined.length >= 4 || (hasDigit && qJoined.length >= 2)) && bNoSpace.includes(qJoined);
+    // AND semantics across the blob (your normal behavior)
+    let hit = terms.every(t => b.includes(t));
 
-    if (andHit || joinedHit) {
+    // If the user typed a hyphen, tighten: require the joined token to appear in the NAME
+    // This prevents "f"+"14" from matching random numeric fields.
+    if (wantsHyphenExact && qJoinedLen >= 2) {
+      const nameJoined = normalizeNoSpace(m.name || "");
+      hit = nameJoined.includes(qJoined);
+    }
+
+    if (hit) {
       out.push(m);
       blobs.push(b);
     }
@@ -399,16 +413,21 @@ function runSearch(rawQuery) {
   filteredBlobs = blobs;
 
   matches = [];
-  for (let i = 0; i < filteredBlobs.length; i++) {
+  for (let i = 0; i < filtered.length; i++) {
+    const m = filtered[i];
     const b = filteredBlobs[i];
-    const bNoSpace = b.replace(/\s+/g, "");
-    const andHit = terms.every(t => b.includes(t));
-    const hasDigit = /\d/.test(qJoined);
-    const joinedHit = (qJoined.length >= 4 || (hasDigit && qJoined.length >= 2)) && bNoSpace.includes(qJoined);
-    if (andHit || joinedHit) matches.push(i);
-  }
-  matchPos = 0;
 
+    let hit = terms.every(t => b.includes(t));
+
+    if (wantsHyphenExact && qJoinedLen >= 2) {
+      const nameJoined = normalizeNoSpace(m.name || "");
+      hit = nameJoined.includes(qJoined);
+    }
+
+    if (hit) matches.push(i);
+  }
+
+  matchPos = 0;
   setSearchNavEnabled(matches.length > 0);
   renderSearchStatus();
   renderCards();
