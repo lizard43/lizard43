@@ -24,7 +24,6 @@ const el = {
   searchPrev: document.getElementById("searchPrev"),
   searchNext: document.getElementById("searchNext"),
   searchStatus: document.getElementById("searchStatus"),
-  countStatus: document.getElementById("countStatus"),
 
   railKeys: document.getElementById("railKeys"),
 };
@@ -112,12 +111,6 @@ function renderSearchStatus() {
   }
   const m = filtered[matches[matchPos]];
   el.searchStatus.textContent = `${matchPos + 1}/${matches.length}: ${m.name}`;
-}
-
-function renderCountStatus() {
-  const total = machines.length;
-  const shown = filtered.length;
-  el.countStatus.textContent = `${shown.toLocaleString()}/${total.toLocaleString()}`;
 }
 
 function buildAZButtons() {
@@ -356,7 +349,6 @@ function renderCards() {
   el.cards.innerHTML = creditCardHTML() + cardsHtml;
 
   rebuildKeyIndex();
-  renderCountStatus();
   updateActiveKeyFromScroll();
   setupImageObserver();
 }
@@ -525,7 +517,6 @@ async function init() {
     renderCards();
     setSearchNavEnabled(false);
     applyIncomingSearchParam();
-    renderCountStatus();
   } catch (e) {
     console.error(e);
     el.cards.innerHTML = `<div class="lineMeta">Failed to load data. Put <strong>${DATA_URL}</strong> next to index.html and run a local web server.</div>`;

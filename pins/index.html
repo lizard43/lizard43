@@ -12,22 +12,20 @@
 <body>
   <header class="topbar" id="topbar" aria-label="Search">
     <div class="searchRow">
-      <input id="searchInput" class="searchInput" type="text"
-        placeholder="Search title / mfg / date / type / players…" autocomplete="off" />
+      <div class="searchWrap">
+        <input id="searchInput" class="searchInput" type="text"
+          placeholder="Search title / mfg / date / type / players…" autocomplete="off" />
+        <button id="searchClear" class="searchClearIn" title="Clear" aria-label="Clear search">✕</button>
+      </div>
 
       <button id="searchPrev" class="searchBtn searchBtnSm" title="Previous match"
         aria-label="Previous match">◀</button>
 
-      <button id="searchNext" class="searchBtn searchBtnSm" title="Next match"
-        aria-label="Next match">▶</button>
-
-      <div id="countStatus" class="countPill" aria-live="polite"></div>
-
-      <button id="searchClear" class="searchBtn searchBtnSm" title="Clear" aria-label="Clear search">✕</button>
+      <button id="searchNext" class="searchBtn searchBtnSm" title="Next match" aria-label="Next match">▶</button>
     </div>
 
     <!-- Keep searchStatus for accessibility but do not reserve space when empty -->
-    <div id="searchStatus" class="searchStatusLine" aria-live="polite"></div>    
+    <div id="searchStatus" class="searchStatusLine" aria-live="polite"></div>
   </header>
 
   <nav class="toolbar-rail" id="rail" aria-label="Navigation">
