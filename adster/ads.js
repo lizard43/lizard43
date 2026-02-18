@@ -1682,7 +1682,7 @@ function openPriceGuideSearch(searchText, priceText) {
 
 function openPinsIndexSearch(searchText, priceText) {
     openSearchInNamedTab(
-        ".../pins/",
+        "../pins/",
         PRICEGUIDE_TAB_NAME,
         searchText,
         priceText
