@@ -1599,6 +1599,7 @@ function buildTitleQueryFromAd(ad, {
 const PRICE_STOP_WORDS = [
     "antique",
     "arcade",
+    "cabaret",
     "cocktail",
     "coinop",
     "coin-op",
@@ -1687,7 +1688,7 @@ function openSearchInNamedTab(baseUrl, tabName, searchText, priceText) {
 
 function openPriceGuideSearch(searchText, priceText) {
     openSearchInNamedTab(
-        "../priceguide/",
+        "../priceguide/vag/",
         PRICEGUIDE_TAB_NAME,
         searchText,
         priceText
@@ -3840,7 +3841,7 @@ btnPriceGuide?.addEventListener("click", (e) => {
     e.stopPropagation();
 
     // Open priceguide in a new tab. (priceguide is parallel to /adster/)
-    const url = new URL("../priceguide/", window.location.href).toString();
+    const url = new URL("../priceguide/vag/", window.location.href).toString();
     const w = window.open(url, PRICEGUIDE_TAB_NAME);
     try { if (w) w.opener = null; } catch { }
     try { w?.focus?.(); } catch { }

@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+  <title>Arcade Games Price Guide</title>
+
+  <script src="loader.js"></script>
+</head>
+
+<body>
+  <header class="topbar" id="topbar" aria-label="Search">
+    <div class="searchRow">
+      <div class="searchWrap">
+        <input id="searchInput" class="searchInput" type="text"
+          placeholder="Search title / mfg / date / genre / type / page…" autocomplete="off" />
+        <button id="searchClear" class="searchClearIn" title="Clear" aria-label="Clear search">✕</button>
+      </div>
+
+      <button id="searchPrev" class="searchBtn searchBtnSm" title="Previous match"
+        aria-label="Previous match">◀</button>
+
+      <button id="searchNext" class="searchBtn searchBtnSm" title="Next match" aria-label="Next match">▶</button>
+    </div>
+
+    <div id="searchStatus" class="searchStatusLine" aria-live="polite"></div>
+  </header>
+
+  <nav class="toolbar-rail" id="rail" aria-label="Navigation">
+    <div class="rail-keys" id="railKeys" aria-label="Letter bookmarks">
+      <!-- JS populates #, A..Z -->
+    </div>
+  </nav>
+
+  <main class="stage" id="stage">
+    <div class="content" id="content">
+      <div class="cards" id="cards"></div>
+    </div>
+    <div id="toast" class="toast" aria-live="polite"></div>
+  </main>
+
+  <!-- Image viewer modal -->
+  <div id="imgModal" class="imgModal" aria-hidden="true" role="dialog" aria-label="Image viewer">
+    <div class="imgModalBackdrop" data-modal-close="1"></div>
+
+    <div class="imgModalPanel" role="document">
+      <button id="imgModalClose" class="imgModalClose" title="Close" aria-label="Close">✕</button>
+      <img id="imgModalImg" class="imgModalImg" alt="" />
+      <div id="imgModalCaption" class="imgModalCaption"></div>
+    </div>
+  </div>
+
+</body>
+
+</html>
