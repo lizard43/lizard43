@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-02-19T15:20:18.569Z",
+  "generated_at": "2026-02-19T16:07:38.825Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,33 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 28,
-      "droppedPrice": 145,
+      "exported_ads": 29,
+      "droppedPrice": 148,
       "droppedMissingGeo": 0,
-      "droppedCircle": 164
+      "droppedCircle": 166
     }
   },
   "ads": [
+    {
+      "adID": "1544317443230305",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100030186122410/?product_id=1544317443230305",
+      "author": "Jasmine Cousin",
+      "postedTime": "2025-10-30T02:53:14.000Z",
+      "title": "Arcade games",
+      "description": "Full size arcade game street fighter 35th edition 2 players and madden(unopened)",
+      "price": "$450",
+      "lat": 30.2751945,
+      "lon": -89.7811745,
+      "location": "Slidell, LA",
+      "imageUrl": "https://scontent-dfw5-3.xx.fbcdn.net/v/t39.84726-6/571292269_746610485101617_1203233159675435957_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=107&ccb=1-7&_nc_sid=92e707&_nc_ohc=QFQ1wqdjK0EQ7kNvwGIOnCm&_nc_oc=Adm-l2ZNAyoSbPV5y9Ez8b8L6RHkyw14FbXn8mZ4lgoshviImm6YpI55ITr4agaJygQ&_nc_zt=14&_nc_ht=scontent-dfw5-3.xx&_nc_gid=f6swgsXVkAblZnhOKnKOgw&oh=00_Afs1NT0M3mCvY38rsAVs8IxsiLACuYNjyPi6bqaUHyxg_Q&oe=699D1D28",
+      "adUrl": "https://www.facebook.com/marketplace/item/1544317443230305/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-02-19 16:04:43",
+      "lastSeen": "2026-02-19T16:05:43.610Z"
+    },
     {
       "adID": "1245666690962808",
       "source": "MP",
@@ -36,7 +56,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-19 15:07:17",
-      "lastSeen": "2026-02-19T15:09:20.765Z"
+      "lastSeen": "2026-02-19T16:06:35.901Z"
     },
     {
       "adID": "1378121807661707",
@@ -76,7 +96,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-19 15:07:16",
-      "lastSeen": "2026-02-19T15:09:20.732Z"
+      "lastSeen": "2026-02-19T16:06:35.834Z"
     },
     {
       "adID": "1617846646337027",
@@ -96,7 +116,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-19 15:04:47",
-      "lastSeen": "2026-02-19T15:07:16.667Z"
+      "lastSeen": "2026-02-19T16:06:35.668Z"
     },
     {
       "adID": "2082916122474145",
@@ -216,7 +236,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-18 15:44:56",
-      "lastSeen": "2026-02-19T15:04:47.260Z"
+      "lastSeen": "2026-02-19T16:04:43.637Z"
     },
     {
       "adID": "1539689973994771",
@@ -236,7 +256,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-18 15:44:56",
-      "lastSeen": "2026-02-19T13:04:42.035Z"
+      "lastSeen": "2026-02-19T16:04:43.972Z"
     },
     {
       "adID": "2039851953256802",
@@ -496,7 +516,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 18:10:39",
-      "lastSeen": "2026-02-19T15:07:16.467Z"
+      "lastSeen": "2026-02-19T16:06:35.399Z"
     },
     {
       "adID": "2076230456465508",
@@ -536,7 +556,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 17:22:24",
-      "lastSeen": "2026-02-19T15:04:47.527Z"
+      "lastSeen": "2026-02-19T16:04:44.631Z"
     },
     {
       "adID": "2185352358965594",
@@ -556,7 +576,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 17:22:23",
-      "lastSeen": "2026-02-19T14:04:44.719Z"
+      "lastSeen": "2026-02-19T16:04:44.592Z"
     },
     {
       "adID": "880228111053501",
@@ -576,7 +596,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 17:22:18",
-      "lastSeen": "2026-02-19T15:07:18.524Z"
+      "lastSeen": "2026-02-19T16:04:43.504Z"
     }
   ]
 }
