@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-02-19T13:07:46.934Z",
+  "generated_at": "2026-02-19T14:07:04.218Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,33 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 24,
-      "droppedPrice": 145,
+      "exported_ads": 25,
+      "droppedPrice": 149,
       "droppedMissingGeo": 0,
-      "droppedCircle": 161
+      "droppedCircle": 163
     }
   },
   "ads": [
+    {
+      "adID": "2082916122474145",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/1065080449/?product_id=2082916122474145",
+      "author": "Robert Kiedinger",
+      "postedTime": "2026-02-11T15:42:41.000Z",
+      "title": "Pinball Scoring LEDS and Interconnect Board",
+      "description": "There is 1 seven-digit display, 1 display for credits and random number, and the interconnect board for the displays. They are original from a Williams system 7 machine, functioning 100%, no frizzing or missing numbers. $20 each. or $50 for all 3. Will ship for cost.",
+      "price": "$1",
+      "lat": 33.3392842,
+      "lon": -84.6485417,
+      "location": "Sharpsburg, GA",
+      "imageUrl": "https://scontent-dfw5-3.xx.fbcdn.net/v/t39.84726-6/632419813_820057657709714_5896974598180237562_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=107&ccb=1-7&_nc_sid=92e707&_nc_ohc=0Dyem5mhAI8Q7kNvwEYuPzF&_nc_oc=AdlmPFfmv0ec0t1qDoHxBc1YRlTTlNLKIb-oLy4bxdTIi0720rgxcB0OL9EaskB1tSA&_nc_zt=14&_nc_ht=scontent-dfw5-3.xx&_nc_gid=oPsF9KdheyuO0RHXGIePSA&oh=00_AfuwKXf-FjI7mQD5cDUCV8hfxg2D-CYtZTMTH67c7Tgu6Q&oe=699CDDBE",
+      "adUrl": "https://www.facebook.com/marketplace/item/2082916122474145/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-02-19 14:06:07",
+      "lastSeen": "2026-02-19T14:06:25.869Z"
+    },
     {
       "adID": "1378388373524563",
       "source": "MP",
@@ -136,7 +156,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-18 15:44:56",
-      "lastSeen": "2026-02-19T13:04:41.633Z"
+      "lastSeen": "2026-02-19T14:04:44.452Z"
     },
     {
       "adID": "1539689973994771",
@@ -416,7 +436,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 18:10:39",
-      "lastSeen": "2026-02-19T13:05:58.994Z"
+      "lastSeen": "2026-02-19T14:06:07.796Z"
     },
     {
       "adID": "2076230456465508",
@@ -436,7 +456,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 17:22:24",
-      "lastSeen": "2026-02-19T02:04:42.322Z"
+      "lastSeen": "2026-02-19T14:04:44.753Z"
     },
     {
       "adID": "2948138838710326",
@@ -476,7 +496,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 17:22:23",
-      "lastSeen": "2026-02-19T13:04:41.734Z"
+      "lastSeen": "2026-02-19T14:04:44.719Z"
     },
     {
       "adID": "880228111053501",
@@ -496,7 +516,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 17:22:18",
-      "lastSeen": "2026-02-19T13:04:41.365Z"
+      "lastSeen": "2026-02-19T14:04:44.351Z"
     }
   ]
 }
