@@ -1,7 +1,7 @@
 "use strict";
 
 /*
-  Expects pinside_machines_sorted.json in the same folder:
+  Expects ps_machines_merged.json in the same folder:
     { "generated_at": "...", "machines": [ ... ] }
 
   Supports incoming URL param:
@@ -12,7 +12,7 @@
     - We set data-src and use IntersectionObserver to populate src only when near viewport.
 */
 
-const DATA_URL = "pinside_machines_sorted.json";
+const DATA_URL = "ps_machines_merged.json";
 const PINSIDE_TAB_NAME = "pinside_tab";
 
 const el = {
@@ -313,7 +313,7 @@ function creditCardHTML() {
   <article class="creditCard">
     <div class="creditInner">
       <img
-        src="https://s.pinside.com/img/logo/2018/pinside-logo-website.svg"
+        src="https://s.pinside.com/img/logo/2018/ps-logo-website.svg"
         alt="Pinside Logo"
         class="creditLogo"
         loading="lazy"
