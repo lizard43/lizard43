@@ -2165,9 +2165,7 @@ ${(() => {
                 if (shouldUsePinsLinkForAd(ad)) {
                     let q = buildPriceGuideQueryFromAd(ad);
                     if (!q) q = buildFallbackGuideQueryFromAd(ad);
-                    // If we still have no query after cleaning, keep the button.
-                    // Clicking it will open the guide with NO `s=` param (but still sets `p=` if price parses).
-                    if (!q) q = "";
+                    if (!q) q = ""; // <-- keep button even with empty query                    
                     return `
                         <span class="meta-dot">·</span>
                         <button class="card-priceguide-btn"
