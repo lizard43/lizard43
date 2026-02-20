@@ -13,9 +13,12 @@
   --rail-pad: 8px;
 }
 
-* { box-sizing: border-box; }
+* {
+  box-sizing: border-box;
+}
 
-html, body {
+html,
+body {
   height: 100%;
   margin: 0;
 }
@@ -80,8 +83,13 @@ body {
   line-height: 1;
 }
 
-.searchClearIn:hover { filter: brightness(0.985); }
-.searchClearIn:active { transform: translateY(-50%) translateY(1px); }
+.searchClearIn:hover {
+  filter: brightness(0.985);
+}
+
+.searchClearIn:active {
+  transform: translateY(-50%) translateY(1px);
+}
 
 .searchInput {
   flex: 1 1 auto;
@@ -131,7 +139,10 @@ body {
   text-overflow: ellipsis;
   min-height: 0;
 }
-.searchStatusLine:empty { display: none; }
+
+.searchStatusLine:empty {
+  display: none;
+}
 
 /* Right rail */
 .toolbar-rail {
@@ -177,9 +188,13 @@ body {
   font-size: 14px;
 }
 
-.rail-btn:hover { filter: brightness(0.985); }
+.rail-btn:hover {
+  filter: brightness(0.985);
+}
 
-.rail-key { font-weight: 700; }
+.rail-key {
+  font-weight: 700;
+}
 
 .rail-btn.is-active {
   border-color: #2f6fe0;
@@ -263,12 +278,37 @@ body {
   font-weight: 600;
 }
 
-.creditText a:hover { text-decoration: underline; }
+.creditText a:hover {
+  text-decoration: underline;
+}
 
 .creditDate {
   margin-top: 3px;
   font-size: 12px;
   color: var(--muted);
+}
+
+.creditLogos {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+.creditLogo {
+  max-height: 70px;
+  width: auto;
+  opacity: 0.95;
+  transition: transform 120ms ease;
+}
+
+.creditLogo:hover {
+  transform: scale(1.04);
+}
+
+.klovLogo {
+  max-height: 60px;
 }
 
 .thumbWrap {
@@ -279,7 +319,9 @@ body {
   cursor: pointer;
 }
 
-.thumbWrap:hover { filter: brightness(0.99); }
+.thumbWrap:hover {
+  filter: brightness(0.99);
+}
 
 .thumb {
   width: 110px;
@@ -334,7 +376,9 @@ body {
   font-weight: 800;
 }
 
-.dim { color: var(--muted); }
+.dim {
+  color: var(--muted);
+}
 
 .toast {
   position: fixed;
@@ -353,7 +397,9 @@ body {
   z-index: 120;
 }
 
-.toast.show { opacity: 1; }
+.toast.show {
+  opacity: 1;
+}
 
 /* -------- Image Modal -------- */
 
@@ -403,7 +449,7 @@ body {
   width: 40px;
   height: 40px;
   border-radius: 14px;
-  border: 1px solid rgba(255,255,255,0.24);
+  border: 1px solid rgba(255, 255, 255, 0.24);
   background: rgba(20, 20, 20, 0.55);
   color: #fff;
   cursor: pointer;
@@ -413,7 +459,9 @@ body {
   z-index: 510;
 }
 
-.imgModalClose:hover { background: rgba(20, 20, 20, 0.68); }
+.imgModalClose:hover {
+  background: rgba(20, 20, 20, 0.68);
+}
 
 .imgModalCaption {
   position: fixed;
@@ -423,7 +471,7 @@ body {
   color: rgba(255, 255, 255, 0.92);
   font-size: 12px;
   line-height: 1.25;
-  text-shadow: 0 2px 10px rgba(0,0,0,0.65);
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.65);
   z-index: 510;
   pointer-events: none;
   padding-right: calc(12px + env(safe-area-inset-right, 0px));

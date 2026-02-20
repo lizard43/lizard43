@@ -365,24 +365,41 @@ function creditCardHTML() {
   return `
     <article class="creditCard">
       <div class="creditInner">
-        <img
-          src="images/vag.avif"
-          alt="VAG Logo"
-          class="creditLogo"
-          loading="lazy"
-        />
+
+        <div class="creditLogos">
+          <a href="https://www.vintagearcadegal.com/" target="_blank" rel="noopener">
+            <img
+              src="images/vag.avif"
+              alt="Vintage Arcade Gal"
+              class="creditLogo"
+              loading="lazy"
+            />
+          </a>
+
+          <a href="https://www.arcade-museum.com/" target="_blank" rel="noopener">
+            <img
+              src="images/museum-of-the-game-logo-75.webp"
+              alt="KLOV - Arcade Museum"
+              class="creditLogo klovLogo"
+              loading="lazy"
+            />
+          </a>
+        </div>
+
         <div class="creditText">
           <div class="creditLine">
-            <a href="https://www.vintagearcadegal.com/" rel="noopener">&copy;  2018-2023 VAG Productions</a>
+            &copy; 2018–2023 VAG Productions
           </div>
-        <div>This site is not afflilitaed with VAG</div>
+          <div>
+            This site is not affiliated with VAG or KLOV
+          </div>
           ${dateLine}
         </div>
+
       </div>
     </article>
   `;
 }
-
 function setupImageObserver() {
   if (imgObserver) {
     try { imgObserver.disconnect(); } catch (_) { }
