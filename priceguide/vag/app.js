@@ -277,42 +277,48 @@ function cardHTML(g, idx) {
   const genre = g.genre || null;
   let page = (g.page == null) ? null : String(g.page);
 
-  const overallRange = bestOverallRange(g);
-
   const line1 = `
     <div class="lineTitle">
       <span class="titleText">${escapeHtml(title)}</span>
     </div>`;
 
+  // Manufacturer – date – genre
   const line2Parts = [];
   if (mfg) line2Parts.push(`<span class="mfgText">${escapeHtml(mfg)}</span>`);
   if (date) line2Parts.push(`<span class="dim">${escapeHtml(date)}</span>`);
-  const line2 = line2Parts.length ? `<div class="lineMeta">${line2Parts.join(" · ")}</div>` : "";
+  if (genre) line2Parts.push(`<span class="dim">${escapeHtml(genre)}</span>`);
+  const line2 = line2Parts.length
+    ? `<div class="lineMeta">${line2Parts.join(" – ")}</div>`
+    : "";
 
-  const line3Parts = [];
-  if (overallRange) line3Parts.push(`<span class="priceStrong">${escapeHtml(overallRange)}</span>`);
-  if (genre) line3Parts.push(`<span class="dim">${escapeHtml(genre)}</span>`);
-  const line3 = line3Parts.length ? `<div class="lineMeta">${line3Parts.join(" · ")}</div>` : "";
+  // No more overall range line (removes duplicated price data)
+  const line3 = "";
 
+  // Keep page hidden as your current code effectively does
   const line4Parts = [];
   page = null;
   if (page) line4Parts.push(`<span>Page ${escapeHtml(page)}</span>`);
-  const line4 = line4Parts.length ? `<div class="lineMeta">${line4Parts.join(" · ")}</div>` : "";
+  const line4 = line4Parts.length ? `<div class="lineMeta">${line4Parts.join(" – ")}</div>` : "";
 
-  // Variants: show each type with its range (and avg if present)
+  // Variants: "Variant – low – high – average" (one row per variant)
   const vs = Array.isArray(g.variant) ? g.variant : [];
   let variantsBlock = "";
   if (vs.length) {
     const rows = [];
     for (const v of vs) {
       const type = v?.type ? String(v.type) : "Variant";
-      const rng = variantRangeLine(v);
+
+      const lo = money(Number(v?.price_lower));
+      const hi = money(Number(v?.price_higher));
       const avg = money(Number(v?.price_average));
+
       const parts = [];
       parts.push(`<span>${escapeHtml(type)}</span>`);
-      if (rng) parts.push(`<span class="priceStrong">${escapeHtml(rng)}</span>`);
-      if (avg) parts.push(`<span class="dim">Avg ${escapeHtml(avg)}</span>`);
-      rows.push(`<div class="lineMeta">${parts.join(" · ")}</div>`);
+      parts.push(`<span class="priceStrong">${escapeHtml(lo || "—")}</span>`);
+      parts.push(`<span class="priceStrong">${escapeHtml(hi || "—")}</span>`);
+      parts.push(`<span class="dim">${escapeHtml(avg || "—")}</span>`);
+
+      rows.push(`<div class="lineMeta">${parts.join(" – ")}</div>`);
     }
     variantsBlock = rows.join("");
   }
@@ -346,7 +352,6 @@ function cardHTML(g, idx) {
       </div>
     </article>`;
 }
-
 function creditCardHTML() {
   let dateLine = "";
   if (generatedAt) {
