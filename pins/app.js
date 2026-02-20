@@ -313,7 +313,7 @@ function creditCardHTML() {
   <article class="creditCard">
     <div class="creditInner">
       <img
-        src="https://s.pinside.com/img/logo/2018/ps-logo-website.svg"
+        src="pinside-logo-website.svg"
         alt="Pinside Logo"
         class="creditLogo"
         loading="lazy"
