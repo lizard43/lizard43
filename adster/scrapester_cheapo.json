@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-02-20T01:49:21.012Z",
+  "generated_at": "2026-02-20T02:07:04.175Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,53 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 24,
-      "droppedPrice": 138,
+      "exported_ads": 26,
+      "droppedPrice": 141,
       "droppedMissingGeo": 0,
-      "droppedCircle": 152
+      "droppedCircle": 155
     }
   },
   "ads": [
+    {
+      "adID": "1611407263617617",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/61583908550380/?product_id=1611407263617617",
+      "author": "David Concepcion",
+      "postedTime": "2026-02-20T01:17:31.000Z",
+      "title": "Consola Retro Portátil X6 - ¡Más de 10,000 Juegos Clásicos!",
+      "description": "Consola X6 con pantalla de alta definición y revive los mejores clásicos de PlayStation, GameBoy y maquinitas en la palma de tu mano. Lo que incluye: Pantalla IPS de 3.5 pulgadas: Colores brillantes y se ve bien desde cualquier ángulo. Doble Joystick: Controles análogos para jugar cómodamente. Miles de juegos: Incluye clásicos de PS1, GBA, Super Nintendo, Genesis, Arcade y más. Batería Recargable: Hasta 6 horas de diversión continua. Salida de TV: Conéctala a tu pantalla para jugar en grande (cable incluido). Ranura MicroSD: Soporta expansión de memoria para meterle más juegos.",
+      "price": "$50",
+      "lat": 27.4989278,
+      "lon": -82.5748194,
+      "location": "Bradenton, FL",
+      "imageUrl": "https://scontent-dfw5-3.xx.fbcdn.net/v/t15.5256-10/621107644_1429783888852827_8171692090240593397_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=109&ccb=1-7&_nc_sid=d4195b&_nc_ohc=uzxb3UOGVugQ7kNvwEtc_ls&_nc_oc=Adm5iRWgYO1jUPK5ydGXj5Xua1iVO-K06eFreMpjhOFjajAYkZAor5d4DqQWHMIaW-o&_nc_zt=23&_nc_ht=scontent-dfw5-3.xx&_nc_gid=G4YuGi_dMg_jA3MmFtW0nQ&oh=00_AfvYKRLG1FdoJtKlSPj4BmFDpVT4wlXN58stDwPmf9ndUg&oe=699D9F9C",
+      "adUrl": "https://www.facebook.com/marketplace/item/1611407263617617/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-02-20 02:04:45",
+      "lastSeen": "2026-02-20T02:05:55.658Z"
+    },
+    {
+      "adID": "25257130180637746",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100000064160308/?product_id=25257130180637746",
+      "author": "Joseph Wilkins",
+      "postedTime": "2026-01-01T22:45:26.000Z",
+      "title": "Mortal Combat II Arcade machine",
+      "description": "Mortal Combat II",
+      "price": "$650",
+      "lat": 33.4473361,
+      "lon": -84.1468616,
+      "location": "McDonough, GA",
+      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/597932041_1382847000238400_5538400341869135454_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=102&ccb=1-7&_nc_sid=92e707&_nc_ohc=ojbSBvc2NI8Q7kNvwHGA6NU&_nc_oc=Adl-ovae5ig-QP6vZ7-_w9RqHON54Xb-wapT88KuqWt1N43eDxtwBqwkrnKhROBppPE&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=9kcsNL6dAruUOzVkhCAJmQ&oh=00_AfsPQTpko0yONniUkpM6qQFC_B5QkqZzqug_PcpGTCD3cw&oe=699D9E93",
+      "adUrl": "https://www.facebook.com/marketplace/item/25257130180637746/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-02-20 02:04:45",
+      "lastSeen": "2026-02-20T02:05:55.702Z"
+    },
     {
       "adID": "893294916769619",
       "source": "MP",
@@ -36,7 +76,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-20 01:23:51",
-      "lastSeen": "2026-02-20T01:28:37.625Z"
+      "lastSeen": "2026-02-20T02:06:40.125Z"
     },
     {
       "adID": "919734513923611",
@@ -56,7 +96,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-19 17:04:40",
-      "lastSeen": "2026-02-19T17:06:35.445Z"
+      "lastSeen": "2026-02-20T02:04:45.013Z"
     },
     {
       "adID": "1544317443230305",
@@ -96,7 +136,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-19 01:04:42",
-      "lastSeen": "2026-02-19T01:06:10.954Z"
+      "lastSeen": "2026-02-20T02:04:45.147Z"
     },
     {
       "adID": "1285196646716293",
@@ -256,7 +296,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-17 00:05:02",
-      "lastSeen": "2026-02-18T20:48:46.646Z"
+      "lastSeen": "2026-02-20T02:06:41.181Z"
     },
     {
       "adID": "788719020916987",
@@ -356,7 +396,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 23:10:53",
-      "lastSeen": "2026-02-20T01:28:38.825Z"
+      "lastSeen": "2026-02-20T02:06:40.692Z"
     },
     {
       "adID": "713775278226272",
@@ -376,7 +416,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 21:04:47",
-      "lastSeen": "2026-02-20T01:23:48.748Z"
+      "lastSeen": "2026-02-20T02:04:44.773Z"
     },
     {
       "adID": "1937314130515670",
@@ -416,7 +456,7 @@
       "priceChangedAt": "2026-02-20 01:49:09",
       "hidden": 0,
       "created_at": "2026-02-13 18:10:39",
-      "lastSeen": "2026-02-20T01:49:09.243Z"
+      "lastSeen": "2026-02-20T02:06:40.081Z"
     },
     {
       "adID": "2076230456465508",
