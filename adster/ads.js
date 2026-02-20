@@ -3852,7 +3852,7 @@ btnPinsidePrice?.addEventListener("click", (e) => {
     e.stopPropagation();
 
     // Open pinside prices in a reused tab. (pins is parallel to /adster/)
-    const url = new URL("./priceguide/pins/index.html", window.location.href).toString();
+    const url = new URL("../priceguide/pins/index.html", window.location.href).toString();
     const w = window.open(url, PRICEGUIDE_TAB_NAME);
     try { if (w) w.opener = null; } catch { }
     try { w?.focus?.(); } catch { }
