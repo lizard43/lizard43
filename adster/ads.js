@@ -1643,6 +1643,17 @@ function buildStopWordRegex(words) {
     return new RegExp(`\\b(${escaped.join("|")})\\b`, "gi");
 }
 
+function buildFallbackGuideQueryFromAd(ad) {
+    // If aggressive stopword stripping leaves nothing, fall back to a lighter query
+    // so we can still render a button.
+    return buildTitleQueryFromAd(ad, {
+        maxChars: 50,
+        maxWords: 3,
+        removeDates: true,
+        stopWordsRe: null, // <-- no stopwords
+    });
+}
+
 function buildPriceGuideQueryFromAd(ad) {
     // priceguide: keep it tight, and remove extra marketplace-ish words
     return buildTitleQueryFromAd(ad, {
@@ -2149,44 +2160,50 @@ function renderTable() {
   <span class="ad-price ${ad.priceChanged ? "price-changed" : ""}">${escapeHtml(price)}</span>
 
 ${(() => {
-                // New behavior:
                 // - Pinside ads OR title contains "pinball" => use ./priceguide/pins/index.html?s="..."
                 // - otherwise => keep Price Guide search
                 if (shouldUsePinsLinkForAd(ad)) {
-                    const q = buildPriceGuideQueryFromAd(ad);
-                    if (!q) return "";
+                    let q = buildPriceGuideQueryFromAd(ad);
+                    if (!q) q = buildFallbackGuideQueryFromAd(ad);
+                    // If we still have no query after cleaning, keep the button.
+                    // Clicking it will open the guide with NO `s=` param (but still sets `p=` if price parses).
+                    if (!q) q = "";
                     return `
-        <span class="meta-dot">·</span>
-        <button class="card-priceguide-btn"
-                type="button"
-                data-action="pinssearch"
-                data-query="${escapeAttr(q)}"
-                title="Open Pinside price search"
-                aria-label="Open Pinside price search">
-          <svg viewBox="0 0 24 24" class="card-priceguide-svg" focusable="false" aria-hidden="true">
-            <path d="M12 1v22"></path>
-            <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
-          </svg>
-        </button>
-      `;
+                        <span class="meta-dot">·</span>
+                        <button class="card-priceguide-btn"
+                                type="button"
+                                data-action="pinssearch"
+                                data-query="${escapeAttr(q)}"
+                                data-price="${escapeAttr(price)}"
+                                title="Open Pinside price search"
+                                aria-label="Open Pinside price search">
+                        <svg viewBox="0 0 24 24" class="card-priceguide-svg" focusable="false" aria-hidden="true">
+                            <path d="M12 1v22"></path>
+                            <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                        </svg>
+                        </button>
+                    `;
                 }
 
-                const q = buildPriceGuideQueryFromAd(ad);
-                if (!q) return "";
-                return `
-        <span class="meta-dot">·</span>
-        <button class="card-priceguide-btn"
-                type="button"
-                data-action="priceguide"
-                data-query="${escapeAttr(q)}"
-                title="Open Price Guide search"
-                aria-label="Open Price Guide search">
-          <svg viewBox="0 0 24 24" class="card-priceguide-svg" focusable="false" aria-hidden="true">
-            <path d="M12 1v22"></path>
-            <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
-          </svg>
-        </button>
-      `;
+                let q = buildPriceGuideQueryFromAd(ad);
+                if (!q) q = buildFallbackGuideQueryFromAd(ad);
+                // If we still have no query after cleaning, keep the button.
+                // Clicking it will open the guide with NO `s=` param (but still sets `p=` if price parses).
+                if (!q) q = ""; return `
+                    <span class="meta-dot">·</span>
+                    <button class="card-priceguide-btn"
+                            type="button"
+                            data-action="priceguide"
+                            data-query="${escapeAttr(q)}"
+                            data-price="${escapeAttr(price)}"
+                            title="Open Price Guide search"
+                            aria-label="Open Price Guide search">
+                    <svg viewBox="0 0 24 24" class="card-priceguide-svg" focusable="false" aria-hidden="true">
+                        <path d="M12 1v22"></path>
+                        <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                    </svg>
+                    </button>
+                `;
             })()}
 
   ${ad.postedTime ? `<span class="meta-dot">·</span>` : ""}
