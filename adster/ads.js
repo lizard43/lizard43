@@ -1627,13 +1627,13 @@ const PRICE_STOP_WORDS = [
     "upright",
 
     // manufacturers
-    "bally",
-    "gottlieb",
-    "midway",
-    "nintendo",
-    "sega",
-    "stern",
-    "williams",
+    // "bally",
+    // "gottlieb",
+    // "midway",
+    // "nintendo",
+    // "sega",
+    // "stern",
+    // "williams",
 ];
 
 function buildStopWordRegex(words) {
