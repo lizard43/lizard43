@@ -1,28 +1,32 @@
 {
-  "generated_at": "2026-02-19T22:41:58.629Z",
+  "generated_at": "2026-02-20T12:58:06.983Z",
   "stats": {
-    "input_files": 4,
+    "input_files": 5,
     "sources": [
       [
-        "pinside_machines.json",
+        "ps_machines.json",
         2959
       ],
       [
-        "pinside_machines_gottlieb.json",
+        "ps_machines_gottlieb.json",
         530
       ],
       [
-        "pinside_machines_bally.json",
+        "ps_machines_bally.json",
         428
       ],
       [
-        "pinside_machines_williams.json",
+        "ps_machines_williams.json",
         455
+      ],
+      [
+        "ps_machines_Segasa-Sonic.json",
+        37
       ]
     ],
-    "input_records": 4372,
-    "output_records": 3066,
-    "deduped": 1306
+    "input_records": 4409,
+    "output_records": 3071,
+    "deduped": 1338
   },
   "machines": [
     {
@@ -9170,6 +9174,24 @@
       "imageUrl": "https://images.pinside.com/6/74/6742771f581852b99d776b64af52a26d56c18bb8/polaroid/436173616e6f766120283139363629/d1201f7e3795ea1f90e653f4424671e2/512/6742771f581852b99d776b64af52a26d56c18bb8.jpg.png"
     },
     {
+      "name": "Casbah",
+      "url": "https://pinside.com/pinball/machine/casbah",
+      "pinsideID": 1875,
+      "manufacturer": "Segasa d.b.a. Sonic",
+      "manufacturerID": 183,
+      "manufacturerURL": "https://pinside.com/pinball/machine?query=&manufacturer[]=183#results",
+      "date": "October 1973",
+      "type": "(Electro) Mechanical",
+      "players": 1,
+      "ipdb": "http://www.ipdb.org/machine.cgi?id=462",
+      "msrp": null,
+      "lowvalue": null,
+      "highvalue": null,
+      "avgvalue": null,
+      "score": null,
+      "imageUrl": "https://images.pinside.com/2/07/2074aa45925c211363c74a4fbf5cc106f6f9d98b/polaroid/43617362616820283139373329/62fec3bc1df4d2d2a1e1d4f87ac9acb7/512/2074aa45925c211363c74a4fbf5cc106f6f9d98b.jpg.png"
+    },
+    {
       "name": "Casino",
       "url": "https://pinside.com/pinball/machine/casino",
       "pinsideID": 1223,
@@ -12660,6 +12682,24 @@
       "avgvalue": null,
       "score": null,
       "imageUrl": "https://images.pinside.com/d/18/d18c0fb5076cea0ffe38d4249a68de7320c3abc9/polaroid/4461726b20536861646f7720283139383629/3b6c27de77c2324074d36894f1d99d48/512/d18c0fb5076cea0ffe38d4249a68de7320c3abc9.jpg.png"
+    },
+    {
+      "name": "Darling",
+      "url": "https://pinside.com/pinball/machine/darling",
+      "pinsideID": 1894,
+      "manufacturer": "Segasa d.b.a. Sonic",
+      "manufacturerID": 183,
+      "manufacturerURL": "https://pinside.com/pinball/machine?query=&manufacturer[]=183#results",
+      "date": "October 1973",
+      "type": "(Electro) Mechanical",
+      "players": 2,
+      "ipdb": "http://www.ipdb.org/machine.cgi?id=639",
+      "msrp": null,
+      "lowvalue": null,
+      "highvalue": null,
+      "avgvalue": null,
+      "score": null,
+      "imageUrl": "https://images.pinside.com/a/cb/acbfb1d7d97dedb97e6f393882b14f437fd6d775/polaroid/4461726c696e6720283139373329/6b92752aaf244d4216683e5fb5f86a89/512/acbfb1d7d97dedb97e6f393882b14f437fd6d775.jpg.png"
     },
     {
       "name": "Darling",
@@ -32300,6 +32340,24 @@
       "imageUrl": "https://images.pinside.com/1/53/153858cb382fa278bb3f994c8ee745872d2e1147/polaroid/4e6967687420436c756220283139353629/52d9099eb8dbe8d16805fa0dc272daaa/512/153858cb382fa278bb3f994c8ee745872d2e1147.jpg.png"
     },
     {
+      "name": "Night Fever",
+      "url": "https://pinside.com/pinball/machine/night-fever",
+      "pinsideID": 1109,
+      "manufacturer": "Segasa d.b.a. Sonic",
+      "manufacturerID": 183,
+      "manufacturerURL": "https://pinside.com/pinball/machine?query=&manufacturer[]=183#results",
+      "date": null,
+      "type": "Solid state",
+      "players": 4,
+      "ipdb": "http://www.ipdb.org/machine.cgi?id=3907",
+      "msrp": null,
+      "lowvalue": null,
+      "highvalue": null,
+      "avgvalue": null,
+      "score": null,
+      "imageUrl": "https://images.pinside.com/f/dc/fdc386148dbdc90d61ed20dc6965581ec0bd65b4/polaroid/4e6967687420466576657220283139373929/07684f486e37128050856d84440ac410/512/fdc386148dbdc90d61ed20dc6965581ec0bd65b4.jpg.png"
+    },
+    {
       "name": "Night Hawk",
       "url": "https://pinside.com/pinball/machine/night-hawk",
       "pinsideID": 868,
@@ -42884,6 +42942,24 @@
       "imageUrl": null
     },
     {
+      "name": "Space Queen",
+      "url": "https://pinside.com/pinball/machine/space-queen",
+      "pinsideID": 2541,
+      "manufacturer": "Segasa d.b.a. Sonic",
+      "manufacturerID": 183,
+      "manufacturerURL": "https://pinside.com/pinball/machine?query=&manufacturer[]=183#results",
+      "date": "June 1979",
+      "type": "(Electro) Mechanical",
+      "players": 1,
+      "ipdb": "http://www.ipdb.org/machine.cgi?id=6165",
+      "msrp": null,
+      "lowvalue": null,
+      "highvalue": null,
+      "avgvalue": null,
+      "score": null,
+      "imageUrl": "https://images.pinside.com/a/53/a530c2ceb22fbb183c250da0015b7cd829970d48/polaroid/537061636520517565656e20283139373929/c2f4843bffe426ab38160323d8e10b81/512/a530c2ceb22fbb183c250da0015b7cd829970d48.jpg.png"
+    },
+    {
       "name": "Space Race",
       "url": "https://pinside.com/pinball/machine/space-race",
       "pinsideID": 419,
@@ -51594,6 +51670,24 @@
       "avgvalue": null,
       "score": null,
       "imageUrl": "https://images.pinside.com/0/9b/09b265b9b0f98498e045f7e570cfd680a42bdc55/polaroid/547269706c6520416374696f6e20283139343829/c9207f3d6ff7a952b8a14ba48309dc47/512/09b265b9b0f98498e045f7e570cfd680a42bdc55.jpg.png"
+    },
+    {
+      "name": "Triple Action",
+      "url": "https://pinside.com/pinball/machine/triple-action-segasa",
+      "pinsideID": 2115,
+      "manufacturer": "Segasa d.b.a. Sonic",
+      "manufacturerID": 183,
+      "manufacturerURL": "https://pinside.com/pinball/machine?query=&manufacturer[]=183#results",
+      "date": "February 1974",
+      "type": "(Electro) Mechanical",
+      "players": 1,
+      "ipdb": "http://www.ipdb.org/machine.cgi?id=2649",
+      "msrp": null,
+      "lowvalue": 830,
+      "highvalue": 970,
+      "avgvalue": 900,
+      "score": null,
+      "imageUrl": "https://images.pinside.com/0/eb/0eb205e1f504b71ab40a4a2df2dc030d8a59fbd0/polaroid/547269706c6520416374696f6e20283139373429/78c3d14a705202ad98bec9a38717acd3/512/0eb205e1f504b71ab40a4a2df2dc030d8a59fbd0.jpg.png"
     },
     {
       "name": "Triple Play",
