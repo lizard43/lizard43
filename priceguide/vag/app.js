@@ -361,7 +361,7 @@ function creditCardHTML() {
     <article class="creditCard">
       <div class="creditInner">
         <img
-          src="vag.avif"
+          src="images/vag.avif"
           alt="VAG Logo"
           class="creditLogo"
           loading="lazy"
