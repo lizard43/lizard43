@@ -317,7 +317,7 @@ function cardHTML(g, idx) {
     variantsBlock = rows.join("");
   }
 
-  const imgSrc = g.image ? `../images/${g.image}` : "questionmark.png";
+  const imgSrc = g.image ? `images/${g.image}` : "questionmark.png";
 
   // Store src + caption on the wrapper so clicks can open modal without extra lookups
   const caption = [title, mfg, date].filter(Boolean).join(" · ");
