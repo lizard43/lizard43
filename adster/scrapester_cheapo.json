@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-02-20T21:30:50.494Z",
+  "generated_at": "2026-02-20T22:10:00.892Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,53 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 22,
-      "droppedPrice": 120,
+      "exported_ads": 24,
+      "droppedPrice": 124,
       "droppedMissingGeo": 0,
-      "droppedCircle": 143
+      "droppedCircle": 150
     }
   },
   "ads": [
+    {
+      "adID": "1262826159069376",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100085675034162/?product_id=1262826159069376",
+      "author": "Danielle D Bushee",
+      "postedTime": "2026-02-19T22:14:41.000Z",
+      "title": "Chest",
+      "description": "I have a cedar chest 1725 needs restoration finished.in Rehoboth 3344776",
+      "price": "$1",
+      "lat": 31.4584764,
+      "lon": -85.6405865,
+      "location": "Ozark, AL",
+      "imageUrl": "https://scontent-dfw5-3.xx.fbcdn.net/v/t39.84726-6/637039452_2055867551648472_8799414998876392193_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=108&ccb=1-7&_nc_sid=92e707&_nc_ohc=p5nufWf45BAQ7kNvwGtbt-x&_nc_oc=AdnSGSQjXb_PckQRhcW5vpLtHYXiO-fklQhu143mQxmE79Kt8F6tfkZkeA1EzT8d1BY&_nc_zt=14&_nc_ht=scontent-dfw5-3.xx&_nc_gid=W_dbO4cW8U25QlMFQ50Emw&oh=00_AftkCTx9AVn9lRaDeiqH6MedWZS091tBo5pCaYna4qpr1A&oe=699EC737",
+      "adUrl": "https://www.facebook.com/marketplace/item/1262826159069376/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-02-20 22:07:13",
+      "lastSeen": "2026-02-20T22:09:24.477Z"
+    },
+    {
+      "adID": "1936091980601802",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/1276081864/?product_id=1936091980601802",
+      "author": "Pamela Winfrey",
+      "postedTime": "2026-02-19T22:15:59.000Z",
+      "title": "The Beatles pictures. VARIOUS SIZES",
+      "description": "Vintage Beatles items. All items are in good condition.",
+      "price": "$20",
+      "lat": 33.3049878,
+      "lon": -87.0126737,
+      "location": "McCalla, AL",
+      "imageUrl": "https://scontent-dfw5-3.xx.fbcdn.net/v/t39.84726-6/639807243_1573124400608900_1502612383716359025_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=109&ccb=1-7&_nc_sid=92e707&_nc_ohc=UM97fSzwscwQ7kNvwGxm-H8&_nc_oc=AdlAd-pf6TTBQcISQ_jJzQDUjTT5TPORhoJ5gZYXec9TpzdfcW1yY_pUL0pWGXjgMQA&_nc_zt=14&_nc_ht=scontent-dfw5-3.xx&_nc_gid=2gldfeMEjRh1lKDlc7jw7w&oh=00_AfuU7BjAtKPcKneMHtCDn7hgEKjiVa0YFrG75Fr4N_6cdg&oe=699EBBF8",
+      "adUrl": "https://www.facebook.com/marketplace/item/1936091980601802/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-02-20 22:04:43",
+      "lastSeen": "2026-02-20T22:07:12.194Z"
+    },
     {
       "adID": "1877162646564773",
       "source": "MP",
@@ -36,7 +76,7 @@
       "priceChangedAt": "2026-02-20 21:05:04",
       "hidden": 0,
       "created_at": "2026-02-20 20:43:26",
-      "lastSeen": "2026-02-20T21:05:54.101Z"
+      "lastSeen": "2026-02-20T22:07:11.676Z"
     },
     {
       "adID": "25257130180637746",
@@ -76,7 +116,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-20 01:23:51",
-      "lastSeen": "2026-02-20T21:05:54.202Z"
+      "lastSeen": "2026-02-20T22:07:11.792Z"
     },
     {
       "adID": "919734513923611",
@@ -356,7 +396,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 23:10:53",
-      "lastSeen": "2026-02-20T21:05:54.670Z"
+      "lastSeen": "2026-02-20T22:07:12.561Z"
     },
     {
       "adID": "1937314130515670",
@@ -376,7 +416,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 18:10:45",
-      "lastSeen": "2026-02-20T14:23:53.556Z"
+      "lastSeen": "2026-02-20T22:07:12.294Z"
     },
     {
       "adID": "901860995627959",
@@ -396,7 +436,7 @@
       "priceChangedAt": "2026-02-20 01:49:09",
       "hidden": 0,
       "created_at": "2026-02-13 18:10:39",
-      "lastSeen": "2026-02-20T21:05:54.335Z"
+      "lastSeen": "2026-02-20T22:07:12.026Z"
     },
     {
       "adID": "2948138838710326",
@@ -416,7 +456,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 17:22:24",
-      "lastSeen": "2026-02-20T17:04:40.253Z"
+      "lastSeen": "2026-02-20T22:04:43.044Z"
     },
     {
       "adID": "2185352358965594",
@@ -456,7 +496,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 17:22:18",
-      "lastSeen": "2026-02-20T21:04:42.305Z"
+      "lastSeen": "2026-02-20T22:07:13.919Z"
     }
   ]
 }
