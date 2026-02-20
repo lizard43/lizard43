@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-02-20T16:26:37.611Z",
+  "generated_at": "2026-02-20T16:50:51.739Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,10 +11,10 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 23,
-      "droppedPrice": 141,
+      "exported_ads": 22,
+      "droppedPrice": 115,
       "droppedMissingGeo": 0,
-      "droppedCircle": 151
+      "droppedCircle": 144
     }
   },
   "ads": [
@@ -337,26 +337,6 @@
       "hidden": 0,
       "created_at": "2026-02-13 23:10:53",
       "lastSeen": "2026-02-20T16:07:04.066Z"
-    },
-    {
-      "adID": "713775278226272",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/100062264447753/?product_id=713775278226272",
-      "author": "Gary Areson",
-      "postedTime": "2026-01-05T01:38:05.000Z",
-      "title": "Centipede Arcade",
-      "description": "Atari Centipede arcade. Needs some cabinet work. Artwork on one side is great. Other side needs replacing. Turns on and plays.",
-      "price": "$500",
-      "lat": 28.187755,
-      "lon": -82.7416081,
-      "location": "Holiday, FL",
-      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/607444539_3070559149812908_6997029041277788897_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=111&ccb=1-7&_nc_sid=92e707&_nc_ohc=NHkWlFrR1kMQ7kNvwFAWrsu&_nc_oc=Adk9uydjauGvj6JCN67W-v29cp2KlSx7gkLNxOXTSSz_yJD4tRMOgDU8JMS54w1AHZU&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=6rgKpK26lgVDP_mTJR8zuQ&oh=00_AftxF5cCFXdJrL6HWNYC1Va0rMTKDt_moVDSYZSs1MxalA&oe=699BB7FF",
-      "adUrl": "https://www.facebook.com/marketplace/item/713775278226272/",
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-02-13 21:04:47",
-      "lastSeen": "2026-02-20T16:04:42.822Z"
     },
     {
       "adID": "1937314130515670",
