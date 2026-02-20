@@ -331,7 +331,7 @@ function cardHTML(g, idx) {
       parts.push(`<span>${escapeHtml(type)}</span>`);
       parts.push(`<span class="priceStrong">${escapeHtml(lo || "—")}</span>`);
       parts.push(`<span class="priceStrong">${escapeHtml(hi || "—")}</span>`);
-      parts.push(`<span class="dim">${escapeHtml(avg || "—")}</span>`);
+      parts.push(`<span class="dim">${escapeHtml(avg || "— avg ")}</span>`);
 
       rows.push(`<div class="lineMeta">${parts.join(" – ")}</div>`);
     }
