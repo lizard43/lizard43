@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-02-20T21:06:18.457Z",
+  "generated_at": "2026-02-20T21:30:50.494Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -12,9 +12,9 @@
     },
     "counts": {
       "exported_ads": 22,
-      "droppedPrice": 121,
+      "droppedPrice": 120,
       "droppedMissingGeo": 0,
-      "droppedCircle": 145
+      "droppedCircle": 143
     }
   },
   "ads": [
@@ -150,13 +150,13 @@
       "lat": 30.5043583,
       "lon": -90.4611995,
       "location": "Hammond, LA",
-      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/634362865_921911403745713_676159487520937422_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=110&ccb=1-7&_nc_sid=92e707&_nc_ohc=5uGlTsUfX2UQ7kNvwG8ubD0&_nc_oc=AdnbRqZeMLUz0oFtN4IgYz7g9u_iqJw-0J1mDSEIYdts5l70eqTcsUgR5OT_zxZ3SKE&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=C0oWmX-14b68qdvX23fELw&oh=00_Afv3Jnw245O5kHz_dgNIyezmLeKYqYGMmzKGtEkrptG6Hg&oe=699BB08B",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/634362865_921911403745713_676159487520937422_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=110&ccb=1-7&_nc_sid=92e707&_nc_ohc=7ahQgaFKDB0Q7kNvwFZcazd&_nc_oc=Adnr8VkEGqac6nj9DCnxLs3SAUE7Q6qsVzjev8izUXYEtlkraIvBw_G5QTCTp4JLLMA&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=RdGYk_6-RUyLHY6MkerTBg&oh=00_AfvgXKLh7qobL1FhtBS69Uhnjr2jgwBiwRWje1APBQFMUA&oe=699E8BCB",
       "adUrl": "https://www.facebook.com/marketplace/item/3046914079030329/",
       "priceChanged": 0,
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-18 15:44:56",
-      "lastSeen": "2026-02-19T19:04:41.909Z"
+      "lastSeen": "2026-02-20T21:25:36.807Z"
     },
     {
       "adID": "1539689973994771",
@@ -170,13 +170,13 @@
       "lat": 30.5043583,
       "lon": -90.4611995,
       "location": "Hammond, LA",
-      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/634138354_933808165901064_6525749522092827119_n.jpg?stp=c0.43.261.261a_dst-jpg_p261x260_tt6&_nc_cat=103&ccb=1-7&_nc_sid=92e707&_nc_ohc=OM-WW4sQE-gQ7kNvwEAPFHl&_nc_oc=AdnmQEn87P4_6bP91oXr552iR9So5-mAgmO_TTHP7ALAqgyRp_n8xJ6sJVT4rlLlHW8&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=B1SYgUQNRm-5ircfz6Wz2g&oh=00_AfsTZeEtn9UJoYRWe2IjG_b_BSm67kcUbmD8jZyiRRVi_g&oe=699BC134",
+      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/634138354_933808165901064_6525749522092827119_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=103&ccb=1-7&_nc_sid=92e707&_nc_ohc=mGdcZU91CMQQ7kNvwEuAUHn&_nc_oc=Adm93Ib-8spuhAt4awNFFQoN4AVdsRrvG1yEBYvUuUzEWLESeIpKFdPanScYSdr-1EY&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=2Wr463SosAY6XaYrajKc1w&oh=00_AfvlBWmNloSbwAdc2DRyoYwc9Y3ipi8JXBIywJER8i5oxw&oe=699E9C74",
       "adUrl": "https://www.facebook.com/marketplace/item/1539689973994771/",
       "priceChanged": 0,
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-18 15:44:56",
-      "lastSeen": "2026-02-19T19:04:42.780Z"
+      "lastSeen": "2026-02-20T21:25:36.776Z"
     },
     {
       "adID": "846774618396993",
@@ -323,20 +323,20 @@
       "source": "MP",
       "authorUrl": "https://www.facebook.com/marketplace/profile/61552377947880/?product_id=1439140321261945",
       "author": "Robert Long",
-      "postedTime": "2026-02-18T13:42:57.000Z",
+      "postedTime": "2025-12-30T00:02:09.000Z",
       "title": "Lethal enforcers 2 arcade cabinet",
       "description": "This is for a lethal enforcers part 2, gunfighters arcade machine. It works, pretty much fine. The monitor has some issues. It needs to be recapped. But it plays just fine. The player two gun I can't get to connect. But I think it's because it's missing the optical lens on it. Not sure how it came out. But it was missing, when I got the machine. The game will let you play all the way through, just fine. But the screen has what they call monitor fog appearing on one side. The coin mechs work fine. Everything is all there. It has a brand new power supply, put in it.",
       "price": "$600",
       "lat": 34.6060203,
       "lon": -86.9838165,
       "location": "Decatur, AL",
-      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/608048661_1446843986873839_1350386341027610499_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=104&ccb=1-7&_nc_sid=92e707&_nc_ohc=k_S7BAz7Z4UQ7kNvwGz2jny&_nc_oc=AdmImckAgJL3rqh34TE8-ObiXYN4BOLm10_65MDBLvtpvcCiSwTppDxaj0oMzb0sOtU&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=w0bbMNiQvd5QmFc-UE7EHw&oh=00_AfulvYVTYiljDePaR-jZuOsp8fhMEp9pUAqIOSk1XrCHFQ&oe=699BD57A",
+      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/608048661_1446843986873839_1350386341027610499_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=104&ccb=1-7&_nc_sid=92e707&_nc_ohc=Kqyg3lgVAb8Q7kNvwFe7VkJ&_nc_oc=AdkUQFTW21S6XcxKc5vMXkBmgw2jGC5i3gmOPm6Xhi1TIMmKZ6ABuWCE_EoW07MGBSk&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=SPYid_Hfx4yQK0sZRGA4eg&oh=00_AfsmsYXGfYIvKtCJ0fdF-P8vK_HNNDb0dJod-gSDJqcoBg&oe=699EB0BA",
       "adUrl": "https://www.facebook.com/marketplace/item/1439140321261945/",
       "priceChanged": 0,
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-14 00:04:57",
-      "lastSeen": "2026-02-19T18:04:57.334Z"
+      "lastSeen": "2026-02-20T21:25:36.740Z"
     },
     {
       "adID": "2026958544812237",
