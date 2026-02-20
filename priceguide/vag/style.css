@@ -359,10 +359,35 @@ body {
   text-decoration: none;
 }
 
+.titleText {
+  font-size: 17px;
+  font-weight: 800;
+  color: var(--text);
+}
+
+/* Stronger metadata */
 .lineMeta {
-  font-size: 12px;
-  color: var(--muted);
-  line-height: 1.18;
+  font-size: 13.5px;
+  line-height: 1.28;
+  color: #3e434a;
+  /* darker than muted */
+}
+
+/* Manufacturer/date line */
+.lineMetaMain {
+  font-weight: 500;
+}
+
+/* Genre line */
+.lineMetaGenre {
+  font-size: 13px;
+  color: #555a61;
+}
+
+/* Dim no longer super faint */
+.dim {
+  color: #5b6068;
+  font-weight: 500;
 }
 
 .mfgText {
@@ -373,11 +398,7 @@ body {
 
 .priceStrong {
   color: var(--text);
-  font-weight: 800;
-}
-
-.dim {
-  color: var(--muted);
+  font-weight: 700;
 }
 
 .toast {

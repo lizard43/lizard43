@@ -282,16 +282,19 @@ function cardHTML(g, idx) {
       <span class="titleText">${escapeHtml(title)}</span>
     </div>`;
 
-  // Manufacturer – date – genre
+  // Manufacturer – date
   const line2Parts = [];
   if (mfg) line2Parts.push(`<span class="mfgText">${escapeHtml(mfg)}</span>`);
-  if (date) line2Parts.push(`<span class="dim">${escapeHtml(date)}</span>`);
-  if (genre) line2Parts.push(`<span class="dim">${escapeHtml(genre)}</span>`);
+  if (date) line2Parts.push(`<span class="metaMain">${escapeHtml(date)}</span>`);
   const line2 = line2Parts.length
-    ? `<div class="lineMeta">${line2Parts.join(" – ")}</div>`
+    ? `<div class="lineMeta lineMetaMain">${line2Parts.join(" – ")}</div>`
     : "";
 
-  // No more overall range line (removes duplicated price data)
+  // Genre (own line)
+  const lineGenre = genre
+    ? `<div class="lineMeta lineMetaGenre">${escapeHtml(genre)}</div>`
+    : "";
+
   const line3 = "";
 
   // Keep page hidden as your current code effectively does
@@ -346,8 +349,7 @@ function cardHTML(g, idx) {
       <div class="cardBody">
         ${line1}
         ${line2}
-        ${line3}
-        ${line4}
+        ${lineGenre}
         ${variantsBlock}
       </div>
     </article>`;
