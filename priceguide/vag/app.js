@@ -280,7 +280,7 @@ function cardHTML(g, idx) {
   const klovUrl =
     "https://www.arcade-museum.com/searchResults?q=" +
     encodeURIComponent(title) +
-    "+Alpha&boolean=AND";
+    "&boolean=AND";
 
   const line1 = `
   <div class="lineTitle">
