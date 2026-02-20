@@ -353,16 +353,14 @@ body {
 }
 
 .titleText {
-  font-size: 16px;
+  font-size: 17px;
   font-weight: 800;
   color: var(--text);
   text-decoration: none;
 }
 
-.titleText {
-  font-size: 17px;
-  font-weight: 800;
-  color: var(--text);
+.titleText:hover {
+  text-decoration: underline;
 }
 
 /* Stronger metadata */
