@@ -277,10 +277,22 @@ function cardHTML(g, idx) {
   const genre = g.genre || null;
   let page = (g.page == null) ? null : String(g.page);
 
+  const klovUrl =
+    "https://www.arcade-museum.com/searchResults?q=" +
+    encodeURIComponent(title) +
+    "+Alpha&boolean=AND";
+
   const line1 = `
-    <div class="lineTitle">
-      <span class="titleText">${escapeHtml(title)}</span>
-    </div>`;
+  <div class="lineTitle">
+    <a
+      class="titleText"
+      href="${klovUrl}"
+      target="_blank"
+      rel="noopener"
+    >
+      ${escapeHtml(title)}
+    </a>
+  </div>`;
 
   // Manufacturer – date
   const line2Parts = [];
