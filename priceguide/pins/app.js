@@ -322,6 +322,7 @@ function creditCardHTML() {
         <div class="creditLine">
           Game info and prices are property of <a href="https://pinside.com" rel="noopener">pinside.com</a>
         </div>
+        <div>This site is not afflilitaed with Pinside</div>
         ${dateLine}
       </div>
     </div>

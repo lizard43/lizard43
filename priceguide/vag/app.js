@@ -370,6 +370,7 @@ function creditCardHTML() {
           <div class="creditLine">
             <a href="https://www.vintagearcadegal.com/" rel="noopener">&copy;  2018-2023 VAG Productions</a>
           </div>
+        <div>This site is not afflilitaed with VAG</div>
           ${dateLine}
         </div>
       </div>

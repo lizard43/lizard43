@@ -1697,7 +1697,7 @@ function openPriceGuideSearch(searchText, priceText) {
 
 function openPinsIndexSearch(searchText, priceText) {
     openSearchInNamedTab(
-        "../pins/",
+        "../priceguide/pins/",
         PRICEGUIDE_TAB_NAME,
         searchText,
         priceText
@@ -2150,7 +2150,7 @@ function renderTable() {
 
 ${(() => {
                 // New behavior:
-                // - Pinside ads OR title contains "pinball" => use /pins/index.html?s="..."
+                // - Pinside ads OR title contains "pinball" => use ./priceguide/pins/index.html?s="..."
                 // - otherwise => keep Price Guide search
                 if (shouldUsePinsLinkForAd(ad)) {
                     const q = buildPriceGuideQueryFromAd(ad);
@@ -3852,7 +3852,7 @@ btnPinsidePrice?.addEventListener("click", (e) => {
     e.stopPropagation();
 
     // Open pinside prices in a reused tab. (pins is parallel to /adster/)
-    const url = new URL("../pins/index.html", window.location.href).toString();
+    const url = new URL("./priceguide/pins/index.html", window.location.href).toString();
     const w = window.open(url, PRICEGUIDE_TAB_NAME);
     try { if (w) w.opener = null; } catch { }
     try { w?.focus?.(); } catch { }
