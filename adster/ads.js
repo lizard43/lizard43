@@ -1600,6 +1600,7 @@ const PRICE_STOP_WORDS = [
     "antique",
     "arcade",
     "cabaret",
+    "circa",
     "cocktail",
     "coinop",
     "coin-op",
