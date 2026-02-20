@@ -372,8 +372,11 @@ function runSearch(rawQuery) {
   const qNorm = normalizeText(raw);                 // e.g. "f 14"
   const terms = qNorm ? qNorm.split(" ").filter(Boolean) : [];
 
-  // special: if user typed a hyphen, prefer matching the joined form in the NAME only
-  const wantsHyphenExact = /[-–—]/.test(raw);       // hyphen/en-dash/em-dash
+  // Hyphen mode should ONLY kick in for patterns like F-14 / X-15 / 3-2 etc.
+  // This avoids breaking real title searches like "Gottlieb Nudge-It".
+  const rawHasHyphen = /[-–—]/.test(raw);
+  const hyphenTightenOk = rawHasHyphen && /^[a-z0-9]{1,4}\s*[-–—]\s*[a-z0-9]{1,4}$/i.test(raw);
+
   const qJoined = terms.join("");                   // e.g. "f14"
   const qJoinedLen = qJoined.length;
 
@@ -394,14 +397,14 @@ function runSearch(rawQuery) {
   for (const m of machines) {
     const b = buildBlob(m);
 
-    // AND semantics across the blob (your normal behavior)
+    // Normal: AND semantics across the blob
     let hit = terms.every(t => b.includes(t));
 
-    // If the user typed a hyphen, tighten: require the joined token to appear in the NAME
-    // This prevents "f"+"14" from matching random numeric fields.
-    if (wantsHyphenExact && qJoinedLen >= 2) {
+    // Tighten only for short hyphenated tokens (like F-14):
+    // require the joined token to appear in the NAME.
+    if (hyphenTightenOk && qJoinedLen >= 2) {
       const nameJoined = normalizeNoSpace(m.name || "");
-      hit = nameJoined.includes(qJoined);
+      hit = hit && nameJoined.includes(qJoined);
     }
 
     if (hit) {
@@ -420,9 +423,9 @@ function runSearch(rawQuery) {
 
     let hit = terms.every(t => b.includes(t));
 
-    if (wantsHyphenExact && qJoinedLen >= 2) {
+    if (hyphenTightenOk && qJoinedLen >= 2) {
       const nameJoined = normalizeNoSpace(m.name || "");
-      hit = nameJoined.includes(qJoined);
+      hit = hit && nameJoined.includes(qJoined);
     }
 
     if (hit) matches.push(i);
@@ -435,7 +438,6 @@ function runSearch(rawQuery) {
 
   if (matches.length > 0) jumpToMatch(0);
 }
-
 function jumpToMatch(pos) {
   if (matches.length === 0) return;
   const n = matches.length;
