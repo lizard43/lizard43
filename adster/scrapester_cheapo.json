@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-02-21T00:08:55.070Z",
+  "generated_at": "2026-02-21T00:46:22.197Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,10 +11,10 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 25,
-      "droppedPrice": 130,
+      "exported_ads": 24,
+      "droppedPrice": 125,
       "droppedMissingGeo": 0,
-      "droppedCircle": 154
+      "droppedCircle": 151
     }
   },
   "ads": [
@@ -37,26 +37,6 @@
       "hidden": 0,
       "created_at": "2026-02-21 00:07:18",
       "lastSeen": "2026-02-21T00:08:09.567Z"
-    },
-    {
-      "adID": "872194102296650",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/100000054332244/?product_id=872194102296650",
-      "author": "Nicole Webb",
-      "postedTime": "2026-02-20T23:20:14.000Z",
-      "title": "Entertainment center stand",
-      "description": "Free! From a smoke free home. The back leg is broken, but works fine with a piece of wood. Pickup in the Jefferson/Arcade area.",
-      "price": "$0",
-      "lat": 33.0380388,
-      "lon": -82.436141,
-      "location": "Jefferson, GA",
-      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/638877274_1439560747703289_7837525889906553452_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=100&ccb=1-7&_nc_sid=92e707&_nc_ohc=X-Ywuh3a_6kQ7kNvwEAkL-f&_nc_oc=AdkMDShUFRjsnkElbjOT0enPzIFqlZpgeUvEL610uMes9BJf1wiBUZbqm0T4o-UTtxQ&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=0j5GXRpqbXvqs-A7iubHwQ&oh=00_Afsjuo-mbAdEVdwGjCwQrz0hZUXwXTGL_TT_A1vuz5Fg-g&oe=699EC828",
-      "adUrl": "https://www.facebook.com/marketplace/item/872194102296650/",
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-02-21 00:04:50",
-      "lastSeen": "2026-02-21T00:06:30.350Z"
     },
     {
       "adID": "3808351882803475",
