@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-02-21T01:37:08.376Z",
+  "generated_at": "2026-02-21T01:41:36.264Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,33 +11,13 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 23,
-      "droppedPrice": 119,
+      "exported_ads": 22,
+      "droppedPrice": 115,
       "droppedMissingGeo": 0,
-      "droppedCircle": 143
+      "droppedCircle": 134
     }
   },
   "ads": [
-    {
-      "adID": "3808351882803475",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/100008225655399/?product_id=3808351882803475",
-      "author": "Kevin Goode",
-      "postedTime": "2026-02-10T19:16:35.000Z",
-      "title": "Arcade Game Space Invaders",
-      "description": "This Game Machine Has Been Modified And Has 10,705 Games",
-      "price": "$800",
-      "lat": 33.6676103,
-      "lon": -84.0176904,
-      "location": "Conyers, GA",
-      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/626767764_4477529812495440_255201282705062079_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=110&ccb=1-7&_nc_sid=92e707&_nc_ohc=eWaO4Nh1LJ0Q7kNvwFf049P&_nc_oc=AdlFzm0WBwd3PzUPlyAJ4OgWi3VDLHRjPGlgAEco6vI2_6rNIgsk-nM5KJ5wMYyJRKQ&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=Ac1OwN6Hu8g5jBfth-T58w&oh=00_Afviypd4i3L2-FzDzb_S7244hwV_gtWkSR6EH2ei_-C8vQ&oe=699EA337",
-      "adUrl": "https://www.facebook.com/marketplace/item/3808351882803475/",
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-02-20 23:04:44",
-      "lastSeen": "2026-02-20T23:06:30.882Z"
-    },
     {
       "adID": "1877162646564773",
       "source": "MP",
