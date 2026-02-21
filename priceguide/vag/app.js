@@ -402,7 +402,10 @@ function creditCardHTML() {
 
         <div class="creditText">
           <div class="creditLine">
-            &copy; 2018–2023 VAG Productions
+            Info and pricing is property of VAG Productions
+          </div>
+          <div class="creditLine">
+            Images are property of KLOV
           </div>
           <div>
             This site is not affiliated with VAG or KLOV
