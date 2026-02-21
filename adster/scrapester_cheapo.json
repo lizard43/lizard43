@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-02-21T20:08:14.047Z",
+  "generated_at": "2026-02-21T21:08:17.285Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,53 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 27,
-      "droppedPrice": 112,
+      "exported_ads": 29,
+      "droppedPrice": 101,
       "droppedMissingGeo": 0,
-      "droppedCircle": 121
+      "droppedCircle": 115
     }
   },
   "ads": [
+    {
+      "adID": "1595157911791268",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/61560200031102/?product_id=1595157911791268",
+      "author": "John Anthony",
+      "postedTime": "2026-02-21T20:52:17.000Z",
+      "title": "Arcade game",
+      "description": "Pac-Man's Arcade Party",
+      "price": "$500",
+      "lat": 32.341536,
+      "lon": -85.0215983,
+      "location": "Fort Mitchell, AL",
+      "imageUrl": "https://scontent-atl3-1.xx.fbcdn.net/v/t15.5256-10/633584092_1652798225730114_4511406545844285820_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=100&ccb=1-7&_nc_sid=d4195b&_nc_ohc=KUR2OAo3FfoQ7kNvwHkxFJN&_nc_oc=AdmgABfic66TyDJU3tC0gYDWzi_nhJBPqDEdLWNWBDdgfOmZo55z2ODwNWlCMySHRHs&_nc_zt=23&_nc_ht=scontent-atl3-1.xx&_nc_gid=B0w7-HSpJbzkgYAmQErYjA&oh=00_AfuCsZZG9ANGy7m0M-8oOLB8qb00p1YQWmzF9R8oIkbmdQ&oe=69A00369",
+      "adUrl": "https://www.facebook.com/marketplace/item/1595157911791268/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-02-21 21:04:42",
+      "lastSeen": "2026-02-21T21:05:46.482Z"
+    },
+    {
+      "adID": "4241392262810238",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100014934317710/?product_id=4241392262810238",
+      "author": "Esther Lilian Niebla Sánchez",
+      "postedTime": "2026-02-21T20:01:08.000Z",
+      "title": "Roll and Score Compact Arcade Game",
+      "description": "Se vende este juego para Niños en perfecto estado",
+      "price": "$100",
+      "lat": 27.9449854,
+      "lon": -82.4583107,
+      "location": "Tampa, FL",
+      "imageUrl": "https://scontent-atl3-3.xx.fbcdn.net/v/t15.5256-10/637757181_926316033096736_3124706288829365374_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=110&ccb=1-7&_nc_sid=d4195b&_nc_ohc=O3BN0vsC-QsQ7kNvwEdHt98&_nc_oc=AdnK8ijXHTQXNsFEVRMoPmHSf97BpSAiP5lhp9UEkspbHgJWgUHjawbsdOrTX4pLzC8&_nc_zt=23&_nc_ht=scontent-atl3-3.xx&_nc_gid=mgJIe_hHWrGv7unaubC7RA&oh=00_Afum5p0ThFIQoEycVlMisp2VbiqYvP_71MjR-j0LD0I3Kw&oe=699FF07C",
+      "adUrl": "https://www.facebook.com/marketplace/item/4241392262810238/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-02-21 21:04:42",
+      "lastSeen": "2026-02-21T21:05:46.540Z"
+    },
     {
       "adID": "1641541676860707",
       "source": "MP",
@@ -36,7 +76,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-21 18:04:50",
-      "lastSeen": "2026-02-21T20:04:55.368Z"
+      "lastSeen": "2026-02-21T21:04:42.980Z"
     },
     {
       "adID": "1920698478541387",
@@ -76,7 +116,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-21 16:09:11",
-      "lastSeen": "2026-02-21T20:08:13.749Z"
+      "lastSeen": "2026-02-21T21:08:17.007Z"
     },
     {
       "adID": "1385440476427288",
@@ -136,7 +176,7 @@
       "priceChangedAt": "2026-02-21 13:05:34",
       "hidden": 0,
       "created_at": "2026-02-20 20:43:26",
-      "lastSeen": "2026-02-21T20:07:13.665Z"
+      "lastSeen": "2026-02-21T21:06:31.547Z"
     },
     {
       "adID": "25257130180637746",
@@ -296,7 +336,7 @@
       "priceChangedAt": "2026-02-21 01:04:44",
       "hidden": 0,
       "created_at": "2026-02-18 14:05:36",
-      "lastSeen": "2026-02-21T20:04:55.670Z"
+      "lastSeen": "2026-02-21T21:04:42.747Z"
     },
     {
       "adID": "25095258510153346",
@@ -496,7 +536,7 @@
       "priceChangedAt": "2026-02-20 01:49:09",
       "hidden": 0,
       "created_at": "2026-02-13 18:10:39",
-      "lastSeen": "2026-02-21T20:07:13.831Z"
+      "lastSeen": "2026-02-21T21:06:31.714Z"
     },
     {
       "adID": "2948138838710326",
@@ -556,7 +596,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 17:22:18",
-      "lastSeen": "2026-02-21T19:04:40.843Z"
+      "lastSeen": "2026-02-21T21:04:43.249Z"
     }
   ]
 }
