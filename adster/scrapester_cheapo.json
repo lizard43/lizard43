@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-02-21T01:08:55.291Z",
+  "generated_at": "2026-02-21T01:37:08.376Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,53 +11,13 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 25,
-      "droppedPrice": 129,
+      "exported_ads": 23,
+      "droppedPrice": 119,
       "droppedMissingGeo": 0,
-      "droppedCircle": 155
+      "droppedCircle": 143
     }
   },
   "ads": [
-    {
-      "adID": "2171811333563134",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/100078006535497/?product_id=2171811333563134",
-      "author": "Daniela Andrews",
-      "postedTime": "2026-02-19T22:19:43.000Z",
-      "title": "Patagonia Shorts",
-      "description": "Women’s large $15 cash",
-      "price": "$15",
-      "lat": 34.6060203,
-      "lon": -86.9838165,
-      "location": "Decatur, AL",
-      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/640117394_876995901809879_8434746273854547421_n.jpg?stp=c43.0.260.260a_dst-jpg_p261x260_tt6&_nc_cat=104&ccb=1-7&_nc_sid=92e707&_nc_ohc=bNjg_QQu8scQ7kNvwEMK2au&_nc_oc=AdkZi9Kb9IlUVJ5_KrMFUS_2MiIq-VG1uVb1OV5VciIX2xhqhsjKdicd2RyZpNDVB1A&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=nSnfPJXOz3G8rVLsE8cA-g&oh=00_Afuo9fvLWqaVa3lKZvBxKal3GCMLZO74JB_wwrlONZD2Aw&oe=699EDFA7",
-      "adUrl": "https://www.facebook.com/marketplace/item/2171811333563134/",
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-02-21 01:04:43",
-      "lastSeen": "2026-02-21T01:07:32.121Z"
-    },
-    {
-      "adID": "922824673761469",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/647194791/?product_id=922824673761469",
-      "author": "Juan Jesus Rivera",
-      "postedTime": "2026-02-19T22:17:46.000Z",
-      "title": "Free Frige",
-      "description": "Free fridge works but needs a new ice machine. Can be ordered separately.",
-      "price": "$0",
-      "lat": 34.1014112,
-      "lon": -84.5192192,
-      "location": "Woodstock, GA",
-      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/639146705_1231824898503271_8944304081993067799_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=100&ccb=1-7&_nc_sid=92e707&_nc_ohc=H_q5Ah21WXIQ7kNvwG3RGv9&_nc_oc=AdlPENYfFIM2F_l6oWY6zjnEpdA_ES03dLMZ4gjSs6lCvHiQeIRfqkHZ3BCCAJMXxwI&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=YW06Xr4CxTQG0eX82NTUcQ&oh=00_AfvGF7EruM-PgKUZ5-rctkI1stl_xc3YUxxX68Pv4y-1Vg&oe=699ED094",
-      "adUrl": "https://www.facebook.com/marketplace/item/922824673761469/",
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-02-21 00:07:18",
-      "lastSeen": "2026-02-21T00:08:09.567Z"
-    },
     {
       "adID": "3808351882803475",
       "source": "MP",
@@ -90,13 +50,13 @@
       "lat": 33.2292976,
       "lon": -87.5771286,
       "location": "Northport, AL",
-      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t15.5256-10/638886625_1245578184199385_5215771958608013404_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=111&ccb=1-7&_nc_sid=d4195b&_nc_ohc=qa7BODQMU4MQ7kNvwG-KHol&_nc_oc=AdlF4Rgbw-EQk-DhSzNvmIlBXMTAFpEITqmz8zYl3lKKoVheQbDqllvRmbGlUk4xwS0&_nc_zt=23&_nc_ht=scontent-dfw5-1.xx&_nc_gid=Pn7NoQzj0aRy3ytqBhTT5Q&oh=00_AfuWizs6Nmuzc2HYtPMXUyfvIVN5JjPdgbv-Vxmq-g_vzA&oe=699EC819",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t15.5256-10/638886625_1245578184199385_5215771958608013404_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=111&ccb=1-7&_nc_sid=d4195b&_nc_ohc=qa7BODQMU4MQ7kNvwG-KHol&_nc_oc=AdlF4Rgbw-EQk-DhSzNvmIlBXMTAFpEITqmz8zYl3lKKoVheQbDqllvRmbGlUk4xwS0&_nc_zt=23&_nc_ht=scontent-dfw5-1.xx&_nc_gid=XGBIHZvx6DMFtZ7ODcnO1g&oh=00_AfsgbMLx_p7LH1u24RrrU1jcwpbDSJgxTJ8X9Aqw8vYT_A&oe=699EC819",
       "adUrl": "https://www.facebook.com/marketplace/item/1877162646564773/",
       "priceChanged": 1,
       "priceChangedAt": "2026-02-21 01:06:38",
       "hidden": 0,
       "created_at": "2026-02-20 20:43:26",
-      "lastSeen": "2026-02-21T01:07:30.690Z"
+      "lastSeen": "2026-02-21T01:36:51.214Z"
     },
     {
       "adID": "25257130180637746",
