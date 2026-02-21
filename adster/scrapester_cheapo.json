@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-02-21T00:46:22.197Z",
+  "generated_at": "2026-02-21T01:08:55.291Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,33 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 24,
-      "droppedPrice": 125,
+      "exported_ads": 25,
+      "droppedPrice": 129,
       "droppedMissingGeo": 0,
-      "droppedCircle": 151
+      "droppedCircle": 155
     }
   },
   "ads": [
+    {
+      "adID": "2171811333563134",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100078006535497/?product_id=2171811333563134",
+      "author": "Daniela Andrews",
+      "postedTime": "2026-02-19T22:19:43.000Z",
+      "title": "Patagonia Shorts",
+      "description": "Women’s large $15 cash",
+      "price": "$15",
+      "lat": 34.6060203,
+      "lon": -86.9838165,
+      "location": "Decatur, AL",
+      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/640117394_876995901809879_8434746273854547421_n.jpg?stp=c43.0.260.260a_dst-jpg_p261x260_tt6&_nc_cat=104&ccb=1-7&_nc_sid=92e707&_nc_ohc=bNjg_QQu8scQ7kNvwEMK2au&_nc_oc=AdkZi9Kb9IlUVJ5_KrMFUS_2MiIq-VG1uVb1OV5VciIX2xhqhsjKdicd2RyZpNDVB1A&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=nSnfPJXOz3G8rVLsE8cA-g&oh=00_Afuo9fvLWqaVa3lKZvBxKal3GCMLZO74JB_wwrlONZD2Aw&oe=699EDFA7",
+      "adUrl": "https://www.facebook.com/marketplace/item/2171811333563134/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-02-21 01:04:43",
+      "lastSeen": "2026-02-21T01:07:32.121Z"
+    },
     {
       "adID": "922824673761469",
       "source": "MP",
@@ -70,13 +90,13 @@
       "lat": 33.2292976,
       "lon": -87.5771286,
       "location": "Northport, AL",
-      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t15.5256-10/638886625_1245578184199385_5215771958608013404_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=111&ccb=1-7&_nc_sid=d4195b&_nc_ohc=qa7BODQMU4MQ7kNvwG-KHol&_nc_oc=AdlF4Rgbw-EQk-DhSzNvmIlBXMTAFpEITqmz8zYl3lKKoVheQbDqllvRmbGlUk4xwS0&_nc_zt=23&_nc_ht=scontent-dfw5-1.xx&_nc_gid=bF7npyqFPpY18nF5wuGOIw&oh=00_AfuaJogTNtNF6wTZyO5r-TvJkRmnaSxaoO-kTb3-zSr0vw&oe=699EC819",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t15.5256-10/638886625_1245578184199385_5215771958608013404_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=111&ccb=1-7&_nc_sid=d4195b&_nc_ohc=qa7BODQMU4MQ7kNvwG-KHol&_nc_oc=AdlF4Rgbw-EQk-DhSzNvmIlBXMTAFpEITqmz8zYl3lKKoVheQbDqllvRmbGlUk4xwS0&_nc_zt=23&_nc_ht=scontent-dfw5-1.xx&_nc_gid=Pn7NoQzj0aRy3ytqBhTT5Q&oh=00_AfuWizs6Nmuzc2HYtPMXUyfvIVN5JjPdgbv-Vxmq-g_vzA&oe=699EC819",
       "adUrl": "https://www.facebook.com/marketplace/item/1877162646564773/",
       "priceChanged": 1,
-      "priceChangedAt": "2026-02-21 00:06:30",
+      "priceChangedAt": "2026-02-21 01:06:38",
       "hidden": 0,
       "created_at": "2026-02-20 20:43:26",
-      "lastSeen": "2026-02-21T00:07:17.521Z"
+      "lastSeen": "2026-02-21T01:07:30.690Z"
     },
     {
       "adID": "25257130180637746",
@@ -116,7 +136,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-20 01:23:51",
-      "lastSeen": "2026-02-21T00:07:17.555Z"
+      "lastSeen": "2026-02-21T01:07:30.757Z"
     },
     {
       "adID": "919734513923611",
@@ -223,20 +243,20 @@
       "source": "MP",
       "authorUrl": "https://www.facebook.com/marketplace/profile/882535146/?product_id=846774618396993",
       "author": "Barbara Smith",
-      "postedTime": "2026-02-17T02:05:41.000Z",
+      "postedTime": "2026-02-18T13:42:48.000Z",
       "title": "4 Arcade Monitors for Sale",
       "description": "Here we have 4 arcade monitors for sale. One price takes them all and I think 3 out of the four are working or potentially working, and the K4900 will not come on, but can be fixed easily. I have no need for these so I really need them gone out of the way so I can get to more arcade goodies that I will list to sell soon.",
-      "price": "$700",
+      "price": "$600",
       "lat": 34.1623292,
       "lon": -83.6779474,
       "location": "Pendergrass, GA",
-      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/638108779_1665677077762345_1325306140067976618_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=100&ccb=1-7&_nc_sid=92e707&_nc_ohc=rUF6PCxwhHcQ7kNvwHSwp4i&_nc_oc=AdlAdMFum5NoBUji3Uh9svgU__-bu0seyYB8IHa_g-BpTQcTmWD60FbamvX8DUySUVQ&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=K6W9YV8BKR2RNTO6yZx_Tw&oh=00_Afsj7bPYl_rvL4NzeAmVfudOTDwo9lu2YOQvwuD1CMW-fg&oe=699D2099",
+      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/638108779_1665677077762345_1325306140067976618_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=100&ccb=1-7&_nc_sid=92e707&_nc_ohc=bEdNNWaJJogQ7kNvwE8nYBw&_nc_oc=AdkvSEohcbqibAM2zGvkh3LEwFBIPA427ShAYWZCs1mDdPWrJwK9vq8erkrmFqrTAMk&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=1VwVj-7Ve-W-W_8t3VpAog&oh=00_AfvKTP32y_gVYu7L1vGnIHms_EEGCAJ2ySNPmlQy1olM9Q&oe=699EE299",
       "adUrl": "https://www.facebook.com/marketplace/item/846774618396993/",
-      "priceChanged": 0,
-      "priceChangedAt": null,
+      "priceChanged": 1,
+      "priceChangedAt": "2026-02-21 01:04:44",
       "hidden": 0,
       "created_at": "2026-02-18 14:05:36",
-      "lastSeen": "2026-02-21T00:04:46.983Z"
+      "lastSeen": "2026-02-21T01:06:38.263Z"
     },
     {
       "adID": "25095258510153346",
@@ -396,7 +416,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 23:10:53",
-      "lastSeen": "2026-02-21T00:07:18.928Z"
+      "lastSeen": "2026-02-21T01:07:33.166Z"
     },
     {
       "adID": "1937314130515670",
@@ -436,7 +456,7 @@
       "priceChangedAt": "2026-02-20 01:49:09",
       "hidden": 0,
       "created_at": "2026-02-13 18:10:39",
-      "lastSeen": "2026-02-21T00:07:17.689Z"
+      "lastSeen": "2026-02-21T01:07:30.858Z"
     },
     {
       "adID": "2948138838710326",
@@ -456,7 +476,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 17:22:24",
-      "lastSeen": "2026-02-20T22:04:43.044Z"
+      "lastSeen": "2026-02-21T01:04:44.119Z"
     },
     {
       "adID": "2185352358965594",
@@ -476,7 +496,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 17:22:23",
-      "lastSeen": "2026-02-21T00:04:47.251Z"
+      "lastSeen": "2026-02-21T01:04:43.383Z"
     },
     {
       "adID": "880228111053501",
@@ -496,7 +516,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 17:22:18",
-      "lastSeen": "2026-02-21T00:04:47.050Z"
+      "lastSeen": "2026-02-21T01:04:43.483Z"
     }
   ]
 }
