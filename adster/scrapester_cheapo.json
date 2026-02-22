@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-02-22T20:08:03.472Z",
+  "generated_at": "2026-02-22T21:08:55.876Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,32 +11,72 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 26,
-      "droppedPrice": 87,
+      "exported_ads": 28,
+      "droppedPrice": 91,
       "droppedMissingGeo": 0,
-      "droppedCircle": 105
+      "droppedCircle": 109
     }
   },
   "ads": [
     {
-      "adID": "889894160468501",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/1123740319/?product_id=889894160468501",
-      "author": "Jessica Noelle",
-      "postedTime": "2026-02-22T19:12:05.000Z",
-      "title": "Arcade Games",
-      "description": "Selling both games $150/each or both for $300 Work great just don’t use Must pickup in PTC",
-      "price": "$150",
-      "lat": 33.3975472,
-      "lon": -84.5898256,
-      "location": "Peachtree City, GA",
-      "imageUrl": "https://scontent-atl3-3.xx.fbcdn.net/v/t39.84726-6/616235956_1458695432372512_3890679754218711867_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=109&ccb=1-7&_nc_sid=92e707&_nc_ohc=UM2lGGT9A1cQ7kNvwErP-NO&_nc_oc=AdkNPdnbjszQY-GFAw_2CUL9Jz3O0ktvP8W5PpNI7N8OKioT3ydb1AfQqjPSFfl-YkQ&_nc_zt=14&_nc_ht=scontent-atl3-3.xx&_nc_gid=LQncw2Sf5LEMO7VNQ5MIZg&oh=00_AfuHoFNTJDnqgVYs80JOj1939e99z3vNuaJYO1lrzm9jJA&oe=69A12753",
-      "adUrl": "https://www.facebook.com/marketplace/item/889894160468501/",
+      "adID": "PI-210011",
+      "source": "PS",
+      "authorUrl": "https://pinside.com/pinball/community/pinsiders/thorly/market",
+      "author": "thorly",
+      "postedTime": "2026-02-22T20:18:40.665Z",
+      "title": "Dragon Lava Cave Mod",
+      "description": "Used, good condition - “This is a one of a kind cave mod that was created by my game’s previous owner. He said it was a 16 hour print so does not plan to create any more. The lava crevices are printed u...”",
+      "price": "$100",
+      "lat": 33.9701009,
+      "lon": -84.2215869,
+      "location": "Peachtree Corners, GA",
+      "imageUrl": "https://imgproxy.pinside.com/E440JxLI8sqfmC4lmeKLBXh3lTgtBLmJqcrtR890m1k/rs:fit:640:480/fn:pinside_4204d9e8d72d/enc/tKRu_jAjo9VkaUmrxDQ5JGK2DxRVAWh3dsJqqZ-Kk2fcpv-JXdDHjo60q9dJ3SSa9LkiXjZ1BlPfntho2ytkGVhsNGh1AtjULHf-vsssybq1CacWSlL6xpp7sZFQxE6O.jpeg",
+      "adUrl": "https://pinside.com/pinball/market/classifieds/ad/210011",
       "priceChanged": 0,
       "priceChangedAt": null,
       "hidden": 0,
-      "created_at": "2026-02-22 20:04:43",
-      "lastSeen": "2026-02-22T20:05:53.734Z"
+      "created_at": "2026-02-22 21:08:40",
+      "lastSeen": "2026-02-22T21:08:40.881Z"
+    },
+    {
+      "adID": "1570521430894718",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100007069741865/?product_id=1570521430894718",
+      "author": "Ömer Faruk Arısoy",
+      "postedTime": "2026-02-21T22:58:28.000Z",
+      "title": "Arcade Game DIY Kit - Supports Up to 4 Players",
+      "description": "Arcade Game DIY Kit - Supports Up to 4 Players, Pandora Box System with 29800 Games in 1, Includes Joystick, Buttons, Power Supply, and Wiring - K150",
+      "price": "$85",
+      "lat": 27.9449854,
+      "lon": -82.4583107,
+      "location": "Tampa, FL",
+      "imageUrl": "https://scontent-atl3-3.xx.fbcdn.net/v/t39.84726-6/641332962_1640481636946215_167938725997290923_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=109&ccb=1-7&_nc_sid=92e707&_nc_ohc=BM0LfllYyvcQ7kNvwGrscs_&_nc_oc=AdnOd6FU6WD1XSxt1O4NFEhqQDyn51oWJ2kMxDBBOJv9WX88_KmSpHa_05LOXe09xgA&_nc_zt=14&_nc_ht=scontent-atl3-3.xx&_nc_gid=1nrZe73pYucKz5xGGZb3_g&oh=00_AfsneP3lC_-oRsYo1mhPAWs3Nam142XYe9c4qSt78BnkRQ&oe=69A15225",
+      "adUrl": "https://www.facebook.com/marketplace/item/1570521430894718/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-02-22 21:04:46",
+      "lastSeen": "2026-02-22T21:06:52.456Z"
+    },
+    {
+      "adID": "1631260024666726",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100001122136390/?product_id=1631260024666726",
+      "author": "Jeff Lynch",
+      "postedTime": "2026-02-22T20:29:48.000Z",
+      "title": "Original 1986 ENDURO RACER ARCADE MACHINE by SEGA 1986 inRARE*",
+      "description": "Classic SEGA action. Works 100%. Cabinet and graphics are in good shape. Very exciting, challenging game and fun for the entire family and all ages.. Single player action.",
+      "price": "$999",
+      "lat": 27.8428025,
+      "lon": -82.6995444,
+      "location": "Pinellas Park, FL",
+      "imageUrl": "https://scontent-atl3-2.xx.fbcdn.net/v/t15.5256-10/465392661_1570679693523890_5655831861795325498_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=101&ccb=1-7&_nc_sid=d4195b&_nc_ohc=08r8MmaRywMQ7kNvwHhA1Oe&_nc_oc=Adk7wC2yikyrluCV6DhSgaZsAwmg2IoOCW1_VKUfBbzZBy5n3bVsSL0KlIvIT076g0w&_nc_zt=23&_nc_ht=scontent-atl3-2.xx&_nc_gid=qfgMplH6NR7j_7qRE7cwhA&oh=00_Aft8o12XLSE3GIZB10Mcl3GXYirO7Bl_q6W5i0tG0TNPxQ&oe=69A15D92",
+      "adUrl": "https://www.facebook.com/marketplace/item/1631260024666726/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-02-22 21:04:46",
+      "lastSeen": "2026-02-22T21:06:52.556Z"
     },
     {
       "adID": "924556380514476",
@@ -56,7 +96,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-22 16:05:00",
-      "lastSeen": "2026-02-22T20:04:43.638Z"
+      "lastSeen": "2026-02-22T21:04:45.971Z"
     },
     {
       "adID": "766634732769975",
@@ -116,7 +156,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-21 16:09:11",
-      "lastSeen": "2026-02-22T20:08:03.220Z"
+      "lastSeen": "2026-02-22T21:08:55.564Z"
     },
     {
       "adID": "1385440476427288",
@@ -176,7 +216,7 @@
       "priceChangedAt": "2026-02-21 13:05:34",
       "hidden": 0,
       "created_at": "2026-02-20 20:43:26",
-      "lastSeen": "2026-02-22T20:06:43.259Z"
+      "lastSeen": "2026-02-22T21:07:45.533Z"
     },
     {
       "adID": "919734513923611",
@@ -296,7 +336,7 @@
       "priceChangedAt": "2026-02-21 01:04:44",
       "hidden": 0,
       "created_at": "2026-02-18 14:05:36",
-      "lastSeen": "2026-02-22T20:04:43.772Z"
+      "lastSeen": "2026-02-22T21:04:46.380Z"
     },
     {
       "adID": "1960384798247194",
@@ -476,7 +516,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 18:10:39",
-      "lastSeen": "2026-02-22T20:06:43.494Z"
+      "lastSeen": "2026-02-22T21:07:46.451Z"
     },
     {
       "adID": "2948138838710326",
@@ -536,7 +576,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 17:22:18",
-      "lastSeen": "2026-02-22T20:04:43.573Z"
+      "lastSeen": "2026-02-22T21:04:46.146Z"
     }
   ]
 }
