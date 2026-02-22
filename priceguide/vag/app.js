@@ -266,16 +266,29 @@ function adsterSnapshotCardHTML(snap) {
   const adUrl = String(snap.adUrl || "").trim();
   const imageUrl = String(snap.imageUrl || "").trim();
 
-  // "caption" used by your existing image modal click handler
+  const source = String(snap.source || "").trim();     // e.g. "MP"
+  const seller = String(snap.author || "").trim();     // e.g. "Mike Stine"
+
   const captionParts = [];
   if (title) captionParts.push(title);
   if (location) captionParts.push(location);
   const caption = captionParts.join(" · ");
 
-  const imgHtml = imageUrl
+  // Bottom line like Adster: "MP · Mike Stine"
+  const whoParts = [];
+  if (source) whoParts.push(escapeHtml(source));
+  if (seller) whoParts.push(escapeHtml(seller));
+  const whoLine = whoParts.length ? whoParts.join(" &nbsp;·&nbsp; ") : "";
+
+  const priceLocParts = [];
+  if (priceText) priceLocParts.push(`<span class="adsterPrice">${escapeHtml(priceText)}</span>`);
+  if (location) priceLocParts.push(`<span class="adsterLoc">${escapeHtml(location)}</span>`);
+  const priceLocLine = priceLocParts.length ? priceLocParts.join(" &nbsp;·&nbsp; ") : "";
+
+  const imgInner = imageUrl
     ? `
       <img
-        class="thumb js-lazy"
+        class="adsterThumb js-lazy"
         data-src="${escapeAttr(imageUrl)}"
         data-caption="${escapeAttr(caption)}"
         alt="${escapeAttr(title)}"
@@ -283,52 +296,49 @@ function adsterSnapshotCardHTML(snap) {
         referrerpolicy="no-referrer"
       >
     `
-    : `
-      <div class="thumbFallback">No image</div>
-    `;
+    : `<div class="adsterThumbFallback">No image</div>`;
 
-  const priceLocLineParts = [];
-  if (priceText) priceLocLineParts.push(`<span class="priceStrong">${escapeHtml(priceText)}</span>`);
-  if (location) priceLocLineParts.push(`<span class="dim">${escapeHtml(location)}</span>`);
-  const priceLocLine = priceLocLineParts.length
-    ? `<div class="lineMeta adsterMetaRow">${priceLocLineParts.join(" – ")}</div>`
+  // Image and title both link to the original ad
+  const imgBlock = adUrl
+    ? `<a class="adsterMediaLink" href="${escapeAttr(adUrl)}" target="_blank" rel="noopener">${imgInner}</a>`
+    : `<div class="adsterMediaLink">${imgInner}</div>`;
+
+  const titleBlock = adUrl
+    ? `<a class="adsterTitleLink" href="${escapeAttr(adUrl)}" target="_blank" rel="noopener">${escapeHtml(title)}</a>`
+    : `<div class="adsterTitleLink">${escapeHtml(title)}</div>`;
+
+  const descBlock = desc
+    ? `<div class="adsterDesc">${escapeHtml(desc)}</div>`
     : "";
 
-  const linkLine = adUrl
-    ? `<div class="lineMeta adsterLinkRow"><a class="adsterLink" href="${escapeAttr(adUrl)}" target="_blank" rel="noopener">Open original ad</a></div>`
+  const priceLocBlock = priceLocLine
+    ? `<div class="adsterMeta">${priceLocLine}</div>`
     : "";
 
-  const descLine = desc
-    ? `<div class="lineMeta adsterDesc">${escapeHtml(desc)}</div>`
+  const whoBlock = whoLine
+    ? `<div class="adsterWho">${whoLine}</div>`
     : "";
 
   return `
     <article class="card adsterCard" data-idx="-1">
-      <div class="thumbWrap" role="button" tabindex="0" aria-label="View ad image: ${escapeAttr(title)}">
-        ${imgHtml}
-      </div>
-
-      <div class="cardBody">
-        <div class="lineTitle">
-          <div class="adsterHeaderRow">
-            <div class="adsterBadge">Adster</div>
-            <div class="adsterHeaderText">Source ad</div>
-          </div>
-
-          ${adUrl
-      ? `<a class="titleText" href="${escapeAttr(adUrl)}" target="_blank" rel="noopener">${escapeHtml(title)}</a>`
-      : `<div class="titleText">${escapeHtml(title)}</div>`
-    }
+      <div class="adsterCardInner">
+        <div class="adsterMedia">
+          ${imgBlock}
         </div>
 
-        ${priceLocLine}
-        ${descLine}
-        ${linkLine}
+        <div class="adsterBody">
+          <div class="adsterTitleRow">
+            ${titleBlock}
+          </div>
+
+          ${priceLocBlock}
+          ${descBlock}
+          ${whoBlock}
+        </div>
       </div>
     </article>
   `;
 }
-
 /* ---------- Modal ---------- */
 
 function openImageModal(src, caption) {
