@@ -354,7 +354,7 @@ function runSearch(rawQuery) {
 
 async function loadGameIndex() {
     try {
-        const res = await fetch("vagal.json", { cache: "no-store" });
+        const res = await fetch("vag/vagal.json", { cache: "no-store" });
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
         const data = await res.json();
         if (!Array.isArray(data)) throw new Error("vagal.json is not an array");
