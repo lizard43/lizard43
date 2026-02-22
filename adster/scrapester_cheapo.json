@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-02-22T12:25:37.814Z",
+  "generated_at": "2026-02-22T13:07:28.360Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,33 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 26,
-      "droppedPrice": 90,
+      "exported_ads": 27,
+      "droppedPrice": 91,
       "droppedMissingGeo": 0,
-      "droppedCircle": 104
+      "droppedCircle": 106
     }
   },
   "ads": [
+    {
+      "adID": "1519575886258882",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/1442446763/?product_id=1519575886258882",
+      "author": "Nicole Adams",
+      "postedTime": "2026-02-18T05:07:07.000Z",
+      "title": "Electronic Arcade Ball Game — Small (Works Great)",
+      "description": "Small battery-operated electronic arcade-style ball game Lights and sounds Toss/roll the ball to score — fun and simple gameplay Single player or two game options Approx 37\"L x 8\"H Condition: Somewhat used with normal signs of wear, but fully working and plays as it should. Included: • Electronic arcade ball game • 4 Silver balls included Price: $15 Message me if interested! Selling for my son",
+      "price": "$15",
+      "lat": 28.9203666,
+      "lon": -82.4636305,
+      "location": "Beverly Hills, FL",
+      "imageUrl": "https://scontent-atl3-3.xx.fbcdn.net/v/t39.84726-6/638278181_783689788118060_5024833727149641611_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=108&ccb=1-7&_nc_sid=92e707&_nc_ohc=5AOFFKPOlpoQ7kNvwFvlTfl&_nc_oc=Adn1d5lKmcxefRjeqyyh-3x_koy_mB4Vkz-8cBAQACuRfa4tIkEORMplT-J2d0b7wL8&_nc_zt=14&_nc_ht=scontent-atl3-3.xx&_nc_gid=6wD-pkRmAr-Aic2DPtMqGw&oh=00_Afs0K_MVnFCj6h-Xf4CpLOLk-kbfCQxnHIs4LgCYlEXiCQ&oe=69A0BAA1",
+      "adUrl": "https://www.facebook.com/marketplace/item/1519575886258882/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-02-22 13:04:42",
+      "lastSeen": "2026-02-22T13:05:21.876Z"
+    },
     {
       "adID": "900476756089029",
       "source": "MP",
@@ -76,7 +96,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-21 16:09:11",
-      "lastSeen": "2026-02-22T12:07:47.990Z"
+      "lastSeen": "2026-02-22T13:07:27.770Z"
     },
     {
       "adID": "1385440476427288",
@@ -136,7 +156,7 @@
       "priceChangedAt": "2026-02-21 13:05:34",
       "hidden": 0,
       "created_at": "2026-02-20 20:43:26",
-      "lastSeen": "2026-02-22T12:05:51.537Z"
+      "lastSeen": "2026-02-22T13:06:13.332Z"
     },
     {
       "adID": "893294916769619",
@@ -276,7 +296,7 @@
       "priceChangedAt": "2026-02-21 01:04:44",
       "hidden": 0,
       "created_at": "2026-02-18 14:05:36",
-      "lastSeen": "2026-02-22T12:04:47.986Z"
+      "lastSeen": "2026-02-22T13:04:42.098Z"
     },
     {
       "adID": "25095258510153346",
@@ -476,7 +496,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 18:10:39",
-      "lastSeen": "2026-02-22T12:05:51.772Z"
+      "lastSeen": "2026-02-22T13:06:13.533Z"
     },
     {
       "adID": "2948138838710326",
@@ -536,7 +556,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 17:22:18",
-      "lastSeen": "2026-02-22T12:04:48.087Z"
+      "lastSeen": "2026-02-22T13:04:42.333Z"
     }
   ]
 }
