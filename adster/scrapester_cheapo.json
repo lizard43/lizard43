@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-02-22T21:22:55.651Z",
+  "generated_at": "2026-02-22T22:07:21.044Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,33 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 26,
-      "droppedPrice": 86,
+      "exported_ads": 27,
+      "droppedPrice": 91,
       "droppedMissingGeo": 0,
-      "droppedCircle": 106
+      "droppedCircle": 101
     }
   },
   "ads": [
+    {
+      "adID": "1411482160718497",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100001545888619/?product_id=1411482160718497",
+      "author": "Robert Kiehl",
+      "postedTime": "2026-02-22T21:47:02.000Z",
+      "title": "1981 Atari Centipede Arcade Game marquee sign header video glass 23.75 in x6.5",
+      "description": "Has some marks, but all in all very good condition. For the year.",
+      "price": "$100",
+      "lat": 27.9658533,
+      "lon": -82.8001026,
+      "location": "Clearwater, FL",
+      "imageUrl": "https://scontent-atl3-1.xx.fbcdn.net/v/t39.84726-6/619705969_2423447774792248_3118042382966711920_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=100&ccb=1-7&_nc_sid=92e707&_nc_ohc=aLyqVzNRXPwQ7kNvwEK_o0D&_nc_oc=AdknGhU6fTb-_Gn3wTh9kLXLn8f1sSJSqa3WFzaY87XIqvFfFoLg4EzNugiFhhqIA1Q&_nc_zt=14&_nc_ht=scontent-atl3-1.xx&_nc_gid=PClK5OHbPz6yBjo0WCjoAw&oh=00_Afso4cbsRN18SiWqYxHRkYdaPYEFPd9maPEWIKr-bd1N5w&oe=69A149DB",
+      "adUrl": "https://www.facebook.com/marketplace/item/1411482160718497/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-02-22 22:04:38",
+      "lastSeen": "2026-02-22T22:05:26.007Z"
+    },
     {
       "adID": "1631260024666726",
       "source": "MP",
@@ -36,7 +56,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-22 21:04:46",
-      "lastSeen": "2026-02-22T21:06:52.556Z"
+      "lastSeen": "2026-02-22T22:04:38.096Z"
     },
     {
       "adID": "924556380514476",
@@ -56,7 +76,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-22 16:05:00",
-      "lastSeen": "2026-02-22T21:04:45.971Z"
+      "lastSeen": "2026-02-22T22:04:37.619Z"
     },
     {
       "adID": "766634732769975",
@@ -116,7 +136,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-21 16:09:11",
-      "lastSeen": "2026-02-22T21:08:55.564Z"
+      "lastSeen": "2026-02-22T22:07:20.800Z"
     },
     {
       "adID": "1385440476427288",
@@ -176,7 +196,7 @@
       "priceChangedAt": "2026-02-21 13:05:34",
       "hidden": 0,
       "created_at": "2026-02-20 20:43:26",
-      "lastSeen": "2026-02-22T21:07:45.533Z"
+      "lastSeen": "2026-02-22T22:06:08.911Z"
     },
     {
       "adID": "919734513923611",
@@ -296,7 +316,7 @@
       "priceChangedAt": "2026-02-21 01:04:44",
       "hidden": 0,
       "created_at": "2026-02-18 14:05:36",
-      "lastSeen": "2026-02-22T21:04:46.380Z"
+      "lastSeen": "2026-02-22T22:04:38.029Z"
     },
     {
       "adID": "1960384798247194",
@@ -436,7 +456,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 23:10:53",
-      "lastSeen": "2026-02-22T19:06:51.261Z"
+      "lastSeen": "2026-02-22T22:06:10.101Z"
     },
     {
       "adID": "1937314130515670",
@@ -476,7 +496,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 18:10:39",
-      "lastSeen": "2026-02-22T21:07:46.451Z"
+      "lastSeen": "2026-02-22T22:06:09.224Z"
     },
     {
       "adID": "2948138838710326",
@@ -536,7 +556,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 17:22:18",
-      "lastSeen": "2026-02-22T21:04:46.146Z"
+      "lastSeen": "2026-02-22T22:04:38.197Z"
     }
   ]
 }
