@@ -495,3 +495,64 @@ body {
   pointer-events: none;
   padding-right: calc(12px + env(safe-area-inset-right, 0px));
 }
+
+/* ---------- Adster Snapshot Card ---------- */
+
+.adsterCard {
+  border-style: dashed;
+  border-width: 2px;
+}
+
+.adsterHeaderRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+
+.adsterBadge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3px 8px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+  font-weight: 800;
+  font-size: 12px;
+  letter-spacing: 0.2px;
+}
+
+.adsterHeaderText {
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.adsterMetaRow {
+  margin-top: 2px;
+}
+
+.adsterDesc {
+  margin-top: 6px;
+  color: #3e434a;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.adsterLinkRow {
+  margin-top: 6px;
+}
+
+.adsterLink {
+  color: var(--text);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.adsterLink:hover {
+  text-decoration: underline;
+}

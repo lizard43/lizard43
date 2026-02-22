@@ -48,6 +48,10 @@ let activeKey = null;
 
 let imgObserver = null;
 
+const LS_ADSTER_SNAPSHOT = "adster.priceguide.snapshot.v1";
+
+let openedWithSearchParam = false; // true when page opened with ?s=...
+
 function showToast(msg) {
   el.toast.textContent = msg;
   el.toast.classList.add("show");
@@ -233,6 +237,96 @@ function escapeHtml(s) {
 }
 function escapeAttr(s) {
   return escapeHtml(s).replace(/`/g, "&#96;");
+}
+
+function loadAdsterSnapshot() {
+  try {
+    const raw = localStorage.getItem(LS_ADSTER_SNAPSHOT);
+    if (!raw) return null;
+    const obj = JSON.parse(raw);
+    if (!obj || typeof obj !== "object") return null;
+
+    // Minimal sanity check
+    const title = String(obj.title || "").trim();
+    if (!title) return null;
+
+    return obj;
+  } catch (_) {
+    return null;
+  }
+}
+
+function adsterSnapshotCardHTML(snap) {
+  if (!snap) return "";
+
+  const title = String(snap.title || "—").trim();
+  const priceText = String(snap.priceText || "").trim();
+  const location = String(snap.location || "").trim();
+  const desc = String(snap.description || "").trim();
+  const adUrl = String(snap.adUrl || "").trim();
+  const imageUrl = String(snap.imageUrl || "").trim();
+
+  // "caption" used by your existing image modal click handler
+  const captionParts = [];
+  if (title) captionParts.push(title);
+  if (location) captionParts.push(location);
+  const caption = captionParts.join(" · ");
+
+  const imgHtml = imageUrl
+    ? `
+      <img
+        class="thumb js-lazy"
+        data-src="${escapeAttr(imageUrl)}"
+        data-caption="${escapeAttr(caption)}"
+        alt="${escapeAttr(title)}"
+        decoding="async"
+        referrerpolicy="no-referrer"
+      >
+    `
+    : `
+      <div class="thumbFallback">No image</div>
+    `;
+
+  const priceLocLineParts = [];
+  if (priceText) priceLocLineParts.push(`<span class="priceStrong">${escapeHtml(priceText)}</span>`);
+  if (location) priceLocLineParts.push(`<span class="dim">${escapeHtml(location)}</span>`);
+  const priceLocLine = priceLocLineParts.length
+    ? `<div class="lineMeta adsterMetaRow">${priceLocLineParts.join(" – ")}</div>`
+    : "";
+
+  const linkLine = adUrl
+    ? `<div class="lineMeta adsterLinkRow"><a class="adsterLink" href="${escapeAttr(adUrl)}" target="_blank" rel="noopener">Open original ad</a></div>`
+    : "";
+
+  const descLine = desc
+    ? `<div class="lineMeta adsterDesc">${escapeHtml(desc)}</div>`
+    : "";
+
+  return `
+    <article class="card adsterCard" data-idx="-1">
+      <div class="thumbWrap" role="button" tabindex="0" aria-label="View ad image: ${escapeAttr(title)}">
+        ${imgHtml}
+      </div>
+
+      <div class="cardBody">
+        <div class="lineTitle">
+          <div class="adsterHeaderRow">
+            <div class="adsterBadge">Adster</div>
+            <div class="adsterHeaderText">Source ad</div>
+          </div>
+
+          ${adUrl
+      ? `<a class="titleText" href="${escapeAttr(adUrl)}" target="_blank" rel="noopener">${escapeHtml(title)}</a>`
+      : `<div class="titleText">${escapeHtml(title)}</div>`
+    }
+        </div>
+
+        ${priceLocLine}
+        ${descLine}
+        ${linkLine}
+      </div>
+    </article>
+  `;
 }
 
 /* ---------- Modal ---------- */
@@ -445,7 +539,14 @@ function setupImageObserver() {
 
 function renderCards() {
   const cardsHtml = filtered.map((g, idx) => cardHTML(g, idx)).join("\n");
-  el.cards.innerHTML = creditCardHTML() + cardsHtml;
+
+  let adsterHtml = "";
+  if (openedWithSearchParam) {
+    const snap = loadAdsterSnapshot();
+    if (snap) adsterHtml = adsterSnapshotCardHTML(snap);
+  }
+
+  el.cards.innerHTML = creditCardHTML() + adsterHtml + cardsHtml;
 
   rebuildKeyIndex();
   updateActiveKeyFromScroll();
@@ -664,10 +765,15 @@ async function loadData() {
 
 function applyIncomingSearchParam() {
   let pending = "";
+  openedWithSearchParam = false;
+
   try {
     const params = new URLSearchParams(window.location.search);
     const s = params.get("s");
-    if (s && String(s).trim()) pending = String(s).trim();
+    if (s && String(s).trim()) {
+      pending = String(s).trim();
+      openedWithSearchParam = true;
+    }
 
     if (pending) {
       const clean = window.location.pathname + window.location.hash;

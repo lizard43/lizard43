@@ -14,6 +14,8 @@ const LS_BROWSER_CITY_LAT = "adster.browserCity.lat";
 const LS_BROWSER_CITY_LON = "adster.browserCity.lon";
 const LS_BROWSER_CITY_LABEL = "adster.browserCity.label"; // e.g. "near Freeport, FL"
 
+const LS_PRICEGUIDE_SNAPSHOT = "adster.priceguide.snapshot.v1";
+
 const PRICEGUIDE_TAB_NAME = "adster_priceguide";
 
 const MAP_TAB_NAME = "adster_map";
@@ -394,6 +396,48 @@ function favSearchKey(slot) {
     if (slot === 2) return LS_FAV_SEARCH_2;
     if (slot === 3) return LS_FAV_SEARCH_3;
     if (slot === 4) return LS_FAV_SEARCH_4;
+}
+
+function buildAdsterSnapshotPayload(ad, { query = "", priceText = "" } = {}) {
+    if (!ad) return null;
+
+    return {
+        version: 1,
+        savedAtISO: new Date().toISOString(),
+
+        // what the user clicked
+        query: String(query || "").trim(),
+        priceText: String(priceText || "").trim(),
+        priceNumber: (() => {
+            const p = normalizePrice(priceText);
+            return Number.isFinite(p) ? Math.round(p) : null;
+        })(),
+
+        // core ad info
+        adID: String(ad.adID || "").trim(),
+        source: String(ad.source || "").trim(),
+        title: String(ad.title || "").trim(),
+        location: String(ad.location || "").trim(),
+        postedTime: ad.postedTime || null,
+        description: String(ad.description || "").trim(),
+
+        // links & media
+        adUrl: String(ad.adUrl || ad.AdUrl || "").trim(),
+        imageUrl: String(ad.imageUrl || "").trim(),
+        author: String(ad.author || "").trim(),
+        authorUrl: String(ad.authorUrl || "").trim(),
+    };
+}
+
+function saveAdsterSnapshotForPriceGuide(payload) {
+    try {
+        if (!payload) return false;
+        localStorage.setItem(LS_PRICEGUIDE_SNAPSHOT, JSON.stringify(payload));
+        return true;
+    } catch (e) {
+        console.warn("[snapshot] failed to save:", e);
+        return false;
+    }
 }
 
 function saveLastSearchToStorage() {
@@ -4005,18 +4049,28 @@ tbody.addEventListener("click", (e) => {
     const action = btn.dataset.action;
 
     // Card $ button: Price Guide
-    if (action === "priceguide") {
+    if (action === "priceguide" || action === "pinssearch") {
         e.preventDefault();
         e.stopPropagation();
-        openPriceGuideSearch(btn.dataset.query || "", btn.dataset.price || "");
-        return;
-    }
 
-    // Card $ button: Pinside price search
-    if (action === "pinssearch") {
-        e.preventDefault();
-        e.stopPropagation();
-        openPinsIndexSearch(btn.dataset.query || "", btn.dataset.price || "");
+        // Grab the adID from the card, then resolve full ad object from allAds
+        const card = btn.closest(".ad-card");
+        const adID = String(card?.getAttribute("data-ad-id") || "").trim();
+        const adObj = adID ? (allAds?.find(a => String(a?.adID || "") === adID) || null) : null;
+
+        // Save a snapshot for the price guide page to display
+        const payload = buildAdsterSnapshotPayload(adObj, {
+            query: btn.dataset.query || "",
+            priceText: btn.dataset.price || ""
+        });
+        saveAdsterSnapshotForPriceGuide(payload);
+
+        // Continue with existing behavior
+        if (action === "priceguide") {
+            openPriceGuideSearch(btn.dataset.query || "", btn.dataset.price || "");
+        } else {
+            openPinsIndexSearch(btn.dataset.query || "", btn.dataset.price || "");
+        }
         return;
     }
 
