@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-02-22T09:22:03.324Z",
+  "generated_at": "2026-02-22T12:07:48.770Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,33 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 26,
-      "droppedPrice": 103,
+      "exported_ads": 27,
+      "droppedPrice": 120,
       "droppedMissingGeo": 0,
-      "droppedCircle": 116
+      "droppedCircle": 123
     }
   },
   "ads": [
+    {
+      "adID": "1439193944483731",
+      "source": "FB",
+      "authorUrl": null,
+      "author": "Arthur Sumner",
+      "postedTime": "2026-02-22T04:00:41.931Z",
+      "title": "Multi Williams Arcade Video game Defender Joust Robotron",
+      "description": "Refurbished Robotron multigame for sale. Original Roboton cabinet refurbished and equipped with modern electronics and brand new controls for reliability. Has 19 games:... See more",
+      "price": "$850",
+      "lat": 33.9566391,
+      "lon": -83.9890066,
+      "location": "LAWRENCEVILLE, GA",
+      "imageUrl": "https://scontent-atl3-3.xx.fbcdn.net/v/t39.30808-6/640130317_10241898004809038_1260768215144912760_n.jpg?stp=dst-jpg_s590x590_tt6&_nc_cat=111&ccb=1-7&_nc_sid=e06c5d&_nc_ohc=PlhAHYiSJ_UQ7kNvwHXhVsI&_nc_oc=AdkUDYcJ31guSJ_O5TvE2SJVG6F_5NW0PF4GJItbfSilAh8QMGfYlIO362RzZPmMfww&_nc_zt=23&_nc_ht=scontent-atl3-3.xx&_nc_gid=p5xB3qA5bN5H2IglVjG7Fw&oh=00_Afvvfl1tVPouGjP_xIlnNkEUtmzdvUYNfFdgBHbKbUXesg&oe=69A0B9E3",
+      "adUrl": "https://www.facebook.com/commerce/listing/1439193944483731/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-02-22 12:00:42",
+      "lastSeen": "2026-02-22T12:00:42.061Z"
+    },
     {
       "adID": "900476756089029",
       "source": "MP",
@@ -76,7 +96,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-21 16:09:11",
-      "lastSeen": "2026-02-22T03:08:30.378Z"
+      "lastSeen": "2026-02-22T12:07:47.990Z"
     },
     {
       "adID": "1385440476427288",
@@ -136,7 +156,7 @@
       "priceChangedAt": "2026-02-21 13:05:34",
       "hidden": 0,
       "created_at": "2026-02-20 20:43:26",
-      "lastSeen": "2026-02-22T03:07:05.218Z"
+      "lastSeen": "2026-02-22T12:05:51.537Z"
     },
     {
       "adID": "893294916769619",
@@ -276,7 +296,7 @@
       "priceChangedAt": "2026-02-21 01:04:44",
       "hidden": 0,
       "created_at": "2026-02-18 14:05:36",
-      "lastSeen": "2026-02-22T03:04:51.157Z"
+      "lastSeen": "2026-02-22T12:04:47.986Z"
     },
     {
       "adID": "25095258510153346",
@@ -476,7 +496,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 18:10:39",
-      "lastSeen": "2026-02-22T03:07:05.599Z"
+      "lastSeen": "2026-02-22T12:05:51.772Z"
     },
     {
       "adID": "2948138838710326",
@@ -496,7 +516,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 17:22:24",
-      "lastSeen": "2026-02-22T03:04:51.559Z"
+      "lastSeen": "2026-02-22T12:04:48.354Z"
     },
     {
       "adID": "2185352358965594",
@@ -516,7 +536,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 17:22:23",
-      "lastSeen": "2026-02-21T23:04:46.596Z"
+      "lastSeen": "2026-02-22T12:04:48.320Z"
     },
     {
       "adID": "880228111053501",
@@ -536,7 +556,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 17:22:18",
-      "lastSeen": "2026-02-22T03:04:51.291Z"
+      "lastSeen": "2026-02-22T12:04:48.087Z"
     }
   ]
 }
