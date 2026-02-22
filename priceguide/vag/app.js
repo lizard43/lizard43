@@ -320,7 +320,7 @@ function adsterSnapshotCardHTML(snap) {
     : "";
 
   return `
-    <article class="card adsterCard" data-idx="-1">
+    <article class="adsterCard">
       <div class="adsterCardInner">
         <div class="adsterMedia">
           ${imgBlock}

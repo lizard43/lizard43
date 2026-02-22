@@ -499,6 +499,8 @@ body {
 /* ---------- Adster Snapshot Card (dark like Adster) ---------- */
 
 .adsterCard {
+  margin: 14px 0 0 0;
+  /* space below the logo card */
   border: 0;
   background: transparent;
 }
