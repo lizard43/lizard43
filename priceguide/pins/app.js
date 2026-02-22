@@ -43,6 +43,9 @@ let activeKey = null;
 
 let imgObserver = null;
 
+const LS_ADSTER_SNAPSHOT = "adster.priceguide.snapshot.v1";
+let openedWithSearchParam = false; // true when page opened with ?s=...
+
 function openPinsideInReusableTab(url) {
   if (!url) return;
   const w = window.open(url, PINSIDE_TAB_NAME);
@@ -90,6 +93,126 @@ function valueLine(m) {
   if (lo == null || hi == null) return null;
   if (!Number.isFinite(Number(lo)) || !Number.isFinite(Number(hi))) return null;
   return `${money(lo)} – ${money(hi)}`;
+}
+
+function parsePriceNumberFromText(priceText) {
+  const s = String(priceText || "").trim();
+  if (!s) return null;
+
+  const cleaned = s.replace(/[^0-9.]/g, "");
+  if (!cleaned) return null;
+
+  const n = Number(cleaned);
+  return Number.isFinite(n) ? n : null;
+}
+
+function loadAdsterSnapshot() {
+  try {
+    const raw = localStorage.getItem(LS_ADSTER_SNAPSHOT);
+    if (!raw) return null;
+    const obj = JSON.parse(raw);
+    if (!obj || typeof obj !== "object") return null;
+
+    const title = String(obj.title || "").trim();
+    if (!title) return null;
+
+    return obj;
+  } catch (_) {
+    return null;
+  }
+}
+
+function adsterPriceClassForCurrentResults(snap) {
+  // Only apply color logic when exactly one pinside entry matched
+  if (!snap) return "";
+  if (filtered.length !== 1) return "";
+
+  const incoming =
+    Number.isFinite(Number(snap.priceNumber)) ? Number(snap.priceNumber) :
+      parsePriceNumberFromText(snap.priceText);
+
+  if (!Number.isFinite(incoming)) return "";
+
+  const m = filtered[0];
+  const lo = Number(m?.lowvalue);
+  const hi = Number(m?.highvalue);
+
+  if (!Number.isFinite(lo) || !Number.isFinite(hi)) return "";
+
+  if (incoming < lo) return "is-good";
+  if (incoming > hi) return "is-bad";
+  return "";
+}
+
+function adsterSnapshotCardHTML(snap, priceClass) {
+  if (!snap) return "";
+
+  const title = String(snap.title || "—").trim();
+  const priceText = String(snap.priceText || "").trim();
+  const location = String(snap.location || "").trim();
+  const desc = String(snap.description || "").trim();
+  const adUrl = String(snap.adUrl || "").trim();
+  const imageUrl = String(snap.imageUrl || "").trim();
+
+  const source = String(snap.source || "").trim(); // e.g. "MP"
+  const seller = String(snap.author || "").trim(); // e.g. "Mike Stine"
+
+  const whoParts = [];
+  if (source) whoParts.push(escapeHtml(source));
+  if (seller) whoParts.push(escapeHtml(seller));
+  const whoLine = whoParts.length ? whoParts.join(" &nbsp;·&nbsp; ") : "";
+
+  const priceLocParts = [];
+  if (priceText) {
+    const cls = ["adsterPrice", priceClass].filter(Boolean).join(" ");
+    priceLocParts.push(`<span class="${cls}">${escapeHtml(priceText)}</span>`);
+  }
+  if (location) priceLocParts.push(`<span class="adsterLoc">${escapeHtml(location)}</span>`);
+  const priceLocLine = priceLocParts.length ? priceLocParts.join(" &nbsp;·&nbsp; ") : "";
+
+  const imgInner = imageUrl
+    ? `
+      <img
+        class="adsterThumb js-lazy"
+        data-src="${escapeAttr(imageUrl)}"
+        alt="${escapeAttr(title)}"
+        decoding="async"
+        referrerpolicy="no-referrer"
+      >
+    `
+    : `<div class="adsterThumbFallback">No image</div>`;
+
+  const imgBlock = adUrl
+    ? `<a class="adsterMediaLink" href="${escapeAttr(adUrl)}" target="_blank" rel="noopener">${imgInner}</a>`
+    : `<div class="adsterMediaLink">${imgInner}</div>`;
+
+  const titleBlock = adUrl
+    ? `<a class="adsterTitleLink" href="${escapeAttr(adUrl)}" target="_blank" rel="noopener">${escapeHtml(title)}</a>`
+    : `<div class="adsterTitleLink">${escapeHtml(title)}</div>`;
+
+  const descBlock = desc ? `<div class="adsterDesc">${escapeHtml(desc)}</div>` : "";
+  const priceLocBlock = priceLocLine ? `<div class="adsterMeta">${priceLocLine}</div>` : "";
+  const whoBlock = whoLine ? `<div class="adsterWho">${whoLine}</div>` : "";
+
+  return `
+    <article class="adsterCard">
+      <div class="adsterCardInner">
+        <div class="adsterMedia">
+          ${imgBlock}
+        </div>
+
+        <div class="adsterBody">
+          <div class="adsterTitleRow">
+            ${titleBlock}
+          </div>
+
+          ${priceLocBlock}
+          ${descBlock}
+          ${whoBlock}
+        </div>
+      </div>
+    </article>
+  `;
 }
 
 function buildBlob(m) {
@@ -358,7 +481,17 @@ function setupImageObserver() {
 
 function renderCards() {
   const cardsHtml = filtered.map((m, idx) => cardHTML(m, idx)).join("\n");
-  el.cards.innerHTML = creditCardHTML() + cardsHtml;
+
+  let adsterHtml = "";
+  if (openedWithSearchParam) {
+    const snap = loadAdsterSnapshot();
+    if (snap) {
+      const priceClass = adsterPriceClassForCurrentResults(snap);
+      adsterHtml = adsterSnapshotCardHTML(snap, priceClass);
+    }
+  }
+
+  el.cards.innerHTML = creditCardHTML() + adsterHtml + cardsHtml;
 
   rebuildKeyIndex();
   updateActiveKeyFromScroll();
@@ -535,10 +668,15 @@ async function loadData() {
 
 function applyIncomingSearchParam() {
   let pending = "";
+  openedWithSearchParam = false;
+
   try {
     const params = new URLSearchParams(window.location.search);
     const s = params.get("s");
-    if (s && String(s).trim()) pending = String(s).trim();
+    if (s && String(s).trim()) {
+      pending = String(s).trim();
+      openedWithSearchParam = true;
+    }
 
     if (pending) {
       const clean = window.location.pathname + window.location.hash;

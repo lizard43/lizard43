@@ -399,3 +399,128 @@ body {
 .toast.show {
   opacity: 1;
 }
+
+/* ---------- Adster Snapshot Card (dark like Adster) ---------- */
+
+.adsterCard {
+  margin: 14px 0 0 0;
+  border: 0;
+  background: transparent;
+}
+
+.adsterCardInner {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 14px;
+
+  background: #0f1115;
+  border: 1px solid #2a2f39;
+  border-radius: 16px;
+  padding: 14px;
+
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.18);
+}
+
+.adsterMedia {
+  width: 100%;
+}
+
+.adsterMediaLink {
+  display: block;
+  width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid #2a2f39;
+  background: #0b0d10;
+  text-decoration: none;
+}
+
+.adsterThumb {
+  display: block;
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+.adsterThumbFallback {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 700;
+}
+
+.adsterBody {
+  min-width: 0;
+}
+
+.adsterTitleRow {
+  margin-bottom: 6px;
+}
+
+.adsterTitleLink {
+  display: inline-block;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 1.2;
+  text-decoration: none;
+}
+
+.adsterTitleLink:hover {
+  text-decoration: underline;
+}
+
+.adsterMeta {
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+
+.adsterPrice {
+  color: rgba(255, 255, 255, 0.92);
+  font-weight: 900;
+}
+
+.adsterPrice.is-good {
+  color: #9ef0a3;
+}
+
+.adsterPrice.is-bad {
+  color: #ff6b6b;
+}
+
+.adsterLoc {
+  color: rgba(255, 255, 255, 0.72);
+  font-weight: 700;
+}
+
+.adsterDesc {
+  color: rgba(255, 255, 255, 0.70);
+  font-size: 14px;
+  line-height: 1.35;
+
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.adsterWho {
+  margin-top: 10px;
+  color: rgba(255, 255, 255, 0.68);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+@media (max-width: 720px) {
+  .adsterCardInner {
+    grid-template-columns: 1fr;
+  }
+
+  .adsterThumb {
+    aspect-ratio: 16 / 9;
+  }
+}
