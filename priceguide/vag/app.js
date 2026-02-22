@@ -158,9 +158,12 @@ function adsterPriceClassForCurrentResults(snap) {
   const { lo, hi } = overallLowHighFromGame(filtered[0]);
   if (!Number.isFinite(lo) || !Number.isFinite(hi)) return "";
 
-  // Rule: green if below overall low, red if below overall high, else neutral
+  // Correct rule:
+  // - green if below overall low
+  // - red if above overall high
+  // - otherwise neutral
   if (incoming < lo) return "is-good";
-  if (incoming < hi) return "is-bad";
+  if (incoming > hi) return "is-bad";
   return "";
 }
 
