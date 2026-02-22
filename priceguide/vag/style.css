@@ -577,9 +577,19 @@ body {
 }
 
 .adsterPrice {
-  color: #9ef0a3;
-  /* soft green like Adster */
+  color: rgba(255, 255, 255, 0.92);
+  /* neutral (not green) */
   font-weight: 900;
+}
+
+.adsterPrice.is-good {
+  color: #9ef0a3;
+  /* green: below low */
+}
+
+.adsterPrice.is-bad {
+  color: #ff6b6b;
+  /* red: below high (but not below low) */
 }
 
 .adsterLoc {

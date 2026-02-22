@@ -114,6 +114,56 @@ function bestOverallRange(g) {
   return `${money(lo)} – ${money(hi)}`;
 }
 
+function parsePriceNumberFromText(priceText) {
+  // Accept strings like "$1,500", "1500", "$ 1,500.00"
+  const s = String(priceText || "").trim();
+  if (!s) return null;
+
+  const cleaned = s.replace(/[^0-9.]/g, "");
+  if (!cleaned) return null;
+
+  const n = Number(cleaned);
+  return Number.isFinite(n) ? n : null;
+}
+
+function overallLowHighFromGame(g) {
+  const vs = Array.isArray(g?.variant) ? g.variant : [];
+  if (!vs.length) return { lo: null, hi: null };
+
+  let lo = null;
+  let hi = null;
+
+  for (const v of vs) {
+    const vlo = Number(v?.price_lower);
+    const vhi = Number(v?.price_higher);
+    if (Number.isFinite(vlo)) lo = (lo == null) ? vlo : Math.min(lo, vlo);
+    if (Number.isFinite(vhi)) hi = (hi == null) ? vhi : Math.max(hi, vhi);
+  }
+
+  return { lo, hi };
+}
+
+function adsterPriceClassForCurrentResults(snap) {
+  // Only apply color logic when exactly one priceguide entry matched
+  if (!snap) return "";
+  if (filtered.length !== 1) return "";
+
+  // Incoming ad price
+  const incoming =
+    Number.isFinite(Number(snap.priceNumber)) ? Number(snap.priceNumber) :
+      parsePriceNumberFromText(snap.priceText);
+
+  if (!Number.isFinite(incoming)) return "";
+
+  const { lo, hi } = overallLowHighFromGame(filtered[0]);
+  if (!Number.isFinite(lo) || !Number.isFinite(hi)) return "";
+
+  // Rule: green if below overall low, red if below overall high, else neutral
+  if (incoming < lo) return "is-good";
+  if (incoming < hi) return "is-bad";
+  return "";
+}
+
 function buildBlob(g) {
   const vs = Array.isArray(g.variant) ? g.variant : [];
   const variantText = vs.map(v => [
@@ -256,7 +306,7 @@ function loadAdsterSnapshot() {
   }
 }
 
-function adsterSnapshotCardHTML(snap) {
+function adsterSnapshotCardHTML(snap, priceClass) {
   if (!snap) return "";
 
   const title = String(snap.title || "—").trim();
@@ -281,7 +331,10 @@ function adsterSnapshotCardHTML(snap) {
   const whoLine = whoParts.length ? whoParts.join(" &nbsp;·&nbsp; ") : "";
 
   const priceLocParts = [];
-  if (priceText) priceLocParts.push(`<span class="adsterPrice">${escapeHtml(priceText)}</span>`);
+  if (priceText) {
+    const cls = ["adsterPrice", priceClass].filter(Boolean).join(" ");
+    priceLocParts.push(`<span class="${cls}">${escapeHtml(priceText)}</span>`);
+  }
   if (location) priceLocParts.push(`<span class="adsterLoc">${escapeHtml(location)}</span>`);
   const priceLocLine = priceLocParts.length ? priceLocParts.join(" &nbsp;·&nbsp; ") : "";
 
@@ -553,7 +606,10 @@ function renderCards() {
   let adsterHtml = "";
   if (openedWithSearchParam) {
     const snap = loadAdsterSnapshot();
-    if (snap) adsterHtml = adsterSnapshotCardHTML(snap);
+    if (snap) {
+      const priceClass = adsterPriceClassForCurrentResults(snap);
+      adsterHtml = adsterSnapshotCardHTML(snap, priceClass);
+    }
   }
 
   el.cards.innerHTML = creditCardHTML() + adsterHtml + cardsHtml;
@@ -562,7 +618,6 @@ function renderCards() {
   updateActiveKeyFromScroll();
   setupImageObserver();
 }
-
 /* ---------- Search ---------- */
 
 function runSearch(rawQuery) {
