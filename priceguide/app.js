@@ -1,6 +1,6 @@
 // ===== Config you’ll most likely tweak =====
 const IMAGE_DIR = "";           // "" if images are alongside index.html
-const FILE_PREFIX = "images/page_";           // page_001.jpg
+const FILE_PREFIX = "vag/images/page_";           // page_001.jpg
 const FILE_EXT = ".jpg";
 const PAD = 3;                         // 001, 002, ...
 const START_PAGE = 122;
