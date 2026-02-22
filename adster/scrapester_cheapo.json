@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-02-22T01:07:53.012Z",
+  "generated_at": "2026-02-22T02:08:38.120Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -12,9 +12,9 @@
     },
     "counts": {
       "exported_ads": 26,
-      "droppedPrice": 117,
+      "droppedPrice": 111,
       "droppedMissingGeo": 0,
-      "droppedCircle": 125
+      "droppedCircle": 126
     }
   },
   "ads": [
@@ -56,7 +56,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-21 16:09:11",
-      "lastSeen": "2026-02-22T01:07:52.689Z"
+      "lastSeen": "2026-02-22T02:08:37.765Z"
     },
     {
       "adID": "1385440476427288",
@@ -116,7 +116,7 @@
       "priceChangedAt": "2026-02-21 13:05:34",
       "hidden": 0,
       "created_at": "2026-02-20 20:43:26",
-      "lastSeen": "2026-02-22T01:06:26.877Z"
+      "lastSeen": "2026-02-22T02:06:29.565Z"
     },
     {
       "adID": "25257130180637746",
@@ -216,7 +216,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-18 21:04:43",
-      "lastSeen": "2026-02-21T03:04:44.318Z"
+      "lastSeen": "2026-02-22T02:04:37.299Z"
     },
     {
       "adID": "3046914079030329",
@@ -276,7 +276,7 @@
       "priceChangedAt": "2026-02-21 01:04:44",
       "hidden": 0,
       "created_at": "2026-02-18 14:05:36",
-      "lastSeen": "2026-02-22T01:04:55.993Z"
+      "lastSeen": "2026-02-22T02:04:37.202Z"
     },
     {
       "adID": "25095258510153346",
@@ -472,11 +472,11 @@
       "location": "Ocala, FL",
       "imageUrl": "https://scontent-dfw5-3.xx.fbcdn.net/v/t39.84726-6/613004851_1124168802983820_564469637381957714_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=108&ccb=1-7&_nc_sid=92e707&_nc_ohc=ube4bVgBiIUQ7kNvwFDUTgG&_nc_oc=AdnZhLdLrPjCm3saMprllhT0DK36PcTBmYgZrb1Yb36kAC0Q0XY2bn7Wm5adT0X8cj0&_nc_zt=14&_nc_ht=scontent-dfw5-3.xx&_nc_gid=RCzU18HdqkRsSQ3YhMy8TA&oh=00_AfudTeGl--ob3dx-K8sugj_dfPYnNCLDKQMWDRY7TSKmyQ&oe=699DA129",
       "adUrl": "https://www.facebook.com/marketplace/item/901860995627959/",
-      "priceChanged": 1,
-      "priceChangedAt": "2026-02-20 01:49:09",
+      "priceChanged": 0,
+      "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 18:10:39",
-      "lastSeen": "2026-02-22T01:06:27.244Z"
+      "lastSeen": "2026-02-22T02:06:30.560Z"
     },
     {
       "adID": "2948138838710326",
@@ -536,7 +536,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 17:22:18",
-      "lastSeen": "2026-02-22T01:04:56.135Z"
+      "lastSeen": "2026-02-22T02:04:37.745Z"
     }
   ]
 }
