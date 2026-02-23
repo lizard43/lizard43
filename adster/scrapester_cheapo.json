@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-02-23T02:07:46.165Z",
+  "generated_at": "2026-02-23T03:07:41.762Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,33 +11,13 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 28,
-      "droppedPrice": 91,
+      "exported_ads": 27,
+      "droppedPrice": 95,
       "droppedMissingGeo": 0,
-      "droppedCircle": 101
+      "droppedCircle": 103
     }
   },
   "ads": [
-    {
-      "adID": "1902819556967616",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/1001184227/?product_id=1902819556967616",
-      "author": "Jonathan Howell",
-      "postedTime": "2026-02-22T23:40:04.000Z",
-      "title": "Antique Electric Football Game",
-      "description": "Antique Electric Football Game in good condition asking $20 will consider offers",
-      "price": "$20",
-      "lat": 33.2459512,
-      "lon": -87.6877882,
-      "location": "Coker, AL",
-      "imageUrl": "https://scontent-atl3-3.xx.fbcdn.net/v/t39.84726-6/573318139_1704964400199035_2542663926136572880_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=110&ccb=1-7&_nc_sid=92e707&_nc_ohc=yh7UNoMlXqsQ7kNvwEyn2Ff&_nc_oc=Adk-6l-pJBRWETO8OGJnOv9U9HpxLdZR8GCcOoK-CtqZYKNzAXyX17sN6y_xPIo3_YE&_nc_zt=14&_nc_ht=scontent-atl3-3.xx&_nc_gid=qLMmqqwegII_8PrCJWuuBQ&oh=00_AfvmXDxj_5WH6Ru8IRNH6XgSyhNpQc19BrWxYKyRHxVm9Q&oe=69A174D5",
-      "adUrl": "https://www.facebook.com/marketplace/item/1902819556967616/",
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-02-23 02:06:39",
-      "lastSeen": "2026-02-23T02:07:13.945Z"
-    },
     {
       "adID": "890359366958896",
       "source": "MP",
@@ -76,7 +56,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-22 23:04:45",
-      "lastSeen": "2026-02-23T02:04:49.165Z"
+      "lastSeen": "2026-02-23T03:04:37.656Z"
     },
     {
       "adID": "1631260024666726",
@@ -116,7 +96,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-22 16:05:00",
-      "lastSeen": "2026-02-23T02:04:48.191Z"
+      "lastSeen": "2026-02-23T03:04:37.117Z"
     },
     {
       "adID": "766634732769975",
@@ -176,7 +156,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-21 16:09:11",
-      "lastSeen": "2026-02-23T02:07:45.979Z"
+      "lastSeen": "2026-02-23T03:07:41.533Z"
     },
     {
       "adID": "1385440476427288",
@@ -336,7 +316,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-18 14:05:36",
-      "lastSeen": "2026-02-23T01:04:44.034Z"
+      "lastSeen": "2026-02-23T03:04:37.588Z"
     },
     {
       "adID": "1960384798247194",
@@ -516,7 +496,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 18:10:39",
-      "lastSeen": "2026-02-23T02:06:37.989Z"
+      "lastSeen": "2026-02-23T03:06:50.721Z"
     },
     {
       "adID": "2948138838710326",
@@ -576,7 +556,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 17:22:18",
-      "lastSeen": "2026-02-23T02:04:48.723Z"
+      "lastSeen": "2026-02-23T03:04:38.142Z"
     }
   ]
 }
