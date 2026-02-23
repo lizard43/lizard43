@@ -855,18 +855,23 @@ function applyIncomingSearchParam() {
 
   try {
     const params = new URLSearchParams(window.location.search);
-    const s = params.get("s");
-    if (s && String(s).trim()) {
-      pending = String(s).trim();
+
+    // Treat presence of "s" (even blank ?s=) as "opened from Adster"
+    const hasS = params.has("s");
+    const s = params.get("s"); // may be "" if ?s=
+    if (hasS) {
       openedWithSearchParam = true;
+      pending = String(s || "").trim(); // may stay ""
     }
 
-    if (pending) {
+    // Clean URL if Adster launched us (hasS), even if search text is empty
+    if (hasS) {
       const clean = window.location.pathname + window.location.hash;
       history.replaceState(null, "", clean);
     }
   } catch (_) { }
 
+  // If s had actual terms, run the search. Otherwise show full list.
   if (pending) {
     el.searchInput.value = pending;
     runSearch(pending);
@@ -875,7 +880,6 @@ function applyIncomingSearchParam() {
     runSearch("");
   }
 }
-
 async function init() {
   wireUI();
 
