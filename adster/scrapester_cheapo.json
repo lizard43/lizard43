@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-02-23T19:25:32.706Z",
+  "generated_at": "2026-02-23T20:07:45.230Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,33 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 26,
-      "droppedPrice": 86,
+      "exported_ads": 27,
+      "droppedPrice": 92,
       "droppedMissingGeo": 0,
-      "droppedCircle": 102
+      "droppedCircle": 104
     }
   },
   "ads": [
+    {
+      "adID": "1565721954689855",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100001053856509/?product_id=1565721954689855",
+      "author": "Jay Cortes",
+      "postedTime": "2026-02-23T19:30:05.000Z",
+      "title": "Arcade machine",
+      "description": "Pac-Man and Galaga Arcade. 12 classic games included. Located in SE Ocala. This currently sells for $500 plus tax. Barely used and in perfect condition.",
+      "price": "$350",
+      "lat": 29.1871986,
+      "lon": -82.1400923,
+      "location": "Ocala, FL",
+      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/641403547_1666779591347864_7736860808530600904_n.jpg?stp=c0.43.261.261a_dst-jpg_p261x260_tt6&_nc_cat=100&ccb=1-7&_nc_sid=92e707&_nc_ohc=EJGOwH_khvIQ7kNvwEj35PK&_nc_oc=AdkVk0mQ9BDtuUPC-lDyVt3YhiuBI0LCrvDxAx6miW6vlyEZYWYnSkXdY-LTsy7mrU8&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=oVlsHv-Eln8UaKd1KR8jrg&oh=00_AfvCWUHZTipz2B_b__b3MRtjggDZ-dDxciX4AjdydRCV_A&oe=69A28D53",
+      "adUrl": "https://www.facebook.com/marketplace/item/1565721954689855/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-02-23 20:04:40",
+      "lastSeen": "2026-02-23T20:05:46.243Z"
+    },
     {
       "adID": "2022276341963884",
       "source": "MP",
@@ -36,7 +56,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-23 19:06:25",
-      "lastSeen": "2026-02-23T19:08:04.642Z"
+      "lastSeen": "2026-02-23T20:06:29.208Z"
     },
     {
       "adID": "962263459644859",
@@ -56,7 +76,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-23 19:04:40",
-      "lastSeen": "2026-02-23T19:05:35.609Z"
+      "lastSeen": "2026-02-23T20:04:40.253Z"
     },
     {
       "adID": "890359366958896",
@@ -156,7 +176,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-21 16:09:11",
-      "lastSeen": "2026-02-23T19:08:38.030Z"
+      "lastSeen": "2026-02-23T20:07:44.999Z"
     },
     {
       "adID": "1385440476427288",
@@ -296,7 +316,7 @@
       "priceChangedAt": "2026-02-23 15:04:41",
       "hidden": 0,
       "created_at": "2026-02-18 14:05:36",
-      "lastSeen": "2026-02-23T19:04:40.687Z"
+      "lastSeen": "2026-02-23T20:04:40.621Z"
     },
     {
       "adID": "1960384798247194",
@@ -416,7 +436,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-14 00:04:57",
-      "lastSeen": "2026-02-23T16:23:22.758Z"
+      "lastSeen": "2026-02-23T20:06:30.453Z"
     },
     {
       "adID": "2026958544812237",
@@ -436,7 +456,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 23:10:53",
-      "lastSeen": "2026-02-23T19:04:41.034Z"
+      "lastSeen": "2026-02-23T20:04:40.889Z"
     },
     {
       "adID": "1937314130515670",
@@ -476,7 +496,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 18:10:39",
-      "lastSeen": "2026-02-23T19:06:25.633Z"
+      "lastSeen": "2026-02-23T20:06:29.616Z"
     },
     {
       "adID": "2948138838710326",
@@ -496,7 +516,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 17:22:24",
-      "lastSeen": "2026-02-23T18:04:56.433Z"
+      "lastSeen": "2026-02-23T20:04:41.223Z"
     },
     {
       "adID": "2185352358965594",
@@ -506,17 +526,17 @@
       "postedTime": "2026-01-16T15:27:59.000Z",
       "title": "Blue Taito arcade machine cabinet",
       "description": "Blue Taito arcade machine cabinet converted to Kicker. Non working. Kicker PCB included. Will need new cabinet base. Good project cabinet. Has a Wells Gardner K4600 monitor.",
-      "price": "$250",
+      "price": "$200",
       "lat": 33.5378885,
       "lon": -85.2532818,
       "location": "Bowdon, GA",
-      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/615147720_1413902353441772_1262318802185387979_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=107&ccb=1-7&_nc_sid=92e707&_nc_ohc=QVRIOx557rQQ7kNvwHeCxZ1&_nc_oc=Admb-y8nCiU_RWouSlKGGSeBf38prsqDaMuI6d-ZfZoNJ3uYvzy4RNL8tspR71zV7tM&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=IG08bjEt6XGsZcOaSA7s4Q&oh=00_AfvJrhKahRH3k29Gl6b6EyQLwtRtNLXDux5UFObsEttxAg&oe=699BC95F",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/615147720_1413902353441772_1262318802185387979_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=107&ccb=1-7&_nc_sid=92e707&_nc_ohc=bi4wMwyLhQ8Q7kNvwFHgWzB&_nc_oc=AdmIwLD8K4-ptAxLG5_T0N35DEL4ko9Q9Dt3CsX4EmNlp8D3zgNxDo0kjxrXZ86tLww&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=EV_gWhlIrvAJNcjMDnW-KQ&oh=00_Afvzbu-H0kky0aPHCC3SLuz4Cedol3meMLUI7S40c37vww&oe=69A2991F",
       "adUrl": "https://www.facebook.com/marketplace/item/2185352358965594/",
-      "priceChanged": 0,
-      "priceChangedAt": null,
+      "priceChanged": 1,
+      "priceChangedAt": "2026-02-23 20:04:41",
       "hidden": 0,
       "created_at": "2026-02-13 17:22:23",
-      "lastSeen": "2026-02-23T18:04:56.500Z"
+      "lastSeen": "2026-02-23T20:05:46.277Z"
     },
     {
       "adID": "880228111053501",
@@ -536,7 +556,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 17:22:18",
-      "lastSeen": "2026-02-23T19:04:41.067Z"
+      "lastSeen": "2026-02-23T20:04:40.923Z"
     }
   ]
 }
