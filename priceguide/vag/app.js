@@ -603,6 +603,21 @@ function setupImageObserver() {
   imgs.forEach(img => imgObserver.observe(img));
 }
 
+function scheduleAutoHideCreditCard() {
+  clearTimeout(scheduleAutoHideCreditCard._t);
+
+  const cc = el.cards.querySelector(".creditCard");
+  if (!cc) return;
+
+  scheduleAutoHideCreditCard._t = setTimeout(() => {
+    cc.classList.add("is-hiding");
+
+    setTimeout(() => {
+      try { cc.style.display = "none"; } catch (_) { }
+    }, 230);
+  }, 3000);
+}
+
 function renderCards() {
   const cardsHtml = filtered.map((g, idx) => cardHTML(g, idx)).join("\n");
 
@@ -620,7 +635,9 @@ function renderCards() {
   rebuildKeyIndex();
   updateActiveKeyFromScroll();
   setupImageObserver();
-}
+
+  scheduleAutoHideCreditCard();
+}}
 /* ---------- Search ---------- */
 
 function runSearch(rawQuery) {

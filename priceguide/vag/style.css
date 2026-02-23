@@ -250,6 +250,16 @@ body {
   box-shadow: var(--shadow);
   padding: 16px;
   margin-bottom: 10px;
+
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Auto-hide credit card */
+.creditCard.is-hiding {
+  opacity: 0;
+  transform: translateY(-4px);
+  transition: opacity 200ms ease, transform 200ms ease;
 }
 
 .creditInner {
