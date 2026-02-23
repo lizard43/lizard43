@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-02-23T17:11:33.520Z",
+  "generated_at": "2026-02-23T18:09:23.253Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,33 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 26,
-      "droppedPrice": 102,
+      "exported_ads": 27,
+      "droppedPrice": 105,
       "droppedMissingGeo": 0,
-      "droppedCircle": 121
+      "droppedCircle": 129
     }
   },
   "ads": [
+    {
+      "adID": "2573626956426725",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100011799276462/?product_id=2573626956426725",
+      "author": "Warren Kenny",
+      "postedTime": "2026-02-23T17:25:07.000Z",
+      "title": "Shadow Pinball Playfield & Protector",
+      "description": "CPR gold shadow playfield with playfield Protector included. Nevwr installed If you have any questions, please let me know. Thanks!",
+      "price": "$675",
+      "lat": 27.7712264,
+      "lon": -82.6340259,
+      "location": "St Petersburg, FL",
+      "imageUrl": "https://scontent-atl3-1.xx.fbcdn.net/v/t39.84726-6/641210876_1637848207359542_8484039321633269788_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=106&ccb=1-7&_nc_sid=92e707&_nc_ohc=cV9PpMKZ9t0Q7kNvwFRmADS&_nc_oc=AdlScPNSH1xDx3VO64E5FcfBKtrbyuB2Z8cmst_2g0VFm27yi9hZe9ajATkY5fhPhc0&_nc_zt=14&_nc_ht=scontent-atl3-1.xx&_nc_gid=uKcwVHSugF_AxP-kigHpaA&oh=00_AfuIIgx_Al0GrKRKcBbK-aac9cM-mr5StuwO1bRqL2rs_g&oe=69A25126",
+      "adUrl": "https://www.facebook.com/marketplace/item/2573626956426725/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-02-23 18:07:24",
+      "lastSeen": "2026-02-23T18:08:49.393Z"
+    },
     {
       "adID": "890359366958896",
       "source": "MP",
@@ -76,7 +96,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-22 16:05:00",
-      "lastSeen": "2026-02-23T17:04:46.137Z"
+      "lastSeen": "2026-02-23T18:04:55.461Z"
     },
     {
       "adID": "766634732769975",
@@ -136,7 +156,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-21 16:09:11",
-      "lastSeen": "2026-02-23T17:08:24.340Z"
+      "lastSeen": "2026-02-23T18:09:22.972Z"
     },
     {
       "adID": "1385440476427288",
@@ -296,7 +316,7 @@
       "priceChangedAt": "2026-02-23 15:04:41",
       "hidden": 0,
       "created_at": "2026-02-18 14:05:36",
-      "lastSeen": "2026-02-23T17:04:46.908Z"
+      "lastSeen": "2026-02-23T18:04:55.964Z"
     },
     {
       "adID": "1960384798247194",
@@ -436,7 +456,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 23:10:53",
-      "lastSeen": "2026-02-23T17:04:46.740Z"
+      "lastSeen": "2026-02-23T18:04:56.032Z"
     },
     {
       "adID": "1937314130515670",
@@ -476,7 +496,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 18:10:39",
-      "lastSeen": "2026-02-23T17:06:38.487Z"
+      "lastSeen": "2026-02-23T18:07:25.086Z"
     },
     {
       "adID": "2948138838710326",
@@ -496,7 +516,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 17:22:24",
-      "lastSeen": "2026-02-23T16:04:52.338Z"
+      "lastSeen": "2026-02-23T18:04:56.433Z"
     },
     {
       "adID": "2185352358965594",
@@ -516,7 +536,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 17:22:23",
-      "lastSeen": "2026-02-23T15:04:40.533Z"
+      "lastSeen": "2026-02-23T18:04:56.500Z"
     },
     {
       "adID": "880228111053501",
@@ -536,7 +556,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 17:22:18",
-      "lastSeen": "2026-02-23T17:04:46.874Z"
+      "lastSeen": "2026-02-23T18:04:56.165Z"
     }
   ]
 }
