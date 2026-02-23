@@ -479,6 +479,24 @@ function setupImageObserver() {
   imgs.forEach(img => imgObserver.observe(img));
 }
 
+function scheduleAutoHideCreditCard() {
+  clearTimeout(scheduleAutoHideCreditCard._t);
+
+  // Find the rendered credit card (it’s inside #cards)
+  const cc = el.cards.querySelector(".creditCard");
+  if (!cc) return;
+
+  scheduleAutoHideCreditCard._t = setTimeout(() => {
+    // Fade out
+    cc.classList.add("is-hiding");
+
+    // Then remove from layout after the transition
+    setTimeout(() => {
+      try { cc.style.display = "none"; } catch (_) { }
+    }, 230);
+  }, 3000);
+}
+
 function renderCards() {
   const cardsHtml = filtered.map((m, idx) => cardHTML(m, idx)).join("\n");
 
@@ -496,6 +514,8 @@ function renderCards() {
   rebuildKeyIndex();
   updateActiveKeyFromScroll();
   setupImageObserver();
+
+  scheduleAutoHideCreditCard();
 }
 
 function runSearch(rawQuery) {
