@@ -637,7 +637,8 @@ function renderCards() {
   setupImageObserver();
 
   scheduleAutoHideCreditCard();
-}}
+}
+
 /* ---------- Search ---------- */
 
 function runSearch(rawQuery) {
