@@ -1645,15 +1645,18 @@ const PRICE_STOP_WORDS = [
     "arcade",
     "cabaret",
     "circa",
+    "classic",
     "cocktail",
     "coinop",
     "coin-op",
     "coin op",
     "coin operated",
+    "commercial",
     "for sale",
     "fs:",
     "full size",
     "game",
+    "HUO",
     "machines",
     "machine",
     "original",
@@ -1664,6 +1667,9 @@ const PRICE_STOP_WORDS = [
     "video",
     "vintage",
     "rare",
+    "sit down",
+    "standup",
+    "retro",
     "trade",
     "2 player",
     "2-player",
@@ -1711,12 +1717,13 @@ function shouldUsePinsLinkForAd(ad) {
     );
 }
 
-function openSearchInNamedTab(baseUrl, tabName, searchText, priceText) {
+function openSearchInNamedTab(baseUrl, tabName, searchText, priceText, forceS = false) {
     const q = String(searchText || "").trim();
     const base = new URL(baseUrl, window.location.href);
 
-    if (q) {
-        base.searchParams.set("s", q);
+    // IMPORTANT: for Adster -> PriceGuide handoff, we need ?s= to exist even if empty
+    if (forceS || q) {
+        base.searchParams.set("s", q); // q may be "" -> results in ?s=
     }
 
     const p = normalizePrice(priceText);
@@ -1736,7 +1743,8 @@ function openPriceGuideSearch(searchText, priceText) {
         "../priceguide/vag/",
         PRICEGUIDE_TAB_NAME,
         searchText,
-        priceText
+        priceText,
+        true // force ?s= for Adster handoff
     );
 }
 
@@ -1745,7 +1753,8 @@ function openPinsIndexSearch(searchText, priceText) {
         "../priceguide/pins/",
         PRICEGUIDE_TAB_NAME,
         searchText,
-        priceText
+        priceText,
+        true // force ?s= for Adster handoff
     );
 }
 
