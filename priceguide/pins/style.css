@@ -413,9 +413,13 @@ body {
 /* ---------- Adster Snapshot Card (dark like Adster) ---------- */
 
 .adsterCard {
-  margin: 14px 0 0 0;
+  margin: 0;
   border: 0;
   background: transparent;
+}
+
+.creditCard+.adsterCard {
+  margin-top: 14px;
 }
 
 .adsterCardInner {
