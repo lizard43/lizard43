@@ -149,7 +149,17 @@ function adsterSnapshotCardHTML(snap, priceClass) {
 
   const title = String(snap.title || "—").trim();
   const priceText = String(snap.priceText || "").trim();
+
+  // distance + location
+  const distanceTextRaw = String(snap.distanceText || "").trim();  // e.g. "64.6"
+  const distanceMilesNum = Number(snap.distanceMiles);
+  const distanceText =
+    distanceTextRaw
+      ? distanceTextRaw
+      : (Number.isFinite(distanceMilesNum) ? distanceMilesNum.toFixed(1) : "");
+
   const location = String(snap.location || "").trim();
+
   const desc = String(snap.description || "").trim();
   const adUrl = String(snap.adUrl || "").trim();
   const imageUrl = String(snap.imageUrl || "").trim();
@@ -162,13 +172,23 @@ function adsterSnapshotCardHTML(snap, priceClass) {
   if (seller) whoParts.push(escapeHtml(seller));
   const whoLine = whoParts.length ? whoParts.join(" &nbsp;·&nbsp; ") : "";
 
-  const priceLocParts = [];
+  // Build meta line like: "$1,500 · 64.6 mi · Pensacola, FL"
+  const metaParts = [];
+
   if (priceText) {
     const cls = ["adsterPrice", priceClass].filter(Boolean).join(" ");
-    priceLocParts.push(`<span class="${cls}">${escapeHtml(priceText)}</span>`);
+    metaParts.push(`<span class="${cls}">${escapeHtml(priceText)}</span>`);
   }
-  if (location) priceLocParts.push(`<span class="adsterLoc">${escapeHtml(location)}</span>`);
-  const priceLocLine = priceLocParts.length ? priceLocParts.join(" &nbsp;·&nbsp; ") : "";
+
+  if (distanceText) {
+    metaParts.push(`<span class="adsterDist">${escapeHtml(distanceText)} mi</span>`);
+  }
+
+  if (location) {
+    metaParts.push(`<span class="adsterLoc">${escapeHtml(location)}</span>`);
+  }
+
+  const metaLine = metaParts.length ? metaParts.join(" &nbsp;·&nbsp; ") : "";
 
   const imgInner = imageUrl
     ? `
@@ -191,7 +211,7 @@ function adsterSnapshotCardHTML(snap, priceClass) {
     : `<div class="adsterTitleLink">${escapeHtml(title)}</div>`;
 
   const descBlock = desc ? `<div class="adsterDesc">${escapeHtml(desc)}</div>` : "";
-  const priceLocBlock = priceLocLine ? `<div class="adsterMeta">${priceLocLine}</div>` : "";
+  const metaBlock = metaLine ? `<div class="adsterMeta">${metaLine}</div>` : "";
   const whoBlock = whoLine ? `<div class="adsterWho">${whoLine}</div>` : "";
 
   return `
@@ -206,7 +226,7 @@ function adsterSnapshotCardHTML(snap, priceClass) {
             ${titleBlock}
           </div>
 
-          ${priceLocBlock}
+          ${metaBlock}
           ${descBlock}
           ${whoBlock}
         </div>
@@ -214,7 +234,6 @@ function adsterSnapshotCardHTML(snap, priceClass) {
     </article>
   `;
 }
-
 function buildBlob(m) {
   return normalizeText([
     m.name,

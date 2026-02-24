@@ -401,6 +401,12 @@ function favSearchKey(slot) {
 function buildAdsterSnapshotPayload(ad, { query = "", priceText = "" } = {}) {
     if (!ad) return null;
 
+    // distance (string like "64.6") + numeric if we have it
+    const distText = String(ad.distance || "").trim(); // already "64.6" (no "mi")
+    const distMiles =
+        Number.isFinite(Number(ad._homeDistanceMiles)) ? Number(ad._homeDistanceMiles) :
+            (Number.isFinite(Number(distText)) ? Number(distText) : null);
+
     return {
         version: 1,
         savedAtISO: new Date().toISOString(),
@@ -418,6 +424,11 @@ function buildAdsterSnapshotPayload(ad, { query = "", priceText = "" } = {}) {
         source: String(ad.source || "").trim(),
         title: String(ad.title || "").trim(),
         location: String(ad.location || "").trim(),
+
+        // distance
+        distanceText: distText,     // "64.6"
+        distanceMiles: distMiles,   // 64.6
+
         postedTime: ad.postedTime || null,
         description: String(ad.description || "").trim(),
 
