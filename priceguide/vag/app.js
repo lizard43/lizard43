@@ -630,7 +630,9 @@ function scheduleAutoHideCreditCard() {
     cc.classList.add("is-hiding");
 
     setTimeout(() => {
-      try { cc.style.display = "none"; } catch (_) { }
+      try { cc.remove(); } catch (_) {
+        try { cc.parentNode && cc.parentNode.removeChild(cc); } catch (_) { }
+      }
     }, 230);
   }, 3000);
 }
