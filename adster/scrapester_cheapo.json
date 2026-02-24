@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-02-24T01:07:50.012Z",
+  "generated_at": "2026-02-24T01:42:52.592Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,53 +11,13 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 29,
-      "droppedPrice": 100,
+      "exported_ads": 27,
+      "droppedPrice": 81,
       "droppedMissingGeo": 0,
-      "droppedCircle": 103
+      "droppedCircle": 105
     }
   },
   "ads": [
-    {
-      "adID": "1897060154505139",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/1440021039/?product_id=1897060154505139",
-      "author": "Lee Freedman",
-      "postedTime": "2026-02-23T21:30:23.000Z",
-      "title": "Full Size Arcade machine - all your 80s faves!",
-      "description": "Full size Arcade machine loaded with hundreds of games. all the arcade classics from the 80's and 90's as well as Atari games as well. No quarters needed! Everything from Pac Man, Donkey Kong, Dig Dug, Space Invaders, Galaga, Frogger, Centipede, Asteroids, Tempest, Pole Position, Defender, and many many more!!!! Great for a man cave or 80's parties. Works great!",
-      "price": "$450",
-      "lat": 34.0234337,
-      "lon": -84.6154897,
-      "location": "Kennesaw, GA",
-      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t15.5256-10/638891529_1549121516201737_5737686082975912769_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=102&ccb=1-7&_nc_sid=d4195b&_nc_ohc=r2wL9dS4icYQ7kNvwElAx8c&_nc_oc=AdlshtEN6VV8X3YoxgCgCksR9UX0V45ZwSsNj5pDo1MRY05nUHBJ-eiRYJPkKecwTCI&_nc_zt=23&_nc_ht=scontent-dfw5-2.xx&_nc_gid=oo2yipnUbQqCg7OQsBc8Yw&oh=00_AfuWfQkiZ94tGqn5Ls8_krRwqC3gc-86ycK8LzZtrrzyPA&oe=69A28809",
-      "adUrl": "https://www.facebook.com/marketplace/item/1897060154505139/",
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-02-23 22:04:43",
-      "lastSeen": "2026-02-24T01:04:39.170Z"
-    },
-    {
-      "adID": "925121970475564",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/100005983625745/?product_id=925121970475564",
-      "author": "Chris Adams",
-      "postedTime": "2026-02-23T20:44:10.000Z",
-      "title": "Dunk tank arcade machine",
-      "description": "Game works all the way, this machine has a little damage on the front bottom left of the cabinet. Here are the dimensions of the machine H:73 inches W:43 inches D:34 inches Pick up only Cash only",
-      "price": "$750",
-      "lat": 33.285669,
-      "lon": -86.8099884,
-      "location": "Pelham, AL",
-      "imageUrl": "https://scontent-dfw5-3.xx.fbcdn.net/v/t15.5256-10/638885500_1191131522840526_5675621652805301862_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=108&ccb=1-7&_nc_sid=d4195b&_nc_ohc=I7YGRL7SPgYQ7kNvwEj54ja&_nc_oc=AdnAz5KrRWjjVGbkyh8XZuEvq_1SftlKThBkZR6Ki9yTTLaau91827e3YAjKEtBol3w&_nc_zt=23&_nc_ht=scontent-dfw5-3.xx&_nc_gid=XKPJDMXUUp1S7hG_4COo7Q&oh=00_Afvg-47PEDiaPJPNPKpKBGqOO3eNmWtSNsgPJbxkFF2HJQ&oe=69A28D67",
-      "adUrl": "https://www.facebook.com/marketplace/item/925121970475564/",
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-02-23 21:04:39",
-      "lastSeen": "2026-02-24T01:04:39.845Z"
-    },
     {
       "adID": "1565721954689855",
       "source": "MP",
@@ -76,7 +36,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-23 20:04:40",
-      "lastSeen": "2026-02-24T01:04:39.203Z"
+      "lastSeen": "2026-02-24T01:40:46.878Z"
     },
     {
       "adID": "2022276341963884",
@@ -96,7 +56,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-23 19:06:25",
-      "lastSeen": "2026-02-24T01:06:44.190Z"
+      "lastSeen": "2026-02-24T01:41:57.349Z"
     },
     {
       "adID": "962263459644859",
@@ -216,7 +176,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-21 16:09:11",
-      "lastSeen": "2026-02-24T01:07:49.821Z"
+      "lastSeen": "2026-02-24T01:42:52.411Z"
     },
     {
       "adID": "1385440476427288",
@@ -496,7 +456,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 23:10:53",
-      "lastSeen": "2026-02-24T01:04:40.180Z"
+      "lastSeen": "2026-02-24T01:40:47.483Z"
     },
     {
       "adID": "1937314130515670",
@@ -536,7 +496,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 18:10:39",
-      "lastSeen": "2026-02-24T01:06:45.251Z"
+      "lastSeen": "2026-02-24T01:41:57.806Z"
     },
     {
       "adID": "2948138838710326",
@@ -596,7 +556,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 17:22:18",
-      "lastSeen": "2026-02-23T23:04:40.703Z"
+      "lastSeen": "2026-02-24T01:40:47.650Z"
     }
   ]
 }
