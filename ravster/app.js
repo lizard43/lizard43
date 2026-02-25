@@ -216,7 +216,24 @@ function renderCompare() {
   for (const m of optMaps) for (const k of m.keys()) union.add(k);
 
   // sort option codes (simple lexicographic)
-  const unionCodes = [...union].sort((a, b) => String(a).localeCompare(String(b)));
+  const unionCodes = [...union].sort((a, b) => {
+    const pa = String(a).split("__");
+    const pb = String(b).split("__");
+
+    const typeA = pa[1] || "";
+    const typeB = pb[1] || "";
+    const typeCmp = typeA.localeCompare(typeB);
+    if (typeCmp) return typeCmp;
+
+    const cdA = pa[0] || "";
+    const cdB = pb[0] || "";
+    const cdCmp = cdA.localeCompare(cdB);
+    if (cdCmp) return cdCmp;
+
+    const nameA = pa.slice(2).join("__") || "";
+    const nameB = pb.slice(2).join("__") || "";
+    return nameA.localeCompare(nameB);
+  });
 
   const cols = sel.length;
 
@@ -273,37 +290,43 @@ function renderCompare() {
       </div>
     `;
 
-    const rows = unionCodes.map(cd => {
-      const name = optMaps[idx].get(cd);
+    const rows = unionCodes.map(keyStr => {
+      // keyStr is: cd__type__nameLower
+      const parts = String(keyStr).split("__");
+      const rawCd = parts[0] || "";
+      const typeFromKey = parts[1] || "";
+      const nameLowerFromKey = parts.slice(2).join("__") || ""; // defensive if "__" ever appears
+
+      const name = optMaps[idx].get(keyStr);
       if (!name) {
         return `
-          <div class="compareOptionRow">
-            <div class="optCd">${escapeHtml(rawCd)}</div>
-            <div class="optType"></div>
-            <div class="optName optBlank">—</div>
-            <div class="optPrice"></div>
-          </div>
-            `;
+      <div class="compareOptionRow">
+        <div class="optCd">${escapeHtml(rawCd)}</div>
+        <div class="optType"></div>
+        <div class="optName optBlank">—</div>
+        <div class="optPrice"></div>
+      </div>
+    `;
       }
 
-      const opt = v.options.find(o => {
-        return safeText(o.optionCd) === rawCd;
+      // find the exact option on THIS vehicle that matches the composite key
+      const opt = opts.find(o => {
+        const cd = safeText(o?.optionCd, "");
+        const type = safeText(o?.optionType, "");
+        const oname = safeText(o?.marketingName, "").toLowerCase();
+        return cd === rawCd && type === typeFromKey && oname === nameLowerFromKey;
       });
 
-      const type = safeText(opt?.optionType, "");
-      const oname = safeText(opt?.marketingName, "");
-      const key = `${rawCd}__${type}__${oname.toLowerCase()}`;
-
-      const p = optionPriceMap.get(key)?.price ?? null;
+      const p = opt ? (optionPriceMap.get(keyStr)?.price ?? null) : null;
 
       return `
-        <div class="compareOptionRow">
-          <div class="optCd">${escapeHtml(rawCd)}</div>
-          <div class="optType">${escapeHtml(type)}</div>
-          <div class="optName">${escapeHtml(name)}</div>
-          <div class="optPrice">${p !== null ? escapeHtml(fmtMoney(p)) : ""}</div>
-        </div>
-      `;
+    <div class="compareOptionRow">
+      <div class="optCd">${escapeHtml(rawCd)}</div>
+      <div class="optType">${escapeHtml(typeFromKey)}</div>
+      <div class="optName">${escapeHtml(name)}</div>
+      <div class="optPrice">${p !== null ? escapeHtml(fmtMoney(p)) : ""}</div>
+    </div>
+  `;
     }).join("");
 
     return `
@@ -559,7 +582,21 @@ function cardTemplate(item) {
 <div class="optExpandList">
   ${[...opts]
       .slice()
-      .sort((a, b) => String(a?.optionCd || "").localeCompare(String(b?.optionCd || "")))
+      .sort((a, b) => {
+        const ta = String(a?.optionType || "");
+        const tb = String(b?.optionType || "");
+        const tcmp = ta.localeCompare(tb);
+        if (tcmp) return tcmp;
+
+        const ca = String(a?.optionCd || "");
+        const cb = String(b?.optionCd || "");
+        const ccmp = ca.localeCompare(cb);
+        if (ccmp) return ccmp;
+
+        const na = String(a?.marketingName || "");
+        const nb = String(b?.marketingName || "");
+        return na.localeCompare(nb);
+      })
       .map(o => {
         const cd = safeText(o?.optionCd, "—");
         const name = safeText(o?.marketingName, "—");
