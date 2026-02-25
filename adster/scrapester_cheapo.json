@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-02-25T20:07:02.773Z",
+  "generated_at": "2026-02-25T21:07:13.488Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,33 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 30,
-      "droppedPrice": 137,
+      "exported_ads": 31,
+      "droppedPrice": 141,
       "droppedMissingGeo": 0,
-      "droppedCircle": 130
+      "droppedCircle": 132
     }
   },
   "ads": [
+    {
+      "adID": "875259085468441",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100000552481273/?product_id=875259085468441",
+      "author": "Craig Mcvaigh",
+      "postedTime": "2026-01-01T16:51:00.000Z",
+      "title": "Level up Arcade in Calhoun",
+      "description": "Come join us in Calhoun for some arcade fu. Only $15 per player all games are on free play",
+      "price": "$15",
+      "lat": 31.5311784,
+      "lon": -84.614328,
+      "location": "Calhoun, GA",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t15.5256-10/604653554_1202154204671586_5917587626313649067_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=105&ccb=1-7&_nc_sid=d4195b&_nc_ohc=2wffHwuulXEQ7kNvwEjO560&_nc_oc=AdloO2rljhBbLwOl0q2C4-r0yKtHcPW2sRsP5KZ_-jKakq7kxpGDkkfrPjCLJYLj4w4&_nc_zt=23&_nc_ht=scontent-dfw5-1.xx&_nc_gid=yn5jAxeDuJqu1Nbn9Npz7g&oh=00_AftTuJgH8Ktb2cpn2WC8799U8xhyNtJVhHnZ6xyK8AK4Zg&oe=69A54C2A",
+      "adUrl": "https://www.facebook.com/marketplace/item/875259085468441/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-02-25 21:04:46",
+      "lastSeen": "2026-02-25T21:06:11.185Z"
+    },
     {
       "adID": "2129939037846297",
       "source": "MP",
@@ -36,7 +56,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-25 19:04:53",
-      "lastSeen": "2026-02-25T20:04:41.766Z"
+      "lastSeen": "2026-02-25T21:04:46.385Z"
     },
     {
       "adID": "25340736088937265",
@@ -116,7 +136,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-25 01:43:47",
-      "lastSeen": "2026-02-25T20:06:00.777Z"
+      "lastSeen": "2026-02-25T21:06:09.460Z"
     },
     {
       "adID": "1655848545554386",
@@ -156,7 +176,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-24 16:04:39",
-      "lastSeen": "2026-02-25T20:04:42.068Z"
+      "lastSeen": "2026-02-25T21:04:47.021Z"
     },
     {
       "adID": "2015557495677950",
@@ -196,7 +216,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-23 20:04:40",
-      "lastSeen": "2026-02-25T20:04:42.303Z"
+      "lastSeen": "2026-02-25T21:04:46.519Z"
     },
     {
       "adID": "2022276341963884",
@@ -216,7 +236,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-23 19:06:25",
-      "lastSeen": "2026-02-25T20:06:00.845Z"
+      "lastSeen": "2026-02-25T21:06:09.526Z"
     },
     {
       "adID": "1631260024666726",
@@ -296,7 +316,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-21 16:09:11",
-      "lastSeen": "2026-02-25T20:07:02.488Z"
+      "lastSeen": "2026-02-25T21:07:13.164Z"
     },
     {
       "adID": "1385440476427288",
@@ -516,7 +536,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 23:10:53",
-      "lastSeen": "2026-02-25T20:06:02.203Z"
+      "lastSeen": "2026-02-25T21:04:46.653Z"
     },
     {
       "adID": "1937314130515670",
@@ -556,7 +576,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 18:10:39",
-      "lastSeen": "2026-02-25T20:06:01.146Z"
+      "lastSeen": "2026-02-25T21:06:09.861Z"
     },
     {
       "adID": "2948138838710326",
@@ -576,7 +596,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 17:22:24",
-      "lastSeen": "2026-02-25T20:04:41.231Z"
+      "lastSeen": "2026-02-25T21:04:46.452Z"
     },
     {
       "adID": "2185352358965594",
@@ -596,7 +616,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 17:22:23",
-      "lastSeen": "2026-02-25T20:04:42.369Z"
+      "lastSeen": "2026-02-25T21:04:47.122Z"
     },
     {
       "adID": "880228111053501",
@@ -616,7 +636,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 17:22:18",
-      "lastSeen": "2026-02-25T20:04:41.298Z"
+      "lastSeen": "2026-02-25T21:04:46.084Z"
     }
   ]
 }
