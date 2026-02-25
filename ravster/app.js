@@ -4,8 +4,6 @@ const OPTIONS_JSON_PATH = "./options.json";
 
 const elCardsGrid = document.getElementById("cardsGrid");
 const elCompareView = document.getElementById("compareView");
-const elStatus = document.getElementById("status");
-// const elFooterNote = document.getElementById("footerNote");
 
 const elSearch = document.getElementById("search");
 const elClearSearch = document.getElementById("clearSearch");
@@ -17,6 +15,22 @@ const elPillSortEta = document.getElementById("pillSortEta");
 
 const elBtnCompare = document.getElementById("btnCompare");
 const elCompareCount = document.getElementById("compareCount");
+
+const elToolbarFilters = document.getElementById("toolbarFilters");
+
+const elToolbarActiveFilters = document.getElementById("toolbarActiveFilters");
+
+const DELIVERY_PRICE = 1420;
+const DELIVERY_LABEL = "Delivery";
+
+const filters = {
+  year: new Set(),
+  model: new Set(),
+  drive: new Set(),
+  color: new Set(),
+  int: new Set(),
+  sold: new Set(),
+};
 
 let selectedVins = new Set();     // up to 3 VINs
 let isCompareMode = false;
@@ -71,22 +85,114 @@ function getEffectivePrice(v) {
   return null;
 }
 
+function computeOptionSubtotal(item) {
+  const opts = Array.isArray(item?.options) ? item.options : [];
+  let sum = 0;
+  let missing = 0;
+
+  for (const o of opts) {
+    const cd = safeText(o?.optionCd, "");
+    const type = safeText(o?.optionType, "");
+    if (!cd || !type) continue;
+
+    const name = safeText(o?.marketingName, "");
+    const key = `${cd}__${type}__${name.toLowerCase()}`;
+    const p = optionPriceMap.get(key)?.price ?? null;
+    if (p === null) {
+      missing++;
+      continue;
+    }
+    sum += p; // includes 0
+  }
+
+  sum += DELIVERY_PRICE;
+
+  return { sum, missing };
+}
+
 function cleanColorName(s) {
   if (!s) return s;
   return String(s)
     .replace(/\s*\[extra_cost_color\]/i, "")
     .replace(/\s*\[softex\]/i, "")
+    .replace(/\s*Mixed Media/i, "")
     .trim();
+}
+
+function cleanModelName(s) {
+  if (!s) return s;
+  return String(s).replace(/\bRAV4\b/gi, "").replace(/\s+/g, " ").trim();
+}
+
+function facetValue(defKey, v) {
+  if (defKey === "year") return safeText(v?.year, "—");
+  if (defKey === "model") return cleanModelName(safeText(get(v, "model.marketingName"), "—"));
+  if (defKey === "drive") return safeText(get(v, "drivetrain.code"), "—");
+  if (defKey === "color") return cleanColorName(safeText(get(v, "extColor.marketingName"), "—"));
+  if (defKey === "int") return cleanColorName(safeText(get(v, "intColor.marketingName"), "—"));
+  if (defKey === "sold") return (v?.isPreSold ? "Pre-sold" : "Available");
+  return "—";
+}
+
+const FILTER_DEFS = [
+  { key: "year", label: "Year" },
+  { key: "model", label: "Model" },
+  { key: "drive", label: "Drive" },
+  { key: "color", label: "Color" },
+  { key: "int", label: "Int" },
+  { key: "sold", label: "Sold" },
+];
+
+function renderActiveFiltersLine() {
+  if (!elToolbarActiveFilters) return;
+
+  const parts = [];
+  for (const def of FILTER_DEFS) {
+    const sel = filters[def.key];
+    if (!sel || sel.size === 0) continue;
+
+    const vals = [...sel];
+    const short = (vals.length <= 3)
+      ? vals.join(", ")
+      : `${vals.slice(0, 3).join(", ")} +${vals.length - 3}`;
+
+    parts.push(`<span class="afPill">${escapeHtml(short)}</span>`);
+  }
+
+  if (parts.length === 0) {
+    elToolbarActiveFilters.innerHTML = "";
+    return;
+  }
+
+  elToolbarActiveFilters.innerHTML =
+    `<span class="afLabel"></span> ` + parts.join(" ");
+}
+
+function isAllowedByFilters(v) {
+  for (const def of FILTER_DEFS) {
+    const sel = filters[def.key];
+    if (!sel || sel.size === 0) continue;
+    const val = facetValue(def.key, v);
+    if (!sel.has(val)) return false;
+  }
+  return true;
 }
 
 function normalizeOptions(v) {
   const opts = Array.isArray(v.options) ? v.options : [];
   const map = new Map();
+
   for (const o of opts) {
     const cd = safeText(o?.optionCd, "");
-    if (!cd) continue;
-    map.set(cd, safeText(o?.marketingName));
+    const type = safeText(o?.optionType, "");
+    const name = safeText(o?.marketingName, "");
+
+    if (!cd || !type || !name) continue;
+
+    const key = `${cd}__${type}__${name.toLowerCase()}`;
+    map.set(key, name);
   }
+
   return map;
 }
 
@@ -172,15 +278,30 @@ function renderCompare() {
       if (!name) {
         return `
           <div class="compareOptionRow">
-            <div class="optCd">${escapeHtml(cd)}</div>
+            <div class="optCd">${escapeHtml(rawCd)}</div>
+            <div class="optType"></div>
             <div class="optName optBlank">—</div>
+            <div class="optPrice"></div>
           </div>
-        `;
+            `;
       }
+
+      const opt = v.options.find(o => {
+        return safeText(o.optionCd) === rawCd;
+      });
+
+      const type = safeText(opt?.optionType, "");
+      const oname = safeText(opt?.marketingName, "");
+      const key = `${rawCd}__${type}__${oname.toLowerCase()}`;
+
+      const p = optionPriceMap.get(key)?.price ?? null;
+
       return `
         <div class="compareOptionRow">
-          <div class="optCd">${escapeHtml(cd)}</div>
+          <div class="optCd">${escapeHtml(rawCd)}</div>
+          <div class="optType">${escapeHtml(type)}</div>
           <div class="optName">${escapeHtml(name)}</div>
+          <div class="optPrice">${p !== null ? escapeHtml(fmtMoney(p)) : ""}</div>
         </div>
       `;
     }).join("");
@@ -311,14 +432,21 @@ function buildOptionPriceMap(optionsJson) {
 
   for (const o of arr) {
     const cd = safeText(o?.optionCd, "");
-    if (!cd) continue;
-    map.set(cd, {
+    const type = safeText(o?.optionType, "");
+    const name = safeText(o?.marketingName, "");
+
+    if (!cd || !type || !name) continue;
+
+    const key = `${cd}__${type}__${name.toLowerCase()}`;
+
+    map.set(key, {
       optionCd: cd,
-      marketingName: safeText(o?.marketingName),
-      optionType: safeText(o?.optionType),
+      optionType: type,
+      marketingName: name,
       price: asNumber(o?.price),
     });
   }
+
   return map;
 }
 
@@ -358,6 +486,11 @@ function cardTemplate(item) {
   const adv = getEffectivePrice(item);
   const base = asNumber(get(item, "price.baseMsrp"));
   const delta = (adv !== null && base !== null) ? (adv - base) : null;
+  const { sum: optSubtotal, missing: optMissing } = computeOptionSubtotal(item);
+  const hasDelta = (delta !== null);
+  const mismatch = hasDelta ? (optSubtotal - delta) : null;
+  const mismatchAbs = (mismatch !== null) ? Math.abs(mismatch) : null;
+  const isMismatch = (mismatchAbs !== null) ? (mismatchAbs >= 1) : false; // $1+ mismatch  
 
   const dealerName = safeText(item?.dealerMarketingName);
   const dealerSite = safeText(item?.dealerWebsite, "");
@@ -410,12 +543,61 @@ function cardTemplate(item) {
         <div class="line">
           <span class="muted">${colorsLine}</span>
         </div>
-
         <div class="pills">
-          <span class="pill">${escapeHtml(optionsLine)}</span>
-          <span class="pill pillRight"><span class="muted">ETA</span> ${escapeHtml(etaShort)}</span>
+          <button class="pill pillOptions" type="button" aria-expanded="false">
+            ${escapeHtml(optionsLine)}
+          </button>
+          <span class="etaLabel"><span class="muted">ETA</span> ${escapeHtml(etaShort)}</span>
         </div>
-      </div>
+
+        <div class="optExpand" aria-hidden="true">
+          <div class="optExpandTop">
+            <div class="optExpandTitle">Option list (${optCount} + delivery)</div>
+            <button class="optExpandClose" type="button" aria-label="Close options">×</button>
+          </div>
+
+<div class="optExpandList">
+  ${[...opts]
+      .slice()
+      .sort((a, b) => String(a?.optionCd || "").localeCompare(String(b?.optionCd || "")))
+      .map(o => {
+        const cd = safeText(o?.optionCd, "—");
+        const name = safeText(o?.marketingName, "—");
+        const type = safeText(o?.optionType, "");
+        const key = `${cd}__${type}__${name.toLowerCase()}`;
+        const p = optionPriceMap.get(key)?.price ?? null;
+
+        return `
+          <div class="optRow">
+            <div class="optCd">${escapeHtml(cd)}</div>
+            <div class="optType">${escapeHtml(type)}</div>
+            <div class="optName">${escapeHtml(name)}</div>
+            <div class="optPrice">${p !== null ? escapeHtml(fmtMoney(p)) : ""}</div>
+          </div>        `;
+      })
+      .join("")
+    }
+
+  <!-- Delivery always added -->
+  <div class="optRow optRowDelivery">
+    <div class="optCd"></div>
+    <div class="optName">${escapeHtml(DELIVERY_LABEL)}</div>
+    <div class="optPrice">${escapeHtml(fmtMoney(DELIVERY_PRICE))}</div>
+  </div>
+
+  <!-- Subtotal sanity check -->
+  <div class="optRow optRowSubtotal ${isMismatch ? "optRowMismatch" : ""}">
+    <div class="optCd"></div>
+    <div class="optName">
+      Subtotal
+      ${optMissing ? `<span class="optNote">(${optMissing} unpriced)</span>` : ""}
+      ${isMismatch ? `<span class="optNote optWarn">(mismatch ${escapeHtml(fmtMoney(mismatch))})</span>` : ""}
+    </div>
+    <div class="optPrice">${escapeHtml(fmtMoney(optSubtotal))}</div>
+  </div>
+</div>
+        </div>
+        </div>
     </article>
   `;
 }
@@ -466,10 +648,19 @@ async function applyFilterSortRender() {
   const q = searchQ.trim().toLowerCase();
 
   // filter
-  let out = ALL;
+  // 1) search filter
+  let searchFiltered = ALL;
   if (q) {
-    out = ALL.filter(v => v.__blob.includes(q));
+    searchFiltered = ALL.filter(v => v.__blob.includes(q));
   }
+
+  // 2) facet filters
+  let out = searchFiltered;
+  out = out.filter(isAllowedByFilters);
+
+  // 3) rebuild dropdowns with live counts (based on searchFiltered)
+  renderFiltersUI(searchFiltered);
+  renderActiveFiltersLine();
 
   const dir = (sortDir === "asc") ? 1 : -1;
 
@@ -534,6 +725,150 @@ function setSearchUI() {
   elClearSearch.style.display = has ? "block" : "none";
 }
 
+function buildFacetCounts(list, excludeKey) {
+  // list is already search-filtered; apply all other filters except excludeKey
+  const base = list.filter(v => {
+    for (const def of FILTER_DEFS) {
+      if (def.key === excludeKey) continue;
+      const sel = filters[def.key];
+      if (!sel || sel.size === 0) continue;
+      const val = facetValue(def.key, v);
+      if (!sel.has(val)) return false;
+    }
+    return true;
+  });
+
+  const counts = new Map();
+  for (const v of base) {
+    const val = facetValue(excludeKey, v);
+    counts.set(val, (counts.get(val) || 0) + 1);
+  }
+
+  // stable sorting: numbers first if year, else alpha
+  const entries = [...counts.entries()];
+  if (excludeKey === "year") {
+    entries.sort((a, b) => Number(a[0]) - Number(b[0]));
+  } else if (excludeKey === "sold") {
+    const order = new Map([["Available", 0], ["Pre-sold", 1]]);
+    entries.sort((a, b) => (order.get(a[0]) ?? 9) - (order.get(b[0]) ?? 9));
+  } else {
+    entries.sort((a, b) => String(a[0]).localeCompare(String(b[0])));
+  }
+
+  return { baseCount: base.length, entries };
+}
+
+function renderFiltersUI(searchFilteredList) {
+  if (!elToolbarFilters) return;
+
+  const html = FILTER_DEFS.map(def => {
+    const selectedN = filters[def.key].size;
+    return `
+      <div class="flt" data-flt="${escapeHtml(def.key)}">
+        <button class="fltBtn" type="button" aria-haspopup="true" aria-expanded="false">
+          ${escapeHtml(def.label)}
+          ${selectedN ? `<span class="fltCount">(${selectedN})</span>` : `<span class="fltCount"></span>`}
+        </button>
+        <div class="fltPanel" role="menu" aria-label="${escapeHtml(def.label)}">
+          <div class="fltTop">
+            <div class="fltTitle">${escapeHtml(def.label)}</div>
+            <button class="fltClear" type="button" data-clear="${escapeHtml(def.key)}">Clear</button>
+          </div>
+          <div class="fltList" data-list="${escapeHtml(def.key)}"></div>
+        </div>
+      </div>
+    `;
+  }).join("");
+
+  elToolbarFilters.innerHTML = html;
+
+  // fill each panel with choices + counts
+  for (const def of FILTER_DEFS) {
+    const { entries } = buildFacetCounts(searchFilteredList, def.key);
+    const listEl = elToolbarFilters.querySelector(`.fltList[data-list="${CSS.escape(def.key)}"]`);
+    if (!listEl) continue;
+
+    listEl.innerHTML = entries.map(([val, count]) => {
+      const checked = filters[def.key].has(val);
+      const id = `flt_${def.key}_${btoa(unescape(encodeURIComponent(String(val)))).replaceAll("=", "")}`;
+      return `
+        <div class="fltItem">
+          <div class="fltLeft">
+            <input type="checkbox" id="${escapeHtml(id)}" data-key="${escapeHtml(def.key)}" data-val="${escapeHtml(String(val))}" ${checked ? "checked" : ""}/>
+            <label for="${escapeHtml(id)}" title="${escapeHtml(String(val))}">${escapeHtml(String(val))}</label>
+          </div>
+          <div class="fltBadge">${count.toLocaleString()}</div>
+        </div>
+      `;
+    }).join("");
+  }
+}
+
+function closeAllFilterPanels() {
+  if (!elToolbarFilters) return;
+  elToolbarFilters.querySelectorAll(".flt").forEach(el => {
+    el.classList.remove("isOpen");
+    const btn = el.querySelector(".fltBtn");
+    btn?.setAttribute("aria-expanded", "false");
+  });
+}
+
+function wireFiltersUI() {
+  if (!elToolbarFilters) return;
+
+  // open/close panels
+  elToolbarFilters.addEventListener("click", (e) => {
+    const t = e.target;
+
+    // Clear button
+    if (t instanceof HTMLElement && t.matches("[data-clear]")) {
+      const key = t.getAttribute("data-clear");
+      if (key && filters[key]) {
+        filters[key].clear();
+        applyFilterSortRender();
+      }
+      return;
+    }
+
+    // Toggle button
+    const btn = (t instanceof HTMLElement) ? t.closest(".fltBtn") : null;
+    if (btn) {
+      const wrap = btn.closest(".flt");
+      if (!wrap) return;
+      const isOpen = wrap.classList.contains("isOpen");
+      closeAllFilterPanels();
+      wrap.classList.toggle("isOpen", !isOpen);
+      btn.setAttribute("aria-expanded", String(!isOpen));
+      return;
+    }
+  });
+
+  // checkbox changes
+  elToolbarFilters.addEventListener("change", (e) => {
+    const t = e.target;
+    if (!(t instanceof HTMLInputElement)) return;
+    if (t.type !== "checkbox") return;
+
+    const key = t.getAttribute("data-key");
+    const val = t.getAttribute("data-val");
+    if (!key || val === null) return;
+
+    const set = filters[key];
+    if (!set) return;
+
+    if (t.checked) set.add(val);
+    else set.delete(val);
+
+    applyFilterSortRender();
+  });
+
+  // click outside closes
+  document.addEventListener("click", (e) => {
+    const inside = elToolbarFilters.contains(e.target);
+    if (!inside) closeAllFilterPanels();
+  }, { capture: true });
+}
+
 function wireToolbar() {
   // Sort pills: click active pill toggles direction, click new pill sets key (asc by default)
   const onSortPill = (key) => {
@@ -576,6 +911,63 @@ function wireToolbar() {
     card.classList.toggle("isSelected", t.checked);
   });
 
+  function closeAllCardOptionPanels(exceptCard = null) {
+    elCardsGrid.querySelectorAll(".card.isOptOpen").forEach(c => {
+      if (exceptCard && c === exceptCard) return;
+      c.classList.remove("isOptOpen");
+      const btn = c.querySelector(".pillOptions");
+      const panel = c.querySelector(".optExpand");
+      btn?.setAttribute("aria-expanded", "false");
+      panel?.setAttribute("aria-hidden", "true");
+    });
+  }
+
+  // click to toggle card option expander (event delegation)
+  elCardsGrid.addEventListener("click", (e) => {
+    const t = e.target;
+
+    const closeBtn = (t instanceof HTMLElement) ? t.closest(".optExpandClose") : null;
+    if (closeBtn) {
+      const card = closeBtn.closest(".card");
+      if (!card) return;
+      closeAllCardOptionPanels(card);
+      return;
+    }
+
+    const pill = (t instanceof HTMLElement) ? t.closest(".pillOptions") : null;
+    if (!pill) return;
+
+    const card = pill.closest(".card");
+    if (!card) return;
+
+    const panel = card.querySelector(".optExpand");
+    const isOpen = card.classList.contains("isOptOpen");
+
+    // only one open at a time
+    closeAllCardOptionPanels(card);
+
+    card.classList.toggle("isOptOpen", !isOpen);
+    pill.setAttribute("aria-expanded", String(!isOpen));
+    panel?.setAttribute("aria-hidden", String(isOpen));
+  });
+
+  // click outside closes any open option panel
+  document.addEventListener("click", (e) => {
+    const insideCard = elCardsGrid.contains(e.target);
+    if (!insideCard) closeAllCardOptionPanels(null);
+
+    // if click is inside grid but not inside an open card, close as well
+    if (insideCard) {
+      const clickedInsideOpenCard = (e.target instanceof HTMLElement)
+        ? !!e.target.closest(".card.isOptOpen")
+        : false;
+      const clickedPill = (e.target instanceof HTMLElement)
+        ? !!e.target.closest(".pillOptions")
+        : false;
+      if (!clickedInsideOpenCard && !clickedPill) closeAllCardOptionPanels(null);
+    }
+  }, { capture: true });
+
   elBtnCompare.addEventListener("click", () => {
     isCompareMode = !isCompareMode;
     renderMainArea();
@@ -606,8 +998,6 @@ function wireToolbar() {
 
 async function main() {
   try {
-    elStatus.textContent = "Loading rav4 and options…";
-
     const [rav4Data, optionsData] = await Promise.all([
       loadJson(RAV4_JSON_PATH),
       loadJson(OPTIONS_JSON_PATH)
@@ -625,16 +1015,14 @@ async function main() {
     }));
 
     const knownPricedOptions = [...optionPriceMap.values()].filter(o => o.price !== null).length;
-    elStatus.textContent =
-      `Loaded ${ALL.length.toLocaleString()} vehicles. Loaded ${optionPriceMap.size.toLocaleString()} options (${knownPricedOptions.toLocaleString()} priced).`;
 
     wireToolbar();
+    wireFiltersUI();
     updateCompareUI();
     applyFilterSortRender();
 
   } catch (err) {
     console.error(err);
-    elStatus.textContent = "Error loading data. Check console.";
     showGrid();
     elCardsGrid.innerHTML = `
       <article class="card">
