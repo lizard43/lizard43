@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-02-25T16:28:44.337Z",
+  "generated_at": "2026-02-25T17:08:00.288Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,73 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 28,
-      "droppedPrice": 120,
+      "exported_ads": 31,
+      "droppedPrice": 123,
       "droppedMissingGeo": 0,
-      "droppedCircle": 119
+      "droppedCircle": 121
     }
   },
   "ads": [
+    {
+      "adID": "748910844433275",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100025099681809/?product_id=748910844433275",
+      "author": "Shannon Townsend",
+      "postedTime": "2026-01-13T00:12:56.000Z",
+      "title": "Man cave must have don't miss out!",
+      "description": "Authentic piece of memorabilia for your man cave, bar or pool room. Perfect for a conversational piece!",
+      "price": "$150",
+      "lat": 30.6324149,
+      "lon": -87.0396881,
+      "location": "Milton, FL",
+      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/615488593_1576704673644796_2065900881817129983_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=100&ccb=1-7&_nc_sid=92e707&_nc_ohc=0rzadg-Js3YQ7kNvwGUVhhV&_nc_oc=Adm4heVX13JZ8eQu88uyHgkukCt0zzBOqFJEYIArDvMTSwNfJS0TcOv3bhiVyKKlKcw&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=V5gpGtzC6QVISccj-L1B7w&oh=00_AfsWHV-pYgduWTfxmgLZl5xR66I5j5u4l5OO1zcPz0l-ag&oe=69A4E527",
+      "adUrl": "https://www.facebook.com/marketplace/item/748910844433275/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-02-25 17:06:12",
+      "lastSeen": "2026-02-25T17:07:21.689Z"
+    },
+    {
+      "adID": "1478315180750902",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/537803213/?product_id=1478315180750902",
+      "author": "Troy Cook",
+      "postedTime": "2025-12-20T15:54:37.000Z",
+      "title": "Williams display",
+      "description": "I have a Williams Alphanumeric display out of a Funhouse pinball. The display board needs work as the displays no longer light up.",
+      "price": "$100",
+      "lat": 30.3946392,
+      "lon": -89.3639378,
+      "location": "Diamondhead, MS",
+      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/641622534_1472485661148537_7981139424191335636_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=101&ccb=1-7&_nc_sid=92e707&_nc_ohc=zszW9edAJAIQ7kNvwH_CFf3&_nc_oc=Adk2LtPYmf34DiqxzCzE8mwlKs1C9e6GQew0cN3xX7GYmvNb-kg-xDEmad7mHP_yyWY&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=A1oIOjrG8-gYnNNKHkm-QQ&oh=00_AftIsvsYvzQIj6iSjEVaVn6k7z9USvn91RFqS1jEc3r8Yw&oe=69A4F7A5",
+      "adUrl": "https://www.facebook.com/marketplace/item/1478315180750902/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-02-25 17:06:12",
+      "lastSeen": "2026-02-25T17:07:21.721Z"
+    },
+    {
+      "adID": "1389162529676968",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/61585398988753/?product_id=1389162529676968",
+      "author": "Jennifer Lynn",
+      "postedTime": "2026-02-25T16:00:35.000Z",
+      "title": "diy pinball",
+      "description": "",
+      "price": "$5",
+      "lat": 30.8365815,
+      "lon": -83.9787808,
+      "location": "Thomasville, GA",
+      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/643763210_965595039370344_6249394930359605769_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=104&ccb=1-7&_nc_sid=92e707&_nc_ohc=p7JAOVsbHwAQ7kNvwGUl9Ow&_nc_oc=AdkGQW8iUtSyMou2Ft6GMkLeGDJ4KQo3XRp3Z8t98MY-JGgy2HMoK4opbWwx0Lnh_HE&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=9JrU5LzEcXbzo1SxhYLDHw&oh=00_AfvK3MUFkza0d7W4omFfmgfpSWT7p-J3yvRKtAiPViG4CQ&oe=69A4E72E",
+      "adUrl": "https://www.facebook.com/marketplace/item/1389162529676968/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-02-25 17:06:11",
+      "lastSeen": "2026-02-25T17:07:21.656Z"
+    },
     {
       "adID": "929954639508422",
       "source": "MP",
@@ -36,7 +96,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-25 14:04:41",
-      "lastSeen": "2026-02-25T16:04:42.066Z"
+      "lastSeen": "2026-02-25T17:04:45.632Z"
     },
     {
       "adID": "711486688396026",
@@ -76,7 +136,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-25 01:43:47",
-      "lastSeen": "2026-02-25T16:06:06.810Z"
+      "lastSeen": "2026-02-25T17:06:09.986Z"
     },
     {
       "adID": "1655848545554386",
@@ -116,7 +176,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-24 16:04:39",
-      "lastSeen": "2026-02-25T16:04:41.965Z"
+      "lastSeen": "2026-02-25T17:04:45.469Z"
     },
     {
       "adID": "2015557495677950",
@@ -156,7 +216,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-23 20:04:40",
-      "lastSeen": "2026-02-25T16:04:41.697Z"
+      "lastSeen": "2026-02-25T17:04:45.189Z"
     },
     {
       "adID": "2022276341963884",
@@ -176,7 +236,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-23 19:06:25",
-      "lastSeen": "2026-02-25T16:06:06.942Z"
+      "lastSeen": "2026-02-25T17:06:10.030Z"
     },
     {
       "adID": "1631260024666726",
@@ -196,7 +256,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-22 21:04:46",
-      "lastSeen": "2026-02-25T16:04:42.557Z"
+      "lastSeen": "2026-02-25T17:04:44.889Z"
     },
     {
       "adID": "766634732769975",
@@ -216,7 +276,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-22 16:05:00",
-      "lastSeen": "2026-02-24T16:24:12.924Z"
+      "lastSeen": "2026-02-25T17:04:45.257Z"
     },
     {
       "adID": "1920698478541387",
@@ -256,7 +316,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-21 16:09:11",
-      "lastSeen": "2026-02-25T16:07:34.363Z"
+      "lastSeen": "2026-02-25T17:08:00.051Z"
     },
     {
       "adID": "1385440476427288",
@@ -476,7 +536,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 23:10:53",
-      "lastSeen": "2026-02-25T16:04:42.367Z"
+      "lastSeen": "2026-02-25T17:04:45.392Z"
     },
     {
       "adID": "1937314130515670",
@@ -516,7 +576,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 18:10:39",
-      "lastSeen": "2026-02-25T16:06:07.277Z"
+      "lastSeen": "2026-02-25T17:06:10.673Z"
     },
     {
       "adID": "2948138838710326",
@@ -536,7 +596,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 17:22:24",
-      "lastSeen": "2026-02-25T16:04:41.597Z"
+      "lastSeen": "2026-02-25T17:04:44.722Z"
     },
     {
       "adID": "2185352358965594",
@@ -556,7 +616,7 @@
       "priceChangedAt": "2026-02-23 20:04:41",
       "hidden": 0,
       "created_at": "2026-02-13 17:22:23",
-      "lastSeen": "2026-02-25T16:04:42.731Z"
+      "lastSeen": "2026-02-25T17:04:44.956Z"
     },
     {
       "adID": "880228111053501",
@@ -576,7 +636,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 17:22:18",
-      "lastSeen": "2026-02-25T16:04:41.530Z"
+      "lastSeen": "2026-02-25T17:04:44.554Z"
     }
   ]
 }
