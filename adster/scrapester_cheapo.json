@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-02-25T09:25:20.624Z",
+  "generated_at": "2026-02-25T12:07:29.045Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,53 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 30,
-      "droppedPrice": 101,
+      "exported_ads": 32,
+      "droppedPrice": 110,
       "droppedMissingGeo": 0,
-      "droppedCircle": 116
+      "droppedCircle": 117
     }
   },
   "ads": [
+    {
+      "adID": "4335193616726856",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/61584621017108/?product_id=4335193616726856",
+      "author": "Kit Chan",
+      "postedTime": "2026-02-11T07:50:41.000Z",
+      "title": "Garvee Giant 4-In-a-Row Game $60",
+      "description": "Garvee Giant 4-In-a-Row Game $60 Business location: 5415 Lamco St (bay 11) Montgomery, AL 36117 Business hours: Mon- Sun:9:00am-7:00pm First Come First Serve",
+      "price": "$60",
+      "lat": 32.3777111,
+      "lon": -86.3090775,
+      "location": "Montgomery, AL",
+      "imageUrl": "https://scontent-dfw5-3.xx.fbcdn.net/v/t39.84726-6/632529529_2388172488363262_4683773559672330587_n.jpg?stp=dst-jpg_p960x960_tt6&_nc_cat=109&ccb=1-7&_nc_sid=92e707&_nc_ohc=N-77Vhd7izUQ7kNvwGetK-e&_nc_oc=Adm18amhOLquSw22dksBkw2xDW3jBOJ58id9YoEGjHAdLGXOrXUV8Pv-ghSF88jC91I&_nc_zt=14&_nc_ht=scontent-dfw5-3.xx&_nc_gid=iDbCo7xY9freCUTRoDCS1g&oh=00_Afu-32Gc8DEeBdoJPBV3gXXAswNQ9mrApekYb-il63sCEg&oe=69A4C239",
+      "adUrl": "https://www.facebook.com/marketplace/item/4335193616726856/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-02-25 12:05:59",
+      "lastSeen": "2026-02-25T12:06:49.149Z"
+    },
+    {
+      "adID": "949751944074778",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/61582609452584/?product_id=949751944074778",
+      "author": "Anthony Deogracias",
+      "postedTime": "2026-02-25T03:53:19.000Z",
+      "title": "Arcade machine",
+      "description": "$200 or trade for outboards or best offer",
+      "price": "$200",
+      "lat": 29.4385529,
+      "lon": -90.5953651,
+      "location": "Chauvin, LA",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/641428296_910091061668017_593837699638772331_n.jpg?stp=c0.161.261.261a_dst-jpg_p261x260_tt6&_nc_cat=110&ccb=1-7&_nc_sid=92e707&_nc_ohc=J78XTPoJIScQ7kNvwFyCVHM&_nc_oc=AdmuS63jxu2B1fIqLXxUcGRsgyXBfU1Ccbj03LZ122v1-tP5nszLrNFpW-zaq0j1YX8&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=dwoYuTnoHNv2jitUjiIn6w&oh=00_AfsTzKrDJOZd6SB7KTB4xyTfP85NL2f8yn_hM3PgliSRgA&oe=69A4B5A8",
+      "adUrl": "https://www.facebook.com/marketplace/item/949751944074778/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-02-25 12:04:44",
+      "lastSeen": "2026-02-25T12:05:13.467Z"
+    },
     {
       "adID": "711486688396026",
       "source": "MP",
@@ -56,7 +96,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-25 01:43:47",
-      "lastSeen": "2026-02-25T03:07:28.348Z"
+      "lastSeen": "2026-02-25T12:05:58.057Z"
     },
     {
       "adID": "1655848545554386",
@@ -96,7 +136,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-24 16:04:39",
-      "lastSeen": "2026-02-25T02:04:40.356Z"
+      "lastSeen": "2026-02-25T12:04:44.750Z"
     },
     {
       "adID": "2015557495677950",
@@ -136,7 +176,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-23 20:04:40",
-      "lastSeen": "2026-02-25T01:37:26.793Z"
+      "lastSeen": "2026-02-25T12:04:45.084Z"
     },
     {
       "adID": "2022276341963884",
@@ -156,7 +196,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-23 19:06:25",
-      "lastSeen": "2026-02-25T03:07:28.490Z"
+      "lastSeen": "2026-02-25T12:05:58.099Z"
     },
     {
       "adID": "1631260024666726",
@@ -236,7 +276,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-21 16:09:11",
-      "lastSeen": "2026-02-25T03:08:20.478Z"
+      "lastSeen": "2026-02-25T12:07:28.820Z"
     },
     {
       "adID": "1385440476427288",
@@ -516,7 +556,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 23:10:53",
-      "lastSeen": "2026-02-25T01:37:26.126Z"
+      "lastSeen": "2026-02-25T12:04:44.883Z"
     },
     {
       "adID": "1937314130515670",
@@ -556,7 +596,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 18:10:39",
-      "lastSeen": "2026-02-25T03:07:28.725Z"
+      "lastSeen": "2026-02-25T12:05:58.367Z"
     },
     {
       "adID": "2948138838710326",
@@ -616,7 +656,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 17:22:18",
-      "lastSeen": "2026-02-25T03:04:58.326Z"
+      "lastSeen": "2026-02-25T12:04:44.405Z"
     }
   ]
 }
