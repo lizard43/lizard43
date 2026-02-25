@@ -21,7 +21,7 @@ body {
 body {
   margin: 0;
   font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
-  background: radial-gradient(1200px 600px at 15% 0%, #17243a 0%, var(--bg) 55%);
+  background: #1c1c24;
   color: var(--text);
 }
 
@@ -92,15 +92,20 @@ body {
   box-shadow: var(--shadow);
   overflow: hidden;
   min-height: 128px;
+
+  position: relative;
+  /* keep */
+  /* allow top-left overlay (no longer used, but harmless) */
 }
 
 .cardInner {
   padding: 14px 14px 12px;
+  /* ✅ no left gutter */
 }
 
 .rowTop {
   display: flex;
-  align-items: baseline;
+  align-items: center;
   justify-content: space-between;
   gap: 10px;
 }
@@ -438,33 +443,48 @@ body.isBusy * {
   color: var(--muted);
 }
 
-/* Subtle card checkbox */
-.card {
-  position: relative;
-  /* allow top-left overlay */
+/* Prevent toolbar jump when compare button appears */
+#btnCompare {
+  visibility: hidden;
+  pointer-events: none;
 }
 
-/* Custom card checkbox */
+#btnCompare.isShown {
+  visibility: visible;
+  pointer-events: auto;
+}
+
+/* VIN + checkbox container (top right) */
+.rowTopRight {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Custom card checkbox now IN-FLOW (not absolute overlay) */
 .cardCheckWrap {
-  position: absolute;
-  top: 12px;
-  left: 12px;
+  position: static;
+  /* ✅ was absolute */
   width: 22px;
   height: 22px;
   display: grid;
   place-items: center;
-  z-index: 2;
+  z-index: auto;
   cursor: pointer;
   border-radius: 6px;
 }
 
+/* Native input stays invisible always (prevents "double checkbox") */
 .cardCheck {
   position: absolute;
   opacity: 0;
   pointer-events: none;
+  transform: none;
+  /* ✅ prevent any hover scaling */
 }
 
 .cardCheckUi {
+  position: relative;
   width: 18px;
   height: 18px;
   border-radius: 6px;
@@ -489,32 +509,14 @@ body.isBusy * {
 /* checkmark */
 .cardCheckWrap:has(.cardCheck:checked) .cardCheckUi::after {
   content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
   width: 8px;
   height: 4px;
   border-left: 2px solid rgba(255, 255, 255, 0.95);
   border-bottom: 2px solid rgba(255, 255, 255, 0.95);
-  transform: rotate(-45deg);
-  display: block;
-  margin-top: 1px;
-}
-
-/* keep your content offset */
-.cardInner {
-  padding: 14px 14px 12px 40px;
-}
-
-.cardInner {
-  padding: 14px 14px 12px 36px;
-  /* extra left padding */
-}
-
-.card:hover .cardCheck {
-  opacity: 0.7;
-  transform: scale(1.05);
-}
-
-.card.isSelected .cardCheck {
-  opacity: 0.95;
+  transform: translate(-50%, -55%) rotate(-45deg);
 }
 
 .card.isSelected {

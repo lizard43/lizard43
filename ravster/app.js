@@ -236,7 +236,7 @@ function renderMainArea() {
 function updateCompareUI() {
   const n = selectedVins.size;
   elCompareCount.textContent = `${n}/3`;
-  elBtnCompare.style.display = n > 0 ? "inline-flex" : "none";
+  elBtnCompare.classList.toggle("isShown", n > 0);
   elBtnCompare.disabled = n === 0;
 }
 
@@ -369,7 +369,6 @@ function cardTemplate(item) {
   const optCount = opts.length;
 
   const headline = `${year} - ${modelName}`;
-
   const priceLineLeft = fmtMoney(adv);
 
   const dist = asNumber(item?.distance);
@@ -386,24 +385,27 @@ function cardTemplate(item) {
 
   return `
     <article class="card ${isSelected ? "isSelected" : ""}" data-vin="${escapeHtml(vin)}">
-        <label class="cardCheckWrap" aria-label="Select for compare">
-          <input class="cardCheck" type="checkbox" ${isSelected ? "checked" : ""} />
-          <span class="cardCheckUi" aria-hidden="true"></span>
-        </label>
-
-        <div class="cardInner">
+      <div class="cardInner">
         <div class="rowTop">
           <div class="headline">${escapeHtml(headline)}</div>
-          <div class="vin">${escapeHtml(vin)}</div>
+
+          <div class="rowTopRight">
+            <div class="vin">${escapeHtml(vin)}</div>
+
+            <label class="cardCheckWrap" aria-label="Select for compare">
+              <input class="cardCheck" type="checkbox" ${isSelected ? "checked" : ""} />
+              <span class="cardCheckUi" aria-hidden="true"></span>
+            </label>
+          </div>
         </div>
 
-      <div class="line">
-        <span class="primary">${escapeHtml(priceLineLeft)}</span>
-        <span class="muted">-</span>
-        <span class="muted">${escapeHtml(distText)}</span>
-        <span class="muted">-</span>
-        <span class="muted">${dealerHtml}</span>
-      </div>
+        <div class="line">
+          <span class="primary">${escapeHtml(priceLineLeft)}</span>
+          <span class="muted">-</span>
+          <span class="muted">${escapeHtml(distText)}</span>
+          <span class="muted">-</span>
+          <span class="muted">${dealerHtml}</span>
+        </div>
 
         <div class="line">
           <span class="muted">${colorsLine}</span>
