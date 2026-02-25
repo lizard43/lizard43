@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-02-25T14:25:56.967Z",
+  "generated_at": "2026-02-25T15:07:11.185Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,53 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 30,
-      "droppedPrice": 112,
+      "exported_ads": 32,
+      "droppedPrice": 115,
       "droppedMissingGeo": 0,
-      "droppedCircle": 116
+      "droppedCircle": 117
     }
   },
   "ads": [
+    {
+      "adID": "1164147172313104",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/1297964828/?product_id=1164147172313104",
+      "author": "Bryan Broyles",
+      "postedTime": "2025-10-28T19:55:32.000Z",
+      "title": "Door passes to Portal Pinball Arcade",
+      "description": "These are normal price passes to Portal Pinball in Acworth. Thanks for finding us!",
+      "price": "$12",
+      "lat": 34.0659329,
+      "lon": -84.6768796,
+      "location": "Acworth, GA",
+      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/571283981_818134590965863_4682141259797852502_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=104&ccb=1-7&_nc_sid=92e707&_nc_ohc=iieIFEEWmA8Q7kNvwHTFzJD&_nc_oc=AdkthIfGQ5Hn28OkU2MLIS7XiYIzORxg3IksU3Z9jvzxU_zA8CfkFlRCw3u-5rtG2M8&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=sIPFdEs3PrIJ0XJYQiTpZA&oh=00_AfvAMZG43qBLM9EE9_6P9Zz2guA69nmYEFSOxSHa1QXgbw&oe=69A4C974",
+      "adUrl": "https://www.facebook.com/marketplace/item/1164147172313104/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-02-25 15:06:12",
+      "lastSeen": "2026-02-25T15:06:32.559Z"
+    },
+    {
+      "adID": "793929723317377",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100015311886745/?product_id=793929723317377",
+      "author": "DeerPark Cam",
+      "postedTime": "2025-09-02T19:46:57.000Z",
+      "title": "Arcade paw control",
+      "description": "",
+      "price": "$50",
+      "lat": 32.2998686,
+      "lon": -90.1830408,
+      "location": "Jackson, MS",
+      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t15.5256-10/541902187_792273943249526_5771288635389305722_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=100&ccb=1-7&_nc_sid=d4195b&_nc_ohc=TrSU6Bioo2sQ7kNvwGguH6y&_nc_oc=AdmsGZEPdlt_KiQGp_rcJ-lwHWWe-wG4ipdAUADvWVSLYRz0El8TxdFMniwEHDLZYjw&_nc_zt=23&_nc_ht=scontent-dfw5-2.xx&_nc_gid=88FoRsnXgB91I_9_zLZb0A&oh=00_AfuvzHnblkaarim-V2MbA3j2BwwLBPAAqyFfBm3msEMYrg&oe=69A4F240",
+      "adUrl": "https://www.facebook.com/marketplace/item/793929723317377/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-02-25 15:04:46",
+      "lastSeen": "2026-02-25T15:05:22.796Z"
+    },
     {
       "adID": "929954639508422",
       "source": "MP",
@@ -36,7 +76,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-25 14:04:41",
-      "lastSeen": "2026-02-25T14:05:41.010Z"
+      "lastSeen": "2026-02-25T15:04:47.052Z"
     },
     {
       "adID": "711486688396026",
@@ -56,7 +96,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-25 01:43:49",
-      "lastSeen": "2026-02-25T02:05:51.334Z"
+      "lastSeen": "2026-02-25T15:06:11.897Z"
     },
     {
       "adID": "1629807931702947",
@@ -76,7 +116,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-25 01:43:47",
-      "lastSeen": "2026-02-25T14:06:27.588Z"
+      "lastSeen": "2026-02-25T15:06:11.422Z"
     },
     {
       "adID": "1655848545554386",
@@ -116,7 +156,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-24 16:04:39",
-      "lastSeen": "2026-02-25T14:04:42.231Z"
+      "lastSeen": "2026-02-25T15:04:47.426Z"
     },
     {
       "adID": "2015557495677950",
@@ -156,7 +196,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-23 20:04:40",
-      "lastSeen": "2026-02-25T14:04:42.554Z"
+      "lastSeen": "2026-02-25T15:04:46.639Z"
     },
     {
       "adID": "2022276341963884",
@@ -176,7 +216,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-23 19:06:25",
-      "lastSeen": "2026-02-25T14:06:27.627Z"
+      "lastSeen": "2026-02-25T15:06:11.461Z"
     },
     {
       "adID": "1631260024666726",
@@ -256,7 +296,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-21 16:09:11",
-      "lastSeen": "2026-02-25T14:06:50.828Z"
+      "lastSeen": "2026-02-25T15:07:10.971Z"
     },
     {
       "adID": "1385440476427288",
@@ -372,8 +412,8 @@
       "location": "Pendergrass, GA",
       "imageUrl": "https://scontent-atl3-1.xx.fbcdn.net/v/t39.84726-6/638108779_1665677077762345_1325306140067976618_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=100&ccb=1-7&_nc_sid=92e707&_nc_ohc=Gkd0zX0EuKwQ7kNvwE2g9o2&_nc_oc=AdnIGsBa5zz2isIR5SazvKFBr83w_MwGY1rI8ruD9gkvEiea8en32xod9J97Cweg0eU&_nc_zt=14&_nc_ht=scontent-atl3-1.xx&_nc_gid=Yb4doNbOmZAffC6cvHKAoQ&oh=00_AfseFLATbvzKN8mqbra7icL2c5PaSfEIwjcuvNaMjgZ2-Q&oe=69A22E59",
       "adUrl": "https://www.facebook.com/marketplace/item/846774618396993/",
-      "priceChanged": 1,
-      "priceChangedAt": "2026-02-23 15:04:41",
+      "priceChanged": 0,
+      "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-18 14:05:36",
       "lastSeen": "2026-02-25T14:04:42.954Z"
@@ -516,7 +556,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 23:10:53",
-      "lastSeen": "2026-02-25T14:04:42.330Z"
+      "lastSeen": "2026-02-25T15:04:47.320Z"
     },
     {
       "adID": "1937314130515670",
@@ -556,7 +596,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 18:10:39",
-      "lastSeen": "2026-02-25T14:06:28.062Z"
+      "lastSeen": "2026-02-25T15:06:11.662Z"
     },
     {
       "adID": "2948138838710326",
@@ -576,7 +616,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 17:22:24",
-      "lastSeen": "2026-02-25T14:04:42.863Z"
+      "lastSeen": "2026-02-25T15:04:46.706Z"
     },
     {
       "adID": "2185352358965594",
@@ -596,7 +636,7 @@
       "priceChangedAt": "2026-02-23 20:04:41",
       "hidden": 0,
       "created_at": "2026-02-13 17:22:23",
-      "lastSeen": "2026-02-25T14:04:41.588Z"
+      "lastSeen": "2026-02-25T15:04:47.628Z"
     },
     {
       "adID": "880228111053501",
@@ -616,7 +656,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 17:22:18",
-      "lastSeen": "2026-02-25T14:04:41.220Z"
+      "lastSeen": "2026-02-25T15:04:46.572Z"
     }
   ]
 }
