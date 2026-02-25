@@ -939,3 +939,70 @@ a:hover {
 .fltCount {
   margin-left: 2px;
 }
+
+/* ===== Toolbar density cleanup (universal) ===== */
+
+/* shrink outer toolbar margin a bit */
+.toolbar {
+  margin: 12px 0 12px;
+}
+
+/* Row 1: search + count */
+.toolbarTop {
+  padding: 8px 10px;
+  gap: 8px;
+}
+
+/* Row 2: filter dropdown pills */
+.toolbarFilters {
+  padding: 6px 10px;
+  gap: 4px;           /* tighter horizontal spacing */
+  row-gap: 6px;       /* tighter vertical spacing when it wraps */
+}
+
+/* Row 2.5: active filter chips */
+.toolbarActiveFilters {
+  padding: 4px 10px 6px;
+  gap: 6px;
+  min-height: 0;      /* remove reserved empty space */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* Row 3: sort pills */
+.toolbarPills {
+  padding: 6px 10px 8px;
+}
+
+/* make filter buttons less tall */
+.fltBtn {
+  padding: 4px 8px;
+  gap: 6px;
+}
+
+/* make sort pills less tall */
+.pillBtn {
+  padding: 5px 10px;
+}
+
+/* search input slightly shorter */
+.searchInput {
+  padding: 8px 38px 8px 12px;
+}
+
+/* keep right side tight */
+.toolbarRight {
+  margin-left: 8px;
+  gap: 8px;
+}
+
+/* ===== Mobile: even tighter ===== */
+@media (max-width: 520px) {
+  .toolbarTop { padding: 7px 8px; }
+  .toolbarFilters { padding: 6px 8px; gap: 4px; row-gap: 6px; }
+  .toolbarActiveFilters { padding: 4px 8px 6px; }
+  .toolbarPills { padding: 6px 8px 8px; }
+
+  .fltBtn { padding: 4px 7px; font-size: 12px; }
+  .pillBtn { padding: 5px 9px; }
+  .searchInput { padding: 8px 34px 8px 12px; }
+}
