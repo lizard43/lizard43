@@ -893,3 +893,33 @@ a:hover {
   min-width: 0;
   /* important for grid children */
 }
+
+@media (max-width: 520px) {
+  .toolbarTop {
+    gap: 8px;
+  }
+
+  .searchWrapWide {
+    flex: 1 1 auto;
+    min-width: 0;
+  }
+
+  .toolbarRight {
+    margin-left: 0;
+    gap: 8px;
+  }
+
+  /* Let the count shrink + ellipsis instead of pushing offscreen */
+  .toolbarCount {
+    max-width: 38vw;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  /* Compare button stays compact */
+  .iconBtn {
+    padding: 6px 8px;
+    gap: 6px;
+  }
+}

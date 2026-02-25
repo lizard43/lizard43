@@ -29,7 +29,7 @@ const filters = {
   drive: new Set(),
   color: new Set(),
   int: new Set(),
-  sold: new Set(),
+  // sold: new Set(),
 };
 
 let selectedVins = new Set();     // up to 3 VINs
@@ -140,7 +140,7 @@ const FILTER_DEFS = [
   { key: "drive", label: "Drive" },
   { key: "color", label: "Color" },
   { key: "int", label: "Int" },
-  { key: "sold", label: "Sold" },
+  // { key: "sold", label: "Sold" },
 ];
 
 function renderActiveFiltersLine() {
@@ -692,6 +692,10 @@ async function applyFilterSortRender() {
   }
 
   // 2) facet filters
+
+  // Default: hide pre-sold vehicles (no UI filter)
+  searchFiltered = searchFiltered.filter(v => v?.isPreSold !== true);
+
   let out = searchFiltered;
   out = out.filter(isAllowedByFilters);
 
