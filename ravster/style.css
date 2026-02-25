@@ -923,3 +923,19 @@ a:hover {
     gap: 6px;
   }
 }
+
+/* Tighten filter pill spacing */
+.toolbarFilters {
+  gap: 4px;
+  /* was 8px */
+}
+
+.fltBtn {
+  padding: 5px 8px;
+  /* slightly slimmer */
+  font-size: 12px;
+}
+
+.fltCount {
+  margin-left: 2px;
+}
