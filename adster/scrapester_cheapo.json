@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-02-25T17:08:00.288Z",
+  "generated_at": "2026-02-25T18:08:01.775Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,53 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 31,
-      "droppedPrice": 123,
+      "exported_ads": 33,
+      "droppedPrice": 125,
       "droppedMissingGeo": 0,
-      "droppedCircle": 121
+      "droppedCircle": 125
     }
   },
   "ads": [
+    {
+      "adID": "2340913433072565",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/1643504658/?product_id=2340913433072565",
+      "author": "Denise Manning Kennedy",
+      "postedTime": "2025-11-09T23:19:42.000Z",
+      "title": "1996 Atlanta 100th Olympic Games Bottle & Pin",
+      "description": "1996 Olympic Atlanta 100th Bottle and Pin. In original box. $36",
+      "price": "$36",
+      "lat": 34.1652304,
+      "lon": -84.7997613,
+      "location": "Cartersville, GA",
+      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/636847380_3944279192539618_934387864428335200_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=102&ccb=1-7&_nc_sid=92e707&_nc_ohc=njoVQGPVf28Q7kNvwEy-_4C&_nc_oc=AdnpnWjZ0bu829mP8k2hdnY93mKLMJbgBOXLBfA4OlrEfSKsU6g6tGIuHCHVGUw-3V8&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=yPqetqzpA8Aeg5r5mTD65w&oh=00_AfvDfItWZgagp68_otyz-FrBfivVGMIIh0n9FyWfkq9gYg&oe=69A4F2D6",
+      "adUrl": "https://www.facebook.com/marketplace/item/2340913433072565/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-02-25 18:06:48",
+      "lastSeen": "2026-02-25T18:07:24.358Z"
+    },
+    {
+      "adID": "1260752359519436",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100000918501837/?product_id=1260752359519436",
+      "author": "Ron You",
+      "postedTime": "2026-02-25T17:54:45.000Z",
+      "title": "Arcade machine",
+      "description": "",
+      "price": "$150",
+      "lat": 27.9449854,
+      "lon": -82.4583107,
+      "location": "Tampa, FL",
+      "imageUrl": "https://scontent-dfw5-3.xx.fbcdn.net/v/t39.84726-6/641641245_2097453361052862_8189519693279187393_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=108&ccb=1-7&_nc_sid=92e707&_nc_ohc=DhBuHMLaLN0Q7kNvwGcAGyT&_nc_oc=Adl4Jnk6s3xKuK4lvlMTXRthX2rfQH5-rYPNuEvtATmhYuqCa_mf1taey4rTTVN0XtM&_nc_zt=14&_nc_ht=scontent-dfw5-3.xx&_nc_gid=PV51qUq7HQ9cu25UG7XjJQ&oh=00_Afvaals0t53fToVUdYXNyxdUNIn_yzsiFSMhMN5yKr-m3Q&oe=69A5189A",
+      "adUrl": "https://www.facebook.com/marketplace/item/1260752359519436/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-02-25 18:04:46",
+      "lastSeen": "2026-02-25T18:06:00.620Z"
+    },
     {
       "adID": "748910844433275",
       "source": "MP",
@@ -76,7 +116,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-25 17:06:11",
-      "lastSeen": "2026-02-25T17:07:21.656Z"
+      "lastSeen": "2026-02-25T18:06:47.209Z"
     },
     {
       "adID": "929954639508422",
@@ -96,7 +136,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-25 14:04:41",
-      "lastSeen": "2026-02-25T17:04:45.632Z"
+      "lastSeen": "2026-02-25T18:04:47.240Z"
     },
     {
       "adID": "711486688396026",
@@ -136,7 +176,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-25 01:43:47",
-      "lastSeen": "2026-02-25T17:06:09.986Z"
+      "lastSeen": "2026-02-25T18:06:46.539Z"
     },
     {
       "adID": "1655848545554386",
@@ -176,7 +216,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-24 16:04:39",
-      "lastSeen": "2026-02-25T17:04:45.469Z"
+      "lastSeen": "2026-02-25T18:04:47.031Z"
     },
     {
       "adID": "2015557495677950",
@@ -216,7 +256,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-23 20:04:40",
-      "lastSeen": "2026-02-25T17:04:45.189Z"
+      "lastSeen": "2026-02-25T18:04:46.847Z"
     },
     {
       "adID": "2022276341963884",
@@ -236,7 +276,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-23 19:06:25",
-      "lastSeen": "2026-02-25T17:06:10.030Z"
+      "lastSeen": "2026-02-25T18:06:46.574Z"
     },
     {
       "adID": "1631260024666726",
@@ -256,7 +296,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-22 21:04:46",
-      "lastSeen": "2026-02-25T17:04:44.889Z"
+      "lastSeen": "2026-02-25T18:04:47.071Z"
     },
     {
       "adID": "766634732769975",
@@ -316,7 +356,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-21 16:09:11",
-      "lastSeen": "2026-02-25T17:08:00.051Z"
+      "lastSeen": "2026-02-25T18:07:58.196Z"
     },
     {
       "adID": "1385440476427288",
@@ -436,7 +476,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-18 14:05:36",
-      "lastSeen": "2026-02-25T14:04:42.954Z"
+      "lastSeen": "2026-02-25T18:04:47.474Z"
     },
     {
       "adID": "788719020916987",
@@ -536,7 +576,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 23:10:53",
-      "lastSeen": "2026-02-25T17:04:45.392Z"
+      "lastSeen": "2026-02-25T18:04:46.679Z"
     },
     {
       "adID": "1937314130515670",
@@ -576,7 +616,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 18:10:39",
-      "lastSeen": "2026-02-25T17:06:10.673Z"
+      "lastSeen": "2026-02-25T18:06:46.909Z"
     },
     {
       "adID": "2948138838710326",
@@ -596,7 +636,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 17:22:24",
-      "lastSeen": "2026-02-25T17:04:44.722Z"
+      "lastSeen": "2026-02-25T18:04:46.952Z"
     },
     {
       "adID": "2185352358965594",
@@ -616,7 +656,7 @@
       "priceChangedAt": "2026-02-23 20:04:41",
       "hidden": 0,
       "created_at": "2026-02-13 17:22:23",
-      "lastSeen": "2026-02-25T17:04:44.956Z"
+      "lastSeen": "2026-02-25T18:04:46.511Z"
     },
     {
       "adID": "880228111053501",
@@ -636,7 +676,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 17:22:18",
-      "lastSeen": "2026-02-25T17:04:44.554Z"
+      "lastSeen": "2026-02-25T18:04:46.111Z"
     }
   ]
 }
