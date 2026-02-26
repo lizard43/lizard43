@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-02-26T00:47:54.612Z",
+  "generated_at": "2026-02-26T01:07:31.287Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,32 +11,52 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 33,
-      "droppedPrice": 112,
+      "exported_ads": 34,
+      "droppedPrice": 111,
       "droppedMissingGeo": 0,
-      "droppedCircle": 142
+      "droppedCircle": 135
     }
   },
   "ads": [
+    {
+      "adID": "1428066718733243",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/1011987386/?product_id=1428066718733243",
+      "author": "Toyo Calm",
+      "postedTime": "2025-11-07T20:30:13.000Z",
+      "title": "Lol surprise little sister dolls lot of 8 with Acessories & doll pinball game",
+      "description": "Lol surprise little sister dolls lot of 8 with Acessories & doll pinball game",
+      "price": "$15",
+      "lat": 33.9566391,
+      "lon": -83.9890066,
+      "location": "Lawrenceville, GA",
+      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/577951819_2926499414406304_3970611839213483864_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=102&ccb=1-7&_nc_sid=92e707&_nc_ohc=GG0BIPI_A-AQ7kNvwHd0KzU&_nc_oc=Adndphq6yPvtZ7r2UKLl_wQDlFORakiLr-NScvcUOQbP84LP_X32hE0Z5_TQGBzo7zc&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=wpIzwx8icQDJYOpW6JCUdw&oh=00_Afsk615NSOxXIYHZzX2AZb2y34cE5Zo6Vz6qCaaenqVzhg&oe=69A5891A",
+      "adUrl": "https://www.facebook.com/marketplace/item/1428066718733243/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-02-26 01:06:15",
+      "lastSeen": "2026-02-26T01:06:55.806Z"
+    },
     {
       "adID": "2384938281964594",
       "source": "FB",
       "authorUrl": null,
       "author": "Joey Richard",
-      "postedTime": "2026-02-25T23:03:32.299Z",
+      "postedTime": "2026-02-25T23:03:32.404Z",
       "title": "Big Buc hunter for sale",
       "description": "This Big Buc Hunter is fully operational and location ready. If you’re looking for a passive source of income are a item for your mancave, then this could be the perfect addition. Please reach out as this unit will not last long!",
       "price": "$850",
       "lat": 30.4388041,
       "lon": -90.4414762,
       "location": "PONCHATOULA, LA",
-      "imageUrl": "https://scontent-dfw5-3.xx.fbcdn.net/v/t39.30808-6/641383669_1612271399916060_5695255111160492375_n.jpg?stp=dst-jpg_s590x590_tt6&_nc_cat=108&ccb=1-7&_nc_sid=e06c5d&_nc_ohc=eoEkvxjGxC8Q7kNvwEf6_H9&_nc_oc=Adk93tzmlhv2scZvnWC33tFVnByhWPvTuPt4UxA8Z3fM1lYfbUfNtYv_KpTZk9jRIGE&_nc_zt=23&_nc_ht=scontent-dfw5-3.xx&_nc_gid=IYQ9-ohm71s6ZuJlwMtrSg&oh=00_AfvEURMDjMFmzXKhCfvI-YrOYzCbvToFei1mwifE9SCQeg&oe=69A55C31",
+      "imageUrl": "https://scontent-dfw5-3.xx.fbcdn.net/v/t39.30808-6/641383669_1612271399916060_5695255111160492375_n.jpg?stp=dst-jpg_s590x590_tt6&_nc_cat=108&ccb=1-7&_nc_sid=e06c5d&_nc_ohc=eoEkvxjGxC8Q7kNvwEf6_H9&_nc_oc=Adk93tzmlhv2scZvnWC33tFVnByhWPvTuPt4UxA8Z3fM1lYfbUfNtYv_KpTZk9jRIGE&_nc_zt=23&_nc_ht=scontent-dfw5-3.xx&_nc_gid=aGAgd5Zo646VEa6jVOxnJw&oh=00_Afs7_HGRZMClwcc--PtRuztMJ6B9uFAJ1Wn61opiIYPSFw&oe=69A55C31",
       "adUrl": "https://www.facebook.com/commerce/listing/2384938281964594/",
       "priceChanged": 0,
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-25 23:03:25",
-      "lastSeen": "2026-02-26T00:03:32.634Z"
+      "lastSeen": "2026-02-26T01:03:32.877Z"
     },
     {
       "adID": "2058569248031245",
@@ -56,7 +76,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-25 22:04:43",
-      "lastSeen": "2026-02-26T00:04:51.815Z"
+      "lastSeen": "2026-02-26T01:04:49.885Z"
     },
     {
       "adID": "875259085468441",
@@ -176,7 +196,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-25 01:43:47",
-      "lastSeen": "2026-02-26T00:05:25.519Z"
+      "lastSeen": "2026-02-26T01:06:14.507Z"
     },
     {
       "adID": "1655848545554386",
@@ -256,7 +276,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-23 20:04:40",
-      "lastSeen": "2026-02-25T23:04:42.897Z"
+      "lastSeen": "2026-02-26T01:04:50.654Z"
     },
     {
       "adID": "2022276341963884",
@@ -276,7 +296,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-23 19:06:25",
-      "lastSeen": "2026-02-26T00:05:25.755Z"
+      "lastSeen": "2026-02-26T01:06:14.713Z"
     },
     {
       "adID": "1631260024666726",
@@ -356,7 +376,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-21 16:09:11",
-      "lastSeen": "2026-02-26T00:05:48.447Z"
+      "lastSeen": "2026-02-26T01:07:31.140Z"
     },
     {
       "adID": "1385440476427288",
@@ -476,7 +496,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-18 14:05:36",
-      "lastSeen": "2026-02-25T18:04:47.474Z"
+      "lastSeen": "2026-02-26T01:04:50.254Z"
     },
     {
       "adID": "788719020916987",
@@ -576,7 +596,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 23:10:53",
-      "lastSeen": "2026-02-26T00:04:51.993Z"
+      "lastSeen": "2026-02-26T01:04:50.153Z"
     },
     {
       "adID": "1937314130515670",
@@ -616,7 +636,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 18:10:39",
-      "lastSeen": "2026-02-26T00:05:26.089Z"
+      "lastSeen": "2026-02-26T01:06:14.949Z"
     },
     {
       "adID": "2948138838710326",
@@ -676,7 +696,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 17:22:18",
-      "lastSeen": "2026-02-26T00:04:51.670Z"
+      "lastSeen": "2026-02-26T01:04:49.740Z"
     }
   ]
 }
