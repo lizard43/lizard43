@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-02-26T17:07:14.049Z",
+  "generated_at": "2026-02-26T18:07:35.123Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,53 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 33,
-      "droppedPrice": 111,
+      "exported_ads": 35,
+      "droppedPrice": 113,
       "droppedMissingGeo": 0,
-      "droppedCircle": 122
+      "droppedCircle": 127
     }
   },
   "ads": [
+    {
+      "adID": "1518081646994859",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100000160830514/?product_id=1518081646994859",
+      "author": "Brian Vasquez",
+      "postedTime": "2026-02-26T17:13:31.000Z",
+      "title": "Pinball 3D printer filament",
+      "description": "16 different colors of 1.75MM PETG 3D printer filamnet. Each spool has 70 meters of filament. Only one was opened and then my son realized it was the wrong type for his printer. Our loss your gain.",
+      "price": "$35",
+      "lat": 33.2757006,
+      "lon": -82.9762589,
+      "location": "Sparta, GA",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/642226200_26634347662817348_8426603940579035578_n.jpg?stp=c0.152.261.261a_dst-jpg_p261x260_tt6&_nc_cat=107&ccb=1-7&_nc_sid=92e707&_nc_ohc=eyKzxNfObawQ7kNvwEalMqK&_nc_oc=AdmS_VHk0KZLxfn_ruVFon7y9OWLkAuI6aHIJJmlQ5ETQNeMstUGrTv9W8jiM0LIZIk&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=CWadtYfTOUJxD1YOXOlTkQ&oh=00_Aftl28i3B92jrwdfLbHgbNrVjbQGvVsw9Gnt7f8-Qf_jkg&oe=69A642CF",
+      "adUrl": "https://www.facebook.com/marketplace/item/1518081646994859/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-02-26 18:06:08",
+      "lastSeen": "2026-02-26T18:06:54.268Z"
+    },
+    {
+      "adID": "2335643150266761",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100008255263671/?product_id=2335643150266761",
+      "author": "Brian Wesley",
+      "postedTime": "2026-02-26T17:49:27.000Z",
+      "title": "Arcade hoops.",
+      "description": "Mount to Wall and bottom net folds out",
+      "price": "$200",
+      "lat": 34.729847,
+      "lon": -86.5859011,
+      "location": "Huntsville, AL",
+      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/641416700_906876838864945_7490392226886697777_n.jpg?stp=c0.43.261.261a_dst-jpg_p261x260_tt6&_nc_cat=104&ccb=1-7&_nc_sid=92e707&_nc_ohc=d5WYjgWSDzAQ7kNvwHoXaFc&_nc_oc=AdnvgOniOSo2QQnPcW2o0KKRPrCoZo8DT9QIfvG43liKbYZ2v_12N3hxjzOmafRjZ44&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=JttTZ2KlR516Lua3DQtOHw&oh=00_AfvtR159cwJMXqH4DsOi3d8dX6SMg3ehvcuxSyPF9uK0Rw&oe=69A650CB",
+      "adUrl": "https://www.facebook.com/marketplace/item/2335643150266761/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-02-26 18:04:44",
+      "lastSeen": "2026-02-26T18:05:23.498Z"
+    },
     {
       "adID": "2427089321094950",
       "source": "MP",
@@ -83,7 +123,7 @@
       "source": "PS",
       "authorUrl": "https://pinside.com/pinball/community/pinsiders/gardenartisan68/market",
       "author": "Gardenartisan68",
-      "postedTime": "2026-02-26T12:06:57.758Z",
+      "postedTime": "2026-02-26T12:07:18.453Z",
       "title": "Big Indian",
       "description": "Partially shopped/refurbished - “Nice Gottlieb Big Indian. Original playfield with only a minor nick here and there. New plastics & rubbers. Stenciled the cabinet. Backglass is so so. You can see in the pic wh...”",
       "price": "$800",
@@ -96,27 +136,27 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-26 12:07:20",
-      "lastSeen": "2026-02-26T17:06:58.148Z"
+      "lastSeen": "2026-02-26T18:07:19.324Z"
     },
     {
       "adID": "2384938281964594",
       "source": "FB",
       "authorUrl": null,
       "author": "Joey Richard",
-      "postedTime": "2026-02-25T23:03:30.194Z",
+      "postedTime": "2026-02-25T23:03:27.622Z",
       "title": "Big Buc hunter for sale",
       "description": "This Big Buc Hunter is fully operational and location ready. If you’re looking for a passive source of income are a item for your mancave, then this could be the perfect addition. Please reach out as this unit will not last long!",
       "price": "$850",
       "lat": 30.4388041,
       "lon": -90.4414762,
       "location": "PONCHATOULA, LA",
-      "imageUrl": "https://scontent-dfw5-3.xx.fbcdn.net/v/t39.30808-6/641383669_1612271399916060_5695255111160492375_n.jpg?stp=dst-jpg_s590x590_tt6&_nc_cat=108&ccb=1-7&_nc_sid=e06c5d&_nc_ohc=eoEkvxjGxC8Q7kNvwEf6_H9&_nc_oc=Adk93tzmlhv2scZvnWC33tFVnByhWPvTuPt4UxA8Z3fM1lYfbUfNtYv_KpTZk9jRIGE&_nc_zt=23&_nc_ht=scontent-dfw5-3.xx&_nc_gid=2ufvYxhuv__csFSkGQFTew&oh=00_AfsAeZyXbX2VYhlcMtLOojK9_kDEfg6Z9u41SJjNyVgv4w&oe=69A63D31",
+      "imageUrl": "https://scontent-dfw5-3.xx.fbcdn.net/v/t39.30808-6/641383669_1612271399916060_5695255111160492375_n.jpg?stp=dst-jpg_s590x590_tt6&_nc_cat=108&ccb=1-7&_nc_sid=e06c5d&_nc_ohc=eoEkvxjGxC8Q7kNvwEf6_H9&_nc_oc=Adk93tzmlhv2scZvnWC33tFVnByhWPvTuPt4UxA8Z3fM1lYfbUfNtYv_KpTZk9jRIGE&_nc_zt=23&_nc_ht=scontent-dfw5-3.xx&_nc_gid=cMaIeBa2xeG8YZpfnZJJ1g&oh=00_Afs9NrjenzZ4u-GcrYaiBy0nkeKuSEY0Cd17CUADEekLIA&oe=69A67571",
       "adUrl": "https://www.facebook.com/commerce/listing/2384938281964594/",
       "priceChanged": 0,
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-25 23:03:25",
-      "lastSeen": "2026-02-26T17:03:30.322Z"
+      "lastSeen": "2026-02-26T18:03:27.738Z"
     },
     {
       "adID": "2129939037846297",
@@ -176,7 +216,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-25 01:43:47",
-      "lastSeen": "2026-02-26T17:06:21.630Z"
+      "lastSeen": "2026-02-26T18:06:07.862Z"
     },
     {
       "adID": "1655848545554386",
@@ -256,7 +296,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-23 20:04:40",
-      "lastSeen": "2026-02-26T17:04:49.264Z"
+      "lastSeen": "2026-02-26T18:04:45.150Z"
     },
     {
       "adID": "2022276341963884",
@@ -276,7 +316,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-23 19:06:25",
-      "lastSeen": "2026-02-26T17:06:21.700Z"
+      "lastSeen": "2026-02-26T18:06:09.065Z"
     },
     {
       "adID": "1631260024666726",
@@ -516,7 +556,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-14 18:04:54",
-      "lastSeen": "2026-02-26T15:04:51.256Z"
+      "lastSeen": "2026-02-26T18:04:45.084Z"
     },
     {
       "adID": "1886604295309613",
@@ -576,7 +616,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 23:10:53",
-      "lastSeen": "2026-02-26T17:06:22.203Z"
+      "lastSeen": "2026-02-26T18:04:44.347Z"
     },
     {
       "adID": "1937314130515670",
@@ -616,7 +656,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 18:10:39",
-      "lastSeen": "2026-02-26T17:06:22.103Z"
+      "lastSeen": "2026-02-26T18:06:09.433Z"
     },
     {
       "adID": "2948138838710326",
@@ -636,7 +676,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 17:22:24",
-      "lastSeen": "2026-02-26T17:04:48.962Z"
+      "lastSeen": "2026-02-26T18:04:45.117Z"
     },
     {
       "adID": "2185352358965594",
@@ -656,7 +696,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 17:22:23",
-      "lastSeen": "2026-02-26T17:04:49.063Z"
+      "lastSeen": "2026-02-26T18:04:44.682Z"
     },
     {
       "adID": "880228111053501",
@@ -676,7 +716,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 17:22:18",
-      "lastSeen": "2026-02-26T17:04:49.499Z"
+      "lastSeen": "2026-02-26T18:04:44.715Z"
     }
   ]
 }
