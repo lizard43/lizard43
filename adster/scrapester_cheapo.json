@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-02-26T19:25:54.214Z",
+  "generated_at": "2026-02-26T20:06:11.635Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,32 +11,52 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 34,
-      "droppedPrice": 115,
+      "exported_ads": 35,
+      "droppedPrice": 123,
       "droppedMissingGeo": 0,
-      "droppedCircle": 132
+      "droppedCircle": 134
     }
   },
   "ads": [
+    {
+      "adID": "949407451173184",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/1222947986/?product_id=949407451173184",
+      "author": "Cody Webster",
+      "postedTime": "2026-02-26T19:27:08.000Z",
+      "title": "Talking Pinball Wizard",
+      "description": "This item is located in booth #7 at Crooks Brothers Trading Post in Thomaston. 2021 Yatesville Hwy, Thomaston, GA 30286 They are open Wed to Sun, 10 to 6",
+      "price": "$15",
+      "lat": 33.2467807,
+      "lon": -84.2640904,
+      "location": "Griffin, GA",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/643317458_890823240500371_2523880302166971057_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=105&ccb=1-7&_nc_sid=92e707&_nc_ohc=1CUCrtaztKkQ7kNvwEqXVY1&_nc_oc=AdkPZhPTmMQIQFyjxIgMn6ND-AryrHOwKvXp5L85so1gvWXoMySDgtjS5Fv4CimkAWk&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=sFaDNh2fAYDxUZ4Mkck5_Q&oh=00_Aft8B-XRahZfjfMNLFWE8p883v7WOSskG4Y4627WvqG-Ig&oe=69A67D77",
+      "adUrl": "https://www.facebook.com/marketplace/item/949407451173184/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-02-26 20:05:22",
+      "lastSeen": "2026-02-26T20:05:38.520Z"
+    },
     {
       "adID": "892701686907555",
       "source": "FB",
       "authorUrl": null,
       "author": "Barbara Smith",
-      "postedTime": "2026-02-26T18:34:42.277Z",
+      "postedTime": "2026-02-26T19:01:45.306Z",
       "title": "Breakthru PCB",
       "description": "Break Thru PCB working 75.00 Shipped or pickup.",
       "price": "$75",
       "lat": 34.1623292,
       "lon": -83.6779474,
       "location": "PENDERGRASS, GA",
-      "imageUrl": "https://scontent-dfw5-3.xx.fbcdn.net/v/t39.30808-6/643857356_10173773902070147_1502533167055840129_n.jpg?stp=dst-jpg_s590x590_tt6&_nc_cat=108&ccb=1-7&_nc_sid=e06c5d&_nc_ohc=o9KlfLAlg-YQ7kNvwG38Lpr&_nc_oc=AdkwYauYjPrCdHMeMkvGTocvKz3htgph1vFEmRogdLSpA3zDOUF__XgTVItDxVRg9-8&_nc_zt=23&_nc_ht=scontent-dfw5-3.xx&_nc_gid=lglI0wzgfrgCETX6jUFzmQ&oh=00_AfvjbSkBkNBYa4kjfCrbpCqJwjp0bs-l3IYe398WB23Kbw&oe=69A663B0",
+      "imageUrl": "https://scontent-dfw5-3.xx.fbcdn.net/v/t39.30808-6/643857356_10173773902070147_1502533167055840129_n.jpg?stp=dst-jpg_s590x590_tt6&_nc_cat=108&ccb=1-7&_nc_sid=e06c5d&_nc_ohc=o9KlfLAlg-YQ7kNvwG38Lpr&_nc_oc=AdkwYauYjPrCdHMeMkvGTocvKz3htgph1vFEmRogdLSpA3zDOUF__XgTVItDxVRg9-8&_nc_zt=23&_nc_ht=scontent-dfw5-3.xx&_nc_gid=k-8BqvpsOeEnmc_ISncpKQ&oh=00_AftK9iqjfIxPVecK5M2oYBckv1sGW0_As52rtS7gXF81rA&oe=69A663B0",
       "adUrl": "https://www.facebook.com/commerce/listing/892701686907555/",
       "priceChanged": 0,
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-26 19:01:42",
-      "lastSeen": "2026-02-26T19:01:42.325Z"
+      "lastSeen": "2026-02-26T20:01:45.325Z"
     },
     {
       "adID": "2427089321094950",
@@ -103,7 +123,7 @@
       "source": "PS",
       "authorUrl": "https://pinside.com/pinball/community/pinsiders/gardenartisan68/market",
       "author": "Gardenartisan68",
-      "postedTime": "2026-02-26T12:06:47.470Z",
+      "postedTime": "2026-02-26T12:05:53.386Z",
       "title": "Big Indian",
       "description": "Partially shopped/refurbished - “Nice Gottlieb Big Indian. Original playfield with only a minor nick here and there. New plastics & rubbers. Stenciled the cabinet. Backglass is so so. You can see in the pic wh...”",
       "price": "$800",
@@ -116,27 +136,27 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-26 12:07:20",
-      "lastSeen": "2026-02-26T19:06:48.114Z"
+      "lastSeen": "2026-02-26T20:05:54.133Z"
     },
     {
       "adID": "2384938281964594",
       "source": "FB",
       "authorUrl": null,
       "author": "Joey Richard",
-      "postedTime": "2026-02-25T23:03:27.489Z",
+      "postedTime": "2026-02-25T23:03:30.743Z",
       "title": "Big Buc hunter for sale",
       "description": "This Big Buc Hunter is fully operational and location ready. If you’re looking for a passive source of income are a item for your mancave, then this could be the perfect addition. Please reach out as this unit will not last long!",
       "price": "$850",
       "lat": 30.4388041,
       "lon": -90.4414762,
       "location": "PONCHATOULA, LA",
-      "imageUrl": "https://scontent-dfw5-3.xx.fbcdn.net/v/t39.30808-6/641383669_1612271399916060_5695255111160492375_n.jpg?stp=dst-jpg_s590x590_tt6&_nc_cat=108&ccb=1-7&_nc_sid=e06c5d&_nc_ohc=eoEkvxjGxC8Q7kNvwEf6_H9&_nc_oc=Adk93tzmlhv2scZvnWC33tFVnByhWPvTuPt4UxA8Z3fM1lYfbUfNtYv_KpTZk9jRIGE&_nc_zt=23&_nc_ht=scontent-dfw5-3.xx&_nc_gid=Q9tMzVypz0cHdQuxbUld6g&oh=00_Afv9YkmbonYr8waUyTSBPInyQ4IW-glHRc7IVJ7pEMXEQw&oe=69A67571",
+      "imageUrl": "https://scontent-dfw5-3.xx.fbcdn.net/v/t39.30808-6/641383669_1612271399916060_5695255111160492375_n.jpg?stp=dst-jpg_s590x590_tt6&_nc_cat=108&ccb=1-7&_nc_sid=e06c5d&_nc_ohc=eoEkvxjGxC8Q7kNvwEf6_H9&_nc_oc=Adk93tzmlhv2scZvnWC33tFVnByhWPvTuPt4UxA8Z3fM1lYfbUfNtYv_KpTZk9jRIGE&_nc_zt=23&_nc_ht=scontent-dfw5-3.xx&_nc_gid=l9jC62wkKvWREaqS3XSdlw&oh=00_Afv56G_2Y0Zxb32VW2hJnwuBerLjsDSZSANAQXKrUb68iA&oe=69A67571",
       "adUrl": "https://www.facebook.com/commerce/listing/2384938281964594/",
       "priceChanged": 0,
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-25 23:03:25",
-      "lastSeen": "2026-02-26T19:03:27.621Z"
+      "lastSeen": "2026-02-26T20:03:30.921Z"
     },
     {
       "adID": "2129939037846297",
@@ -196,7 +216,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-25 01:43:47",
-      "lastSeen": "2026-02-26T19:05:50.093Z"
+      "lastSeen": "2026-02-26T20:05:21.561Z"
     },
     {
       "adID": "1655848545554386",
@@ -216,7 +236,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-24 16:04:39",
-      "lastSeen": "2026-02-26T17:04:49.465Z"
+      "lastSeen": "2026-02-26T20:04:47.549Z"
     },
     {
       "adID": "1123740139806319",
@@ -296,7 +316,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-23 19:06:25",
-      "lastSeen": "2026-02-26T19:05:50.763Z"
+      "lastSeen": "2026-02-26T20:05:21.729Z"
     },
     {
       "adID": "1631260024666726",
@@ -596,7 +616,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 23:10:53",
-      "lastSeen": "2026-02-26T19:04:43.839Z"
+      "lastSeen": "2026-02-26T20:04:48.119Z"
     },
     {
       "adID": "1937314130515670",
@@ -636,7 +656,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 18:10:39",
-      "lastSeen": "2026-02-26T19:05:50.696Z"
+      "lastSeen": "2026-02-26T20:05:21.863Z"
     },
     {
       "adID": "2948138838710326",
@@ -656,7 +676,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 17:22:24",
-      "lastSeen": "2026-02-26T19:04:47.574Z"
+      "lastSeen": "2026-02-26T20:04:47.750Z"
     },
     {
       "adID": "2185352358965594",
@@ -696,7 +716,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 17:22:18",
-      "lastSeen": "2026-02-26T19:04:43.436Z"
+      "lastSeen": "2026-02-26T20:04:47.616Z"
     }
   ]
 }
