@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-02-26T14:25:02.458Z",
+  "generated_at": "2026-02-26T15:08:12.674Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,19 +11,79 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 30,
-      "droppedPrice": 100,
+      "exported_ads": 33,
+      "droppedPrice": 103,
       "droppedMissingGeo": 0,
-      "droppedCircle": 115
+      "droppedCircle": 118
     }
   },
   "ads": [
+    {
+      "adID": "25681590728202814",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/537803213/?product_id=25681590728202814",
+      "author": "Troy Cook",
+      "postedTime": "2026-02-24T20:57:46.000Z",
+      "title": "Babcock DMD",
+      "description": "I have a Babcock display out of a pinball game. It’s a GD 032D128-02 Consider it non working",
+      "price": "$50",
+      "lat": 30.3946392,
+      "lon": -89.3639378,
+      "location": "Diamondhead, MS",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/640172403_789231470313056_5332475315073699863_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=107&ccb=1-7&_nc_sid=92e707&_nc_ohc=tEn1GLlYdbcQ7kNvwH3p4lP&_nc_oc=AdlcamRrGzASxMgADxv_itryHlmK0MbClt0qYPYqp-bBusnLPu9HRN3NLhM5ZPWyOJQ&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=w3k683AcYgagXHsZsJeSxg&oh=00_AftruRn0dLkmuAF69M3YCV02qVXOhoMsr2zS467_j7PCyA&oe=69A64BC9",
+      "adUrl": "https://www.facebook.com/marketplace/item/25681590728202814/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-02-26 15:07:13",
+      "lastSeen": "2026-02-26T15:07:39.896Z"
+    },
+    {
+      "adID": "675528545616516",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/1238274722/?product_id=675528545616516",
+      "author": "Rocky Pal",
+      "postedTime": "2026-02-26T14:36:51.000Z",
+      "title": "Williams Stargate Playing Blind Updated",
+      "description": "Moved to a different room and started playing blind. Also noticed Marquee not lit now so hoping as easy as the ac line to it. I will pull out and can make video with sound, etc just wanted to get it out there in case. It's been 5 years or so but control panel is excellent overlay, the board was shopped out with the old ram removed and replaced with the industry standard as well as newer style arcade power supply to avoid the original mcr problems. Original stick and buttons. Any questions just ask.",
+      "price": "$600",
+      "lat": 29.8835055,
+      "lon": -90.1184486,
+      "location": "Marrero, LA",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/640394848_26339747758963235_1482791732976533276_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=111&ccb=1-7&_nc_sid=92e707&_nc_ohc=8fKZsQOZmVsQ7kNvwEDCzbD&_nc_oc=AdkhmXYhn0mYeqhYL-YeISZSgC1-EfNqZ0XCvz4XVe9rXM4NNLvhI4VbmSWZarntCCU&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=iJVC6UQSRbR0yI3IwKxZVw&oh=00_AftJc4Q_p45Pe7yECaGV7afzmIFQIlbSXgoIAoa3cjhsyQ&oe=69A6211D",
+      "adUrl": "https://www.facebook.com/marketplace/item/675528545616516/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-02-26 15:04:51",
+      "lastSeen": "2026-02-26T15:06:20.362Z"
+    },
+    {
+      "adID": "4189595917984313",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100013487464385/?product_id=4189595917984313",
+      "author": "Matt Rucker",
+      "postedTime": "2026-02-26T14:57:57.000Z",
+      "title": "ARCADE FEVER",
+      "description": "ARCADE FEVER 50 obo",
+      "price": "$50",
+      "lat": 29.7896882,
+      "lon": -82.1673248,
+      "location": "Waldo, FL",
+      "imageUrl": "https://scontent-dfw5-3.xx.fbcdn.net/v/t39.84726-6/569037888_1580364946461814_6854100116104226998_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=108&ccb=1-7&_nc_sid=92e707&_nc_ohc=NNngowFgErsQ7kNvwH9Hcd7&_nc_oc=AdnC135Gd-28JHX9w25izbZ4ZxtHC4yzdmw-8nASCFEmHaKZ9mdRkcdttHCnWFKTNug&_nc_zt=14&_nc_ht=scontent-dfw5-3.xx&_nc_gid=HvvI3hRxnyTYbEppKn8jOQ&oh=00_AfumPkAcytprKDu2OObjEtIyNGPaBo1Dx9NzRZN8mpsCIw&oe=69A62388",
+      "adUrl": "https://www.facebook.com/marketplace/item/4189595917984313/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-02-26 15:04:50",
+      "lastSeen": "2026-02-26T15:06:20.227Z"
+    },
     {
       "adID": "PI-210181",
       "source": "PS",
       "authorUrl": "https://pinside.com/pinball/community/pinsiders/gardenartisan68/market",
       "author": "Gardenartisan68",
-      "postedTime": "2026-02-26T12:06:37.524Z",
+      "postedTime": "2026-02-26T12:07:55.892Z",
       "title": "Big Indian",
       "description": "Partially shopped/refurbished - “Nice Gottlieb Big Indian. Original playfield with only a minor nick here and there. New plastics & rubbers. Stenciled the cabinet. Backglass is so so. You can see in the pic wh...”",
       "price": "$800",
@@ -36,27 +96,27 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-26 12:07:20",
-      "lastSeen": "2026-02-26T14:06:37.637Z"
+      "lastSeen": "2026-02-26T15:07:56.757Z"
     },
     {
       "adID": "2384938281964594",
       "source": "FB",
       "authorUrl": null,
       "author": "Joey Richard",
-      "postedTime": "2026-02-25T23:03:22.785Z",
+      "postedTime": "2026-02-25T23:03:28.786Z",
       "title": "Big Buc hunter for sale",
       "description": "This Big Buc Hunter is fully operational and location ready. If you’re looking for a passive source of income are a item for your mancave, then this could be the perfect addition. Please reach out as this unit will not last long!",
       "price": "$850",
       "lat": 30.4388041,
       "lon": -90.4414762,
       "location": "PONCHATOULA, LA",
-      "imageUrl": "https://scontent-dfw5-3.xx.fbcdn.net/v/t39.30808-6/641383669_1612271399916060_5695255111160492375_n.jpg?stp=dst-jpg_s590x590_tt6&_nc_cat=108&ccb=1-7&_nc_sid=e06c5d&_nc_ohc=eoEkvxjGxC8Q7kNvwEf6_H9&_nc_oc=Adk93tzmlhv2scZvnWC33tFVnByhWPvTuPt4UxA8Z3fM1lYfbUfNtYv_KpTZk9jRIGE&_nc_zt=23&_nc_ht=scontent-dfw5-3.xx&_nc_gid=LCvhHkWk3NznTcqh8P5eLw&oh=00_Afvd25_NUmFOHiatSwM5ngmN50ydQE-O-xogElnRRvqbBg&oe=69A63D31",
+      "imageUrl": "https://scontent-dfw5-3.xx.fbcdn.net/v/t39.30808-6/641383669_1612271399916060_5695255111160492375_n.jpg?stp=dst-jpg_s590x590_tt6&_nc_cat=108&ccb=1-7&_nc_sid=e06c5d&_nc_ohc=eoEkvxjGxC8Q7kNvwEf6_H9&_nc_oc=Adk93tzmlhv2scZvnWC33tFVnByhWPvTuPt4UxA8Z3fM1lYfbUfNtYv_KpTZk9jRIGE&_nc_zt=23&_nc_ht=scontent-dfw5-3.xx&_nc_gid=8OlHBPfaUrowRAqh6TW_PA&oh=00_AfsxyuPXxIFc3VuXbEtqClu_wtk7Ze1NUDEx3r3OFG-VDw&oe=69A63D31",
       "adUrl": "https://www.facebook.com/commerce/listing/2384938281964594/",
       "priceChanged": 0,
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-25 23:03:25",
-      "lastSeen": "2026-02-26T14:03:22.936Z"
+      "lastSeen": "2026-02-26T15:03:28.912Z"
     },
     {
       "adID": "2129939037846297",
@@ -116,7 +176,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-25 01:43:47",
-      "lastSeen": "2026-02-26T14:06:00.329Z"
+      "lastSeen": "2026-02-26T15:07:12.640Z"
     },
     {
       "adID": "1655848545554386",
@@ -136,7 +196,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-24 16:04:39",
-      "lastSeen": "2026-02-25T16:26:28.470Z"
+      "lastSeen": "2026-02-26T15:04:50.385Z"
     },
     {
       "adID": "1123740139806319",
@@ -196,7 +256,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-23 20:04:40",
-      "lastSeen": "2026-02-26T13:04:49.334Z"
+      "lastSeen": "2026-02-26T15:04:50.922Z"
     },
     {
       "adID": "2022276341963884",
@@ -216,7 +276,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-23 19:06:25",
-      "lastSeen": "2026-02-26T14:06:00.770Z"
+      "lastSeen": "2026-02-26T15:07:12.725Z"
     },
     {
       "adID": "1631260024666726",
@@ -256,7 +316,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-22 16:05:00",
-      "lastSeen": "2026-02-26T14:04:38.754Z"
+      "lastSeen": "2026-02-26T15:04:51.357Z"
     },
     {
       "adID": "1920698478541387",
@@ -456,7 +516,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-14 18:04:54",
-      "lastSeen": "2026-02-26T14:24:43.208Z"
+      "lastSeen": "2026-02-26T15:04:51.256Z"
     },
     {
       "adID": "1886604295309613",
@@ -516,7 +576,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 23:10:53",
-      "lastSeen": "2026-02-26T14:04:38.653Z"
+      "lastSeen": "2026-02-26T15:07:13.193Z"
     },
     {
       "adID": "1937314130515670",
@@ -556,7 +616,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 18:10:39",
-      "lastSeen": "2026-02-26T14:06:00.992Z"
+      "lastSeen": "2026-02-26T15:07:13.026Z"
     },
     {
       "adID": "2948138838710326",
@@ -576,7 +636,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 17:22:24",
-      "lastSeen": "2026-02-26T14:04:39.023Z"
+      "lastSeen": "2026-02-26T15:04:50.453Z"
     },
     {
       "adID": "2185352358965594",
@@ -616,7 +676,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 17:22:18",
-      "lastSeen": "2026-02-26T14:04:38.622Z"
+      "lastSeen": "2026-02-26T15:04:51.055Z"
     }
   ]
 }
