@@ -1,10 +1,10 @@
 // MazSter (RAVster-style)
 // Expects:
 //  - mazda-data.json (object: { count, vehicles: [...] })
-//  - dealer.json (optional for later geo; not used yet)
+//  - dealers.json (for geolocation distance)
 
 const INVENTORY_JSON_PATH = "./mazda-data.json";
-// const DEALERS_JSON_PATH = "./dealers.json"; // later
+const DEALERS_JSON_PATH = "./dealers.json";
 
 const elCardsGrid = document.getElementById("cardsGrid");
 const elCompareView = document.getElementById("compareView");
@@ -15,7 +15,7 @@ const elToolbarCount = document.getElementById("toolbarCount");
 
 const elPillSortPrice = document.getElementById("pillSortPrice");
 const elPillSortYear = document.getElementById("pillSortYear");
-const elPillSortTrim = document.getElementById("pillSortTrim");
+const elPillSortDist = document.getElementById("pillSortDist");
 
 const elBtnCompare = document.getElementById("btnCompare");
 const elCompareCount = document.getElementById("compareCount");
@@ -41,9 +41,14 @@ let isCompareMode = false;
 let ALL = [];     // raw vehicles
 let VIEW = [];    // filtered + sorted
 
-let sortKey = "price"; // price | year | trim
+let sortKey = "price"; // price | year | distance
 let sortDir = "asc";   // asc | desc
 let searchQ = "";
+
+// Dealer geo
+let DEALERS_BY_ID = new Map();        // dealerId -> dealer object
+let DEALER_DISTANCE_MI = new Map();   // dealerId -> miles (number)
+let USER_GEO = null;                  // { lat, lon }
 
 // ---------- Utils ----------
 function showGrid() {
@@ -89,6 +94,77 @@ function cleanHtmlToText(input) {
   tmp.innerHTML = String(input);
   const text = (tmp.textContent || tmp.innerText || "");
   return text.replace(/\s+/g, " ").trim();
+}
+
+// Haversine distance (straight-line) in miles
+function haversineMiles(lat1, lon1, lat2, lon2) {
+  const toRad = (d) => (d * Math.PI) / 180;
+  const R = 3958.7613; // mean Earth radius in miles
+  const dLat = toRad(lat2 - lat1);
+  const dLon = toRad(lon2 - lon1);
+  const a =
+    Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+    Math.cos(toRad(lat1)) * Math.cos(toRad(lat2)) *
+    Math.sin(dLon / 2) * Math.sin(dLon / 2);
+  const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+  return R * c;
+}
+
+function dealerLatLon(dealer) {
+  if (!dealer) return null;
+  const lat = asNumber(dealer.lat);
+  // Mazda dealers.json has both "lon" and "long" (and sometimes both). Prefer lon.
+  const lon = asNumber(dealer.lon ?? dealer.long);
+  if (lat === null || lon === null) return null;
+  return { lat, lon };
+}
+
+function fmtMiles(mi) {
+  if (mi === null || mi === undefined || !Number.isFinite(mi)) return "— mi";
+  const digits = mi < 10 ? 1 : 0;
+  return `${mi.toFixed(digits)} mi`;
+}
+
+async function loadDealers() {
+  try {
+    const data = await loadJson(DEALERS_JSON_PATH);
+    const arr = Array.isArray(data) ? data : (Array.isArray(data?.dealers) ? data.dealers : null);
+    if (!Array.isArray(arr)) return;
+    DEALERS_BY_ID = new Map(arr.map(d => [Number(d.id), d]));
+  } catch (e) {
+    console.warn("Dealers not loaded:", e);
+  }
+}
+
+function computeAllDealerDistances() {
+  DEALER_DISTANCE_MI.clear();
+  if (!USER_GEO) return;
+
+  for (const [id, d] of DEALERS_BY_ID.entries()) {
+    const ll = dealerLatLon(d);
+    if (!ll) continue;
+    const mi = haversineMiles(USER_GEO.lat, USER_GEO.lon, ll.lat, ll.lon);
+    DEALER_DISTANCE_MI.set(id, mi);
+  }
+}
+
+function getDealerDistanceLabelForVehicle(v) {
+  const id = Number(v?.dealerId);
+  if (!Number.isFinite(id)) return "— mi";
+  const mi = DEALER_DISTANCE_MI.get(id);
+  return fmtMiles(mi);
+}
+
+function requestUserGeo() {
+  if (!("geolocation" in navigator)) return Promise.resolve(null);
+
+  return new Promise((resolve) => {
+    navigator.geolocation.getCurrentPosition(
+      (pos) => resolve({ lat: pos.coords.latitude, lon: pos.coords.longitude }),
+      () => resolve(null),
+      { enableHighAccuracy: false, timeout: 8000, maximumAge: 60_000 }
+    );
+  });
 }
 
 function priceOf(v) {
@@ -633,11 +709,23 @@ function cardTemplate(v) {
           <span class="muted">${escapeHtml(intc)}</span>
         </div>
 
-      <div class="line">
-        <span class="muted">${dealerHtml}</span>
-        <span class="muted">-</span>
-        <span class="muted">100 miles</span>
-      </div>
+        ${(() => {
+          const dealerObj = DEALERS_BY_ID.get(Number(v?.dealerId));
+          const city = safeText(dealerObj?.city, "");
+          const state = safeText(dealerObj?.state, "");
+          const location = (city && state) ? `${city}, ${state}` : city || state;
+
+          return `
+            <div class="line">
+              <span class="muted">${dealerHtml}</span>
+            </div>
+            <div class="line">
+              <span class="muted">${escapeHtml(location)}</span>
+              <span class="muted">-</span>
+              <span class="muted">${escapeHtml(getDealerDistanceLabelForVehicle(v))}</span>
+            </div>
+          `;
+        })()}
 
         <div class="pills">
           <button class="pill pillOptions" type="button" aria-expanded="false">
@@ -674,16 +762,17 @@ function renderMainArea() {
 function sortLabel(k) {
   if (k === "price") return "Price";
   if (k === "year") return "Year";
-  if (k === "trim") return "Trim";
+  if (k === "distance") return "Distance";
   return k;
 }
+
 function sortDirGlyph() { return (sortDir === "asc") ? "↑" : "↓"; }
 
 function setActiveSortPillUI() {
   const pills = [
     { key: "price", el: elPillSortPrice },
     { key: "year", el: elPillSortYear },
-    { key: "trim", el: elPillSortTrim },
+    { key: "distance", el: elPillSortDist },
   ];
 
   for (const p of pills) {
@@ -724,7 +813,13 @@ async function applyFilterSortRender() {
   const getSortVal = (v) => {
     if (sortKey === "price") return priceOf(v) ?? Number.POSITIVE_INFINITY;
     if (sortKey === "year") return asNumber(v?.year) ?? Number.POSITIVE_INFINITY;
-    if (sortKey === "trim") return safeText(v?.trim, "").toLowerCase();
+
+    if (sortKey === "distance") {
+      const id = Number(v?.dealerId);
+      const d = DEALER_DISTANCE_MI.get(id);
+      return (d !== undefined && d !== null) ? d : Number.POSITIVE_INFINITY;
+    }
+
     return 0;
   };
 
@@ -774,7 +869,7 @@ function wireToolbar() {
 
   elPillSortPrice.addEventListener("click", () => onSortPill("price"));
   elPillSortYear.addEventListener("click", () => onSortPill("year"));
-  elPillSortTrim.addEventListener("click", () => onSortPill("trim"));
+  elPillSortDist.addEventListener("click", () => onSortPill("distance"));
 
   elBtnClearSelection?.addEventListener("click", () => {
     selectedVins.clear();
@@ -893,10 +988,28 @@ async function main() {
 
     ALL = arr.map(v => ({ ...v, __blob: buildSearchBlob(v) }));
 
+    await loadDealers();
+
     wireToolbar();
     wireFiltersUI();
     updateCompareUI();
-    applyFilterSortRender();
+    await applyFilterSortRender();
+
+    // Ask for browser location AFTER initial render (so UI loads even if user denies)
+    requestUserGeo().then((geo) => {
+      if (!geo) return;
+
+      USER_GEO = geo;
+      computeAllDealerDistances();
+
+      if (sortKey === "distance") {
+        applyFilterSortRender();   // resort properly
+      } else {
+        if (!isCompareMode) {
+          elCardsGrid.innerHTML = VIEW.map(cardTemplate).join("");
+        }
+      }
+    });
 
   } catch (err) {
     console.error(err);

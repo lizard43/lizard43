@@ -2,6 +2,13 @@
 <html lang="en">
 
 <head>
+  <style>
+    /* Prevent white flash before CSS/JS loads */
+    html,
+    body {
+      background: #0b0f14;
+    }
+  </style>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>MazSter</title>
@@ -52,7 +59,9 @@
         <div class="pillRow" role="group" aria-label="Sort">
           <button class="pillBtn" id="pillSortPrice" type="button" data-sort="price">Price</button>
           <button class="pillBtn" id="pillSortYear" type="button" data-sort="year">Year</button>
-          <button class="pillBtn" id="pillSortTrim" type="button" data-sort="trim">Trim</button>
+          <button class="pillBtn" id="pillSortDist" type="button">
+            Distance
+          </button>
         </div>
       </div>
 
