@@ -705,6 +705,76 @@ body.isBusy * {
   border-bottom: 0;
 }
 
+/* Compare: aligned option matrix */
+.compareSection {
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.compareSectionTitle {
+  font-size: 12px;
+  font-weight: 650;
+  color: rgba(255, 255, 255, 0.92);
+  margin: 0 0 8px;
+}
+
+.compareMatrix {
+  display: grid;
+  gap: 0;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.compareRow {
+  display: grid;
+  /* columns set inline from JS */
+}
+
+.compareCell {
+  padding: 7px 10px;
+  border-right: 1px solid rgba(255, 255, 255, 0.06);
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.06);
+  min-width: 0;
+}
+
+.compareRow:last-child .compareCell {
+  border-bottom: 0;
+}
+
+.compareCell:last-child {
+  border-right: 0;
+}
+
+.compareItem {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+  min-width: 0;
+}
+
+.compareItemName {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.90);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-width: 0;
+}
+
+.compareItemPrice {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.70);
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+
+.compareCellEmpty {
+  color: rgba(255, 255, 255, 0.24);
+}
+
 .optCd {
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   font-size: 12px;
@@ -1078,4 +1148,13 @@ a:hover {
 /* Hide Year sort pill but keep plumbing intact */
 #pillSortYear {
   display: none !important;
+}
+
+/* Toolbar: clear selection button (only show when selection exists) */
+#btnClearSelection {
+  display: none;
+}
+
+#btnClearSelection.isShown {
+  display: inline-flex;
 }

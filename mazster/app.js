@@ -23,6 +23,8 @@ const elCompareCount = document.getElementById("compareCount");
 const elToolbarFilters = document.getElementById("toolbarFilters");
 const elToolbarActiveFilters = document.getElementById("toolbarActiveFilters");
 
+const elBtnClearSelection = document.getElementById("btnClearSelection");
+
 const filters = {
   year: new Set(),
   model: new Set(),
@@ -326,6 +328,8 @@ function updateCompareUI() {
   elCompareCount.textContent = `${n}/3`;
   elBtnCompare.classList.toggle("isShown", n > 0);
   elBtnCompare.disabled = n === 0;
+  elBtnClearSelection?.classList.toggle("isShown", n > 0);
+  elBtnClearSelection && (elBtnClearSelection.disabled = n === 0);
 }
 
 function collectSelectedVehicles() {
@@ -354,6 +358,66 @@ function summarizeLists(v) {
   };
 }
 
+function normItem(x) {
+  const code = safeText(x?.Code, "");
+  const name = safeText(x?.Name, "");
+  const price = asNumber(x?.Price);
+  const key = (code ? code : name).toLowerCase();
+  return { key, code, name, price };
+}
+
+function buildUnionRows(sel, pickArr) {
+  const map = new Map(); // key -> {key, code, name}
+  for (const v of sel) {
+    const arr = pickArr(v);
+    for (const x of arr) {
+      const it = normItem(x);
+      if (!it.key) continue;
+      if (!map.has(it.key)) map.set(it.key, it);
+    }
+  }
+  return [...map.values()].sort((a, b) => (a.code || a.name).localeCompare(b.code || b.name));
+}
+
+function buildItemLookup(v, pickArr) {
+  const m = new Map();
+  const arr = pickArr(v);
+  for (const x of arr) {
+    const it = normItem(x);
+    if (!it.key) continue;
+    // if duplicates, keep the first (good enough for now)
+    if (!m.has(it.key)) m.set(it.key, it);
+  }
+  return m;
+}
+
+function renderCompareMatrix(rows, lookups, cols) {
+  const colStyle = `grid-template-columns: repeat(${cols}, minmax(0, 1fr));`;
+
+  const rowHtml = rows.map(r => {
+    const cells = lookups.map(m => {
+      const it = m.get(r.key);
+      if (!it) return `<div class="compareCell compareCellEmpty">—</div>`;
+
+      const label = (it.code && it.name) ? `${it.code} ${it.name}` : (it.code || it.name);
+      const price = (it.price !== null && it.price !== undefined) ? fmtMoney(it.price) : "";
+
+      return `
+        <div class="compareCell">
+          <div class="compareItem">
+            <div class="compareItemName" title="${escapeHtml(label)}">${escapeHtml(label)}</div>
+            <div class="compareItemPrice">${price && price !== "—" ? escapeHtml(price) : ""}</div>
+          </div>
+        </div>
+      `;
+    }).join("");
+
+    return `<div class="compareRow" style="${colStyle}">${cells}</div>`;
+  }).join("");
+
+  return `<div class="compareMatrix">${rowHtml || `<div class="compareRow" style="${colStyle}"><div class="compareCell compareCellEmpty">—</div></div>`}</div>`;
+}
+
 function renderCompare() {
   const sel = collectSelectedVehicles();
   if (sel.length === 0) {
@@ -364,12 +428,19 @@ function renderCompare() {
 
   const cols = sel.length;
 
+  const packRows = buildUnionRows(sel, v => Array.isArray(v?.packages) ? v.packages : []);
+  const optRows = buildUnionRows(sel, v => Array.isArray(v?.options) ? v.options : []);
+  const accRows = buildUnionRows(sel, v => Array.isArray(v?.accessories) ? v.accessories : []);
+
+  const packLookups = sel.map(v => buildItemLookup(v, vv => Array.isArray(vv?.packages) ? vv.packages : []));
+  const optLookups = sel.map(v => buildItemLookup(v, vv => Array.isArray(vv?.options) ? vv.options : []));
+  const accLookups = sel.map(v => buildItemLookup(v, vv => Array.isArray(vv?.accessories) ? vv.accessories : []));
+
   const header = `
     <div class="compareTop">
       <div class="compareTitle">Compare (${cols})</div>
       <div class="compareActions">
         <button class="compareBtn" type="button" id="btnCompareBack">Back</button>
-        <button class="compareBtn" type="button" id="btnCompareClear">Clear selection</button>
       </div>
     </div>
   `;
@@ -408,6 +479,12 @@ function renderCompare() {
           <div class="k">Vehicle</div>
           <div class="v">${escapeHtml(headline)}</div>
         </div>
+
+        <div class="compareBlock">
+          <div class="k">VIN</div>
+          <div class="v">${escapeHtml(vin)}</div>
+        </div>
+
         <div class="compareBlock">
           <div class="k">Price</div>
           <div class="v">${escapeHtml(fmtMoney(price))} - ${dealerHtml}</div>
@@ -422,23 +499,12 @@ function renderCompare() {
         </div>
 
         <div class="compareBlock">
-          <div class="k">Packages (${lists.packCount})</div>
-          ${listBlock("Packages", lists.packNames)}
-        </div>
-        <div class="compareBlock">
-          <div class="k">Options (${lists.optCount})</div>
-          ${listBlock("Options", lists.optNames)}
-        </div>
-        <div class="compareBlock">
-          <div class="k">Accessories (${lists.accCount})</div>
-          <div class="v">${escapeHtml(fmtMoney(lists.accTotal))} <span class="muted">(sum)</span></div>
-          ${listBlock("Accessories", lists.accNames)}
-        </div>
+          <div class="k">Pkg / Opt / Acc</div>
+          <div class="v">
+            ${lists.packCount} pkg • ${lists.optCount} opt • ${lists.accCount} acc • ${escapeHtml(fmtMoney(lists.accTotal))}
+          </div>
+        </div>        
 
-        <div class="compareBlock">
-          <div class="k">VIN</div>
-          <div class="v">${escapeHtml(vin)}</div>
-        </div>
       </div>
     `;
   }).join("");
@@ -450,6 +516,22 @@ function renderCompare() {
       <div class="compareGrid" style="grid-template-columns: repeat(${cols}, minmax(0, 1fr));">
         ${colHtml}
       </div>
+
+      <div class="compareSection">
+        <div class="compareSectionTitle">Packages</div>
+        ${renderCompareMatrix(packRows, packLookups, cols)}
+      </div>
+
+      <div class="compareSection">
+        <div class="compareSectionTitle">Options</div>
+        ${renderCompareMatrix(optRows, optLookups, cols)}
+      </div>
+
+      <div class="compareSection">
+        <div class="compareSectionTitle">Accessories</div>
+        ${renderCompareMatrix(accRows, accLookups, cols)}
+      </div>
+
     </div>
   `;
 
@@ -458,12 +540,6 @@ function renderCompare() {
     renderMainArea();
   });
 
-  document.getElementById("btnCompareClear")?.addEventListener("click", () => {
-    selectedVins.clear();
-    updateCompareUI();
-    isCompareMode = false;
-    renderMainArea();
-  });
 }
 
 // ---------- Cards ----------
@@ -699,6 +775,13 @@ function wireToolbar() {
   elPillSortPrice.addEventListener("click", () => onSortPill("price"));
   elPillSortYear.addEventListener("click", () => onSortPill("year"));
   elPillSortTrim.addEventListener("click", () => onSortPill("trim"));
+
+  elBtnClearSelection?.addEventListener("click", () => {
+    selectedVins.clear();
+    updateCompareUI();
+    isCompareMode = false;
+    renderMainArea();
+  });
 
   elCardsGrid.addEventListener("change", (e) => {
     const t = e.target;
