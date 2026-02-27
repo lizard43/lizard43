@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-02-27T12:29:20.716Z",
+  "generated_at": "2026-02-27T13:06:43.889Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,53 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 29,
+      "exported_ads": 31,
       "droppedPrice": 88,
       "droppedMissingGeo": 0,
-      "droppedCircle": 98
+      "droppedCircle": 100
     }
   },
   "ads": [
+    {
+      "adID": "2839031809632544",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/4923157/?product_id=2839031809632544",
+      "author": "Edward Ebeling",
+      "postedTime": "2026-02-27T12:46:14.000Z",
+      "title": "Vintage 80s Aftermarket Donkey Kong Arcade Game Control Panel",
+      "description": "Vintage 80s Aftermarket Donkey Kong Arcade Game Control Panel",
+      "price": "$40",
+      "lat": 34.02332,
+      "lon": -84.360022,
+      "location": "Roswell, GA",
+      "imageUrl": "https://scontent-dfw5-3.xx.fbcdn.net/v/t39.84726-6/644262551_944653878137533_958996534525526917_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=108&ccb=1-7&_nc_sid=92e707&_nc_ohc=lRhNj_Td8mYQ7kNvwFSSN5_&_nc_oc=AdkNQJJdrC92B11jUNlT_ukkVC6nV2zXAR8RmhWc5Lk1sMms9ZvfMTeCWGAYnpadDtI&_nc_zt=14&_nc_ht=scontent-dfw5-3.xx&_nc_gid=gQODx8jdhUEHJ2_mfDGN6Q&oh=00_AftvcJB-AAgJxFOokKS9ydxq71d24VaNJ3A1ib6SUPGpOw&oe=69A75611",
+      "adUrl": "https://www.facebook.com/marketplace/item/2839031809632544/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-02-27 13:04:41",
+      "lastSeen": "2026-02-27T13:05:31.297Z"
+    },
+    {
+      "adID": "1450443539818263",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/1664975565/?product_id=1450443539818263",
+      "author": "Carl Young",
+      "postedTime": "2026-02-27T12:26:56.000Z",
+      "title": "Arcade cabinets",
+      "description": "Several arcade machines in various conditions and functionality- Shoot Away II: seems to boot and function, but could not test fully because the rifles are damaged and do no work, and the screen takes up too much space so consider it not functional the screen is missing the feel for it, but it's light so a few screws could hold that screen up. Lethal Enforcers: pretty much fully working, the only issues is the heavy damage to the cabinet itself, and the player 1 and 2 start buttons are broken and would need replaced, I just didn't get that far yet Sega Turbo OutRun: This one has a removed screen and does not boot at all. There's power too it though and there is visual but it's garbled graphics. Lock-on by data east: This one has a dead screen and does not boot at all with a hardware error 29. Cobra Command (inside an atari cabinet?): Has a dead screen and does not boot at all. There's power too it though. Looking to try to get $500 per cabinet but any reasonable offer would be considered.",
+      "price": "$500",
+      "lat": 28.3581405,
+      "lon": -82.692005,
+      "location": "Hudson, FL",
+      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/644558353_915685614196191_6405301002268314456_n.jpg?stp=c0.43.261.261a_dst-jpg_p261x260_tt6&_nc_cat=102&ccb=1-7&_nc_sid=92e707&_nc_ohc=8GweuMrUOpEQ7kNvwEpTRFg&_nc_oc=AdmQKKLPypPFe_5JBb1n4aOyZFtIGvHQGgsygY6f1EAWka71v9RxQyLjMxV0J2KPYLY&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=zlHcxJXLmzfyZX5Op-VNPw&oh=00_AfsU5v-Ji0IgNYPs3MRXL8B0tZN5IP9z9DGw6Xa3SRNlqA&oe=69A76A28",
+      "adUrl": "https://www.facebook.com/marketplace/item/1450443539818263/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-02-27 13:04:40",
+      "lastSeen": "2026-02-27T13:05:31.226Z"
+    },
     {
       "adID": "3006132773051616",
       "source": "MP",
@@ -36,7 +76,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-27 03:04:44",
-      "lastSeen": "2026-02-27T12:04:40.770Z"
+      "lastSeen": "2026-02-27T13:04:40.882Z"
     },
     {
       "adID": "675528545616516",
@@ -63,7 +103,7 @@
       "source": "PS",
       "authorUrl": "https://pinside.com/pinball/community/pinsiders/gardenartisan68/market",
       "author": "Gardenartisan68",
-      "postedTime": "2026-02-26T12:07:19.809Z",
+      "postedTime": "2026-02-26T12:06:30.535Z",
       "title": "Big Indian",
       "description": "Partially shopped/refurbished - “Nice Gottlieb Big Indian. Original playfield with only a minor nick here and there. New plastics & rubbers. Stenciled the cabinet. Backglass is so so. You can see in the pic wh...”",
       "price": "$800",
@@ -76,27 +116,27 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-26 12:07:20",
-      "lastSeen": "2026-02-27T12:07:19.822Z"
+      "lastSeen": "2026-02-27T13:06:30.548Z"
     },
     {
       "adID": "2384938281964594",
       "source": "FB",
       "authorUrl": null,
       "author": "Joey Richard",
-      "postedTime": "2026-02-26T12:03:25.380Z",
+      "postedTime": "2026-02-26T13:03:23.485Z",
       "title": "Big Buc hunter for sale",
       "description": "This Big Buc Hunter is fully operational and location ready. If you’re looking for a passive source of income are a item for your mancave, then this could be the perfect addition. Please reach out as this unit will not last long!",
       "price": "$850",
       "lat": 30.4388041,
       "lon": -90.4414762,
       "location": "PONCHATOULA, LA",
-      "imageUrl": "https://scontent-dfw5-3.xx.fbcdn.net/v/t39.30808-6/641383669_1612271399916060_5695255111160492375_n.jpg?stp=dst-jpg_s590x590_tt6&_nc_cat=108&ccb=1-7&_nc_sid=e06c5d&_nc_ohc=eoEkvxjGxC8Q7kNvwEf6_H9&_nc_oc=Adk93tzmlhv2scZvnWC33tFVnByhWPvTuPt4UxA8Z3fM1lYfbUfNtYv_KpTZk9jRIGE&_nc_zt=23&_nc_ht=scontent-dfw5-3.xx&_nc_gid=0hB3vHA9XdNC_T1i5psk7g&oh=00_AfuXGUQiFcL-vnPJt79ZM_roBLD5w_Xg6cMt7gf0f4t0Cw&oe=69A75671",
+      "imageUrl": "https://scontent-dfw5-3.xx.fbcdn.net/v/t39.30808-6/641383669_1612271399916060_5695255111160492375_n.jpg?stp=dst-jpg_s590x590_tt6&_nc_cat=108&ccb=1-7&_nc_sid=e06c5d&_nc_ohc=eoEkvxjGxC8Q7kNvwEf6_H9&_nc_oc=Adk93tzmlhv2scZvnWC33tFVnByhWPvTuPt4UxA8Z3fM1lYfbUfNtYv_KpTZk9jRIGE&_nc_zt=23&_nc_ht=scontent-dfw5-3.xx&_nc_gid=_g8cpxHJvCaL3if_yVV23A&oh=00_AftM5G_8-8wOLw2uHqa3IyUHMmkrwgemY4-TMoGVth7Tyw&oe=69A75671",
       "adUrl": "https://www.facebook.com/commerce/listing/2384938281964594/",
       "priceChanged": 0,
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-25 23:03:25",
-      "lastSeen": "2026-02-27T12:03:25.396Z"
+      "lastSeen": "2026-02-27T13:03:23.498Z"
     },
     {
       "adID": "2129939037846297",
@@ -116,7 +156,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-25 19:04:53",
-      "lastSeen": "2026-02-27T08:26:14.521Z"
+      "lastSeen": "2026-02-27T13:04:41.317Z"
     },
     {
       "adID": "929954639508422",
@@ -236,7 +276,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-23 19:06:25",
-      "lastSeen": "2026-02-27T12:06:01.096Z"
+      "lastSeen": "2026-02-27T13:06:22.626Z"
     },
     {
       "adID": "1631260024666726",
@@ -456,7 +496,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-14 18:04:54",
-      "lastSeen": "2026-02-27T01:04:43.640Z"
+      "lastSeen": "2026-02-27T13:04:41.450Z"
     },
     {
       "adID": "1886604295309613",
@@ -516,7 +556,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 23:10:53",
-      "lastSeen": "2026-02-27T12:06:02.655Z"
+      "lastSeen": "2026-02-27T13:06:23.036Z"
     },
     {
       "adID": "1937314130515670",
@@ -556,7 +596,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 17:22:24",
-      "lastSeen": "2026-02-27T12:04:41.206Z"
+      "lastSeen": "2026-02-27T13:04:41.116Z"
     },
     {
       "adID": "2185352358965594",
@@ -576,7 +616,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 17:22:23",
-      "lastSeen": "2026-02-27T03:04:45.331Z"
+      "lastSeen": "2026-02-27T13:04:41.216Z"
     },
     {
       "adID": "880228111053501",
@@ -596,7 +636,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 17:22:18",
-      "lastSeen": "2026-02-27T12:04:41.038Z"
+      "lastSeen": "2026-02-27T13:04:41.082Z"
     }
   ]
 }
