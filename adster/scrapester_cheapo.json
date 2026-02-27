@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-02-27T21:29:31.703Z",
+  "generated_at": "2026-02-27T22:07:54.238Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,33 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 27,
-      "droppedPrice": 119,
+      "exported_ads": 28,
+      "droppedPrice": 124,
       "droppedMissingGeo": 0,
-      "droppedCircle": 105
+      "droppedCircle": 106
     }
   },
   "ads": [
+    {
+      "adID": "1322916186326443",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100087912878697/?product_id=1322916186326443",
+      "author": "Denise Williams",
+      "postedTime": "2026-02-27T10:07:34.000Z",
+      "title": "China by Haviland",
+      "description": "I have three sets of China for sale at the Estate Sale today Thursday and Friday Feb 27 and 28 from nine to noon at 2268 Lexington Parc Dr. Plus the house is full of other goodies for sale dressers, lamps beds, etc. [hidden information]. You bring the truck will load it.",
+      "price": "$200",
+      "lat": 30.4380832,
+      "lon": -84.2809332,
+      "location": "Tallahassee, FL",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/643348700_2112319719591001_7392421941459944027_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=105&ccb=1-7&_nc_sid=92e707&_nc_ohc=MkUuKT4JiiYQ7kNvwE2hPHz&_nc_oc=Adnzep_qm-1uNphpyCvTGu1nHJqS4_6EvS-eNmFUg4FqwRfNpnGL_uhte9Tkqd_lUbI&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=6azAhgPiiKewJ31-zZUKPA&_nc_ss=8&oh=00_AfvWzReCImG35Q1NKNWsb0y857SYalvRe7_Ov0hKZctxPg&oe=69A7DB82",
+      "adUrl": "https://www.facebook.com/marketplace/item/1322916186326443/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-02-27 22:06:17",
+      "lastSeen": "2026-02-27T22:07:16.234Z"
+    },
     {
       "adID": "1850247408973990",
       "source": "MP",
@@ -36,7 +56,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-27 20:06:16",
-      "lastSeen": "2026-02-27T21:06:24.567Z"
+      "lastSeen": "2026-02-27T22:06:16.562Z"
     },
     {
       "adID": "896869736457748",
@@ -103,7 +123,7 @@
       "source": "PS",
       "authorUrl": "https://pinside.com/pinball/community/pinsiders/gardenartisan68/market",
       "author": "Gardenartisan68",
-      "postedTime": "2026-02-26T12:08:00.255Z",
+      "postedTime": "2026-02-26T12:07:40.086Z",
       "title": "Big Indian",
       "description": "Partially shopped/refurbished - “Nice Gottlieb Big Indian. Original playfield with only a minor nick here and there. New plastics & rubbers. Stenciled the cabinet. Backglass is so so. You can see in the pic wh...”",
       "price": "$800",
@@ -116,7 +136,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-26 12:07:20",
-      "lastSeen": "2026-02-27T21:08:00.280Z"
+      "lastSeen": "2026-02-27T22:07:40.114Z"
     },
     {
       "adID": "929954639508422",
@@ -196,7 +216,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-23 19:06:25",
-      "lastSeen": "2026-02-27T21:06:24.299Z"
+      "lastSeen": "2026-02-27T22:06:16.394Z"
     },
     {
       "adID": "1631260024666726",
@@ -476,7 +496,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 23:10:53",
-      "lastSeen": "2026-02-27T21:06:24.600Z"
+      "lastSeen": "2026-02-27T22:06:17.097Z"
     },
     {
       "adID": "1937314130515670",
@@ -516,7 +536,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 17:22:24",
-      "lastSeen": "2026-02-27T21:04:47.174Z"
+      "lastSeen": "2026-02-27T22:04:44.262Z"
     },
     {
       "adID": "2185352358965594",
@@ -556,7 +576,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 17:22:18",
-      "lastSeen": "2026-02-27T21:04:47.308Z"
+      "lastSeen": "2026-02-27T22:04:44.429Z"
     }
   ]
 }
