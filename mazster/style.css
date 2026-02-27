@@ -1,0 +1,1081 @@
+:root {
+  --bg: #0b0f14;
+  --panel: #101826;
+  --panel2: #0f1723;
+  --text: #e6edf3;
+  --muted: #9fb0c0;
+  --border: rgba(255, 255, 255, 0.08);
+  --link: #7db7ff;
+  --shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  background: #1c1c24;
+  color: var(--text);
+}
+
+.wrap {
+  width: min(1100px, calc(100% - 32px));
+  margin: 0 auto;
+}
+
+.topbar {
+  border-bottom: 1px solid var(--border);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0));
+}
+
+.title {
+  margin: 18px 0 6px;
+  font-size: 22px;
+  letter-spacing: 0.2px;
+}
+
+.subtitle {
+  margin: 0 0 16px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.subtitle code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-size: 12px;
+  color: #cfe3ff;
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 18px 0;
+  gap: 12px;
+}
+
+.status {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  padding-bottom: 0;
+}
+
+@media (max-width: 980px) {
+  .cards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+.card {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.02));
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  min-height: 0;
+
+  position: relative;
+  /* keep */
+  /* allow top-left overlay (no longer used, but harmless) */
+}
+
+.cardInner {
+  padding: 12px 14px 0px;
+}
+
+.rowTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.headline {
+  font-weight: 650;
+  font-size: 15px;
+  line-height: 1.2;
+  margin-bottom: 2px;
+}
+
+.vin {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 11px;
+  white-space: nowrap;
+}
+
+.line {
+  margin-top: 3px;
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  align-items: baseline;
+  line-height: 1.18;
+}
+
+.line .primary {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.line .muted {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.line a {
+  color: var(--link);
+  text-decoration: none;
+  border-bottom: 1px dotted rgba(125, 183, 255, 0.55);
+}
+
+/* dealer link truncation inside the price line */
+.line a {
+  max-width: 260px;
+  /* tweak as you like */
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  vertical-align: bottom;
+}
+
+.line a:hover {
+  border-bottom-style: solid;
+}
+
+.pills {
+  margin-top: 10px;
+  margin-bottom: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.pill {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 999px;
+  padding: 5px 9px;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.pillOptions {
+  cursor: pointer;
+  border-radius: 999px;
+  appearance: none;
+  -webkit-appearance: none;
+
+  font-size: 12px;
+  /* lock size */
+  font-weight: 500;
+  /* lighter than headline */
+  letter-spacing: 0.2px;
+
+  padding: 5px 10px;
+  /* slightly slimmer */
+
+  color: rgba(255, 255, 255, 0.88);
+}
+
+.pillOptions:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* inline expander under the pills */
+.optExpand {
+  margin-top: 10px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  padding-top: 10px;
+
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height 220ms ease, opacity 160ms ease;
+}
+
+.card.isOptOpen .optExpand {
+  max-height: 2000px;
+  /* effectively unlimited */
+  opacity: 1;
+}
+
+.optExpandTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.optExpandTitle {
+  font-size: 12px;
+  font-weight: 650;
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.optExpandClose {
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  background: rgba(0, 0, 0, 0.18);
+  color: rgba(255, 255, 255, 0.92);
+  border-radius: 999px;
+  width: 28px;
+  height: 28px;
+  cursor: pointer;
+  line-height: 1;
+}
+
+.optExpandClose:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.optExpandList {
+  max-height: none;
+  overflow: visible;
+  padding-right: 0;
+}
+
+.optRow {
+  display: grid;
+  grid-template-columns: 60px 18px minmax(0, 1fr) 84px;
+  gap: 8px;
+  padding: 6px 0;
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.06);
+}
+
+.optRow:last-child {
+  border-bottom: 0;
+}
+
+/* --- Toolbar --- */
+.toolbar {
+  margin: 18px 0 16px;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.02));
+  box-shadow: var(--shadow);
+
+  /* Sticky */
+  position: sticky;
+  top: 12px;
+  /* set to 0 if you want it flush to the very top */
+  z-index: 200;
+
+  /* IMPORTANT: allow dropdown panels to escape */
+  overflow: visible;
+
+  /* keep it readable over cards while stuck */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.toolbarTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 12px 10px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.pillRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.pillDivider {
+  width: 1px;
+  height: 22px;
+  background: rgba(255, 255, 255, 0.10);
+  margin: 0 2px;
+}
+
+.pillBtn {
+  border-radius: 999px;
+  padding: 6px 10px;
+  font-size: 12px;
+  line-height: 1;
+  cursor: pointer;
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  background: rgba(0, 0, 0, 0.18);
+  color: rgba(255, 255, 255, 0.92);
+  user-select: none;
+}
+
+.pillBtn:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.pillBtn.pillActive {
+  background: rgba(125, 183, 255, 0.18);
+  border-color: rgba(125, 183, 255, 0.40);
+  box-shadow: 0 0 0 1px rgba(125, 183, 255, 0.12) inset;
+}
+
+.pillBtn.pillGhost {
+  opacity: 0.9;
+}
+
+.pillBtn .dir {
+  margin-left: 6px;
+  opacity: 0.9;
+  font-variant-numeric: tabular-nums;
+}
+
+.toolbarCount {
+  font-size: 12px;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+.toolbarSearch {
+  padding: 10px 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.searchWrapWide {
+  width: 100%;
+  max-width: none;
+}
+
+.toolbarBottom {
+  padding: 10px 12px 12px;
+}
+
+.toolbarTop {
+  gap: 12px;
+}
+
+.toolbarTopSearch {
+  flex: 1 1 auto;
+  min-width: 240px;
+}
+
+.toolbarRight {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+/* Toolbar: row1 = search + count, row2 = pills */
+.toolbarTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 12px 10px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.toolbarPills {
+  padding: 10px 12px 12px;
+}
+
+.toolbarRight {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+/* Row 1: search should fill up to the right controls */
+.toolbarTop {
+  justify-content: flex-start;
+  /* was space-between */
+}
+
+.searchWrapWide {
+  flex: 1 1 auto;
+  min-width: 0;
+  /* critical so it can shrink without leaving gap */
+}
+
+/* Right side stays tight */
+.toolbarRight {
+  margin-left: 12px;
+  /* gives a consistent small separation */
+}
+
+.toolbarActiveFilters {
+  padding: 6px 12px 8px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  font-size: 12px;
+  color: rgba(159, 176, 192, 0.92);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  min-height: 18px;
+  /* prevents jump when empty */
+}
+
+.afLabel {
+  color: rgba(159, 176, 192, 0.75);
+}
+
+.afPill {
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  background: rgba(0, 0, 0, 0.14);
+  padding: 4px 8px;
+  border-radius: 999px;
+  color: rgba(255, 255, 255, 0.88);
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Pills should NOT wrap into a vertical stack */
+.pillRow {
+  flex-wrap: nowrap;
+  /* was wrap */
+  white-space: nowrap;
+}
+
+/* Search expands, but never forces pills to wrap weirdly */
+.searchWrapWide {
+  flex: 1 1 auto;
+  min-width: 260px;
+}
+
+/* Keep your existing search styles, but ensure it spans full width */
+.searchWrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.searchInput {
+  width: 100%;
+  background: rgba(0, 0, 0, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  border-radius: 999px;
+  padding: 10px 38px 10px 12px;
+  color: var(--text);
+  outline: none;
+  font-size: 13px;
+}
+
+.searchInput::placeholder {
+  color: rgba(159, 176, 192, 0.75);
+}
+
+/* Hide native clear “x” on type=search (Chrome/Safari/Edge) */
+.searchInput::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+  appearance: none;
+  display: none;
+}
+
+.searchInput::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+/* Busy state */
+body.isBusy,
+body.isBusy * {
+  cursor: progress !important;
+}
+
+/* Compare toolbar icon button */
+.iconBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border-radius: 999px;
+  padding: 6px 10px;
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  background: rgba(0, 0, 0, 0.18);
+  color: rgba(255, 255, 255, 0.92);
+  cursor: pointer;
+}
+
+.iconBtn:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.iconBtnText {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+/* Prevent toolbar jump when compare button appears */
+#btnCompare {
+  visibility: hidden;
+  pointer-events: none;
+}
+
+#btnCompare.isShown {
+  visibility: visible;
+  pointer-events: auto;
+}
+
+/* VIN + checkbox container (top right) */
+.rowTopRight {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Custom card checkbox now IN-FLOW (not absolute overlay) */
+.cardCheckWrap {
+  position: static;
+  /* ✅ was absolute */
+  width: 22px;
+  height: 22px;
+  display: grid;
+  place-items: center;
+  z-index: auto;
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+/* Native input stays invisible always (prevents "double checkbox") */
+.cardCheck {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+  transform: none;
+  /* ✅ prevent any hover scaling */
+}
+
+.cardCheckUi {
+  position: relative;
+  width: 18px;
+  height: 18px;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: rgba(0, 0, 0, 0.18);
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.15) inset;
+  transition: transform 120ms ease, background 120ms ease, border-color 120ms ease;
+}
+
+/* hover */
+.card:hover .cardCheckUi {
+  transform: scale(1.04);
+  border-color: rgba(255, 255, 255, 0.26);
+}
+
+/* checked look */
+.cardCheckWrap:has(.cardCheck:checked) .cardCheckUi {
+  background: rgba(125, 183, 255, 0.22);
+  border-color: rgba(125, 183, 255, 0.55);
+}
+
+/* checkmark */
+.cardCheckWrap:has(.cardCheck:checked) .cardCheckUi::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 8px;
+  height: 4px;
+  border-left: 2px solid rgba(255, 255, 255, 0.95);
+  border-bottom: 2px solid rgba(255, 255, 255, 0.95);
+  transform: translate(-50%, -55%) rotate(-45deg);
+}
+
+.card.isSelected {
+  border-color: rgba(125, 183, 255, 0.45);
+  box-shadow: 0 0 0 1px rgba(125, 183, 255, 0.12) inset, var(--shadow);
+}
+
+/* Comparison view */
+.compareWrap {
+  margin-top: 14px;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.02));
+}
+
+.compareTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.compareTitle {
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.compareActions {
+  display: flex;
+  gap: 8px;
+}
+
+.compareBtn {
+  border-radius: 999px;
+  padding: 6px 10px;
+  font-size: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  background: rgba(0, 0, 0, 0.18);
+  color: rgba(255, 255, 255, 0.92);
+  cursor: pointer;
+}
+
+.compareBtn:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.compareGrid {
+  display: grid;
+  gap: 0;
+}
+
+.compareCol {
+  padding: 12px;
+  border-right: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.compareCol:last-child {
+  border-right: 0;
+}
+
+.compareBlock {
+  margin-bottom: 10px;
+}
+
+.compareBlock .k {
+  color: var(--muted);
+  font-size: 12px;
+  margin-bottom: 4px;
+}
+
+.compareBlock .v {
+  font-size: 13px;
+  line-height: 1.3;
+}
+
+.compareBlock .v {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-width: 0;
+}
+
+.compareCol {
+  min-width: 0;
+  /* allows ellipsis instead of forcing overflow */
+}
+
+.compareOptions {
+  margin-top: 10px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  padding-top: 10px;
+}
+
+.compareOptionRow {
+  display: grid;
+  grid-template-columns: 60px 18px minmax(0, 1fr) 84px;
+  gap: 10px;
+  padding: 6px 0;
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.06);
+}
+
+.compareOptionRow:last-child {
+  border-bottom: 0;
+}
+
+.optCd {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.optName {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.optBlank {
+  color: rgba(255, 255, 255, 0.28);
+}
+
+.optPrice {
+  text-align: right;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.72);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.optType {
+  font-size: 11px;
+  font-weight: 600;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.55);
+  letter-spacing: 0.4px;
+}
+
+/* Make links consistent everywhere (cards + compare) */
+a {
+  color: var(--link);
+  text-decoration: none;
+  border-bottom: 1px dotted rgba(125, 183, 255, 0.55);
+}
+
+a:hover {
+  border-bottom-style: solid;
+}
+
+/* ETA as a plain label (not a pill) */
+.etaLabel {
+  margin-left: auto;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.88);
+  font-variant-numeric: tabular-nums;
+  padding: 6px 2px;
+  /* aligns vertically with pill height */
+}
+
+/* --- Filters row (multi-select dropdowns) --- */
+.toolbarFilters {
+  padding: 10px 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.flt {
+  position: relative;
+}
+
+.fltBtn {
+  border-radius: 999px;
+  padding: 6px 10px;
+  font-size: 12px;
+  line-height: 1;
+  cursor: pointer;
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  background: rgba(0, 0, 0, 0.18);
+  color: rgba(255, 255, 255, 0.92);
+  user-select: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.fltBtn:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.fltBtn .fltCount {
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.fltPanel {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  min-width: 260px;
+  max-width: 320px;
+  max-height: 340px;
+  overflow: auto;
+  padding: 10px;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  background: rgba(12, 16, 22, 0.92);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  z-index: 100;
+  display: none;
+}
+
+.flt.isOpen .fltPanel {
+  display: block;
+}
+
+.fltTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.fltTitle {
+  font-size: 12px;
+  font-weight: 650;
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.fltClear {
+  font-size: 12px;
+  color: var(--muted);
+  cursor: pointer;
+  border: 0;
+  background: transparent;
+  padding: 4px 6px;
+  border-radius: 999px;
+}
+
+.fltClear:hover {
+  background: rgba(255, 255, 255, 0.06);
+  color: rgba(255, 255, 255, 0.88);
+}
+
+.fltItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 6px 6px;
+  border-radius: 10px;
+}
+
+.fltItem:hover {
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.fltLeft {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+}
+
+.fltItem label {
+  font-size: 12px;
+  cursor: pointer;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.fltBadge {
+  font-size: 12px;
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+}
+
+/* allow middle column to shrink so ellipsis can happen */
+.compareOptionRow {
+  grid-template-columns: 72px minmax(0, 1fr) 84px;
+}
+
+/* force option names to a single line */
+.compareOptionRow .optName {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-width: 0;
+  /* important for grid children */
+}
+
+@media (max-width: 520px) {
+  .toolbarTop {
+    gap: 8px;
+  }
+
+  .searchWrapWide {
+    flex: 1 1 auto;
+    min-width: 0;
+  }
+
+  .toolbarRight {
+    margin-left: 0;
+    gap: 8px;
+  }
+
+  /* Let the count shrink + ellipsis instead of pushing offscreen */
+  .toolbarCount {
+    max-width: 38vw;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  /* Compare button stays compact */
+  .iconBtn {
+    padding: 6px 8px;
+    gap: 6px;
+  }
+}
+
+/* Tighten filter pill spacing */
+.toolbarFilters {
+  gap: 4px;
+  /* was 8px */
+}
+
+.fltBtn {
+  padding: 5px 8px;
+  /* slightly slimmer */
+  font-size: 12px;
+}
+
+.fltCount {
+  margin-left: 2px;
+}
+
+/* ===== Toolbar density cleanup (universal) ===== */
+
+/* shrink outer toolbar margin a bit */
+.toolbar {
+  margin: 12px 0 12px;
+}
+
+/* Row 1: search + count */
+.toolbarTop {
+  padding: 8px 10px;
+  gap: 8px;
+}
+
+/* Row 2: filter dropdown pills */
+.toolbarFilters {
+  padding: 6px 10px;
+  gap: 4px;
+  /* tighter horizontal spacing */
+  row-gap: 6px;
+  /* tighter vertical spacing when it wraps */
+}
+
+/* Row 2.5: active filter chips */
+.toolbarActiveFilters {
+  padding: 4px 10px 6px;
+  gap: 6px;
+  min-height: 0;
+  /* remove reserved empty space */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* Row 3: sort pills */
+.toolbarPills {
+  padding: 6px 10px 8px;
+}
+
+/* make filter buttons less tall */
+.fltBtn {
+  padding: 4px 8px;
+  gap: 6px;
+}
+
+/* make sort pills less tall */
+.pillBtn {
+  padding: 5px 10px;
+}
+
+/* search input slightly shorter */
+.searchInput {
+  padding: 8px 38px 8px 12px;
+}
+
+/* keep right side tight */
+.toolbarRight {
+  margin-left: 8px;
+  gap: 8px;
+}
+
+/* ===== Mobile: even tighter ===== */
+@media (max-width: 520px) {
+  .toolbarTop {
+    padding: 7px 8px;
+  }
+
+  .toolbarFilters {
+    padding: 6px 8px;
+    gap: 4px;
+    row-gap: 6px;
+  }
+
+  .toolbarActiveFilters {
+    padding: 4px 8px 6px;
+  }
+
+  .toolbarPills {
+    padding: 6px 8px 8px;
+  }
+
+  .fltBtn {
+    padding: 4px 7px;
+    font-size: 12px;
+  }
+
+  .pillBtn {
+    padding: 5px 9px;
+  }
+
+  .searchInput {
+    padding: 8px 34px 8px 12px;
+  }
+}
+
+
+.clearBtn {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 28px;
+  height: 28px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  background: rgba(0, 0, 0, 0.18);
+  color: rgba(255, 255, 255, 0.92);
+  cursor: pointer;
+  display: none;
+  line-height: 1;
+}
+
+.clearBtn:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+
+/* MazSter: accessory description */
+.optDesc {
+  grid-column: 1 / -1;
+  color: rgba(159, 176, 192, 0.92);
+  font-size: 12px;
+  line-height: 1.35;
+  padding: 6px 0 2px;
+}
+
+.optDesc code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-size: 11px;
+  color: #cfe3ff;
+}
+
+/* Hide Year filter pill but keep JS plumbing intact */
+.flt[data-flt="year"] {
+  display: none !important;
+}
+
+/* Hide Year sort pill but keep plumbing intact */
+#pillSortYear {
+  display: none !important;
+}
