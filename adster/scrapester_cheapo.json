@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-02-28T12:07:07.399Z",
+  "generated_at": "2026-02-28T12:25:34.434Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,33 +11,13 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 28,
+      "exported_ads": 27,
       "droppedPrice": 102,
       "droppedMissingGeo": 0,
       "droppedCircle": 118
     }
   },
   "ads": [
-    {
-      "adID": "716492094401348",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/100011571491668/?product_id=716492094401348",
-      "author": "Lisa Douty",
-      "postedTime": "2025-12-03T03:20:12.000Z",
-      "title": "Bow and Arrow Game",
-      "description": "Picture shows the game",
-      "price": "$20",
-      "lat": 30.3122527,
-      "lon": -90.9497329,
-      "location": "Prairieville, LA",
-      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/594964006_1440500188083418_39012824129852758_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=103&ccb=1-7&_nc_sid=92e707&_nc_ohc=PHkiHLarl0wQ7kNvwF_uMyz&_nc_oc=AdnQyd0iFexeoedCHT2GzNXnh2JoQLFMhyokRaSPbSZZVti3k-w9dysWLKtZuSsuGpA&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=f2uNPYR4Jz-cugsdIQkIyQ&_nc_ss=8&oh=00_AftiBm23ylj3jzFgJvxVUGrfCa-bpMsg5tlLh_jG0Wk1kQ&oe=69A8C1AA",
-      "adUrl": "https://www.facebook.com/marketplace/item/716492094401348/",
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-02-28 12:06:07",
-      "lastSeen": "2026-02-28T12:06:35.141Z"
-    },
     {
       "adID": "1850247408973990",
       "source": "MP",
