@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-02-28T18:08:05.290Z",
+  "generated_at": "2026-02-28T19:07:41.539Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,33 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 32,
-      "droppedPrice": 109,
+      "exported_ads": 33,
+      "droppedPrice": 114,
       "droppedMissingGeo": 0,
-      "droppedCircle": 109
+      "droppedCircle": 114
     }
   },
   "ads": [
+    {
+      "adID": "1626122961731361",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/893935253/?product_id=1626122961731361",
+      "author": "Tracy Sanders Thorne",
+      "postedTime": "2026-02-28T03:01:17.000Z",
+      "title": "Wireless M15 Plus Retro Game Stick",
+      "description": "Features & details 40,000+ Built-in Classic Games & 23 Emulators-This M15 Retro Gaming Stick Pro comes preloaded with over 40,000 classic games and supports 23 emulator systems, covering arcade, console, and retro favorites. Enjoy a massive retro game library in one compact video game console. 4K HDMI Plug & Play TV Game Console-Simply plug this retro game stick into your TV’s HDMI port, connect power, and start playing instantly. Supports 4K HDMI output for smoother visuals and immersive retro gaming on modern televisions. Dual 2.4G Wireless Controllers for Multiplayer Fun-Includes two ergonomic 2.4G wireless controllers with stable signal and low latency. Perfect for couch co-op, competitive games, family game nights, and party entertainment. 128GB Storage – Ready to Play Out of the Box-Built-in 128GB memory with thousands of games already installed. No downloads, no internet, and no complicated setup—just plug and play for instant retro fun.",
+      "price": "$30",
+      "lat": 30.6324149,
+      "lon": -87.0396881,
+      "location": "Milton, FL",
+      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/643591323_2373723089807873_3312273810022924541_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=104&ccb=1-7&_nc_sid=92e707&_nc_ohc=Cab-7HTvIagQ7kNvwEW_sh9&_nc_oc=AdnS_YQOaCOWzxd60IPDMCPjs_0FlPapI5hunqusHq97a5omTVfIowy46vsqx0LDCoc&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=m-gnILCX27KQ2APhQDIYrA&_nc_ss=8&oh=00_AfsgwT8kAUfjRaGBXVfNPeD9A83g63fU14zm1QRevGAIng&oe=69A8F448",
+      "adUrl": "https://www.facebook.com/marketplace/item/1626122961731361/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-02-28 19:04:47",
+      "lastSeen": "2026-02-28T19:06:00.878Z"
+    },
     {
       "adID": "1217591563071910",
       "source": "MP",
@@ -76,7 +96,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-28 17:06:07",
-      "lastSeen": "2026-02-28T18:06:40.489Z"
+      "lastSeen": "2026-02-28T19:06:46.049Z"
     },
     {
       "adID": "4227324477522071",
@@ -136,7 +156,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-27 20:06:16",
-      "lastSeen": "2026-02-28T18:06:40.936Z"
+      "lastSeen": "2026-02-28T19:06:46.672Z"
     },
     {
       "adID": "896869736457748",
@@ -296,7 +316,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-23 19:06:25",
-      "lastSeen": "2026-02-28T18:06:40.590Z"
+      "lastSeen": "2026-02-28T19:06:46.337Z"
     },
     {
       "adID": "1631260024666726",
@@ -316,7 +336,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-22 21:04:46",
-      "lastSeen": "2026-02-28T17:04:42.935Z"
+      "lastSeen": "2026-02-28T19:04:47.840Z"
     },
     {
       "adID": "766634732769975",
@@ -516,7 +536,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-14 18:04:54",
-      "lastSeen": "2026-02-28T16:04:42.929Z"
+      "lastSeen": "2026-02-28T19:04:47.372Z"
     },
     {
       "adID": "1886604295309613",
@@ -556,7 +576,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-14 00:04:57",
-      "lastSeen": "2026-02-28T15:04:41.117Z"
+      "lastSeen": "2026-02-28T19:06:47.207Z"
     },
     {
       "adID": "2026958544812237",
@@ -576,7 +596,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 23:10:53",
-      "lastSeen": "2026-02-28T18:06:40.969Z"
+      "lastSeen": "2026-02-28T19:06:46.705Z"
     },
     {
       "adID": "1937314130515670",
@@ -596,7 +616,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 18:10:45",
-      "lastSeen": "2026-02-28T15:06:11.287Z"
+      "lastSeen": "2026-02-28T19:06:46.638Z"
     },
     {
       "adID": "2948138838710326",
@@ -616,7 +636,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 17:22:24",
-      "lastSeen": "2026-02-28T17:04:42.700Z"
+      "lastSeen": "2026-02-28T19:04:47.674Z"
     },
     {
       "adID": "2185352358965594",
@@ -636,7 +656,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 17:22:23",
-      "lastSeen": "2026-02-28T17:04:42.489Z"
+      "lastSeen": "2026-02-28T19:04:47.405Z"
     },
     {
       "adID": "880228111053501",
@@ -656,7 +676,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 17:22:18",
-      "lastSeen": "2026-02-28T18:04:46.975Z"
+      "lastSeen": "2026-02-28T19:04:46.595Z"
     }
   ]
 }
