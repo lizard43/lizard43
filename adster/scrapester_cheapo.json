@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-02-28T09:25:16.417Z",
+  "generated_at": "2026-02-28T12:07:07.399Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,33 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 27,
-      "droppedPrice": 90,
+      "exported_ads": 28,
+      "droppedPrice": 102,
       "droppedMissingGeo": 0,
-      "droppedCircle": 99
+      "droppedCircle": 118
     }
   },
   "ads": [
+    {
+      "adID": "716492094401348",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100011571491668/?product_id=716492094401348",
+      "author": "Lisa Douty",
+      "postedTime": "2025-12-03T03:20:12.000Z",
+      "title": "Bow and Arrow Game",
+      "description": "Picture shows the game",
+      "price": "$20",
+      "lat": 30.3122527,
+      "lon": -90.9497329,
+      "location": "Prairieville, LA",
+      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/594964006_1440500188083418_39012824129852758_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=103&ccb=1-7&_nc_sid=92e707&_nc_ohc=PHkiHLarl0wQ7kNvwF_uMyz&_nc_oc=AdnQyd0iFexeoedCHT2GzNXnh2JoQLFMhyokRaSPbSZZVti3k-w9dysWLKtZuSsuGpA&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=f2uNPYR4Jz-cugsdIQkIyQ&_nc_ss=8&oh=00_AftiBm23ylj3jzFgJvxVUGrfCa-bpMsg5tlLh_jG0Wk1kQ&oe=69A8C1AA",
+      "adUrl": "https://www.facebook.com/marketplace/item/716492094401348/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-02-28 12:06:07",
+      "lastSeen": "2026-02-28T12:06:35.141Z"
+    },
     {
       "adID": "1850247408973990",
       "source": "MP",
@@ -36,7 +56,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-27 20:06:16",
-      "lastSeen": "2026-02-28T03:06:50.372Z"
+      "lastSeen": "2026-02-28T12:06:07.606Z"
     },
     {
       "adID": "896869736457748",
@@ -103,7 +123,7 @@
       "source": "PS",
       "authorUrl": "https://pinside.com/pinball/community/pinsiders/gardenartisan68/market",
       "author": "Gardenartisan68",
-      "postedTime": "2026-02-26T12:08:44.334Z",
+      "postedTime": "2026-02-26T12:06:53.518Z",
       "title": "Big Indian",
       "description": "Partially shopped/refurbished - “Nice Gottlieb Big Indian. Original playfield with only a minor nick here and there. New plastics & rubbers. Stenciled the cabinet. Backglass is so so. You can see in the pic wh...”",
       "price": "$800",
@@ -116,7 +136,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-26 12:07:20",
-      "lastSeen": "2026-02-28T03:08:44.362Z"
+      "lastSeen": "2026-02-28T12:06:53.531Z"
     },
     {
       "adID": "929954639508422",
@@ -196,7 +216,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-23 19:06:25",
-      "lastSeen": "2026-02-28T03:06:50.268Z"
+      "lastSeen": "2026-02-28T12:06:07.271Z"
     },
     {
       "adID": "1631260024666726",
@@ -216,7 +236,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-22 21:04:46",
-      "lastSeen": "2026-02-28T03:04:40.871Z"
+      "lastSeen": "2026-02-28T12:04:54.740Z"
     },
     {
       "adID": "766634732769975",
@@ -416,7 +436,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-14 18:04:54",
-      "lastSeen": "2026-02-28T02:04:44.569Z"
+      "lastSeen": "2026-02-28T12:04:54.054Z"
     },
     {
       "adID": "1886604295309613",
@@ -476,7 +496,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 23:10:53",
-      "lastSeen": "2026-02-28T03:06:51.194Z"
+      "lastSeen": "2026-02-28T12:06:07.772Z"
     },
     {
       "adID": "1937314130515670",
@@ -516,7 +536,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 17:22:24",
-      "lastSeen": "2026-02-28T03:04:40.636Z"
+      "lastSeen": "2026-02-28T12:04:54.020Z"
     },
     {
       "adID": "2185352358965594",
@@ -536,7 +556,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 17:22:23",
-      "lastSeen": "2026-02-28T03:04:41.439Z"
+      "lastSeen": "2026-02-28T12:04:56.556Z"
     },
     {
       "adID": "880228111053501",
@@ -556,7 +576,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 17:22:18",
-      "lastSeen": "2026-02-28T03:04:40.490Z"
+      "lastSeen": "2026-02-28T12:04:53.919Z"
     }
   ]
 }
