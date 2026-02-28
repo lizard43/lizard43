@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-02-28T03:08:57.484Z",
+  "generated_at": "2026-02-28T08:27:21.825Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,33 +11,13 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 28,
-      "droppedPrice": 111,
+      "exported_ads": 27,
+      "droppedPrice": 90,
       "droppedMissingGeo": 0,
-      "droppedCircle": 107
+      "droppedCircle": 99
     }
   },
   "ads": [
-    {
-      "adID": "1432919381624751",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/100000419019233/?product_id=1432919381624751",
-      "author": "Leah Marie",
-      "postedTime": "2026-02-26T02:55:59.000Z",
-      "title": "Big Kahuna Game",
-      "description": "New in package Big Kahuna hook and ring game",
-      "price": "$15",
-      "lat": 30.421309,
-      "lon": -87.2169149,
-      "location": "Pensacola, FL",
-      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/642187009_1903355193878151_4898114477727753259_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=111&ccb=1-7&_nc_sid=92e707&_nc_ohc=-zjMf34AnW0Q7kNvwG_WDm4&_nc_oc=AdledEg6B4QgStGHBRGzdmO_KqBlcpqDXr5XKoi1iQU9O0dqNmODFYpfuaalrK1bCKk&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=4Rv-UnpW51xKdVVlR-YCyw&_nc_ss=8&oh=00_Afv37NJwacRIWT4KknfuscsYP0p7UsPyCVb6FxLqkweHAQ&oe=69A83ABF",
-      "adUrl": "https://www.facebook.com/marketplace/item/1432919381624751/",
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-02-28 02:06:19",
-      "lastSeen": "2026-02-28T02:07:29.582Z"
-    },
     {
       "adID": "1850247408973990",
       "source": "MP",
