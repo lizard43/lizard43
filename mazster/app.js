@@ -90,6 +90,16 @@ function fmtMoney(n) {
   return n.toLocaleString("en-US", { style: "currency", currency: "USD", maximumFractionDigits: 0 });
 }
 
+function fmtDateMMDDYY(s) {
+  if (!s) return "";
+  const d = new Date(s);
+  if (Number.isNaN(d.getTime())) return "";
+  const mm = String(d.getMonth() + 1).padStart(2, "0");
+  const dd = String(d.getDate()).padStart(2, "0");
+  const yy = String(d.getFullYear()).slice(-2);
+  return `${mm}/${dd}/${yy}`;
+}
+
 function escapeHtml(s) {
   return String(s)
     .replaceAll("&", "&amp;")
@@ -854,7 +864,20 @@ function cardTemplate(v) {
 
       return `
             <div class="line">
-              <span class="muted">${dealerHtml}</span>
+              <span class="muted">
+                ${dealerHtml}
+                ${(() => {
+          const loc = String(v?.vehicleLocation ?? "").trim();
+          if (loc === "02") return `<span class="dealerStatus"> - On Lot</span>`;
+          if (loc === "01") {
+            const eta = fmtDateMMDDYY(v?.etaDate);
+            return eta
+              ? `<span class="dealerStatus"> - ETA ${escapeHtml(eta)}</span>`
+              : `<span class="dealerStatus"> - In Transit</span>`;
+          }
+          return "";
+        })()}
+              </span>
             </div>
             <div class="line">
               <span class="muted">${escapeHtml(location)}</span>

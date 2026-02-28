@@ -828,6 +828,13 @@ a:hover {
   /* aligns vertically with pill height */
 }
 
+/* Dealer status label (On Lot / ETA ...) */
+.dealerStatus {
+  color: rgba(255, 255, 255, 0.88);
+  font-size: 13px;
+  font-variant-numeric: tabular-nums;
+}
+
 /* --- Filters row (multi-select dropdowns) --- */
 .toolbarFilters {
   padding: 10px 12px;
