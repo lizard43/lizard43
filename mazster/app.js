@@ -35,6 +35,18 @@ const filters = {
   dealer: new Set(),
 };
 
+// +1 = Positive (selected values MUST match)
+// -1 = Negative (selected values MUST NOT match)
+const filterPolarity = {
+  year: +1,
+  model: +1,
+  trim: +1,
+  drive: +1,
+  ext: +1,
+  int: +1,
+  dealer: +1,
+};
+
 let selectedVins = new Set(); // up to 3 VINs
 let isCompareMode = false;
 
@@ -247,7 +259,8 @@ function renderActiveFiltersLine() {
       ? vals.join(", ")
       : `${vals.slice(0, 3).join(", ")} +${vals.length - 3}`;
 
-    parts.push(`<span class="afPill">${escapeHtml(short)}</span>`);
+    const sign = (filterPolarity[def.key] === -1) ? "− " : "+ ";
+    parts.push(`<span class="afPill">${escapeHtml(sign + short)}</span>`);
   }
 
   elToolbarActiveFilters.innerHTML = parts.length ? parts.join(" ") : "";
@@ -257,8 +270,17 @@ function isAllowedByFilters(v) {
   for (const def of FILTER_DEFS) {
     const sel = filters[def.key];
     if (!sel || sel.size === 0) continue;
+
     const val = facetValue(def.key, v);
-    if (!sel.has(val)) return false;
+    const pol = filterPolarity[def.key] ?? +1;
+
+    // Negative: selected items must NOT be present
+    if (pol === -1) {
+      if (sel.has(val)) return false;
+    } else {
+      // Positive: selected items MUST be present
+      if (!sel.has(val)) return false;
+    }
   }
   return true;
 }
@@ -268,10 +290,18 @@ function buildFacetCounts(list, excludeKey) {
   const base = list.filter(v => {
     for (const def of FILTER_DEFS) {
       if (def.key === excludeKey) continue;
+
       const sel = filters[def.key];
       if (!sel || sel.size === 0) continue;
+
       const val = facetValue(def.key, v);
-      if (!sel.has(val)) return false;
+      const pol = filterPolarity[def.key] ?? +1;
+
+      if (pol === -1) {
+        if (sel.has(val)) return false;   // exclude matches
+      } else {
+        if (!sel.has(val)) return false;  // require matches
+      }
     }
     return true;
   });
@@ -296,13 +326,20 @@ function renderFiltersUI(searchFilteredList) {
   if (!elToolbarFilters) return;
 
   const html = FILTER_DEFS.map(def => {
-    const selectedN = filters[def.key].size;
+    const selSet = filters[def.key];
+    const selectedN = selSet.size;
+    const pol = filterPolarity[def.key] ?? +1;
+    const polClass = (selectedN > 0) ? (pol === -1 ? " isNeg" : " isPos") : "";
+
+    // Always show selected FILTER ITEMS count (even in NEG mode)
+    const pillN = selectedN;
+
     return `
-      <div class="flt" data-flt="${escapeHtml(def.key)}">
-        <button class="fltBtn" type="button" aria-haspopup="true" aria-expanded="false">
-          ${escapeHtml(def.label)}
-          ${selectedN ? `<span class="fltCount">(${selectedN})</span>` : `<span class="fltCount"></span>`}
-        </button>
+  <div class="flt${polClass}" data-flt="${escapeHtml(def.key)}">
+    <button class="fltBtn" type="button" aria-haspopup="true" aria-expanded="false">
+        ${escapeHtml(def.label)}
+        ${pillN ? `<span class="fltCount">(${pillN})</span>` : `<span class="fltCount"></span>`}
+      </button>
         <div class="fltPanel" role="menu" aria-label="${escapeHtml(def.label)}">
           <div class="fltTop">
             <div class="fltTitle">${escapeHtml(def.label)}</div>
@@ -349,14 +386,111 @@ function closeAllFilterPanels() {
 
 function wireFiltersUI() {
   if (!elToolbarFilters) return;
+  // Long-press toggle: positive (green) <-> negative (red)
+  let lpTimer = null;
+  let lpKey = null;
+  let lpPointerId = null;
+  let startX = 0;
+  let startY = 0;
+  let lpWrapEl = null;
+  let lpFired = false;
+
+  // robust click suppression (because UI rerenders during long-press)
+  let suppressClickUntil = 0;
+
+  const LONG_PRESS_MS = 550;
+  const MOVE_CANCEL_PX = 10; // allow small finger jitter without cancelling
+
+  const clearLP = () => {
+    if (lpTimer) window.clearTimeout(lpTimer);
+    lpTimer = null;
+    lpKey = null;
+    lpPointerId = null;
+    lpWrapEl = null;
+    lpFired = false;
+  };
+
+  const togglePolarity = (key, wrapEl) => {
+    if (!key || !filters[key]) return;
+    if (filters[key].size === 0) return; // only meaningful when something is selected
+
+    // flip model state
+    filterPolarity[key] = (filterPolarity[key] === -1) ? +1 : -1;
+
+    // IMMEDIATE UI feedback (don’t wait for re-render)
+    if (wrapEl) {
+      wrapEl.classList.remove("isPos", "isNeg");
+      wrapEl.classList.add(filterPolarity[key] === -1 ? "isNeg" : "isPos");
+    }
+
+    // busy cursor immediately + apply
+    document.body.classList.add("isBusy");
+    applyFilterSortRender();
+  };
+
+  elToolbarFilters.addEventListener("pointerdown", (e) => {
+    const btn = (e.target instanceof HTMLElement) ? e.target.closest(".fltBtn") : null;
+    if (!btn) return;
+
+    const wrap = btn.closest(".flt");
+    const key = wrap?.getAttribute("data-flt");
+    if (!key) return;
+
+    if (!filters[key] || filters[key].size === 0) return;
+
+    clearLP();
+    lpKey = key;
+    lpWrapEl = wrap;
+    lpPointerId = e.pointerId;
+    startX = e.clientX;
+    startY = e.clientY;
+    lpFired = false;
+
+    // capture pointer so we reliably get move/up even if DOM rerenders
+    try { btn.setPointerCapture(e.pointerId); } catch { /* ignore */ }
+
+    lpTimer = window.setTimeout(() => {
+      suppressClickUntil = Date.now() + 900;
+      lpFired = true;
+      togglePolarity(lpKey, lpWrapEl);
+    }, LONG_PRESS_MS);
+  });
+
+  elToolbarFilters.addEventListener("pointermove", (e) => {
+    if (!lpTimer) return;
+    if (lpPointerId !== e.pointerId) return;
+
+    const dx = e.clientX - startX;
+    const dy = e.clientY - startY;
+    if ((dx * dx + dy * dy) > (MOVE_CANCEL_PX * MOVE_CANCEL_PX)) {
+      clearLP();
+    }
+  });
+
+  elToolbarFilters.addEventListener("pointerup", (e) => {
+    if (lpPointerId !== e.pointerId) return;
+    if (lpFired) suppressClickUntil = Date.now() + 900;
+    clearLP();
+  });
+
+  elToolbarFilters.addEventListener("pointercancel", (e) => {
+    if (lpPointerId !== e.pointerId) return;
+    clearLP();
+  });
+
+  elToolbarFilters.addEventListener("pointerleave", clearLP);
 
   elToolbarFilters.addEventListener("click", (e) => {
+
+    if (Date.now() < suppressClickUntil) return;
+
     const t = e.target;
 
     if (t instanceof HTMLElement && t.matches("[data-clear]")) {
       const key = t.getAttribute("data-clear");
       if (key && filters[key]) {
         filters[key].clear();
+        filterPolarity[key] = +1;
         applyFilterSortRender();
       }
       return;
@@ -388,6 +522,9 @@ function wireFiltersUI() {
 
     if (t.checked) set.add(val);
     else set.delete(val);
+
+    // If cleared out, revert to positive default
+    if (set.size === 0) filterPolarity[key] = +1;
 
     applyFilterSortRender();
   });
@@ -710,12 +847,12 @@ function cardTemplate(v) {
         </div>
 
         ${(() => {
-          const dealerObj = DEALERS_BY_ID.get(Number(v?.dealerId));
-          const city = safeText(dealerObj?.city, "");
-          const state = safeText(dealerObj?.state, "");
-          const location = (city && state) ? `${city}, ${state}` : city || state;
+      const dealerObj = DEALERS_BY_ID.get(Number(v?.dealerId));
+      const city = safeText(dealerObj?.city, "");
+      const state = safeText(dealerObj?.state, "");
+      const location = (city && state) ? `${city}, ${state}` : city || state;
 
-          return `
+      return `
             <div class="line">
               <span class="muted">${dealerHtml}</span>
             </div>
@@ -725,7 +862,7 @@ function cardTemplate(v) {
               <span class="muted">${escapeHtml(getDealerDistanceLabelForVehicle(v))}</span>
             </div>
           `;
-        })()}
+    })()}
 
         <div class="pills">
           <button class="pill pillOptions" type="button" aria-expanded="false">

@@ -866,6 +866,27 @@ a:hover {
   font-variant-numeric: tabular-nums;
 }
 
+/* === Filter polarity (green=must include, red=must exclude) === */
+.flt.isPos .fltBtn {
+  background: rgba(72, 199, 116, 0.22);
+  /* green */
+  border-color: rgba(72, 199, 116, 0.45);
+  box-shadow: 0 0 0 1px rgba(72, 199, 116, 0.12) inset;
+}
+
+.flt.isNeg .fltBtn {
+  background: rgba(241, 70, 104, 0.22);
+  /* red */
+  border-color: rgba(241, 70, 104, 0.45);
+  box-shadow: 0 0 0 1px rgba(241, 70, 104, 0.12) inset;
+}
+
+/* keep count readable on colored backgrounds */
+.flt.isPos .fltBtn .fltCount,
+.flt.isNeg .fltBtn .fltCount {
+  color: rgba(255, 255, 255, 0.78);
+}
+
 .fltPanel {
   position: absolute;
   top: calc(100% + 8px);
