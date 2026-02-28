@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-02-28T14:06:09.688Z",
+  "generated_at": "2026-02-28T14:27:39.366Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,33 +11,13 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 29,
+      "exported_ads": 28,
       "droppedPrice": 89,
       "droppedMissingGeo": 0,
-      "droppedCircle": 101
+      "droppedCircle": 100
     }
   },
   "ads": [
-    {
-      "adID": "756018740664687",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/1471341943/?product_id=756018740664687",
-      "author": "Patrick Pt Lewis",
-      "postedTime": "2026-02-28T05:51:09.000Z",
-      "title": "Arcade game",
-      "description": "PAC man",
-      "price": "$200",
-      "lat": 33.9887165,
-      "lon": -83.8979573,
-      "location": "Dacula, GA",
-      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/643909981_1623551772174152_6460898641539350110_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=106&ccb=1-7&_nc_sid=92e707&_nc_ohc=kqFykeXRp-kQ7kNvwGnTgYq&_nc_oc=Adnkw-RBORafEIaJVxYshTLs9iulfAu0a_MvD68mfbwFPGkgDw0z1FCOw9ZM9bpVUDc&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=s6J73rDYkNks35c02TVk5w&_nc_ss=8&oh=00_AftdM9obk2-OccGHB01WapQq-l-93z0Kh2TlBqKeFN0iog&oe=69A8DCF1",
-      "adUrl": "https://www.facebook.com/marketplace/item/756018740664687/",
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-02-28 14:04:46",
-      "lastSeen": "2026-02-28T14:05:04.682Z"
-    },
     {
       "adID": "1662579638509098",
       "source": "MP",
@@ -330,13 +310,13 @@
       "lat": 30.3946392,
       "lon": -89.3639378,
       "location": "Diamondhead, MS",
-      "imageUrl": "https://scontent-dfw5-3.xx.fbcdn.net/v/t39.84726-6/573584419_4251329268475656_5283365218004922461_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=108&ccb=1-7&_nc_sid=92e707&_nc_ohc=TZuHa_Fqn2EQ7kNvwGeYzwA&_nc_oc=AdlFH7Y7YAfnSQRXy-U_NL0Iv7CuRZu6ZnzAoDTkGiaeVKCg8YIaEh70asY7et8Qe_o&_nc_zt=14&_nc_ht=scontent-dfw5-3.xx&_nc_gid=_Repym8vAUjV-AwNituPGg&oh=00_AfuvGl85juW0Br3lM5EyuRBC-3NLYJNL3pIPHEEt4Z8Qqg&oe=69A7452F",
+      "imageUrl": "https://scontent-dfw5-3.xx.fbcdn.net/v/t39.84726-6/573584419_4251329268475656_5283365218004922461_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=108&ccb=1-7&_nc_sid=92e707&_nc_ohc=TZuHa_Fqn2EQ7kNvwGeYzwA&_nc_oc=AdlFH7Y7YAfnSQRXy-U_NL0Iv7CuRZu6ZnzAoDTkGiaeVKCg8YIaEh70asY7et8Qe_o&_nc_zt=14&_nc_ht=scontent-dfw5-3.xx&_nc_gid=hlRAKK7rNjlEVAiNYqPrFA&_nc_ss=8&oh=00_AfsPvXkQGNRQHtNDivMHh1J4dm8Vtk5gkejlV0bpmpyzHg&oe=69A8CEEF",
       "adUrl": "https://www.facebook.com/marketplace/item/1385440476427288/",
       "priceChanged": 0,
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-21 15:07:34",
-      "lastSeen": "2026-02-27T12:29:05.180Z"
+      "lastSeen": "2026-02-28T14:27:23.853Z"
     },
     {
       "adID": "817517294453511",
