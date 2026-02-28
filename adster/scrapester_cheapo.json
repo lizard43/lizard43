@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-02-28T12:25:34.434Z",
+  "generated_at": "2026-02-28T13:07:34.552Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,33 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 27,
-      "droppedPrice": 102,
+      "exported_ads": 28,
+      "droppedPrice": 99,
       "droppedMissingGeo": 0,
-      "droppedCircle": 118
+      "droppedCircle": 121
     }
   },
   "ads": [
+    {
+      "adID": "1662579638509098",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100001665236927/?product_id=1662579638509098",
+      "author": "Kyle Jernigan",
+      "postedTime": "2026-02-06T19:45:47.000Z",
+      "title": "ARCAM CDS50",
+      "description": "Excellent condition ARCAM CDS50 (original remote, box and power chord) Downsizing my HIFI but it’s a great unit.",
+      "price": "$699",
+      "lat": 30.3612885,
+      "lon": -87.1683428,
+      "location": "Gulf Breeze, FL",
+      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/630638738_1415303190130660_5732925919413748217_n.jpg?stp=c151.0.260.260a_dst-jpg_p261x260_tt6&_nc_cat=104&ccb=1-7&_nc_sid=92e707&_nc_ohc=2QcV9zIAU_0Q7kNvwHaK3dL&_nc_oc=AdlRUsn98y8veQbkddr_HnAxl6mFStVokz-NBOOZcMdWMAzyXKACps2b4PoJLfz90ME&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=T_UsryI2T6sD7IPyaeAxiQ&_nc_ss=8&oh=00_Aftfieclppski1WlzLNTQKngXxjN_p5RG0MzChHZ7lrsug&oe=69A8AF75",
+      "adUrl": "https://www.facebook.com/marketplace/item/1662579638509098/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-02-28 13:04:46",
+      "lastSeen": "2026-02-28T13:05:30.701Z"
+    },
     {
       "adID": "1850247408973990",
       "source": "MP",
@@ -36,7 +56,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-27 20:06:16",
-      "lastSeen": "2026-02-28T12:06:07.606Z"
+      "lastSeen": "2026-02-28T13:06:18.473Z"
     },
     {
       "adID": "896869736457748",
@@ -103,7 +123,7 @@
       "source": "PS",
       "authorUrl": "https://pinside.com/pinball/community/pinsiders/gardenartisan68/market",
       "author": "Gardenartisan68",
-      "postedTime": "2026-02-26T12:06:53.518Z",
+      "postedTime": "2026-02-26T13:07:20.596Z",
       "title": "Big Indian",
       "description": "Partially shopped/refurbished - “Nice Gottlieb Big Indian. Original playfield with only a minor nick here and there. New plastics & rubbers. Stenciled the cabinet. Backglass is so so. You can see in the pic wh...”",
       "price": "$800",
@@ -116,7 +136,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-26 12:07:20",
-      "lastSeen": "2026-02-28T12:06:53.531Z"
+      "lastSeen": "2026-02-28T13:07:20.612Z"
     },
     {
       "adID": "929954639508422",
@@ -196,7 +216,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-23 19:06:25",
-      "lastSeen": "2026-02-28T12:06:07.271Z"
+      "lastSeen": "2026-02-28T13:06:18.137Z"
     },
     {
       "adID": "1631260024666726",
@@ -216,7 +236,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-22 21:04:46",
-      "lastSeen": "2026-02-28T12:04:54.740Z"
+      "lastSeen": "2026-02-28T13:04:46.296Z"
     },
     {
       "adID": "766634732769975",
@@ -416,7 +436,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-14 18:04:54",
-      "lastSeen": "2026-02-28T12:04:54.054Z"
+      "lastSeen": "2026-02-28T13:04:45.742Z"
     },
     {
       "adID": "1886604295309613",
@@ -476,7 +496,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 23:10:53",
-      "lastSeen": "2026-02-28T12:06:07.772Z"
+      "lastSeen": "2026-02-28T13:06:18.706Z"
     },
     {
       "adID": "1937314130515670",
@@ -496,7 +516,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 18:10:45",
-      "lastSeen": "2026-02-27T20:06:16.767Z"
+      "lastSeen": "2026-02-28T13:06:18.506Z"
     },
     {
       "adID": "2948138838710326",
@@ -516,7 +536,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 17:22:24",
-      "lastSeen": "2026-02-28T12:04:54.020Z"
+      "lastSeen": "2026-02-28T13:04:45.809Z"
     },
     {
       "adID": "2185352358965594",
@@ -536,7 +556,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 17:22:23",
-      "lastSeen": "2026-02-28T12:04:56.556Z"
+      "lastSeen": "2026-02-28T13:04:46.496Z"
     },
     {
       "adID": "880228111053501",
@@ -556,7 +576,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 17:22:18",
-      "lastSeen": "2026-02-28T12:04:53.919Z"
+      "lastSeen": "2026-02-28T13:04:45.675Z"
     }
   ]
 }
