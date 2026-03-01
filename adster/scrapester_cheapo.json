@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-03-01T13:08:27.624Z",
+  "generated_at": "2026-03-01T14:07:02.865Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,32 +11,52 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 33,
-      "droppedPrice": 92,
+      "exported_ads": 31,
+      "droppedPrice": 77,
       "droppedMissingGeo": 0,
-      "droppedCircle": 120
+      "droppedCircle": 96
     }
   },
   "ads": [
     {
-      "adID": "1921379331822399",
+      "adID": "2324071154737731",
       "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/100000407140938/?product_id=1921379331822399",
-      "author": "Kolby Golliher",
-      "postedTime": "2026-02-28T16:44:45.000Z",
-      "title": "Riftbound Arcane Promo Collection",
-      "description": "I have 3 sealed boxes for sale at market price, so $190 each. Also happy to trade for Pokemon cards. Send me your collectr link or an offer.",
-      "price": "$190",
-      "lat": 29.6519684,
-      "lon": -82.3249846,
-      "location": "Gainesville, FL",
-      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/641635455_1911776702748466_7102727918385073094_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=111&ccb=1-7&_nc_sid=92e707&_nc_ohc=suYPgYV_1Z4Q7kNvwHo44IW&_nc_oc=AdlAMOxvu7ksvvRf00bMkKSPARR7BoGRS9eLv_wQaLSefi7bz8y5h6S-tyozwcaf1LY&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=kNge0cV1DsdPbkJeGdrxYQ&_nc_ss=8&oh=00_Afuvtc9gDwC827DeAL3pGImt07QK4mQE7eFkmBQ2fWOPNg&oe=69AA003E",
-      "adUrl": "https://www.facebook.com/marketplace/item/1921379331822399/",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100000023031983/?product_id=2324071154737731",
+      "author": "Carlitos Quevedo",
+      "postedTime": "2025-10-28T14:21:09.000Z",
+      "title": "Arcade game",
+      "description": "Arcade game, in good condition.",
+      "price": "$110",
+      "lat": 33.8756601,
+      "lon": -84.7621592,
+      "location": "Hiram, GA",
+      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/645773131_2118231852407900_3853424905376881131_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=103&ccb=1-7&_nc_sid=92e707&_nc_ohc=tp7jG1T0C04Q7kNvwGdiTYL&_nc_oc=Adln3HWGMtDG2aTOJjlCioEsLEnENbQtuwqsU8kgA7L2PZq2GnxMRBLGX4-SXEczqek&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=OSIQl6cCUo1-zasadirRsA&_nc_ss=8&oh=00_Afugf2ORvwLg8LdXMaDTuJPYqYmwx-n9dJ6JJkoRXFbnAg&oe=69AA2BB1",
+      "adUrl": "https://www.facebook.com/marketplace/item/2324071154737731/",
       "priceChanged": 0,
       "priceChangedAt": null,
       "hidden": 0,
-      "created_at": "2026-03-01 13:04:46",
-      "lastSeen": "2026-03-01T13:06:08.824Z"
+      "created_at": "2026-03-01 14:04:45",
+      "lastSeen": "2026-03-01T14:05:12.787Z"
+    },
+    {
+      "adID": "954713730340637",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100021701802853/?product_id=954713730340637",
+      "author": "Petey Wheatstraw",
+      "postedTime": "2026-03-01T02:31:45.000Z",
+      "title": "Arcade game",
+      "description": "Works perfectly fine.",
+      "price": "$500",
+      "lat": 33.7544657,
+      "lon": -84.3898151,
+      "location": "Atlanta, GA",
+      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t15.5256-10/644524165_1236913435076848_7952032673259055511_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=100&ccb=1-7&_nc_sid=d4195b&_nc_ohc=5c2llMMXms8Q7kNvwE0zlh7&_nc_oc=AdnhAOLYtgg5ge3YcWyW8Qs8Giol5HDuyTH2ZZYBKJdFPkObNLpTr4nwPoOPtxraahQ&_nc_zt=23&_nc_ht=scontent-dfw5-2.xx&_nc_gid=Cm_mB3ptF45qy53QUzjb2w&_nc_ss=8&oh=00_AfsbBz1GhlGuErAu6rpa9OA0RXNd0l-WDHwR0Ix9VKajGQ&oe=69AA1056",
+      "adUrl": "https://www.facebook.com/marketplace/item/954713730340637/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-03-01 14:04:44",
+      "lastSeen": "2026-03-01T14:05:12.756Z"
     },
     {
       "adID": "898178436530988",
@@ -56,47 +76,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-01 13:04:45",
-      "lastSeen": "2026-03-01T13:06:08.724Z"
-    },
-    {
-      "adID": "1051174636681652",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/100003779816960/?product_id=1051174636681652",
-      "author": "William Flynn",
-      "postedTime": "2025-10-28T14:21:09.000Z",
-      "title": "Off road arcade control",
-      "description": "Control panel for offload arcade cabinet",
-      "price": "$25",
-      "lat": 34.2073196,
-      "lon": -84.1401926,
-      "location": "Cumming, GA",
-      "imageUrl": "https://scontent-dfw5-3.xx.fbcdn.net/v/t39.84726-6/570606491_810205001785807_6431495962079544718_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=109&ccb=1-7&_nc_sid=92e707&_nc_ohc=94m921SwVhoQ7kNvwEcSJyU&_nc_oc=AdmoCLKGoY5iswYFzC7urHv6WhWlwy7TPF7-tRF3f8-Efwc2v9kP7GFidhHHUoxPKOo&_nc_zt=14&_nc_ht=scontent-dfw5-3.xx&_nc_gid=rDlKRWXGdp8fNm0ctFCpzA&_nc_ss=8&oh=00_AftuFTnOUcgF02qxP_7fg3dA2a4ycIMRiVeSIu2sqf7QEQ&oe=69AA0AB7",
-      "adUrl": "https://www.facebook.com/marketplace/item/1051174636681652/",
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-03-01 13:04:45",
-      "lastSeen": "2026-03-01T13:06:08.757Z"
-    },
-    {
-      "adID": "1235565764800655",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/100041057852093/?product_id=1235565764800655",
-      "author": "Johnny Herndon",
-      "postedTime": "2026-02-28T09:56:37.000Z",
-      "title": "1940 Caddilac Pin Ball Machine",
-      "description": "1940’s Cadillac Pin Ball machine. Lights work on the unit. Other stuff didn’t This thing is really heavy",
-      "price": "$800",
-      "lat": 34.5248245,
-      "lon": -84.491494,
-      "location": "Talking Rock, GA",
-      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/644102782_1762316081840583_8477935639688221543_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=107&ccb=1-7&_nc_sid=92e707&_nc_ohc=3gqSgBDZ8gsQ7kNvwHEBnDq&_nc_oc=Adnd00fYqEg_F4kaiBkOMa_IXsf0JcVvL2dbtMkHso5dqEx44PlyoVZO4A6iYSgjCXQ&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=4SgB1Q3nhHT-dKcToHuL_Q&_nc_ss=8&oh=00_Afv5d2-m4OpUribwDNL2yCXq2T6gpCSVx2_WM7_yTMDUjQ&oe=69A9F7B0",
-      "adUrl": "https://www.facebook.com/marketplace/item/1235565764800655/",
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-03-01 12:06:29",
-      "lastSeen": "2026-03-01T13:07:02.276Z"
+      "lastSeen": "2026-03-01T14:04:45.146Z"
     },
     {
       "adID": "1485430376357846",
@@ -136,27 +116,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-01 12:04:44",
-      "lastSeen": "2026-03-01T13:04:45.913Z"
-    },
-    {
-      "adID": "2327068061062000",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/100010954244450/?product_id=2327068061062000",
-      "author": "Cheryl Tracy",
-      "postedTime": "2026-02-28T19:52:27.000Z",
-      "title": "Atari video game pinball",
-      "description": "Great condition selling them all live in marion oaks florida this one had the catalogs as well as the other book all do",
-      "price": "$20",
-      "lat": 29.1871986,
-      "lon": -82.1400923,
-      "location": "Ocala, FL",
-      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/569865042_1196564392292133_7571827608340064235_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=111&ccb=1-7&_nc_sid=92e707&_nc_ohc=K7kTN1RkrMsQ7kNvwEpDSR_&_nc_oc=AdmXJsnuHlVFHZqvDLWGnSM4-1omgio54as5gMIirPODSGpe7oFmBcF0TMeLjSCCoTk&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=d8puyxM-YJha3lw3JzVsZg&_nc_ss=8&oh=00_AfsbZ-SCocbTRk7blFy6hv5BmPT4-dNTal_TqiZEN-69SA&oe=69A97613",
-      "adUrl": "https://www.facebook.com/marketplace/item/2327068061062000/",
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-03-01 02:05:49",
-      "lastSeen": "2026-03-01T02:07:29.158Z"
+      "lastSeen": "2026-03-01T14:04:44.811Z"
     },
     {
       "adID": "1662579638509098",
@@ -196,7 +156,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-27 20:06:16",
-      "lastSeen": "2026-03-01T13:07:01.940Z"
+      "lastSeen": "2026-03-01T14:06:06.177Z"
     },
     {
       "adID": "675528545616516",
@@ -296,7 +256,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-23 19:06:25",
-      "lastSeen": "2026-03-01T13:07:01.231Z"
+      "lastSeen": "2026-03-01T14:06:05.976Z"
     },
     {
       "adID": "PI-210036",
@@ -596,7 +556,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 23:10:53",
-      "lastSeen": "2026-03-01T13:07:02.644Z"
+      "lastSeen": "2026-03-01T14:04:45.112Z"
     },
     {
       "adID": "1937314130515670",
@@ -636,7 +596,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 17:22:24",
-      "lastSeen": "2026-03-01T13:04:46.248Z"
+      "lastSeen": "2026-03-01T14:04:45.213Z"
     },
     {
       "adID": "2185352358965594",
@@ -656,7 +616,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 17:22:23",
-      "lastSeen": "2026-03-01T13:04:46.582Z"
+      "lastSeen": "2026-03-01T14:04:45.379Z"
     },
     {
       "adID": "880228111053501",
@@ -676,7 +636,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 17:22:18",
-      "lastSeen": "2026-03-01T13:04:45.880Z"
+      "lastSeen": "2026-03-01T14:04:45.012Z"
     }
   ]
 }
