@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-03-01T14:07:02.865Z",
+  "generated_at": "2026-03-01T14:26:33.922Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,53 +11,13 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 31,
-      "droppedPrice": 77,
+      "exported_ads": 29,
+      "droppedPrice": 75,
       "droppedMissingGeo": 0,
-      "droppedCircle": 96
+      "droppedCircle": 93
     }
   },
   "ads": [
-    {
-      "adID": "2324071154737731",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/100000023031983/?product_id=2324071154737731",
-      "author": "Carlitos Quevedo",
-      "postedTime": "2025-10-28T14:21:09.000Z",
-      "title": "Arcade game",
-      "description": "Arcade game, in good condition.",
-      "price": "$110",
-      "lat": 33.8756601,
-      "lon": -84.7621592,
-      "location": "Hiram, GA",
-      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/645773131_2118231852407900_3853424905376881131_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=103&ccb=1-7&_nc_sid=92e707&_nc_ohc=tp7jG1T0C04Q7kNvwGdiTYL&_nc_oc=Adln3HWGMtDG2aTOJjlCioEsLEnENbQtuwqsU8kgA7L2PZq2GnxMRBLGX4-SXEczqek&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=OSIQl6cCUo1-zasadirRsA&_nc_ss=8&oh=00_Afugf2ORvwLg8LdXMaDTuJPYqYmwx-n9dJ6JJkoRXFbnAg&oe=69AA2BB1",
-      "adUrl": "https://www.facebook.com/marketplace/item/2324071154737731/",
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-03-01 14:04:45",
-      "lastSeen": "2026-03-01T14:05:12.787Z"
-    },
-    {
-      "adID": "954713730340637",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/100021701802853/?product_id=954713730340637",
-      "author": "Petey Wheatstraw",
-      "postedTime": "2026-03-01T02:31:45.000Z",
-      "title": "Arcade game",
-      "description": "Works perfectly fine.",
-      "price": "$500",
-      "lat": 33.7544657,
-      "lon": -84.3898151,
-      "location": "Atlanta, GA",
-      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t15.5256-10/644524165_1236913435076848_7952032673259055511_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=100&ccb=1-7&_nc_sid=d4195b&_nc_ohc=5c2llMMXms8Q7kNvwE0zlh7&_nc_oc=AdnhAOLYtgg5ge3YcWyW8Qs8Giol5HDuyTH2ZZYBKJdFPkObNLpTr4nwPoOPtxraahQ&_nc_zt=23&_nc_ht=scontent-dfw5-2.xx&_nc_gid=Cm_mB3ptF45qy53QUzjb2w&_nc_ss=8&oh=00_AfsbBz1GhlGuErAu6rpa9OA0RXNd0l-WDHwR0Ix9VKajGQ&oe=69AA1056",
-      "adUrl": "https://www.facebook.com/marketplace/item/954713730340637/",
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-03-01 14:04:44",
-      "lastSeen": "2026-03-01T14:05:12.756Z"
-    },
     {
       "adID": "898178436530988",
       "source": "MP",
@@ -630,13 +590,13 @@
       "lat": 27.9449854,
       "lon": -82.4583107,
       "location": "Tampa, FL",
-      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/611628298_1937621413851849_3261629705404877637_n.jpg?stp=c0.144.252.252a_dst-jpg_p180x540_tt6&_nc_cat=110&ccb=1-7&_nc_sid=92e707&_nc_ohc=sRPijcmHna0Q7kNvwF4lv4S&_nc_oc=Adk9m5Xu2cNnM_sxYtOH-pLBamdyi-MOIG01ymU0amJj5_XQnuwS1PX3KypPW4dWz0o&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=bWCPjbwZ0CETuE9jNAiHVQ&oh=00_Afs-PSKHOb23Gz2F3URzLmGYUem7yt3DvHC5pwB6b5dLHQ&oe=699E3832",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/611628298_1937621413851849_3261629705404877637_n.jpg?stp=c0.144.252.252a_dst-jpg_p180x540_tt6&_nc_cat=110&ccb=1-7&_nc_sid=92e707&_nc_ohc=2pmsA5GQ88QQ7kNvwE3VMTJ&_nc_oc=AdkPhnGkTN3b1Hwryr9pqEngGaZLnCJa9wFo2AkOCNuJMpkx0Ul0CNIJo2EBRy2hzSw&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=za4kVFkV0cRacZWtx64TEA&_nc_ss=8&oh=00_AfvFCfUCnYisYEdWoek9RuPGPKLw_XO2XRCHp_PCgQjjDw&oe=69AA15B2",
       "adUrl": "https://www.facebook.com/marketplace/item/880228111053501/",
       "priceChanged": 0,
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 17:22:18",
-      "lastSeen": "2026-03-01T14:04:45.012Z"
+      "lastSeen": "2026-03-01T14:26:21.096Z"
     }
   ]
 }
