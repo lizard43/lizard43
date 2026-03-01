@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-03-01T16:27:02.358Z",
+  "generated_at": "2026-03-01T17:07:00.122Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,10 +11,10 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 29,
-      "droppedPrice": 81,
+      "exported_ads": 28,
+      "droppedPrice": 84,
       "droppedMissingGeo": 0,
-      "droppedCircle": 99
+      "droppedCircle": 96
     }
   },
   "ads": [
@@ -76,27 +76,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-01 12:04:44",
-      "lastSeen": "2026-03-01T16:04:46.924Z"
-    },
-    {
-      "adID": "1662579638509098",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/100001665236927/?product_id=1662579638509098",
-      "author": "Kyle Jernigan",
-      "postedTime": "2026-02-06T19:45:47.000Z",
-      "title": "ARCAM CDS50",
-      "description": "Excellent condition ARCAM CDS50 (original remote, box and power chord) Downsizing my HIFI but it’s a great unit.",
-      "price": "$699",
-      "lat": 30.3612885,
-      "lon": -87.1683428,
-      "location": "Gulf Breeze, FL",
-      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/630638738_1415303190130660_5732925919413748217_n.jpg?stp=c151.0.260.260a_dst-jpg_p261x260_tt6&_nc_cat=104&ccb=1-7&_nc_sid=92e707&_nc_ohc=2QcV9zIAU_0Q7kNvwHaK3dL&_nc_oc=AdlRUsn98y8veQbkddr_HnAxl6mFStVokz-NBOOZcMdWMAzyXKACps2b4PoJLfz90ME&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=3BfQ6Di_PTyOQYKTuq50bw&_nc_ss=8&oh=00_Aft_VlLNXFAtP01buiOh2_52od81N64C7kXjLjfLOg6HhA&oe=69AA3935",
-      "adUrl": "https://www.facebook.com/marketplace/item/1662579638509098/",
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-02-28 13:04:46",
-      "lastSeen": "2026-03-01T16:26:13.819Z"
+      "lastSeen": "2026-03-01T17:04:41.616Z"
     },
     {
       "adID": "1850247408973990",
@@ -116,7 +96,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-27 20:06:16",
-      "lastSeen": "2026-03-01T16:05:20.600Z"
+      "lastSeen": "2026-03-01T17:05:38.598Z"
     },
     {
       "adID": "675528545616516",
@@ -216,7 +196,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-23 19:06:25",
-      "lastSeen": "2026-03-01T16:05:20.198Z"
+      "lastSeen": "2026-03-01T17:05:38.285Z"
     },
     {
       "adID": "PI-210036",
@@ -456,7 +436,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-14 18:04:54",
-      "lastSeen": "2026-03-01T16:05:21.170Z"
+      "lastSeen": "2026-03-01T17:05:39.200Z"
     },
     {
       "adID": "1886604295309613",
@@ -516,7 +496,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 23:10:53",
-      "lastSeen": "2026-03-01T16:05:20.700Z"
+      "lastSeen": "2026-03-01T17:05:39.334Z"
     },
     {
       "adID": "1937314130515670",
@@ -536,7 +516,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 18:10:45",
-      "lastSeen": "2026-03-01T15:05:57.074Z"
+      "lastSeen": "2026-03-01T17:05:39.401Z"
     },
     {
       "adID": "2948138838710326",
@@ -556,7 +536,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 17:22:24",
-      "lastSeen": "2026-03-01T16:04:46.958Z"
+      "lastSeen": "2026-03-01T17:04:42.158Z"
     },
     {
       "adID": "2185352358965594",
@@ -576,7 +556,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 17:22:23",
-      "lastSeen": "2026-03-01T16:04:47.092Z"
+      "lastSeen": "2026-03-01T17:04:42.024Z"
     },
     {
       "adID": "880228111053501",
@@ -596,7 +576,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 17:22:18",
-      "lastSeen": "2026-03-01T16:04:47.259Z"
+      "lastSeen": "2026-03-01T17:04:41.415Z"
     }
   ]
 }
