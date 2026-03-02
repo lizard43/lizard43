@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-03-02T20:08:31.153Z",
+  "generated_at": "2026-03-02T21:07:21.106Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,33 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 37,
-      "droppedPrice": 65,
+      "exported_ads": 38,
+      "droppedPrice": 74,
       "droppedMissingGeo": 0,
-      "droppedCircle": 60
+      "droppedCircle": 63
     }
   },
   "ads": [
+    {
+      "adID": "2357298788031441",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/1685363914/?product_id=2357298788031441",
+      "author": "Boris Miller",
+      "postedTime": "2026-03-02T00:06:55.000Z",
+      "title": "Big lot of gardening tools. Shovels. Rakes, Axes, Hoes, Post Digget. $10 each",
+      "description": "Handy collection of gardening tools. Got a bunch of shovels, like round point and square point ones. Also some rakes, hoes, and couple axes. Useful for yard work or garden projects. $10 each.",
+      "price": "$10",
+      "lat": 34.2073196,
+      "lon": -84.1401926,
+      "location": "Cumming, GA",
+      "imageUrl": "https://scontent-dfw5-3.xx.fbcdn.net/v/t39.84726-6/644803512_927651726836671_8286331318811991480_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=108&ccb=1-7&_nc_sid=92e707&_nc_ohc=8p8DuxU19aQQ7kNvwHm1YjX&_nc_oc=AdmyRXTTSRB4hE4e_7p-MFS5EM4q6wN0BNOiyiNXD5p9PjUKgedB9IHtBAaKLuv9oyU&_nc_zt=14&_nc_ht=scontent-dfw5-3.xx&_nc_gid=KIRp8L5YL0GmI2kqMV5xPw&_nc_ss=8&oh=00_AfyVRJlDcZ3JLCF-9i4WGD46RxPFFOKZtnPJ0tfggvbxCw&oe=69ABE8D2",
+      "adUrl": "https://www.facebook.com/marketplace/item/2357298788031441/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-03-02 21:05:59",
+      "lastSeen": "2026-03-02T21:06:43.400Z"
+    },
     {
       "adID": "775781791821031",
       "source": "MP",
@@ -56,7 +76,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-02 20:06:41",
-      "lastSeen": "2026-03-02T20:07:54.089Z"
+      "lastSeen": "2026-03-02T21:05:58.855Z"
     },
     {
       "adID": "1629007474808877",
@@ -76,7 +96,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-02 19:06:41",
-      "lastSeen": "2026-03-02T20:06:41.484Z"
+      "lastSeen": "2026-03-02T21:05:58.960Z"
     },
     {
       "adID": "1461850732271817",
@@ -90,13 +110,13 @@
       "lat": 33.7544657,
       "lon": -84.3898151,
       "location": "Atlanta, GA",
-      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/646041765_762529053310881_5093406893600182534_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=101&ccb=1-7&_nc_sid=92e707&_nc_ohc=w6ViyqM2HCoQ7kNvwG5ojxE&_nc_oc=Adnf2cRnc38nOc8hltddx1-N79YhoCptfovzcIYNQgm4FBp44aKDWA3sN5U435t70FA&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=KLexDfdVBCk-GA4TzSgvOA&_nc_ss=8&oh=00_AfxUexLcxdD5RZJWSqXonefHSt9LUSSexfF__HdET2ADOQ&oe=69ABC371",
+      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/646041765_762529053310881_5093406893600182534_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=101&ccb=1-7&_nc_sid=92e707&_nc_ohc=w6ViyqM2HCoQ7kNvwG5ojxE&_nc_oc=Adnf2cRnc38nOc8hltddx1-N79YhoCptfovzcIYNQgm4FBp44aKDWA3sN5U435t70FA&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=5oq3ZZMGiDJgCjZizZrrvg&_nc_ss=8&oh=00_Afz9kvokTp-DNC-Kp47Ox5dD8mdIZfbX4pBMQgVWD-7nuw&oe=69ABC371",
       "adUrl": "https://www.facebook.com/marketplace/item/1461850732271817/",
       "priceChanged": 1,
-      "priceChangedAt": "2026-03-02 20:05:50",
+      "priceChangedAt": "2026-03-02 21:05:10",
       "hidden": 0,
       "created_at": "2026-03-02 19:04:51",
-      "lastSeen": "2026-03-02T20:05:50.542Z"
+      "lastSeen": "2026-03-02T21:05:10.139Z"
     },
     {
       "adID": "922131350232973",
@@ -116,7 +136,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-02 19:04:50",
-      "lastSeen": "2026-03-02T20:04:56.318Z"
+      "lastSeen": "2026-03-02T21:04:49.676Z"
     },
     {
       "adID": "929251049590411",
@@ -136,7 +156,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-02 16:04:43",
-      "lastSeen": "2026-03-02T20:04:55.736Z"
+      "lastSeen": "2026-03-02T21:04:48.452Z"
     },
     {
       "adID": "925685049944813",
@@ -176,7 +196,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-02 02:04:50",
-      "lastSeen": "2026-03-02T20:04:55.805Z"
+      "lastSeen": "2026-03-02T21:04:48.964Z"
     },
     {
       "adID": "1472962297543062",
@@ -196,7 +216,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-01 22:04:48",
-      "lastSeen": "2026-03-02T20:04:56.117Z"
+      "lastSeen": "2026-03-02T21:04:49.207Z"
     },
     {
       "adID": "898178436530988",
@@ -216,7 +236,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-01 13:04:45",
-      "lastSeen": "2026-03-02T03:04:38.097Z"
+      "lastSeen": "2026-03-02T21:04:49.274Z"
     },
     {
       "adID": "1485430376357846",
@@ -256,7 +276,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-01 12:04:44",
-      "lastSeen": "2026-03-02T20:04:56.150Z"
+      "lastSeen": "2026-03-02T21:04:49.240Z"
     },
     {
       "adID": "1850247408973990",
@@ -276,7 +296,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-27 20:06:16",
-      "lastSeen": "2026-03-02T20:06:41.787Z"
+      "lastSeen": "2026-03-02T21:05:59.274Z"
     },
     {
       "adID": "675528545616516",
@@ -376,7 +396,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-23 19:06:25",
-      "lastSeen": "2026-03-02T20:06:41.619Z"
+      "lastSeen": "2026-03-02T21:05:58.993Z"
     },
     {
       "adID": "PI-210036",
@@ -676,7 +696,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 23:10:53",
-      "lastSeen": "2026-03-02T20:04:56.217Z"
+      "lastSeen": "2026-03-02T21:04:49.474Z"
     },
     {
       "adID": "1937314130515670",
@@ -716,7 +736,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 17:22:24",
-      "lastSeen": "2026-03-02T20:04:56.184Z"
+      "lastSeen": "2026-03-02T21:04:49.441Z"
     },
     {
       "adID": "2185352358965594",
@@ -736,7 +756,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 17:22:23",
-      "lastSeen": "2026-03-02T20:04:56.419Z"
+      "lastSeen": "2026-03-02T21:04:49.709Z"
     },
     {
       "adID": "880228111053501",
@@ -756,7 +776,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 17:22:18",
-      "lastSeen": "2026-03-02T20:04:56.251Z"
+      "lastSeen": "2026-03-02T21:04:49.575Z"
     }
   ]
 }
