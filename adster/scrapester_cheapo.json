@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-03-02T09:26:36.414Z",
+  "generated_at": "2026-03-02T12:09:09.836Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,93 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 32,
-      "droppedPrice": 89,
+      "exported_ads": 36,
+      "droppedPrice": 98,
       "droppedMissingGeo": 0,
-      "droppedCircle": 101
+      "droppedCircle": 106
     }
   },
   "ads": [
+    {
+      "adID": "925685049944813",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100087240432700/?product_id=925685049944813",
+      "author": "Mau Maradiaga",
+      "postedTime": "2026-02-10T20:56:06.000Z",
+      "title": "Habitación privada en alquiler",
+      "description": "Se alquila cuarto para persona o dama con baño compartido todo accesible a 3 minutos.",
+      "price": "$600",
+      "lat": 33.9412127,
+      "lon": -84.2135309,
+      "location": "Norcross, GA",
+      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t15.5256-10/640130226_1276966377891623_6453388961026283374_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=102&ccb=1-7&_nc_sid=d4195b&_nc_ohc=ibn3IxzxFqgQ7kNvwEuyR1t&_nc_oc=AdkhGfkyXKc4yH-N9xo6wT5mfD3hWaXNOd3JbZE53ymgyfN_B7HExKuwLgnZwulu-TI&_nc_zt=23&_nc_ht=scontent-dfw5-2.xx&_nc_gid=hw9tXHaoVh_n_B98mJYOxA&_nc_ss=8&oh=00_AfwW0QrcOdmkd8mOY6hOuYXbZez4-XqMYlGDX2Y57rYmVg&oe=69AB59F4",
+      "adUrl": "https://www.facebook.com/marketplace/item/925685049944813/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-03-02 12:06:25",
+      "lastSeen": "2026-03-02T12:08:35.091Z"
+    },
+    {
+      "adID": "2779519259053830",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100081332167070/?product_id=2779519259053830",
+      "author": "Mary-Helen Cangemi De Leon",
+      "postedTime": "2026-02-07T16:47:08.000Z",
+      "title": "Eastern Star 25 yr pin",
+      "description": "Pin",
+      "price": "$25",
+      "lat": 30.3674198,
+      "lon": -89.0928155,
+      "location": "Gulfport, MS",
+      "imageUrl": "https://scontent-dfw5-3.xx.fbcdn.net/v/t39.84726-6/627330064_1407737073761672_7205645596970716871_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=92e707&_nc_ohc=nkw-RGgcOWUQ7kNvwElO4ys&_nc_oc=Adm5Lb_lTSdYXCN9Sq9XP0E82Qe65u6nQ4Xb0r5EfJ_JZ5yaW-k-iVV-J_T66OqNThc&_nc_zt=14&_nc_ht=scontent-dfw5-3.xx&_nc_gid=1k8FqL6V46-3sPD2W_DN1g&_nc_ss=8&oh=00_AfzDZOFPbL0tRBqX90rcGow3yjcRCm5s4ye2zcabpZDqsQ&oe=69AB51FE",
+      "adUrl": "https://www.facebook.com/marketplace/item/2779519259053830/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-03-02 12:06:25",
+      "lastSeen": "2026-03-02T12:08:35.125Z"
+    },
+    {
+      "adID": "1217881967095712",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/789675656/?product_id=1217881967095712",
+      "author": "Carlos Quintero",
+      "postedTime": "2026-03-01T23:33:07.000Z",
+      "title": "Baby boy Pitbull",
+      "description": "Needs a home, found by Nash Farm Battlefield I took him to get shots and he is 3 to 4 months according to the vet.",
+      "price": "$1",
+      "lat": 33.3870578,
+      "lon": -84.2829784,
+      "location": "Hampton, GA",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t15.5256-10/638936600_888058494057688_3703620684522712112_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=110&ccb=1-7&_nc_sid=d4195b&_nc_ohc=OFHBDW9GznYQ7kNvwHAojlv&_nc_oc=Adkzz_rafmWeag6Jw7LpscHFWzT7MpcJUittHQhGFus1A4jJGAxqgi8gAR_6xQMy9Kk&_nc_zt=23&_nc_ht=scontent-dfw5-1.xx&_nc_gid=fALJSwNB7QWa7JB1yDStlw&_nc_ss=8&oh=00_Afx504Gl-2IBhSU1vM7cxL9ZwYJjmWg2sdKB16Iar_gnxQ&oe=69AB44B4",
+      "adUrl": "https://www.facebook.com/marketplace/item/1217881967095712/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-03-02 12:06:24",
+      "lastSeen": "2026-03-02T12:08:35.024Z"
+    },
+    {
+      "adID": "1619156452668716",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100002441256782/?product_id=1619156452668716",
+      "author": "Rhonda Savlin",
+      "postedTime": "2026-03-02T08:08:49.000Z",
+      "title": "Full size arcade game",
+      "description": "Full size arcade game for two players or just one two shooting game $130",
+      "price": "$130",
+      "lat": 28.01633,
+      "lon": -82.1234803,
+      "location": "Plant City, FL",
+      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/646378515_1915499356024678_8474523484159755230_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=106&ccb=1-7&_nc_sid=92e707&_nc_ohc=dwPkNlLqAqoQ7kNvwFUI_ND&_nc_oc=AdlLN53BK_iL3XOi8ZezYhzI9fZUoPobGwY8y7INSy15SmSpjTOu081wKXvUEfoU45g&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=uLiJVtoiZ18Uz3SIJubCkw&_nc_ss=8&oh=00_AfyQihXtmQXvwkMgA086wjoTGYD7Qi-umy1PHmQKVvsiqA&oe=69AB49C3",
+      "adUrl": "https://www.facebook.com/marketplace/item/1619156452668716/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-03-02 12:04:40",
+      "lastSeen": "2026-03-02T12:05:38.806Z"
+    },
     {
       "adID": "745948024981948",
       "source": "MP",
@@ -56,7 +136,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-02 02:04:50",
-      "lastSeen": "2026-03-02T03:04:37.363Z"
+      "lastSeen": "2026-03-02T12:04:40.262Z"
     },
     {
       "adID": "1472962297543062",
@@ -76,7 +156,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-01 22:04:48",
-      "lastSeen": "2026-03-02T03:04:37.694Z"
+      "lastSeen": "2026-03-02T12:04:40.530Z"
     },
     {
       "adID": "2339997443168038",
@@ -96,7 +176,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-01 21:06:31",
-      "lastSeen": "2026-03-02T02:06:53.344Z"
+      "lastSeen": "2026-03-02T12:06:24.976Z"
     },
     {
       "adID": "898178436530988",
@@ -156,7 +236,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-01 12:04:44",
-      "lastSeen": "2026-03-02T03:04:37.493Z"
+      "lastSeen": "2026-03-02T12:04:40.631Z"
     },
     {
       "adID": "1850247408973990",
@@ -176,7 +256,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-27 20:06:16",
-      "lastSeen": "2026-03-02T03:06:25.570Z"
+      "lastSeen": "2026-03-02T12:06:25.076Z"
     },
     {
       "adID": "675528545616516",
@@ -276,7 +356,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-23 19:06:25",
-      "lastSeen": "2026-03-02T03:06:25.436Z"
+      "lastSeen": "2026-03-02T12:06:22.464Z"
     },
     {
       "adID": "PI-210036",
@@ -576,7 +656,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 23:10:53",
-      "lastSeen": "2026-03-02T03:04:38.297Z"
+      "lastSeen": "2026-03-02T12:04:40.865Z"
     },
     {
       "adID": "1937314130515670",
@@ -616,7 +696,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 17:22:24",
-      "lastSeen": "2026-03-02T03:04:37.728Z"
+      "lastSeen": "2026-03-02T12:04:40.966Z"
     },
     {
       "adID": "2185352358965594",
@@ -636,7 +716,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 17:22:23",
-      "lastSeen": "2026-03-02T03:04:38.431Z"
+      "lastSeen": "2026-03-02T12:04:40.999Z"
     },
     {
       "adID": "880228111053501",
@@ -656,7 +736,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 17:22:18",
-      "lastSeen": "2026-03-02T03:04:38.197Z"
+      "lastSeen": "2026-03-02T12:04:40.798Z"
     }
   ]
 }
