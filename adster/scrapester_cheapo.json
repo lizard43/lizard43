@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-03-02T14:24:44.316Z",
+  "generated_at": "2026-03-02T15:07:50.867Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,53 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 32,
-      "droppedPrice": 50,
+      "exported_ads": 34,
+      "droppedPrice": 58,
       "droppedMissingGeo": 0,
-      "droppedCircle": 50
+      "droppedCircle": 57
     }
   },
   "ads": [
+    {
+      "adID": "1248494660735033",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/1129852735/?product_id=1248494660735033",
+      "author": "Tammy Striplin Shannahan",
+      "postedTime": "2026-03-01T23:29:01.000Z",
+      "title": "Huge Bead & Craft Supply Lot",
+      "description": "Awesome collection of beads and craft supplies! Got tons of different beads like pink ones, letter beads, colorful flat ones, glass beads, and cute red hearts. Also has lots of metal findings for making jewelry. Comes with clear organizers to keep stuff tidy. Great for anyone into jewelry making or crafts!Beads Galore!",
+      "price": "$150",
+      "lat": 30.1586518,
+      "lon": -85.6602936,
+      "location": "Panama City, FL",
+      "imageUrl": "https://scontent-dfw5-3.xx.fbcdn.net/v/t39.84726-6/642849261_26253874874243039_624092638799351228_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=108&ccb=1-7&_nc_sid=92e707&_nc_ohc=4D_Ugrku0bUQ7kNvwGykeIj&_nc_oc=AdlTcf0eCkLbs3KhiHGVFaoag4-meu7bWvoI2eRPtZlExKYPH25E9L4gvCV19HA8sU8&_nc_zt=14&_nc_ht=scontent-dfw5-3.xx&_nc_gid=nYiQJ3VVHuSrtwbQ6hdTHw&_nc_ss=8&oh=00_Afyd-G7j9i5ZMmPTfOeG3BWTkHxwlLoDayw2H3k-l9GCzQ&oe=69AB69CA",
+      "adUrl": "https://www.facebook.com/marketplace/item/1248494660735033/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-03-02 15:06:03",
+      "lastSeen": "2026-03-02T15:07:13.008Z"
+    },
+    {
+      "adID": "1291202763063639",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100000650559509/?product_id=1291202763063639",
+      "author": "Brad Pickett",
+      "postedTime": "2026-03-01T23:32:01.000Z",
+      "title": "33 1250 17 Venom Terra Hunter act",
+      "description": "",
+      "price": "$150",
+      "lat": 31.1580261,
+      "lon": -90.8089848,
+      "location": "Liberty, MS",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/646398853_2166547177217526_6041665095911269342_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=105&ccb=1-7&_nc_sid=92e707&_nc_ohc=IocoGZvDYpUQ7kNvwEtaiCM&_nc_oc=AdmD1dU2_e3KipaQV1i0O8Pn6-Sicf5zbV9vm_e_f4rmqmi__h0p_OOaCN0BQH4oANw&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=30vXVglAciefpgTVr2jWcg&_nc_ss=8&oh=00_AfwmhL3ZEsfeiD1rTlKcAfikdxGQUqkQ6vZeLCEKlYNWLw&oe=69AB9007",
+      "adUrl": "https://www.facebook.com/marketplace/item/1291202763063639/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-03-02 15:04:48",
+      "lastSeen": "2026-03-02T15:06:03.198Z"
+    },
     {
       "adID": "925685049944813",
       "source": "MP",
@@ -56,7 +96,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-02 02:04:50",
-      "lastSeen": "2026-03-02T13:04:41.228Z"
+      "lastSeen": "2026-03-02T15:04:47.327Z"
     },
     {
       "adID": "1472962297543062",
@@ -76,7 +116,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-01 22:04:48",
-      "lastSeen": "2026-03-02T13:04:41.429Z"
+      "lastSeen": "2026-03-02T15:04:47.398Z"
     },
     {
       "adID": "2339997443168038",
@@ -156,7 +196,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-01 12:04:44",
-      "lastSeen": "2026-03-02T13:04:41.363Z"
+      "lastSeen": "2026-03-02T15:04:47.731Z"
     },
     {
       "adID": "1850247408973990",
@@ -176,7 +216,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-27 20:06:16",
-      "lastSeen": "2026-03-02T13:06:21.194Z"
+      "lastSeen": "2026-03-02T15:06:02.964Z"
     },
     {
       "adID": "675528545616516",
@@ -276,7 +316,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-23 19:06:25",
-      "lastSeen": "2026-03-02T14:00:01.904Z"
+      "lastSeen": "2026-03-02T15:06:02.684Z"
     },
     {
       "adID": "PI-210036",
@@ -336,7 +376,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-22 16:05:00",
-      "lastSeen": "2026-03-02T02:04:50.891Z"
+      "lastSeen": "2026-03-02T15:04:47.564Z"
     },
     {
       "adID": "1920698478541387",
@@ -516,7 +556,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-14 18:04:54",
-      "lastSeen": "2026-03-02T03:04:37.761Z"
+      "lastSeen": "2026-03-02T15:06:02.997Z"
     },
     {
       "adID": "1886604295309613",
@@ -576,7 +616,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 23:10:53",
-      "lastSeen": "2026-03-02T13:04:41.562Z"
+      "lastSeen": "2026-03-02T15:04:47.798Z"
     },
     {
       "adID": "1937314130515670",
@@ -616,7 +656,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 17:22:24",
-      "lastSeen": "2026-03-02T13:04:41.596Z"
+      "lastSeen": "2026-03-02T15:04:47.832Z"
     },
     {
       "adID": "2185352358965594",
@@ -636,7 +676,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 17:22:23",
-      "lastSeen": "2026-03-02T13:04:41.629Z"
+      "lastSeen": "2026-03-02T15:04:47.865Z"
     },
     {
       "adID": "880228111053501",
@@ -656,7 +696,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 17:22:18",
-      "lastSeen": "2026-03-02T13:04:41.396Z"
+      "lastSeen": "2026-03-02T15:04:47.765Z"
     }
   ]
 }
