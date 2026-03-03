@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-03-03T13:06:59.512Z",
+  "generated_at": "2026-03-03T14:08:08.112Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,33 +11,13 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 31,
-      "droppedPrice": 53,
+      "exported_ads": 30,
+      "droppedPrice": 49,
       "droppedMissingGeo": 0,
-      "droppedCircle": 51
+      "droppedCircle": 61
     }
   },
   "ads": [
-    {
-      "adID": "4207259616154009",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/100000827853309/?product_id=4207259616154009",
-      "author": "Jared Buban",
-      "postedTime": "2026-02-01T21:03:46.000Z",
-      "title": "Vintage Hungry Hungry Hippo Game",
-      "description": "Still has the balls",
-      "price": "$20",
-      "lat": 34.729847,
-      "lon": -86.5859011,
-      "location": "Huntsville, AL",
-      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/625123691_1969352360592650_2495805986742943487_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=100&ccb=1-7&_nc_sid=92e707&_nc_ohc=GkSbF0SzdRMQ7kNvwEdiD0B&_nc_oc=AdkfVXkKU5ftDMBmUQVyG3hpYegyu83beKX_FFugePrLgg9ckytzqiN4qmreZvtZ0Ts&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=32RMp-VRugYe-UhJe150zg&_nc_ss=8&oh=00_AfyxMaQAw2yPZQ3TahahP-shz5_INUQ0XGgNY4uXadF65A&oe=69ACAB7D",
-      "adUrl": "https://www.facebook.com/marketplace/item/4207259616154009/",
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-03-03 13:05:29",
-      "lastSeen": "2026-03-03T13:06:28.050Z"
-    },
     {
       "adID": "1219789520327960",
       "source": "MP",
@@ -56,7 +36,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-02 20:06:41",
-      "lastSeen": "2026-03-03T13:05:29.411Z"
+      "lastSeen": "2026-03-03T14:07:14.256Z"
     },
     {
       "adID": "929251049590411",
@@ -76,7 +56,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-02 16:04:43",
-      "lastSeen": "2026-03-03T13:04:55.477Z"
+      "lastSeen": "2026-03-03T14:04:46.832Z"
     },
     {
       "adID": "925685049944813",
@@ -116,7 +96,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-02 02:04:50",
-      "lastSeen": "2026-03-03T13:04:55.611Z"
+      "lastSeen": "2026-03-03T14:04:47.239Z"
     },
     {
       "adID": "898178436530988",
@@ -176,7 +156,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-01 12:04:44",
-      "lastSeen": "2026-03-03T13:04:55.878Z"
+      "lastSeen": "2026-03-03T14:04:47.647Z"
     },
     {
       "adID": "1850247408973990",
@@ -196,7 +176,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-27 20:06:16",
-      "lastSeen": "2026-03-03T13:05:29.615Z"
+      "lastSeen": "2026-03-03T14:07:14.427Z"
     },
     {
       "adID": "675528545616516",
@@ -256,7 +236,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-23 19:06:25",
-      "lastSeen": "2026-03-03T13:05:29.481Z"
+      "lastSeen": "2026-03-03T14:07:14.360Z"
     },
     {
       "adID": "PI-210036",
@@ -556,7 +536,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 23:10:53",
-      "lastSeen": "2026-03-03T13:04:55.644Z"
+      "lastSeen": "2026-03-03T14:04:47.272Z"
     },
     {
       "adID": "1937314130515670",
@@ -596,7 +576,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 17:22:24",
-      "lastSeen": "2026-03-03T13:04:55.812Z"
+      "lastSeen": "2026-03-03T14:04:47.071Z"
     },
     {
       "adID": "2185352358965594",
@@ -616,7 +596,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 17:22:23",
-      "lastSeen": "2026-03-03T13:04:55.778Z"
+      "lastSeen": "2026-03-03T14:04:47.105Z"
     },
     {
       "adID": "880228111053501",
@@ -636,7 +616,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 17:22:18",
-      "lastSeen": "2026-03-03T13:04:55.678Z"
+      "lastSeen": "2026-03-03T14:04:47.171Z"
     }
   ]
 }
