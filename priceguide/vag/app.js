@@ -546,7 +546,7 @@ function cardHTML(g, idx) {
     >
   `;
 
-  const key = machineKey(m);
+  const key = machineKey(g);
 
   return `
   <article class="card" data-idx="${idx}">
@@ -693,7 +693,7 @@ function runSearch(rawQuery) {
 
   if (terms.length === 0) {
     hiddenKeys.clear(); // reset hidden matches when search is cleared
-    filtered = machines.slice();
+    filtered = games.slice();
     filteredBlobs = filtered.map(buildBlob);
     matches = [];
     matchPos = 0;
