@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-03-03T12:07:52.140Z",
+  "generated_at": "2026-03-03T12:25:46.778Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,10 +11,10 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 32,
-      "droppedPrice": 63,
+      "exported_ads": 30,
+      "droppedPrice": 49,
       "droppedMissingGeo": 0,
-      "droppedCircle": 77
+      "droppedCircle": 48
     }
   },
   "ads": [
@@ -37,26 +37,6 @@
       "hidden": 0,
       "created_at": "2026-03-02 20:06:41",
       "lastSeen": "2026-03-03T12:06:47.377Z"
-    },
-    {
-      "adID": "1629007474808877",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/772097271/?product_id=1629007474808877",
-      "author": "Joye Vail",
-      "postedTime": "2026-03-02T18:30:08.000Z",
-      "title": "Gottlieb's High Hand pinball machine",
-      "description": "Paddles work bumpers need new rubber numbers and some TLC and you can be a pinball wizard.",
-      "price": "$50",
-      "lat": 30.4380832,
-      "lon": -84.2809332,
-      "location": "Tallahassee, FL",
-      "imageUrl": "https://scontent-dfw5-3.xx.fbcdn.net/v/t39.84726-6/645406910_939512221918828_2831811715665095452_n.jpg?stp=c0.43.261.261a_dst-jpg_p261x260_tt6&_nc_cat=109&ccb=1-7&_nc_sid=92e707&_nc_ohc=EydmiiulGsIQ7kNvwH322M4&_nc_oc=Adkp4Jpy-S-pMxA1ZON3nJjMO6tMTzgwR4Qg7JQWuMAWuRA9wt-vCE7ap_AsmpmqtBI&_nc_zt=14&_nc_ht=scontent-dfw5-3.xx&_nc_gid=9r3dv8FNxpZp22QI6QMQxA&_nc_ss=8&oh=00_AfzmZ50eVClsrDwbxhNoLmQiKftlf1tHyxLvSGpNgTkNNQ&oe=69ABAE98",
-      "adUrl": "https://www.facebook.com/marketplace/item/1629007474808877/",
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-03-02 19:06:41",
-      "lastSeen": "2026-03-02T22:06:54.529Z"
     },
     {
       "adID": "929251049590411",
@@ -83,20 +63,20 @@
       "source": "MP",
       "authorUrl": "https://www.facebook.com/marketplace/profile/100087240432700/?product_id=925685049944813",
       "author": "Mau Maradiaga",
-      "postedTime": "2026-02-10T20:56:06.000Z",
+      "postedTime": "2026-03-02T22:06:45.000Z",
       "title": "Habitación privada en alquiler",
       "description": "Se alquila cuarto para persona o dama con baño compartido todo accesible a 3 minutos.",
       "price": "$600",
       "lat": 33.9412127,
       "lon": -84.2135309,
       "location": "Norcross, GA",
-      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t15.5256-10/640130226_1276966377891623_6453388961026283374_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=102&ccb=1-7&_nc_sid=d4195b&_nc_ohc=ibn3IxzxFqgQ7kNvwEuyR1t&_nc_oc=AdkhGfkyXKc4yH-N9xo6wT5mfD3hWaXNOd3JbZE53ymgyfN_B7HExKuwLgnZwulu-TI&_nc_zt=23&_nc_ht=scontent-dfw5-2.xx&_nc_gid=hw9tXHaoVh_n_B98mJYOxA&_nc_ss=8&oh=00_AfwW0QrcOdmkd8mOY6hOuYXbZez4-XqMYlGDX2Y57rYmVg&oe=69AB59F4",
+      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t15.5256-10/640130226_1276966377891623_6453388961026283374_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=102&ccb=1-7&_nc_sid=d4195b&_nc_ohc=ibn3IxzxFqgQ7kNvwEuyR1t&_nc_oc=AdkhGfkyXKc4yH-N9xo6wT5mfD3hWaXNOd3JbZE53ymgyfN_B7HExKuwLgnZwulu-TI&_nc_zt=23&_nc_ht=scontent-dfw5-2.xx&_nc_gid=99Q8w7iJYJPa96WlYukLQg&_nc_ss=8&oh=00_Afy-tpIaoB47I0CKPZSFF4biykJDxm_hdzFpS9n1MQQ99g&oe=69ACAB74",
       "adUrl": "https://www.facebook.com/marketplace/item/925685049944813/",
       "priceChanged": 0,
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-02 12:06:25",
-      "lastSeen": "2026-03-02T12:08:35.091Z"
+      "lastSeen": "2026-03-03T12:25:30.013Z"
     },
     {
       "adID": "1441688577509784",
@@ -117,26 +97,6 @@
       "hidden": 0,
       "created_at": "2026-03-02 02:04:50",
       "lastSeen": "2026-03-03T12:04:58.673Z"
-    },
-    {
-      "adID": "1472962297543062",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/100024353722780/?product_id=1472962297543062",
-      "author": "Richard Piper",
-      "postedTime": "2026-03-01T21:05:36.000Z",
-      "title": "FINAL FIGHT Arcade Cabinet - Original Board - Unico LCD Screen",
-      "description": "Final Fight Arcade machine for sale with Unico LCD...Original Board...Works great. On Free-play CASH ONLY PICK UP ONLY",
-      "price": "$500",
-      "lat": 30.6712285,
-      "lon": -81.4630025,
-      "location": "Fernandina Beach, FL",
-      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t15.5256-10/639639265_1499254264956431_2391820910601712207_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=106&ccb=1-7&_nc_sid=d4195b&_nc_ohc=o_MhKo7ImTwQ7kNvwHqZNEf&_nc_oc=Adnfi5e7uuuILB8FdvAeCIs4CR_Kb-U8Slr0C5MhA7wuicM8-fBXArCyBCe-XqGCTxc&_nc_zt=23&_nc_ht=scontent-dfw5-2.xx&_nc_gid=r1nca8sHr78i1MijsqGGQQ&_nc_ss=8&oh=00_AfxD_hCXPwPql2lGpSNW36Her8WRswMI5DVw4G3HvKN1tg&oe=69AAA257",
-      "adUrl": "https://www.facebook.com/marketplace/item/1472962297543062/",
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-03-01 22:04:48",
-      "lastSeen": "2026-03-03T12:04:59.237Z"
     },
     {
       "adID": "898178436530988",
@@ -296,7 +256,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-23 00:07:46",
-      "lastSeen": "2026-03-02T09:26:23.089Z"
+      "lastSeen": "2026-03-03T12:25:29.913Z"
     },
     {
       "adID": "1631260024666726",
@@ -430,13 +390,13 @@
       "lat": 27.9658533,
       "lon": -82.8001026,
       "location": "Clearwater, FL",
-      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/628421040_1414097483703823_4793925471462565342_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=103&ccb=1-7&_nc_sid=92e707&_nc_ohc=DIYfwji_Z34Q7kNvwExJQ8u&_nc_oc=Adk68clF_T6PCbSFT7CsMfCzh6obCzbOOzIeAWnAkaFfxmF2vdR_wDCok4pI1ri9RbQ&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=r3pN75JS996QubLIWrn15Q&_nc_ss=8&oh=00_Afxq3pF6lAMOJ9QqZ7-DBzmwrmV7KoIQYHvgwJwvQ8z9-g&oe=69AB393E",
+      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/628421040_1414097483703823_4793925471462565342_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=103&ccb=1-7&_nc_sid=92e707&_nc_ohc=DIYfwji_Z34Q7kNvwExJQ8u&_nc_oc=Adk68clF_T6PCbSFT7CsMfCzh6obCzbOOzIeAWnAkaFfxmF2vdR_wDCok4pI1ri9RbQ&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=jwtUGlYLjnLfG2AARDrBWA&_nc_ss=8&oh=00_AfzLmS3JV4p026apssKZAXjyWlutKLv48CtGhpRq1u_dMw&oe=69AC8ABE",
       "adUrl": "https://www.facebook.com/marketplace/item/919734513923611/",
       "priceChanged": 0,
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-19 17:04:40",
-      "lastSeen": "2026-03-02T09:26:23.426Z"
+      "lastSeen": "2026-03-03T12:25:30.047Z"
     },
     {
       "adID": "1285196646716293",
@@ -470,13 +430,13 @@
       "lat": 30.5043583,
       "lon": -90.4611995,
       "location": "Hammond, LA",
-      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/634138354_933808165901064_6525749522092827119_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=103&ccb=1-7&_nc_sid=92e707&_nc_ohc=2QCe9s0vsHQQ7kNvwHRPmhT&_nc_oc=AdljnQpuBVTcDbRk3f9A5XdM7cF_dfvPGvsyZZ8qdVNXrgO_gJRirwPGwnZp7ZvbjeI&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=8dsxnUaUWmAv-d5QQgOuCQ&_nc_ss=8&oh=00_Afwdu5VE4jarwpoca63rDffwKpsWdI4BZFr-htyEdIdrlg&oe=69AB22B4",
+      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/634138354_933808165901064_6525749522092827119_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=103&ccb=1-7&_nc_sid=92e707&_nc_ohc=WzmGy3qSl-UQ7kNvwFZJFcj&_nc_oc=AdnpSuARbTQuQrGjWHuguZGf7aEtQqFR_5FKP38FuNGw61rfHfHgqD7JpaC1IIaxcgI&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=GEEdoP1zT_95P1MiVUilKQ&_nc_ss=8&oh=00_Afy_W_kCTstRMWgnbZoro7brp4_OqMw7Qkc8ROQ3G_CcjA&oe=69ACAC74",
       "adUrl": "https://www.facebook.com/marketplace/item/1539689973994771/",
       "priceChanged": 0,
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-18 15:44:56",
-      "lastSeen": "2026-03-02T09:26:23.123Z"
+      "lastSeen": "2026-03-03T12:25:29.946Z"
     },
     {
       "adID": "788719020916987",
