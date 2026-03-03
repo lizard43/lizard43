@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-03-03T20:07:32.329Z",
+  "generated_at": "2026-03-03T21:08:25.810Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,33 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 29,
-      "droppedPrice": 51,
+      "exported_ads": 30,
+      "droppedPrice": 64,
       "droppedMissingGeo": 0,
-      "droppedCircle": 57
+      "droppedCircle": 61
     }
   },
   "ads": [
+    {
+      "adID": "1952481942009327",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/1238274722/?product_id=1952481942009327",
+      "author": "Rocky Pal",
+      "postedTime": "2026-03-03T08:48:00.000Z",
+      "title": "Pair Daytona USA 2 Battle On The Edge Sit Down Arcade Machines",
+      "description": "Machine on the left works properly, can use a new flyback for brighter picture or adjustment, works fine. Everything works as it should. Coin chutes not used/tested on both machines. Machine on the right needs some work. It is also on Battle On The Edge and I have successfully had it in slave mode and linked but the force feedback on the machine does not work properly is very week. The screen is nice. I have extra parts even boards from a working machine that haven't tried replacing yet. Not the stack, the ones related to feedback. If this is your things, easy. I have a good 4 button panel for second machine as well. Will require some disassembly to get out the door.",
+      "price": "$750",
+      "lat": 29.8835055,
+      "lon": -90.1184486,
+      "location": "Marrero, LA",
+      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/646398849_1974956623090657_6859071185498253722_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=102&ccb=1-7&_nc_sid=92e707&_nc_ohc=6kRrwMA-Q0QQ7kNvwE6xZij&_nc_oc=Adk-YAB7RxFNCqrkN0Qs-xyIyFfUwjTEYOJ4rDGC9XeT68VTwWi6-OArwsI6NcRXUs0&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=r5PiaSiiBgWNza3IqGba6A&_nc_ss=8&oh=00_AfxXb0mA48mwZFnMpf5zYXnPvdQ9KaTr2UfK_ilm-XNn4Q&oe=69AD295C",
+      "adUrl": "https://www.facebook.com/marketplace/item/1952481942009327/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-03-03 21:04:50",
+      "lastSeen": "2026-03-03T21:05:05.462Z"
+    },
     {
       "adID": "1219789520327960",
       "source": "MP",
@@ -56,7 +76,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-02 16:04:43",
-      "lastSeen": "2026-03-03T20:04:48.975Z"
+      "lastSeen": "2026-03-03T21:04:49.787Z"
     },
     {
       "adID": "1441688577509784",
@@ -156,7 +176,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-27 20:06:16",
-      "lastSeen": "2026-03-03T20:06:33.434Z"
+      "lastSeen": "2026-03-03T21:05:50.531Z"
     },
     {
       "adID": "675528545616516",
@@ -216,7 +236,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-23 19:06:25",
-      "lastSeen": "2026-03-03T20:06:33.201Z"
+      "lastSeen": "2026-03-03T21:05:50.331Z"
     },
     {
       "adID": "PI-210036",
@@ -496,7 +516,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-14 00:04:57",
-      "lastSeen": "2026-03-03T20:06:34.229Z"
+      "lastSeen": "2026-03-03T21:04:50.088Z"
     },
     {
       "adID": "2026958544812237",
@@ -516,7 +536,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 23:10:53",
-      "lastSeen": "2026-03-03T20:06:33.301Z"
+      "lastSeen": "2026-03-03T21:04:49.988Z"
     },
     {
       "adID": "1937314130515670",
@@ -556,7 +576,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 17:22:24",
-      "lastSeen": "2026-03-03T20:04:49.445Z"
+      "lastSeen": "2026-03-03T21:04:50.156Z"
     },
     {
       "adID": "2185352358965594",
@@ -576,7 +596,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 17:22:23",
-      "lastSeen": "2026-03-03T20:04:49.411Z"
+      "lastSeen": "2026-03-03T21:04:50.335Z"
     },
     {
       "adID": "880228111053501",
@@ -596,7 +616,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 17:22:18",
-      "lastSeen": "2026-03-03T20:06:34.296Z"
+      "lastSeen": "2026-03-03T21:05:50.665Z"
     }
   ]
 }
