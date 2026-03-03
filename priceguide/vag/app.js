@@ -860,9 +860,6 @@ function wireUI() {
       return;
     }
 
-    const a = e.target.closest("a[href]");
-    if (!a) return;
-
     const wrap = e.target.closest(".thumbWrap");
     if (!wrap) return;
 
