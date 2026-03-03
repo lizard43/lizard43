@@ -719,9 +719,6 @@ function wireUI() {
     const a = e.target.closest("a[href]");
     if (!a) return;
 
-    const a = e.target.closest("a[href]");
-    if (!a) return;
-
     const href = a.getAttribute("href") || "";
     if (!href) return;
 
