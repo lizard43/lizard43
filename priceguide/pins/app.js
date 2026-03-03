@@ -39,6 +39,7 @@ let matches = [];
 let matchPos = 0;
 let lastQuery = "";
 let hiddenKeys = new Set();
+let creditCardGone = false; // once auto-hidden/removed, don't re-render it again
 
 let keyBtns = {};
 let keyToIndex = {};
@@ -530,6 +531,7 @@ function scheduleAutoHideCreditCard() {
       try { cc.remove(); } catch (_) {
         try { cc.parentNode && cc.parentNode.removeChild(cc); } catch (_) { }
       }
+      creditCardGone = true;
     }, 230);
   }, 3000);
 }
@@ -546,7 +548,7 @@ function renderCards() {
     }
   }
 
-  el.cards.innerHTML = creditCardHTML() + adsterHtml + cardsHtml;
+  el.cards.innerHTML = (creditCardGone ? "" : creditCardHTML()) + adsterHtml + cardsHtml;
 
   rebuildKeyIndex();
   updateActiveKeyFromScroll();
