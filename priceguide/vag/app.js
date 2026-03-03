@@ -43,6 +43,8 @@ let filteredBlobs = [];
 let matches = [];
 let matchPos = 0;
 let lastQuery = "";
+let hiddenKeys = new Set();
+
 
 let keyBtns = {};
 let keyToIndex = {};
@@ -53,6 +55,18 @@ let imgObserver = null;
 const LS_ADSTER_SNAPSHOT = "adster.priceguide.snapshot.v1";
 
 let openedWithSearchParam = false; // true when page opened with ?s=...
+
+function machineKey(m) {
+  // prefer stable unique id if present
+  const pid = String(m?.pinsideID || "").trim();
+  if (pid) return `pid:${pid}`;
+
+  // fallback (good enough for session-only hiding)
+  const name = String(m?.name || "").trim();
+  const mfg = String(m?.manufacturer || "").trim();
+  const date = String(m?.date || "").trim();
+  return `k:${name}|${mfg}|${date}`;
+}
 
 function showToast(msg) {
   el.toast.textContent = msg;
@@ -532,9 +546,13 @@ function cardHTML(g, idx) {
     >
   `;
 
+  const key = machineKey(m);
+
   return `
-    <article class="card" data-idx="${idx}">
-      <div class="thumbWrap" role="button" tabindex="0" aria-label="View image: ${escapeAttr(title)}">
+  <article class="card" data-idx="${idx}">
+    <button class="cardHideBtn" type="button" title="Hide this match" aria-label="Hide this match"
+            data-hide-key="${escapeAttr(key)}">✕</button>
+     <div class="thumbWrap" role="button" tabindex="0" aria-label="View image: ${escapeAttr(title)}">
         ${imgTag}
       </div>
       <div class="cardBody">
@@ -674,7 +692,8 @@ function runSearch(rawQuery) {
   const qJoinedLen = qJoined.length;
 
   if (terms.length === 0) {
-    filtered = games.slice();
+    hiddenKeys.clear(); // reset hidden matches when search is cleared
+    filtered = machines.slice();
     filteredBlobs = filtered.map(buildBlob);
     matches = [];
     matchPos = 0;
@@ -703,8 +722,17 @@ function runSearch(rawQuery) {
     }
   }
 
-  filtered = out;
-  filteredBlobs = blobs;
+  // apply in-session hides
+  const out2 = [];
+  const blobs2 = [];
+  for (let i = 0; i < out.length; i++) {
+    if (hiddenKeys.has(machineKey(out[i]))) continue;
+    out2.push(out[i]);
+    blobs2.push(blobs[i]);
+  }
+
+  filtered = out2;
+  filteredBlobs = blobs2;
 
   matches = [];
   for (let i = 0; i < filtered.length; i++) {
@@ -817,6 +845,23 @@ function wireUI() {
 
   // Thumbnail click (event delegation)
   el.cards.addEventListener("click", (e) => {
+
+    const hideBtn = e.target.closest("button[data-hide-key]");
+    if (hideBtn) {
+      e.preventDefault();
+      e.stopPropagation();
+
+      const key = hideBtn.getAttribute("data-hide-key") || "";
+      if (key) hiddenKeys.add(key);
+
+      // re-run current search to remove it from the list + update match count
+      runSearch(el.searchInput?.value || "");
+      return;
+    }
+
+    const a = e.target.closest("a[href]");
+    if (!a) return;
+
     const wrap = e.target.closest(".thumbWrap");
     if (!wrap) return;
 

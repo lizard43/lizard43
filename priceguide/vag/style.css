@@ -242,6 +242,41 @@ body {
   overflow: hidden;
 }
 
+/* Card close (hide) button */
+.card {
+  position: relative;
+  /* allow absolute-positioned X */
+}
+
+.cardHideBtn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+
+  width: 28px;
+  height: 28px;
+  border-radius: 10px;
+
+  border: 1px solid var(--border);
+  background: rgba(251, 250, 247, 0.92);
+  color: var(--muted);
+
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  line-height: 1;
+  font-size: 16px;
+}
+
+.cardHideBtn:hover {
+  color: var(--text);
+  filter: brightness(0.985);
+}
+
+.cardHideBtn:active {
+  transform: translateY(1px);
+}
+
 /* "first card" credit/info */
 .creditCard {
   background: var(--surface);
