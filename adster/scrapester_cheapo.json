@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-03-03T21:25:49.770Z",
+  "generated_at": "2026-03-03T22:07:34.918Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,53 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 30,
-      "droppedPrice": 64,
+      "exported_ads": 32,
+      "droppedPrice": 67,
       "droppedMissingGeo": 0,
-      "droppedCircle": 61
+      "droppedCircle": 64
     }
   },
   "ads": [
+    {
+      "adID": "1234849935507977",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/1152135804/?product_id=1234849935507977",
+      "author": "Mary Adams Hamman",
+      "postedTime": "2026-03-03T21:12:39.000Z",
+      "title": "Hobby pinball machine Stern - split second 1980's ready to restore $500",
+      "description": "Hobby project...needs some tender care!! Great pinball game. Stern/Bally Split second has all the parts and schematic...Power supply needs replaced and redo all the rubbers!bumpers. Other than that it was working... $500 or best offer...located in Athens just off the Loop.",
+      "price": "$500",
+      "lat": 33.9597677,
+      "lon": -83.376398,
+      "location": "Athens, GA",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/647057344_1375032031331100_5090283602050019860_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=107&ccb=1-7&_nc_sid=92e707&_nc_ohc=m3XUPYKxuGgQ7kNvwEU5J_c&_nc_oc=AdkhqEilC7kSC2gAgzIw0OEpq0wcOPKdjET84JFXp9pMvc0q2rBaC_2LdZhJEJRL1QE&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=5LX1y2nto0ZcAD0Q-jHqOg&_nc_ss=8&oh=00_AfzPvBbmFu-MYQ8ZvJtkWUzCK4PGQbVpBwDJ_L-cqp0Lew&oe=69AD19EE",
+      "adUrl": "https://www.facebook.com/marketplace/item/1234849935507977/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-03-03 22:06:14",
+      "lastSeen": "2026-03-03T22:06:55.837Z"
+    },
+    {
+      "adID": "2036306950434565",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/1076313741/?product_id=2036306950434565",
+      "author": "Tabatha Moran",
+      "postedTime": "2026-03-03T20:31:59.000Z",
+      "title": "1:18 Svale arcade games for diorama",
+      "description": "25 each Pick up only",
+      "price": "$25",
+      "lat": 27.7712264,
+      "lon": -82.6340259,
+      "location": "St Petersburg, FL",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/646017872_3179839138856332_6392751049181299624_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=110&ccb=1-7&_nc_sid=92e707&_nc_ohc=W1iZKNPLg6cQ7kNvwFV8scQ&_nc_oc=AdnDZM046iYekzTPg-fRpGpt39sqFob7Y1sfHaR4vXjwTEMP4CE_IUTvWFer0Vk7u8Q&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=_rQPRLAPoJ4fFmwL2ZbjDg&_nc_ss=8&oh=00_Afx4u6nrZqp5QAARRvPW7Jbw_oWiiAxiSl34IXRpdnMXdw&oe=69AD31F5",
+      "adUrl": "https://www.facebook.com/marketplace/item/2036306950434565/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-03-03 22:04:44",
+      "lastSeen": "2026-03-03T22:05:25.646Z"
+    },
     {
       "adID": "1952481942009327",
       "source": "MP",
@@ -76,7 +116,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-02 16:04:43",
-      "lastSeen": "2026-03-03T21:04:49.787Z"
+      "lastSeen": "2026-03-03T22:04:43.833Z"
     },
     {
       "adID": "1441688577509784",
@@ -96,7 +136,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-02 02:04:50",
-      "lastSeen": "2026-03-03T20:04:49.210Z"
+      "lastSeen": "2026-03-03T22:04:44.034Z"
     },
     {
       "adID": "898178436530988",
@@ -176,7 +216,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-27 20:06:16",
-      "lastSeen": "2026-03-03T21:05:50.531Z"
+      "lastSeen": "2026-03-03T22:06:14.546Z"
     },
     {
       "adID": "675528545616516",
@@ -236,7 +276,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-23 19:06:25",
-      "lastSeen": "2026-03-03T21:05:50.331Z"
+      "lastSeen": "2026-03-03T22:06:14.445Z"
     },
     {
       "adID": "PI-210036",
@@ -396,7 +436,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-19 17:04:40",
-      "lastSeen": "2026-03-03T16:04:52.885Z"
+      "lastSeen": "2026-03-03T22:04:43.867Z"
     },
     {
       "adID": "1285196646716293",
@@ -536,7 +576,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 23:10:53",
-      "lastSeen": "2026-03-03T21:04:49.988Z"
+      "lastSeen": "2026-03-03T22:04:44.101Z"
     },
     {
       "adID": "1937314130515670",
@@ -576,7 +616,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 17:22:24",
-      "lastSeen": "2026-03-03T21:04:50.156Z"
+      "lastSeen": "2026-03-03T22:04:44.235Z"
     },
     {
       "adID": "2185352358965594",
@@ -596,7 +636,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 17:22:23",
-      "lastSeen": "2026-03-03T21:04:50.335Z"
+      "lastSeen": "2026-03-03T22:04:43.966Z"
     },
     {
       "adID": "880228111053501",
@@ -616,7 +656,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 17:22:18",
-      "lastSeen": "2026-03-03T21:05:50.665Z"
+      "lastSeen": "2026-03-03T22:06:14.848Z"
     }
   ]
 }
