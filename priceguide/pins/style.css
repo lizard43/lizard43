@@ -543,3 +543,17 @@ body {
     aspect-ratio: 16 / 9;
   }
 }
+
+/* Top rail switch button ($) */
+.rail-switch {
+  flex: 0 0 auto;
+  margin-top: 6px;
+  margin-bottom: 6px;
+}
+
+.rail-switch-icon {
+  display: block;
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+}

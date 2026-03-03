@@ -27,6 +27,8 @@ const el = {
 
   railKeys: document.getElementById("railKeys"),
 
+  switchGuide: document.getElementById("switchGuide"),
+
   // modal
   imgModal: document.getElementById("imgModal"),
   imgModalClose: document.getElementById("imgModalClose"),
@@ -755,10 +757,30 @@ function jumpToMatch(pos) {
   showToast(g?.title || "Match");
 }
 
+function buildParallelGuideUrl(currentSearchText) {
+  // pins: /priceguide/pins   -> /priceguide/vag/
+  // vag:  /priceguide/vag/   -> /priceguide/pins
+  const path = String(window.location.pathname || "");
+  const isVag = /\/priceguide\/vag\/?$/i.test(path);
+
+  const targetPath = isVag ? "/priceguide/pins" : "/priceguide/vag/";
+
+  // Always include s= (even blank) so behavior matches the Adster entry logic.
+  const q = String(currentSearchText || "").trim();
+  const qs = `?s=${encodeURIComponent(q)}`;
+
+  return `${window.location.origin}${targetPath}${qs}`;
+}
+
 /* ---------- Wiring ---------- */
 
 function wireUI() {
   buildAZButtons();
+
+  el.switchGuide?.addEventListener("click", () => {
+    const q = el.searchInput?.value || "";
+    window.location.assign(buildParallelGuideUrl(q)); // same tab
+  });
 
   el.railKeys.addEventListener("click", (e) => {
     const btn = e.target.closest("button[data-key]");
