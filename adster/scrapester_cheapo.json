@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-03-04T22:08:59.260Z",
+  "generated_at": "2026-03-04T23:07:12.027Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,53 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 37,
-      "droppedPrice": 70,
+      "exported_ads": 39,
+      "droppedPrice": 63,
       "droppedMissingGeo": 0,
-      "droppedCircle": 79
+      "droppedCircle": 63
     }
   },
   "ads": [
+    {
+      "adID": "1251716850454252",
+      "source": "FB",
+      "authorUrl": null,
+      "author": "Da'rrius King",
+      "postedTime": "2026-03-04T22:11:38.453Z",
+      "title": "Dart game",
+      "description": "This is a vintage 1980s Pub Time Darts electronic dart machine produced by Merit Industries.",
+      "price": "$300",
+      "lat": 29.6519684,
+      "lon": -82.3249846,
+      "location": "GAINESVILLE, FL",
+      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.30808-6/645665973_122213490632489003_4624316100602288066_n.jpg?stp=dst-jpg_s590x590_tt6&_nc_cat=104&ccb=1-7&_nc_sid=e06c5d&_nc_ohc=Fy3pKgvNAsEQ7kNvwEGZfNX&_nc_oc=AdlL5gI7sxWgd77mJPD7vZg30JsDXIqwQ_mVMBy4-vMPxHv3pfQQfuLDnqb6rjjrx8w&_nc_zt=23&_nc_ht=scontent-dfw5-2.xx&_nc_gid=SCzAifkUoz2xZuFdIi5XzQ&_nc_ss=8&oh=00_AfyTHfr6A7BCbJOH_zJwLxsCL4tkB2bz2CY-09P1mb62_w&oe=69AE74C2",
+      "adUrl": "https://www.facebook.com/commerce/listing/1251716850454252/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-03-04 23:03:39",
+      "lastSeen": "2026-03-04T23:03:39.138Z"
+    },
+    {
+      "adID": "760913676829386",
+      "source": "FB",
+      "authorUrl": null,
+      "author": "William Wyman",
+      "postedTime": "2026-03-04T22:07:38.457Z",
+      "title": "1015 door plastic",
+      "description": "1015 door plastic",
+      "price": "$35",
+      "lat": 29.8549287,
+      "lon": -89.9906253,
+      "location": "BELLE CHASSE, LA",
+      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.30808-6/646833384_25407135552297074_8625682731177259776_n.jpg?stp=cp6_dst-jpegr_p526x296_tt6&_nc_cat=102&ccb=1-7&_nc_sid=e06c5d&_nc_ohc=11ux2wDgoHAQ7kNvwFMc159&_nc_oc=Adne2CCZD2heBFDo6UGqhsQ1Yqh2jxFcFW53nOOCdJSNph1ME_G_TUkvpxcq2BClYyE&_nc_zt=23&se=-1&_nc_ht=scontent-dfw5-2.xx&_nc_gid=Wu8hyoBV3SnSUtH13yPzbQ&_nc_ss=8&oh=00_Afx4MuuuM1UspFhAw1JTjhBLIhI2bt1bFH0t47eiAG5mmw&oe=69AE914A",
+      "adUrl": "https://www.facebook.com/commerce/listing/760913676829386/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-03-04 23:03:39",
+      "lastSeen": "2026-03-04T23:03:39.607Z"
+    },
     {
       "adID": "1906929543265232",
       "source": "MP",
@@ -116,7 +156,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-04 14:04:49",
-      "lastSeen": "2026-03-04T22:04:44.592Z"
+      "lastSeen": "2026-03-04T23:04:59.922Z"
     },
     {
       "adID": "KLOV-561051",
@@ -136,7 +176,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-04 12:09:54",
-      "lastSeen": "2026-03-04T22:08:58.639Z"
+      "lastSeen": "2026-03-04T23:07:11.720Z"
     },
     {
       "adID": "1246958014243706",
@@ -156,7 +196,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-04 12:07:38",
-      "lastSeen": "2026-03-04T22:07:12.985Z"
+      "lastSeen": "2026-03-04T23:06:07.446Z"
     },
     {
       "adID": "1570931707463297",
@@ -176,7 +216,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-04 12:05:03",
-      "lastSeen": "2026-03-04T22:04:44.781Z"
+      "lastSeen": "2026-03-04T23:05:00.030Z"
     },
     {
       "adID": "1353011843137175",
@@ -196,7 +236,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-04 12:05:03",
-      "lastSeen": "2026-03-04T12:06:49.760Z"
+      "lastSeen": "2026-03-04T23:05:00.198Z"
     },
     {
       "adID": "1271520394892305",
@@ -216,7 +256,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-04 01:07:51",
-      "lastSeen": "2026-03-04T22:07:13.528Z"
+      "lastSeen": "2026-03-04T23:06:08.290Z"
     },
     {
       "adID": "1234849935507977",
@@ -236,7 +276,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-03 22:06:14",
-      "lastSeen": "2026-03-04T22:08:24.421Z"
+      "lastSeen": "2026-03-04T23:06:07.401Z"
     },
     {
       "adID": "1952481942009327",
@@ -276,7 +316,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-02 16:04:43",
-      "lastSeen": "2026-03-04T22:04:45.532Z"
+      "lastSeen": "2026-03-04T23:05:00.499Z"
     },
     {
       "adID": "898178436530988",
@@ -336,7 +376,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-01 12:04:44",
-      "lastSeen": "2026-03-04T22:04:45.766Z"
+      "lastSeen": "2026-03-04T23:05:00.701Z"
     },
     {
       "adID": "1850247408973990",
@@ -356,7 +396,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-27 20:06:16",
-      "lastSeen": "2026-03-04T22:07:13.695Z"
+      "lastSeen": "2026-03-04T23:06:08.524Z"
     },
     {
       "adID": "675528545616516",
@@ -416,7 +456,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-23 19:06:25",
-      "lastSeen": "2026-03-04T22:07:13.361Z"
+      "lastSeen": "2026-03-04T23:06:08.122Z"
     },
     {
       "adID": "PI-210036",
@@ -656,7 +696,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-14 00:04:57",
-      "lastSeen": "2026-03-04T22:04:46.001Z"
+      "lastSeen": "2026-03-04T23:05:00.600Z"
     },
     {
       "adID": "2026958544812237",
@@ -676,7 +716,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 23:10:53",
-      "lastSeen": "2026-03-04T22:07:14.435Z"
+      "lastSeen": "2026-03-04T23:06:08.156Z"
     },
     {
       "adID": "1937314130515670",
@@ -716,7 +756,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 17:22:24",
-      "lastSeen": "2026-03-04T22:04:45.867Z"
+      "lastSeen": "2026-03-04T23:05:00.834Z"
     },
     {
       "adID": "2185352358965594",
@@ -736,7 +776,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 17:22:23",
-      "lastSeen": "2026-03-04T22:04:45.900Z"
+      "lastSeen": "2026-03-04T23:05:00.566Z"
     },
     {
       "adID": "880228111053501",
@@ -756,7 +796,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 17:22:18",
-      "lastSeen": "2026-03-04T22:04:45.667Z"
+      "lastSeen": "2026-03-04T23:06:08.256Z"
     }
   ]
 }
