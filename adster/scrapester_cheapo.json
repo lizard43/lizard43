@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-03-05T16:25:48.919Z",
+  "generated_at": "2026-03-05T16:58:43.106Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,73 +11,13 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 46,
-      "droppedPrice": 49,
+      "exported_ads": 41,
+      "droppedPrice": 45,
       "droppedMissingGeo": 0,
-      "droppedCircle": 63
+      "droppedCircle": 56
     }
   },
   "ads": [
-    {
-      "adID": "2775797142756634",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/1779207764/?product_id=2775797142756634",
-      "author": "Irvin Templet",
-      "postedTime": "2026-03-04T20:43:21.000Z",
-      "title": "Roll up door",
-      "description": "6x7 roll up door",
-      "price": "$150",
-      "lat": 30.6168569,
-      "lon": -89.6525648,
-      "location": "Carriere, MS",
-      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/646393033_924974350232525_4759186878217213758_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=106&ccb=1-7&_nc_sid=92e707&_nc_ohc=LwD_k-ffQyAQ7kNvwFJOdza&_nc_oc=Adk79OuAjjPH9_Gi1xYsaRoxk83UBN2vrN5IYTg43ds_QLg-HJddnbJ7CUUiIniIHJA&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=I9eLpZvlQU6vx0R1mxBCHw&_nc_ss=8&oh=00_AfwCH7lqTfVp5oKeKHAhOhDI1_Hy3QVXpUJ7txEVBRaDzQ&oe=69AF7A19",
-      "adUrl": "https://www.facebook.com/marketplace/item/2775797142756634/",
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-03-05 16:06:03",
-      "lastSeen": "2026-03-05T16:06:17.438Z"
-    },
-    {
-      "adID": "834690319585047",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/100003943296005/?product_id=834690319585047",
-      "author": "Carson Wescott",
-      "postedTime": "2026-03-04T20:43:29.000Z",
-      "title": "F150 Front Shocks",
-      "description": "Ford F150 front coil springs / struts / shocks. Fit is in the description. Original price is $180 New. Box was never even opened. Located in Panama City Beach",
-      "price": "$140",
-      "lat": 30.1586518,
-      "lon": -85.6602936,
-      "location": "Panama City, FL",
-      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/648295420_803744829443571_2549516074199835879_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=102&ccb=1-7&_nc_sid=92e707&_nc_ohc=W9hp0Ka4nAAQ7kNvwG8Kw8w&_nc_oc=AdlZOcoKDA37EsFoViFHwdDi2eb1NZ4w0WgqzjurIZgvcThz1KJxBLQtyYQWq3znkMk&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=j3ZWVEbbb3SwRN8S5QXsLQ&_nc_ss=8&oh=00_Afx_Q7Gvsl7HppJl41GNVkUFdTBwCgPXKDuGvrclf9qEkA&oe=69AF65E4",
-      "adUrl": "https://www.facebook.com/marketplace/item/834690319585047/",
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-03-05 15:06:54",
-      "lastSeen": "2026-03-05T15:07:45.424Z"
-    },
-    {
-      "adID": "1433804434597195",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/100007082711516/?product_id=1433804434597195",
-      "author": "Jhonny Romeo",
-      "postedTime": "2026-03-04T20:41:17.000Z",
-      "title": "Maquina para hacer oyos",
-      "description": "Nuevo, no perdida de tiempo gracias",
-      "price": "$300",
-      "lat": 33.9412127,
-      "lon": -84.2135309,
-      "location": "Norcross, GA",
-      "imageUrl": "https://scontent-dfw5-3.xx.fbcdn.net/v/t39.84726-6/647085978_1636065914220100_1744566989105992103_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=109&ccb=1-7&_nc_sid=92e707&_nc_ohc=e9o1O2a2xY0Q7kNvwEe8EQB&_nc_oc=Admxlzh4LTrn_3oMy-JeGD7w09rVDjCIEGVfmbpFKaGT3YexKIkhWStAtXt9eZObQbU&_nc_zt=14&_nc_ht=scontent-dfw5-3.xx&_nc_gid=SNeKNnA-15HCEUSBIEgChA&_nc_ss=8&oh=00_AfzxSZLDjiRu41vUHms9ZnQCIL82f8wbDDkBSrgIVdDrjA&oe=69AF732B",
-      "adUrl": "https://www.facebook.com/marketplace/item/1433804434597195/",
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-03-05 15:06:54",
-      "lastSeen": "2026-03-05T15:07:45.489Z"
-    },
     {
       "adID": "1606158693900850",
       "source": "MP",
@@ -97,26 +37,6 @@
       "hidden": 0,
       "created_at": "2026-03-05 15:04:44",
       "lastSeen": "2026-03-05T15:06:08.244Z"
-    },
-    {
-      "adID": "919370234122967",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/100001034710870/?product_id=919370234122967",
-      "author": "Randall Williams",
-      "postedTime": "2026-03-05T14:54:56.000Z",
-      "title": "One pack of arcade connectors for DIY electronicsmk",
-      "description": "ARCADE CONNECTERS ( I have 18 total $35 for all)",
-      "price": "$5",
-      "lat": 33.6131588,
-      "lon": -86.1183061,
-      "location": "Lincoln, AL",
-      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/648367919_945490641374373_5381735911604312759_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=106&ccb=1-7&_nc_sid=92e707&_nc_ohc=iKpautqJoUQQ7kNvwE_lvW-&_nc_oc=AdmCP1pIgl-SwzNPxMXlfiWebQx3BzNmftkejdh1KC7BeenGgUHppVg76lNiJDNhyuU&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=6HNgazR6L5iAfxKenSkz8A&_nc_ss=8&oh=00_AfxIwELHg7CsiWMXOQqHqRv2VnEz43yrfeM2cUnocu0KZQ&oe=69AF78F7",
-      "adUrl": "https://www.facebook.com/marketplace/item/919370234122967/",
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-03-05 15:04:44",
-      "lastSeen": "2026-03-05T15:06:08.277Z"
     },
     {
       "adID": "2780703258931379",
@@ -417,26 +337,6 @@
       "hidden": 0,
       "created_at": "2026-03-04 01:07:51",
       "lastSeen": "2026-03-05T16:06:02.999Z"
-    },
-    {
-      "adID": "1234849935507977",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/1152135804/?product_id=1234849935507977",
-      "author": "Mary Adams Hamman",
-      "postedTime": "2026-03-03T21:12:39.000Z",
-      "title": "Hobby pinball machine Stern - split second 1980's ready to restore $500 or best offer!",
-      "description": "Hobby project...needs some tender care!! Great pinball game. Stern/Bally Split second has all the parts and schematic...Power supply needs replaced and redo all the rubbers!bumpers. Other than that it was working... $500 or best offer...located in Athens just off the Loop.",
-      "price": "$500",
-      "lat": 33.9597677,
-      "lon": -83.376398,
-      "location": "Athens, GA",
-      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/647057344_1375032031331100_5090283602050019860_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=107&ccb=1-7&_nc_sid=92e707&_nc_ohc=jyKbp4kCnQUQ7kNvwGaq2lm&_nc_oc=AdnOBTNlRVR9dy2VIg3zogHCV5UlFkjm6uTFqHPD0WxwO4S4rFqGZ3p9jvEr5U0TOxE&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=UBw0oUhZl79yOuiF_foVwA&_nc_ss=8&oh=00_AfwmymyLCTgLlfgowKxBhqvIG4gChWb94kP-vaVAxbUU2Q&oe=69AE6B6E",
-      "adUrl": "https://www.facebook.com/marketplace/item/1234849935507977/",
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-03-03 22:06:14",
-      "lastSeen": "2026-03-05T03:07:01.400Z"
     },
     {
       "adID": "1952481942009327",
