@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-03-05T01:07:48.694Z",
+  "generated_at": "2026-03-05T02:08:19.474Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,33 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 39,
-      "droppedPrice": 63,
+      "exported_ads": 40,
+      "droppedPrice": 57,
       "droppedMissingGeo": 0,
-      "droppedCircle": 65
+      "droppedCircle": 63
     }
   },
   "ads": [
+    {
+      "adID": "1282334983820567",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/1161204647/?product_id=1282334983820567",
+      "author": "Tim Boyer",
+      "postedTime": "2026-03-05T01:01:59.000Z",
+      "title": "Centipede arcade machine",
+      "description": "The fire button doesn’t work all the time I don’t know how to fix it. Other ten that if the fire button worked this games is awesome .Cash only will not ship I can’t help you load it I had a stroke. Only one picture because I can’t move the game next to it or pull it out",
+      "price": "$500",
+      "lat": 33.9654884,
+      "lon": -83.5964913,
+      "location": "Statham, GA",
+      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/645203688_3057842961077623_4965463912601248428_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=102&ccb=1-7&_nc_sid=92e707&_nc_ohc=AUluNsD31dEQ7kNvwF7W4oE&_nc_oc=AdmftATKWVh8WyhVx6_HVyYtunW1E3nft5rUOkP2fqzzDUt31Rs0qDzh_hfGfEbWHPU&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=2RR_L5PmSY9Mr7Iahc0FLg&_nc_ss=8&oh=00_AfwEDA07IZEwbBJ4lCqizXP-tqrVW05_hFp9KxoJmCPGgQ&oe=69AEC0E2",
+      "adUrl": "https://www.facebook.com/marketplace/item/1282334983820567/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-03-05 02:04:54",
+      "lastSeen": "2026-03-05T02:06:07.966Z"
+    },
     {
       "adID": "1249288554052752",
       "source": "MP",
@@ -36,7 +56,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-05 01:04:56",
-      "lastSeen": "2026-03-05T01:05:41.264Z"
+      "lastSeen": "2026-03-05T02:04:54.485Z"
     },
     {
       "adID": "1519390673113699",
@@ -156,7 +176,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-04 14:04:49",
-      "lastSeen": "2026-03-05T01:04:55.835Z"
+      "lastSeen": "2026-03-05T02:04:54.448Z"
     },
     {
       "adID": "KLOV-561051",
@@ -176,7 +196,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-04 12:09:54",
-      "lastSeen": "2026-03-05T01:07:48.409Z"
+      "lastSeen": "2026-03-05T02:08:19.227Z"
     },
     {
       "adID": "1246958014243706",
@@ -196,7 +216,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-04 12:07:38",
-      "lastSeen": "2026-03-05T01:06:34.439Z"
+      "lastSeen": "2026-03-05T02:07:08.466Z"
     },
     {
       "adID": "1570931707463297",
@@ -216,7 +236,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-04 12:05:03",
-      "lastSeen": "2026-03-05T01:04:56.009Z"
+      "lastSeen": "2026-03-05T02:04:54.586Z"
     },
     {
       "adID": "1353011843137175",
@@ -256,7 +276,7 @@
       "priceChangedAt": "2026-03-05 00:06:58",
       "hidden": 0,
       "created_at": "2026-03-04 01:07:51",
-      "lastSeen": "2026-03-05T01:06:34.807Z"
+      "lastSeen": "2026-03-05T02:07:08.600Z"
     },
     {
       "adID": "1234849935507977",
@@ -276,7 +296,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-03 22:06:14",
-      "lastSeen": "2026-03-05T01:06:34.398Z"
+      "lastSeen": "2026-03-05T02:07:08.499Z"
     },
     {
       "adID": "1952481942009327",
@@ -296,7 +316,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-03 21:04:50",
-      "lastSeen": "2026-03-05T00:04:56.679Z"
+      "lastSeen": "2026-03-05T02:04:54.820Z"
     },
     {
       "adID": "929251049590411",
@@ -316,7 +336,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-02 16:04:43",
-      "lastSeen": "2026-03-05T01:04:56.042Z"
+      "lastSeen": "2026-03-05T02:04:54.619Z"
     },
     {
       "adID": "898178436530988",
@@ -376,7 +396,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-01 12:04:44",
-      "lastSeen": "2026-03-05T01:04:57.117Z"
+      "lastSeen": "2026-03-05T02:04:55.189Z"
     },
     {
       "adID": "1850247408973990",
@@ -396,7 +416,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-27 20:06:16",
-      "lastSeen": "2026-03-05T00:06:57.907Z"
+      "lastSeen": "2026-03-05T02:07:08.936Z"
     },
     {
       "adID": "675528545616516",
@@ -456,7 +476,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-23 19:06:25",
-      "lastSeen": "2026-03-05T01:06:34.639Z"
+      "lastSeen": "2026-03-05T02:07:08.566Z"
     },
     {
       "adID": "PI-210036",
@@ -716,7 +736,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 23:10:53",
-      "lastSeen": "2026-03-05T01:04:56.982Z"
+      "lastSeen": "2026-03-05T02:04:55.054Z"
     },
     {
       "adID": "1937314130515670",
@@ -756,7 +776,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 17:22:24",
-      "lastSeen": "2026-03-05T01:04:56.882Z"
+      "lastSeen": "2026-03-05T02:04:55.155Z"
     },
     {
       "adID": "2185352358965594",
@@ -796,7 +816,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 17:22:18",
-      "lastSeen": "2026-03-05T01:06:34.908Z"
+      "lastSeen": "2026-03-05T02:07:08.835Z"
     }
   ]
 }
