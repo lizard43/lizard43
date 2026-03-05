@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-03-05T12:24:00.313Z",
+  "generated_at": "2026-03-05T13:07:39.118Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,33 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 42,
-      "droppedPrice": 72,
+      "exported_ads": 43,
+      "droppedPrice": 75,
       "droppedMissingGeo": 0,
       "droppedCircle": 73
     }
   },
   "ads": [
+    {
+      "adID": "943853264671173",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100010734096974/?product_id=943853264671173",
+      "author": "Janice Egan",
+      "postedTime": "2026-03-04T20:40:29.000Z",
+      "title": "Air purifier",
+      "description": "Bissel air purifier",
+      "price": "$50",
+      "lat": 30.1586518,
+      "lon": -85.6602936,
+      "location": "Panama City, FL",
+      "imageUrl": "https://scontent-dfw5-3.xx.fbcdn.net/v/t39.84726-6/646287189_4522530114691330_8766282406829747064_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=109&ccb=1-7&_nc_sid=92e707&_nc_ohc=dvMfxfyUIQYQ7kNvwHm165Z&_nc_oc=Adnj3oieZNWGi73p47CVwM2-6qFMXlQGGqVOkFJ7dk8bC040HdU79jQKDjqWPTJ2wtU&_nc_zt=14&_nc_ht=scontent-dfw5-3.xx&_nc_gid=vL5DMxIF2lgo6L2Y5PHuKA&_nc_ss=8&oh=00_AfyXQtWse8-CgYvMALYVZ1JahqAh20FlSEDiximlNaZ2cQ&oe=69AF420F",
+      "adUrl": "https://www.facebook.com/marketplace/item/943853264671173/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-03-05 13:06:10",
+      "lastSeen": "2026-03-05T13:06:57.955Z"
+    },
     {
       "adID": "2780703258931379",
       "source": "MP",
@@ -76,7 +96,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-05 02:04:54",
-      "lastSeen": "2026-03-05T12:04:50.619Z"
+      "lastSeen": "2026-03-05T13:04:49.452Z"
     },
     {
       "adID": "1249288554052752",
@@ -96,7 +116,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-05 01:04:56",
-      "lastSeen": "2026-03-05T12:04:50.705Z"
+      "lastSeen": "2026-03-05T13:04:49.542Z"
     },
     {
       "adID": "1519390673113699",
@@ -216,7 +236,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-04 14:04:49",
-      "lastSeen": "2026-03-05T12:04:51.006Z"
+      "lastSeen": "2026-03-05T13:04:49.419Z"
     },
     {
       "adID": "KLOV-561051",
@@ -236,7 +256,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-04 12:09:54",
-      "lastSeen": "2026-03-05T12:08:17.292Z"
+      "lastSeen": "2026-03-05T13:07:38.868Z"
     },
     {
       "adID": "1246958014243706",
@@ -256,7 +276,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-04 12:07:38",
-      "lastSeen": "2026-03-05T12:06:53.383Z"
+      "lastSeen": "2026-03-05T13:06:10.556Z"
     },
     {
       "adID": "1570931707463297",
@@ -276,7 +296,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-04 12:05:03",
-      "lastSeen": "2026-03-05T12:04:50.659Z"
+      "lastSeen": "2026-03-05T13:04:49.384Z"
     },
     {
       "adID": "1353011843137175",
@@ -316,7 +336,7 @@
       "priceChangedAt": "2026-03-05 00:06:58",
       "hidden": 0,
       "created_at": "2026-03-04 01:07:51",
-      "lastSeen": "2026-03-05T12:06:53.551Z"
+      "lastSeen": "2026-03-05T13:06:10.791Z"
     },
     {
       "adID": "1234849935507977",
@@ -376,7 +396,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-02 16:04:43",
-      "lastSeen": "2026-03-05T12:04:50.872Z"
+      "lastSeen": "2026-03-05T13:04:49.608Z"
     },
     {
       "adID": "898178436530988",
@@ -436,7 +456,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-01 12:04:44",
-      "lastSeen": "2026-03-05T12:04:51.585Z"
+      "lastSeen": "2026-03-05T13:04:50.061Z"
     },
     {
       "adID": "1850247408973990",
@@ -516,7 +536,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-23 19:06:25",
-      "lastSeen": "2026-03-05T12:06:53.484Z"
+      "lastSeen": "2026-03-05T13:06:10.757Z"
     },
     {
       "adID": "PI-210036",
@@ -756,7 +776,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-14 00:04:57",
-      "lastSeen": "2026-03-05T12:04:51.541Z"
+      "lastSeen": "2026-03-05T13:04:50.520Z"
     },
     {
       "adID": "2026958544812237",
@@ -776,7 +796,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 23:10:53",
-      "lastSeen": "2026-03-05T12:04:50.972Z"
+      "lastSeen": "2026-03-05T13:04:50.094Z"
     },
     {
       "adID": "1937314130515670",
@@ -816,7 +836,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 17:22:24",
-      "lastSeen": "2026-03-05T12:04:51.341Z"
+      "lastSeen": "2026-03-05T13:04:50.297Z"
     },
     {
       "adID": "2185352358965594",
@@ -836,7 +856,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 17:22:23",
-      "lastSeen": "2026-03-05T12:04:51.474Z"
+      "lastSeen": "2026-03-05T13:04:50.597Z"
     },
     {
       "adID": "880228111053501",
@@ -856,7 +876,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 17:22:18",
-      "lastSeen": "2026-03-05T12:04:51.140Z"
+      "lastSeen": "2026-03-05T13:04:50.329Z"
     }
   ]
 }
