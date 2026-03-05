@@ -692,3 +692,32 @@ body {
   height: 18px;
   fill: currentColor;
 }
+
+/* Bottom-right page link */
+.pageBtn {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+
+  border: 1px solid var(--border);
+  background: rgba(251, 250, 247, 0.92);
+  color: var(--muted);
+
+  border-radius: 12px;
+  padding: 6px 10px;
+
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1;
+
+  cursor: pointer;
+}
+
+.pageBtn:hover {
+  color: var(--text);
+  filter: brightness(0.985);
+}
+
+.pageBtn:active {
+  transform: translateY(1px);
+}

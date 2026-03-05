@@ -502,11 +502,21 @@ function cardHTML(g, idx) {
 
   const line3 = "";
 
-  // Keep page hidden as your current code effectively does
-  const line4Parts = [];
-  page = null;
-  if (page) line4Parts.push(`<span>Page ${escapeHtml(page)}</span>`);
-  const line4 = line4Parts.length ? `<div class="lineMeta">${line4Parts.join(" – ")}</div>` : "";
+  // Page button (bottom-right)
+  const pageNum = Number(g.page);
+  const hasPage = Number.isFinite(pageNum) && pageNum > 0;
+  const pageSrc = hasPage ? `images/page_${pageNum}.jpg` : "";
+  const pageCaption = hasPage ? `${[title, mfg, date].filter(Boolean).join(" · ")} · Page ${pageNum}` : "";
+
+  const pageBtn = hasPage
+    ? `<button
+        class="pageBtn"
+        type="button"
+        data-page-src="${escapeAttr(pageSrc)}"
+        data-page-caption="${escapeAttr(pageCaption)}"
+        title="Open scanned page ${pageNum}"
+        aria-label="Open scanned page ${pageNum}">${pageNum}</button>`
+    : "";
 
   // Variants: "Variant – low – high – average" (one row per variant)
   const vs = Array.isArray(g.variant) ? g.variant : [];
@@ -561,6 +571,9 @@ function cardHTML(g, idx) {
         ${lineGenre}
         ${variantsBlock}
       </div>
+
+      ${pageBtn}
+
     </article>`;
 }
 function creditCardHTML() {
@@ -857,6 +870,17 @@ function wireUI() {
 
       // re-run current search to remove it from the list + update match count
       runSearch(el.searchInput?.value || "");
+      return;
+    }
+
+    const pageBtn = e.target.closest("button.pageBtn");
+    if (pageBtn) {
+      e.preventDefault();
+      e.stopPropagation();
+
+      const src = pageBtn.getAttribute("data-page-src") || "";
+      const caption = pageBtn.getAttribute("data-page-caption") || "";
+      openImageModal(src, caption);
       return;
     }
 
