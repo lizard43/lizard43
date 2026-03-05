@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-03-05T13:07:39.118Z",
+  "generated_at": "2026-03-05T13:30:26.445Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,33 +11,13 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 43,
-      "droppedPrice": 75,
+      "exported_ads": 41,
+      "droppedPrice": 44,
       "droppedMissingGeo": 0,
-      "droppedCircle": 73
+      "droppedCircle": 55
     }
   },
   "ads": [
-    {
-      "adID": "943853264671173",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/100010734096974/?product_id=943853264671173",
-      "author": "Janice Egan",
-      "postedTime": "2026-03-04T20:40:29.000Z",
-      "title": "Air purifier",
-      "description": "Bissel air purifier",
-      "price": "$50",
-      "lat": 30.1586518,
-      "lon": -85.6602936,
-      "location": "Panama City, FL",
-      "imageUrl": "https://scontent-dfw5-3.xx.fbcdn.net/v/t39.84726-6/646287189_4522530114691330_8766282406829747064_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=109&ccb=1-7&_nc_sid=92e707&_nc_ohc=dvMfxfyUIQYQ7kNvwHm165Z&_nc_oc=Adnj3oieZNWGi73p47CVwM2-6qFMXlQGGqVOkFJ7dk8bC040HdU79jQKDjqWPTJ2wtU&_nc_zt=14&_nc_ht=scontent-dfw5-3.xx&_nc_gid=vL5DMxIF2lgo6L2Y5PHuKA&_nc_ss=8&oh=00_AfyXQtWse8-CgYvMALYVZ1JahqAh20FlSEDiximlNaZ2cQ&oe=69AF420F",
-      "adUrl": "https://www.facebook.com/marketplace/item/943853264671173/",
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-03-05 13:06:10",
-      "lastSeen": "2026-03-05T13:06:57.955Z"
-    },
     {
       "adID": "2780703258931379",
       "source": "MP",
@@ -459,26 +439,6 @@
       "lastSeen": "2026-03-05T13:04:50.061Z"
     },
     {
-      "adID": "1850247408973990",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/100033996450476/?product_id=1850247408973990",
-      "author": "Joey Richard",
-      "postedTime": "2025-12-03T18:01:03.000Z",
-      "title": "Big Buc hunter for sale",
-      "description": "This Big Buc Hunter is fully operational and location ready. If you’re looking for a passive source of income are a item for your mancave, then this could be the perfect addition. Please reach out as this unit will not last long!",
-      "price": "$850",
-      "lat": 30.4388041,
-      "lon": -90.4414762,
-      "location": "Ponchatoula, LA",
-      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/641615740_2175933779827041_4022523197200739370_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=107&ccb=1-7&_nc_sid=92e707&_nc_ohc=LXHxF9uXu84Q7kNvwEHmbgy&_nc_oc=AdkCmtpCps4TeOEttwLJsQRt1nuAVLGY3OX7Ho1OTAXCOQ5ECT4WWVmSuo6_qVecNiM&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=0NsZOFJagKSQLvvelUPmYA&_nc_ss=8&oh=00_Aft2i6qgOKji50-EpihFNW-C14sklF99hexztMf6GMFtlg&oe=69A7BDC4",
-      "adUrl": "https://www.facebook.com/marketplace/item/1850247408973990/",
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-02-27 20:06:16",
-      "lastSeen": "2026-03-05T02:07:08.936Z"
-    },
-    {
       "adID": "675528545616516",
       "source": "MP",
       "authorUrl": "https://www.facebook.com/marketplace/profile/1238274722/?product_id=675528545616516",
@@ -790,13 +750,13 @@
       "lat": 30.4065868,
       "lon": -87.6835974,
       "location": "Foley, AL",
-      "imageUrl": "https://scontent-dfw5-3.xx.fbcdn.net/v/t39.84726-6/586528932_1388612052793222_4066229669229707136_n.jpg?stp=c0.118.261.261a_dst-jpg_p261x260_tt6&_nc_cat=109&ccb=1-7&_nc_sid=92e707&_nc_ohc=levPzuqXvQsQ7kNvwFLNp7H&_nc_oc=AdlpfwcXtHnLGsTnqPfOyDMXkOojidJwKZbDO30UgTxYfbGbxrFO3XoKpMzqkx0o4gw&_nc_zt=14&_nc_ht=scontent-dfw5-3.xx&_nc_gid=1BPqWysu3-9rXXm8xP5bMw&oh=00_Afuv3OirfoP8XjaJ4L-i-asxLm89krZW8SN1TFOsM9FGdQ&oe=699CFDD5",
+      "imageUrl": "https://scontent-dfw5-3.xx.fbcdn.net/v/t39.84726-6/586528932_1388612052793222_4066229669229707136_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=109&ccb=1-7&_nc_sid=92e707&_nc_ohc=dL08R9GtUekQ7kNvwGEoP60&_nc_oc=AdkcNgXXsK94KJgvn1SKQnVVPxdYu-YpRO9P_DU1szKyrsE0et2MK-Cje9ZAVBF5R30&_nc_zt=14&_nc_ht=scontent-dfw5-3.xx&_nc_gid=vVX6pPBjmoV2ipqN8qV8Mg&_nc_ss=8&oh=00_AfwUp5M9gA3Fa88IV9uRVgk8bXFz1hcyHRQICDEfKlKuaw&oe=69AF72D5",
       "adUrl": "https://www.facebook.com/marketplace/item/2026958544812237/",
       "priceChanged": 0,
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 23:10:53",
-      "lastSeen": "2026-03-05T13:04:50.094Z"
+      "lastSeen": "2026-03-05T13:30:10.225Z"
     },
     {
       "adID": "1937314130515670",
