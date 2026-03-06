@@ -101,7 +101,7 @@ function normalizeText(s) {
 }
 
 function firstKeyForTitle(title) {
-  const n = normalizeText(title);
+  const n = normalizeText(titleSortKey(title));
   if (!n) return "#";
   const c = n[0];
   if (c >= "a" && c <= "z") return c.toUpperCase();
@@ -1105,9 +1105,16 @@ async function loadData() {
       variant: Array.isArray(g.variant) ? g.variant : [],
     }));
 
+  function titleSortKey(title) {
+    return String(title || "")
+      .trim()
+      .replace(/^[^a-z0-9]+/i, "");
+  }
+
   games.sort((a, b) => {
-    const ta = String(a.title || "");
-    const tb = String(b.title || "");
+    const ta = titleSortKey(a.title);
+    const tb = titleSortKey(b.title);
+
     return ta.localeCompare(tb, undefined, {
       sensitivity: "base",
       numeric: false
