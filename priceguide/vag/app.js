@@ -511,6 +511,9 @@ function openImageModal(src, caption, opts = {}) {
   modalState.pageNum = isPageStrip ? Number(opts.pageNum) : null;
   modalState.captionBase = caption || "";
 
+  el.imgModalPrev.style.display = isPageStrip ? "" : "none";
+  el.imgModalNext.style.display = isPageStrip ? "" : "none";
+
   if (isPageStrip) {
     renderModalPageStrip();
   } else {
@@ -548,6 +551,9 @@ function closeImageModal() {
   modalState.isPageStrip = false;
   modalState.pageNum = null;
   modalState.captionBase = "";
+
+  el.imgModalPrev.style.display = "none";
+  el.imgModalNext.style.display = "none";
 
   document.body.style.overflow = "";
 }

@@ -768,6 +768,10 @@ body {
   right: calc(22px + var(--rail-w));
 }
 
+.imgModalNav {
+  display: none;
+}
+
 @media (max-width: 900px) {
   .imgModalNav {
     width: 46px;
