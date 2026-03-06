@@ -737,8 +737,11 @@ body {
 
 @media (min-width: 1400px) {
   .imgModalGallery.is-page-strip {
-    grid-template-columns: 1fr 1.35fr 1fr;
+    width: max-content;
+    max-width: 100%;
+    grid-template-columns: auto auto auto;
     gap: 5px;
+    justify-content: center;
   }
 
   .imgModalGallery.is-page-strip .imgModalImg {
