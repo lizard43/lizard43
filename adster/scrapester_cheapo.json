@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-03-06T15:07:00.537Z",
+  "generated_at": "2026-03-06T16:06:16.049Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,73 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 43,
-      "droppedPrice": 50,
+      "exported_ads": 45,
+      "droppedPrice": 54,
       "droppedMissingGeo": 0,
-      "droppedCircle": 48
+      "droppedCircle": 49
     }
   },
   "ads": [
+    {
+      "adID": "3147496395433993",
+      "source": "FB",
+      "authorUrl": null,
+      "author": "William Moltimore",
+      "postedTime": "2026-03-06T15:12:42.698Z",
+      "title": "Vintage Butter Dish",
+      "description": "Vintage mid-century butter dish in the Pennsylvania Dutch / Amish folk-art style pattern.",
+      "price": "$40",
+      "lat": 29.8946952,
+      "lon": -81.3145395,
+      "location": "ST AUGUSTINE, FL",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.30808-6/647513787_10230277864801826_7222473276839813651_n.jpg?stp=dst-jpg_s590x590_tt6&_nc_cat=110&ccb=1-7&_nc_sid=e06c5d&_nc_ohc=hHzPOR7dxrYQ7kNvwGDk8sw&_nc_oc=AdkBP1qk_PM-A_JbQ0BBwIrsf7tGG3BmtO7YITuOlbQWslQiAz82EQarZXefMxJpeBM&_nc_zt=23&_nc_ht=scontent-dfw5-1.xx&_nc_gid=8G3KeE6jmTlQ5oaMzvr2JQ&_nc_ss=8&oh=00_AfysR7cooTA2T5_hFrk8mSMres7hJAgkO8QwbKjzZpQNEg&oe=69B0D945",
+      "adUrl": "https://www.facebook.com/commerce/listing/3147496395433993/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-03-06 16:01:43",
+      "lastSeen": "2026-03-06T16:01:43.434Z"
+    },
+    {
+      "adID": "1149022123887360",
+      "source": "FB",
+      "authorUrl": null,
+      "author": "William Moltimore",
+      "postedTime": "2026-03-06T15:10:42.700Z",
+      "title": "Sunbeam Bread Jadite / Jadeite Glass Butter Dish",
+      "description": "Vintage advertising butter dish made from jadeite (jadite) milk glass promoting Sunbeam Bread.",
+      "price": "$60",
+      "lat": 29.8946952,
+      "lon": -81.3145395,
+      "location": "ST AUGUSTINE, FL",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.30808-6/646807228_10230277837481143_6865685691475541249_n.jpg?stp=dst-jpg_s590x590_tt6&_nc_cat=107&ccb=1-7&_nc_sid=e06c5d&_nc_ohc=JpUYOHjh64kQ7kNvwHFYVAf&_nc_oc=Adm8PJ1sGpQoEOkjJF_k5ZkSwq8CfqkqWqtAqq1XsOBvjkK-_pii0T_eL7OtTemX5q0&_nc_zt=23&_nc_ht=scontent-dfw5-1.xx&_nc_gid=SxmCkYYJuFGW8Z9DSUnxTg&_nc_ss=8&oh=00_AfwEf_60QR_Kr33lRgz6ijCNivDI9KyEBxBvjJ1XA1yNdQ&oe=69B0D267",
+      "adUrl": "https://www.facebook.com/commerce/listing/1149022123887360/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-03-06 16:01:43",
+      "lastSeen": "2026-03-06T16:01:43.468Z"
+    },
+    {
+      "adID": "2026357881619521",
+      "source": "FB",
+      "authorUrl": null,
+      "author": "William Moltimore",
+      "postedTime": "2026-03-06T15:07:42.701Z",
+      "title": "Beautiful Vintage Pressed Glass Butter Dish",
+      "description": "vintage pressed glass butter dish with lid, in a ruby red / amberina style, featuring a grape and leaf pattern.",
+      "price": "$35",
+      "lat": 29.8946952,
+      "lon": -81.3145395,
+      "location": "ST AUGUSTINE, FL",
+      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.30808-6/646876176_10230277799440192_1742794759517927344_n.jpg?stp=dst-jpg_s590x590_tt6&_nc_cat=103&ccb=1-7&_nc_sid=e06c5d&_nc_ohc=ifgThWRzfGsQ7kNvwFmJ94z&_nc_oc=AdnOCDv_qegJSGc7ZFRVxbjUktg22MOjKOgbHq7jXPYFa8TTH-KGijXA7Gx_M1JA2OI&_nc_zt=23&_nc_ht=scontent-dfw6-1.xx&_nc_gid=SxmCkYYJuFGW8Z9DSUnxTg&_nc_ss=8&oh=00_AfzLHFStx-HCkZYXQ19wgpnmpHt0LVpdpHKFUYjZsZmmBQ&oe=69B0C58E",
+      "adUrl": "https://www.facebook.com/commerce/listing/2026357881619521/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-03-06 16:01:43",
+      "lastSeen": "2026-03-06T16:01:43.501Z"
+    },
     {
       "adID": "770911592714333",
       "source": "MP",
@@ -36,27 +96,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-06 14:36:59",
-      "lastSeen": "2026-03-06T15:06:12.904Z"
-    },
-    {
-      "adID": "950584320782372",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/1078034039/?product_id=950584320782372",
-      "author": "Raiford Jackson",
-      "postedTime": "2026-03-05T22:44:47.000Z",
-      "title": "Garden brick",
-      "description": "Tan garden bricks 75 in total",
-      "price": "$100",
-      "lat": 33.9887165,
-      "lon": -83.8979573,
-      "location": "Dacula, GA",
-      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/646324937_4366312180305183_3511775358800880364_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=101&ccb=1-7&_nc_sid=92e707&_nc_ohc=qO-uC83mfI8Q7kNvwE1CRRN&_nc_oc=AdlWeT_vM-c1j9MtHXSY9XR5686dXnMu5Oxs976JcOlPjoqOw7PAVYB6zQYFN6LoZZA&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=hsY_QA-nVxSXGVtPLRPZBg&_nc_ss=8&oh=00_Afx98vYMhrZBIJSBUIerXDmucRdEmoZAxXCGZvCgg524oQ&oe=69B0B70C",
-      "adUrl": "https://www.facebook.com/marketplace/item/950584320782372/",
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-03-06 14:36:59",
-      "lastSeen": "2026-03-06T15:06:13.507Z"
+      "lastSeen": "2026-03-06T16:05:54.650Z"
     },
     {
       "adID": "861171766728764",
@@ -296,7 +336,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-04 14:04:49",
-      "lastSeen": "2026-03-06T15:06:13.071Z"
+      "lastSeen": "2026-03-06T16:05:54.919Z"
     },
     {
       "adID": "KLOV-561051",
@@ -316,7 +356,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-04 12:09:54",
-      "lastSeen": "2026-03-06T15:07:00.319Z"
+      "lastSeen": "2026-03-06T16:06:15.766Z"
     },
     {
       "adID": "1246958014243706",
@@ -356,7 +396,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-04 12:05:03",
-      "lastSeen": "2026-03-06T15:04:40.751Z"
+      "lastSeen": "2026-03-06T16:04:48.147Z"
     },
     {
       "adID": "1353011843137175",
@@ -396,7 +436,7 @@
       "priceChangedAt": "2026-03-05 00:06:58",
       "hidden": 0,
       "created_at": "2026-03-04 01:07:51",
-      "lastSeen": "2026-03-06T15:06:13.105Z"
+      "lastSeen": "2026-03-06T16:05:54.689Z"
     },
     {
       "adID": "1952481942009327",
@@ -436,7 +476,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-02 16:04:43",
-      "lastSeen": "2026-03-06T15:04:40.918Z"
+      "lastSeen": "2026-03-06T16:04:48.285Z"
     },
     {
       "adID": "898178436530988",
@@ -556,7 +596,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-23 19:06:25",
-      "lastSeen": "2026-03-06T15:06:12.937Z"
+      "lastSeen": "2026-03-06T16:05:54.785Z"
     },
     {
       "adID": "PI-210036",
@@ -796,7 +836,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 23:10:53",
-      "lastSeen": "2026-03-06T15:06:13.139Z"
+      "lastSeen": "2026-03-06T16:05:54.852Z"
     },
     {
       "adID": "1937314130515670",
@@ -836,7 +876,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 17:22:24",
-      "lastSeen": "2026-03-06T15:04:41.285Z"
+      "lastSeen": "2026-03-06T16:04:48.653Z"
     },
     {
       "adID": "2185352358965594",
@@ -876,7 +916,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 17:22:18",
-      "lastSeen": "2026-03-06T15:04:41.219Z"
+      "lastSeen": "2026-03-06T16:05:55.121Z"
     }
   ]
 }
