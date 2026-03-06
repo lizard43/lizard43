@@ -32,6 +32,8 @@ const el = {
   // modal
   imgModal: document.getElementById("imgModal"),
   imgModalClose: document.getElementById("imgModalClose"),
+  imgModalPrev: document.getElementById("imgModalPrev"),
+  imgModalNext: document.getElementById("imgModalNext"),
   imgModalGallery: document.getElementById("imgModalGallery"),
   imgModalImgPrev: document.getElementById("imgModalImgPrev"),
   imgModalImg: document.getElementById("imgModalImg"),
@@ -58,6 +60,12 @@ let imgObserver = null;
 const LS_ADSTER_SNAPSHOT = "adster.priceguide.snapshot.v1";
 
 let openedWithSearchParam = false; // true when page opened with ?s=...
+
+let modalState = {
+  isPageStrip: false,
+  pageNum: null,
+  captionBase: "",
+};
 
 function machineKey(m) {
   // prefer stable unique id if present
@@ -447,24 +455,21 @@ function buildPageStrip(pageNum) {
   };
 }
 
-function openImageModal(src, caption, opts = {}) {
-  if (!src) return;
+function renderModalPageStrip() {
+  const pageNum = Number(modalState.pageNum);
+  if (!Number.isFinite(pageNum) || pageNum <= 0) return;
 
-  document.body.style.overflow = "hidden";
+  const strip = buildPageStrip(pageNum);
+  if (!strip) return;
 
-  const isPageStrip = !!opts.isPageStrip && Number.isFinite(Number(opts.pageNum));
-  const pageNum = Number(opts.pageNum);
-
-  // clear all first
   for (const img of [el.imgModalImgPrev, el.imgModalImg, el.imgModalImgNext]) {
     img.removeAttribute("src");
     img.alt = "";
     img.style.display = "none";
   }
 
-  if (isPageStrip) {
-    const strip = buildPageStrip(pageNum);
-    if (strip?.prevSrc) {
+  if (modalState.isPageStrip) {
+    if (strip.prevSrc) {
       el.imgModalImgPrev.src = strip.prevSrc;
       el.imgModalImgPrev.alt = `Page ${strip.prevPage}`;
       el.imgModalImgPrev.style.display = "";
@@ -474,7 +479,7 @@ function openImageModal(src, caption, opts = {}) {
     el.imgModalImg.alt = `Page ${strip.currPage}`;
     el.imgModalImg.style.display = "";
 
-    if (strip?.nextSrc) {
+    if (strip.nextSrc) {
       el.imgModalImgNext.src = strip.nextSrc;
       el.imgModalImgNext.alt = `Page ${strip.nextPage}`;
       el.imgModalImgNext.style.display = "";
@@ -482,14 +487,47 @@ function openImageModal(src, caption, opts = {}) {
 
     el.imgModalGallery.classList.add("is-page-strip");
   } else {
-    el.imgModalImg.src = src;
-    el.imgModalImg.alt = caption || "";
+    el.imgModalImg.src = strip.currSrc;
+    el.imgModalImg.alt = `Page ${strip.currPage}`;
     el.imgModalImg.style.display = "";
 
     el.imgModalGallery.classList.remove("is-page-strip");
   }
 
-  el.imgModalCaption.textContent = caption || "";
+  const captionBase = modalState.captionBase || "";
+  el.imgModalCaption.textContent = captionBase
+    ? `${captionBase.replace(/\s*·\s*Page\s+\d+\s*$/i, "")} · Page ${pageNum}`
+    : `Page ${pageNum}`;
+}
+
+function openImageModal(src, caption, opts = {}) {
+  if (!src) return;
+
+  document.body.style.overflow = "hidden";
+
+  const isPageStrip = !!opts.isPageStrip && Number.isFinite(Number(opts.pageNum));
+
+  modalState.isPageStrip = isPageStrip;
+  modalState.pageNum = isPageStrip ? Number(opts.pageNum) : null;
+  modalState.captionBase = caption || "";
+
+  if (isPageStrip) {
+    renderModalPageStrip();
+  } else {
+    for (const img of [el.imgModalImgPrev, el.imgModalImg, el.imgModalImgNext]) {
+      img.removeAttribute("src");
+      img.alt = "";
+      img.style.display = "none";
+    }
+
+    el.imgModalImg.src = src;
+    el.imgModalImg.alt = caption || "";
+    el.imgModalImg.style.display = "";
+
+    el.imgModalGallery.classList.remove("is-page-strip");
+    el.imgModalCaption.textContent = caption || "";
+  }
+
   el.imgModal.classList.add("is-open");
   el.imgModal.setAttribute("aria-hidden", "false");
 }
@@ -507,11 +545,33 @@ function closeImageModal() {
   el.imgModalGallery.classList.remove("is-page-strip");
   el.imgModalCaption.textContent = "";
 
+  modalState.isPageStrip = false;
+  modalState.pageNum = null;
+  modalState.captionBase = "";
+
   document.body.style.overflow = "";
 }
 
 function isModalOpen() {
   return el.imgModal.classList.contains("is-open");
+}
+
+function modalCanPage() {
+  return isModalOpen() && modalState.isPageStrip && Number.isFinite(Number(modalState.pageNum));
+}
+
+function modalGoPrevPage() {
+  if (!modalCanPage()) return;
+  const nextPage = Math.max(1, Number(modalState.pageNum) - 1);
+  if (nextPage === modalState.pageNum) return;
+  modalState.pageNum = nextPage;
+  renderModalPageStrip();
+}
+
+function modalGoNextPage() {
+  if (!modalCanPage()) return;
+  modalState.pageNum = Number(modalState.pageNum) + 1;
+  renderModalPageStrip();
 }
 
 /* ---------- Cards ---------- */
@@ -884,6 +944,16 @@ function wireUI() {
     onRailKeyClick(btn.dataset.key);
   });
 
+  el.imgModalPrev?.addEventListener("click", (e) => {
+    e.stopPropagation();
+    modalGoPrevPage();
+  });
+
+  el.imgModalNext?.addEventListener("click", (e) => {
+    e.stopPropagation();
+    modalGoNextPage();
+  });
+
   el.searchInput.addEventListener("input", (e) => runSearch(e.target.value));
 
   el.searchInput.addEventListener("keydown", (e) => {
@@ -974,7 +1044,24 @@ function wireUI() {
   el.imgModalClose.addEventListener("click", () => closeImageModal());
 
   document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape" && isModalOpen()) closeImageModal();
+    if (!isModalOpen()) return;
+
+    if (e.key === "Escape") {
+      closeImageModal();
+      return;
+    }
+
+    if (e.key === "ArrowLeft" || e.key === "PageUp") {
+      e.preventDefault();
+      modalGoPrevPage();
+      return;
+    }
+
+    if (e.key === "ArrowRight" || e.key === "PageDown") {
+      e.preventDefault();
+      modalGoNextPage();
+      return;
+    }
   });
 }
 
