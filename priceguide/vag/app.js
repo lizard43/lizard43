@@ -511,8 +511,8 @@ function openImageModal(src, caption, opts = {}) {
   modalState.pageNum = isPageStrip ? Number(opts.pageNum) : null;
   modalState.captionBase = caption || "";
 
-  el.imgModalPrev.style.display = isPageStrip ? "" : "none";
-  el.imgModalNext.style.display = isPageStrip ? "" : "none";
+  el.imgModalPrev.style.display = isPageStrip ? "grid" : "none";
+  el.imgModalNext.style.display = isPageStrip ? "grid" : "none";
 
   if (isPageStrip) {
     renderModalPageStrip();
