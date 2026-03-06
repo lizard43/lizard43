@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-03-06T21:24:44.869Z",
+  "generated_at": "2026-03-06T22:08:00.922Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,53 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 39,
-      "droppedPrice": 42,
+      "exported_ads": 41,
+      "droppedPrice": 51,
       "droppedMissingGeo": 0,
-      "droppedCircle": 50
+      "droppedCircle": 55
     }
   },
   "ads": [
+    {
+      "adID": "895469536651928",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100000674442852/?product_id=895469536651928",
+      "author": "Dontel Peoples",
+      "postedTime": "2026-03-06T21:36:22.000Z",
+      "title": "NFL Blitz arcade cabinet",
+      "description": "Fully assembled NFL Blitz Cabinet",
+      "price": "$475",
+      "lat": 33.8389977,
+      "lon": -83.9007382,
+      "location": "Loganville, GA",
+      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/648462063_1338394938064217_8360379157893154281_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=100&ccb=1-7&_nc_sid=92e707&_nc_ohc=ux2A3viC_ucQ7kNvwHOiMSu&_nc_oc=AdnZRl6_8B0RMEAKFkERvN7oTGyan7Y2Ht3-a36f2L_ch7O0Sb7-c1ON_rxszLNHHHY&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=9nZlQO0JCu3Z0V4fIgf_FA&_nc_ss=8&oh=00_Afwbr48yKZjNwsUa2mapoNe5ZQyvAi4kWBQ5Utp0Dv7HIw&oe=69B1248A",
+      "adUrl": "https://www.facebook.com/marketplace/item/895469536651928/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-03-06 22:04:47",
+      "lastSeen": "2026-03-06T22:05:07.851Z"
+    },
+    {
+      "adID": "935846082662734",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/543013669/?product_id=935846082662734",
+      "author": "Allen Robinson",
+      "postedTime": "2026-03-03T15:45:28.000Z",
+      "title": "Capcom Bowling, Upright Arcade, Capcom 1988 (Project Cab)",
+      "description": "Vintage Upright Arcade – Capcom Bowling (Capcom, 1988) Price: $275 $225 (or best offer) Step back into the late 80s with this original Capcom Bowling upright arcade cabinet. Released in 1988, this sports title brought the fun of bowling into the arcade scene, complete with competitive play and retro charm. It’s a nostalgic piece for collectors and fans of Capcom’s unique arcade lineup. Condition: - Cabinet is very old and needs a lot of love. - Monitor does not currently power on — likely needs new caps. - Nothing comes on at the moment; best to start troubleshooting with the power supply and work your way from there. - Sold as-is. Highlights: - Classic Capcom sports arcade with bowling gameplay. - Upright cabinet design from the golden age of arcades. - Great candidate for restoration or display in a retro collection. Important: - Price is $225, or best offer - Serious buyers only. No I don’t deliver but it can be picked up or shipped (arranged by buyer) in Powder Springs, GA.",
+      "price": "$200",
+      "lat": 33.8595492,
+      "lon": -84.683824,
+      "location": "Powder Springs, GA",
+      "imageUrl": "https://scontent-dfw5-3.xx.fbcdn.net/v/t39.84726-6/646573025_1796969977646289_7729784712959721753_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=108&ccb=1-7&_nc_sid=92e707&_nc_ohc=1W-O5iKkaYIQ7kNvwHZHoC7&_nc_oc=Adn9LmPflMK7hjfgmOhGMmpB3VuuKF1QuXr6JezMxAdunFx4ZMDPaY9DLx1ol40Cbwc&_nc_zt=14&_nc_ht=scontent-dfw5-3.xx&_nc_gid=1MfesOac8VK_81oHRm2ltw&_nc_ss=8&oh=00_AfztANI4pqz0ZegiPU7wyrKH6ZTqdNuVhDlBC24GsWD9Lg&oe=69B12E97",
+      "adUrl": "https://www.facebook.com/marketplace/item/935846082662734/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-03-06 22:04:47",
+      "lastSeen": "2026-03-06T22:05:07.902Z"
+    },
     {
       "adID": "1269404215166994",
       "source": "MP",
@@ -36,7 +76,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-06 20:04:46",
-      "lastSeen": "2026-03-06T21:04:45.766Z"
+      "lastSeen": "2026-03-06T22:04:47.235Z"
     },
     {
       "adID": "770911592714333",
@@ -56,7 +96,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-06 14:36:59",
-      "lastSeen": "2026-03-06T21:06:05.743Z"
+      "lastSeen": "2026-03-06T22:05:54.111Z"
     },
     {
       "adID": "861171766728764",
@@ -156,7 +196,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-04 20:05:11",
-      "lastSeen": "2026-03-05T23:04:56.903Z"
+      "lastSeen": "2026-03-06T22:04:47.370Z"
     },
     {
       "adID": "1644523089879372",
@@ -236,7 +276,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-04 14:04:49",
-      "lastSeen": "2026-03-06T21:06:05.407Z"
+      "lastSeen": "2026-03-06T22:05:53.977Z"
     },
     {
       "adID": "KLOV-561051",
@@ -256,7 +296,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-04 12:09:54",
-      "lastSeen": "2026-03-06T21:07:35.410Z"
+      "lastSeen": "2026-03-06T22:08:00.329Z"
     },
     {
       "adID": "1570931707463297",
@@ -276,7 +316,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-04 12:05:03",
-      "lastSeen": "2026-03-06T21:04:45.336Z"
+      "lastSeen": "2026-03-06T22:04:47.034Z"
     },
     {
       "adID": "1353011843137175",
@@ -316,7 +356,7 @@
       "priceChangedAt": "2026-03-05 00:06:58",
       "hidden": 0,
       "created_at": "2026-03-04 01:07:51",
-      "lastSeen": "2026-03-06T21:06:05.475Z"
+      "lastSeen": "2026-03-06T22:05:54.011Z"
     },
     {
       "adID": "1952481942009327",
@@ -336,7 +376,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-03 21:04:50",
-      "lastSeen": "2026-03-06T21:04:45.912Z"
+      "lastSeen": "2026-03-06T22:04:47.135Z"
     },
     {
       "adID": "929251049590411",
@@ -356,7 +396,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-02 16:04:43",
-      "lastSeen": "2026-03-06T21:04:45.554Z"
+      "lastSeen": "2026-03-06T22:04:47.001Z"
     },
     {
       "adID": "898178436530988",
@@ -416,7 +456,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-01 12:04:44",
-      "lastSeen": "2026-03-06T21:04:46.212Z"
+      "lastSeen": "2026-03-06T22:04:47.537Z"
     },
     {
       "adID": "675528545616516",
@@ -476,7 +516,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-23 19:06:25",
-      "lastSeen": "2026-03-06T21:06:05.195Z"
+      "lastSeen": "2026-03-06T22:05:53.876Z"
     },
     {
       "adID": "PI-210036",
@@ -656,7 +696,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-18 21:04:43",
-      "lastSeen": "2026-03-06T19:24:35.668Z"
+      "lastSeen": "2026-03-06T22:04:47.436Z"
     },
     {
       "adID": "1539689973994771",
@@ -716,7 +756,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 23:10:53",
-      "lastSeen": "2026-03-06T21:06:05.441Z"
+      "lastSeen": "2026-03-06T22:05:54.077Z"
     },
     {
       "adID": "1937314130515670",
@@ -736,7 +776,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 18:10:45",
-      "lastSeen": "2026-03-06T19:06:31.535Z"
+      "lastSeen": "2026-03-06T22:05:54.234Z"
     },
     {
       "adID": "2948138838710326",
@@ -756,7 +796,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 17:22:24",
-      "lastSeen": "2026-03-06T21:04:46.146Z"
+      "lastSeen": "2026-03-06T22:04:47.169Z"
     },
     {
       "adID": "2185352358965594",
@@ -776,7 +816,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 17:22:23",
-      "lastSeen": "2026-03-06T21:04:45.844Z"
+      "lastSeen": "2026-03-06T22:04:47.202Z"
     },
     {
       "adID": "880228111053501",
@@ -796,7 +836,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 17:22:18",
-      "lastSeen": "2026-03-06T21:04:46.079Z"
+      "lastSeen": "2026-03-06T22:05:54.335Z"
     }
   ]
 }
