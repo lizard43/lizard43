@@ -32,7 +32,10 @@ const el = {
   // modal
   imgModal: document.getElementById("imgModal"),
   imgModalClose: document.getElementById("imgModalClose"),
+  imgModalGallery: document.getElementById("imgModalGallery"),
+  imgModalImgPrev: document.getElementById("imgModalImgPrev"),
   imgModalImg: document.getElementById("imgModalImg"),
+  imgModalImgNext: document.getElementById("imgModalImgNext"),
   imgModalCaption: document.getElementById("imgModalCaption"),
 };
 
