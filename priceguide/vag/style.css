@@ -827,3 +827,20 @@ body {
     transform: none;
   }
 }
+
+.variantRow {
+  display: grid;
+  grid-template-columns: 1fr 90px 90px;
+  column-gap: 8px;
+  font-size: 13.5px;
+}
+
+.variantType {
+  color: #3e434a;
+}
+
+.variantPrice {
+  text-align: right;
+  font-weight: 700;
+  color: var(--text);
+}

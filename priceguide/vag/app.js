@@ -656,7 +656,13 @@ function cardHTML(g, idx) {
       parts.push(`<span class="priceStrong">${escapeHtml(hi || "—")}</span>`);
       // parts.push(`<span class="dim">${escapeHtml(avg || "— avg ")}</span>`);
 
-      rows.push(`<div class="lineMeta">${parts.join(" – ")}</div>`);
+      rows.push(`
+        <div class="variantRow">
+          <span class="variantType">${escapeHtml(type)}</span>
+          <span class="variantPrice">${escapeHtml(lo || "—")}</span>
+          <span class="variantPrice">${escapeHtml(hi || "—")}</span>
+        </div>
+      `);
     }
     variantsBlock = rows.join("");
   }
@@ -1099,7 +1105,14 @@ async function loadData() {
       variant: Array.isArray(g.variant) ? g.variant : [],
     }));
 
-  games.sort((a, b) => (a.title || "").localeCompare(b.title || "", undefined, { sensitivity: "base", numeric: true }));
+  games.sort((a, b) => {
+    const ta = String(a.title || "");
+    const tb = String(b.title || "");
+    return ta.localeCompare(tb, undefined, {
+      sensitivity: "base",
+      numeric: false
+    });
+  });
 
   filtered = games.slice();
   filteredBlobs = filtered.map(buildBlob);
