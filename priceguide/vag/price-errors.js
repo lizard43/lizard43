@@ -200,9 +200,9 @@ function main() {
   console.log(`Issues found:     ${totalIssues}`);
   console.log("");
 
-  for (const [key, value] of Object.entries(counts)) {
-    console.log(`${key}: ${value}`);
-  }
+  // for (const [key, value] of Object.entries(counts)) {
+  //   console.log(`${key}: ${value}`);
+  // }
 }
 
 main();
