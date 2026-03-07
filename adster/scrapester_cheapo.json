@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-03-07T19:24:09.428Z",
+  "generated_at": "2026-03-07T20:06:52.433Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,33 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 41,
-      "droppedPrice": 59,
+      "exported_ads": 42,
+      "droppedPrice": 60,
       "droppedMissingGeo": 0,
-      "droppedCircle": 67
+      "droppedCircle": 69
     }
   },
   "ads": [
+    {
+      "adID": "1551999089367455",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100029094020670/?product_id=1551999089367455",
+      "author": "Amabbiss Abbiss",
+      "postedTime": "2026-01-28T23:45:12.000Z",
+      "title": "White gold cross",
+      "description": "Is a 10 carat solid gold white gold?",
+      "price": "$275",
+      "lat": 28.2441768,
+      "lon": -82.7192671,
+      "location": "New Port Richey, FL",
+      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/622824335_1653231369384640_4773446417082800377_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=100&ccb=1-7&_nc_sid=92e707&_nc_ohc=CY6EmPlDQFMQ7kNvwHLx7Th&_nc_oc=AdlsPNGGPkwoxnAJuFbA6JUv1EXuf3sCN9UCWlQGM68ObpoxxhaqllQmIR1jDwW6Xxo&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=xXII2WUVPV830xr-t7pw_Q&_nc_ss=8&oh=00_AfysVe6nVi2NEdDWGmn4JXzVzOnAvZQZQKbBBq58sbh-JA&oe=69B24E8F",
+      "adUrl": "https://www.facebook.com/marketplace/item/1551999089367455/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-03-07 20:05:45",
+      "lastSeen": "2026-03-07T20:06:17.208Z"
+    },
     {
       "adID": "25820860767615770",
       "source": "MP",
@@ -96,7 +116,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-06 14:36:59",
-      "lastSeen": "2026-03-07T18:06:19.687Z"
+      "lastSeen": "2026-03-07T20:05:45.811Z"
     },
     {
       "adID": "861171766728764",
@@ -276,7 +296,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-04 14:04:49",
-      "lastSeen": "2026-03-07T19:06:18.184Z"
+      "lastSeen": "2026-03-07T20:05:45.676Z"
     },
     {
       "adID": "KLOV-561051",
@@ -296,7 +316,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-04 12:09:54",
-      "lastSeen": "2026-03-07T19:07:23.526Z"
+      "lastSeen": "2026-03-07T20:06:52.183Z"
     },
     {
       "adID": "1570931707463297",
@@ -316,7 +336,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-04 12:05:03",
-      "lastSeen": "2026-03-07T19:04:46.186Z"
+      "lastSeen": "2026-03-07T20:04:43.630Z"
     },
     {
       "adID": "1353011843137175",
@@ -376,7 +396,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-03 21:04:50",
-      "lastSeen": "2026-03-07T19:04:46.387Z"
+      "lastSeen": "2026-03-07T20:04:43.965Z"
     },
     {
       "adID": "929251049590411",
@@ -396,7 +416,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-02 16:04:43",
-      "lastSeen": "2026-03-07T19:04:46.521Z"
+      "lastSeen": "2026-03-07T20:04:44.065Z"
     },
     {
       "adID": "898178436530988",
@@ -456,7 +476,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-01 12:04:44",
-      "lastSeen": "2026-03-07T16:04:47.705Z"
+      "lastSeen": "2026-03-07T20:04:43.931Z"
     },
     {
       "adID": "675528545616516",
@@ -516,7 +536,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-23 19:06:25",
-      "lastSeen": "2026-03-07T19:06:17.951Z"
+      "lastSeen": "2026-03-07T20:05:45.331Z"
     },
     {
       "adID": "PI-210036",
@@ -756,7 +776,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 23:10:53",
-      "lastSeen": "2026-03-07T19:04:46.353Z"
+      "lastSeen": "2026-03-07T20:05:46.616Z"
     },
     {
       "adID": "1937314130515670",
@@ -776,7 +796,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 18:10:45",
-      "lastSeen": "2026-03-07T17:06:30.927Z"
+      "lastSeen": "2026-03-07T20:05:46.749Z"
     },
     {
       "adID": "2948138838710326",
@@ -796,7 +816,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 17:22:24",
-      "lastSeen": "2026-03-07T18:04:48.207Z"
+      "lastSeen": "2026-03-07T20:04:44.367Z"
     },
     {
       "adID": "2185352358965594",
@@ -816,7 +836,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 17:22:23",
-      "lastSeen": "2026-03-07T18:04:48.340Z"
+      "lastSeen": "2026-03-07T20:04:44.333Z"
     },
     {
       "adID": "880228111053501",
@@ -836,7 +856,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 17:22:18",
-      "lastSeen": "2026-03-07T18:04:48.139Z"
+      "lastSeen": "2026-03-07T20:04:44.300Z"
     }
   ]
 }
