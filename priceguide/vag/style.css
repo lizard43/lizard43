@@ -386,7 +386,7 @@ body {
 }
 
 .cardBody {
-  padding: 8px 56px 24px 0;
+  padding: 8px 40px 10px 0;
   display: flex;
   flex-direction: column;
   gap: 2px;
@@ -830,13 +830,22 @@ body {
 
 .variantRow {
   display: grid;
-  grid-template-columns: 1fr 90px 90px;
-  column-gap: 8px;
-  font-size: 13.5px;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 10px;
+  align-items: baseline;
 }
 
 .variantType {
-  color: #3e434a;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.variantRange {
+  white-space: nowrap;
+  font-weight: 700;
+  text-align: right;
+  color: var(--text);
 }
 
 .variantPrice {

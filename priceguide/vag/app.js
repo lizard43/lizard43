@@ -665,8 +665,7 @@ function cardHTML(g, idx) {
       rows.push(`
         <div class="variantRow">
           <span class="variantType">${escapeHtml(type)}</span>
-          <span class="variantPrice">${escapeHtml(lo || "—")}</span>
-          <span class="variantPrice">${escapeHtml(hi || "—")}</span>
+          <span class="variantRange">${escapeHtml((lo && hi) ? `${lo} – ${hi}` : (lo || hi || "—"))}</span>
         </div>
       `);
     }
