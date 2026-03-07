@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-03-07T01:06:48.349Z",
+  "generated_at": "2026-03-07T02:08:33.322Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,33 +11,13 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 42,
-      "droppedPrice": 41,
+      "exported_ads": 41,
+      "droppedPrice": 49,
       "droppedMissingGeo": 0,
-      "droppedCircle": 47
+      "droppedCircle": 50
     }
   },
   "ads": [
-    {
-      "adID": "1210989177848354",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/100089222932018/?product_id=1210989177848354",
-      "author": "Arielle Chung",
-      "postedTime": "2026-03-07T00:46:04.000Z",
-      "title": "Old School Arcade game (Space Invaders",
-      "description": "Machine is sound and was working but recently stopped. There may be an electrical short that can be repaired. Pickup near Durbin",
-      "price": "$150",
-      "lat": 30.3321838,
-      "lon": -81.655651,
-      "location": "Jacksonville, FL",
-      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/646431223_1252658123074204_9050123110346921751_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=106&ccb=1-7&_nc_sid=92e707&_nc_ohc=8-Oxobwnt3sQ7kNvwEzyoU2&_nc_oc=AdlJsIQsL3u3KQiVTAG66uEStkR6K8Cmj6SHz0ErQDGmVXOuuQLrJsQEPLPmQIAvFUo&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=fWavHXNlUaCD67DZpkbUTw&_nc_ss=8&oh=00_AfyFpF-IBrwrxkMbgpBBlfEqnP-FSnHdolCTheEprnlEwQ&oe=69B1561B",
-      "adUrl": "https://www.facebook.com/marketplace/item/1210989177848354/",
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-03-07 01:04:45",
-      "lastSeen": "2026-03-07T01:05:11.621Z"
-    },
     {
       "adID": "25820860767615770",
       "source": "MP",
@@ -296,7 +276,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-04 14:04:49",
-      "lastSeen": "2026-03-07T01:05:57.069Z"
+      "lastSeen": "2026-03-07T02:07:37.163Z"
     },
     {
       "adID": "KLOV-561051",
@@ -316,7 +296,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-04 12:09:54",
-      "lastSeen": "2026-03-07T01:06:48.073Z"
+      "lastSeen": "2026-03-07T02:08:33.125Z"
     },
     {
       "adID": "1570931707463297",
@@ -336,7 +316,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-04 12:05:03",
-      "lastSeen": "2026-03-07T01:04:44.934Z"
+      "lastSeen": "2026-03-07T02:04:51.278Z"
     },
     {
       "adID": "1353011843137175",
@@ -376,7 +356,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-04 01:07:51",
-      "lastSeen": "2026-03-07T01:05:57.002Z"
+      "lastSeen": "2026-03-07T02:07:37.129Z"
     },
     {
       "adID": "1952481942009327",
@@ -416,7 +396,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-02 16:04:43",
-      "lastSeen": "2026-03-07T01:04:45.272Z"
+      "lastSeen": "2026-03-07T02:04:51.581Z"
     },
     {
       "adID": "898178436530988",
@@ -536,7 +516,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-23 19:06:25",
-      "lastSeen": "2026-03-07T01:05:57.036Z"
+      "lastSeen": "2026-03-07T02:07:37.196Z"
     },
     {
       "adID": "PI-210036",
@@ -776,7 +756,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 23:10:53",
-      "lastSeen": "2026-03-07T01:05:57.203Z"
+      "lastSeen": "2026-03-07T02:07:37.364Z"
     },
     {
       "adID": "1937314130515670",
@@ -816,7 +796,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 17:22:24",
-      "lastSeen": "2026-03-06T23:04:42.373Z"
+      "lastSeen": "2026-03-07T02:04:51.815Z"
     },
     {
       "adID": "2185352358965594",
@@ -856,7 +836,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 17:22:18",
-      "lastSeen": "2026-03-07T01:04:45.473Z"
+      "lastSeen": "2026-03-07T02:04:51.982Z"
     }
   ]
 }
