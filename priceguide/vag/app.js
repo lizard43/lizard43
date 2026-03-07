@@ -100,6 +100,12 @@ function normalizeText(s) {
     .trim();
 }
 
+function titleSortKey(title) {
+  return String(title || "")
+    .trim()
+    .replace(/^[^a-z0-9]+/i, "");
+}
+
 function firstKeyForTitle(title) {
   const n = normalizeText(titleSortKey(title));
   if (!n) return "#";
@@ -1104,12 +1110,6 @@ async function loadData() {
       page: g.page ?? null,
       variant: Array.isArray(g.variant) ? g.variant : [],
     }));
-
-  function titleSortKey(title) {
-    return String(title || "")
-      .trim()
-      .replace(/^[^a-z0-9]+/i, "");
-  }
 
   games.sort((a, b) => {
     const ta = titleSortKey(a.title);
