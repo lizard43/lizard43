@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-03-08T22:08:41.377Z",
+  "generated_at": "2026-03-08T22:27:48.917Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,33 +11,13 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 45,
-      "droppedPrice": 59,
+      "exported_ads": 42,
+      "droppedPrice": 52,
       "droppedMissingGeo": 0,
-      "droppedCircle": 61
+      "droppedCircle": 57
     }
   },
   "ads": [
-    {
-      "adID": "923073710300324",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/100000944822418/?product_id=923073710300324",
-      "author": "Patronia Bowen",
-      "postedTime": "2026-02-24T22:16:35.000Z",
-      "title": "Radical lighted solitaire game",
-      "description": "Brand new lighted solitaire handheld game never used great for on the go entertainment. $60",
-      "price": "$10",
-      "lat": 33.3742812,
-      "lon": -85.399673,
-      "location": "Woodland, AL",
-      "imageUrl": "https://scontent-dfw5-3.xx.fbcdn.net/v/t39.84726-6/639810144_1604353627169344_881486716679571403_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=109&ccb=1-7&_nc_sid=92e707&_nc_ohc=txO6h362GbgQ7kNvwEAeGiX&_nc_oc=AdkzrvqvBVFJy017ipddcOS0zP4mCQcfEf-C04VlAXfELiAJpokPf3_7x_nKdm3TxHY&_nc_zt=14&_nc_ht=scontent-dfw5-3.xx&_nc_gid=CxRKzSLevEU65V2GfYzUJg&_nc_ss=8&oh=00_Afy_T59aVNJqbh67--f5hl9LVEPpS1ys4g9d3FSM9QQsyg&oe=69B3AE5D",
-      "adUrl": "https://www.facebook.com/marketplace/item/923073710300324/",
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-03-08 22:06:50",
-      "lastSeen": "2026-03-08T22:08:09.221Z"
-    },
     {
       "adID": "2015950149356153",
       "source": "MP",
@@ -57,46 +37,6 @@
       "hidden": 0,
       "created_at": "2026-03-08 22:04:41",
       "lastSeen": "2026-03-08T22:06:06.199Z"
-    },
-    {
-      "adID": "1696439865051935",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/1228119156/?product_id=1696439865051935",
-      "author": "Kendra D. Perry-Mullis",
-      "postedTime": "2026-03-08T21:23:16.000Z",
-      "title": "Chewlix Arcade Cabinet",
-      "description": "This is a chinese knock-off of the famous Viewlix arcade cabinets. It has a rather large (32\") LCD. It's running a Pandora's Box game system, similar to the Ar-Pi-Cade in the Astro City cabinet. It has multiple thousands of games on the device but most of them are bootlegs and unofficial mods of original games that aren't worth playing. The wiring and sound system are great in the cabinet and someone wanting to update to the latest Pandora's box will find it super simple to swap them out. This has a 2 player 4-button layout, like a NeoGeo cabinet. If you wanted to add additional buttons it's very simple to access everything. This is fairly light (approx.100lbs) and rolls on wheels. It comes pre-wired with a JAMMA harness for using with any regular JAMMA PCB.",
-      "price": "$500",
-      "lat": 30.6035255,
-      "lon": -87.9036047,
-      "location": "Daphne, AL",
-      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/649573372_1470796018000402_5716404796880089677_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=107&ccb=1-7&_nc_sid=92e707&_nc_aid=0&_nc_ohc=Vy3ylsY5Zq0Q7kNvwFL_3UT&_nc_oc=AdnOLmV01H1fAjhL9VYlweNQMMAkVEqVqD6R7aKAtu_rP6rURaPokVN7Fh3_sCLu6ZU&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=OX_-zePbwr8Mw_WQZCMGNQ&_nc_ss=8&oh=00_AfzgayuE6kW4aQUafoddS7Pm0i7Fs-6_6luLke_Vdu0nqg&oe=69B3D747",
-      "adUrl": "https://www.facebook.com/marketplace/item/1696439865051935/",
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-03-08 22:04:41",
-      "lastSeen": "2026-03-08T22:06:06.233Z"
-    },
-    {
-      "adID": "2152836422196186",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/100089125090585/?product_id=2152836422196186",
-      "author": "Robert Minshew",
-      "postedTime": "2026-02-24T00:53:50.000Z",
-      "title": "Game",
-      "description": "Slot machine with lots of tokens works good.",
-      "price": "$250",
-      "lat": 28.4635266,
-      "lon": -82.5363557,
-      "location": "Spring Hill, FL",
-      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/641253847_913117351429807_9166621456111457600_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=101&ccb=1-7&_nc_sid=92e707&_nc_ohc=cjFStpjm5IIQ7kNvwFo4A3g&_nc_oc=Adm4ItUG9Ubjc0dNb0MBO2KNLImSbVb2nBY6jjYDmL2IgpWTxsgGa1OOzOehWLj10Rg&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=Z2tRTKYJhwi0HjN-5W7v5g&_nc_ss=8&oh=00_AfyjTfK_-a1W3XBlumNvbIbN9UzD70f56_1IJhd7fVNuSQ&oe=69B3C9EA",
-      "adUrl": "https://www.facebook.com/marketplace/item/2152836422196186/",
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-03-08 22:04:41",
-      "lastSeen": "2026-03-08T22:06:06.301Z"
     },
     {
       "adID": "943389871548367",
