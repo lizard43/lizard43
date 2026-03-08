@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-03-08T02:07:14.062Z",
+  "generated_at": "2026-03-08T02:47:37.126Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,10 +11,10 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 43,
-      "droppedPrice": 55,
+      "exported_ads": 42,
+      "droppedPrice": 52,
       "droppedMissingGeo": 0,
-      "droppedCircle": 72
+      "droppedCircle": 61
     }
   },
   "ads": [
@@ -37,26 +37,6 @@
       "hidden": 0,
       "created_at": "2026-03-08 02:06:22",
       "lastSeen": "2026-03-08T02:06:41.115Z"
-    },
-    {
-      "adID": "3977311359236641",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/100006745809387/?product_id=3977311359236641",
-      "author": "Bob Seiler",
-      "postedTime": "2026-02-18T02:45:00.000Z",
-      "title": "Old Century Pinball Golf (2003)",
-      "description": "Brand New Old Century Pinball Golf. NEW in original box. Opened up to take pics. Official rule book with score cards. Never assembled. Extry nice shape. Even box is in good shape. Thanks for looking.",
-      "price": "$50",
-      "lat": 27.8428025,
-      "lon": -82.6995444,
-      "location": "Pinellas Park, FL",
-      "imageUrl": "https://scontent-dfw5-3.xx.fbcdn.net/v/t39.84726-6/638782570_861441400227562_942395497936129061_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=108&ccb=1-7&_nc_sid=92e707&_nc_ohc=n76xxwh3NxgQ7kNvwGk-7j5&_nc_oc=AdmL9SFYFZGI8ROy-y3S8hwMpkejXhPGje6Mwj2uxpX_IcMzeiVQuOwwvmSOiG_u75o&_nc_zt=14&_nc_ht=scontent-dfw5-3.xx&_nc_gid=QI1cIIHb25vm7fF3BeQ0ZQ&_nc_ss=8&oh=00_AfyXqHU57ns4cDzU9zpp1oQqjoiS3WvOZosgFyf9vEkudg&oe=69B2AFC3",
-      "adUrl": "https://www.facebook.com/marketplace/item/3977311359236641/",
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-03-08 02:06:22",
-      "lastSeen": "2026-03-08T02:06:41.156Z"
     },
     {
       "adID": "25820860767615770",
