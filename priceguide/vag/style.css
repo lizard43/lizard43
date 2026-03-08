@@ -668,6 +668,40 @@ body {
   font-weight: 700;
 }
 
+.adsterCardInner {
+  position: relative;
+}
+
+.adsterHideBtn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+
+  width: 28px;
+  height: 28px;
+  border-radius: 10px;
+
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.82);
+
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  line-height: 1;
+  font-size: 16px;
+  z-index: 2;
+}
+
+.adsterHideBtn:hover {
+  background: rgba(255, 255, 255, 0.14);
+  color: #fff;
+}
+
+.adsterHideBtn:active {
+  transform: translateY(1px);
+}
+
 /* Mobile stacking */
 @media (max-width: 720px) {
   .adsterCardInner {

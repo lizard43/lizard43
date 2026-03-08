@@ -67,6 +67,26 @@ let modalState = {
   captionBase: "",
 };
 
+// add near your other top-level state vars
+let adsterCardDismissed = false;
+
+function dismissAdsterCard() {
+  adsterCardDismissed = true;
+
+  try {
+    localStorage.removeItem(LS_ADSTER_SNAPSHOT);
+  } catch (_) { }
+
+  const card = el.cards.querySelector(".adsterCard");
+  if (card) {
+    try { card.remove(); } catch (_) {
+      try { card.parentNode && card.parentNode.removeChild(card); } catch (_) { }
+    }
+  }
+
+  showToast("Ad cleared");
+}
+
 function machineKey(m) {
   // prefer stable unique id if present
   const pid = String(m?.pinsideID || "").trim();
@@ -348,8 +368,7 @@ function adsterSnapshotCardHTML(snap, priceClass) {
   const title = String(snap.title || "—").trim();
   const priceText = String(snap.priceText || "").trim();
 
-  // NEW: distance + location
-  const distanceTextRaw = String(snap.distanceText || "").trim(); // e.g. "64.6"
+  const distanceTextRaw = String(snap.distanceText || "").trim();
   const distanceMilesNum = Number(snap.distanceMiles);
   const distanceText =
     distanceTextRaw
@@ -357,26 +376,22 @@ function adsterSnapshotCardHTML(snap, priceClass) {
       : (Number.isFinite(distanceMilesNum) ? distanceMilesNum.toFixed(1) : "");
 
   const location = String(snap.location || "").trim();
-
   const desc = String(snap.description || "").trim();
   const adUrl = String(snap.adUrl || "").trim();
   const imageUrl = String(snap.imageUrl || "").trim();
-
-  const source = String(snap.source || "").trim();     // e.g. "MP"
-  const seller = String(snap.author || "").trim();     // e.g. "Mike Stine"
+  const source = String(snap.source || "").trim();
+  const seller = String(snap.author || "").trim();
 
   const captionParts = [];
   if (title) captionParts.push(title);
   if (location) captionParts.push(location);
   const caption = captionParts.join(" · ");
 
-  // Bottom line like Adster: "MP · Mike Stine"
   const whoParts = [];
   if (source) whoParts.push(escapeHtml(source));
   if (seller) whoParts.push(escapeHtml(seller));
   const whoLine = whoParts.length ? whoParts.join(" &nbsp;·&nbsp; ") : "";
 
-  // Meta line like: "$1,500 · 64.6 mi · Pensacola, FL"
   const metaParts = [];
   if (priceText) {
     const cls = ["adsterPrice", priceClass].filter(Boolean).join(" ");
@@ -403,7 +418,6 @@ function adsterSnapshotCardHTML(snap, priceClass) {
     `
     : `<div class="adsterThumbFallback">No image</div>`;
 
-  // Image and title both link to the original ad
   const imgBlock = adUrl
     ? `<a class="adsterMediaLink" href="${escapeAttr(adUrl)}" target="_blank" rel="noopener">${imgInner}</a>`
     : `<div class="adsterMediaLink">${imgInner}</div>`;
@@ -427,6 +441,14 @@ function adsterSnapshotCardHTML(snap, priceClass) {
   return `
     <article class="adsterCard">
       <div class="adsterCardInner">
+        <button
+          class="adsterHideBtn"
+          type="button"
+          title="Dismiss ad card"
+          aria-label="Dismiss ad card"
+          data-dismiss-adster="1"
+        >✕</button>
+
         <div class="adsterMedia">
           ${imgBlock}
         </div>
@@ -836,7 +858,7 @@ function renderCards() {
   const cardsHtml = filtered.map((g, idx) => cardHTML(g, idx)).join("\n");
 
   let adsterHtml = "";
-  if (openedWithSearchParam) {
+  if (openedWithSearchParam && !adsterCardDismissed) {
     const snap = loadAdsterSnapshot();
     if (snap) {
       const priceClass = adsterPriceClassForCurrentResults(snap);
@@ -1031,6 +1053,14 @@ function wireUI() {
   // Thumbnail click (event delegation)
   el.cards.addEventListener("click", (e) => {
 
+    const dismissAdsterBtn = e.target.closest("button[data-dismiss-adster]");
+    if (dismissAdsterBtn) {
+      e.preventDefault();
+      e.stopPropagation();
+      dismissAdsterCard();
+      return;
+    }
+
     const hideBtn = e.target.closest("button[data-hide-key]");
     if (hideBtn) {
       e.preventDefault();
@@ -1039,7 +1069,6 @@ function wireUI() {
       const key = hideBtn.getAttribute("data-hide-key") || "";
       if (key) hiddenKeys.add(key);
 
-      // re-run current search to remove it from the list + update match count
       runSearch(el.searchInput?.value || "");
       return;
     }
