@@ -588,6 +588,50 @@ function modalGoNextPage() {
 
 /* ---------- Cards ---------- */
 
+function variantLabel(v) {
+  return v?.type ? String(v.type) : "Variant";
+}
+
+function variantDisplayRange(v) {
+  const lo = money(Number(v?.price_lower));
+  const hi = money(Number(v?.price_higher));
+  return (lo && hi) ? `${lo} – ${hi}` : (lo || hi || "—");
+}
+
+function groupVariantsByRange(vs) {
+  const groups = new Map();
+
+  for (const v of vs) {
+    const rangeText = variantDisplayRange(v);
+
+    // Group strictly by the actual numeric pair when possible.
+    // Fallback to display text if values are missing.
+    const lo = Number(v?.price_lower);
+    const hi = Number(v?.price_higher);
+    const key =
+      Number.isFinite(lo) || Number.isFinite(hi)
+        ? `${Number.isFinite(lo) ? lo : ""}|${Number.isFinite(hi) ? hi : ""}`
+        : `txt:${rangeText}`;
+
+    if (!groups.has(key)) {
+      groups.set(key, {
+        rangeText,
+        types: [],
+      });
+    }
+
+    groups.get(key).types.push(variantLabel(v));
+  }
+
+  return Array.from(groups.values());
+}
+
+function formatVariantTypeSummary(types) {
+  const clean = types.map(t => String(t || "").trim()).filter(Boolean);
+  if (clean.length <= 1) return clean[0] || "Variant";
+  return clean.join(" / ");
+}
+
 function cardHTML(g, idx) {
   const title = g.title || "—";
   const mfg = g.manufacturer || null;
@@ -644,7 +688,6 @@ function cardHTML(g, idx) {
         aria-label="Open scanned page ${pageNum}">${pageNum}</button>`
     : "";
 
-  // Variants: "Variant – low – high – average" (one row per variant)
   const vs = Array.isArray(g.variant) ? g.variant : [];
   let variantsBlock = "";
   if (vs.length) {
@@ -663,11 +706,11 @@ function cardHTML(g, idx) {
       // parts.push(`<span class="dim">${escapeHtml(avg || "— avg ")}</span>`);
 
       rows.push(`
-        <div class="variantRow">
-          <span class="variantType">${escapeHtml(type)}</span>
-          <span class="variantRange">${escapeHtml((lo && hi) ? `${lo} – ${hi}` : (lo || hi || "—"))}</span>
-        </div>
-      `);
+      <div class="variantRow">
+        <span class="variantType">${escapeHtml(type)}</span>
+        <span class="variantRange">${escapeHtml((lo && hi) ? `${lo} – ${hi}` : (lo || hi || "—"))}</span>
+      </div>
+    `);
     }
     variantsBlock = rows.join("");
   }
