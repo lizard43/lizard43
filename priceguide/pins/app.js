@@ -50,6 +50,25 @@ let imgObserver = null;
 const LS_ADSTER_SNAPSHOT = "adster.priceguide.snapshot.v1";
 let openedWithSearchParam = false; // true when page opened with ?s=...
 
+let adsterCardDismissed = false;
+
+function dismissAdsterCard() {
+  adsterCardDismissed = true;
+
+  try {
+    localStorage.removeItem(LS_ADSTER_SNAPSHOT);
+  } catch (_) { }
+
+  const card = el.cards.querySelector(".adsterCard");
+  if (card) {
+    try { card.remove(); } catch (_) {
+      try { card.parentNode && card.parentNode.removeChild(card); } catch (_) { }
+    }
+  }
+
+  showToast("Ad cleared");
+}
+
 function openPinsideInReusableTab(url) {
   if (!url) return;
   const w = window.open(url, PINSIDE_TAB_NAME);
@@ -167,7 +186,7 @@ function adsterSnapshotCardHTML(snap, priceClass) {
   const priceText = String(snap.priceText || "").trim();
 
   // distance + location
-  const distanceTextRaw = String(snap.distanceText || "").trim();  // e.g. "64.6"
+  const distanceTextRaw = String(snap.distanceText || "").trim();
   const distanceMilesNum = Number(snap.distanceMiles);
   const distanceText =
     distanceTextRaw
@@ -180,15 +199,14 @@ function adsterSnapshotCardHTML(snap, priceClass) {
   const adUrl = String(snap.adUrl || "").trim();
   const imageUrl = String(snap.imageUrl || "").trim();
 
-  const source = String(snap.source || "").trim(); // e.g. "MP"
-  const seller = String(snap.author || "").trim(); // e.g. "Mike Stine"
+  const source = String(snap.source || "").trim();
+  const seller = String(snap.author || "").trim();
 
   const whoParts = [];
   if (source) whoParts.push(escapeHtml(source));
   if (seller) whoParts.push(escapeHtml(seller));
   const whoLine = whoParts.length ? whoParts.join(" &nbsp;·&nbsp; ") : "";
 
-  // Build meta line like: "$1,500 · 64.6 mi · Pensacola, FL"
   const metaParts = [];
 
   if (priceText) {
@@ -233,6 +251,14 @@ function adsterSnapshotCardHTML(snap, priceClass) {
   return `
     <article class="adsterCard">
       <div class="adsterCardInner">
+        <button
+          class="adsterHideBtn"
+          type="button"
+          title="Dismiss ad card"
+          aria-label="Dismiss ad card"
+          data-dismiss-adster="1"
+        >✕</button>
+
         <div class="adsterMedia">
           ${imgBlock}
         </div>
@@ -250,6 +276,7 @@ function adsterSnapshotCardHTML(snap, priceClass) {
     </article>
   `;
 }
+
 function buildBlob(m) {
   return normalizeText([
     m.name,
@@ -540,7 +567,7 @@ function renderCards() {
   const cardsHtml = filtered.map((m, idx) => cardHTML(m, idx)).join("\n");
 
   let adsterHtml = "";
-  if (openedWithSearchParam) {
+  if (openedWithSearchParam && !adsterCardDismissed) {
     const snap = loadAdsterSnapshot();
     if (snap) {
       const priceClass = adsterPriceClassForCurrentResults(snap);
@@ -703,6 +730,14 @@ function wireUI() {
 
   el.cards.addEventListener("click", (e) => {
 
+    const dismissAdsterBtn = e.target.closest("button[data-dismiss-adster]");
+    if (dismissAdsterBtn) {
+      e.preventDefault();
+      e.stopPropagation();
+      dismissAdsterCard();
+      return;
+    }
+
     const hideBtn = e.target.closest("button[data-hide-key]");
     if (hideBtn) {
       e.preventDefault();
@@ -711,7 +746,6 @@ function wireUI() {
       const key = hideBtn.getAttribute("data-hide-key") || "";
       if (key) hiddenKeys.add(key);
 
-      // re-run current search to remove it from the list + update match count
       runSearch(el.searchInput?.value || "");
       return;
     }
@@ -722,7 +756,6 @@ function wireUI() {
     const href = a.getAttribute("href") || "";
     if (!href) return;
 
-    // Only intercept pinside.com links
     if (/^https:\/\/pinside\.com\//i.test(href)) {
       e.preventDefault();
       e.stopPropagation();
