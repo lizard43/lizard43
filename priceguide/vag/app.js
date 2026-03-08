@@ -690,29 +690,16 @@ function cardHTML(g, idx) {
 
   const vs = Array.isArray(g.variant) ? g.variant : [];
   let variantsBlock = "";
+
   if (vs.length) {
-    const rows = [];
-    for (const v of vs) {
-      const type = v?.type ? String(v.type) : "Variant";
+    const grouped = groupVariantsByRange(vs);
 
-      const lo = money(Number(v?.price_lower));
-      const hi = money(Number(v?.price_higher));
-      const avg = money(Number(v?.price_average));
-
-      const parts = [];
-      parts.push(`<span>${escapeHtml(type)}</span>`);
-      parts.push(`<span class="priceStrong">${escapeHtml(lo || "—")}</span>`);
-      parts.push(`<span class="priceStrong">${escapeHtml(hi || "—")}</span>`);
-      // parts.push(`<span class="dim">${escapeHtml(avg || "— avg ")}</span>`);
-
-      rows.push(`
-      <div class="variantRow">
-        <span class="variantType">${escapeHtml(type)}</span>
-        <span class="variantRange">${escapeHtml((lo && hi) ? `${lo} – ${hi}` : (lo || hi || "—"))}</span>
-      </div>
-    `);
-    }
-    variantsBlock = rows.join("");
+    variantsBlock = grouped.map(group => `
+    <div class="variantRow">
+      <span class="variantType">${escapeHtml(formatVariantTypeSummary(group.types))}</span>
+      <span class="variantRange">${escapeHtml(group.rangeText)}</span>
+    </div>
+  `).join("");
   }
 
   const imgSrc = g.image ? `images/${g.image}` : "questionmark.png";
