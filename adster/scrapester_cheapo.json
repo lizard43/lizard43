@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-03-08T22:27:48.917Z",
+  "generated_at": "2026-03-08T23:07:25.872Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,33 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 42,
-      "droppedPrice": 52,
+      "exported_ads": 41,
+      "droppedPrice": 50,
       "droppedMissingGeo": 0,
-      "droppedCircle": 57
+      "droppedCircle": 53
     }
   },
   "ads": [
+    {
+      "adID": "1222458166174158",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/1430531037/?product_id=1222458166174158",
+      "author": "Rachel Melton",
+      "postedTime": "2026-02-17T23:00:36.000Z",
+      "title": "Ball locking pins",
+      "description": "Ball lock pins, assorted sizes",
+      "price": "$75",
+      "lat": 33.0287373,
+      "lon": -84.7129848,
+      "location": "Greenville, GA",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/638341279_1964057524183852_7745195725551696096_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=110&ccb=1-7&_nc_sid=92e707&_nc_ohc=9mBlmGjZnh8Q7kNvwFyAB3a&_nc_oc=AdlYLyvLjdVW0jjZRfBdJP_R4oc141rjX180GHb4aI98sQEmiQ4g_zvQhH9hDM2QFFU&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=p5_KZbf_HqrzrULDOJCO6Q&_nc_ss=8&oh=00_Afymz46EJc4E5afZyULIQtvPuKAxTW8BmsI1jJD3_zyG3w&oe=69B3D8D4",
+      "adUrl": "https://www.facebook.com/marketplace/item/1222458166174158/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-03-08 23:06:11",
+      "lastSeen": "2026-03-08T23:06:54.245Z"
+    },
     {
       "adID": "2015950149356153",
       "source": "MP",
@@ -36,7 +56,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-08 22:04:41",
-      "lastSeen": "2026-03-08T22:06:06.199Z"
+      "lastSeen": "2026-03-08T23:04:53.269Z"
     },
     {
       "adID": "943389871548367",
@@ -56,47 +76,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-08 22:04:41",
-      "lastSeen": "2026-03-08T22:06:06.334Z"
-    },
-    {
-      "adID": "1574190863846367",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/100007808024260/?product_id=1574190863846367",
-      "author": "Bill Moore",
-      "postedTime": "2026-03-08T17:47:47.000Z",
-      "title": "Pin ball machine",
-      "description": "Old machine powers up but a sensor is stuck",
-      "price": "$500",
-      "lat": 30.6324149,
-      "lon": -87.0396881,
-      "location": "Milton, FL",
-      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/648528300_26110609401868146_5357330593334065446_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=104&ccb=1-7&_nc_sid=92e707&_nc_ohc=TXh60rIkMpMQ7kNvwGOiYVv&_nc_oc=AdmvENVNYq9cDOIuVD0KbdN_2_rH-Cl3wzpFAlo14eyM4NGbYDkMvXMbY_bweHR-g0w&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=pW2fJqTqeqB_w9ZlqyUdfw&_nc_ss=8&oh=00_AfzvVvWZN5ASXdmPEKbPdpsy4Hffzc3KxqINJuzAkbxD3A&oe=69B37A44",
-      "adUrl": "https://www.facebook.com/marketplace/item/1574190863846367/",
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-03-08 18:06:37",
-      "lastSeen": "2026-03-08T20:06:14.995Z"
-    },
-    {
-      "adID": "1506421060616385",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/100000789272207/?product_id=1506421060616385",
-      "author": "Ryan Lawton",
-      "postedTime": "2025-10-30T03:53:43.000Z",
-      "title": "Gottlieb pinball artwork",
-      "description": "All 3 $600 OBO Trades accepted!",
-      "price": "$600",
-      "lat": 28.187755,
-      "lon": -82.7416081,
-      "location": "Holiday, FL",
-      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/574276484_1314637729920630_3418784274211794453_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=100&ccb=1-7&_nc_sid=92e707&_nc_ohc=1RehVaCj24EQ7kNvwGwilu8&_nc_oc=Adl3IIBggk_0jYeBLsbdac7Z4FMtsjQjUKPvFtnSZmyFVCyYsAU4qU9I4afaqIXGlKo&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=hJKd6O8Z42huJm9JQTSoCQ&_nc_ss=8&oh=00_Afxudx0767_QQ0YNhr-7KKzwQBa60IJpyyTJ38uCIapf8w&oe=69B348EF",
-      "adUrl": "https://www.facebook.com/marketplace/item/1506421060616385/",
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-03-08 15:06:24",
-      "lastSeen": "2026-03-08T15:07:11.158Z"
+      "lastSeen": "2026-03-08T23:04:53.135Z"
     },
     {
       "adID": "1403474514434458",
@@ -116,7 +96,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-08 02:06:22",
-      "lastSeen": "2026-03-08T22:06:49.279Z"
+      "lastSeen": "2026-03-08T23:06:10.321Z"
     },
     {
       "adID": "25820860767615770",
@@ -176,7 +156,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-06 14:36:59",
-      "lastSeen": "2026-03-08T22:06:49.551Z"
+      "lastSeen": "2026-03-08T23:06:12.099Z"
     },
     {
       "adID": "861171766728764",
@@ -336,7 +316,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-04 14:04:49",
-      "lastSeen": "2026-03-08T22:06:50.104Z"
+      "lastSeen": "2026-03-08T23:04:52.833Z"
     },
     {
       "adID": "KLOV-561051",
@@ -356,7 +336,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-04 12:09:54",
-      "lastSeen": "2026-03-08T22:08:41.236Z"
+      "lastSeen": "2026-03-08T23:07:25.718Z"
     },
     {
       "adID": "1570931707463297",
@@ -376,7 +356,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-04 12:05:03",
-      "lastSeen": "2026-03-08T22:04:40.969Z"
+      "lastSeen": "2026-03-08T23:04:52.767Z"
     },
     {
       "adID": "1353011843137175",
@@ -416,7 +396,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-03 21:04:50",
-      "lastSeen": "2026-03-08T20:04:45.723Z"
+      "lastSeen": "2026-03-08T23:04:53.560Z"
     },
     {
       "adID": "929251049590411",
@@ -436,7 +416,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-02 16:04:43",
-      "lastSeen": "2026-03-08T22:04:41.541Z"
+      "lastSeen": "2026-03-08T23:04:52.867Z"
     },
     {
       "adID": "898178436530988",
@@ -556,7 +536,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-23 19:06:25",
-      "lastSeen": "2026-03-08T22:06:49.383Z"
+      "lastSeen": "2026-03-08T23:06:10.750Z"
     },
     {
       "adID": "PI-210036",
@@ -776,7 +756,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 23:10:53",
-      "lastSeen": "2026-03-08T22:04:41.742Z"
+      "lastSeen": "2026-03-08T23:04:53.381Z"
     },
     {
       "adID": "1937314130515670",
@@ -816,7 +796,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 17:22:24",
-      "lastSeen": "2026-03-08T22:04:41.708Z"
+      "lastSeen": "2026-03-08T23:04:53.526Z"
     },
     {
       "adID": "2185352358965594",
@@ -836,7 +816,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 17:22:23",
-      "lastSeen": "2026-03-08T22:04:41.876Z"
+      "lastSeen": "2026-03-08T23:04:53.492Z"
     },
     {
       "adID": "880228111053501",
@@ -856,7 +836,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 17:22:18",
-      "lastSeen": "2026-03-08T22:04:41.608Z"
+      "lastSeen": "2026-03-08T23:04:53.336Z"
     }
   ]
 }
