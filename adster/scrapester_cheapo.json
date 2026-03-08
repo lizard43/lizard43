@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-03-08T02:47:37.126Z",
+  "generated_at": "2026-03-08T03:07:05.440Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,33 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 42,
-      "droppedPrice": 52,
+      "exported_ads": 43,
+      "droppedPrice": 53,
       "droppedMissingGeo": 0,
-      "droppedCircle": 61
+      "droppedCircle": 63
     }
   },
   "ads": [
+    {
+      "adID": "959275803095189",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/61587115858508/?product_id=959275803095189",
+      "author": "Jah Key",
+      "postedTime": "2026-03-08T01:43:36.000Z",
+      "title": "Don't play it anymore and just trying to sell it",
+      "description": "Brand my arcade",
+      "price": "$20",
+      "lat": 32.2735792,
+      "lon": -90.127881,
+      "location": "Pearl, MS",
+      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/648216444_2058319048280953_370001901695372875_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=101&ccb=1-7&_nc_sid=92e707&_nc_ohc=rCINYHC9CMwQ7kNvwGc8H8b&_nc_oc=AdkFiZYQm2hEzqrqTzNgFAyz7yPn6y6L_rLnj91J57EoXAw8SKAgaU4bAtoaiBTtGNE&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=WPKTGr4K7OGPKG6jmYwgBg&_nc_ss=8&oh=00_AfwmomGNqWdBbInJgUIY95ke9SPc49dXcNNuR3rkNJt_wQ&oe=69B2B196",
+      "adUrl": "https://www.facebook.com/marketplace/item/959275803095189/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-03-08 03:04:49",
+      "lastSeen": "2026-03-08T03:04:59.574Z"
+    },
     {
       "adID": "1403474514434458",
       "source": "MP",
@@ -36,7 +56,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-08 02:06:22",
-      "lastSeen": "2026-03-08T02:06:41.115Z"
+      "lastSeen": "2026-03-08T03:05:44.899Z"
     },
     {
       "adID": "25820860767615770",
@@ -116,7 +136,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-06 14:36:59",
-      "lastSeen": "2026-03-08T02:06:23.243Z"
+      "lastSeen": "2026-03-08T03:05:45.487Z"
     },
     {
       "adID": "861171766728764",
@@ -296,7 +316,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-04 14:04:49",
-      "lastSeen": "2026-03-08T02:06:22.965Z"
+      "lastSeen": "2026-03-08T03:05:45.085Z"
     },
     {
       "adID": "KLOV-561051",
@@ -316,7 +336,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-04 12:09:54",
-      "lastSeen": "2026-03-08T02:07:13.858Z"
+      "lastSeen": "2026-03-08T03:07:05.183Z"
     },
     {
       "adID": "1570931707463297",
@@ -336,7 +356,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-04 12:05:03",
-      "lastSeen": "2026-03-08T02:04:47.529Z"
+      "lastSeen": "2026-03-08T03:04:47.988Z"
     },
     {
       "adID": "1353011843137175",
@@ -396,7 +416,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-03 21:04:50",
-      "lastSeen": "2026-03-08T02:04:47.865Z"
+      "lastSeen": "2026-03-08T03:04:49.070Z"
     },
     {
       "adID": "929251049590411",
@@ -416,7 +436,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-02 16:04:43",
-      "lastSeen": "2026-03-08T02:04:47.932Z"
+      "lastSeen": "2026-03-08T03:04:49.170Z"
     },
     {
       "adID": "898178436530988",
@@ -536,7 +556,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-23 19:06:25",
-      "lastSeen": "2026-03-08T02:06:22.864Z"
+      "lastSeen": "2026-03-08T03:05:44.951Z"
     },
     {
       "adID": "PI-210036",
@@ -776,7 +796,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 23:10:53",
-      "lastSeen": "2026-03-08T01:04:54.270Z"
+      "lastSeen": "2026-03-08T03:04:49.237Z"
     },
     {
       "adID": "1937314130515670",
@@ -836,7 +856,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 17:22:23",
-      "lastSeen": "2026-03-08T02:04:47.998Z"
+      "lastSeen": "2026-03-08T03:04:49.304Z"
     },
     {
       "adID": "880228111053501",
