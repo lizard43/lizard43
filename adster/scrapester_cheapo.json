@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-03-09T21:07:52.249Z",
+  "generated_at": "2026-03-09T22:07:27.639Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -12,12 +12,32 @@
     },
     "counts": {
       "exported_ads": 40,
-      "droppedPrice": 53,
+      "droppedPrice": 54,
       "droppedMissingGeo": 0,
-      "droppedCircle": 51
+      "droppedCircle": 59
     }
   },
   "ads": [
+    {
+      "adID": "830821136701742",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/61577913958748/?product_id=830821136701742",
+      "author": "Bob Mover",
+      "postedTime": "2026-03-09T17:18:01.000Z",
+      "title": "vintage racing pinball toy",
+      "description": "vintage toy pinball game with a tin back still works plastic is blurry cool for man cave $20.",
+      "price": "$20",
+      "lat": 29.5002492,
+      "lon": -81.5914659,
+      "location": "Pomona Park, FL",
+      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/649643820_2683340048701910_5283154631186041951_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=103&ccb=1-7&_nc_sid=92e707&_nc_ohc=MjvnvMGZB_YQ7kNvwF79GX8&_nc_oc=Adkd1To650xbIgNvME7TtAP3IXp7C31NQU-Bi8TfRbLelRo18hE0D5l8jum6Cmko6_A&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=sIQo9H2HtBPWPAphFiOprA&_nc_ss=8&oh=00_AfwD2O97Hv_h_s5dYdpyA0Lwb7A_p4F7awOmSwWvy1nDGA&oe=69B51C9A",
+      "adUrl": "https://www.facebook.com/marketplace/item/830821136701742/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-03-09 22:06:05",
+      "lastSeen": "2026-03-09T22:06:53.917Z"
+    },
     {
       "adID": "2380698719039261",
       "source": "MP",
@@ -36,27 +56,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-09 21:06:08",
-      "lastSeen": "2026-03-09T21:07:16.399Z"
-    },
-    {
-      "adID": "925387953377200",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/1037196833/?product_id=925387953377200",
-      "author": "Don Berglund",
-      "postedTime": "2026-03-09T18:41:34.000Z",
-      "title": "HORI RAP, Real Arcade Pro V",
-      "description": "Real Arcade Pro. V HAYABUSA SILENT with Assignment and Turbo Mode Cash only, Sold over Hold",
-      "price": "$50",
-      "lat": 30.4098483,
-      "lon": -87.4396049,
-      "location": "Lillian, AL",
-      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/649274360_907514865587407_5846419771500791869_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=100&ccb=1-7&_nc_sid=92e707&_nc_ohc=6RAsIDLFN7oQ7kNvwHfBTdn&_nc_oc=Adm0XsZuX-esZsX0kcGnSB99jDxcjsIV7w8YtM7c3_FC0xC9xG55XM_YvF6xODCqg6Y&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=5eCohqIWdeOjNPdiCQ6Veg&_nc_ss=8&oh=00_AfzfE3L2USSfVftmDnHY7xs82LboP1H0d15SmuB-O-MRRQ&oe=69B4F775",
-      "adUrl": "https://www.facebook.com/marketplace/item/925387953377200/",
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-03-09 21:04:43",
-      "lastSeen": "2026-03-09T21:05:22.850Z"
+      "lastSeen": "2026-03-09T22:06:05.209Z"
     },
     {
       "adID": "1886389532121299",
@@ -96,7 +96,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-08 22:04:41",
-      "lastSeen": "2026-03-09T21:04:42.121Z"
+      "lastSeen": "2026-03-09T22:04:48.040Z"
     },
     {
       "adID": "1403474514434458",
@@ -116,7 +116,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-08 02:06:22",
-      "lastSeen": "2026-03-09T21:06:08.603Z"
+      "lastSeen": "2026-03-09T22:06:05.154Z"
     },
     {
       "adID": "935846082662734",
@@ -156,7 +156,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-06 14:36:59",
-      "lastSeen": "2026-03-09T21:06:08.958Z"
+      "lastSeen": "2026-03-09T22:06:05.621Z"
     },
     {
       "adID": "861171766728764",
@@ -316,7 +316,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-04 14:04:49",
-      "lastSeen": "2026-03-09T21:06:09.797Z"
+      "lastSeen": "2026-03-09T22:06:05.888Z"
     },
     {
       "adID": "KLOV-561051",
@@ -336,7 +336,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-04 12:09:54",
-      "lastSeen": "2026-03-09T21:07:51.975Z"
+      "lastSeen": "2026-03-09T22:07:27.413Z"
     },
     {
       "adID": "1570931707463297",
@@ -356,7 +356,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-04 12:05:03",
-      "lastSeen": "2026-03-09T21:04:42.186Z"
+      "lastSeen": "2026-03-09T22:04:48.087Z"
     },
     {
       "adID": "1353011843137175",
@@ -396,7 +396,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-03 21:04:50",
-      "lastSeen": "2026-03-09T21:04:43.242Z"
+      "lastSeen": "2026-03-09T22:04:49.837Z"
     },
     {
       "adID": "929251049590411",
@@ -416,7 +416,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-02 16:04:43",
-      "lastSeen": "2026-03-09T21:04:42.609Z"
+      "lastSeen": "2026-03-09T22:04:48.926Z"
     },
     {
       "adID": "898178436530988",
@@ -476,7 +476,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-01 12:04:44",
-      "lastSeen": "2026-03-09T21:04:43.185Z"
+      "lastSeen": "2026-03-09T22:04:49.893Z"
     },
     {
       "adID": "675528545616516",
@@ -536,7 +536,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-23 19:06:25",
-      "lastSeen": "2026-03-09T21:06:08.737Z"
+      "lastSeen": "2026-03-09T22:06:05.354Z"
     },
     {
       "adID": "PI-210036",
@@ -596,7 +596,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-22 16:05:00",
-      "lastSeen": "2026-03-09T00:04:47.646Z"
+      "lastSeen": "2026-03-09T22:04:49.337Z"
     },
     {
       "adID": "1920698478541387",
@@ -736,7 +736,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 23:10:53",
-      "lastSeen": "2026-03-09T21:04:42.830Z"
+      "lastSeen": "2026-03-09T22:04:49.603Z"
     },
     {
       "adID": "1937314130515670",
@@ -776,7 +776,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 17:22:24",
-      "lastSeen": "2026-03-09T21:04:42.975Z"
+      "lastSeen": "2026-03-09T22:04:49.737Z"
     },
     {
       "adID": "2185352358965594",
@@ -796,7 +796,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 17:22:23",
-      "lastSeen": "2026-03-09T21:04:43.075Z"
+      "lastSeen": "2026-03-09T22:04:49.148Z"
     },
     {
       "adID": "880228111053501",
@@ -816,7 +816,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 17:22:18",
-      "lastSeen": "2026-03-09T21:04:42.742Z"
+      "lastSeen": "2026-03-09T22:04:49.237Z"
     }
   ]
 }
