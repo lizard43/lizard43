@@ -748,15 +748,34 @@ function cardHTML(g, idx) {
 
   const ratingsLine = ratingsSummaryHTML(g.ratings);
 
-  const bottomLine = (ratingsLine || page)
+  let pageBtn = "";
+
+  if (page) {
+    const pageNum = Number(page);
+    const pageSrc = `images/page_${pageNum}.jpg`;
+    const pageCaption = `${title} · Page ${pageNum}`;
+
+    pageBtn = `
+    <button
+      class="pageBtn bottomMetaRight"
+      data-page-src="${escapeAttr(pageSrc)}"
+      data-page-caption="${escapeAttr(pageCaption)}"
+      data-page-num="${pageNum}"
+    >
+      ${escapeHtml(page)}
+    </button>
+  `;
+  }
+
+  const bottomLine = (ratingsLine || pageBtn)
     ? `
       <div class="lineMeta lineMetaBottom">
         <span class="bottomMetaLeft">${ratingsLine || ""}</span>
-        <span class="bottomMetaRight">${page ? escapeHtml(page) : ""}</span>
+        ${pageBtn}
       </div>
     `
     : "";
-    
+
   const imgSrc = g.image ? `images/${g.image}` : "questionmark.png";
   const caption = [title, mfg, date].filter(Boolean).join(" · ");
 
@@ -784,9 +803,10 @@ function cardHTML(g, idx) {
         ${line2}
         ${lineGenre}
         ${variantsBlock}
-        ${bottomLine}
       </div>
+      ${bottomLine}
     </article>`;
+
 }
 
 function creditCardHTML() {

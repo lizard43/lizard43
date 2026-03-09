@@ -386,13 +386,11 @@ body {
 }
 
 .cardBody {
-  padding: 8px 40px 10px 0;
+  padding: 8px 40px 24px 0;
   display: flex;
   flex-direction: column;
   gap: 2px;
   min-height: 110px;
-  position: relative;
-  padding-bottom: 28px;
 }
 
 .lineTitle {
@@ -893,9 +891,9 @@ body {
 
 .lineMetaBottom {
   position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 10px;
+  left: 122px;
+  right: 48px;
+  bottom: 8px;
 
   font-size: 12.5px;
   color: var(--muted);
@@ -906,7 +904,7 @@ body {
 .bottomMetaLeft {
   position: absolute;
   left: 0;
-  right: 28px;
+  right: 0;
   bottom: 0;
 
   white-space: nowrap;
@@ -916,7 +914,7 @@ body {
 
 .bottomMetaRight {
   position: absolute;
-  right: 0;
+  right: -30px;
   bottom: 0;
 
   white-space: nowrap;
