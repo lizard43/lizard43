@@ -1655,6 +1655,7 @@ const PRICE_STOP_WORDS = [
     "antique",
     "arcade",
     "cabaret",
+    "cabinet",
     "circa",
     "classic",
     "cocktail",
@@ -1706,7 +1707,7 @@ function buildStopWordRegex(words) {
 }
 
 function buildPriceGuideQueryFromAd(ad) {
-    // priceguide: keep it tight, and remove extra marketplace-ish words
+    // priceguide: remove extra marketplace-ish words
     return buildTitleQueryFromAd(ad, {
         maxChars: 50,
         maxWords: 3,
