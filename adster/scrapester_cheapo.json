@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-03-08T23:07:25.872Z",
+  "generated_at": "2026-03-09T00:06:49.325Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,33 +11,13 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 41,
-      "droppedPrice": 50,
+      "exported_ads": 40,
+      "droppedPrice": 52,
       "droppedMissingGeo": 0,
-      "droppedCircle": 53
+      "droppedCircle": 51
     }
   },
   "ads": [
-    {
-      "adID": "1222458166174158",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/1430531037/?product_id=1222458166174158",
-      "author": "Rachel Melton",
-      "postedTime": "2026-02-17T23:00:36.000Z",
-      "title": "Ball locking pins",
-      "description": "Ball lock pins, assorted sizes",
-      "price": "$75",
-      "lat": 33.0287373,
-      "lon": -84.7129848,
-      "location": "Greenville, GA",
-      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/638341279_1964057524183852_7745195725551696096_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=110&ccb=1-7&_nc_sid=92e707&_nc_ohc=9mBlmGjZnh8Q7kNvwFyAB3a&_nc_oc=AdlYLyvLjdVW0jjZRfBdJP_R4oc141rjX180GHb4aI98sQEmiQ4g_zvQhH9hDM2QFFU&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=p5_KZbf_HqrzrULDOJCO6Q&_nc_ss=8&oh=00_Afymz46EJc4E5afZyULIQtvPuKAxTW8BmsI1jJD3_zyG3w&oe=69B3D8D4",
-      "adUrl": "https://www.facebook.com/marketplace/item/1222458166174158/",
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-03-08 23:06:11",
-      "lastSeen": "2026-03-08T23:06:54.245Z"
-    },
     {
       "adID": "2015950149356153",
       "source": "MP",
@@ -56,7 +36,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-08 22:04:41",
-      "lastSeen": "2026-03-08T23:04:53.269Z"
+      "lastSeen": "2026-03-09T00:04:47.312Z"
     },
     {
       "adID": "943389871548367",
@@ -76,7 +56,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-08 22:04:41",
-      "lastSeen": "2026-03-08T23:04:53.135Z"
+      "lastSeen": "2026-03-09T00:04:47.613Z"
     },
     {
       "adID": "1403474514434458",
@@ -96,7 +76,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-08 02:06:22",
-      "lastSeen": "2026-03-08T23:06:10.321Z"
+      "lastSeen": "2026-03-09T00:05:45.879Z"
     },
     {
       "adID": "25820860767615770",
@@ -156,7 +136,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-06 14:36:59",
-      "lastSeen": "2026-03-08T23:06:12.099Z"
+      "lastSeen": "2026-03-09T00:05:46.281Z"
     },
     {
       "adID": "861171766728764",
@@ -316,7 +296,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-04 14:04:49",
-      "lastSeen": "2026-03-08T23:04:52.833Z"
+      "lastSeen": "2026-03-09T00:04:47.177Z"
     },
     {
       "adID": "KLOV-561051",
@@ -336,7 +316,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-04 12:09:54",
-      "lastSeen": "2026-03-08T23:07:25.718Z"
+      "lastSeen": "2026-03-09T00:06:48.707Z"
     },
     {
       "adID": "1570931707463297",
@@ -356,7 +336,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-04 12:05:03",
-      "lastSeen": "2026-03-08T23:04:52.767Z"
+      "lastSeen": "2026-03-09T00:04:47.138Z"
     },
     {
       "adID": "1353011843137175",
@@ -416,7 +396,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-02 16:04:43",
-      "lastSeen": "2026-03-08T23:04:52.867Z"
+      "lastSeen": "2026-03-09T00:04:47.445Z"
     },
     {
       "adID": "898178436530988",
@@ -536,7 +516,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-23 19:06:25",
-      "lastSeen": "2026-03-08T23:06:10.750Z"
+      "lastSeen": "2026-03-09T00:05:45.980Z"
     },
     {
       "adID": "PI-210036",
@@ -596,7 +576,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-22 16:05:00",
-      "lastSeen": "2026-03-08T18:04:46.096Z"
+      "lastSeen": "2026-03-09T00:04:47.646Z"
     },
     {
       "adID": "1920698478541387",
@@ -776,7 +756,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 18:10:45",
-      "lastSeen": "2026-03-07T21:06:18.127Z"
+      "lastSeen": "2026-03-09T00:05:46.347Z"
     },
     {
       "adID": "2948138838710326",
