@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-03-09T00:06:49.325Z",
+  "generated_at": "2026-03-09T01:07:11.585Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,33 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 40,
-      "droppedPrice": 52,
+      "exported_ads": 41,
+      "droppedPrice": 55,
       "droppedMissingGeo": 0,
-      "droppedCircle": 51
+      "droppedCircle": 56
     }
   },
   "ads": [
+    {
+      "adID": "720223567311693",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100046261629142/?product_id=720223567311693",
+      "author": "Todds Goods",
+      "postedTime": "2025-11-30T20:12:14.000Z",
+      "title": "Vintage Rattlin' Gatllin' Gallery Arcade Game Marx 1976",
+      "description": "Rattlin' Gatllin' Shooting Gallery Arcade Game Marx 1976 Pick up in Smyrna GA 30080 house, condominium apartment, studio, living room, bedroom, kitchen, laundry, garage, shop, mcm, mid-century, vintage, antique, retro, classic, game,",
+      "price": "$75",
+      "lat": 33.883887,
+      "lon": -84.5147454,
+      "location": "Smyrna, GA",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/593584788_730286126792267_885052467068767271_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=110&ccb=1-7&_nc_sid=92e707&_nc_ohc=Lsl8sRmTdSMQ7kNvwHa0PdL&_nc_oc=AdkMDrNQYUC_OHgQE492uAUwrgAI7cm1RqitZx4Ib-XdLH5Doxp1p30fgbrJZWymIlo&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=-mAOawuf5ykyyvqZywY4Qg&_nc_ss=8&oh=00_Afy8ZheAzf5KcyhwN_9SPDhPInPmaTx1Uh7-zP7bUzv63Q&oe=69B4026C",
+      "adUrl": "https://www.facebook.com/marketplace/item/720223567311693/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-03-09 01:04:55",
+      "lastSeen": "2026-03-09T01:05:20.166Z"
+    },
     {
       "adID": "2015950149356153",
       "source": "MP",
@@ -36,7 +56,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-08 22:04:41",
-      "lastSeen": "2026-03-09T00:04:47.312Z"
+      "lastSeen": "2026-03-09T01:04:54.505Z"
     },
     {
       "adID": "943389871548367",
@@ -76,7 +96,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-08 02:06:22",
-      "lastSeen": "2026-03-09T00:05:45.879Z"
+      "lastSeen": "2026-03-09T01:06:08.795Z"
     },
     {
       "adID": "25820860767615770",
@@ -296,7 +316,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-04 14:04:49",
-      "lastSeen": "2026-03-09T00:04:47.177Z"
+      "lastSeen": "2026-03-09T01:04:54.572Z"
     },
     {
       "adID": "KLOV-561051",
@@ -316,7 +336,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-04 12:09:54",
-      "lastSeen": "2026-03-09T00:06:48.707Z"
+      "lastSeen": "2026-03-09T01:07:11.392Z"
     },
     {
       "adID": "1570931707463297",
@@ -336,7 +356,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-04 12:05:03",
-      "lastSeen": "2026-03-09T00:04:47.138Z"
+      "lastSeen": "2026-03-09T01:04:54.468Z"
     },
     {
       "adID": "1353011843137175",
@@ -396,7 +416,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-02 16:04:43",
-      "lastSeen": "2026-03-09T00:04:47.445Z"
+      "lastSeen": "2026-03-09T01:04:54.640Z"
     },
     {
       "adID": "898178436530988",
@@ -516,7 +536,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-23 19:06:25",
-      "lastSeen": "2026-03-09T00:05:45.980Z"
+      "lastSeen": "2026-03-09T01:06:09.669Z"
     },
     {
       "adID": "PI-210036",
@@ -796,7 +816,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 17:22:23",
-      "lastSeen": "2026-03-08T23:04:53.492Z"
+      "lastSeen": "2026-03-09T01:04:55.379Z"
     },
     {
       "adID": "880228111053501",
@@ -816,7 +836,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 17:22:18",
-      "lastSeen": "2026-03-08T23:04:53.336Z"
+      "lastSeen": "2026-03-09T01:04:55.412Z"
     }
   ]
 }
