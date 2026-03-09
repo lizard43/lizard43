@@ -864,7 +864,7 @@ body {
 
 .variantRow {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-columns: minmax(0, 1fr) 130px;
   gap: 10px;
   align-items: baseline;
 }
@@ -878,7 +878,7 @@ body {
 .variantRange {
   white-space: nowrap;
   font-weight: 700;
-  text-align: right;
+  text-align: left;
   color: var(--text);
 }
 
