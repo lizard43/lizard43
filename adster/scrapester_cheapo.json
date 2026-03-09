@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-03-09T18:23:28.971Z",
+  "generated_at": "2026-03-09T19:07:22.415Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,33 +11,13 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 38,
-      "droppedPrice": 54,
+      "exported_ads": 37,
+      "droppedPrice": 45,
       "droppedMissingGeo": 0,
-      "droppedCircle": 52
+      "droppedCircle": 47
     }
   },
   "ads": [
-    {
-      "adID": "888844587316138",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/100006265896554/?product_id=888844587316138",
-      "author": "Sarah Beth",
-      "postedTime": "2026-03-09T02:48:19.000Z",
-      "title": "Sunday citizen pillow so soft",
-      "description": "Just changing decor",
-      "price": "$15",
-      "lat": 30.3466423,
-      "lon": -86.2307992,
-      "location": "Santa Rosa Beach, FL",
-      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/649414021_1456489059360040_3035979370319468332_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=102&ccb=1-7&_nc_sid=92e707&_nc_ohc=rOPYi6PO1cwQ7kNvwG0o1kL&_nc_oc=Adn_L5emZ58XS2mSjeknJyoulodosKXTAOxjZsQjGVKmXwndj1IU8lasXLEgDHvGAvY&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=7MTxAoplygkY8k1nqCc7IQ&_nc_ss=8&oh=00_AfzkCSEqWLHEP8WZZA_r_IFX3a34Ej61MMqv8k5Wp06jEw&oe=69B4B62A",
-      "adUrl": "https://www.facebook.com/marketplace/item/888844587316138/",
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-03-09 17:05:57",
-      "lastSeen": "2026-03-09T17:06:52.765Z"
-    },
     {
       "adID": "2015950149356153",
       "source": "MP",
