@@ -140,6 +140,38 @@ function money(n) {
   return "$" + v.toLocaleString();
 }
 
+function hasNonZeroNumber(v) {
+  return Number.isFinite(Number(v)) && Number(v) !== 0;
+}
+
+function formatRatingValue(v) {
+  const n = Number(v);
+  if (!Number.isFinite(n)) return null;
+
+  // Keep one decimal if needed, but drop trailing .0
+  return Number.isInteger(n) ? String(n) : n.toFixed(1).replace(/\.0$/, "");
+}
+
+function ratingsSummaryHTML(ratings) {
+  if (!ratings || typeof ratings !== "object") return "";
+
+  const parts = [];
+
+  if (hasNonZeroNumber(ratings.user)) {
+    parts.push(`User: ${escapeHtml(formatRatingValue(ratings.user))}`);
+  }
+  if (hasNonZeroNumber(ratings.fun)) {
+    parts.push(`Fun: ${escapeHtml(formatRatingValue(ratings.fun))}`);
+  }
+  if (hasNonZeroNumber(ratings.collector)) {
+    parts.push(`Collect: ${escapeHtml(formatRatingValue(ratings.collector))}`);
+  }
+
+  if (!parts.length) return "";
+
+  return `<span class="ratingsInline">${parts.join("&nbsp;&nbsp;")}</span>`;
+}
+
 function variantRangeLine(v) {
   if (!v) return null;
   const lo = v.price_lower;
@@ -229,13 +261,23 @@ function buildBlob(g) {
     v?.price_higher
   ].join(" ")).join(" ");
 
+  const ratings = g?.ratings || {};
+  const ratingsText = [
+    ratings.user,
+    ratings.fun,
+    ratings.collector,
+    ratings.technical
+  ].join(" ");
+
   return normalizeText([
     g.title,
     g.manufacturer,
     g.date,
     g.genre,
     g.page,
+    g.klov,
     variantText,
+    ratingsText,
   ].join(" "));
 }
 
@@ -661,16 +703,19 @@ function cardHTML(g, idx) {
   const genre = g.genre || null;
   let page = (g.page == null) ? null : String(g.page);
 
-  const klovUrl =
-    "https://www.arcade-museum.com/searchResults?q=" +
-    encodeURIComponent(title) +
-    "&boolean=AND";
+  const klovUrl = g.klov
+    ? String(g.klov)
+    : (
+      "https://www.arcade-museum.com/searchResults?q=" +
+      encodeURIComponent(title) +
+      "&boolean=AND"
+    );
 
   const line1 = `
   <div class="lineTitle">
     <a
       class="titleText"
-      href="${klovUrl}"
+      href="${escapeAttr(klovUrl)}"
       target="_blank"
       rel="noopener"
     >
@@ -678,7 +723,6 @@ function cardHTML(g, idx) {
     </a>
   </div>`;
 
-  // Manufacturer – date
   const line2Parts = [];
   if (mfg) line2Parts.push(`<span class="mfgText">${escapeHtml(mfg)}</span>`);
   if (date) line2Parts.push(`<span class="metaMain">${escapeHtml(date)}</span>`);
@@ -686,28 +730,8 @@ function cardHTML(g, idx) {
     ? `<div class="lineMeta lineMetaMain">${line2Parts.join(" – ")}</div>`
     : "";
 
-  // Genre (own line)
   const lineGenre = genre
     ? `<div class="lineMeta lineMetaGenre">${escapeHtml(genre)}</div>`
-    : "";
-
-  const line3 = "";
-
-  // Page button (bottom-right)
-  const pageNum = Number(g.page);
-  const hasPage = Number.isFinite(pageNum) && pageNum > 0;
-  const pageSrc = hasPage ? `images/page_${pageNum}.jpg` : "";
-  const pageCaption = hasPage ? `${[title, mfg, date].filter(Boolean).join(" · ")} · Page ${pageNum}` : "";
-
-  const pageBtn = hasPage
-    ? `<button
-        class="pageBtn"
-        type="button"
-        data-page-src="${escapeAttr(pageSrc)}"
-        data-page-caption="${escapeAttr(pageCaption)}"
-        data-page-num="${pageNum}"
-        title="Open scanned page ${pageNum}"
-        aria-label="Open scanned page ${pageNum}">${pageNum}</button>`
     : "";
 
   const vs = Array.isArray(g.variant) ? g.variant : [];
@@ -724,9 +748,16 @@ function cardHTML(g, idx) {
   `).join("");
   }
 
-  const imgSrc = g.image ? `images/${g.image}` : "questionmark.png";
+  const ratingsLine = ratingsSummaryHTML(g.ratings);
+  const bottomMeta = [page ? `Page ${escapeHtml(page)}` : "", ratingsLine]
+    .filter(Boolean)
+    .join("&nbsp;&nbsp;&nbsp;");
 
-  // Store src + caption on the wrapper so clicks can open modal without extra lookups
+  const bottomLine = bottomMeta
+    ? `<div class="lineMeta lineMetaBottom">${bottomMeta}</div>`
+    : "";
+
+  const imgSrc = g.image ? `images/${g.image}` : "questionmark.png";
   const caption = [title, mfg, date].filter(Boolean).join(" · ");
 
   const imgTag = `
@@ -753,12 +784,11 @@ function cardHTML(g, idx) {
         ${line2}
         ${lineGenre}
         ${variantsBlock}
+        ${bottomLine}
       </div>
-
-      ${pageBtn}
-
     </article>`;
 }
+
 function creditCardHTML() {
   let dateLine = "";
   if (generatedAt) {
@@ -1167,6 +1197,13 @@ async function loadData() {
       genre: g.genre ?? null,
       page: g.page ?? null,
       variant: Array.isArray(g.variant) ? g.variant : [],
+      klov: g.klov ?? null,
+      ratings: (g.ratings && typeof g.ratings === "object") ? {
+        user: g.ratings.user ?? null,
+        fun: g.ratings.fun ?? null,
+        collector: g.ratings.collector ?? null,
+        technical: g.ratings.technical ?? null,
+      } : null,
     }));
 
   games.sort((a, b) => {
