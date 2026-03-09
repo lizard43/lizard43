@@ -167,9 +167,7 @@ function ratingsSummaryHTML(ratings) {
     parts.push(`Collect: ${escapeHtml(formatRatingValue(ratings.collector))}`);
   }
 
-  if (!parts.length) return "";
-
-  return `<span class="ratingsInline">${parts.join("&nbsp;&nbsp;")}</span>`;
+  return parts.join("&nbsp;&nbsp;");
 }
 
 function variantRangeLine(v) {
@@ -749,14 +747,16 @@ function cardHTML(g, idx) {
   }
 
   const ratingsLine = ratingsSummaryHTML(g.ratings);
-  const bottomMeta = [page ? `Page ${escapeHtml(page)}` : "", ratingsLine]
-    .filter(Boolean)
-    .join("&nbsp;&nbsp;&nbsp;");
 
-  const bottomLine = bottomMeta
-    ? `<div class="lineMeta lineMetaBottom">${bottomMeta}</div>`
+  const bottomLine = (ratingsLine || page)
+    ? `
+      <div class="lineMeta lineMetaBottom">
+        <span class="bottomMetaLeft">${ratingsLine || ""}</span>
+        <span class="bottomMetaRight">${page ? escapeHtml(page) : ""}</span>
+      </div>
+    `
     : "";
-
+    
   const imgSrc = g.image ? `images/${g.image}` : "questionmark.png";
   const caption = [title, mfg, date].filter(Boolean).join(" · ");
 

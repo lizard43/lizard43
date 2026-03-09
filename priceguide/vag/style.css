@@ -893,8 +893,24 @@ body {
   font-size: 12.5px;
   color: var(--muted);
   line-height: 1.25;
+
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
 }
 
-.ratingsInline {
-  white-space: normal;
+.bottomMetaLeft {
+  min-width: 0;
+  flex: 1 1 auto;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.bottomMetaRight {
+  flex: 0 0 auto;
+  white-space: nowrap;
+  text-align: right;
+  font-weight: 600;
 }
