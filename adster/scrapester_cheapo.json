@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-03-09T19:42:24.310Z",
+  "generated_at": "2026-03-09T20:07:11.300Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,33 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 37,
-      "droppedPrice": 45,
+      "exported_ads": 38,
+      "droppedPrice": 57,
       "droppedMissingGeo": 0,
-      "droppedCircle": 48
+      "droppedCircle": 56
     }
   },
   "ads": [
+    {
+      "adID": "1886389532121299",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/543013669/?product_id=1886389532121299",
+      "author": "Allen Robinson",
+      "postedTime": "2026-03-03T15:45:30.000Z",
+      "title": "Police Trainer, Upright Arcade, P&P Marketing 1996",
+      "description": "Vintage Upright Arcade – Police Trainer (P&P Marketing, 1996) Price: $400 (or best offer) Not the original dedicated cabinet. Condition: - Cabinet needs some love due to age. - Monitor powers on, image is good, but likely needs new caps - Lights and sound both work. - Controls function, but the guns need recalibration. - Sold as-is. Highlights: Important: - Price is $400, obo - Serious buyers only.",
+      "price": "$400",
+      "lat": 33.8595492,
+      "lon": -84.683824,
+      "location": "Powder Springs, GA",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/644227862_4137587313220594_8308756257418001370_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=111&ccb=1-7&_nc_sid=92e707&_nc_ohc=3Q3mcUxXj5EQ7kNvwHIWN3g&_nc_oc=AdmlO85Y-p6688tBPin82sokaAco5nLC60djL7LaNgIqpj-0sBL4huT0s9EpehxgD_E&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=QpSokhGnXuAkkfDOdgqMVg&_nc_ss=8&oh=00_AfzbB1qJGFh8wmTAH1P5tybE-Im3DjCMCz5ghFwa5ij2Pw&oe=69B5128E",
+      "adUrl": "https://www.facebook.com/marketplace/item/1886389532121299/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-03-09 20:05:02",
+      "lastSeen": "2026-03-09T20:05:39.619Z"
+    },
     {
       "adID": "2015950149356153",
       "source": "MP",
@@ -36,7 +56,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-08 22:04:41",
-      "lastSeen": "2026-03-09T18:04:50.348Z"
+      "lastSeen": "2026-03-09T20:05:02.011Z"
     },
     {
       "adID": "1403474514434458",
@@ -56,7 +76,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-08 02:06:22",
-      "lastSeen": "2026-03-09T18:06:00.319Z"
+      "lastSeen": "2026-03-09T20:06:26.498Z"
     },
     {
       "adID": "935846082662734",
@@ -96,7 +116,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-06 14:36:59",
-      "lastSeen": "2026-03-09T18:06:00.520Z"
+      "lastSeen": "2026-03-09T20:06:26.810Z"
     },
     {
       "adID": "861171766728764",
@@ -256,7 +276,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-04 14:04:49",
-      "lastSeen": "2026-03-09T18:04:50.446Z"
+      "lastSeen": "2026-03-09T20:06:26.987Z"
     },
     {
       "adID": "KLOV-561051",
@@ -276,7 +296,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-04 12:09:54",
-      "lastSeen": "2026-03-09T18:06:21.924Z"
+      "lastSeen": "2026-03-09T20:07:11.000Z"
     },
     {
       "adID": "1570931707463297",
@@ -296,7 +316,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-04 12:05:03",
-      "lastSeen": "2026-03-09T18:04:50.412Z"
+      "lastSeen": "2026-03-09T20:05:02.054Z"
     },
     {
       "adID": "1353011843137175",
@@ -316,7 +336,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-04 12:05:03",
-      "lastSeen": "2026-03-09T18:04:50.914Z"
+      "lastSeen": "2026-03-09T20:05:02.909Z"
     },
     {
       "adID": "1952481942009327",
@@ -336,7 +356,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-03 21:04:50",
-      "lastSeen": "2026-03-09T17:04:47.966Z"
+      "lastSeen": "2026-03-09T20:05:02.742Z"
     },
     {
       "adID": "929251049590411",
@@ -356,7 +376,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-02 16:04:43",
-      "lastSeen": "2026-03-09T18:04:50.580Z"
+      "lastSeen": "2026-03-09T20:05:02.543Z"
     },
     {
       "adID": "898178436530988",
@@ -476,7 +496,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-23 19:06:25",
-      "lastSeen": "2026-03-09T18:06:00.386Z"
+      "lastSeen": "2026-03-09T20:06:26.586Z"
     },
     {
       "adID": "PI-210036",
@@ -676,7 +696,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 23:10:53",
-      "lastSeen": "2026-03-09T18:04:50.780Z"
+      "lastSeen": "2026-03-09T20:05:02.854Z"
     },
     {
       "adID": "1937314130515670",
@@ -696,7 +716,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 18:10:45",
-      "lastSeen": "2026-03-09T17:05:56.953Z"
+      "lastSeen": "2026-03-09T20:06:26.720Z"
     },
     {
       "adID": "2948138838710326",
@@ -716,7 +736,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 17:22:24",
-      "lastSeen": "2026-03-09T18:04:50.647Z"
+      "lastSeen": "2026-03-09T20:05:02.964Z"
     },
     {
       "adID": "2185352358965594",
@@ -736,7 +756,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 17:22:23",
-      "lastSeen": "2026-03-09T18:04:50.747Z"
+      "lastSeen": "2026-03-09T20:05:03.075Z"
     },
     {
       "adID": "880228111053501",
@@ -756,7 +776,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 17:22:18",
-      "lastSeen": "2026-03-09T18:04:50.814Z"
+      "lastSeen": "2026-03-09T20:05:02.598Z"
     }
   ]
 }
