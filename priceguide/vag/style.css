@@ -242,10 +242,8 @@ body {
   overflow: hidden;
 }
 
-/* Card close (hide) button */
 .card {
   position: relative;
-  /* allow absolute-positioned X */
 }
 
 .cardHideBtn {
@@ -386,7 +384,7 @@ body {
 }
 
 .cardBody {
-  padding: 8px 40px 24px 0;
+  padding: 8px 40px 30px 0;
   display: flex;
   flex-direction: column;
   gap: 2px;
@@ -728,8 +726,7 @@ body {
   fill: currentColor;
 }
 
-/* Bottom-right page link */
-.pageBtn {
+pageBtn {
   position: absolute;
   right: 10px;
   bottom: 10px;
@@ -741,7 +738,7 @@ body {
   font-size: 12px;
   font-weight: 600;
   color: var(--muted);
-
+  text-decoration: none;
   cursor: pointer;
 }
 
@@ -889,35 +886,11 @@ body {
   color: var(--text);
 }
 
-.lineMetaBottom {
-  position: absolute;
-  left: 122px;
-  right: 48px;
-  bottom: 8px;
-
+.ratingsLine {
   font-size: 12.5px;
   color: var(--muted);
   line-height: 1.25;
-  min-height: 16px;
-}
-
-.bottomMetaLeft {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-}
-
-.bottomMetaRight {
-  position: absolute;
-  right: -30px;
-  bottom: 0;
-
-  white-space: nowrap;
-  text-align: right;
-  font-weight: 600;
 }

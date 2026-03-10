@@ -721,6 +721,11 @@ function cardHTML(g, idx) {
     ? `<div class="lineMeta lineMetaGenre">${escapeHtml(genre)}</div>`
     : "";
 
+  const ratingsLine = ratingsSummaryHTML(g.ratings);
+  const ratingsBlock = ratingsLine
+    ? `<div class="lineMeta ratingsLine">${ratingsLine}</div>`
+    : "";
+
   const vs = Array.isArray(g.variant) ? g.variant : [];
   let variantsBlock = "";
 
@@ -735,8 +740,6 @@ function cardHTML(g, idx) {
   `).join("");
   }
 
-  const ratingsLine = ratingsSummaryHTML(g.ratings);
-
   let pageBtn = "";
 
   if (page) {
@@ -745,14 +748,16 @@ function cardHTML(g, idx) {
     const pageCaption = `${title} · Page ${pageNum}`;
 
     pageBtn = `
-    <button
-      class="pageBtn bottomMetaRight"
+    <a
+      class="pageBtn"
+      href="${escapeAttr(pageSrc)}"
       data-page-src="${escapeAttr(pageSrc)}"
       data-page-caption="${escapeAttr(pageCaption)}"
       data-page-num="${pageNum}"
+      aria-label="Open page ${escapeAttr(page)}"
     >
       ${escapeHtml(page)}
-    </button>
+    </a>
   `;
   }
 
@@ -791,11 +796,11 @@ function cardHTML(g, idx) {
         ${line1}
         ${line2}
         ${lineGenre}
+        ${ratingsBlock}
         ${variantsBlock}
       </div>
-      ${bottomLine}
+      ${pageBtn}
     </article>`;
-
 }
 
 function creditCardHTML() {
@@ -1128,7 +1133,7 @@ function wireUI() {
       return;
     }
 
-    const pageBtn = e.target.closest("button.pageBtn");
+    const pageBtn = e.target.closest(".pageBtn");
     if (pageBtn) {
       e.preventDefault();
       e.stopPropagation();
