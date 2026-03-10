@@ -762,10 +762,9 @@ function cardHTML(g, idx) {
   `;
   }
 
-  const bottomLine = (ratingsLine || pageBtn)
+  const bottomLine = pageBtn
     ? `
       <div class="lineMeta lineMetaBottom">
-        <span class="bottomMetaLeft">${ratingsLine || ""}</span>
         ${pageBtn}
       </div>
     `
