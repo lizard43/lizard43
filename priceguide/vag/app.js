@@ -922,6 +922,7 @@ function runSearch(rawQuery) {
   const raw = String(rawQuery || "").trim();
   const qNorm = normalizeText(raw);
   const terms = qNorm ? qNorm.split(" ").filter(Boolean) : [];
+  const joinedTerms = terms.map(t => normalizeNoSpace(t)).filter(Boolean);
 
   const wantsHyphenExact = /[-–—]/.test(raw);
   const qJoined = qNorm.replace(/\s+/g, "");
@@ -939,6 +940,7 @@ function runSearch(rawQuery) {
     renderCards();
     return;
   }
+
   const out = [];
   const blobs = [];
   const joinedBlobs = [];
@@ -949,7 +951,7 @@ function runSearch(rawQuery) {
 
     let hit =
       terms.every(t => b.includes(t)) ||
-      (qJoinedLen >= 2 && bJoined.includes(qJoined));
+      (joinedTerms.length > 0 && joinedTerms.every(t => bJoined.includes(t)));
 
     // Keep the current stricter hyphen behavior:
     // if user explicitly types a hyphen, only compare against the title with spaces removed
@@ -969,12 +971,14 @@ function runSearch(rawQuery) {
   const out2 = [];
   const blobs2 = [];
   const joinedBlobs2 = [];
+
   for (let i = 0; i < out.length; i++) {
     if (hiddenKeys.has(machineKey(out[i]))) continue;
     out2.push(out[i]);
     blobs2.push(blobs[i]);
     joinedBlobs2.push(joinedBlobs[i]);
   }
+
   filtered = out2;
   filteredBlobs = blobs2;
   filteredJoinedBlobs = joinedBlobs2;
@@ -987,7 +991,7 @@ function runSearch(rawQuery) {
 
     let hit =
       terms.every(t => b.includes(t)) ||
-      (qJoinedLen >= 2 && bJoined.includes(qJoined));
+      (joinedTerms.length > 0 && joinedTerms.every(t => bJoined.includes(t)));
 
     if (wantsHyphenExact && qJoinedLen >= 2) {
       const titleJoined = normalizeNoSpace(g.title || "");
