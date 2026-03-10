@@ -726,11 +726,33 @@ body {
   fill: currentColor;
 }
 
+.lineMetaBottom {
+  position: absolute;
+  left: 122px;
+  right: 14px;
+  bottom: 8px;
+
+  font-size: 12.5px;
+  color: var(--muted);
+  line-height: 1.25;
+  min-height: 16px;
+}
+
+.bottomMetaLeft {
+  position: absolute;
+  left: 0;
+  right: 42px;
+  bottom: 0;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 .pageBtn {
   position: absolute;
-  right: 14px;
-  top: 50%;
-  transform: translateY(18px);
+  right: 0;
+  bottom: 0;
 
   background: none;
   border: none;
@@ -742,8 +764,8 @@ body {
   font-weight: 600;
   line-height: 1;
   color: var(--muted);
-  text-decoration: none;
   cursor: pointer;
+  text-decoration: none;
 }
 
 .pageBtn:hover {

@@ -761,7 +761,7 @@ function cardHTML(g, idx) {
     </button>
   `;
   }
-  
+
   const bottomLine = (ratingsLine || pageBtn)
     ? `
       <div class="lineMeta lineMetaBottom">
@@ -790,18 +790,18 @@ function cardHTML(g, idx) {
   <article class="card" data-idx="${idx}">
     <button class="cardHideBtn" type="button" title="Hide this match" aria-label="Hide this match"
             data-hide-key="${escapeAttr(key)}">✕</button>
-     <div class="thumbWrap" role="button" tabindex="0" aria-label="View image: ${escapeAttr(title)}">
-        ${imgTag}
-      </div>
-      <div class="cardBody">
-        ${line1}
-        ${line2}
-        ${lineGenre}
-        ${ratingsBlock}
-        ${variantsBlock}
-      </div>
-      ${pageBtn}
-    </article>`;
+    <div class="thumbWrap" role="button" tabindex="0" aria-label="View image: ${escapeAttr(title)}">
+      ${imgTag}
+    </div>
+    <div class="cardBody">
+      ${line1}
+      ${line2}
+      ${lineGenre}
+      ${ratingsBlock}
+      ${variantsBlock}
+    </div>
+    ${bottomLine}
+  </article>`;
 }
 
 function creditCardHTML() {
