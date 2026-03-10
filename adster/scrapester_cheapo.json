@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-03-10T12:06:23.612Z",
+  "generated_at": "2026-03-10T13:07:12.371Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,53 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 40,
-      "droppedPrice": 47,
+      "exported_ads": 42,
+      "droppedPrice": 52,
       "droppedMissingGeo": 0,
-      "droppedCircle": 46
+      "droppedCircle": 48
     }
   },
   "ads": [
+    {
+      "adID": "1723717155677767",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100091275019868/?product_id=1723717155677767",
+      "author": "Drew Junior",
+      "postedTime": "2026-03-10T07:57:14.000Z",
+      "title": "Penn battle 4 4000 ( multiple )",
+      "description": "Send offers-to clarify I’m asking for 100 each, or 160 for both (edited 7:36am march 10)",
+      "price": "$100",
+      "lat": 30.3321838,
+      "lon": -81.655651,
+      "location": "Jacksonville, FL",
+      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/648546734_1240105934891736_8878000021846785349_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=100&ccb=1-7&_nc_sid=92e707&_nc_ohc=0rdAV-rAG3kQ7kNvwGXM1jM&_nc_oc=AdmIviY3Zr5xe-tCrqu11qQaYjN-G7r1QxwJmiBTVfYARukD-J1vW_N0MBRF3n24WGI&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=-MIrQW3nfF96MrjjBolecQ&_nc_ss=8&oh=00_AfzsIPOhaKk-3kHsgaFNHKPybYnLIZlKx8fd2s_ChNJ8cg&oe=69B5E792",
+      "adUrl": "https://www.facebook.com/marketplace/item/1723717155677767/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-03-10 13:05:54",
+      "lastSeen": "2026-03-10T13:06:33.686Z"
+    },
+    {
+      "adID": "1561561591585868",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100091275019868/?product_id=1561561591585868",
+      "author": "Drew Junior",
+      "postedTime": "2026-03-10T07:55:58.000Z",
+      "title": "Al 13 spinning reel",
+      "description": "Never used. Send offers",
+      "price": "$75",
+      "lat": 30.3321838,
+      "lon": -81.655651,
+      "location": "Jacksonville, FL",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/649690811_1243028457964933_192764136698118057_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=111&ccb=1-7&_nc_sid=92e707&_nc_ohc=DoibUOjestUQ7kNvwEOBHlZ&_nc_oc=AdmZtVtkeJsGemzn7kmndFPXABVw5XpBL0ixXb2W0p2Y5Mo1fjgU61yj_TQ5O9jV4C4&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=xUddtFwWOvy2kBr73LctaA&_nc_ss=8&oh=00_Afzw9Q837Qdnrmg_6w6dkTMTLzkG19GRTy2eve7dMhWytA&oe=69B5CF75",
+      "adUrl": "https://www.facebook.com/marketplace/item/1561561591585868/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-03-10 13:05:54",
+      "lastSeen": "2026-03-10T13:06:33.752Z"
+    },
     {
       "adID": "1350236963538362",
       "source": "MP",
@@ -56,7 +96,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-09 21:06:08",
-      "lastSeen": "2026-03-10T12:05:27.271Z"
+      "lastSeen": "2026-03-10T13:05:53.922Z"
     },
     {
       "adID": "1886389532121299",
@@ -96,7 +136,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-08 22:04:41",
-      "lastSeen": "2026-03-10T12:04:52.133Z"
+      "lastSeen": "2026-03-10T13:04:49.627Z"
     },
     {
       "adID": "1403474514434458",
@@ -116,7 +156,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-08 02:06:22",
-      "lastSeen": "2026-03-10T12:05:27.376Z"
+      "lastSeen": "2026-03-10T13:05:54.030Z"
     },
     {
       "adID": "935846082662734",
@@ -156,7 +196,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-06 14:36:59",
-      "lastSeen": "2026-03-10T12:05:27.731Z"
+      "lastSeen": "2026-03-10T13:05:54.385Z"
     },
     {
       "adID": "861171766728764",
@@ -176,7 +216,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-05 23:04:56",
-      "lastSeen": "2026-03-09T15:23:41.989Z"
+      "lastSeen": "2026-03-10T13:04:50.305Z"
     },
     {
       "adID": "1606158693900850",
@@ -316,7 +356,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-04 14:04:49",
-      "lastSeen": "2026-03-10T11:05:01.362Z"
+      "lastSeen": "2026-03-10T13:04:49.771Z"
     },
     {
       "adID": "KLOV-561051",
@@ -336,7 +376,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-04 12:09:54",
-      "lastSeen": "2026-03-10T12:06:23.369Z"
+      "lastSeen": "2026-03-10T13:07:11.863Z"
     },
     {
       "adID": "1570931707463297",
@@ -356,7 +396,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-04 12:05:03",
-      "lastSeen": "2026-03-10T12:04:52.192Z"
+      "lastSeen": "2026-03-10T13:04:49.682Z"
     },
     {
       "adID": "1353011843137175",
@@ -416,7 +456,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-02 16:04:43",
-      "lastSeen": "2026-03-10T12:04:52.414Z"
+      "lastSeen": "2026-03-10T13:04:50.082Z"
     },
     {
       "adID": "898178436530988",
@@ -476,7 +516,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-01 12:04:44",
-      "lastSeen": "2026-03-10T12:04:52.669Z"
+      "lastSeen": "2026-03-10T13:04:49.904Z"
     },
     {
       "adID": "675528545616516",
@@ -536,7 +576,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-23 19:06:25",
-      "lastSeen": "2026-03-10T12:05:27.475Z"
+      "lastSeen": "2026-03-10T13:05:54.118Z"
     },
     {
       "adID": "PI-210036",
@@ -736,7 +776,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 23:10:53",
-      "lastSeen": "2026-03-10T12:04:52.470Z"
+      "lastSeen": "2026-03-10T13:04:50.126Z"
     },
     {
       "adID": "1937314130515670",
@@ -776,7 +816,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 17:22:24",
-      "lastSeen": "2026-03-10T12:04:52.935Z"
+      "lastSeen": "2026-03-10T13:04:50.171Z"
     },
     {
       "adID": "2185352358965594",
@@ -796,7 +836,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 17:22:23",
-      "lastSeen": "2026-03-09T23:04:45.056Z"
+      "lastSeen": "2026-03-10T13:04:50.359Z"
     },
     {
       "adID": "880228111053501",
@@ -816,7 +856,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-13 17:22:18",
-      "lastSeen": "2026-03-10T12:04:52.802Z"
+      "lastSeen": "2026-03-10T13:04:50.214Z"
     }
   ]
 }
