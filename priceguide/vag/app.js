@@ -57,6 +57,8 @@ let activeKey = null;
 
 let imgObserver = null;
 
+let filteredJoinedBlobs = [];
+
 const LS_ADSTER_SNAPSHOT = "adster.priceguide.snapshot.v1";
 
 let openedWithSearchParam = false; // true when page opened with ?s=...
@@ -282,19 +284,6 @@ function buildBlob(g) {
 function setSearchNavEnabled(enabled) {
   el.searchPrev.disabled = !enabled;
   el.searchNext.disabled = !enabled;
-}
-
-function renderSearchStatus() {
-  if (!lastQuery) {
-    el.searchStatus.textContent = "";
-    return;
-  }
-  if (matches.length === 0) {
-    el.searchStatus.textContent = "No matches";
-    return;
-  }
-  const g = filtered[matches[matchPos]];
-  el.searchStatus.textContent = `${matchPos + 1}/${matches.length}: ${g.title}`;
 }
 
 function buildAZButtons() {
@@ -935,13 +924,14 @@ function runSearch(rawQuery) {
   const terms = qNorm ? qNorm.split(" ").filter(Boolean) : [];
 
   const wantsHyphenExact = /[-–—]/.test(raw);
-  const qJoined = terms.join("");
+  const qJoined = qNorm.replace(/\s+/g, "");
   const qJoinedLen = qJoined.length;
 
   if (terms.length === 0) {
     hiddenKeys.clear(); // reset hidden matches when search is cleared
     filtered = games.slice();
     filteredBlobs = filtered.map(buildBlob);
+    filteredJoinedBlobs = filteredBlobs.map(normalizeNoSpace);
     matches = [];
     matchPos = 0;
     setSearchNavEnabled(false);
@@ -949,15 +939,20 @@ function runSearch(rawQuery) {
     renderCards();
     return;
   }
-
   const out = [];
   const blobs = [];
+  const joinedBlobs = [];
 
   for (const g of games) {
     const b = buildBlob(g);
+    const bJoined = normalizeNoSpace(b);
 
-    let hit = terms.every(t => b.includes(t));
+    let hit =
+      terms.every(t => b.includes(t)) ||
+      (qJoinedLen >= 2 && bJoined.includes(qJoined));
 
+    // Keep the current stricter hyphen behavior:
+    // if user explicitly types a hyphen, only compare against the title with spaces removed
     if (wantsHyphenExact && qJoinedLen >= 2) {
       const titleJoined = normalizeNoSpace(g.title || "");
       hit = titleJoined.includes(qJoined);
@@ -966,27 +961,33 @@ function runSearch(rawQuery) {
     if (hit) {
       out.push(g);
       blobs.push(b);
+      joinedBlobs.push(bJoined);
     }
   }
 
   // apply in-session hides
   const out2 = [];
   const blobs2 = [];
+  const joinedBlobs2 = [];
   for (let i = 0; i < out.length; i++) {
     if (hiddenKeys.has(machineKey(out[i]))) continue;
     out2.push(out[i]);
     blobs2.push(blobs[i]);
+    joinedBlobs2.push(joinedBlobs[i]);
   }
-
   filtered = out2;
   filteredBlobs = blobs2;
+  filteredJoinedBlobs = joinedBlobs2;
 
   matches = [];
   for (let i = 0; i < filtered.length; i++) {
     const g = filtered[i];
     const b = filteredBlobs[i];
+    const bJoined = filteredJoinedBlobs[i];
 
-    let hit = terms.every(t => b.includes(t));
+    let hit =
+      terms.every(t => b.includes(t)) ||
+      (qJoinedLen >= 2 && bJoined.includes(qJoined));
 
     if (wantsHyphenExact && qJoinedLen >= 2) {
       const titleJoined = normalizeNoSpace(g.title || "");
@@ -1238,6 +1239,7 @@ async function loadData() {
 
   filtered = games.slice();
   filteredBlobs = filtered.map(buildBlob);
+  filteredJoinedBlobs = filteredBlobs.map(normalizeNoSpace);
 }
 
 function applyIncomingSearchParam() {

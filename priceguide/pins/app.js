@@ -47,6 +47,8 @@ let activeKey = null;
 
 let imgObserver = null;
 
+let filteredJoinedBlobs = [];
+
 const LS_ADSTER_SNAPSHOT = "adster.priceguide.snapshot.v1";
 let openedWithSearchParam = false; // true when page opened with ?s=...
 
@@ -588,21 +590,24 @@ function runSearch(rawQuery) {
   lastQuery = rawQuery || "";
 
   const raw = String(rawQuery || "").trim();
-  const qNorm = normalizeText(raw);                 // e.g. "f 14"
+  const qNorm = normalizeText(raw);
   const terms = qNorm ? qNorm.split(" ").filter(Boolean) : [];
 
-  // Hyphen mode should ONLY kick in for patterns like F-14 / X-15 / 3-2 etc.
-  // This avoids breaking real title searches like "Gottlieb Nudge-It".
+  // Keep your existing Pinside-specific short hyphen tightening
+  // (examples: F-14, X-15, 3-2)
   const rawHasHyphen = /[-–—]/.test(raw);
-  const hyphenTightenOk = rawHasHyphen && /^[a-z0-9]{1,4}\s*[-–—]\s*[a-z0-9]{1,4}$/i.test(raw);
+  const hyphenTightenOk =
+    rawHasHyphen &&
+    /^[a-z0-9]{1,4}\s*[-–—]\s*[a-z0-9]{1,4}$/i.test(raw);
 
-  const qJoined = terms.join("");                   // e.g. "f14"
+  const qJoined = qNorm.replace(/\s+/g, "");
   const qJoinedLen = qJoined.length;
 
   if (terms.length === 0) {
     hiddenKeys.clear(); // reset hidden matches when search is cleared
     filtered = machines.slice();
     filteredBlobs = filtered.map(buildBlob);
+    filteredJoinedBlobs = filteredBlobs.map(normalizeNoSpace);
     matches = [];
     matchPos = 0;
     setSearchNavEnabled(false);
@@ -613,15 +618,18 @@ function runSearch(rawQuery) {
 
   const out = [];
   const blobs = [];
+  const joinedBlobs = [];
 
   for (const m of machines) {
     const b = buildBlob(m);
+    const bJoined = normalizeNoSpace(b);
 
-    // Normal: AND semantics across the blob
-    let hit = terms.every(t => b.includes(t));
+    let hit =
+      terms.every(t => b.includes(t)) ||
+      (qJoinedLen >= 2 && bJoined.includes(qJoined));
 
-    // Tighten only for short hyphenated tokens (like F-14):
-    // require the joined token to appear in the NAME.
+    // For short hyphenated tokens like F-14, tighten by requiring
+    // the joined token to appear in the machine NAME specifically.
     if (hyphenTightenOk && qJoinedLen >= 2) {
       const nameJoined = normalizeNoSpace(m.name || "");
       hit = hit && nameJoined.includes(qJoined);
@@ -630,27 +638,35 @@ function runSearch(rawQuery) {
     if (hit) {
       out.push(m);
       blobs.push(b);
+      joinedBlobs.push(bJoined);
     }
   }
 
   // apply in-session hides
   const out2 = [];
   const blobs2 = [];
+  const joinedBlobs2 = [];
+
   for (let i = 0; i < out.length; i++) {
     if (hiddenKeys.has(machineKey(out[i]))) continue;
     out2.push(out[i]);
     blobs2.push(blobs[i]);
+    joinedBlobs2.push(joinedBlobs[i]);
   }
 
   filtered = out2;
   filteredBlobs = blobs2;
+  filteredJoinedBlobs = joinedBlobs2;
 
   matches = [];
   for (let i = 0; i < filtered.length; i++) {
     const m = filtered[i];
     const b = filteredBlobs[i];
+    const bJoined = filteredJoinedBlobs[i];
 
-    let hit = terms.every(t => b.includes(t));
+    let hit =
+      terms.every(t => b.includes(t)) ||
+      (qJoinedLen >= 2 && bJoined.includes(qJoined));
 
     if (hyphenTightenOk && qJoinedLen >= 2) {
       const nameJoined = normalizeNoSpace(m.name || "");
@@ -667,6 +683,7 @@ function runSearch(rawQuery) {
 
   if (matches.length > 0) jumpToMatch(0);
 }
+
 function jumpToMatch(pos) {
   if (matches.length === 0) return;
   const n = matches.length;
@@ -800,6 +817,7 @@ async function loadData() {
 
   filtered = machines.slice();
   filteredBlobs = filtered.map(buildBlob);
+  filteredJoinedBlobs = filteredBlobs.map(normalizeNoSpace);
 }
 
 function applyIncomingSearchParam() {
