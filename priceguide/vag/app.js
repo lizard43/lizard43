@@ -748,19 +748,20 @@ function cardHTML(g, idx) {
     const pageCaption = `${title} · Page ${pageNum}`;
 
     pageBtn = `
-    <a
+    <button
       class="pageBtn"
-      href="${escapeAttr(pageSrc)}"
+      type="button"
       data-page-src="${escapeAttr(pageSrc)}"
       data-page-caption="${escapeAttr(pageCaption)}"
       data-page-num="${pageNum}"
       aria-label="Open page ${escapeAttr(page)}"
+      title="${escapeAttr(page)}"
     >
       ${escapeHtml(page)}
-    </a>
+    </button>
   `;
   }
-
+  
   const bottomLine = (ratingsLine || pageBtn)
     ? `
       <div class="lineMeta lineMetaBottom">
