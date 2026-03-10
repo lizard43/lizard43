@@ -690,14 +690,13 @@ function cardHTML(g, idx) {
   const genre = g.genre || null;
   let page = (g.page == null) ? null : String(g.page);
 
-  const klovUrl = g.klov
-    ? String(g.klov)
-    : (
-      "https://www.arcade-museum.com/searchResults?q=" +
+const klovUrl =
+  g.klov?.trim()
+    ? g.klov
+    : "https://www.arcade-museum.com/searchResults?q=" +
       encodeURIComponent(title) +
-      "&boolean=AND"
-    );
-
+      "&boolean=AND";
+      
   const line1 = `
   <div class="lineTitle">
     <a
