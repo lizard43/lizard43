@@ -893,10 +893,9 @@ body {
 }
 
 .variantRow {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) 130px;
+  display: flex;
+  align-items: center;
   gap: 10px;
-  align-items: baseline;
 }
 
 .variantType {
@@ -908,10 +907,9 @@ body {
 }
 
 .variantRange {
-  white-space: nowrap;
-  font-weight: 700;
-  text-align: left;
-  color: var(--text);
+  font-weight: 600;
+  margin-left: auto;   /* push price to right edge */
+  white-space: nowrap; /* keep price on one line */
 }
 
 .variantPrice {
