@@ -12,7 +12,7 @@
     - We set data-src and use IntersectionObserver to populate src only when near viewport.
 */
 
-const DATA_URL = "vagal_norm3.json";
+const DATA_URL = "vagal_norm4.json";
 
 const el = {
   stage: document.getElementById("stage"),
