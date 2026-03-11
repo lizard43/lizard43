@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-03-11T17:05:52.824Z",
+  "generated_at": "2026-03-11T18:06:49.350Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,33 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 31,
-      "droppedPrice": 39,
+      "exported_ads": 32,
+      "droppedPrice": 37,
       "droppedMissingGeo": 0,
-      "droppedCircle": 32
+      "droppedCircle": 30
     }
   },
   "ads": [
+    {
+      "adID": "1237583721855485",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/637742689/?product_id=1237583721855485",
+      "author": "Debbie Gall",
+      "postedTime": "2026-03-11T17:42:52.000Z",
+      "title": "Buffalo Games pinball arcade action! 1 or more players!",
+      "description": "Yes, I’m available in Northeast St Pete near Gateway Target. Pinball action classic game for the whole family. One player or multiple players. Bring home the vintage arcade classic game...pull back the plunger and jump ramps, hit targets and nail shots to score points. Over 18” by 13”! This is brand new, but the box has been damaged a little on the top.",
+      "price": "$10",
+      "lat": 27.7712264,
+      "lon": -82.6340259,
+      "location": "St Petersburg, FL",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t15.5256-10/471428233_914305477099886_5993254106371640560_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=111&ccb=1-7&_nc_sid=d4195b&_nc_ohc=Oc5Pv7tEoIIQ7kNvwF4-_5S&_nc_oc=Admcn5u2uUxSZQRdI9Zokw4DOyY4plGVkTslkkG_IEumX_mdXdaVdwOeTcrLSKDKdm8&_nc_zt=23&_nc_ht=scontent-dfw5-1.xx&_nc_gid=DfdkZ0_IIyEAaN_kWEIOUw&_nc_ss=8&oh=00_AfwO_af-_V9O5jAHe6Dj-3uJLAnBGirPVq9y7Q_OQpjhaA&oe=69B7688D",
+      "adUrl": "https://www.facebook.com/marketplace/item/1237583721855485/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-03-11 18:05:42",
+      "lastSeen": "2026-03-11T18:06:13.632Z"
+    },
     {
       "adID": "1491267942605180",
       "source": "MP",
@@ -36,7 +56,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-11 15:04:38",
-      "lastSeen": "2026-03-11T17:05:07.971Z"
+      "lastSeen": "2026-03-11T18:05:42.637Z"
     },
     {
       "adID": "933851995821069",
@@ -256,7 +276,7 @@
       "priceChangedAt": "2026-03-11 16:06:30",
       "hidden": 0,
       "created_at": "2026-03-04 12:09:54",
-      "lastSeen": "2026-03-11T17:05:52.601Z"
+      "lastSeen": "2026-03-11T18:06:49.151Z"
     },
     {
       "adID": "1570931707463297",
