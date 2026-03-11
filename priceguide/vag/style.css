@@ -900,6 +900,8 @@ body {
 }
 
 .variantType {
+  font-size: 13px;           /* match genre line */
+  color: #555a61;            /* same tone as genre */
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
