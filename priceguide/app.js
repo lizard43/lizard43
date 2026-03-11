@@ -326,30 +326,95 @@ function jumpToMatch(pos) {
 }
 
 function runSearch(rawQuery) {
-    lastQuery = rawQuery;
-    const q = normalizeText(rawQuery);
+  lastQuery = rawQuery || "";
 
-    if (!q) {
-        matches = [];
-        matchPos = 0;
-        setSearchNavEnabled(false);
-        renderSearchStatus();
-        return;
-    }
+  const raw = String(rawQuery || "").trim();
+  const qNorm = normalizeText(raw);
+  const terms = qNorm ? qNorm.split(" ").filter(Boolean) : [];
+  const joinedTerms = terms.map(t => normalizeNoSpace(t)).filter(Boolean);
 
+  const wantsHyphenExact = /[-–—]/.test(raw);
+  const qJoined = qNorm.replace(/\s+/g, "");
+  const qJoinedLen = qJoined.length;
+
+  if (terms.length === 0) {
+    hiddenKeys.clear(); // reset hidden matches when search is cleared
+    filtered = machines.slice();
+    filteredBlobs = filtered.map(buildBlob);
+    filteredJoinedBlobs = filteredBlobs.map(normalizeNoSpace);
     matches = [];
-    for (let i = 0; i < gameBlobs.length; i++) {
-        if (gameBlobs[i].includes(q)) matches.push(i);
-    }
     matchPos = 0;
-
-    // Enable nav even for 1 match (wrapping will keep it stable)
-    setSearchNavEnabled(matches.length > 0);
+    setSearchNavEnabled(false);
     renderSearchStatus();
+    renderCards();
+    return;
+  }
 
-    if (matches.length > 0) {
-        jumpToMatch(0);
+  const out = [];
+  const blobs = [];
+  const joinedBlobs = [];
+
+  for (const m of machines) {
+    const b = buildBlob(m);
+    const bJoined = normalizeNoSpace(b);
+
+    let hit =
+      terms.every(t => b.includes(t)) ||
+      (joinedTerms.length > 0 && joinedTerms.every(t => bJoined.includes(t)));
+
+    // If user explicitly typed a hyphen, compare against name with spaces removed
+    if (wantsHyphenExact && qJoinedLen >= 2) {
+      const titleJoined = normalizeNoSpace(m.name || "");
+      hit = titleJoined.includes(qJoined);
     }
+
+    if (hit) {
+      out.push(m);
+      blobs.push(b);
+      joinedBlobs.push(bJoined);
+    }
+  }
+
+  // apply in-session hides
+  const out2 = [];
+  const blobs2 = [];
+  const joinedBlobs2 = [];
+
+  for (let i = 0; i < out.length; i++) {
+    if (hiddenKeys.has(machineKey(out[i]))) continue;
+    out2.push(out[i]);
+    blobs2.push(blobs[i]);
+    joinedBlobs2.push(joinedBlobs[i]);
+  }
+
+  filtered = out2;
+  filteredBlobs = blobs2;
+  filteredJoinedBlobs = joinedBlobs2;
+
+  matches = [];
+  for (let i = 0; i < filtered.length; i++) {
+    const m = filtered[i];
+    const b = filteredBlobs[i];
+    const bJoined = filteredJoinedBlobs[i];
+
+    let hit =
+      terms.every(t => b.includes(t)) ||
+      (joinedTerms.length > 0 && joinedTerms.every(t => bJoined.includes(t)));
+
+    if (wantsHyphenExact && qJoinedLen >= 2) {
+      const titleJoined = normalizeNoSpace(m.name || "");
+      hit = titleJoined.includes(qJoined);
+    }
+
+    if (hit) matches.push(i);
+  }
+
+  matchPos = 0;
+  setSearchNavEnabled(matches.length > 0);
+  renderSearchStatus();
+  renderCards();
+
+  if (matches.length > 0) jumpToMatch(0);
 }
 
 async function loadGameIndex() {
