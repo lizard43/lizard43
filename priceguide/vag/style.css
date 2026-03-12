@@ -922,7 +922,7 @@ body {
   text-align: right;
   font-weight: 700;
   color: var(--text);
-  margin-right: 0;       /* remove the bad shove-to-edge */
+  margin-right: -14px;
 }
 
 .variantPrice {
