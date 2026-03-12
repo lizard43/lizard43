@@ -894,11 +894,17 @@ body {
 
 .variantRow {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 118px;
+  grid-template-columns: minmax(0, 1fr) auto;
   column-gap: 10px;
   align-items: baseline;
 }
 
+.variantRange {
+  white-space: nowrap;
+  text-align: right;
+  font-weight: 700;
+  color: var(--text);
+}
 .variantType {
   font-size: 13px;
   color: #555a61;
@@ -906,14 +912,6 @@ body {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-}
-
-.variantRange {
-  width: 118px;
-  white-space: nowrap;
-  text-align: right;
-  font-weight: 700;
-  color: var(--text);
 }
 
 .variantPrice {
