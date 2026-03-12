@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-03-12T13:24:11.575Z",
+  "generated_at": "2026-03-12T14:07:08.703Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,33 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 31,
-      "droppedPrice": 33,
+      "exported_ads": 32,
+      "droppedPrice": 42,
       "droppedMissingGeo": 0,
-      "droppedCircle": 27
+      "droppedCircle": 34
     }
   },
   "ads": [
+    {
+      "adID": "1230199505914736",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100052056369622/?product_id=1230199505914736",
+      "author": "Caleb Krumnow",
+      "postedTime": "2026-03-12T03:45:50.000Z",
+      "title": "Oculus quest 3",
+      "description": "Oculus quest 3 512tb with bobovr head fan and battery pack Also comes with golf attachment",
+      "price": "$475",
+      "lat": 30.7621326,
+      "lon": -86.5705084,
+      "location": "Crestview, FL",
+      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/649295636_1249111473371116_3676600351559886104_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=102&ccb=1-7&_nc_sid=92e707&_nc_ohc=U9nBHOvkdQkQ7kNvwEoJ7Os&_nc_oc=AdlhPo3ZRnBiYaLJSa5d7rX2SaUuB3tqZrwa9RMwYY7O1SmAjzKlKpXPHDW3Tg5LEFs&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=_Wlri7NdAWaVctRpZzlKqQ&_nc_ss=8&oh=00_AfwyKvp7gJy2uSPT7EE7KXaMGhEJAXLWXd9vN7Ot9WEiHA&oe=69B883A9",
+      "adUrl": "https://www.facebook.com/marketplace/item/1230199505914736/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-03-12 14:04:22",
+      "lastSeen": "2026-03-12T14:05:15.661Z"
+    },
     {
       "adID": "951204157860382",
       "source": "MP",
@@ -36,7 +56,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-12 11:04:37",
-      "lastSeen": "2026-03-12T13:04:24.227Z"
+      "lastSeen": "2026-03-12T14:04:22.616Z"
     },
     {
       "adID": "1491267942605180",
@@ -56,7 +76,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-11 15:04:38",
-      "lastSeen": "2026-03-12T13:05:03.263Z"
+      "lastSeen": "2026-03-12T14:05:41.000Z"
     },
     {
       "adID": "933851995821069",
@@ -76,27 +96,27 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-11 02:06:21",
-      "lastSeen": "2026-03-12T13:05:03.308Z"
+      "lastSeen": "2026-03-12T14:05:41.055Z"
     },
     {
       "adID": "1511667507145267",
       "source": "FB",
       "authorUrl": null,
       "author": "Shane Starr",
-      "postedTime": "2026-03-11T13:00:18.482Z",
+      "postedTime": "2026-03-11T14:00:19.501Z",
       "title": "Hang On Project Cab",
       "description": "Non working project cab. Cabinet is in great shape but someone stuck an LCD inside with a VGA connection. Includes the board but gets artifacting on power up / display. Board could be repaired.",
       "price": "$350",
       "lat": 34.0234337,
       "lon": -84.6154897,
       "location": "KENNESAW, GA",
-      "imageUrl": "https://scontent-dfw5-3.xx.fbcdn.net/v/t39.30808-6/649821730_10225101155594897_4783580897399658674_n.jpg?stp=dst-jpegr_p526x296_tt6&_nc_cat=109&ccb=1-7&_nc_sid=e06c5d&_nc_ohc=Kh9qrTLZDuIQ7kNvwH7jxF3&_nc_oc=Adn9VeA0sIq8pbzQg5Bi9GKVqLGI2v2MG2m21DH-6WbNCc_H8HBTo9lx5__Dq6Meqow&_nc_zt=23&se=-1&_nc_ht=scontent-dfw5-3.xx&_nc_gid=yUBcqzHfwEGnOF9LzbgfdQ&_nc_ss=8&oh=00_Afw0VukCvQLN8zduYj79Bj-CjrqOdrKgbjQsORyHCQ569A&oe=69B88664",
+      "imageUrl": "https://scontent-dfw5-3.xx.fbcdn.net/v/t39.30808-6/649821730_10225101155594897_4783580897399658674_n.jpg?stp=dst-jpegr_p526x296_tt6&_nc_cat=109&ccb=1-7&_nc_sid=e06c5d&_nc_ohc=Kh9qrTLZDuIQ7kNvwH7jxF3&_nc_oc=Adn9VeA0sIq8pbzQg5Bi9GKVqLGI2v2MG2m21DH-6WbNCc_H8HBTo9lx5__Dq6Meqow&_nc_zt=23&se=-1&_nc_ht=scontent-dfw5-3.xx&_nc_gid=MIlgFK9_GxPkcDZjFEKS9g&_nc_ss=8&oh=00_AfzrXtZ1HL45evGM1umTLYDeI5oZnsIYpv13rV5vrPSRoA&oe=69B88664",
       "adUrl": "https://www.facebook.com/commerce/listing/1511667507145267/",
       "priceChanged": 0,
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-11 01:04:56",
-      "lastSeen": "2026-03-12T13:00:18.568Z"
+      "lastSeen": "2026-03-12T14:00:19.539Z"
     },
     {
       "adID": "1474843950968894",
@@ -276,7 +296,7 @@
       "priceChangedAt": "2026-03-11 16:06:30",
       "hidden": 0,
       "created_at": "2026-03-04 12:09:54",
-      "lastSeen": "2026-03-12T13:05:23.210Z"
+      "lastSeen": "2026-03-12T14:07:08.522Z"
     },
     {
       "adID": "1570931707463297",
