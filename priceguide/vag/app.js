@@ -697,6 +697,8 @@ function cardHTML(g, idx) {
       encodeURIComponent(title) +
       "&boolean=AND";
 
+  const key = machineKey(g);
+
   const line1 = `
   <div class="titleRow">
     <div class="lineTitle">
@@ -790,8 +792,6 @@ function cardHTML(g, idx) {
       decoding="async"
     >
   `;
-
-  const key = machineKey(g);
 
   return `
   <article class="card" data-idx="${idx}">
