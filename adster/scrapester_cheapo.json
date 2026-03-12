@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-03-12T21:06:09.633Z",
+  "generated_at": "2026-03-12T22:05:59.156Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,73 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 33,
-      "droppedPrice": 38,
+      "exported_ads": 34,
+      "droppedPrice": 40,
       "droppedMissingGeo": 0,
       "droppedCircle": 35
     }
   },
   "ads": [
+    {
+      "adID": "1570076757404208",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100080484304029/?product_id=1570076757404208",
+      "author": "Gloria Smith",
+      "postedTime": "2026-03-12T21:40:56.000Z",
+      "title": "Pinball game",
+      "description": "Plays like new",
+      "price": "$50",
+      "lat": 33.4017766,
+      "lon": -86.954437,
+      "location": "Bessemer, AL",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/650849942_2131484340999955_4103492145390519284_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=105&ccb=1-7&_nc_sid=92e707&_nc_ohc=yiWJuUfBADUQ7kNvwH_OE8m&_nc_oc=AdmFSDNLhB6zggXJgqqnvmr-mdWdxKzyWGKYNgqtkoA-d4RCbRMMW7nOpVERVyUcNWw&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=uYHAgUfNPcWPNsB0mVwrmw&_nc_ss=8&oh=00_AfxzBH3Sjgqy9gFlceDVXgtKccL8S6tzQM4v_bceIH-AcQ&oe=69B8F3A5",
+      "adUrl": "https://www.facebook.com/marketplace/item/1570076757404208/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-03-12 22:04:55",
+      "lastSeen": "2026-03-12T22:05:22.352Z"
+    },
+    {
+      "adID": "1352732923565551",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/675869361/?product_id=1352732923565551",
+      "author": "Hannah Graham",
+      "postedTime": "2026-03-12T21:15:26.000Z",
+      "title": "Hannah Montana pinball machine",
+      "description": "Works just fine!",
+      "price": "$50",
+      "lat": 29.9559145,
+      "lon": -90.0730259,
+      "location": "New Orleans, LA",
+      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/650180403_953874820401029_1922311727383762475_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=102&ccb=1-7&_nc_sid=92e707&_nc_ohc=g1KjfIuWrZ0Q7kNvwEIZrZZ&_nc_oc=Adl6fZJld3UKFneEU0BI9WsLpB5-SGCxhpmgerq7_bmYW9bcsXnI949Td5DbVk94zXg&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=9Z9dtzQZvoMxQOdgl17-yA&_nc_ss=8&oh=00_AfzLl2Dcq3tY2ujv7gj5vF71L7_NB0gVGr2cYllwIPbtUA&oe=69B90266",
+      "adUrl": "https://www.facebook.com/marketplace/item/1352732923565551/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-03-12 22:04:55",
+      "lastSeen": "2026-03-12T22:05:22.389Z"
+    },
+    {
+      "adID": "1594227765018735",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100027482572154/?product_id=1594227765018735",
+      "author": "Brady Parent",
+      "postedTime": "2026-03-12T21:07:44.000Z",
+      "title": "Golden Tee Classic Arcade Machine",
+      "description": "Arcade game featuring 3D courses and 18 hole play",
+      "price": "$250",
+      "lat": 28.8613765,
+      "lon": -81.9064705,
+      "location": "Fruitland Park, FL",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/650235461_1470719391059064_4180731927692246611_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=111&ccb=1-7&_nc_sid=92e707&_nc_ohc=e3-il5ToKwsQ7kNvwFF2SY7&_nc_oc=AdnWKUqGNa357IhassN4lr11-s_2AE_fksDK9DfvoiAEvFcocNioTT5TKHlOi4KfrY0&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=WipAy7FqEmOVfrJFx4XgjA&_nc_ss=8&oh=00_AfwdtJ6B0HRe-0vb5XhXDjM-uoSgLsXZoEwxcli2lVN5eA&oe=69B8F78F",
+      "adUrl": "https://www.facebook.com/marketplace/item/1594227765018735/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-03-12 22:04:15",
+      "lastSeen": "2026-03-12T22:04:31.745Z"
+    },
     {
       "adID": "2152912865466993",
       "source": "MP",
@@ -36,47 +96,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-12 21:04:19",
-      "lastSeen": "2026-03-12T21:04:57.284Z"
-    },
-    {
-      "adID": "1646130170144304",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/100001545888619/?product_id=1646130170144304",
-      "author": "Robert Kiehl",
-      "postedTime": "2026-03-12T20:30:58.000Z",
-      "title": "1981 Atari Centipede Arcade Game marquee sign header video glass 23.75 in x6.5",
-      "description": "Has some marks, but all in all very good condition. For the year.",
-      "price": "$100",
-      "lat": 27.9658533,
-      "lon": -82.8001026,
-      "location": "Clearwater, FL",
-      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/650259425_1451304743167004_8388466284284291335_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=105&ccb=1-7&_nc_sid=92e707&_nc_ohc=4uwZTqmyCywQ7kNvwFxpgF4&_nc_oc=AdlfyVglFte7L1Em5GBgK4RfMI7YarLJTvT1ISurxvEs0c3QZpa16-m0H-M8-bdcWl0&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=j9kNECl7KEu_OSXXd2Rs1Q&_nc_ss=8&oh=00_AfxmIE9m7h9AV3TJyA5NcOyPfOWv03tROsvjXLluhNFm3Q&oe=69B905C8",
-      "adUrl": "https://www.facebook.com/marketplace/item/1646130170144304/",
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-03-12 21:04:19",
-      "lastSeen": "2026-03-12T21:04:57.350Z"
-    },
-    {
-      "adID": "1857016571665164",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/1667599488/?product_id=1857016571665164",
-      "author": "David Laraman",
-      "postedTime": "2026-03-12T19:38:00.000Z",
-      "title": "Share RARE BOSS Phantom Skull SK422 Red LEDs 250 Watt Per Pair, 4\", Full Range !",
-      "description": "The BOSS Phantom Skull SK422 speakers are a powerful and stylish addition to any car audio system. With a sleek 4-inch size and 250 watts of power per pair, these speakers deliver clear and impactful sound across the full range. The red LEDs add a touch of flair to the design, while the 2-way sound system ensures a rich audio experience. Perfect for those looking to enhance their vehicle's sound quality with a reliable brand like Boss. *Open Box, tested back in 2019 for Arcade System, but never installed or used, original packaging and look like new + vendor paperwork. Impedance: 4 Ohms, Frequency Response: 85 Hz - 20 kHz, Sensitivity: 90 dB Woofer Cone: Poly Injection, Voice Coil: 1 Inch Aluminum Surround: Rubber, Basket: Stamped One Mylar Dome Tweeter Per Speaker Included: Grills and Magnet Covers Dimensions: Depth 4.3” x Width 4.3” x Height 2.3”, Weight Per Pair: 2.8 Lbs.",
-      "price": "$150",
-      "lat": 28.2336196,
-      "lon": -82.1811947,
-      "location": "Zephyrhills, FL",
-      "imageUrl": "https://scontent-dfw5-3.xx.fbcdn.net/v/t39.84726-6/649651957_1241055824324295_6902459050739305137_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=92e707&_nc_ohc=q3KnS4EHSMQQ7kNvwEwOVJn&_nc_oc=Adk2AxPVdDYWKDzWUEomdOeMGncCyhXBFRaC_ccR9lRGh4gb2JNv0jTlhK6la-r95IQ&_nc_zt=14&_nc_ht=scontent-dfw5-3.xx&_nc_gid=saO25Zw7Vb7Li0maSBFtBA&_nc_ss=8&oh=00_AfytBGlLJmNJ4PzEXnaNRlZ46Wq4Ka48bRES6kkeul6cuQ&oe=69B910AE",
-      "adUrl": "https://www.facebook.com/marketplace/item/1857016571665164/",
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-03-12 21:04:19",
-      "lastSeen": "2026-03-12T21:04:57.406Z"
+      "lastSeen": "2026-03-12T22:04:15.145Z"
     },
     {
       "adID": "951204157860382",
@@ -96,7 +116,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-12 11:04:37",
-      "lastSeen": "2026-03-12T21:05:24.126Z"
+      "lastSeen": "2026-03-12T22:04:15.312Z"
     },
     {
       "adID": "1491267942605180",
@@ -116,7 +136,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-11 15:04:38",
-      "lastSeen": "2026-03-12T21:05:24.060Z"
+      "lastSeen": "2026-03-12T22:04:55.439Z"
     },
     {
       "adID": "933851995821069",
@@ -143,20 +163,20 @@
       "source": "FB",
       "authorUrl": null,
       "author": "Shane Starr",
-      "postedTime": "2026-03-11T21:00:19.137Z",
+      "postedTime": "2026-03-10T22:00:18.774Z",
       "title": "Hang On Project Cab",
       "description": "Non working project cab. Cabinet is in great shape but someone stuck an LCD inside with a VGA connection. Includes the board but gets artifacting on power up / display. Board could be repaired.",
       "price": "$350",
       "lat": 34.0234337,
       "lon": -84.6154897,
       "location": "KENNESAW, GA",
-      "imageUrl": "https://scontent-dfw5-3.xx.fbcdn.net/v/t39.30808-6/649821730_10225101155594897_4783580897399658674_n.jpg?stp=dst-jpegr_p526x296_tt6&_nc_cat=109&ccb=1-7&_nc_sid=e06c5d&_nc_ohc=wBsClwHx20MQ7kNvwHLcI8V&_nc_oc=AdnwWVdvSQHjKfhHCXqEe0tIIkPbcbytSUQg4IuUX_i294QPgojsqmvhq5Ko_pQRYPQ&_nc_zt=23&se=-1&_nc_ht=scontent-dfw5-3.xx&_nc_gid=NCqfYYNeSQ3Rqa4EtcfcsA&_nc_ss=8&oh=00_Afybta4KM1T-uyfcYA6f5SVi8EC7bcAz9byjVkxfvIg6mg&oe=69B8F6E4",
+      "imageUrl": "https://scontent-dfw5-3.xx.fbcdn.net/v/t39.30808-6/649821730_10225101155594897_4783580897399658674_n.jpg?stp=dst-jpegr_p526x296_tt6&_nc_cat=109&ccb=1-7&_nc_sid=e06c5d&_nc_ohc=wBsClwHx20MQ7kNvwHLcI8V&_nc_oc=AdnwWVdvSQHjKfhHCXqEe0tIIkPbcbytSUQg4IuUX_i294QPgojsqmvhq5Ko_pQRYPQ&_nc_zt=23&se=-1&_nc_ht=scontent-dfw5-3.xx&_nc_gid=4-Z6nP9yTVmMHdsERactWg&_nc_ss=8&oh=00_AfxBO3pd7eTS5kubzQz7dr2Hhe9c7D6gK1PRdoPu-ayM6Q&oe=69B8F6E4",
       "adUrl": "https://www.facebook.com/commerce/listing/1511667507145267/",
       "priceChanged": 0,
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-11 01:04:56",
-      "lastSeen": "2026-03-12T21:00:19.161Z"
+      "lastSeen": "2026-03-12T22:00:18.796Z"
     },
     {
       "adID": "1474843950968894",
@@ -316,7 +336,7 @@
       "priceChangedAt": "2026-03-11 16:06:30",
       "hidden": 0,
       "created_at": "2026-03-04 12:09:54",
-      "lastSeen": "2026-03-12T21:06:09.413Z"
+      "lastSeen": "2026-03-12T22:05:58.967Z"
     },
     {
       "adID": "1570931707463297",
