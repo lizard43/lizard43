@@ -903,15 +903,7 @@ body {
   grid-template-columns: minmax(0, 1fr) auto;
   column-gap: 10px;
   align-items: baseline;
-}
-
-.variantRange {
-  white-space: nowrap;
-  text-align: right;
-  font-weight: 700;
-  color: var(--text);
-  margin-right: -14px;
-  /* align with page number + X column */
+  padding-right: 14px;   /* same inset as page number / body edge */
 }
 
 .variantType {
@@ -921,11 +913,16 @@ body {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-
   padding-right: 8px;
-  /* breathing room before price */
   max-width: 100%;
-  /* prevents pushing price column */
+}
+
+.variantRange {
+  white-space: nowrap;
+  text-align: right;
+  font-weight: 700;
+  color: var(--text);
+  margin-right: 0;       /* remove the bad shove-to-edge */
 }
 
 .variantPrice {
