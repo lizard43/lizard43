@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-03-12T16:05:32.117Z",
+  "generated_at": "2026-03-12T17:07:51.964Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,33 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 31,
-      "droppedPrice": 45,
+      "exported_ads": 32,
+      "droppedPrice": 39,
       "droppedMissingGeo": 0,
-      "droppedCircle": 30
+      "droppedCircle": 39
     }
   },
   "ads": [
+    {
+      "adID": "4039596466184763",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/61555892572952/?product_id=4039596466184763",
+      "author": "Adam Abood",
+      "postedTime": "2026-03-12T04:00:47.000Z",
+      "title": "Adidas Campus 00 Black",
+      "description": "Brand new Adidas Campus 00s black never worn. Fit my sister a bit big.",
+      "price": "$80",
+      "lat": 27.9449854,
+      "lon": -82.4583107,
+      "location": "Tampa, FL",
+      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/650210346_1193923982821219_7028977655354416874_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=101&ccb=1-7&_nc_sid=92e707&_nc_ohc=CZQ8e7C373YQ7kNvwGJIqpA&_nc_oc=AdkQa9-xD4aO6Oo4zFxdk8fH28phFpt7xMEkAVkzRsgKT1y6qhfLihwm3k4sLaINSUw&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=0QlhLtFy4k--mE4gpC9S7g&_nc_ss=8&oh=00_AfzkjmIMNrQC4EqOZ9x_lHY929958BxEZTNv1HH9jxADkw&oe=69B8DDAE",
+      "adUrl": "https://www.facebook.com/marketplace/item/4039596466184763/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-03-12 17:05:33",
+      "lastSeen": "2026-03-12T17:07:12.154Z"
+    },
     {
       "adID": "951204157860382",
       "source": "MP",
@@ -36,7 +56,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-12 11:04:37",
-      "lastSeen": "2026-03-12T16:04:26.477Z"
+      "lastSeen": "2026-03-12T17:05:33.734Z"
     },
     {
       "adID": "1491267942605180",
@@ -56,7 +76,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-11 15:04:38",
-      "lastSeen": "2026-03-12T16:04:36.696Z"
+      "lastSeen": "2026-03-12T17:05:33.601Z"
     },
     {
       "adID": "933851995821069",
@@ -76,27 +96,27 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-11 02:06:21",
-      "lastSeen": "2026-03-12T16:04:36.740Z"
+      "lastSeen": "2026-03-12T17:05:33.646Z"
     },
     {
       "adID": "1511667507145267",
       "source": "FB",
       "authorUrl": null,
       "author": "Shane Starr",
-      "postedTime": "2026-03-11T16:00:19.733Z",
+      "postedTime": "2026-03-11T17:00:18.911Z",
       "title": "Hang On Project Cab",
       "description": "Non working project cab. Cabinet is in great shape but someone stuck an LCD inside with a VGA connection. Includes the board but gets artifacting on power up / display. Board could be repaired.",
       "price": "$350",
       "lat": 34.0234337,
       "lon": -84.6154897,
       "location": "KENNESAW, GA",
-      "imageUrl": "https://scontent-dfw5-3.xx.fbcdn.net/v/t39.30808-6/649821730_10225101155594897_4783580897399658674_n.jpg?stp=dst-jpegr_p526x296_tt6&_nc_cat=109&ccb=1-7&_nc_sid=e06c5d&_nc_ohc=wBsClwHx20MQ7kNvwHLcI8V&_nc_oc=AdnwWVdvSQHjKfhHCXqEe0tIIkPbcbytSUQg4IuUX_i294QPgojsqmvhq5Ko_pQRYPQ&_nc_zt=23&se=-1&_nc_ht=scontent-dfw5-3.xx&_nc_gid=JtNiS_zO0t_DOQf6_qBRdg&_nc_ss=8&oh=00_AfwtImAvnyTGPnf1QBnMcTkJrGIspdKUYhvVtpfa4Pr3Bg&oe=69B8BEA4",
+      "imageUrl": "https://scontent-dfw5-3.xx.fbcdn.net/v/t39.30808-6/649821730_10225101155594897_4783580897399658674_n.jpg?stp=dst-jpegr_p526x296_tt6&_nc_cat=109&ccb=1-7&_nc_sid=e06c5d&_nc_ohc=wBsClwHx20MQ7kNvwHLcI8V&_nc_oc=AdnwWVdvSQHjKfhHCXqEe0tIIkPbcbytSUQg4IuUX_i294QPgojsqmvhq5Ko_pQRYPQ&_nc_zt=23&se=-1&_nc_ht=scontent-dfw5-3.xx&_nc_gid=vnJWgGJQ2yn8Eum9TmKerw&_nc_ss=8&oh=00_AfzmY1IZJUK4q3iXW4mzM9mDmojJXmnedeNLe3s36xRG-g&oe=69B8BEA4",
       "adUrl": "https://www.facebook.com/commerce/listing/1511667507145267/",
       "priceChanged": 0,
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-11 01:04:56",
-      "lastSeen": "2026-03-12T16:00:19.747Z"
+      "lastSeen": "2026-03-12T17:00:18.924Z"
     },
     {
       "adID": "1474843950968894",
@@ -276,7 +296,7 @@
       "priceChangedAt": "2026-03-11 16:06:30",
       "hidden": 0,
       "created_at": "2026-03-04 12:09:54",
-      "lastSeen": "2026-03-12T16:05:31.951Z"
+      "lastSeen": "2026-03-12T17:07:51.734Z"
     },
     {
       "adID": "1570931707463297",
