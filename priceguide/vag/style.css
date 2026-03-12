@@ -893,23 +893,27 @@ body {
 }
 
 .variantRow {
-  display: flex;
-  align-items: center;
-  gap: 10px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 118px;
+  column-gap: 10px;
+  align-items: baseline;
 }
 
 .variantType {
-  font-size: 13px;           /* match genre line */
-  color: #555a61;            /* same tone as genre */
+  font-size: 13px;
+  color: #555a61;
+  min-width: 0;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
 .variantRange {
-  font-weight: 600;
-  margin-left: auto;   /* push price to right edge */
-  white-space: nowrap; /* keep price on one line */
+  width: 118px;
+  white-space: nowrap;
+  text-align: right;
+  font-weight: 700;
+  color: var(--text);
 }
 
 .variantPrice {
