@@ -690,23 +690,32 @@ function cardHTML(g, idx) {
   const genre = g.genre || null;
   let page = (g.page == null) ? null : String(g.page);
 
-const klovUrl =
-  g.klov?.trim()
-    ? g.klov
-    : "https://www.arcade-museum.com/searchResults?q=" +
+  const klovUrl =
+    g.klov?.trim()
+      ? g.klov
+      : "https://www.arcade-museum.com/searchResults?q=" +
       encodeURIComponent(title) +
       "&boolean=AND";
-      
+
   const line1 = `
-  <div class="lineTitle">
-    <a
-      class="titleText"
-      href="${escapeAttr(klovUrl)}"
-      target="_blank"
-      rel="noopener"
-    >
-      ${escapeHtml(title)}
-    </a>
+  <div class="titleRow">
+    <div class="lineTitle">
+      <a
+        class="titleText"
+        href="${escapeAttr(klovUrl)}"
+        target="_blank"
+        rel="noopener"
+      >
+        ${escapeHtml(title)}
+      </a>
+    </div>
+    <button
+      class="cardHideBtn"
+      type="button"
+      title="Hide this match"
+      aria-label="Hide this match"
+      data-hide-key="${escapeAttr(key)}"
+    >✕</button>
   </div>`;
 
   const line2Parts = [];
@@ -786,8 +795,6 @@ const klovUrl =
 
   return `
   <article class="card" data-idx="${idx}">
-    <button class="cardHideBtn" type="button" title="Hide this match" aria-label="Hide this match"
-            data-hide-key="${escapeAttr(key)}">✕</button>
     <div class="thumbWrap" role="button" tabindex="0" aria-label="View image: ${escapeAttr(title)}">
       ${imgTag}
     </div>

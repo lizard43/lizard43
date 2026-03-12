@@ -247,10 +247,7 @@ body {
 }
 
 .cardHideBtn {
-  position: absolute;
-  top: 8px;
-  right: 8px;
-
+  position: static;
   width: 28px;
   height: 28px;
   border-radius: 10px;
@@ -264,6 +261,8 @@ body {
   place-items: center;
   line-height: 1;
   font-size: 16px;
+  padding: 0;
+  margin: 0;
 }
 
 .cardHideBtn:hover {
@@ -384,11 +383,18 @@ body {
 }
 
 .cardBody {
-  padding: 8px 40px 30px 0;
+  padding: 8px 14px 30px 0;
   display: flex;
   flex-direction: column;
   gap: 2px;
   min-height: 110px;
+}
+
+.titleRow {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 28px;
+  column-gap: 8px;
+  align-items: start;
 }
 
 .lineTitle {
@@ -904,7 +910,10 @@ body {
   text-align: right;
   font-weight: 700;
   color: var(--text);
+  margin-right: -14px;
+  /* align with page number + X column */
 }
+
 .variantType {
   font-size: 13px;
   color: #555a61;
@@ -912,6 +921,11 @@ body {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+
+  padding-right: 8px;
+  /* breathing room before price */
+  max-width: 100%;
+  /* prevents pushing price column */
 }
 
 .variantPrice {
