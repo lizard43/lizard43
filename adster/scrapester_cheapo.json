@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-03-13T17:05:25.489Z",
+  "generated_at": "2026-03-13T18:05:35.026Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,33 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 34,
-      "droppedPrice": 66,
+      "exported_ads": 35,
+      "droppedPrice": 69,
       "droppedMissingGeo": 0,
-      "droppedCircle": 65
+      "droppedCircle": 68
     }
   },
   "ads": [
+    {
+      "adID": "938682038647289",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/788439585/?product_id=938682038647289",
+      "author": "Danny Futrell",
+      "postedTime": "2026-03-13T17:05:22.000Z",
+      "title": "Free to good home",
+      "description": "Fischer Price 3 in 1 Arcade game. The electronics no longer work which means the pinball game does not power on (possibly a bad switch). It The basketball game and Skee-Ball games work fine though I do not have the balls for the Skee-Ball game.",
+      "price": "$0",
+      "lat": 34.02332,
+      "lon": -84.360022,
+      "location": "Roswell, GA",
+      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.30808-6/652232014_10164522896159586_6034378540978560175_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=104&ccb=1-7&_nc_sid=4f26a2&_nc_ohc=ATa3GHGqkFgQ7kNvwHgx7Uw&_nc_oc=AdmxZwhfSdwCIBKJenSUKwTbAfHDVDlCyFvOQiuwWXht_iRliwf9fpzVawNUI1q4cPA&_nc_zt=23&_nc_ht=scontent-dfw5-2.xx&_nc_gid=JOBjQe6pDnaGC3inOP16-g&_nc_ss=8&oh=00_AfwfrKMtme4rVd6pHvJtNdx_L1BhZWBQ06ECMCC9VWP2oQ&oe=69BA3F6E",
+      "adUrl": "https://www.facebook.com/marketplace/item/938682038647289/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-03-13 18:04:36",
+      "lastSeen": "2026-03-13T18:04:58.085Z"
+    },
     {
       "adID": "2233988117408530",
       "source": "MP",
@@ -36,7 +56,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-13 13:04:58",
-      "lastSeen": "2026-03-13T17:04:38.839Z"
+      "lastSeen": "2026-03-13T18:04:37.060Z"
     },
     {
       "adID": "1511621653863915",
@@ -56,7 +76,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-13 02:04:19",
-      "lastSeen": "2026-03-13T17:04:27.517Z"
+      "lastSeen": "2026-03-13T18:04:25.442Z"
     },
     {
       "adID": "1655747152087236",
@@ -163,20 +183,20 @@
       "source": "FB",
       "authorUrl": null,
       "author": "Shane Starr",
-      "postedTime": "2026-03-11T15:00:18.366Z",
+      "postedTime": "2026-03-11T18:00:18.830Z",
       "title": "Hang On Project Cab",
       "description": "Non working project cab. Cabinet is in great shape but someone stuck an LCD inside with a VGA connection. Includes the board but gets artifacting on power up / display. Board could be repaired.",
       "price": "$350",
       "lat": 34.0234337,
       "lon": -84.6154897,
       "location": "KENNESAW, GA",
-      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.30808-6/649821730_10225101155594897_4783580897399658674_n.jpg?stp=dst-jpegr_p526x296_tt6&_nc_cat=109&ccb=1-7&_nc_sid=e06c5d&_nc_ohc=wBsClwHx20MQ7kNvwHLcI8V&_nc_oc=AdnwWVdvSQHjKfhHCXqEe0tIIkPbcbytSUQg4IuUX_i294QPgojsqmvhq5Ko_pQRYPQ&_nc_zt=23&se=-1&_nc_ht=scontent-dfw5-1.xx&_nc_gid=NojqUW1nhsEf0aQWZDP1RA&_nc_ss=8&oh=00_AfwJtoHPxbEDs4d0n3Rs3RU33Sw68uS7pPw707GtBvybgA&oe=69BA1024",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.30808-6/649821730_10225101155594897_4783580897399658674_n.jpg?stp=dst-jpegr_p526x296_tt6&_nc_cat=109&ccb=1-7&_nc_sid=e06c5d&_nc_ohc=wBsClwHx20MQ7kNvwHLcI8V&_nc_oc=AdnwWVdvSQHjKfhHCXqEe0tIIkPbcbytSUQg4IuUX_i294QPgojsqmvhq5Ko_pQRYPQ&_nc_zt=23&se=-1&_nc_ht=scontent-dfw5-1.xx&_nc_gid=BBvkceIMOBlMf12D_ICOIA&_nc_ss=8&oh=00_AfyrKxt0EYkCUpMgdZ9oV7YDmeAqWA2dM985lcxcb1dFBw&oe=69BA1024",
       "adUrl": "https://www.facebook.com/commerce/listing/1511667507145267/",
       "priceChanged": 0,
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-11 01:04:56",
-      "lastSeen": "2026-03-13T15:00:18.420Z"
+      "lastSeen": "2026-03-13T18:00:18.968Z"
     },
     {
       "adID": "1474843950968894",
@@ -336,7 +356,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-04 12:09:54",
-      "lastSeen": "2026-03-13T17:05:25.339Z"
+      "lastSeen": "2026-03-13T18:05:34.844Z"
     },
     {
       "adID": "1570931707463297",
