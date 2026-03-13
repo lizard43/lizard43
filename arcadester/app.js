@@ -54,11 +54,10 @@
     item.purchasePrice = toNumberOrNull(item.purchasePrice);
     item.totalExpenses = toNumberOrNull(item.totalExpenses);
     item.totalCost = toNumberOrNull(item.totalCost);
-    item.photo = String(item.photo || "").trim();
     item.klov = String(item.klov || "").trim();
 
     item.notes = String(item.notes || "").trim();
-    item.photos = Array.isArray(item.photos) ? item.photos : (item.photo ? [item.photo] : []);
+    item.photos = Array.isArray(item.photos) ? item.photos : [];
     item.expenses = Array.isArray(item.expenses) ? item.expenses : [];
     item.soldPrice = toNumberOrNull(item.soldPrice);
 
@@ -190,26 +189,26 @@
       }
 
       card.innerHTML = `
-      <div class="cardPhotoWrap">
-        <img class="cardPhoto" src="${escapeAttr(getPhotoUrl(machine.photo))}" alt="${escapeAttr(machine.title)}">
-      </div>
-      <div class="cardBody">
-        <h3 class="cardTitle">${escapeHtml(machine.title)}</h3>
-        <p class="cardLine">${escapeHtml(formatYearManufacturer(machine))}</p>
-        <p class="cardLine">${escapeHtml(machine.genre || "—")}</p>
-        <p class="cardLine">${escapeHtml(formatLocationCondition(machine))}</p>
-        <p class="cardLine"><strong>Buy:</strong> ${escapeHtml(formatMoney(machine.purchasePrice))}</p>
-        <p class="cardLine"><strong>Exp:</strong> ${escapeHtml(formatMoney(machine.totalExpenses))}</p>
-        <p class="cardLine"><strong>Cost:</strong> ${escapeHtml(formatMoney(machine.totalCost))}</p>
-        <div class="cardActions">
-          ${machine.klov
-          ? `<a class="actionLink" href="${escapeAttr(machine.klov)}" target="_blank" rel="noopener noreferrer">KLOV</a>`
-          : `<span class="actionLink" aria-disabled="true">KLOV</span>`
-        }
-          <button class="actionLink detailsBtn" type="button">Details</button>
+        <div class="cardPhotoWrap">
+          <img class="cardPhoto" src="${escapeAttr(getPhotoUrl(machine.photos[0]))}" alt="${escapeAttr(machine.title)}">
         </div>
-      </div>
-    `;
+
+        <div class="cardBody">
+
+          <div class="cardHeader">
+            <h3 class="cardTitle">${escapeHtml(machine.title)}</h3>
+            ${machine.klov
+          ? `<a class="cardKlov" href="${escapeAttr(machine.klov)}" target="_blank" rel="noopener noreferrer">KLOV</a>`
+          : ``
+        }
+          </div>
+
+          <div class="cardFooter">
+            <button class="detailsBtn" type="button">Details</button>
+          </div>
+
+        </div>
+      `;
 
       card.addEventListener("click", event => {
         const clickedKlov = event.target.closest("a");
@@ -223,15 +222,7 @@
       const detailsBtn = card.querySelector(".detailsBtn");
       detailsBtn.addEventListener("click", event => {
         event.stopPropagation();
-
-        if (isDesktop) {
-          const detailEl = row.querySelector(".machineDetailInline");
-          if (detailEl) {
-            detailEl.scrollIntoView({ block: "nearest", behavior: "smooth" });
-          }
-        } else {
-          selectMachine(machine.id, true);
-        }
+        selectMachine(machine.id, true);
       });
 
       row.appendChild(card);
@@ -289,7 +280,7 @@
     const photoStrip = machine.photos && machine.photos.length
       ? `
       <div class="photoStrip">
-        ${machine.photos.map(photo => `
+        ${machine.photos.slice(1).map(photo => `
           <div class="photoThumb">
             <img src="${escapeAttr(getPhotoUrl(photo))}" alt="${escapeAttr(machine.title)}">
           </div>
@@ -306,10 +297,6 @@
     ${includeHeader ? "" : `<div class="detailHeader"><h2 class="detailTitle">${escapeHtml(machine.title)}</h2></div>`}
 
     <div class="detailContent">
-      <div class="detailHero">
-        <img src="${escapeAttr(getPhotoUrl(machine.photo))}" alt="${escapeAttr(machine.title)}">
-      </div>
-
       <section class="detailSection">
         <div class="detailButtons">
           ${machine.klov ? `<a class="detailBtn" href="${escapeAttr(machine.klov)}" target="_blank" rel="noopener noreferrer">Open KLOV</a>` : ""}

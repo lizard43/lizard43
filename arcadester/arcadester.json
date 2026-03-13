@@ -7,11 +7,15 @@
     "genre": "Shooter",
     "location": "Game Room",
     "condition": "working",
+    "purchaseDate": "2026-02-10",
     "purchasePrice": 900,
+    "purchaseFrom": "Joe",
     "totalExpenses": 60.5,
     "totalCost": 960.5,
-    "photo": "galaga-cabinet.jpg",
-    "photos": ["galaga-cabinet.jpg", "galaga-side.jpg"],
+    "photos": [
+      "Gallag_gallag-48126_th.webp",
+      "galaga-side.jpg"
+    ],
     "klov": "https://www.arcade-museum.com/Videogame/galaga",
     "notes": "Monitor looks good. Replaced power supply.",
     "expenses": [
@@ -28,7 +32,9 @@
         "note": "Parts shipping"
       }
     ],
-    "soldPrice": null
+    "soldDate": null,
+    "soldPrice": null,
+    "soldTo": null
   },
   {
     "id": "m002",
@@ -38,14 +44,20 @@
     "genre": "Shooter",
     "location": "Storage",
     "condition": "project",
+    "purchaseDate": "2026-02-10",
     "purchasePrice": 700,
+    "purchaseFrom": "Joe",
     "totalExpenses": 125,
     "totalCost": 825,
-    "photo": "defender-cabinet.jpg",
+    "photos": [
+      "defend-side.jpg"
+    ],
     "klov": "https://www.arcade-museum.com/Videogame/defender",
     "notes": "Needs monitor and control panel work.",
     "expenses": [],
-    "soldPrice": null
+    "soldDate": null,
+    "soldPrice": null,
+    "soldTo": null
   },
   {
     "id": "m003",
@@ -55,13 +67,19 @@
     "genre": "Shooter",
     "location": "Workshop",
     "condition": "project",
+    "purchaseDate": "2026-02-10",
     "purchasePrice": 700,
+    "purchaseFrom": "Joe",
     "totalExpenses": 125,
     "totalCost": 825,
-    "photo": "defender-cabinet.jpg",
+    "photos": [
+      "capt.jpg"
+    ],
     "klov": "https://www.arcade-museum.com/Videogame/defender",
     "notes": "Needs monitor and control panel work.",
     "expenses": [],
-    "soldPrice": null
+    "soldDate": null,
+    "soldPrice": null,
+    "soldTo": null
   }
 ]
