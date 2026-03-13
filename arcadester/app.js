@@ -189,12 +189,7 @@
     els.closeDetailBtn.addEventListener("click", closeMobileDetail);
     els.mobileOverlay.addEventListener("click", closeMobileDetail);
 
-    window.addEventListener("resize", () => {
-      if (window.innerWidth >= 1000) {
-        els.detailPane.classList.remove("open");
-        els.mobileOverlay.classList.remove("open");
-      }
-    });
+    window.addEventListener("resize", updateSelectedCard);
   }
 
   function populateFilters() {
@@ -263,8 +258,6 @@
 
     els.emptyState.classList.add("hidden");
 
-    const isDesktop = window.innerWidth >= 1000;
-
     for (const machine of state.filteredMachines) {
       const row = document.createElement("div");
       row.className = "machineRow";
@@ -279,34 +272,36 @@
       }
 
       card.innerHTML = `
-        <div class="cardPhotoWrap">
-          <img class="cardPhoto" src="${escapeAttr(getPhotoUrl(machine.photos[0]))}" alt="${escapeAttr(machine.title)}">
-        </div>
+      <div class="cardPhotoWrap">
+        <img class="cardPhoto" src="${escapeAttr(getPhotoUrl(machine.photos[0]))}" alt="${escapeAttr(machine.title)}">
+      </div>
 
-        <div class="cardBody">
+      <div class="cardBody">
 
-          <div class="cardHeader">
-            <h3 class="cardTitle">${escapeHtml(machine.title)}</h3>
-            ${machine.klov
-          ? `<a class="cardKlov" href="${escapeAttr(machine.klov)}" target="_blank" rel="noopener noreferrer">KLOV</a>`
+        <div class="cardHeader">
+          <h3 class="cardTitle">${escapeHtml(machine.title)}</h3>
+          ${machine.klov
+          ? `<a class="cardKlov cardPill" href="${escapeAttr(machine.klov)}" target="_blank" rel="noopener noreferrer">KLOV</a>`
           : ``
         }
-          </div>
-
-          <div class="cardFooter">
-            <button class="detailsBtn" type="button">Details</button>
-          </div>
-
         </div>
-      `;
+
+        <div class="cardFooter">
+          <div class="cardFooterMeta">${escapeHtml(
+          [machine.location, machine.condition].filter(Boolean).join(" - ") || "—"
+        )}</div>
+          <button class="detailsBtn cardPill" type="button">Details</button>
+        </div>
+
+      </div>
+    `;
 
       card.addEventListener("click", event => {
         const clickedKlov = event.target.closest("a");
-        if (clickedKlov) return;
+        const clickedDetails = event.target.closest(".detailsBtn");
+        if (clickedKlov || clickedDetails) return;
 
-        if (!isDesktop) {
-          selectMachine(machine.id, true);
-        }
+        selectMachine(machine.id, true);
       });
 
       const detailsBtn = card.querySelector(".detailsBtn");
@@ -316,20 +311,11 @@
       });
 
       row.appendChild(card);
-
-      if (isDesktop) {
-        const inlineDetail = document.createElement("section");
-        inlineDetail.className = "machineDetailInline";
-        inlineDetail.innerHTML = buildDetailMarkup(machine, false);
-        wireDetailButtons(inlineDetail, machine);
-        row.appendChild(inlineDetail);
-      }
-
       els.cardsGrid.appendChild(row);
     }
   }
 
-  function selectMachine(id, openOnMobile) {
+  function selectMachine(id, openDetailPane = true) {
     const machine = state.allMachines.find(m => m.id === id);
     if (!machine) return;
 
@@ -337,14 +323,13 @@
     renderDetail(machine);
     updateSelectedCard();
 
-    if (openOnMobile && window.innerWidth < 1000) {
+    if (openDetailPane) {
       els.detailPane.classList.add("open");
       els.mobileOverlay.classList.add("open");
     }
   }
 
   function closeMobileDetail() {
-    if (window.innerWidth >= 1000) return;
     els.detailPane.classList.remove("open");
     els.mobileOverlay.classList.remove("open");
   }
