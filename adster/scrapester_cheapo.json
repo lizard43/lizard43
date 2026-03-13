@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-03-13T21:06:27.851Z",
+  "generated_at": "2026-03-13T22:06:14.759Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,53 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 33,
-      "droppedPrice": 79,
+      "exported_ads": 35,
+      "droppedPrice": 76,
       "droppedMissingGeo": 0,
-      "droppedCircle": 47
+      "droppedCircle": 42
     }
   },
   "ads": [
+    {
+      "adID": "2097127801133508",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/61577090920177/?product_id=2097127801133508",
+      "author": "Bluediamond Details",
+      "postedTime": "2026-03-13T21:04:13.000Z",
+      "title": "Oculus quest 2 with upgraded head strap",
+      "description": "Oculus quest 2 with an upgraded head strap and golf club controller attachment all come with carrying case Also accepting trades",
+      "price": "$155",
+      "lat": 34.1335332,
+      "lon": -86.8779268,
+      "location": "Cullman, AL",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/651150299_1250369573943871_6773167789026941793_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=109&ccb=1-7&_nc_sid=92e707&_nc_ohc=QJVvINNwGJsQ7kNvwHw-I2b&_nc_oc=AdnNt5IHLAkYhAful-3PngT4ASlahKtThPkc3bGbBPqVqycS9S8qrCjuJLEs3f-IlYY&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=934-cWWKibEZMDb_5O33eg&_nc_ss=8&oh=00_AfzomOplLgjEa-Sky7M5fWB0qlyml0jxkAN2aI2iUhBuAw&oe=69BA73D7",
+      "adUrl": "https://www.facebook.com/marketplace/item/2097127801133508/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-03-13 22:04:26",
+      "lastSeen": "2026-03-13T22:05:04.036Z"
+    },
+    {
+      "adID": "804583199343269",
+      "source": "FB",
+      "authorUrl": null,
+      "author": "Shane Starr",
+      "postedTime": "2026-03-13T21:42:18.708Z",
+      "title": "Original Gauntlet by Atari Project Cabinet",
+      "description": "Non workout Gauntlet cabinet. Has original joysticks and monitor / bezel as far as I can tell. Also appears to have original artwork under the black paint on the sides and control panel. Would make for a great retro restoration project!",
+      "price": "$300",
+      "lat": 34.0234337,
+      "lon": -84.6154897,
+      "location": "KENNESAW, GA",
+      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.30808-6/651244967_10225140439936981_217521075182415945_n.jpg?stp=dst-jpegr_s590x590_tt6&_nc_cat=100&ccb=1-7&_nc_sid=e06c5d&_nc_ohc=cp3pXZONRW8Q7kNvwEBXIqo&_nc_oc=Adk1BE3kRlBT_5ioCzZU5P9kbZGk83wZOIlV2hkOQmpKoimPK1H3A7e8sBhj7o7MO2o&_nc_zt=23&se=-1&_nc_ht=scontent-dfw5-2.xx&_nc_gid=OyLJdPyGjKfh0Qq8VUxc7w&_nc_ss=8&oh=00_Afyw_J0vjF5d2T2tIMfeYZNp8COxgfrZO0u0dEXA87DkTw&oe=69BA6713",
+      "adUrl": "https://www.facebook.com/commerce/listing/804583199343269/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-03-13 22:00:18",
+      "lastSeen": "2026-03-13T22:00:18.790Z"
+    },
     {
       "adID": "1442282217590839",
       "source": "MP",
@@ -36,7 +76,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-13 21:05:20",
-      "lastSeen": "2026-03-13T21:05:51.003Z"
+      "lastSeen": "2026-03-13T22:05:26.765Z"
     },
     {
       "adID": "1511621653863915",
@@ -56,7 +96,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-13 02:04:19",
-      "lastSeen": "2026-03-13T21:04:25.563Z"
+      "lastSeen": "2026-03-13T22:04:25.966Z"
     },
     {
       "adID": "2152912865466993",
@@ -76,7 +116,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-12 21:04:19",
-      "lastSeen": "2026-03-13T20:04:17.884Z"
+      "lastSeen": "2026-03-13T22:04:25.999Z"
     },
     {
       "adID": "951204157860382",
@@ -143,20 +183,20 @@
       "source": "FB",
       "authorUrl": null,
       "author": "Shane Starr",
-      "postedTime": "2026-03-11T20:00:18.885Z",
+      "postedTime": "2026-03-10T22:00:18.722Z",
       "title": "Hang On Project Cab",
       "description": "Non working project cab. Cabinet is in great shape but someone stuck an LCD inside with a VGA connection. Includes the board but gets artifacting on power up / display. Board could be repaired.",
       "price": "$350",
       "lat": 34.0234337,
       "lon": -84.6154897,
       "location": "KENNESAW, GA",
-      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.30808-6/649821730_10225101155594897_4783580897399658674_n.jpg?stp=dst-jpegr_p526x296_tt6&_nc_cat=109&ccb=1-7&_nc_sid=e06c5d&_nc_ohc=wBsClwHx20MQ7kNvwHLcI8V&_nc_oc=AdnwWVdvSQHjKfhHCXqEe0tIIkPbcbytSUQg4IuUX_i294QPgojsqmvhq5Ko_pQRYPQ&_nc_zt=23&se=-1&_nc_ht=scontent-dfw5-1.xx&_nc_gid=Au_P0uyhoZKYnwRIbxRQ4g&_nc_ss=8&oh=00_AfyD5H9tptBlEC0a-B4bG1StTJRK3Z6_pJvHdlnjc6EZvQ&oe=69BA4864",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.30808-6/649821730_10225101155594897_4783580897399658674_n.jpg?stp=dst-jpegr_p526x296_tt6&_nc_cat=109&ccb=1-7&_nc_sid=e06c5d&_nc_ohc=wBsClwHx20MQ7kNvwHLcI8V&_nc_oc=AdnwWVdvSQHjKfhHCXqEe0tIIkPbcbytSUQg4IuUX_i294QPgojsqmvhq5Ko_pQRYPQ&_nc_zt=23&se=-1&_nc_ht=scontent-dfw5-1.xx&_nc_gid=ZM3iZ9yJ0XmB0lSvU670CQ&_nc_ss=8&oh=00_AfwUxslAu2jyU0IBGB2vKgUk0o8UUxz9I1x8l2tuU-K1uA&oe=69BA4864",
       "adUrl": "https://www.facebook.com/commerce/listing/1511667507145267/",
       "priceChanged": 0,
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-11 01:04:56",
-      "lastSeen": "2026-03-13T20:00:19.126Z"
+      "lastSeen": "2026-03-13T22:00:18.989Z"
     },
     {
       "adID": "1474843950968894",
@@ -316,7 +356,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-04 12:09:54",
-      "lastSeen": "2026-03-13T21:06:27.681Z"
+      "lastSeen": "2026-03-13T22:06:14.607Z"
     },
     {
       "adID": "1570931707463297",
