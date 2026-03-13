@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-03-13T20:24:56.767Z",
+  "generated_at": "2026-03-13T21:06:27.851Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,33 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 32,
-      "droppedPrice": 72,
+      "exported_ads": 33,
+      "droppedPrice": 79,
       "droppedMissingGeo": 0,
-      "droppedCircle": 42
+      "droppedCircle": 47
     }
   },
   "ads": [
+    {
+      "adID": "1442282217590839",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100009480497948/?product_id=1442282217590839",
+      "author": "Joe Cali",
+      "postedTime": "2026-03-13T20:23:32.000Z",
+      "title": "Antique 20 hole pinball machine",
+      "description": "Wrapped in LSU",
+      "price": "$450",
+      "lat": 29.960933,
+      "lon": -90.3705407,
+      "location": "Destrehan, LA",
+      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/651200927_907006862176181_3513437759530555052_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=100&ccb=1-7&_nc_sid=92e707&_nc_ohc=P_q76Kgh1OcQ7kNvwEMO7l6&_nc_oc=AdngAyH5jX6vQLoESps1LpheXtHmDMy7Hk71BN9AYfrKwZt6neJel5AlH9H9xYIPp3E&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=0yxXckBNWA55b0F-BXX6uw&_nc_ss=8&oh=00_AfxGtPfb9LdhhnRcgpftdJ3lRYyOXeYnUroXcSzs8nEbLg&oe=69BA4AF5",
+      "adUrl": "https://www.facebook.com/marketplace/item/1442282217590839/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-03-13 21:05:20",
+      "lastSeen": "2026-03-13T21:05:51.003Z"
+    },
     {
       "adID": "1511621653863915",
       "source": "MP",
@@ -36,7 +56,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-13 02:04:19",
-      "lastSeen": "2026-03-13T20:04:17.850Z"
+      "lastSeen": "2026-03-13T21:04:25.563Z"
     },
     {
       "adID": "2152912865466993",
@@ -296,7 +316,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-04 12:09:54",
-      "lastSeen": "2026-03-13T20:07:57.463Z"
+      "lastSeen": "2026-03-13T21:06:27.681Z"
     },
     {
       "adID": "1570931707463297",
