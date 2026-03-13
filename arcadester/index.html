@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>ArcadeSter</title>
+</head>
+
+<body style="visibility:hidden;">
+    <div class="appShell">
+        <header class="topBar">
+            <div class="topBarRow">
+                <input id="searchInput" class="searchInput" type="search"
+                    placeholder="Search title, manufacturer, genre..." aria-label="Search machines" />
+
+                <select id="locationFilter" class="filterSelect" aria-label="Filter by location">
+                    <option value="">All locations</option>
+                </select>
+
+                <select id="conditionFilter" class="filterSelect" aria-label="Filter by condition">
+                    <option value="">All conditions</option>
+                </select>
+
+                <button id="addMachineBtn" class="addMachineFab" type="button" aria-label="Add machine"
+                    title="Add machine">
+                    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                        <path d="M12 5v14M5 12h14" />
+                    </svg>
+                </button>
+            </div>
+        </header>
+
+        <main class="mainLayout">
+            <section class="cardsPane">
+                <div id="cardsGrid" class="cardsGrid"></div>
+                <div id="emptyState" class="emptyState hidden">No machines match your filters.</div>
+            </section>
+
+            <aside id="detailPane" class="detailPane" aria-label="Machine details">
+                <div class="detailHeader">
+                    <h2 id="detailTitle" class="detailTitle">Select a machine</h2>
+                    <button id="closeDetailBtn" class="iconBtn" type="button" aria-label="Close details">×</button>
+                </div>
+
+                <div id="detailContent" class="detailContent">
+                    <div class="detailPlaceholder">
+                        Tap a card to view details.
+                    </div>
+                </div>
+            </aside>
+        </main>
+    </div>
+
+    <div id="mobileOverlay" class="mobileOverlay"></div>
+
+    <script src="loader.js"></script>
+</body>
+
+</html>

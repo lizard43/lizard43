@@ -1,0 +1,456 @@
+:root {
+  --bg: #111;
+  --panel: #1a1a1a;
+  --panel-2: #202020;
+  --border: #313131;
+  --text: #f2f2f2;
+  --muted: #b8b8b8;
+  --accent: #d8d8d8;
+  --shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+  --radius: 14px;
+  --topbar-h: 72px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  min-height: 100vh;
+}
+
+a {
+  color: inherit;
+}
+
+button,
+input,
+select {
+  font: inherit;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.appShell {
+  min-height: 100vh;
+}
+
+.topBar {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  background: rgba(17, 17, 17, 0.96);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--border);
+}
+
+.topBarRow {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  padding: 10px 12px;
+  flex-wrap: wrap;
+}
+
+.searchInput,
+.filterSelect {
+  min-height: 42px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+}
+
+.searchInput,
+.filterSelect {
+  background: var(--panel);
+  color: var(--text);
+  padding: 0 12px;
+}
+
+.searchInput {
+  flex: 1 1 280px;
+  min-width: 180px;
+}
+
+.filterSelect {
+  flex: 0 0 180px;
+}
+
+.addMachineFab {
+  position: fixed;
+  top: 12px;
+  right: 14px;
+  z-index: 90;
+
+  width: 28px;
+  height: 28px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: none;
+  background: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.addMachineFab svg {
+  width: 26px;
+  height: 26px;
+  stroke: #ffffff;
+  stroke-width: 2.6;
+  stroke-linecap: round;
+  fill: none;
+}
+
+.mainLayout {
+  display: block;
+  min-height: calc(100vh - var(--topbar-h));
+}
+
+.cardsPane {
+  padding: 16px;
+}
+
+.cardsGrid {
+  display: grid;
+  gap: 16px;
+}
+
+.card {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  cursor: pointer;
+  transition: transform 0.12s ease, border-color 0.12s ease;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  border-color: #4a4a4a;
+}
+
+.card.selected {
+  border-color: #7d7d7d;
+}
+
+.machineRow {
+  display: block;
+}
+
+.machineDetailInline {
+  display: none;
+}
+
+.cardPhotoWrap {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  background: #0d0d0d;
+  overflow: hidden;
+}
+
+.cardPhoto {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.cardBody {
+  padding: 14px;
+}
+
+.cardTitle {
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin: 0 0 8px;
+}
+
+.cardLine {
+  margin: 0 0 6px;
+  color: var(--muted);
+  line-height: 1.35;
+}
+
+.cardLine strong {
+  color: var(--text);
+  font-weight: 600;
+}
+
+.cardActions {
+  display: flex;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.actionLink {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 34px;
+  padding: 0 12px;
+  border: 1px solid var(--border);
+  border-radius: 9px;
+  text-decoration: none;
+  background: var(--panel-2);
+  color: var(--text);
+}
+
+.actionLink:hover {
+  filter: brightness(1.08);
+}
+
+.emptyState {
+  padding: 28px 6px;
+  color: var(--muted);
+}
+
+.detailPane {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: min(92vw, 420px);
+  height: 100vh;
+  background: #171717;
+  border-left: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  transform: translateX(100%);
+  transition: transform 0.22s ease;
+  z-index: 60;
+  display: flex;
+  flex-direction: column;
+}
+
+.detailPane.open {
+  transform: translateX(0);
+}
+
+.mobileOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.22s ease;
+  z-index: 50;
+}
+
+.mobileOverlay.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.detailHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--border);
+}
+
+.detailTitle {
+  margin: 0;
+  font-size: 1.25rem;
+}
+
+.iconBtn {
+  min-width: 40px;
+  min-height: 40px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--panel-2);
+  color: var(--text);
+  cursor: pointer;
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
+.detailContent {
+  overflow: auto;
+  padding: 16px;
+}
+
+.detailPlaceholder {
+  color: var(--muted);
+}
+
+.detailSection {
+  margin-bottom: 22px;
+}
+
+.detailSection h3 {
+  margin: 0 0 10px;
+  font-size: 1rem;
+}
+
+.detailMeta,
+.detailNotes,
+.detailList,
+.detailStats {
+  color: var(--muted);
+  line-height: 1.45;
+}
+
+.detailHero {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: #0d0d0d;
+  margin-bottom: 16px;
+}
+
+.detailHero img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.detailMetaRow,
+.statRow,
+.expenseRow {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 6px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.detailMetaRow:last-child,
+.statRow:last-child,
+.expenseRow:last-child {
+  border-bottom: 0;
+}
+
+.label {
+  color: var(--muted);
+}
+
+.value {
+  color: var(--text);
+  text-align: right;
+}
+
+.detailButtons {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.detailBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 38px;
+  padding: 0 14px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--panel-2);
+  color: var(--text);
+  text-decoration: none;
+}
+
+.photoStrip {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+.photoThumb {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: #0d0d0d;
+}
+
+.photoThumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+@media (min-width: 1000px) {
+  .mainLayout {
+    display: block;
+  }
+
+  .cardsPane {
+    min-width: 0;
+  }
+
+  .machineRow {
+    display: grid;
+    grid-template-columns: minmax(280px, 360px) minmax(0, 1fr);
+    gap: 16px;
+    align-items: start;
+  }
+
+  .machineDetailInline {
+    display: block;
+    background: #171717;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+  }
+
+  .detailPane {
+    display: none;
+  }
+
+  .mobileOverlay {
+    display: none;
+  }
+
+  #closeDetailBtn {
+    display: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .topBarRow {
+    padding: 12px;
+  }
+
+  .searchInput,
+  .filterSelect {
+    width: 100%;
+    flex: 1 1 100%;
+  }
+
+  .addMachineFab {
+    margin-left: 0;
+    flex: 0 0 42px;
+    width: 42px;
+    height: 42px;
+    top: 14px;
+    right: 16px;
+  }
+
+  .cardsPane {
+    padding: 12px;
+  }
+
+  .cardsGrid {
+    gap: 12px;
+  }
+}

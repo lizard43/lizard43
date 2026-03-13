@@ -1,0 +1,67 @@
+[
+  {
+    "id": "m001",
+    "title": "Galaga",
+    "year": 1981,
+    "manufacturer": "Namco",
+    "genre": "Shooter",
+    "location": "Game Room",
+    "condition": "working",
+    "purchasePrice": 900,
+    "totalExpenses": 60.5,
+    "totalCost": 960.5,
+    "photo": "galaga-cabinet.jpg",
+    "photos": ["galaga-cabinet.jpg", "galaga-side.jpg"],
+    "klov": "https://www.arcade-museum.com/Videogame/galaga",
+    "notes": "Monitor looks good. Replaced power supply.",
+    "expenses": [
+      {
+        "date": "2026-02-10",
+        "category": "parts",
+        "amount": 42.5,
+        "note": "Cap kit"
+      },
+      {
+        "date": "2026-02-11",
+        "category": "shipping",
+        "amount": 18,
+        "note": "Parts shipping"
+      }
+    ],
+    "soldPrice": null
+  },
+  {
+    "id": "m002",
+    "title": "Defender",
+    "year": 1981,
+    "manufacturer": "Williams",
+    "genre": "Shooter",
+    "location": "Storage",
+    "condition": "project",
+    "purchasePrice": 700,
+    "totalExpenses": 125,
+    "totalCost": 825,
+    "photo": "defender-cabinet.jpg",
+    "klov": "https://www.arcade-museum.com/Videogame/defender",
+    "notes": "Needs monitor and control panel work.",
+    "expenses": [],
+    "soldPrice": null
+  },
+  {
+    "id": "m003",
+    "title": "Capt Fantastic 2",
+    "year": 1981,
+    "manufacturer": "Williams",
+    "genre": "Shooter",
+    "location": "Workshop",
+    "condition": "project",
+    "purchasePrice": 700,
+    "totalExpenses": 125,
+    "totalCost": 825,
+    "photo": "defender-cabinet.jpg",
+    "klov": "https://www.arcade-museum.com/Videogame/defender",
+    "notes": "Needs monitor and control panel work.",
+    "expenses": [],
+    "soldPrice": null
+  }
+]
