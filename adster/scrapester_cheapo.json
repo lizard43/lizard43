@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-03-13T12:05:34.355Z",
+  "generated_at": "2026-03-13T13:07:44.552Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,53 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 33,
-      "droppedPrice": 54,
+      "exported_ads": 35,
+      "droppedPrice": 58,
       "droppedMissingGeo": 0,
-      "droppedCircle": 26
+      "droppedCircle": 36
     }
   },
   "ads": [
+    {
+      "adID": "2233988117408530",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100001840236230/?product_id=2233988117408530",
+      "author": "Cody McBryar",
+      "postedTime": "2026-03-13T04:10:48.000Z",
+      "title": "Abu Garcia Revo SX lot",
+      "description": "5 revo SX reels. All new, no signs of use. 1 6.4, 4-7.1. Pickup in dutton. No shipping.",
+      "price": "$600",
+      "lat": 34.6109183,
+      "lon": -85.91692,
+      "location": "Dutton, AL",
+      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/650200911_1411844380691021_5155211503669764936_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=106&ccb=1-7&_nc_sid=92e707&_nc_ohc=pHQaEfxyRAcQ7kNvwEVS4ba&_nc_oc=AdlU-xYeO4lFeXGgg2uYULTsrzA5_dQ3YhbgcYWoYg8iAI-Z1JpDnkzP6KjgMYx5ti8&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=1gJu9HrE9vnTW_xwLYrsWQ&_nc_ss=8&oh=00_AfzAfWb5YvNuj5cnJ2W-nMqCTvvXlZyVopouC6dX9Ur-Dg&oe=69B9DCA8",
+      "adUrl": "https://www.facebook.com/marketplace/item/2233988117408530/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-03-13 13:04:58",
+      "lastSeen": "2026-03-13T13:07:04.403Z"
+    },
+    {
+      "adID": "866251906463239",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/1057125684/?product_id=866251906463239",
+      "author": "Barbara Clements Holland",
+      "postedTime": "2026-03-13T04:09:47.000Z",
+      "title": "Harley Davidson Rain Suit",
+      "description": "Men’s HD 2 tone grey/orange Rain Suit Size 2XL",
+      "price": "$100",
+      "lat": 32.8406946,
+      "lon": -83.6324022,
+      "location": "Macon, GA",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/651676276_1571103640857952_64403643012625463_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=109&ccb=1-7&_nc_sid=92e707&_nc_ohc=YKrstOF88e4Q7kNvwGnPMY3&_nc_oc=AdnMBwD4C9tv8BfQzk2R7ThOH-Ekc7IgDfsTfATjbg_7VNRwADhlGnc9e9vD82MalCM&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=PRW5rRl0XDw2M5tyhG74tA&_nc_ss=8&oh=00_Afx1b1vviSPIHF7DDbAtXNK6X99k2t-3ItrOmSrRh3pb_Q&oe=69B9EB6E",
+      "adUrl": "https://www.facebook.com/marketplace/item/866251906463239/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-03-13 13:04:58",
+      "lastSeen": "2026-03-13T13:07:04.448Z"
+    },
     {
       "adID": "1511621653863915",
       "source": "MP",
@@ -36,7 +76,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-13 02:04:19",
-      "lastSeen": "2026-03-13T02:04:48.867Z"
+      "lastSeen": "2026-03-13T13:04:18.119Z"
     },
     {
       "adID": "1655747152087236",
@@ -56,7 +96,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-12 23:04:18",
-      "lastSeen": "2026-03-13T12:05:11.553Z"
+      "lastSeen": "2026-03-13T13:04:58.943Z"
     },
     {
       "adID": "2152912865466993",
@@ -76,7 +116,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-12 21:04:19",
-      "lastSeen": "2026-03-13T02:04:19.286Z"
+      "lastSeen": "2026-03-13T13:04:18.163Z"
     },
     {
       "adID": "951204157860382",
@@ -143,20 +183,20 @@
       "source": "FB",
       "authorUrl": null,
       "author": "Shane Starr",
-      "postedTime": "2026-03-11T12:00:18.602Z",
+      "postedTime": "2026-03-11T13:00:18.394Z",
       "title": "Hang On Project Cab",
       "description": "Non working project cab. Cabinet is in great shape but someone stuck an LCD inside with a VGA connection. Includes the board but gets artifacting on power up / display. Board could be repaired.",
       "price": "$350",
       "lat": 34.0234337,
       "lon": -84.6154897,
       "location": "KENNESAW, GA",
-      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.30808-6/649821730_10225101155594897_4783580897399658674_n.jpg?stp=dst-jpegr_p526x296_tt6&_nc_cat=109&ccb=1-7&_nc_sid=e06c5d&_nc_ohc=wBsClwHx20MQ7kNvwHLcI8V&_nc_oc=AdnwWVdvSQHjKfhHCXqEe0tIIkPbcbytSUQg4IuUX_i294QPgojsqmvhq5Ko_pQRYPQ&_nc_zt=23&se=-1&_nc_ht=scontent-dfw5-1.xx&_nc_gid=hC7hV3wBhcqNijLdSjsvdw&_nc_ss=8&oh=00_Afxh2cylqnzJi-1SHrvOF355gYV2NQSbgwYZhEvBaG3_Nw&oe=69B9D7E4",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.30808-6/649821730_10225101155594897_4783580897399658674_n.jpg?stp=dst-jpegr_p526x296_tt6&_nc_cat=109&ccb=1-7&_nc_sid=e06c5d&_nc_ohc=wBsClwHx20MQ7kNvwHLcI8V&_nc_oc=AdnwWVdvSQHjKfhHCXqEe0tIIkPbcbytSUQg4IuUX_i294QPgojsqmvhq5Ko_pQRYPQ&_nc_zt=23&se=-1&_nc_ht=scontent-dfw5-1.xx&_nc_gid=cKXc7QYAsfMiBTJKLsNi-Q&_nc_ss=8&oh=00_AfxtdmKiPQiwTXPSb1wGoJJTkS-4KRmO3M_bjHhjDQ5LJw&oe=69B9D7E4",
       "adUrl": "https://www.facebook.com/commerce/listing/1511667507145267/",
       "priceChanged": 0,
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-11 01:04:56",
-      "lastSeen": "2026-03-13T12:00:18.757Z"
+      "lastSeen": "2026-03-13T13:00:18.528Z"
     },
     {
       "adID": "1474843950968894",
@@ -316,7 +356,7 @@
       "priceChangedAt": "2026-03-11 16:06:30",
       "hidden": 0,
       "created_at": "2026-03-04 12:09:54",
-      "lastSeen": "2026-03-13T12:05:34.122Z"
+      "lastSeen": "2026-03-13T13:07:44.348Z"
     },
     {
       "adID": "1570931707463297",
