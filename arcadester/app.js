@@ -1,8 +1,11 @@
 (() => {
+
   const state = {
     allMachines: [],
     filteredMachines: [],
-    selectedId: null
+    selectedId: null,
+    priceguideEntries: [],
+    priceguideByTitle: new Map()
   };
 
   const els = {
@@ -72,11 +75,98 @@
     return Number.isFinite(n) ? n : null;
   }
 
+  async function loadPriceguide() {
+    const url = "../priceguide/vag/vagal_norm4.json";
+
+    try {
+      const response = await fetch(url, { cache: "no-store" });
+      if (!response.ok) {
+        throw new Error(`HTTP ${response.status}`);
+      }
+
+      const data = await response.json();
+      if (!Array.isArray(data)) {
+        throw new Error("Priceguide JSON must be an array.");
+      }
+
+      state.priceguideEntries = data;
+      state.priceguideByTitle = new Map();
+
+      for (const entry of data) {
+        const key = normalizeLookupTitle(entry.title);
+        if (!key) continue;
+
+        if (!state.priceguideByTitle.has(key)) {
+          state.priceguideByTitle.set(key, entry);
+        }
+      }
+
+      console.log(`[priceguide] loaded ${state.priceguideEntries.length} entries`);
+    } catch (err) {
+      console.warn(`[priceguide] failed to load ${url}: ${err.message}`);
+      state.priceguideEntries = [];
+      state.priceguideByTitle = new Map();
+    }
+  }
+
+  function normalizeLookupTitle(value) {
+    return String(value || "")
+      .toLowerCase()
+      .trim()
+      .replace(/&/g, "and")
+      .replace(/['’]/g, "")
+      .replace(/[^a-z0-9]+/g, " ")
+      .replace(/\s+/g, " ")
+      .trim();
+  }
+
+  function getPriceguideEntry(machine) {
+    const key = normalizeLookupTitle(machine.title);
+    if (!key) return null;
+    return state.priceguideByTitle.get(key) || null;
+  }
+
+  function getPriceguideImageUrl(filename) {
+    if (!filename) return "";
+    if (/^https?:\/\//i.test(filename)) return filename;
+    return `../priceguide/vag/images/${filename}`;
+  }
+
+  function formatRating(value) {
+    const n = Number(value);
+    if (!Number.isFinite(n)) return "—";
+    return String(Number(n.toFixed(2)));
+  }
+
+  function formatPriceguideRange(entry) {
+    if (!entry || !Array.isArray(entry.variant) || entry.variant.length === 0) return "—";
+
+    const lows = entry.variant
+      .map(v => Number(v.price_lower))
+      .filter(Number.isFinite);
+
+    const highs = entry.variant
+      .map(v => Number(v.price_higher))
+      .filter(Number.isFinite);
+
+    if (!lows.length && !highs.length) return "—";
+
+    const low = lows.length ? Math.min(...lows) : null;
+    const high = highs.length ? Math.max(...highs) : null;
+
+    if (low != null && high != null) {
+      return `${formatMoney(low)} – ${formatMoney(high)}`;
+    }
+
+    return formatMoney(low ?? high);
+  }
+
   async function init() {
     wireEvents();
 
     try {
       state.allMachines = await window.InventoryLoader.load();
+      await loadPriceguide();
       populateFilters();
       applyFilters();
 
@@ -267,6 +357,9 @@
   }
 
   function buildDetailMarkup(machine, includeHeader = true) {
+
+    const pg = getPriceguideEntry(machine);
+
     const expenseRows = Array.isArray(machine.expenses) && machine.expenses.length
       ? machine.expenses.map(exp => `
         <div class="expenseRow">
@@ -293,6 +386,32 @@
     const totalCost = machine.totalCost ?? addMoney(machine.purchasePrice, totalExpenses);
     const profit = machine.soldPrice != null ? machine.soldPrice - (totalCost || 0) : null;
 
+    const pgImage = pg && pg.image
+      ? `
+        <div class="priceguideHero">
+          <img src="${escapeAttr(getPriceguideImageUrl(pg.image))}" alt="${escapeAttr(pg.title || machine.title)}">
+        </div>
+      `
+      : "";
+
+    const pgVariants = pg && Array.isArray(pg.variant) && pg.variant.length
+      ? `
+        <div class="detailMeta">
+          ${pg.variant.map(v => `
+            <div class="detailMetaRow">
+              <span class="label">${escapeHtml(v.type || "Variant")}</span>
+              <span class="value">${escapeHtml(
+        (Number.isFinite(Number(v.price_lower)) || Number.isFinite(Number(v.price_higher)))
+          ? `${formatMoney(v.price_lower)} – ${formatMoney(v.price_higher)}`
+          : "—"
+      )}</span>
+            </div>
+          `).join("")}
+        </div>
+      `
+      : `<div class="detailMeta">No variant pricing.</div>`;
+
+
     return `
     ${includeHeader ? "" : `<div class="detailHeader"><h2 class="detailTitle">${escapeHtml(machine.title)}</h2></div>`}
 
@@ -304,6 +423,30 @@
         </div>
       </section>
 
+      ${pg ? `
+      <section class="detailSection">
+        <h3>Price guide</h3>
+
+        ${pgImage}
+
+        <div class="detailMeta">
+          <div class="detailMetaRow"><span class="label">Title</span><span class="value">${escapeHtml(pg.title || "—")}</span></div>
+          <div class="detailMetaRow"><span class="label">Maker / date</span><span class="value">${escapeHtml([pg.manufacturer, pg.date].filter(Boolean).join(" – ") || "—")}</span></div>
+          <div class="detailMetaRow"><span class="label">Genre</span><span class="value">${escapeHtml(pg.genre || "—")}</span></div>
+          <div class="detailMetaRow"><span class="label">Guide range</span><span class="value">${escapeHtml(formatPriceguideRange(pg))}</span></div>
+          <div class="detailMetaRow"><span class="label">Ratings</span><span class="value">${escapeHtml(
+      `User ${formatRating(pg.ratings?.user)} • Fun ${formatRating(pg.ratings?.fun)} • Collect ${formatRating(pg.ratings?.collector)}`
+    )}</span></div>
+          <div class="detailMetaRow"><span class="label">Page</span><span class="value">${escapeHtml(pg.page ?? "—")}</span></div>
+        </div>
+      </section>
+
+      <section class="detailSection">
+        <h3>Price guide variants</h3>
+        ${pgVariants}
+      </section>
+      ` : ""}
+      
       <section class="detailSection">
         <h3>Machine info</h3>
         <div class="detailMeta">

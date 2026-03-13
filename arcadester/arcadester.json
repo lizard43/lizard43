@@ -1,6 +1,42 @@
 [
   {
     "id": "m001",
+    "title": "Speed Buggy",
+    "year": 1981,
+    "manufacturer": "Namco",
+    "genre": "Shooter",
+    "location": "Game Room",
+    "condition": "working",
+    "purchaseDate": "2026-02-10",
+    "purchasePrice": 900,
+    "purchaseFrom": "Joe",
+    "totalExpenses": 60.5,
+    "totalCost": 960.5,
+    "photos": [
+      "speedbuggy-20240718_071714.jpg"
+    ],
+    "klov": "https://www.arcade-museum.com/Videogame/galaga",
+    "notes": "Monitor looks good. Replaced power supply.",
+    "expenses": [
+      {
+        "date": "2026-02-10",
+        "category": "parts",
+        "amount": 42.5,
+        "note": "Cap kit"
+      },
+      {
+        "date": "2026-02-11",
+        "category": "shipping",
+        "amount": 18,
+        "note": "Parts shipping"
+      }
+    ],
+    "soldDate": null,
+    "soldPrice": null,
+    "soldTo": null
+  },
+  {
+    "id": "m0012",
     "title": "Galaga",
     "year": 1981,
     "manufacturer": "Namco",
@@ -82,4 +118,5 @@
     "soldPrice": null,
     "soldTo": null
   }
+
 ]

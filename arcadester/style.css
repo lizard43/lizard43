@@ -415,6 +415,24 @@ select {
   display: block;
 }
 
+.priceguideHero {
+  width: 100%;
+  max-width: 420px;
+  aspect-ratio: 2.75 / 1;
+  overflow: hidden;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: #0d0d0d;
+  margin-bottom: 12px;
+}
+
+.priceguideHero img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
 @media (min-width: 1000px) {
   .mainLayout {
     display: block;
