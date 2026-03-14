@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-03-14T15:24:54.490Z",
+  "generated_at": "2026-03-14T16:05:59.039Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,32 +11,52 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 32,
-      "droppedPrice": 97,
+      "exported_ads": 33,
+      "droppedPrice": 99,
       "droppedMissingGeo": 0,
-      "droppedCircle": 65
+      "droppedCircle": 48
     }
   },
   "ads": [
+    {
+      "adID": "1183085697053090",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/1188012927/?product_id=1183085697053090",
+      "author": "Enrique Paredes",
+      "postedTime": "2026-03-14T15:54:14.000Z",
+      "title": "Bicicleta Híbrida para Adultos, Bicicleta de Carretera Akaber de 24 Velocidades 700C",
+      "description": "Bicicleta Hyper de 24 velocidades Akaber, con ruedas ágiles 700C y un marco de acero de aleación ajustable en altura. Garantiza una conducción segura y confiada con frenos de disco duales sensibles y cambios de gatillo suaves, todo mejorado por un diseño de cableado interno limpio. La bicicleta de carretera ligera Akaber es la elección ideal para hombre y mujeres que buscan un paseo versátil para el desplazamiento y la diversión al aire libre. Lo",
+      "price": "$120",
+      "lat": 27.9449854,
+      "lon": -82.4583107,
+      "location": "Tampa, FL",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/650099180_1244057057431960_1436331907153669215_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=109&ccb=1-7&_nc_sid=92e707&_nc_ohc=VsmNIudu8AkQ7kNvwEN9ZiF&_nc_oc=AdkoipKSM8WuWBubhiilg5PeucY_ChWWMJOJzR_k1HxtoD4T84G-TrpeQ8Qo2_6UB2E&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=pjHX4cg0Uv7q9g6n-j8UGQ&_nc_ss=8&oh=00_AfzLKnsguqcV0-mTF9am-zP3MrmROLrQI67v9lGMYyFsow&oe=69BB4378",
+      "adUrl": "https://www.facebook.com/marketplace/item/1183085697053090/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-03-14 16:05:09",
+      "lastSeen": "2026-03-14T16:05:19.499Z"
+    },
     {
       "adID": "804583199343269",
       "source": "FB",
       "authorUrl": null,
       "author": "Shane Starr",
-      "postedTime": "2026-03-13T22:00:18.204Z",
+      "postedTime": "2026-03-13T22:00:18.208Z",
       "title": "(Pending) Original Gauntlet by Atari Project Cabinet",
       "description": "Non workout Gauntlet cabinet. Has original joysticks and monitor / bezel as far as I can tell. Also appears to have original artwork under the black paint on the sides and control panel. Would make for a great retro restoration project!",
       "price": "$300",
       "lat": 34.0234337,
       "lon": -84.6154897,
       "location": "KENNESAW, GA",
-      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.30808-6/651244967_10225140439936981_217521075182415945_n.jpg?stp=dst-jpegr_s590x590_tt6&_nc_cat=100&ccb=1-7&_nc_sid=e06c5d&_nc_ohc=cp3pXZONRW8Q7kNvwEBXIqo&_nc_oc=Adk1BE3kRlBT_5ioCzZU5P9kbZGk83wZOIlV2hkOQmpKoimPK1H3A7e8sBhj7o7MO2o&_nc_zt=23&se=-1&_nc_ht=scontent-dfw5-2.xx&_nc_gid=VEQ1Cr3Ok-r6G1FN3wHXZA&_nc_ss=8&oh=00_Afx7XOMvvRwIHoEDx14bpn5yGXgnFcmH7xRE4lUbtyPbZA&oe=69BB4813",
+      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.30808-6/651244967_10225140439936981_217521075182415945_n.jpg?stp=dst-jpegr_s590x590_tt6&_nc_cat=100&ccb=1-7&_nc_sid=e06c5d&_nc_ohc=cp3pXZONRW8Q7kNvwEBXIqo&_nc_oc=Adk1BE3kRlBT_5ioCzZU5P9kbZGk83wZOIlV2hkOQmpKoimPK1H3A7e8sBhj7o7MO2o&_nc_zt=23&se=-1&_nc_ht=scontent-dfw5-2.xx&_nc_gid=WgWMWwlvrTYbjiqEjPXR6g&_nc_ss=8&oh=00_Afz0lE8cE25eDg6vbETf-2HjUHOcY3_6YNiXeTSSldQYnw&oe=69BB4813",
       "adUrl": "https://www.facebook.com/commerce/listing/804583199343269/",
       "priceChanged": 0,
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-13 22:00:18",
-      "lastSeen": "2026-03-14T15:00:18.292Z"
+      "lastSeen": "2026-03-14T16:00:18.259Z"
     },
     {
       "adID": "1511621653863915",
@@ -316,7 +336,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-04 12:09:54",
-      "lastSeen": "2026-03-14T15:06:09.922Z"
+      "lastSeen": "2026-03-14T16:05:58.915Z"
     },
     {
       "adID": "1570931707463297",
