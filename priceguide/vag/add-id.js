@@ -22,7 +22,7 @@ try {
 
   const result = data.map(entry => {
     return {
-      id: id++,
+      id: `vag-${id++}`,
       ...entry
     };
   });

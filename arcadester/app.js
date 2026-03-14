@@ -1,11 +1,14 @@
 (() => {
 
+  const API_URL = 'https://script.google.com/macros/s/AKfycbyfpebveJYArafZ2FaMWNTT5IYrkwdc56vOyGA8CrStTu1dXiqvIanfS_YQtMJdVu53kA/exec';
+
   const state = {
     allMachines: [],
     filteredMachines: [],
     selectedId: null,
     priceguideEntries: [],
-    priceguideByTitle: new Map()
+    priceguideByTitle: new Map(),
+    priceguideById: new Map()
   };
 
   const els = {
@@ -22,19 +25,31 @@
     mobileOverlay: document.getElementById("mobileOverlay")
   };
 
+  async function apiGet(params) {
+    const url = new URL(API_URL);
+    Object.entries(params).forEach(([k, v]) => {
+      if (v !== undefined && v !== null && v !== "") {
+        url.searchParams.set(k, v);
+      }
+    });
+
+    const res = await fetch(url.toString(), { cache: "no-store" });
+    if (!res.ok) {
+      throw new Error(`API request failed: HTTP ${res.status}`);
+    }
+
+    return res.json();
+  }
+
   window.InventoryLoader = {
-    async load(url = "arcadester.json") {
-      const response = await fetch(url, { cache: "no-store" });
-      if (!response.ok) {
-        throw new Error(`Failed to load inventory: HTTP ${response.status}`);
+    async load() {
+      const payload = await apiGet({ resource: "games" });
+
+      if (!payload || payload.ok !== true || !Array.isArray(payload.data)) {
+        throw new Error("Games API returned invalid data.");
       }
 
-      const data = await response.json();
-      if (!Array.isArray(data)) {
-        throw new Error("Inventory JSON must be an array.");
-      }
-
-      return data.map(normalizeMachine);
+      return payload.data.map(normalizeMachine);
     }
   };
 
@@ -46,23 +61,37 @@
 
   function normalizeMachine(machine) {
     const item = { ...machine };
+    const pg = getPriceguideEntryFromPgId(item.pgID) || null;
 
-    item.id = String(item.id || "");
-    item.title = String(item.title || "").trim();
-    item.year = item.year ?? null;
-    item.manufacturer = String(item.manufacturer || "").trim();
-    item.genre = String(item.genre || "").trim();
+    item.id = String(item.ID || item.id || "").trim();
+    item.title = String(item.title || pg?.title || "").trim();
+    item.pgID = String(item.pgID || "").trim();
+
+    item.year = pg?.date || null;
+    item.manufacturer = String(pg?.manufacturer || "").trim();
+    item.genre = String(pg?.genre || "").trim();
+
     item.location = String(item.location || "").trim();
     item.condition = String(item.condition || "").trim();
+
+    item.purchaseDate = String(item.purchaseDate || "").trim();
     item.purchasePrice = toNumberOrNull(item.purchasePrice);
-    item.totalExpenses = toNumberOrNull(item.totalExpenses);
-    item.totalCost = toNumberOrNull(item.totalCost);
-    item.klov = String(item.klov || "").trim();
+    item.purchaseFrom = String(item.purchaseFrom || "").trim();
 
     item.notes = String(item.notes || "").trim();
-    item.photos = Array.isArray(item.photos) ? item.photos : [];
-    item.expenses = Array.isArray(item.expenses) ? item.expenses : [];
+
+    item.totalExpenses = null;
+    item.totalCost = null;
+    item.expenses = [];
+
+    item.photo = String(item.photo || "").trim();
+    item.photos = [];
+
+    item.klov = String(pg?.klov || "").trim();
+
+    item.soldDate = String(item.soldDate || "").trim();
     item.soldPrice = toNumberOrNull(item.soldPrice);
+    item.soldTo = String(item.soldTo || "").trim();
 
     return item;
   }
@@ -91,13 +120,17 @@
 
       state.priceguideEntries = data;
       state.priceguideByTitle = new Map();
+      state.priceguideById = new Map();
 
       for (const entry of data) {
-        const key = normalizeLookupTitle(entry.title);
-        if (!key) continue;
+        const titleKey = normalizeLookupTitle(entry.title);
+        if (titleKey && !state.priceguideByTitle.has(titleKey)) {
+          state.priceguideByTitle.set(titleKey, entry);
+        }
 
-        if (!state.priceguideByTitle.has(key)) {
-          state.priceguideByTitle.set(key, entry);
+        const idKey = String(entry.id || "").trim();
+        if (idKey && !state.priceguideById.has(idKey)) {
+          state.priceguideById.set(idKey, entry);
         }
       }
 
@@ -106,6 +139,7 @@
       console.warn(`[priceguide] failed to load ${url}: ${err.message}`);
       state.priceguideEntries = [];
       state.priceguideByTitle = new Map();
+      state.priceguideById = new Map();
     }
   }
 
@@ -120,10 +154,18 @@
       .trim();
   }
 
-  function getPriceguideEntry(machine) {
-    const key = normalizeLookupTitle(machine.title);
+  function getPriceguideEntryFromPgId(pgID) {
+    const key = String(pgID || "").trim();
     if (!key) return null;
-    return state.priceguideByTitle.get(key) || null;
+    return state.priceguideById.get(key) || null;
+  }
+
+  function getPriceguideEntry(machine) {
+    return (
+      getPriceguideEntryFromPgId(machine.pgID) ||
+      state.priceguideByTitle.get(normalizeLookupTitle(machine.title)) ||
+      null
+    );
   }
 
   function getPriceguideImageUrl(filename) {
@@ -165,8 +207,8 @@
     wireEvents();
 
     try {
-      state.allMachines = await window.InventoryLoader.load();
       await loadPriceguide();
+      state.allMachines = await window.InventoryLoader.load();
       populateFilters();
       applyFilters();
 
@@ -192,9 +234,17 @@
     window.addEventListener("resize", updateSelectedCard);
   }
 
+  function isSoldMachine(machine) {
+    return !!String(machine?.soldDate || "").trim();
+  }
+
+  function getEffectiveCondition(machine) {
+    return isSoldMachine(machine) ? "sold" : String(machine?.condition || "").trim();
+  }
+
   function populateFilters() {
     const locations = uniqueSorted(state.allMachines.map(m => m.location).filter(Boolean));
-    const conditions = uniqueSorted(state.allMachines.map(m => m.condition).filter(Boolean));
+    const conditions = uniqueSorted(state.allMachines.map(getEffectiveCondition).filter(Boolean));
 
     fillSelect(els.locationFilter, "All locations", locations);
     fillSelect(els.conditionFilter, "All conditions", conditions);
@@ -215,18 +265,32 @@
     const condition = els.conditionFilter.value;
 
     state.filteredMachines = state.allMachines.filter(machine => {
+      const effectiveCondition = getEffectiveCondition(machine);
+
       if (location && machine.location !== location) return false;
-      if (condition && machine.condition !== condition) return false;
+
+      if (condition) {
+        if (effectiveCondition !== condition) return false;
+      } else {
+        if (effectiveCondition === "sold") return false;
+      }
 
       if (!q) return true;
 
+      const pg = getPriceguideEntry(machine);
+
       const blob = [
+        machine.id,
         machine.title,
-        machine.manufacturer,
-        machine.genre,
         machine.location,
+        effectiveCondition,
         machine.condition,
-        machine.year
+        machine.notes,
+        machine.purchaseFrom,
+        machine.pgID,
+        pg?.manufacturer || machine.manufacturer,
+        pg?.genre || machine.genre,
+        pg?.date || machine.year
       ]
         .join(" ")
         .toLowerCase();
@@ -271,26 +335,27 @@
         card.classList.add("selected");
       }
 
+      const pg = getPriceguideEntry(machine);
+      const cardImageUrl = getCardPhotoUrl(machine);
+      const klovUrl = machine.klov || pg?.klov || "";
+
       card.innerHTML = `
       <div class="cardPhotoWrap">
-        <img class="cardPhoto" src="${escapeAttr(getPhotoUrl(machine.photos[0]))}" alt="${escapeAttr(machine.title)}">
+        <img class="cardPhoto" src="${escapeAttr(cardImageUrl)}" alt="${escapeAttr(machine.title)}">
       </div>
 
       <div class="cardBody">
 
         <div class="cardHeader">
           <h3 class="cardTitle">${escapeHtml(machine.title)}</h3>
-          ${machine.klov
-          ? `<a class="cardKlov cardPill" href="${escapeAttr(machine.klov)}" target="_blank" rel="noopener noreferrer">KLOV</a>`
-          : ``
-        }
+          <span class="cardGameId">${escapeHtml(machine.id)}</span>
         </div>
 
         <div class="cardFooter">
           <div class="cardFooterMeta">${escapeHtml(
-          [machine.location, machine.condition].filter(Boolean).join(" - ") || "—"
-        )}</div>
-          <button class="detailsBtn cardPill" type="button">Details</button>
+        formatLocationCondition(machine)
+      )}</div>
+          <button class="detailsBtn" type="button">Details &raquo;</button>
         </div>
 
       </div>
@@ -371,12 +436,14 @@
     const totalCost = machine.totalCost ?? addMoney(machine.purchasePrice, totalExpenses);
     const profit = machine.soldPrice != null ? machine.soldPrice - (totalCost || 0) : null;
 
-    const pgImage = pg && pg.image
+    const heroImageUrl = getDetailHeroPhotoUrl(machine);
+
+    const pgImage = heroImageUrl
       ? `
-        <div class="priceguideHero">
-          <img src="${escapeAttr(getPriceguideImageUrl(pg.image))}" alt="${escapeAttr(pg.title || machine.title)}">
-        </div>
-      `
+    <div class="priceguideHero">
+      <img src="${escapeAttr(heroImageUrl)}" alt="${escapeAttr(pg?.title || machine.title)}">
+    </div>
+  `
       : "";
 
     const pgVariants = pg && Array.isArray(pg.variant) && pg.variant.length
@@ -401,48 +468,23 @@
     ${includeHeader ? "" : `<div class="detailHeader"><h2 class="detailTitle">${escapeHtml(machine.title)}</h2></div>`}
 
     <div class="detailContent">
-      <section class="detailSection">
-        <div class="detailButtons">
-          ${machine.klov ? `<a class="detailBtn" href="${escapeAttr(machine.klov)}" target="_blank" rel="noopener noreferrer">Open KLOV</a>` : ""}
-          <button class="detailBtn editMachineBtn" type="button">Edit</button>
-        </div>
-      </section>
 
       ${pg ? `
       <section class="detailSection">
-        <h3>Price guide</h3>
-
         ${pgImage}
-
         <div class="detailMeta">
           <div class="detailMetaRow"><span class="label">Title</span><span class="value">${escapeHtml(pg.title || "—")}</span></div>
           <div class="detailMetaRow"><span class="label">Maker / date</span><span class="value">${escapeHtml([pg.manufacturer, pg.date].filter(Boolean).join(" – ") || "—")}</span></div>
           <div class="detailMetaRow"><span class="label">Genre</span><span class="value">${escapeHtml(pg.genre || "—")}</span></div>
-          <div class="detailMetaRow"><span class="label">Guide range</span><span class="value">${escapeHtml(formatPriceguideRange(pg))}</span></div>
           <div class="detailMetaRow"><span class="label">Ratings</span><span class="value">${escapeHtml(
-      `User ${formatRating(pg.ratings?.user)} • Fun ${formatRating(pg.ratings?.fun)} • Collect ${formatRating(pg.ratings?.collector)}`
-    )}</span></div>
-          <div class="detailMetaRow"><span class="label">Page</span><span class="value">${escapeHtml(pg.page ?? "—")}</span></div>
+      `User ${formatRating(pg.ratings?.user)} • Fun ${formatRating(pg.ratings?.fun)} • Collect ${formatRating(pg.ratings?.collector)}`)}
+          </span></div>
+          <div class="detailMetaRow"><span class="label">Guide range</span><span class="value">${escapeHtml(formatPriceguideRange(pg))}</span></div>
         </div>
       </section>
 
-      <section class="detailSection">
-        <h3>Price guide variants</h3>
-        ${pgVariants}
-      </section>
       ` : ""}
       
-      <section class="detailSection">
-        <h3>Machine info</h3>
-        <div class="detailMeta">
-          <div class="detailMetaRow"><span class="label">Year</span><span class="value">${escapeHtml(machine.year ?? "—")}</span></div>
-          <div class="detailMetaRow"><span class="label">Manufacturer</span><span class="value">${escapeHtml(machine.manufacturer || "—")}</span></div>
-          <div class="detailMetaRow"><span class="label">Genre</span><span class="value">${escapeHtml(machine.genre || "—")}</span></div>
-          <div class="detailMetaRow"><span class="label">Location</span><span class="value">${escapeHtml(machine.location || "—")}</span></div>
-          <div class="detailMetaRow"><span class="label">Condition</span><span class="value">${escapeHtml(machine.condition || "—")}</span></div>
-        </div>
-      </section>
-
       <section class="detailSection">
         <h3>Notes</h3>
         <div class="detailNotes">${escapeHtml(machine.notes || "No notes yet.")}</div>
@@ -478,15 +520,6 @@
   `;
   }
 
-  function wireDetailButtons(rootEl, machine) {
-    const editBtn = rootEl.querySelector(".editMachineBtn");
-    if (editBtn) {
-      editBtn.addEventListener("click", () => {
-        alert(`Edit UI for ${machine.title} can be wired next.`);
-      });
-    }
-  }
-
   function renderDetail(machine) {
     if (!machine) {
       els.detailTitle.textContent = "Select a machine";
@@ -496,8 +529,6 @@
 
     els.detailTitle.textContent = machine.title;
     els.detailContent.innerHTML = buildDetailMarkup(machine, true);
-
-    wireDetailButtons(els.detailContent, machine);
   }
 
   function uniqueSorted(values) {
@@ -513,9 +544,20 @@
 
   function formatLocationCondition(machine) {
     const parts = [];
-    if (machine.location) parts.push(machine.location);
-    if (machine.condition) parts.push(machine.condition);
-    return parts.length ? parts.join(" • ") : "—";
+
+    if (machine.location) {
+      parts.push(machine.location);
+    }
+
+    if (machine.condition) {
+      parts.push(machine.condition);
+    }
+
+    if (machine.soldDate && String(machine.soldDate).trim() !== "") {
+      parts.push("sold");
+    }
+
+    return parts.length ? parts.join(" - ") : "—";
   }
 
   function formatMoney(value) {
@@ -528,19 +570,67 @@
     }).format(n);
   }
 
+  function getCardPhotoUrl(machine) {
+    if (machine.photo) {
+      return getPhotoUrl(machine.photo);
+    }
+
+    if (Array.isArray(machine.photos) && machine.photos.length) {
+      return getPhotoUrl(machine.photos[0]);
+    }
+
+    const pg = getPriceguideEntry(machine);
+    if (pg && pg.image) {
+      return getPriceguideImageUrl(pg.image);
+    }
+
+    return getPhotoUrl("");
+  }
+
+  function getDetailHeroPhotoUrl(machine) {
+    if (machine.photo) {
+      return getPhotoUrl(machine.photo);
+    }
+
+    const pg = getPriceguideEntry(machine);
+    if (pg && pg.image) {
+      return getPriceguideImageUrl(pg.image);
+    }
+
+    if (Array.isArray(machine.photos) && machine.photos.length) {
+      return getPhotoUrl(machine.photos[0]);
+    }
+
+    return getPhotoUrl("");
+  }
+
+
+  function normalizeImgBB(url) {
+    if (!url) return url;
+
+    // Only direct image URLs are usable in <img src="">
+    if (url.includes("i.ibb.co")) return url;
+
+    // Leave ibb.co page links alone so we do not invent a bad image URL
+    return url;
+  }
+
   function getPhotoUrl(filename) {
     if (!filename) return "data:image/svg+xml;charset=UTF-8," + encodeURIComponent(
       `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 480">
-        <rect width="640" height="480" fill="#111"/>
-        <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="#777" font-family="Arial" font-size="28">
-          No Photo
-        </text>
-      </svg>`
+      <rect width="640" height="480" fill="#111"/>
+      <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="#777" font-family="Arial" font-size="28">
+        No Photo
+      </text>
+    </svg>`
     );
+
+    filename = normalizeImgBB(filename);
 
     if (/^https?:\/\//i.test(filename) || filename.startsWith("images/")) {
       return filename;
     }
+
     return `images/${filename}`;
   }
 
