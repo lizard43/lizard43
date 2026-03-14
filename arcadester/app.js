@@ -8,7 +8,8 @@
     selectedId: null,
     priceguideEntries: [],
     priceguideByTitle: new Map(),
-    priceguideById: new Map()
+    priceguideById: new Map(),
+    detailHistoryOpen: false
   };
 
   const els = {
@@ -338,6 +339,13 @@
     els.mobileOverlay.addEventListener("click", closeMobileDetail);
 
     window.addEventListener("resize", updateSelectedCard);
+
+    window.addEventListener("popstate", () => {
+      if (els.detailPane.classList.contains("open")) {
+        state.detailHistoryOpen = false;
+        closeMobileDetail(false);
+      }
+    });
   }
 
   function isSoldMachine(machine) {
@@ -443,8 +451,32 @@
 
       const pg = getPriceguideEntry(machine);
       const cardImageUrl = getCardPhotoUrl(machine);
-      const referenceUrl = machine.referenceUrl || pg?.pageUrl || "";
-      const referenceLabel = machine.referenceLabel || pg?.pageLabel || "";
+
+      const totalExpenses = machine.totalExpenses ?? sumExpenses(machine.expenses);
+      const totalCost = machine.totalCost ?? addMoney(machine.purchasePrice, totalExpenses);
+      const profit = machine.soldPrice != null ? machine.soldPrice - (totalCost || 0) : null;
+
+      const moneyLine = machine.soldPrice != null
+            ? `
+        <span>${escapeHtml(formatMoney(machine.purchasePrice))}</span>
+        <span>+</span>
+        <span>${escapeHtml(formatMoney(totalExpenses))}</span>
+        <span>=</span>
+        <span>${escapeHtml(formatMoney(totalCost))}</span>
+        <span>-</span>
+        <span>${escapeHtml(formatMoney(machine.soldPrice))}</span>
+        <span>=</span>
+        <span class="cardProfit ${profit >= 0 ? 'positive' : 'negative'}">${escapeHtml(formatMoney(profit))}</span>
+      `
+            : `
+        <span>${escapeHtml(formatMoney(machine.purchasePrice))}</span>
+        <span>+</span>
+        <span>${escapeHtml(formatMoney(totalExpenses))}</span>
+        <span>=</span>
+        <span>${escapeHtml(formatMoney(totalCost))}</span>
+      `;
+
+      const soldText = isSoldMachine(machine) ? "sold" : "";
 
       card.innerHTML = `
       <div class="cardPhotoWrap">
@@ -453,16 +485,33 @@
 
       <div class="cardBody">
 
-        <div class="cardHeader">
-          <h3 class="cardTitle">${escapeHtml(machine.title)}</h3>
-          <span class="cardGameId">${escapeHtml(machine.id)}</span>
+        <button class="detailsBtn" type="button">&raquo;</button>
+
+        <div class="cardHeaderSingle">
+          <div class="cardTitleLine">
+            <span class="cardId">${escapeHtml(machine.id)}</span>
+            <span class="cardDot">•</span>
+            <span class="cardTitle">${escapeHtml(machine.title)}</span>
+        </div>
         </div>
 
-        <div class="cardFooter">
-          <div class="cardFooterMeta">${escapeHtml(
-        formatLocationCondition(machine)
-      )}</div>
-          <button class="detailsBtn" type="button">Details &raquo;</button>
+        <div class="cardMetaLine">
+          ${[
+          machine.location,
+          machine.condition,
+          soldText
+        ]
+          .filter(Boolean)
+          .map(v => v === soldText
+            ? `<span class="cardSold">${escapeHtml(v)}</span>`
+            : escapeHtml(v)
+          )
+          .join(" • ")
+        }
+        </div>
+
+        <div class="cardMoneyLine">
+          ${moneyLine}
         </div>
 
       </div>
@@ -496,14 +545,28 @@
     updateSelectedCard();
 
     if (openDetailPane) {
+      const wasOpen = els.detailPane.classList.contains("open");
+
       els.detailPane.classList.add("open");
       els.mobileOverlay.classList.add("open");
+
+      if (!wasOpen) {
+        history.pushState({ detailPane: true }, "");
+        state.detailHistoryOpen = true;
+      }
     }
   }
 
-  function closeMobileDetail() {
+  function closeMobileDetail(useHistoryBack = true) {
+    const wasOpen = els.detailPane.classList.contains("open");
+
     els.detailPane.classList.remove("open");
     els.mobileOverlay.classList.remove("open");
+
+    if (useHistoryBack && wasOpen && state.detailHistoryOpen) {
+      state.detailHistoryOpen = false;
+      history.back();
+    }
   }
 
   function updateSelectedCard() {

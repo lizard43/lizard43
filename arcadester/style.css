@@ -142,12 +142,17 @@ select {
 }
 
 .card:hover {
-  transform: translateY(-2px);
+  transform: translateY(-3px);
   border-color: #4a4a4a;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, .45);
 }
 
 .card.selected {
   border-color: #7d7d7d;
+}
+
+.card:active {
+  transform: translateY(-1px);
 }
 
 .machineRow {
@@ -163,70 +168,57 @@ select {
   aspect-ratio: 4 / 3;
   background: #0d0d0d;
   overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .cardPhoto {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   display: block;
 }
 
 .cardBody {
   padding: 14px;
+  position: relative;
 }
 
-.cardTitle {
-  font-size: 1.15rem;
+.cardHeaderSingle {
+  margin-bottom: 8px;
+}
+
+.cardTitleLine {
+  font-size: 1.1rem;
   font-weight: 700;
-  margin: 0 0 8px;
-}
-
-.cardLine {
-  margin: 0 0 6px;
-  color: var(--muted);
-  line-height: 1.35;
-}
-
-.cardLine strong {
   color: var(--text);
-  font-weight: 600;
+  line-height: 1.2;
+  word-break: break-word;
 }
 
-.cardActions {
-  display: flex;
-  gap: 10px;
-  margin-top: 12px;
+.cardMetaLine {
+  color: var(--muted);
+  line-height: 1.3;
+  margin-bottom: 6px;
+  word-break: break-word;
 }
 
-.cardPill {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 28px;
-  padding: 0 10px;
-  border: 1px solid #4a4a4a;
-  border-radius: 999px;
-  background: transparent;
-  white-space: nowrap;
+.cardMoneyLine {
+  color: var(--muted);
+  line-height: 1.3;
+  font-size: 0.95rem;
+  margin-bottom: 8px;
+  word-break: break-word;
 }
 
-.cardPill:hover {
-  border-color: #666;
-  background: rgba(255, 255, 255, 0.03);
-  text-decoration: none;
+.cardSold {
+  color: var(--text);
 }
 
-.cardHeader {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.cardTitle {
-  flex: 1;
-  margin: 0;
-  min-width: 0;
+.cardProfit {
+  color: var(--text);
+  font-weight: 700;
 }
 
 .cardFooter {
@@ -237,36 +229,24 @@ select {
   margin-top: 2px;
 }
 
-.cardFooterMeta {
-  color: var(--muted);
-  line-height: 1.25;
-  min-width: 0;
-}
-
-.cardKlov,
-.detailsBtn {
-  color: var(--accent);
-  font-size: 0.9rem;
-  line-height: 1.2;
-  text-decoration: none;
+.cardFooterSpacer {
+  flex: 1;
 }
 
 .detailsBtn {
-  appearance: none;
-  cursor: pointer;
-}
-
-.detailsBtn {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
   border: none;
   background: none;
-  padding: 0;
   color: var(--accent);
-  font-size: 0.9rem;
+  font-size: 1.2rem;
   cursor: pointer;
 }
 
 .detailsBtn:hover {
-  text-decoration: underline;
+  opacity: 0.85;
 }
 
 .actionLink {
@@ -336,11 +316,6 @@ select {
 .detailTitle {
   margin: 0;
   font-size: 1.25rem;
-}
-
-.detailTitle {
-  margin: 0;
-  font-size: 1.25rem;
   line-height: 1.2;
 }
 
@@ -399,15 +374,6 @@ select {
   border-bottom: 0;
 }
 
-.label {
-  color: var(--muted);
-}
-
-.value {
-  color: var(--text);
-  text-align: left;
-}
-
 .detailButtons {
   display: flex;
   gap: 10px;
@@ -425,6 +391,7 @@ select {
   background: var(--panel-2);
   color: var(--text);
   text-decoration: none;
+  font-size: 1.35rem;
 }
 
 .photoStrip {
@@ -435,7 +402,7 @@ select {
 
 .photoThumb {
   width: 100%;
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 5 / 4;
   overflow: hidden;
   border-radius: 10px;
   border: 1px solid var(--border);
@@ -481,6 +448,55 @@ select {
   text-align: left;
   min-width: 0;
   word-break: break-word;
+}
+
+.cardTitleLine {
+  font-size: 1.1rem;
+  line-height: 1.2;
+}
+
+.cardId {
+  color: var(--muted);
+  font-weight: 400;
+  font-size: 0.9rem;
+}
+
+.cardDot {
+  color: var(--muted);
+  margin: 0 4px;
+}
+
+.cardTitle {
+  font-weight: 700;
+  color: var(--text);
+}
+
+.cardProfit.positive {
+  color: #4fd17c;
+}
+
+.cardProfit.negative {
+  color: #ff6a6a;
+}
+
+.cardPhotoWrap {
+  position: relative;
+}
+
+.cardPhotoWrap::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 60px;
+
+  background: linear-gradient(to bottom,
+      rgba(17, 17, 17, 0) 0%,
+      rgba(17, 17, 17, .75) 70%,
+      rgba(17, 17, 17, 1) 100%);
+
+  pointer-events: none;
 }
 
 @media (min-width: 1000px) {
@@ -544,7 +560,7 @@ select {
   }
 
   .priceguideHero {
-    max-width: 460px;
+    max-width: 250px;
     margin: 0 auto 14px;
   }
 
@@ -579,12 +595,18 @@ select {
 @media (max-width: 640px) {
   .topBarRow {
     padding: 12px;
+    gap: 8px;
   }
 
-  .searchInput,
-  .filterSelect {
+  .searchInput {
     width: 100%;
     flex: 1 1 100%;
+  }
+
+  .filterSelect {
+    width: calc(50% - 4px);
+    flex: 0 0 calc(50% - 4px);
+    min-width: 0;
   }
 
   .addMachineFab {
@@ -598,4 +620,7 @@ select {
     padding: 12px;
   }
 
+  .priceguideHero {
+    max-width: 200px;
+  }
 }
