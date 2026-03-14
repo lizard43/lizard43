@@ -87,7 +87,8 @@
     item.photo = String(item.photo || "").trim();
     item.photos = [];
 
-    item.klov = String(pg?.klov || "").trim();
+    item.referenceUrl = String(pg?.pageUrl || "").trim();
+    item.referenceLabel = String(pg?.pageLabel || "").trim();
 
     item.soldDate = String(item.soldDate || "").trim();
     item.soldPrice = toNumberOrNull(item.soldPrice);
@@ -105,42 +106,147 @@
   }
 
   async function loadPriceguide() {
-    const url = "../priceguide/vag/vagal_norm4.json";
-
-    try {
-      const response = await fetch(url, { cache: "no-store" });
-      if (!response.ok) {
-        throw new Error(`HTTP ${response.status}`);
+    const sources = [
+      {
+        key: "vag",
+        url: "../priceguide/vag/vagal_norm4.json"
+      },
+      {
+        key: "ps",
+        url: "../priceguide/pins/ps_machines_merged.json"
       }
+    ];
 
-      const data = await response.json();
-      if (!Array.isArray(data)) {
-        throw new Error("Priceguide JSON must be an array.");
-      }
+    state.priceguideEntries = [];
+    state.priceguideByTitle = new Map();
+    state.priceguideById = new Map();
 
-      state.priceguideEntries = data;
-      state.priceguideByTitle = new Map();
-      state.priceguideById = new Map();
-
-      for (const entry of data) {
-        const titleKey = normalizeLookupTitle(entry.title);
-        if (titleKey && !state.priceguideByTitle.has(titleKey)) {
-          state.priceguideByTitle.set(titleKey, entry);
+    for (const source of sources) {
+      try {
+        const response = await fetch(source.url, { cache: "no-store" });
+        if (!response.ok) {
+          throw new Error(`HTTP ${response.status}`);
         }
 
-        const idKey = String(entry.id || "").trim();
-        if (idKey && !state.priceguideById.has(idKey)) {
-          state.priceguideById.set(idKey, entry);
-        }
-      }
+        let data = await response.json();
 
-      console.log(`[priceguide] loaded ${state.priceguideEntries.length} entries`);
-    } catch (err) {
-      console.warn(`[priceguide] failed to load ${url}: ${err.message}`);
-      state.priceguideEntries = [];
-      state.priceguideByTitle = new Map();
-      state.priceguideById = new Map();
+        // Pinside wrapper: { machines: [...] }
+        if (source.key === "ps" && Array.isArray(data.machines)) {
+          data = data.machines;
+        }
+
+        if (!Array.isArray(data)) {
+          throw new Error("Priceguide JSON must be an array.");
+        }
+
+        for (const rawEntry of data) {
+          const entry = normalizePriceguideEntry(rawEntry, source.key);
+          if (!entry || !entry.id) continue;
+
+          state.priceguideEntries.push(entry);
+
+          const titleKey = normalizeLookupTitle(entry.title);
+          if (titleKey && !state.priceguideByTitle.has(titleKey)) {
+            state.priceguideByTitle.set(titleKey, entry);
+          }
+
+          if (!state.priceguideById.has(entry.id)) {
+            state.priceguideById.set(entry.id, entry);
+          }
+        }
+
+        console.log(`[priceguide] loaded ${data.length} raw entries from ${source.key}`);
+      } catch (err) {
+        console.warn(`[priceguide] failed to load ${source.url}: ${err.message}`);
+      }
     }
+
+    console.log(`[priceguide] loaded ${state.priceguideEntries.length} normalized entries total`);
+  }
+
+  function normalizePriceguideEntry(entry, sourceKey) {
+    if (!entry || typeof entry !== "object") return null;
+
+    if (sourceKey === "vag") {
+      const id = String(entry.id || "").trim() || `vag-${normalizeLookupTitle(entry.title)}`;
+
+      return {
+        source: "vag",
+        id,
+        title: String(entry.title || "").trim(),
+        manufacturer: String(entry.manufacturer || "").trim(),
+        date: String(entry.date || "").trim(),
+        genre: String(entry.genre || "").trim(),
+        image: String(entry.image || "").trim(),
+        imageUrl: "",
+        pageUrl: String(entry.klov || "").trim(),
+        pageLabel: "KLOV",
+        ratings: entry.ratings || {},
+        guideRange: getVagGuideRange(entry),
+        variants: Array.isArray(entry.variant) ? entry.variant : [],
+        raw: entry
+      };
+    }
+
+    if (sourceKey === "ps") {
+      const pinsideID = String(entry.pinsideID || "").trim();
+      if (!pinsideID) return null;
+
+      return {
+        source: "ps",
+        id: `ps-${pinsideID}`,
+        title: String(entry.name || "").trim(),
+        manufacturer: String(entry.manufacturer || "").trim(),
+        date: String(entry.date || "").trim(),
+        genre: String(entry.type || "").trim(),
+        image: "",
+        imageUrl: String(entry.imageUrl || "").trim(),
+        pageUrl: String(entry.url || "").trim(),
+        pageLabel: "Pinside",
+        ratings: {
+          user: entry.score
+        },
+        guideRange: getPinsideGuideRange(entry),
+        variants: [],
+        raw: entry
+      };
+    }
+
+    return null;
+  }
+
+  function getVagGuideRange(entry) {
+    if (!entry || !Array.isArray(entry.variant) || entry.variant.length === 0) {
+      return null;
+    }
+
+    const lows = entry.variant
+      .map(v => Number(v.price_lower))
+      .filter(Number.isFinite);
+
+    const highs = entry.variant
+      .map(v => Number(v.price_higher))
+      .filter(Number.isFinite);
+
+    if (!lows.length && !highs.length) return null;
+
+    return {
+      low: lows.length ? Math.min(...lows) : null,
+      high: highs.length ? Math.max(...highs) : null
+    };
+  }
+
+  function getPinsideGuideRange(entry) {
+    const low = Number(entry.lowvalue);
+    const high = Number(entry.highvalue);
+
+    if (!Number.isFinite(low) && !Number.isFinite(high)) return null;
+
+    return {
+      low: Number.isFinite(low) ? low : null,
+      high: Number.isFinite(high) ? high : null,
+      avg: Number.isFinite(Number(entry.avgvalue)) ? Number(entry.avgvalue) : null
+    };
   }
 
   function normalizeLookupTitle(value) {
@@ -168,10 +274,20 @@
     );
   }
 
-  function getPriceguideImageUrl(filename) {
-    if (!filename) return "";
-    if (/^https?:\/\//i.test(filename)) return filename;
-    return `../priceguide/vag/images/${filename}`;
+  function getPriceguideImageUrl(entry) {
+    if (!entry) return "";
+
+    if (entry.source === "ps") {
+      return entry.imageUrl || "";
+    }
+
+    if (entry.source === "vag") {
+      if (!entry.image) return "";
+      if (/^https?:\/\//i.test(entry.image)) return entry.image;
+      return `../priceguide/vag/images/${entry.image}`;
+    }
+
+    return "";
   }
 
   function formatRating(value) {
@@ -181,20 +297,10 @@
   }
 
   function formatPriceguideRange(entry) {
-    if (!entry || !Array.isArray(entry.variant) || entry.variant.length === 0) return "—";
+    if (!entry || !entry.guideRange) return "—";
 
-    const lows = entry.variant
-      .map(v => Number(v.price_lower))
-      .filter(Number.isFinite);
-
-    const highs = entry.variant
-      .map(v => Number(v.price_higher))
-      .filter(Number.isFinite);
-
-    if (!lows.length && !highs.length) return "—";
-
-    const low = lows.length ? Math.min(...lows) : null;
-    const high = highs.length ? Math.max(...highs) : null;
+    const low = entry.guideRange.low;
+    const high = entry.guideRange.high;
 
     if (low != null && high != null) {
       return `${formatMoney(low)} – ${formatMoney(high)}`;
@@ -337,7 +443,8 @@
 
       const pg = getPriceguideEntry(machine);
       const cardImageUrl = getCardPhotoUrl(machine);
-      const klovUrl = machine.klov || pg?.klov || "";
+      const referenceUrl = machine.referenceUrl || pg?.pageUrl || "";
+      const referenceLabel = machine.referenceLabel || pg?.pageLabel || "";
 
       card.innerHTML = `
       <div class="cardPhotoWrap">
@@ -475,16 +582,25 @@
         <div class="detailMeta">
           <div class="detailMetaRow"><span class="label">Title</span><span class="value">${escapeHtml(pg.title || "—")}</span></div>
           <div class="detailMetaRow"><span class="label">Maker / date</span><span class="value">${escapeHtml([pg.manufacturer, pg.date].filter(Boolean).join(" – ") || "—")}</span></div>
-          <div class="detailMetaRow"><span class="label">Genre</span><span class="value">${escapeHtml(pg.genre || "—")}</span></div>
-          <div class="detailMetaRow"><span class="label">Ratings</span><span class="value">${escapeHtml(
-      `User ${formatRating(pg.ratings?.user)} • Fun ${formatRating(pg.ratings?.fun)} • Collect ${formatRating(pg.ratings?.collector)}`)}
-          </span></div>
+          <div class="detailMetaRow"><span class="label">${escapeHtml(pg.source === "ps" ? "Type" : "Genre")}</span><span class="value">${escapeHtml(pg.genre || "—")}</span></div>
+          <div class="detailMetaRow"><span class="label">Guide source</span><span class="value">${escapeHtml(pg.source === "ps" ? "Pinside" : "VAPS / KLOV")}</span></div>
+          <div class="detailMetaRow"><span class="label">Rating</span><span class="value">${escapeHtml(
+      pg.source === "ps"
+        ? `User ${formatRating(pg.ratings?.user)}`
+        : `User ${formatRating(pg.ratings?.user)} • Fun ${formatRating(pg.ratings?.fun)} • Collect ${formatRating(pg.ratings?.collector)}`
+    )}</span></div>
           <div class="detailMetaRow"><span class="label">Guide range</span><span class="value">${escapeHtml(formatPriceguideRange(pg))}</span></div>
+          ${pg.source === "ps" && pg.guideRange?.avg != null ? `
+            <div class="detailMetaRow"><span class="label">Guide average</span><span class="value">${escapeHtml(formatMoney(pg.guideRange.avg))}</span></div>
+          ` : ""}
+          ${pg.pageUrl ? `
+            <div class="detailMetaRow"><span class="label">Reference</span><span class="value"><a href="${escapeAttr(pg.pageUrl)}" target="_blank" rel="noopener noreferrer">${escapeHtml(pg.pageLabel || "Open reference")}</a></span></div>
+          ` : ""}
         </div>
       </section>
 
       ` : ""}
-      
+
       <section class="detailSection">
         <h3>Notes</h3>
         <div class="detailNotes">${escapeHtml(machine.notes || "No notes yet.")}</div>
@@ -575,35 +691,36 @@
       return getPhotoUrl(machine.photo);
     }
 
-    if (Array.isArray(machine.photos) && machine.photos.length) {
-      return getPhotoUrl(machine.photos[0]);
+    const pg = getPriceguideEntry(machine);
+    const pgImageUrl = getPriceguideImageUrl(pg);
+    if (pgImageUrl) {
+      return pgImageUrl;
     }
 
-    const pg = getPriceguideEntry(machine);
-    if (pg && pg.image) {
-      return getPriceguideImageUrl(pg.image);
+    if (Array.isArray(machine.photos) && machine.photos.length) {
+      return getPhotoUrl(machine.photos[0]);
     }
 
     return getPhotoUrl("");
   }
 
   function getDetailHeroPhotoUrl(machine) {
-    if (machine.photo) {
-      return getPhotoUrl(machine.photo);
-    }
-
     const pg = getPriceguideEntry(machine);
-    if (pg && pg.image) {
-      return getPriceguideImageUrl(pg.image);
+    const pgImageUrl = getPriceguideImageUrl(pg);
+    if (pgImageUrl) {
+      return pgImageUrl;
     }
 
     if (Array.isArray(machine.photos) && machine.photos.length) {
       return getPhotoUrl(machine.photos[0]);
     }
 
+    if (machine.photo) {
+      return getPhotoUrl(machine.photo);
+    }
+
     return getPhotoUrl("");
   }
-
 
   function normalizeImgBB(url) {
     if (!url) return url;
