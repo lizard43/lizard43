@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-03-14T20:24:19.238Z",
+  "generated_at": "2026-03-14T21:05:51.423Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,19 +11,39 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 33,
-      "droppedPrice": 115,
+      "exported_ads": 34,
+      "droppedPrice": 118,
       "droppedMissingGeo": 0,
-      "droppedCircle": 81
+      "droppedCircle": 85
     }
   },
   "ads": [
+    {
+      "adID": "1279959100746097",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100036290220259/?product_id=1279959100746097",
+      "author": "Thomas Stephens",
+      "postedTime": "2026-03-14T20:37:45.000Z",
+      "title": "Vintage Pinball Machine",
+      "description": "Vintage pinball machine don’t know anything about it asking $60",
+      "price": "$60",
+      "lat": 32.6200973,
+      "lon": -83.606568,
+      "location": "Warner Robins, GA",
+      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/651890738_875498615518822_2758032303080273770_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=108&ccb=1-7&_nc_sid=92e707&_nc_ohc=ffVvFYmaSoUQ7kNvwEd9OJ9&_nc_oc=AdlRtOvEthYQwGcY3Dvl0GN6Xz2t2Cj0jALTZqnIBuLpTZ3Nj-JmjG7EFoN5Q-H3Hs4&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=j8HGT_8Yo8R6jcsKi0bvdA&_nc_ss=8&oh=00_AfzJHu3Mm4MGlgvvkrUalDRbWg5rAM-cVzZUHN8Xc54mAg&oe=69BBAA6B",
+      "adUrl": "https://www.facebook.com/marketplace/item/1279959100746097/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-03-14 21:04:58",
+      "lastSeen": "2026-03-14T21:05:13.765Z"
+    },
     {
       "adID": "PI-211100",
       "source": "PS",
       "authorUrl": "https://pinside.com/pinball/community/pinsiders/meteor_rick/market",
       "author": "Meteor_Rick",
-      "postedTime": "2026-03-14T18:09:38.900Z",
+      "postedTime": "2026-03-14T18:05:34.000Z",
       "title": "CPR Taxi playfield. Silkscreened.",
       "description": "New (selling one, non-business) - “I sold the machine this was intended for and the buyer did not want the PF. This one is from Kevin Wayte's personal collection. The story goes that he kept one of every playfield...”",
       "price": "$850",
@@ -36,27 +56,27 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-14 18:10:36",
-      "lastSeen": "2026-03-14T20:09:39.441Z"
+      "lastSeen": "2026-03-14T21:05:35.127Z"
     },
     {
       "adID": "804583199343269",
       "source": "FB",
       "authorUrl": null,
       "author": "Shane Starr",
-      "postedTime": "2026-03-13T22:00:18.374Z",
+      "postedTime": "2026-03-13T22:00:18.493Z",
       "title": "(Pending) Original Gauntlet by Atari Project Cabinet",
       "description": "Non workout Gauntlet cabinet. Has original joysticks and monitor / bezel as far as I can tell. Also appears to have original artwork under the black paint on the sides and control panel. Would make for a great retro restoration project!",
       "price": "$300",
       "lat": 34.0234337,
       "lon": -84.6154897,
       "location": "KENNESAW, GA",
-      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.30808-6/651244967_10225140439936981_217521075182415945_n.jpg?stp=dst-jpegr_s590x590_tt6&_nc_cat=100&ccb=1-7&_nc_sid=e06c5d&_nc_ohc=cp3pXZONRW8Q7kNvwEBXIqo&_nc_oc=Adk1BE3kRlBT_5ioCzZU5P9kbZGk83wZOIlV2hkOQmpKoimPK1H3A7e8sBhj7o7MO2o&_nc_zt=23&se=-1&_nc_ht=scontent-dfw5-2.xx&_nc_gid=M6dXJMXAcl4kZJcimgKhsw&_nc_ss=8&oh=00_AfwlSwkl1YWkVKqjRKciNfwnP1aG9j7LrC74u9gQhjPaWQ&oe=69BB8053",
+      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.30808-6/651244967_10225140439936981_217521075182415945_n.jpg?stp=dst-jpegr_s590x590_tt6&_nc_cat=100&ccb=1-7&_nc_sid=e06c5d&_nc_ohc=cp3pXZONRW8Q7kNvwEBXIqo&_nc_oc=Adk1BE3kRlBT_5ioCzZU5P9kbZGk83wZOIlV2hkOQmpKoimPK1H3A7e8sBhj7o7MO2o&_nc_zt=23&se=-1&_nc_ht=scontent-dfw5-2.xx&_nc_gid=_J7RO6jkHpBuMnvNJV2isQ&_nc_ss=8&oh=00_Afy-fNptx2MoQXtJbGqSkXu0JHZ8cq435-jDUGjIa2Flig&oe=69BBB893",
       "adUrl": "https://www.facebook.com/commerce/listing/804583199343269/",
       "priceChanged": 0,
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-13 22:00:18",
-      "lastSeen": "2026-03-14T20:00:18.466Z"
+      "lastSeen": "2026-03-14T21:00:19.662Z"
     },
     {
       "adID": "1511621653863915",
@@ -76,7 +96,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-13 02:04:19",
-      "lastSeen": "2026-03-14T13:04:34.552Z"
+      "lastSeen": "2026-03-14T21:04:48.998Z"
     },
     {
       "adID": "2152912865466993",
@@ -336,7 +356,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-04 12:09:54",
-      "lastSeen": "2026-03-14T20:09:56.337Z"
+      "lastSeen": "2026-03-14T21:05:51.199Z"
     },
     {
       "adID": "1570931707463297",
