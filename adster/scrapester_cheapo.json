@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-03-14T01:28:21.967Z",
+  "generated_at": "2026-03-14T02:05:59.481Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,32 +11,52 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 33,
-      "droppedPrice": 84,
+      "exported_ads": 34,
+      "droppedPrice": 83,
       "droppedMissingGeo": 0,
-      "droppedCircle": 43
+      "droppedCircle": 47
     }
   },
   "ads": [
+    {
+      "adID": "936805772084736",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100002411116675/?product_id=936805772084736",
+      "author": "Christopher Stewart",
+      "postedTime": "2026-03-14T01:45:54.000Z",
+      "title": "(6) Lucky Craft Wander 95 Lipless Jerkbaits (6 diff shiny shad colors)",
+      "description": "Baits are all new in the box and the price includes free shipping. I always use paypal goods and services for payment. Message me or comment to order or if you have any questions.",
+      "price": "$48",
+      "lat": 30.6324149,
+      "lon": -87.0396881,
+      "location": "Milton, FL",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/650557047_931223516080776_7083654760053696014_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=111&ccb=1-7&_nc_sid=92e707&_nc_ohc=PO5LaxRfvU8Q7kNvwG7NiV6&_nc_oc=Admt3K1utDLYXNKdoGVjcKXTjyNa5GYlUO4Bt9MgGBeZ0WQGO6bspfbHJ9NFfmptWfQ&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=Z35IV_mNsLN92WwBbQFvrg&_nc_ss=8&oh=00_AfzOKk9eA61vRG_kECYl1jSEiHcp5z8ANXXRyxUUq02Q4A&oe=69BA7B17",
+      "adUrl": "https://www.facebook.com/marketplace/item/936805772084736/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-03-14 02:05:00",
+      "lastSeen": "2026-03-14T02:05:27.034Z"
+    },
     {
       "adID": "804583199343269",
       "source": "FB",
       "authorUrl": null,
       "author": "Shane Starr",
-      "postedTime": "2026-03-13T22:23:35.153Z",
+      "postedTime": "2026-03-13T22:00:18.498Z",
       "title": "(Pending) Original Gauntlet by Atari Project Cabinet",
       "description": "Non workout Gauntlet cabinet. Has original joysticks and monitor / bezel as far as I can tell. Also appears to have original artwork under the black paint on the sides and control panel. Would make for a great retro restoration project!",
       "price": "$300",
       "lat": 34.0234337,
       "lon": -84.6154897,
       "location": "KENNESAW, GA",
-      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.30808-6/651244967_10225140439936981_217521075182415945_n.jpg?stp=dst-jpegr_s590x590_tt6&_nc_cat=100&ccb=1-7&_nc_sid=e06c5d&_nc_ohc=cp3pXZONRW8Q7kNvwEBXIqo&_nc_oc=Adk1BE3kRlBT_5ioCzZU5P9kbZGk83wZOIlV2hkOQmpKoimPK1H3A7e8sBhj7o7MO2o&_nc_zt=23&se=-1&_nc_ht=scontent-dfw5-2.xx&_nc_gid=GrzOm1l9n5htRkPRSR7-sw&_nc_ss=8&oh=00_AfxbRVMdQ689UIX2KMKAvUHpJQ98iiDb6lKD3hOoSlrbkg&oe=69BA9F53",
+      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.30808-6/651244967_10225140439936981_217521075182415945_n.jpg?stp=dst-jpegr_s590x590_tt6&_nc_cat=100&ccb=1-7&_nc_sid=e06c5d&_nc_ohc=cp3pXZONRW8Q7kNvwEBXIqo&_nc_oc=Adk1BE3kRlBT_5ioCzZU5P9kbZGk83wZOIlV2hkOQmpKoimPK1H3A7e8sBhj7o7MO2o&_nc_zt=23&se=-1&_nc_ht=scontent-dfw5-2.xx&_nc_gid=-oj2CASnWlGUva3Z_S7Puw&_nc_ss=8&oh=00_AfypwaE1P6a38XLINFK5BWj_CghCAWZyvBNuCpe4zkz3BQ&oe=69BA9F53",
       "adUrl": "https://www.facebook.com/commerce/listing/804583199343269/",
       "priceChanged": 0,
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-13 22:00:18",
-      "lastSeen": "2026-03-14T01:23:35.920Z"
+      "lastSeen": "2026-03-14T02:00:18.578Z"
     },
     {
       "adID": "1511621653863915",
@@ -56,7 +76,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-13 02:04:19",
-      "lastSeen": "2026-03-14T01:04:25.590Z"
+      "lastSeen": "2026-03-14T02:04:23.573Z"
     },
     {
       "adID": "2152912865466993",
@@ -143,20 +163,20 @@
       "source": "FB",
       "authorUrl": null,
       "author": "Shane Starr",
-      "postedTime": "2026-03-10T23:00:18.878Z",
+      "postedTime": "2026-03-11T02:00:18.511Z",
       "title": "Hang On Project Cab",
       "description": "Non working project cab. Cabinet is in great shape but someone stuck an LCD inside with a VGA connection. Includes the board but gets artifacting on power up / display. Board could be repaired.",
       "price": "$350",
       "lat": 34.0234337,
       "lon": -84.6154897,
       "location": "KENNESAW, GA",
-      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.30808-6/649821730_10225101155594897_4783580897399658674_n.jpg?stp=dst-jpegr_p526x296_tt6&_nc_cat=109&ccb=1-7&_nc_sid=e06c5d&_nc_ohc=wBsClwHx20MQ7kNvwHLcI8V&_nc_oc=AdnwWVdvSQHjKfhHCXqEe0tIIkPbcbytSUQg4IuUX_i294QPgojsqmvhq5Ko_pQRYPQ&_nc_zt=23&se=-1&_nc_ht=scontent-dfw5-1.xx&_nc_gid=qWHBqEfJgiZwS8j_CG4Brw&_nc_ss=8&oh=00_AfyEnPQz_z4m7LExCbP2fzMwBAF59-ZTo2kjJI3hat5lZA&oe=69BA80A4",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.30808-6/649821730_10225101155594897_4783580897399658674_n.jpg?stp=dst-jpegr_p526x296_tt6&_nc_cat=109&ccb=1-7&_nc_sid=e06c5d&_nc_ohc=wBsClwHx20MQ7kNvwHLcI8V&_nc_oc=AdnwWVdvSQHjKfhHCXqEe0tIIkPbcbytSUQg4IuUX_i294QPgojsqmvhq5Ko_pQRYPQ&_nc_zt=23&se=-1&_nc_ht=scontent-dfw5-1.xx&_nc_gid=uTPPxhi9OihdkQXU5U8N7Q&_nc_ss=8&oh=00_AfzMsf8cg7Qa4xGM_p-QaDToHsxjO8Hav2srgnX2WfftVQ&oe=69BA80A4",
       "adUrl": "https://www.facebook.com/commerce/listing/1511667507145267/",
       "priceChanged": 0,
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-11 01:04:56",
-      "lastSeen": "2026-03-13T23:00:19.095Z"
+      "lastSeen": "2026-03-14T02:00:18.680Z"
     },
     {
       "adID": "1474843950968894",
@@ -316,7 +336,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-04 12:09:54",
-      "lastSeen": "2026-03-14T01:28:21.811Z"
+      "lastSeen": "2026-03-14T02:05:59.334Z"
     },
     {
       "adID": "1570931707463297",
