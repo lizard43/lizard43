@@ -1,6 +1,7 @@
 const SHEET_GAMES = 'games';
 const SHEET_EXPENSES = 'expenses';
 const SHEET_NOTES = 'notes';
+const SHEET_USERS = 'user';
 
 function getOptionalParam_(e, name) {
   if (!e || !e.parameter) return '';
@@ -74,6 +75,13 @@ function doGet(e) {
       return jsonOut_({
         ok: true,
         data: data
+      });
+    }
+
+    if (resource === 'users') {
+      return jsonOut_({
+        ok: true,
+        data: getAllRows_(SHEET_USERS)
       });
     }
 

@@ -369,6 +369,28 @@
     return `${year}-${month}-${day}`;
   }
 
+  function getSortableDateValue(value) {
+    if (!value) return 0;
+
+    const isoValue = toApiDateValue(value);
+    const d = new Date(isoValue);
+    if (!Number.isNaN(d.getTime())) {
+      return d.getTime();
+    }
+
+    return 0;
+  }
+
+  function sortExpensesByDateDesc(expenses) {
+    if (!Array.isArray(expenses)) return [];
+
+    return [...expenses].sort((a, b) => {
+      const diff = getSortableDateValue(b?.date) - getSortableDateValue(a?.date);
+      if (diff !== 0) return diff;
+      return String(b?.expenseID || "").localeCompare(String(a?.expenseID || ""));
+    });
+  }
+
   function makeLocalExpenseRow(gameID) {
     return {
       expenseID: "",
@@ -405,7 +427,14 @@
     if (!els.expenseRows) return;
 
     const rows = state.expenseDraftRows;
-    els.expenseRows.innerHTML = rows.map((row, index) => `
+    els.expenseRows.innerHTML = `
+      <button class="expenseAddBtn expenseAddBtnTop" type="button" id="expenseAddBtn" aria-label="Add expense row" title="Add expense">
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <path d="M11 5h2v6h6v2h-6v6h-2v-6H5v-2h6z"/>
+        </svg>
+        <span>Add expense</span>
+      </button>
+    ` + rows.map((row, index) => `
       <div class="expenseEditorRow ${row._delete ? "expenseEditorRowDeleted" : ""}" data-index="${index}">
         <div class="expenseEditorRowHeader">
           <div class="expenseEditorRowTitle">Expense ${index + 1}</div>
@@ -450,14 +479,7 @@
 
         ${row._delete ? '<div class="expenseDeletedLabel">Will be deleted on save</div>' : ''}
       </div>
-    `).join("") + `
-      <button class="expenseAddBtn" type="button" id="expenseAddBtn" aria-label="Add expense row" title="Add expense">
-        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-          <path d="M11 5h2v6h6v2h-6v6h-2v-6H5v-2h6z"/>
-        </svg>
-        <span>Add expense</span>
-      </button>
-    `;
+    `).join("");
 
     els.expenseRows.querySelectorAll('.expenseDraftInput').forEach(input => {
       input.addEventListener('input', handleExpenseDraftInput);
@@ -488,7 +510,7 @@
     }
 
     state.expenseDraftRows = Array.isArray(machine.expenses)
-      ? machine.expenses.map(cloneExpenseForDraft)
+      ? sortExpensesByDateDesc(machine.expenses).map(cloneExpenseForDraft)
       : [];
 
     els.expenseGameId.textContent = machine.id || "—";
@@ -1399,7 +1421,7 @@
     const expenseRows = expensesLoading
       ? `<div class="detailMeta detailMetaLoading">Loading expenses…</div>`
       : Array.isArray(machine.expenses) && machine.expenses.length
-      ? machine.expenses.map(exp => `
+      ? sortExpensesByDateDesc(machine.expenses).map(exp => `
         <div class="expenseRow">
           <div class="expenseMain">
             <div class="expenseTop">
