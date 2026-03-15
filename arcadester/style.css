@@ -143,8 +143,6 @@ select {
 
 /* Card */
 
-/* Card */
-
 .card {
   display: grid;
   grid-template-columns: 122px minmax(0, 1fr);
@@ -247,10 +245,22 @@ select {
   font-size: 0.9rem;
   line-height: 1.15;
   margin-bottom: 8px;
+
+  padding-left: 14px;
+  /* indent */
+  position: relative;
+
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
+}
+
+.cardNotesLine::before {
+  content: "›";
+  position: absolute;
+  left: 6px;
+  color: var(--muted);
 }
 
 .cardStats {
@@ -312,29 +322,6 @@ select {
 
 .detailsBtn:hover {
   opacity: 0.85;
-}
-
-.cardGameId {
-  color: var(--muted);
-  font-size: 0.85rem;
-  letter-spacing: 0.03em;
-}
-
-.actionLink {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 34px;
-  padding: 0 12px;
-  border: 1px solid var(--border);
-  border-radius: 9px;
-  text-decoration: none;
-  background: var(--panel-2);
-  color: var(--text);
-}
-
-.actionLink:hover {
-  filter: brightness(1.08);
 }
 
 /* Detail pane */
@@ -409,11 +396,11 @@ select {
 }
 
 .detailSection {
-  margin-bottom: 22px;
+  margin-bottom: 24px;
 }
 
 .detailSection h3 {
-  margin: 0 0 10px;
+  margin: 0 0 12px;
   font-size: 1rem;
 }
 
@@ -425,41 +412,18 @@ select {
   line-height: 1.45;
 }
 
-.detailMetaRow:last-child,
-.statRow:last-child,
-.expenseRow:last-child {
-  border-bottom: 0;
-}
-
 .label {
   color: var(--muted);
 }
 
 .value {
   color: var(--text);
-  text-align: left;
   min-width: 0;
   word-break: break-word;
 }
 
-.detailButtons {
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
-}
-
-.detailBtn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 38px;
-  padding: 0 14px;
-  border-radius: 10px;
-  border: 1px solid var(--border);
-  background: var(--panel-2);
-  color: var(--text);
-  text-decoration: none;
-  font-size: 1.35rem;
+.detailNotes {
+  color: var(--muted);
 }
 
 .photoStrip {
@@ -538,27 +502,25 @@ select {
   color: var(--text);
 }
 
-.detailMetaRow,
-.statRow,
-.expenseRow {
+/* Expense list + money rows */
+
+.expenseRow,
+.moneyRow {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 118px;
+  grid-template-columns: minmax(0, 1fr) 120px;
+  gap: 16px;
   align-items: start;
-  gap: 18px;
   padding: 8px 0;
   border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-.statRowMoney .value,
-.expenseAmount {
-  color: var(--text);
-  text-align: right;
-  white-space: nowrap;
-  font-weight: 700;
+.expenseRow:last-child,
+.moneyRow:last-child {
+  border-bottom: 0;
 }
 
-.statRowMoney .label {
-  color: var(--muted);
+.expenseMain {
+  min-width: 0;
 }
 
 .expenseTop {
@@ -566,51 +528,62 @@ select {
   font-size: 0.92rem;
   line-height: 1.2;
   margin-bottom: 4px;
+  word-break: break-word;
 }
 
 .expenseDescMuted {
   color: var(--muted);
   line-height: 1.35;
   word-break: break-word;
+
+  padding-left: 14px;
+  position: relative;
 }
 
-.expenseMain {
-  min-width: 0;
-}
-
-.expenseAmount {
-  padding-top: 1px;
-}
-
-.expenseMain {
-  min-width: 0;
-}
-
-.expenseTop {
+.expenseDescMuted::before {
+  content: "›";
+  position: absolute;
+  left: 6px;
   color: var(--muted);
-  font-size: 0.92rem;
-  line-height: 1.2;
-  margin-bottom: 4px;
 }
 
-.expenseDesc {
+.moneyValue {
   color: var(--text);
-  line-height: 1.35;
-  word-break: break-word;
-}
-
-.expenseSub {
-  color: var(--muted);
-  font-size: 0.9rem;
-  line-height: 1.25;
-  margin-top: 4px;
-}
-
-.expenseAmount {
-  color: var(--text);
-  font-weight: 700;
-  white-space: nowrap;
   text-align: right;
+  white-space: nowrap;
+  font-weight: 700;
+}
+
+.expenseAmount {
+  color: var(--muted);
+  text-align: right;
+  white-space: nowrap;
+  font-weight: 600;
+}
+
+.detailMoneySummary {
+  margin-top: 10px;
+}
+
+.moneyLabel {
+  color: var(--muted);
+}
+
+.moneyRowTotal .moneyLabel,
+.moneyRowTotal .moneyValue {
+  font-weight: 700;
+}
+
+.moneySpacer {
+  height: 10px;
+}
+
+.moneyProfit.positive {
+  color: #4fd17c;
+}
+
+.moneyProfit.negative {
+  color: #ff6a6a;
 }
 
 /* Desktop */
@@ -660,24 +633,17 @@ select {
     padding-top: 6px;
   }
 
-  .detailMetaRow,
-  .statRow,
-  .expenseRow {
-    grid-template-columns: minmax(0, 1fr) 118px;
-    gap: 14px;
-  }
-
   .priceguideHero {
     max-width: 250px;
     margin: 0 auto 10px;
   }
 
-  .detailButtons,
   .detailSection h3,
   .detailMeta,
   .detailNotes,
   .detailList,
-  .detailStats {
+  .detailStats,
+  .detailMoneySummary {
     max-width: 560px;
     margin-left: auto;
     margin-right: auto;
@@ -775,5 +741,11 @@ select {
     font-size: 0.98rem;
     line-height: 1.35;
     margin-bottom: 8px;
+  }
+
+  .expenseRow,
+  .moneyRow {
+    grid-template-columns: minmax(0, 1fr) 104px;
+    gap: 12px;
   }
 }

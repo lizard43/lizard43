@@ -1,5 +1,7 @@
 (() => {
 
+  const VERSION = 'v20260314';
+
   const API_URL = 'https://script.google.com/macros/s/AKfycbyfpebveJYArafZ2FaMWNTT5IYrkwdc56vOyGA8CrStTu1dXiqvIanfS_YQtMJdVu53kA/exec';
 
   const state = {
@@ -147,7 +149,7 @@
 
     item.totalExpenses = null;
     item.totalCost = null;
-    item.expenses = [];
+    item.expenses = null;
 
     item.photo = String(item.photo || "").trim();
     item.photos = [];
@@ -653,7 +655,13 @@
     }
   }
 
-  async function selectMachine(id, openDetailPane = true) {
+  async function refreshMachineExpenses(machine) {
+    machine.expenses = await loadExpensesForGame(machine.id);
+    machine.totalExpenses = sumExpenses(machine.expenses);
+    machine.totalCost = addMoney(machine.purchasePrice, machine.totalExpenses);
+  }
+
+  function selectMachine(id, openDetailPane = true) {
     const machine = state.allMachines.find(m => m.id === id);
     if (!machine) return;
 
@@ -672,22 +680,8 @@
       }
     }
 
-    els.detailTitle.textContent = machine.title;
-    els.detailContent.innerHTML = `<div class="detailPlaceholder">Loading expenses…</div>`;
-
-    try {
-      if (!Array.isArray(machine.expenses) || machine.expenses.length === 0) {
-        machine.expenses = await loadExpensesForGame(machine.id);
-        machine.totalExpenses = sumExpenses(machine.expenses);
-        machine.totalCost = addMoney(machine.purchasePrice, machine.totalExpenses);
-      }
-
-      renderDetail(machine);
-      renderCards();
-      updateSelectedCard();
-    } catch (err) {
-      els.detailContent.innerHTML = `<div class="detailPlaceholder">Could not load expenses. ${escapeHtml(err.message)}</div>`;
-    }
+    renderDetail(machine);
+    updateSelectedCard();
   }
 
   function closeMobileDetail(useHistoryBack = true) {
@@ -710,26 +704,29 @@
   }
 
   function buildDetailMarkup(machine, includeHeader = true) {
-
     const pg = getPriceguideEntry(machine);
+
+    const totalExpenses = machine.totalExpenses ?? sumExpenses(machine.expenses);
+    const totalCost = machine.totalCost ?? addMoney(machine.purchasePrice, totalExpenses);
+    const profit = machine.soldPrice != null ? machine.soldPrice - (totalCost || 0) : null;
 
     const expenseRows = Array.isArray(machine.expenses) && machine.expenses.length
       ? machine.expenses.map(exp => `
-          <div class="expenseRow">
-            <div class="expenseMain">
-              <div class="expenseTop">
-                ${escapeHtml(exp.date || "—")}
-                ${exp.category ? ` • ${escapeHtml(exp.category)}` : ""}
-                ${exp.vendor ? ` • Vendor: ${escapeHtml(exp.vendor)}` : ""}
-              </div>
-              <div class="expenseDesc expenseDescMuted">
-                ${escapeHtml(exp.description || "—")}
-              </div>
+        <div class="expenseRow">
+          <div class="expenseMain">
+            <div class="expenseTop">
+              ${escapeHtml(exp.date || "—")}
+              ${exp.category ? ` • ${escapeHtml(exp.category)}` : ""}
+              ${exp.vendor ? ` • Vendor: ${escapeHtml(exp.vendor)}` : ""}
             </div>
-            <div class="expenseAmount">${escapeHtml(formatMoney(exp.amount))}</div>
+            <div class="expenseDescMuted">
+              ${escapeHtml(exp.description || "—")}
+            </div>
           </div>
-        `).join("")
-            : `<div class="detailMeta">No expense entries yet.</div>`;
+          <div class="expenseAmount">${escapeHtml(formatMoney(exp.amount))}</div>
+        </div>
+      `).join("")
+      : `<div class="detailMeta">No expense entries yet.</div>`;
 
     const photoStrip = machine.photos && machine.photos.length
       ? `
@@ -743,43 +740,20 @@
     `
       : `<div class="detailMeta">No additional photos.</div>`;
 
-    const totalExpenses = machine.totalExpenses ?? sumExpenses(machine.expenses);
-    const totalCost = machine.totalCost ?? addMoney(machine.purchasePrice, totalExpenses);
-    const profit = machine.soldPrice != null ? machine.soldPrice - (totalCost || 0) : null;
-
     const heroImageUrl = getDetailHeroPhotoUrl(machine);
 
     const pgImage = heroImageUrl
       ? `
-    <div class="priceguideHero">
-      <img src="${escapeAttr(heroImageUrl)}" alt="${escapeAttr(pg?.title || machine.title)}">
-    </div>
-  `
+      <div class="priceguideHero">
+        <img src="${escapeAttr(heroImageUrl)}" alt="${escapeAttr(pg?.title || machine.title)}">
+      </div>
+    `
       : "";
-
-    const pgVariants = pg && Array.isArray(pg.variant) && pg.variant.length
-      ? `
-        <div class="detailMeta">
-          ${pg.variant.map(v => `
-            <div class="detailMetaRow">
-              <span class="label">${escapeHtml(v.type || "Variant")}</span>
-              <span class="value">${escapeHtml(
-        (Number.isFinite(Number(v.price_lower)) || Number.isFinite(Number(v.price_higher)))
-          ? `${formatMoney(v.price_lower)} – ${formatMoney(v.price_higher)}`
-          : "—"
-      )}</span>
-            </div>
-          `).join("")}
-        </div>
-      `
-      : `<div class="detailMeta">No variant pricing.</div>`;
-
 
     return `
     ${includeHeader ? "" : `<div class="detailHeader"><h2 class="detailTitle">${escapeHtml(machine.title)}</h2></div>`}
 
     <div class="detailContent">
-
       ${pg ? `
       <section class="detailSection detailHeroSection">
         ${pgImage}
@@ -808,24 +782,44 @@
       </section>
 
       <section class="detailSection">
-        <h3>Purchase info</h3>
-        <div class="detailStats detailMoneyList">
-          <div class="statRow statRowMoney"><span class="label">Purchase price</span><span class="value">${escapeHtml(formatMoney(machine.purchasePrice))}</span></div>
-          <div class="statRow statRowMoney"><span class="label">Total expenses</span><span class="value">${escapeHtml(formatMoney(totalExpenses))}</span></div>
-          <div class="statRow statRowMoney"><span class="label">Total cost</span><span class="value">${escapeHtml(formatMoney(totalCost))}</span></div>
+        <h3>Expenses</h3>
+        <div class="detailList">${expenseRows}</div>
+
+        <div class="detailMoneySummary">
+          <div class="moneyRow">
+            <span class="moneyLabel">Total Expenses</span>
+            <span class="moneyValue">${escapeHtml(formatMoney(totalExpenses))}</span>
+          </div>
+
+          <div class="moneySpacer"></div>
+
+          <div class="moneyRow">
+            <span class="moneyLabel">Purchase Price</span>
+            <span class="moneyValue">${escapeHtml(formatMoney(machine.purchasePrice))}</span>
+          </div>
+
+          <div class="moneySpacer"></div>
+
+          <div class="moneyRow moneyRowTotal">
+            <span class="moneyLabel">Total Investment</span>
+            <span class="moneyValue">${escapeHtml(formatMoney(totalCost))}</span>
+          </div>
         </div>
       </section>
 
       <section class="detailSection">
-        <h3>Expense list</h3>
-        <div class="detailList">${expenseRows}</div>
-      </section>
-
-      <section class="detailSection">
         <h3>Profit / loss</h3>
-        <div class="detailStats detailMoneyList">
-          <div class="statRow statRowMoney"><span class="label">Sold price</span><span class="value">${escapeHtml(formatMoney(machine.soldPrice))}</span></div>
-          <div class="statRow statRowMoney"><span class="label">Profit / loss</span><span class="value">${escapeHtml(formatMoney(profit))}</span></div>
+        <div class="detailMoneySummary">
+          <div class="moneyRow">
+            <span class="moneyLabel">Sold price</span>
+            <span class="moneyValue">${escapeHtml(formatMoney(machine.soldPrice))}</span>
+          </div>
+          <div class="moneyRow moneyRowTotal">
+            <span class="moneyLabel">Profit / loss</span>
+            <span class="moneyValue ${profit != null ? `moneyProfit ${profit >= 0 ? "positive" : "negative"}` : ""}">
+              ${escapeHtml(formatMoney(profit))}
+            </span>
+          </div>
         </div>
       </section>
     </div>
