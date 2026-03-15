@@ -1046,3 +1046,37 @@ select {
     gap: 12px;
   }
 }
+
+
+.editForm .settingsModalFooter {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
+  padding: 14px 16px;
+  border-top: 1px solid var(--border);
+  background: var(--panel);
+  flex: 0 0 auto;
+  position: sticky;
+  bottom: 0;
+}
+
+.editForm .settingsFooterBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.editField {
+  display: flex;
+  flex-direction: column;
+}
+
+.editFieldGrid .editField {
+  display: flex;
+  flex-direction: column;
+}
+
+.editModalBody {
+  padding-bottom: 90px;
+}

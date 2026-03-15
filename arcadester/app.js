@@ -239,6 +239,10 @@
     }
   }
 
+  function reloadForAuthStateChange() {
+    window.location.reload();
+  }
+
   function loginWithUsername() {
     const username = String(els.settingsUsernameInput?.value || "").trim();
     if (!username) {
@@ -249,14 +253,14 @@
     state.auth.username = username;
     state.auth.loggedIn = true;
     saveAuthState();
-    renderSettingsModal();
+    reloadForAuthStateChange();
   }
 
   function logoutUser() {
     state.auth.username = "";
     state.auth.loggedIn = false;
-    saveAuthState();
-    renderSettingsModal();
+    localStorage.removeItem("arcadesterUsername");
+    reloadForAuthStateChange();
   }
 
   function renderSettingsModal() {
@@ -798,7 +802,13 @@
     els.settingsBtn.addEventListener("click", openSettingsModal);
     els.settingsCloseBtn.addEventListener("click", closeSettingsModal);
     els.settingsCancelBtn.addEventListener("click", closeSettingsModal);
-    els.settingsSaveBtn.addEventListener("click", closeSettingsModal);
+    els.settingsSaveBtn.addEventListener("click", () => {
+      if (state.auth.loggedIn) {
+        closeSettingsModal();
+        return;
+      }
+      loginWithUsername();
+    });
     els.settingsOverlay.addEventListener("click", closeSettingsModal);
 
     els.editCloseBtn?.addEventListener("click", closeEditModal);
