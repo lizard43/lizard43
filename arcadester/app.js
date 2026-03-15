@@ -310,6 +310,53 @@
     return formatMoney(low ?? high);
   }
 
+  function formatMoneyNoCents(value) {
+    if (value === null || value === undefined || value === "") return "—";
+    const n = Number(value);
+    if (!Number.isFinite(n)) return "—";
+    return new Intl.NumberFormat("en-US", {
+      style: "currency",
+      currency: "USD",
+      minimumFractionDigits: 0,
+      maximumFractionDigits: 0
+    }).format(n);
+  }
+
+  function formatPriceguideRangeNoCents(entry) {
+    if (!entry || !entry.guideRange) return "—";
+
+    const low = entry.guideRange.low;
+    const high = entry.guideRange.high;
+
+    if (low != null && high != null) {
+      return `${formatMoneyNoCents(low)} – ${formatMoneyNoCents(high)}`;
+    }
+
+    return formatMoneyNoCents(low ?? high);
+  }
+
+  function buildDetailInfoLine(pg) {
+    if (!pg) return "—";
+    return [pg.manufacturer, pg.date].filter(Boolean).join(" • ") || "—";
+  }
+
+  function buildDetailRatingLine(pg) {
+    if (!pg) return "—";
+
+    if (pg.source === "ps") {
+      return `User Rating ${formatRating(pg.ratings?.user)}`;
+    }
+
+    const parts = [];
+    const user = formatRating(pg.ratings?.user);
+    const collect = formatRating(pg.ratings?.collector);
+
+    if (user !== "—") parts.push(`User Rating ${user}`);
+    if (collect !== "—") parts.push(`Collector ${collect}`);
+
+    return parts.length ? parts.join(" • ") : "—";
+  }
+
   async function init() {
     wireEvents();
 
@@ -461,7 +508,11 @@
       const isSold = isSoldMachine(machine);
       const profit = machine.soldPrice != null ? machine.soldPrice - (totalCost || 0) : null;
 
-      const locationCondition = [machine.location, machine.condition].filter(Boolean).join(" - ");
+      const locationCondition = [machine.location, machine.condition]
+        .filter(Boolean)
+        .join(" · ");
+
+      const cardNotes = machine.notes || "";
 
       const soldBlock = isSold
         ? `
@@ -492,6 +543,10 @@
           <div class="cardMetaLine">
             ${escapeHtml(locationCondition || "—")}
           </div>
+
+          ${cardNotes ? `
+            <div class="cardNotesLine">${escapeHtml(cardNotes)}</div>
+          ` : ""}
 
           <div class="cardStats">
             <div class="cardStatRow">
@@ -637,28 +692,20 @@
     <div class="detailContent">
 
       ${pg ? `
-      <section class="detailSection">
+      <section class="detailSection detailHeroSection">
         ${pgImage}
-        <div class="detailMeta">
-          <div class="detailMetaRow"><span class="label">Title</span><span class="value">${escapeHtml(pg.title || "—")}</span></div>
-          <div class="detailMetaRow"><span class="label">Maker / date</span><span class="value">${escapeHtml([pg.manufacturer, pg.date].filter(Boolean).join(" – ") || "—")}</span></div>
-          <div class="detailMetaRow"><span class="label">${escapeHtml(pg.source === "ps" ? "Type" : "Genre")}</span><span class="value">${escapeHtml(pg.genre || "—")}</span></div>
-          <div class="detailMetaRow"><span class="label">Guide source</span><span class="value">${escapeHtml(pg.source === "ps" ? "Pinside" : "VAPS / KLOV")}</span></div>
-          <div class="detailMetaRow"><span class="label">Rating</span><span class="value">${escapeHtml(
-      pg.source === "ps"
-        ? `User ${formatRating(pg.ratings?.user)}`
-        : `User ${formatRating(pg.ratings?.user)} • Fun ${formatRating(pg.ratings?.fun)} • Collect ${formatRating(pg.ratings?.collector)}`
-    )}</span></div>
-          <div class="detailMetaRow"><span class="label">Guide range</span><span class="value">${escapeHtml(formatPriceguideRange(pg))}</span></div>
-          ${pg.source === "ps" && pg.guideRange?.avg != null ? `
-            <div class="detailMetaRow"><span class="label">Guide average</span><span class="value">${escapeHtml(formatMoney(pg.guideRange.avg))}</span></div>
-          ` : ""}
-          ${pg.pageUrl ? `
-            <div class="detailMetaRow"><span class="label">Reference</span><span class="value"><a href="${escapeAttr(pg.pageUrl)}" target="_blank" rel="noopener noreferrer">${escapeHtml(pg.pageLabel || "Open reference")}</a></span></div>
-          ` : ""}
+        <div class="detailHeroInfo">
+          <div class="detailHeroLine">${escapeHtml(buildDetailInfoLine(pg))}</div>
+          <div class="detailHeroLine">${escapeHtml(buildDetailRatingLine(pg))}</div>
+          <div class="detailHeroLine">${escapeHtml(formatPriceguideRangeNoCents(pg))}</div>
+          <div class="detailHeroLine">
+            ${pg.pageUrl
+          ? `Reference: <a href="${escapeAttr(pg.pageUrl)}" target="_blank" rel="noopener noreferrer">${escapeHtml(pg.pageLabel || "Open reference")}</a>`
+          : `Reference: —`
+        }
+          </div>
         </div>
       </section>
-
       ` : ""}
 
       <section class="detailSection">

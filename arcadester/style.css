@@ -195,7 +195,7 @@ select {
 
 .cardBody {
   min-width: 0;
-  padding: 12px 12px 12px 14px;
+  padding: 10px 12px 10px 14px;
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -203,16 +203,16 @@ select {
 
 .cardTopRow {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
   gap: 10px;
-  margin-bottom: 6px;
+  margin-bottom: 2px;
 }
 
 .cardIdLine {
   color: var(--muted);
-  font-size: 0.9rem;
-  line-height: 1.1;
+  font-size: 0.88rem;
+  line-height: 1;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -222,8 +222,8 @@ select {
   color: var(--text);
   font-size: 1.05rem;
   font-weight: 700;
-  line-height: 1.12;
-  margin-bottom: 8px;
+  line-height: 1.08;
+  margin-bottom: 10px;
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
@@ -233,9 +233,20 @@ select {
 .cardMetaLine {
   color: var(--muted);
   font-size: 0.95rem;
-  line-height: 1.25;
-  margin-bottom: 10px;
-  min-height: 2.4em;
+  line-height: 1.2;
+  margin-bottom: 4px;
+  min-height: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.cardNotesLine {
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.15;
+  margin-bottom: 8px;
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
@@ -245,7 +256,7 @@ select {
 .cardStats {
   margin-top: auto;
   display: grid;
-  gap: 4px;
+  gap: 1px;
 }
 
 .cardStatRow {
@@ -258,14 +269,14 @@ select {
 .cardStatLabel {
   color: var(--muted);
   font-size: 0.84rem;
-  line-height: 1.2;
+  line-height: 1.05;
   flex: 0 0 auto;
 }
 
 .cardStatValue {
-  color: var(--text);
+  color: var(--muted);
   font-size: 0.98rem;
-  line-height: 1.2;
+  line-height: 1.05;
   text-align: right;
   min-width: 0;
 }
@@ -296,6 +307,7 @@ select {
   line-height: 1;
   cursor: pointer;
   padding: 0;
+  transform: translateY(-1px);
 }
 
 .detailsBtn:hover {
@@ -500,6 +512,43 @@ select {
   display: block;
 }
 
+.detailHeroSection {
+  display: grid;
+  grid-template-columns: minmax(160px, 240px) minmax(0, 1fr);
+  gap: 18px;
+  align-items: center;
+}
+
+.detailHeroSection .priceguideHero {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+}
+
+.detailHeroInfo {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-self: center;
+}
+
+.detailHeroLine {
+  color: var(--text);
+  line-height: 1.45;
+  font-size: 1rem;
+  margin-bottom: 10px;
+  word-break: break-word;
+}
+
+.detailHeroLine:last-child {
+  margin-bottom: 0;
+}
+
+.detailHeroLine a {
+  color: var(--text);
+}
+
 /* Desktop */
 
 @media (min-width: 1000px) {
@@ -573,6 +622,20 @@ select {
   .detailSection:first-child {
     margin-top: 0;
   }
+
+  .detailHeroSection {
+    grid-template-columns: 250px minmax(0, 1fr);
+    gap: 24px;
+    max-width: 640px;
+    margin-left: auto;
+    margin-right: auto;
+    align-items: center;
+  }
+
+  .detailHeroInfo {
+    min-height: 100%;
+    justify-content: center;
+  }
 }
 
 /* Mobile */
@@ -620,10 +683,33 @@ select {
   }
 
   .cardBody {
-    padding: 12px 38px 12px 12px;
+    padding: 10px 38px 10px 12px;
   }
 
   .priceguideHero {
     max-width: 200px;
+  }
+
+  .detailHeroSection {
+    grid-template-columns: 96px minmax(0, 1fr);
+    gap: 12px;
+    align-items: center;
+  }
+
+  .detailHeroSection .priceguideHero {
+    max-width: none;
+    width: 96px;
+    margin: 0;
+  }
+
+  .detailHeroInfo {
+    min-width: 0;
+    justify-content: center;
+  }
+
+  .detailHeroLine {
+    font-size: 0.98rem;
+    line-height: 1.35;
+    margin-bottom: 8px;
   }
 }
