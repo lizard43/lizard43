@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-03-15T18:24:55.390Z",
+  "generated_at": "2026-03-15T19:08:13.731Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,73 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 33,
-      "droppedPrice": 152,
+      "exported_ads": 36,
+      "droppedPrice": 155,
       "droppedMissingGeo": 0,
-      "droppedCircle": 107
+      "droppedCircle": 114
     }
   },
   "ads": [
+    {
+      "adID": "895289900041355",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100009915076100/?product_id=895289900041355",
+      "author": "Aaron Cruz",
+      "postedTime": "2026-03-15T18:12:22.000Z",
+      "title": "USO de nieve",
+      "description": "Overol impermeable y chamarra",
+      "price": "$100",
+      "lat": 32.2998686,
+      "lon": -90.1830408,
+      "location": "Jackson, MS",
+      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/650709105_26239142379110289_9052138443210661808_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=106&ccb=1-7&_nc_sid=92e707&_nc_ohc=1Yv7rBZcEAkQ7kNvwGrUljN&_nc_oc=AdlSHhSsdLtlbZ3b-3M74SrJyt2gTOyrNyDk3LXctzkgDSS85w0qTGgGSZ7F9VylrgE&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=760LG3vAbNcBmmpRfroQCA&_nc_ss=8&oh=00_Afx3yKFb-Dn5OgLiEC-9O6SXTRmGcVml0y5DAghIArMfzA&oe=69BCDF74",
+      "adUrl": "https://www.facebook.com/marketplace/item/895289900041355/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-03-15 19:05:01",
+      "lastSeen": "2026-03-15T19:07:32.752Z"
+    },
+    {
+      "adID": "855435570679597",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/1663910235/?product_id=855435570679597",
+      "author": "Drew Leeuwenburg",
+      "postedTime": "2026-03-15T18:53:12.000Z",
+      "title": "1 Person Towable Tube \"Watersports\"",
+      "description": "1 person towable tube with rope",
+      "price": "$20",
+      "lat": 34.2978794,
+      "lon": -83.8240663,
+      "location": "Gainesville, GA",
+      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/653475052_826373860468424_9025743347016872458_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=104&ccb=1-7&_nc_sid=92e707&_nc_ohc=uckz_fiXjXkQ7kNvwGpVi6t&_nc_oc=AdkIMgWVYUvIPDEM5DzMUahWadZ5HndHe02SpgnP3lgKUWvn6cG57OYXLgA0d2bezAI&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=ci8G45krxe-rYcF9HeJ8Iw&_nc_ss=8&oh=00_AfymrqgTkKqVYj0MGq4nu2HNBKeIjK0Zm_bESejibMwTSw&oe=69BCC889",
+      "adUrl": "https://www.facebook.com/marketplace/item/855435570679597/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-03-15 19:05:01",
+      "lastSeen": "2026-03-15T19:07:32.886Z"
+    },
+    {
+      "adID": "1426269265945792",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/61575913095566/?product_id=1426269265945792",
+      "author": "Austin Khamiss",
+      "postedTime": "2026-03-15T18:58:21.000Z",
+      "title": "Penn 706z",
+      "description": "Penn 706z with power handle. It has some scuffs but is in perfect mechanical condition. New ande 25 Backcountry backed by braid.",
+      "price": "$165",
+      "lat": 30.5168639,
+      "lon": -86.482172,
+      "location": "Niceville, FL",
+      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/651209498_1203954735239032_7268844703741493933_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=101&ccb=1-7&_nc_sid=92e707&_nc_ohc=qd_6OscDohsQ7kNvwEqNiMQ&_nc_oc=AdlOlsRDBV7q3qJg--eFxsIl_15X1IZzzYoQKvpZY0pZoH4kbgWGfmdnyv6YxmsCs9g&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=sh55mMCRnXWoWrpB083_aA&_nc_ss=8&oh=00_AfyJ1y2fKV8ZoruiYk_FS_jOqA-DEwBJ98hMiLmRZnyKNA&oe=69BCD1A9",
+      "adUrl": "https://www.facebook.com/marketplace/item/1426269265945792/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-03-15 19:05:00",
+      "lastSeen": "2026-03-15T19:07:32.349Z"
+    },
     {
       "adID": "4211074612469382",
       "source": "MP",
@@ -36,27 +96,27 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-15 11:04:26",
-      "lastSeen": "2026-03-15T18:04:18.263Z"
+      "lastSeen": "2026-03-15T19:04:20.493Z"
     },
     {
       "adID": "804583199343269",
       "source": "FB",
       "authorUrl": null,
       "author": "Shane Starr",
-      "postedTime": "2026-03-14T18:00:18.489Z",
+      "postedTime": "2026-03-14T19:00:18.476Z",
       "title": "(Pending) Original Gauntlet by Atari Project Cabinet",
       "description": "Non workout Gauntlet cabinet. Has original joysticks and monitor / bezel as far as I can tell. Also appears to have original artwork under the black paint on the sides and control panel. Would make for a great retro restoration project!",
       "price": "$300",
       "lat": 34.0234337,
       "lon": -84.6154897,
       "location": "KENNESAW, GA",
-      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.30808-6/651244967_10225140439936981_217521075182415945_n.jpg?stp=dst-jpegr_s590x590_tt6&_nc_cat=100&ccb=1-7&_nc_sid=e06c5d&_nc_ohc=WFgJ2Zgd9K8Q7kNvwHSVYyv&_nc_oc=Adk9vL5Vx6lbxybuRjshkLwHImfLIU9yPtVdhFeaH_aF_9YMz672SMcJE9mm2FNokr0&_nc_zt=23&se=-1&_nc_ht=scontent-dfw5-2.xx&_nc_gid=m9VFengvSaLPRXwY57grLQ&_nc_ss=8&oh=00_Afzr4OrdaLjjpPUP5FuunjZs0lhCpmNz0UqcAqfckq0NeQ&oe=69BCD1D3",
+      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.30808-6/651244967_10225140439936981_217521075182415945_n.jpg?stp=dst-jpegr_s590x590_tt6&_nc_cat=100&ccb=1-7&_nc_sid=e06c5d&_nc_ohc=WFgJ2Zgd9K8Q7kNvwHSVYyv&_nc_oc=Adk9vL5Vx6lbxybuRjshkLwHImfLIU9yPtVdhFeaH_aF_9YMz672SMcJE9mm2FNokr0&_nc_zt=23&se=-1&_nc_ht=scontent-dfw5-2.xx&_nc_gid=zhEoKcf4Mk5pvD-3Dl6T0A&_nc_ss=8&oh=00_AfwjjbXQdXb9OYbFWtl4jgEWGjdwfwSIkr93CwTatHpOtw&oe=69BCD1D3",
       "adUrl": "https://www.facebook.com/commerce/listing/804583199343269/",
       "priceChanged": 0,
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-13 22:00:18",
-      "lastSeen": "2026-03-15T18:00:18.764Z"
+      "lastSeen": "2026-03-15T19:00:19.381Z"
     },
     {
       "adID": "1511621653863915",
@@ -336,7 +396,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-04 12:09:54",
-      "lastSeen": "2026-03-15T18:07:51.625Z"
+      "lastSeen": "2026-03-15T19:08:13.427Z"
     },
     {
       "adID": "1570931707463297",
