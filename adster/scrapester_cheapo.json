@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-03-15T14:07:50.112Z",
+  "generated_at": "2026-03-15T15:08:55.916Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,33 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 35,
-      "droppedPrice": 132,
+      "exported_ads": 36,
+      "droppedPrice": 140,
       "droppedMissingGeo": 0,
-      "droppedCircle": 86
+      "droppedCircle": 92
     }
   },
   "ads": [
+    {
+      "adID": "1615665012893543",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/4937113/?product_id=1615665012893543",
+      "author": "Ardon Anderson",
+      "postedTime": "2026-03-15T14:58:01.000Z",
+      "title": "Suspenz SUP Wall Storage Rack",
+      "description": "2 sets of Suspenz paddleboard wall storage racks. Originally pad $170",
+      "price": "$40",
+      "lat": 34.2073196,
+      "lon": -84.1401926,
+      "location": "Cumming, GA",
+      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/651043850_969834189057255_2300675328935367251_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=103&ccb=1-7&_nc_sid=92e707&_nc_ohc=gqPbPhjrbpIQ7kNvwHaD3_X&_nc_oc=AdmMSGXxeIol0tmLPZV54EudE9TWmwfdWBM0cVwdhCVDp8jpjdOScCZ0R5md2z6F2QU&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=cpgFAAJbf9PpsxDWkJ0cxg&_nc_ss=8&oh=00_Afyeid7vXTN8Z1Ew5eR997epH7SWE46daTGaRR1IDjWIsg&oe=69BC9C81",
+      "adUrl": "https://www.facebook.com/marketplace/item/1615665012893543/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-03-15 15:05:48",
+      "lastSeen": "2026-03-15T15:08:13.590Z"
+    },
     {
       "adID": "944972665153936",
       "source": "MP",
@@ -76,27 +96,27 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-15 11:04:26",
-      "lastSeen": "2026-03-15T14:04:16.116Z"
+      "lastSeen": "2026-03-15T15:04:24.873Z"
     },
     {
       "adID": "804583199343269",
       "source": "FB",
       "authorUrl": null,
       "author": "Shane Starr",
-      "postedTime": "2026-03-14T14:00:18.345Z",
+      "postedTime": "2026-03-14T15:00:18.487Z",
       "title": "(Pending) Original Gauntlet by Atari Project Cabinet",
       "description": "Non workout Gauntlet cabinet. Has original joysticks and monitor / bezel as far as I can tell. Also appears to have original artwork under the black paint on the sides and control panel. Would make for a great retro restoration project!",
       "price": "$300",
       "lat": 34.0234337,
       "lon": -84.6154897,
       "location": "KENNESAW, GA",
-      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.30808-6/651244967_10225140439936981_217521075182415945_n.jpg?stp=dst-jpegr_s590x590_tt6&_nc_cat=100&ccb=1-7&_nc_sid=e06c5d&_nc_ohc=WFgJ2Zgd9K8Q7kNvwHSVYyv&_nc_oc=Adk9vL5Vx6lbxybuRjshkLwHImfLIU9yPtVdhFeaH_aF_9YMz672SMcJE9mm2FNokr0&_nc_zt=23&se=-1&_nc_ht=scontent-dfw5-2.xx&_nc_gid=-iLD9Xi7t01jz5cJo_4v5w&_nc_ss=8&oh=00_AfxVxRnviDAEl6lxiVOA4HTnobgdTOdRvLt9rxqA381R0A&oe=69BC9993",
+      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.30808-6/651244967_10225140439936981_217521075182415945_n.jpg?stp=dst-jpegr_s590x590_tt6&_nc_cat=100&ccb=1-7&_nc_sid=e06c5d&_nc_ohc=WFgJ2Zgd9K8Q7kNvwHSVYyv&_nc_oc=Adk9vL5Vx6lbxybuRjshkLwHImfLIU9yPtVdhFeaH_aF_9YMz672SMcJE9mm2FNokr0&_nc_zt=23&se=-1&_nc_ht=scontent-dfw5-2.xx&_nc_gid=00kw960YgcwIBt3QwS6tSw&_nc_ss=8&oh=00_Afx2Oj-rsf4Vfj_try9flZVmJQ3ZNgDayozkTl-VEImD5A&oe=69BC9993",
       "adUrl": "https://www.facebook.com/commerce/listing/804583199343269/",
       "priceChanged": 0,
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-13 22:00:18",
-      "lastSeen": "2026-03-15T14:00:18.582Z"
+      "lastSeen": "2026-03-15T15:00:18.738Z"
     },
     {
       "adID": "1511621653863915",
@@ -376,7 +396,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-04 12:09:54",
-      "lastSeen": "2026-03-15T14:07:49.856Z"
+      "lastSeen": "2026-03-15T15:08:55.661Z"
     },
     {
       "adID": "1570931707463297",
