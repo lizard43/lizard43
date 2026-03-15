@@ -14,7 +14,8 @@
     detailHistoryOpen: false,
     auth: {
       username: "",
-      loggedIn: false
+      loggedIn: false,
+      error: ""
     },
     settingsOpen: false,
     editingId: null,
@@ -239,6 +240,7 @@
     const savedUsername = localStorage.getItem("arcadesterUsername") || "";
     state.auth.username = savedUsername.trim();
     state.auth.loggedIn = !!state.auth.username;
+    state.auth.error = "";
   }
 
   function saveAuthState() {
@@ -253,22 +255,80 @@
     window.location.reload();
   }
 
-  function loginWithUsername() {
+  async function loginWithUsername() {
     const username = String(els.settingsUsernameInput?.value || "").trim();
     if (!username) {
+      state.auth.error = "Enter a username.";
+      renderSettingsModal();
       els.settingsUsernameInput?.focus();
       return;
     }
 
-    state.auth.username = username;
-    state.auth.loggedIn = true;
-    saveAuthState();
-    reloadForAuthStateChange();
+    const loginBtn = document.getElementById("settingsLoginBtn");
+    const saveBtn = els.settingsSaveBtn;
+    const originalLoginLabel = loginBtn?.textContent || "Login";
+    const originalSaveLabel = saveBtn?.textContent || "Save";
+
+    try {
+      state.auth.error = "";
+      if (loginBtn) {
+        loginBtn.disabled = true;
+        loginBtn.textContent = "Checking…";
+      }
+      if (saveBtn) {
+        saveBtn.disabled = true;
+        saveBtn.textContent = "Checking…";
+      }
+
+      const payload = await apiGet({ resource: "users" });
+      if (!payload || payload.ok !== true || !Array.isArray(payload.data)) {
+        throw new Error("Users API returned invalid data.");
+      }
+
+      const normalizedUsername = username.toLowerCase();
+      const isAllowed = payload.data.some(row => String(row?.name || "").trim().toLowerCase() === normalizedUsername);
+
+      if (!isAllowed) {
+        state.auth.username = "";
+        state.auth.loggedIn = false;
+        state.auth.error = "User not found.";
+        localStorage.removeItem("arcadesterUsername");
+        renderSettingsModal();
+        els.settingsUsernameInput?.focus();
+        els.settingsUsernameInput?.select?.();
+        return;
+      }
+
+      state.auth.username = username;
+      state.auth.loggedIn = true;
+      state.auth.error = "";
+      saveAuthState();
+      reloadForAuthStateChange();
+    } catch (err) {
+      state.auth.username = "";
+      state.auth.loggedIn = false;
+      state.auth.error = `Login failed. ${err.message}`;
+      localStorage.removeItem("arcadesterUsername");
+      renderSettingsModal();
+      els.settingsUsernameInput?.focus();
+      els.settingsUsernameInput?.select?.();
+    } finally {
+      const refreshedLoginBtn = document.getElementById("settingsLoginBtn");
+      if (refreshedLoginBtn) {
+        refreshedLoginBtn.disabled = false;
+        refreshedLoginBtn.textContent = originalLoginLabel;
+      }
+      if (els.settingsSaveBtn) {
+        els.settingsSaveBtn.disabled = false;
+        els.settingsSaveBtn.textContent = originalSaveLabel;
+      }
+    }
   }
 
   function logoutUser() {
     state.auth.username = "";
     state.auth.loggedIn = false;
+    state.auth.error = "";
     localStorage.removeItem("arcadesterUsername");
     reloadForAuthStateChange();
   }
@@ -297,6 +357,7 @@
           <input id="settingsUsernameInput" class="settingsInput" type="text" autocomplete="username" placeholder="Enter username" value="${escapeAttr(state.auth.username || "")}">
           <button id="settingsLoginBtn" class="settingsActionBtn" type="button">Login</button>
         </div>
+        ${state.auth.error ? `<div class="settingsError">${escapeHtml(state.auth.error)}</div>` : ""}
       `;
 
       els.settingsAuthActions.innerHTML = "";
@@ -306,6 +367,13 @@
 
       if (usernameInput) {
         els.settingsUsernameInput = usernameInput;
+        usernameInput.addEventListener("input", () => {
+          if (state.auth.error) {
+            state.auth.error = "";
+            const errorEl = els.settingsUsernameRow?.querySelector(".settingsError");
+            errorEl?.remove();
+          }
+        });
         usernameInput.addEventListener("keydown", event => {
           if (event.key === "Enter") {
             event.preventDefault();

@@ -1197,3 +1197,17 @@ select {
     width: min(96vw, 840px);
   }
 }
+
+
+.settingsError {
+  margin-top: 10px;
+  color: #ff9a9a;
+  font-size: 0.9rem;
+  line-height: 1.35;
+}
+
+.settingsActionBtn:disabled,
+.settingsFooterBtn:disabled {
+  opacity: 0.65;
+  cursor: default;
+}
