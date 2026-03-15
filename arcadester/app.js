@@ -11,14 +11,29 @@
     priceguideEntries: [],
     priceguideByTitle: new Map(),
     priceguideById: new Map(),
-    detailHistoryOpen: false
+    detailHistoryOpen: false,
+    auth: {
+      username: "",
+      loggedIn: false
+    },
+    settingsOpen: false
   };
 
   const els = {
     searchInput: document.getElementById("searchInput"),
     locationFilter: document.getElementById("locationFilter"),
     conditionFilter: document.getElementById("conditionFilter"),
-    addMachineBtn: document.getElementById("addMachineBtn"),
+    settingsBtn: document.getElementById("settingsBtn"),
+    settingsModal: document.getElementById("settingsModal"),
+    settingsOverlay: document.getElementById("settingsOverlay"),
+    settingsVersion: document.getElementById("settingsVersion"),
+    settingsUsernameRow: document.getElementById("settingsUsernameRow"),
+    settingsAuthActions: document.getElementById("settingsAuthActions"),
+    settingsUsernameInput: document.getElementById("settingsUsernameInput"),
+    settingsLoginBtn: document.getElementById("settingsLoginBtn"),
+    settingsSaveBtn: document.getElementById("settingsSaveBtn"),
+    settingsCancelBtn: document.getElementById("settingsCancelBtn"),
+    settingsCloseBtn: document.getElementById("settingsCloseBtn"),
     cardsGrid: document.getElementById("cardsGrid"),
     emptyState: document.getElementById("emptyState"),
     detailPane: document.getElementById("detailPane"),
@@ -106,6 +121,98 @@
       return payload.data.map(normalizeMachine);
     }
   };
+
+  function loadAuthState() {
+    const savedUsername = localStorage.getItem("arcadesterUsername") || "";
+    state.auth.username = savedUsername.trim();
+    state.auth.loggedIn = !!state.auth.username;
+  }
+
+  function saveAuthState() {
+    if (state.auth.loggedIn && state.auth.username) {
+      localStorage.setItem("arcadesterUsername", state.auth.username);
+    } else {
+      localStorage.removeItem("arcadesterUsername");
+    }
+  }
+
+  function loginWithUsername() {
+    const username = String(els.settingsUsernameInput?.value || "").trim();
+    if (!username) {
+      els.settingsUsernameInput?.focus();
+      return;
+    }
+
+    state.auth.username = username;
+    state.auth.loggedIn = true;
+    saveAuthState();
+    renderSettingsModal();
+  }
+
+  function logoutUser() {
+    state.auth.username = "";
+    state.auth.loggedIn = false;
+    saveAuthState();
+    renderSettingsModal();
+  }
+
+  function renderSettingsModal() {
+    if (!els.settingsVersion || !els.settingsUsernameRow || !els.settingsAuthActions) return;
+
+    els.settingsVersion.textContent = VERSION;
+
+    if (state.auth.loggedIn) {
+      els.settingsUsernameRow.innerHTML = `
+        <label class="settingsLabel">Username</label>
+        <div class="settingsLoggedInValue">${escapeHtml(state.auth.username)}</div>
+      `;
+
+      els.settingsAuthActions.innerHTML = `
+        <button id="settingsLogoutBtn" class="settingsActionBtn settingsLogoutBtn" type="button">Logout</button>
+      `;
+
+      const logoutBtn = document.getElementById("settingsLogoutBtn");
+      logoutBtn?.addEventListener("click", logoutUser);
+    } else {
+      els.settingsUsernameRow.innerHTML = `
+        <label class="settingsLabel" for="settingsUsernameInput">Username</label>
+        <div class="settingsInputRow">
+          <input id="settingsUsernameInput" class="settingsInput" type="text" autocomplete="username" placeholder="Enter username" value="${escapeAttr(state.auth.username || "")}">
+          <button id="settingsLoginBtn" class="settingsActionBtn" type="button">Login</button>
+        </div>
+      `;
+
+      els.settingsAuthActions.innerHTML = "";
+
+      const usernameInput = document.getElementById("settingsUsernameInput");
+      const loginBtn = document.getElementById("settingsLoginBtn");
+
+      if (usernameInput) {
+        els.settingsUsernameInput = usernameInput;
+        usernameInput.addEventListener("keydown", event => {
+          if (event.key === "Enter") {
+            event.preventDefault();
+            loginWithUsername();
+          }
+        });
+      }
+
+      loginBtn?.addEventListener("click", loginWithUsername);
+    }
+  }
+
+  function openSettingsModal() {
+    state.settingsOpen = true;
+    renderSettingsModal();
+    els.settingsModal?.classList.add("open");
+    els.settingsOverlay?.classList.add("open");
+  }
+
+  function closeSettingsModal() {
+    state.settingsOpen = false;
+    els.settingsModal?.classList.remove("open");
+    els.settingsOverlay?.classList.remove("open");
+  }
 
   if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", init);
@@ -424,6 +531,7 @@
   }
 
   async function init() {
+    loadAuthState();
     wireEvents();
 
     try {
@@ -445,9 +553,11 @@
     els.locationFilter.addEventListener("change", applyFilters);
     els.conditionFilter.addEventListener("change", applyFilters);
 
-    els.addMachineBtn.addEventListener("click", () => {
-      alert("Add machine form can be wired next.");
-    });
+    els.settingsBtn.addEventListener("click", openSettingsModal);
+    els.settingsCloseBtn.addEventListener("click", closeSettingsModal);
+    els.settingsCancelBtn.addEventListener("click", closeSettingsModal);
+    els.settingsSaveBtn.addEventListener("click", closeSettingsModal);
+    els.settingsOverlay.addEventListener("click", closeSettingsModal);
 
     els.closeDetailBtn.addEventListener("click", closeMobileDetail);
     els.mobileOverlay.addEventListener("click", closeMobileDetail);
