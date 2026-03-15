@@ -16,7 +16,10 @@
       username: "",
       loggedIn: false
     },
-    settingsOpen: false
+    settingsOpen: false,
+    editingId: null,
+    expenseLoadConcurrency: 4,
+    noteLoadConcurrency: 4
   };
 
   const els = {
@@ -34,6 +37,25 @@
     settingsSaveBtn: document.getElementById("settingsSaveBtn"),
     settingsCancelBtn: document.getElementById("settingsCancelBtn"),
     settingsCloseBtn: document.getElementById("settingsCloseBtn"),
+    editOverlay: document.getElementById("editOverlay"),
+    editModal: document.getElementById("editModal"),
+    editForm: document.getElementById("editForm"),
+    editGameId: document.getElementById("editGameId"),
+    editTitle: document.getElementById("editTitle"),
+    editLocation: document.getElementById("editLocation"),
+    editCondition: document.getElementById("editCondition"),
+    editPgId: document.getElementById("editPgId"),
+    editPhoto: document.getElementById("editPhoto"),
+    editNotes: document.getElementById("editNotes"),
+    editPurchaseDate: document.getElementById("editPurchaseDate"),
+    editPurchasePrice: document.getElementById("editPurchasePrice"),
+    editPurchaseFrom: document.getElementById("editPurchaseFrom"),
+    editSoldDate: document.getElementById("editSoldDate"),
+    editSoldPrice: document.getElementById("editSoldPrice"),
+    editSoldTo: document.getElementById("editSoldTo"),
+    editSaveBtn: document.getElementById("editSaveBtn"),
+    editCancelBtn: document.getElementById("editCancelBtn"),
+    editCloseBtn: document.getElementById("editCloseBtn"),
     cardsGrid: document.getElementById("cardsGrid"),
     emptyState: document.getElementById("emptyState"),
     detailPane: document.getElementById("detailPane"),
@@ -56,24 +78,84 @@
     }).format(d);
   }
 
-  async function preloadExpensesForMachines(machines) {
-    await Promise.all(
-      machines.map(async machine => {
-        if (!machine?.id) return;
 
-        try {
-          const expenses = await loadExpensesForGame(machine.id);
-          machine.expenses = expenses;
-          machine.totalExpenses = sumExpenses(expenses);
-          machine.totalCost = addMoney(machine.purchasePrice, machine.totalExpenses);
-        } catch (err) {
-          console.warn(`Could not load expenses for ${machine.id}: ${err.message}`);
-          machine.expenses = [];
-          machine.totalExpenses = 0;
-          machine.totalCost = addMoney(machine.purchasePrice, 0);
-        }
-      })
-    );
+  async function preloadNotesForMachinesInBackground(machines, concurrency = state.noteLoadConcurrency) {
+    const queue = machines.filter(machine => machine?.id);
+    let nextIndex = 0;
+
+    async function worker() {
+      while (nextIndex < queue.length) {
+        const currentIndex = nextIndex++;
+        const machine = queue[currentIndex];
+        await hydrateMachineNotes(machine);
+        patchMachineUI(machine);
+      }
+    }
+
+    const workerCount = Math.max(1, Math.min(concurrency, queue.length));
+    await Promise.all(Array.from({ length: workerCount }, () => worker()));
+  }
+
+  async function hydrateMachineNotes(machine) {
+    if (!machine?.id) return;
+
+    try {
+      machine.apiNotes = await loadNotesForGame(machine.id);
+    } catch (err) {
+      console.warn(`Could not load notes for ${machine.id}: ${err.message}`);
+      machine.apiNotes = [];
+    }
+  }
+
+  async function loadNotesForGame(gameID) {
+    if (!gameID) return [];
+
+    const payload = await apiGet({
+      resource: "notes",
+      gameID
+    });
+
+    if (!payload || payload.ok !== true || !Array.isArray(payload.data)) {
+      throw new Error("Notes API returned invalid data.");
+    }
+
+    return payload.data
+      .filter(row => String(row.gameID || "").trim() === String(gameID).trim())
+      .filter(row => row && (row.noteID !== "" || row.note || row.category || row.date))
+      .map(normalizeNote);
+  }
+
+  async function preloadExpensesForMachinesInBackground(machines, concurrency = state.expenseLoadConcurrency) {
+    const queue = machines.filter(machine => machine?.id);
+    let nextIndex = 0;
+
+    async function worker() {
+      while (nextIndex < queue.length) {
+        const currentIndex = nextIndex++;
+        const machine = queue[currentIndex];
+        await hydrateMachineExpenses(machine);
+        patchMachineUI(machine);
+      }
+    }
+
+    const workerCount = Math.max(1, Math.min(concurrency, queue.length));
+    await Promise.all(Array.from({ length: workerCount }, () => worker()));
+  }
+
+  async function hydrateMachineExpenses(machine) {
+    if (!machine?.id) return;
+
+    try {
+      const expenses = await loadExpensesForGame(machine.id);
+      machine.expenses = expenses;
+      machine.totalExpenses = sumExpenses(expenses);
+      machine.totalCost = addMoney(machine.purchasePrice, machine.totalExpenses);
+    } catch (err) {
+      console.warn(`Could not load expenses for ${machine.id}: ${err.message}`);
+      machine.expenses = [];
+      machine.totalExpenses = 0;
+      machine.totalCost = addMoney(machine.purchasePrice, 0);
+    }
   }
 
   async function loadExpensesForGame(gameID) {
@@ -108,6 +190,27 @@
     }
 
     return res.json();
+  }
+
+  async function apiPost(action, data) {
+    const res = await fetch(API_URL, {
+      method: "POST",
+      headers: {
+        "Content-Type": "text/plain;charset=utf-8"
+      },
+      body: JSON.stringify({ action, data })
+    });
+
+    if (!res.ok) {
+      throw new Error(`API request failed: HTTP ${res.status}`);
+    }
+
+    const payload = await res.json();
+    if (!payload || payload.ok !== true) {
+      throw new Error(payload?.error || "API request failed.");
+    }
+
+    return payload;
   }
 
   window.InventoryLoader = {
@@ -220,6 +323,142 @@
     init();
   }
 
+  function toDateInputValue(value) {
+    if (!value) return "";
+    const d = new Date(value);
+    if (Number.isNaN(d.getTime())) {
+      const raw = String(value).trim();
+      const m = raw.match(/^(\d{4})-(\d{2})-(\d{2})/);
+      return m ? `${m[1]}-${m[2]}-${m[3]}` : "";
+    }
+    const year = d.getFullYear();
+    const month = String(d.getMonth() + 1).padStart(2, "0");
+    const day = String(d.getDate()).padStart(2, "0");
+    return `${year}-${month}-${day}`;
+  }
+
+  function toFormNumberValue(value) {
+    return value === null || value === undefined || value === "" ? "" : String(value);
+  }
+
+  function getMachineById(id) {
+    return state.allMachines.find(m => m.id === id) || null;
+  }
+
+  function openEditModal(id) {
+    if (!state.auth.loggedIn) return;
+
+    const machine = getMachineById(id);
+    if (!machine || !els.editModal) return;
+
+    state.editingId = id;
+    els.editGameId.textContent = machine.id || "—";
+    els.editTitle.value = machine.title || "";
+    els.editLocation.value = machine.location || "";
+    els.editCondition.value = machine.condition || "";
+    els.editPgId.value = machine.pgID || "";
+    els.editPhoto.value = machine.photo || "";
+    els.editNotes.value = machine.notes || "";
+    els.editPurchaseDate.value = toDateInputValue(machine.purchaseDate);
+    els.editPurchasePrice.value = toFormNumberValue(machine.purchasePrice);
+    els.editPurchaseFrom.value = machine.purchaseFrom || "";
+    els.editSoldDate.value = toDateInputValue(machine.soldDate);
+    els.editSoldPrice.value = toFormNumberValue(machine.soldPrice);
+    els.editSoldTo.value = machine.soldTo || "";
+
+    els.editOverlay?.classList.add("open");
+    els.editModal.classList.add("open");
+    els.editTitle?.focus();
+  }
+
+  function closeEditModal() {
+    state.editingId = null;
+    els.editModal?.classList.remove("open");
+    els.editOverlay?.classList.remove("open");
+    els.editForm?.reset();
+  }
+
+  function buildGamePayloadFromForm(id) {
+    return {
+      ID: id,
+      title: String(els.editTitle?.value || "").trim(),
+      location: String(els.editLocation?.value || "").trim(),
+      condition: String(els.editCondition?.value || "").trim(),
+      pgID: String(els.editPgId?.value || "").trim(),
+      photo: String(els.editPhoto?.value || "").trim(),
+      notes: String(els.editNotes?.value || "").trim(),
+      purchaseDate: String(els.editPurchaseDate?.value || "").trim(),
+      purchasePrice: String(els.editPurchasePrice?.value || "").trim(),
+      purchaseFrom: String(els.editPurchaseFrom?.value || "").trim(),
+      soldDate: String(els.editSoldDate?.value || "").trim(),
+      soldPrice: String(els.editSoldPrice?.value || "").trim(),
+      soldTo: String(els.editSoldTo?.value || "").trim()
+    };
+  }
+
+  function mergeMachineFromApiRow(existing, row) {
+    const merged = normalizeMachine({ ...existing, ...row, id: row.ID || existing.id });
+    merged.expenses = existing.expenses;
+    merged.totalExpenses = existing.totalExpenses;
+    merged.totalCost = addMoney(merged.purchasePrice, merged.totalExpenses);
+    merged.apiNotes = existing.apiNotes;
+    merged.photos = Array.isArray(existing.photos) ? [...existing.photos] : [];
+    return merged;
+  }
+
+  async function handleEditFormSubmit(event) {
+    event.preventDefault();
+
+    const id = state.editingId;
+    const machine = getMachineById(id);
+    if (!id || !machine) return;
+
+    const saveBtn = els.editSaveBtn;
+    const originalLabel = saveBtn?.textContent || "Save";
+
+    try {
+      if (saveBtn) {
+        saveBtn.disabled = true;
+        saveBtn.textContent = "Saving…";
+      }
+
+      const payload = buildGamePayloadFromForm(id);
+      const result = await apiPost("updateGame", payload);
+      const updated = mergeMachineFromApiRow(machine, result.data || payload);
+      const index = state.allMachines.findIndex(item => item.id === id);
+      if (index >= 0) {
+        state.allMachines[index] = updated;
+      }
+
+      populateFilters();
+      applyFilters();
+
+      if (state.selectedId === id) {
+        renderDetail(updated);
+        updateSelectedCard();
+      }
+
+      closeEditModal();
+    } catch (err) {
+      window.alert(`Could not save game. ${err.message}`);
+    } finally {
+      if (saveBtn) {
+        saveBtn.disabled = false;
+        saveBtn.textContent = originalLabel;
+      }
+    }
+  }
+
+  function normalizeNote(note) {
+    return {
+      noteID: String(note.noteID || "").trim(),
+      gameID: String(note.gameID || "").trim(),
+      date: formatApiDate(note.date),
+      category: String(note.category || "").trim(),
+      note: String(note.note || "").trim()
+    };
+  }
+
   function normalizeExpense(exp) {
     return {
       expenseID: String(exp.expenseID || "").trim(),
@@ -257,6 +496,8 @@
     item.totalExpenses = null;
     item.totalCost = null;
     item.expenses = null;
+
+    item.apiNotes = null;
 
     item.photo = String(item.photo || "").trim();
     item.photos = [];
@@ -537,9 +778,10 @@
     try {
       await loadPriceguide();
       state.allMachines = await window.InventoryLoader.load();
-      await preloadExpensesForMachines(state.allMachines);
       populateFilters();
       applyFilters();
+      preloadExpensesForMachinesInBackground(state.allMachines);
+      preloadNotesForMachinesInBackground(state.allMachines);
 
     } catch (err) {
       els.cardsGrid.innerHTML = "";
@@ -558,6 +800,11 @@
     els.settingsCancelBtn.addEventListener("click", closeSettingsModal);
     els.settingsSaveBtn.addEventListener("click", closeSettingsModal);
     els.settingsOverlay.addEventListener("click", closeSettingsModal);
+
+    els.editCloseBtn?.addEventListener("click", closeEditModal);
+    els.editCancelBtn?.addEventListener("click", closeEditModal);
+    els.editOverlay?.addEventListener("click", closeEditModal);
+    els.editForm?.addEventListener("submit", handleEditFormSubmit);
 
     els.closeDetailBtn.addEventListener("click", closeMobileDetail);
     els.mobileOverlay.addEventListener("click", closeMobileDetail);
@@ -650,6 +897,137 @@
     }
   }
 
+  function createMachineRow(machine) {
+    const row = document.createElement("div");
+    row.className = "machineRow";
+    row.dataset.id = machine.id;
+
+    const card = document.createElement("article");
+    card.className = "card";
+    card.dataset.id = machine.id;
+
+    if (isSoldMachine(machine)) {
+      card.classList.add("cardSold");
+    }
+
+    if (machine.id === state.selectedId) {
+      card.classList.add("selected");
+    }
+
+    const cardImageUrl = getCardPhotoUrl(machine);
+    const expensesLoading = machine.expenses === null;
+    const totalExpenses = machine.totalExpenses ?? sumExpenses(machine.expenses);
+    const totalCost = machine.totalCost ?? addMoney(machine.purchasePrice, totalExpenses);
+    const isSold = isSoldMachine(machine);
+    const profit = machine.soldPrice != null && totalCost != null ? machine.soldPrice - totalCost : null;
+
+    const locationCondition = [machine.location, machine.condition]
+      .filter(Boolean)
+      .join(" · ");
+
+    const cardNotes = machine.notes || "";
+
+    const soldBlock = isSold
+      ? `
+          <div class="cardStatRow">
+            <span class="cardStatLabel">Sold</span>
+            <span class="cardStatValue">${escapeHtml(formatMoney(machine.soldPrice))}</span>
+          </div>
+          <div class="cardStatRow">
+            <span class="cardStatLabel">P/L</span>
+            <span class="cardStatValue cardProfit ${profit != null ? (profit >= 0 ? "positive" : "negative") : ""} ${expensesLoading ? "isLoading" : ""}">${escapeHtml(expensesLoading ? "…" : formatMoney(profit))}</span>
+          </div>
+        `
+      : "";
+
+    card.innerHTML = `
+      <div class="cardPhotoWrap">
+        <img class="cardPhoto" src="${escapeAttr(cardImageUrl)}" alt="${escapeAttr(machine.title)}">
+      </div>
+
+      <div class="cardBody">
+        <div class="cardTopRow">
+          <div class="cardIdLineWrap">
+            <div class="cardIdLine">${escapeHtml(machine.id || "—")}</div>
+            ${state.auth.loggedIn ? `
+              <button class="cardEditBtn" type="button" aria-label="Edit ${escapeAttr(machine.id || machine.title)}" title="Edit game">
+                <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                  <path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25Zm14.71-9.04a1.003 1.003 0 0 0 0-1.42l-2.5-2.5a1.003 1.003 0 0 0-1.42 0l-1.96 1.96 3.75 3.75 2.13-1.79Z"/>
+                </svg>
+              </button>
+            ` : ""}
+          </div>
+          <button class="detailsBtn" type="button" aria-label="Open details">&raquo;</button>
+        </div>
+
+        <div class="cardTitleLine">${escapeHtml(machine.title)}</div>
+
+        <div class="cardMetaLine">
+          ${escapeHtml(locationCondition || "—")}
+        </div>
+
+        ${cardNotes ? `
+          <div class="cardNotesLine">${escapeHtml(cardNotes)}</div>
+        ` : ""}
+
+        <div class="cardStats">
+          <div class="cardStatRow">
+            <span class="cardStatLabel">Purchase</span>
+            <span class="cardStatValue">${escapeHtml(formatMoney(machine.purchasePrice))}</span>
+          </div>
+
+          <div class="cardStatRow">
+            <span class="cardStatLabel">Expenses</span>
+            <span class="cardStatValue ${expensesLoading ? "isLoading" : ""}">${escapeHtml(expensesLoading ? "…" : formatMoney(totalExpenses))}</span>
+          </div>
+
+          <div class="cardStatRow cardStatRowTotal">
+            <span class="cardStatLabel">Investment</span>
+            <span class="cardStatValue ${expensesLoading ? "isLoading" : ""}">${escapeHtml(expensesLoading ? "…" : formatMoney(totalCost))}</span>
+          </div>
+
+          ${soldBlock}
+        </div>
+      </div>
+    `;
+
+    card.addEventListener("click", event => {
+      const clickedKlov = event.target.closest("a");
+      const clickedDetails = event.target.closest(".detailsBtn");
+      const clickedEdit = event.target.closest(".cardEditBtn");
+      if (clickedKlov || clickedDetails || clickedEdit) return;
+
+      selectMachine(machine.id, true);
+    });
+
+    const detailsBtn = card.querySelector(".detailsBtn");
+    detailsBtn.addEventListener("click", event => {
+      event.stopPropagation();
+      selectMachine(machine.id, true);
+    });
+
+    const editBtn = card.querySelector(".cardEditBtn");
+    editBtn?.addEventListener("click", event => {
+      event.stopPropagation();
+      openEditModal(machine.id);
+    });
+
+    row.appendChild(card);
+    return row;
+  }
+
+  function patchMachineUI(machine) {
+    const existingRow = els.cardsGrid.querySelector(`.machineRow[data-id="${CSS.escape(machine.id)}"]`);
+    if (existingRow) {
+      existingRow.replaceWith(createMachineRow(machine));
+    }
+
+    if (state.selectedId === machine.id) {
+      renderDetail(machine);
+      updateSelectedCard();
+    }
+  }
+
   function renderCards() {
     els.cardsGrid.innerHTML = "";
 
@@ -661,114 +1039,13 @@
     els.emptyState.classList.add("hidden");
 
     for (const machine of state.filteredMachines) {
-      const row = document.createElement("div");
-      row.className = "machineRow";
-      row.dataset.id = machine.id;
-
-      const card = document.createElement("article");
-      card.className = "card";
-      card.dataset.id = machine.id;
-
-      if (isSoldMachine(machine)) {
-        card.classList.add("cardSold");
-      }
-
-      if (machine.id === state.selectedId) {
-        card.classList.add("selected");
-      }
-
-      const pg = getPriceguideEntry(machine);
-      const cardImageUrl = getCardPhotoUrl(machine);
-
-      const totalExpenses = machine.totalExpenses ?? sumExpenses(machine.expenses);
-      const totalCost = machine.totalCost ?? addMoney(machine.purchasePrice, totalExpenses);
-      const isSold = isSoldMachine(machine);
-      const profit = machine.soldPrice != null ? machine.soldPrice - (totalCost || 0) : null;
-
-      const locationCondition = [machine.location, machine.condition]
-        .filter(Boolean)
-        .join(" · ");
-
-      const cardNotes = machine.notes || "";
-
-      const soldBlock = isSold
-        ? `
-          <div class="cardStatRow">
-            <span class="cardStatLabel">Sold</span>
-            <span class="cardStatValue">${escapeHtml(formatMoney(machine.soldPrice))}</span>
-          </div>
-          <div class="cardStatRow">
-            <span class="cardStatLabel">P/L</span>
-            <span class="cardStatValue cardProfit ${profit >= 0 ? "positive" : "negative"}">${escapeHtml(formatMoney(profit))}</span>
-          </div>
-        `
-        : "";
-
-      card.innerHTML = `
-        <div class="cardPhotoWrap">
-          <img class="cardPhoto" src="${escapeAttr(cardImageUrl)}" alt="${escapeAttr(machine.title)}">
-        </div>
-
-        <div class="cardBody">
-          <div class="cardTopRow">
-            <div class="cardIdLine">${escapeHtml(machine.id || "—")}</div>
-            <button class="detailsBtn" type="button" aria-label="Open details">&raquo;</button>
-          </div>
-
-          <div class="cardTitleLine">${escapeHtml(machine.title)}</div>
-
-          <div class="cardMetaLine">
-            ${escapeHtml(locationCondition || "—")}
-          </div>
-
-          ${cardNotes ? `
-            <div class="cardNotesLine">${escapeHtml(cardNotes)}</div>
-          ` : ""}
-
-          <div class="cardStats">
-            <div class="cardStatRow">
-              <span class="cardStatLabel">Purchase</span>
-              <span class="cardStatValue">${escapeHtml(formatMoney(machine.purchasePrice))}</span>
-            </div>
-
-            <div class="cardStatRow">
-              <span class="cardStatLabel">Expenses</span>
-              <span class="cardStatValue">${escapeHtml(formatMoney(totalExpenses))}</span>
-            </div>
-
-            <div class="cardStatRow cardStatRowTotal">
-              <span class="cardStatLabel">Investment</span>
-              <span class="cardStatValue">${escapeHtml(formatMoney(totalCost))}</span>
-            </div>
-
-            ${soldBlock}
-          </div>
-        </div>
-      `;
-
-      card.addEventListener("click", event => {
-        const clickedKlov = event.target.closest("a");
-        const clickedDetails = event.target.closest(".detailsBtn");
-        if (clickedKlov || clickedDetails) return;
-
-        selectMachine(machine.id, true);
-      });
-
-      const detailsBtn = card.querySelector(".detailsBtn");
-      detailsBtn.addEventListener("click", event => {
-        event.stopPropagation();
-        selectMachine(machine.id, true);
-      });
-
-      row.appendChild(card);
-      els.cardsGrid.appendChild(row);
+      els.cardsGrid.appendChild(createMachineRow(machine));
     }
   }
 
   async function refreshMachineExpenses(machine) {
-    machine.expenses = await loadExpensesForGame(machine.id);
-    machine.totalExpenses = sumExpenses(machine.expenses);
-    machine.totalCost = addMoney(machine.purchasePrice, machine.totalExpenses);
+    await hydrateMachineExpenses(machine);
+    patchMachineUI(machine);
   }
 
   function selectMachine(id, openDetailPane = true) {
@@ -813,14 +1090,48 @@
     }
   }
 
+  function buildMachineNotesMarkup(machine) {
+    const baseNote = String(machine.notes || "").trim();
+    const apiNotes = Array.isArray(machine.apiNotes) ? machine.apiNotes : null;
+
+    const parts = [];
+
+    if (baseNote) {
+      parts.push(`<div class="detailNoteEntry detailNoteEntryBase">${escapeHtml(baseNote)}</div>`);
+    }
+
+    if (apiNotes === null) {
+      parts.push(`<div class="detailMeta detailMetaLoading">Loading notes…</div>`);
+    } else if (apiNotes.length) {
+      parts.push(apiNotes.map(note => `
+        <div class="detailNoteEntry detailNoteEntryApi">
+          <div class="expenseTop detailNoteMeta">
+            ${escapeHtml(note.date || "—")}
+            ${note.category ? ` • ${escapeHtml(note.category)}` : ""}
+          </div>
+          <div class="expenseDescMuted detailNoteTextIndented">${escapeHtml(note.note || "—")}</div>
+        </div>
+      `).join(""));
+    }
+
+    if (!parts.length) {
+      return `<div class="detailNotes">No notes yet.</div>`;
+    }
+
+    return `<div class="detailNotesList">${parts.join("")}</div>`;
+  }
+
   function buildDetailMarkup(machine, includeHeader = true) {
     const pg = getPriceguideEntry(machine);
 
+    const expensesLoading = machine.expenses === null;
     const totalExpenses = machine.totalExpenses ?? sumExpenses(machine.expenses);
     const totalCost = machine.totalCost ?? addMoney(machine.purchasePrice, totalExpenses);
-    const profit = machine.soldPrice != null ? machine.soldPrice - (totalCost || 0) : null;
+    const profit = machine.soldPrice != null && totalCost != null ? machine.soldPrice - totalCost : null;
 
-    const expenseRows = Array.isArray(machine.expenses) && machine.expenses.length
+    const expenseRows = expensesLoading
+      ? `<div class="detailMeta detailMetaLoading">Loading expenses…</div>`
+      : Array.isArray(machine.expenses) && machine.expenses.length
       ? machine.expenses.map(exp => `
         <div class="expenseRow">
           <div class="expenseMain">
@@ -883,7 +1194,7 @@
 
       <section class="detailSection">
         <h3>Notes</h3>
-        <div class="detailNotes">${escapeHtml(machine.notes || "No notes yet.")}</div>
+        ${buildMachineNotesMarkup(machine)}
       </section>
 
       <section class="detailSection">
@@ -898,7 +1209,7 @@
         <div class="detailMoneySummary">
           <div class="moneyRow">
             <span class="moneyLabel">Total Expenses</span>
-            <span class="moneyValue">${escapeHtml(formatMoney(totalExpenses))}</span>
+            <span class="moneyValue ${expensesLoading ? "isLoading" : ""}">${escapeHtml(expensesLoading ? "…" : formatMoney(totalExpenses))}</span>
           </div>
 
           <div class="moneySpacer"></div>
@@ -912,7 +1223,7 @@
 
           <div class="moneyRow moneyRowTotal">
             <span class="moneyLabel">Total Investment</span>
-            <span class="moneyValue">${escapeHtml(formatMoney(totalCost))}</span>
+            <span class="moneyValue ${expensesLoading ? "isLoading" : ""}">${escapeHtml(expensesLoading ? "…" : formatMoney(totalCost))}</span>
           </div>
         </div>
       </section>
@@ -926,8 +1237,8 @@
           </div>
           <div class="moneyRow moneyRowTotal">
             <span class="moneyLabel">Profit / loss</span>
-            <span class="moneyValue ${profit != null ? `moneyProfit ${profit >= 0 ? "positive" : "negative"}` : ""}">
-              ${escapeHtml(formatMoney(profit))}
+            <span class="moneyValue ${profit != null ? `moneyProfit ${profit >= 0 ? "positive" : "negative"}` : ""} ${expensesLoading ? "isLoading" : ""}">
+              ${escapeHtml(expensesLoading ? "…" : formatMoney(profit))}
             </span>
           </div>
         </div>

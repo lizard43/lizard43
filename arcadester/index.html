@@ -80,6 +80,94 @@
         </div>
     </div>
 
+
+    <div id="editOverlay" class="modalOverlay"></div>
+
+    <div id="editModal" class="editModal" role="dialog" aria-modal="true" aria-labelledby="editModalTitle">
+        <div class="settingsModalHeader">
+            <h2 id="editModalTitle" class="settingsModalTitle">Edit Game</h2>
+            <button id="editCloseBtn" class="iconBtn settingsModalCloseBtn" type="button" aria-label="Close edit dialog">×</button>
+        </div>
+
+        <form id="editForm" class="editForm">
+            <div class="editModalBody">
+                <div class="editField editFieldReadOnly">
+                    <label class="settingsLabel">Game ID</label>
+                    <div id="editGameId" class="settingsLoggedInValue">—</div>
+                </div>
+
+                <div class="editField">
+                    <label class="settingsLabel" for="editTitle">Title</label>
+                    <input id="editTitle" class="settingsInput" type="text">
+                </div>
+
+                <div class="editFieldGrid">
+                    <div class="editField">
+                        <label class="settingsLabel" for="editLocation">Location</label>
+                        <input id="editLocation" class="settingsInput" type="text">
+                    </div>
+                    <div class="editField">
+                        <label class="settingsLabel" for="editCondition">Condition</label>
+                        <input id="editCondition" class="settingsInput" type="text">
+                    </div>
+                </div>
+
+                <div class="editField">
+                    <label class="settingsLabel" for="editPgId">pgID</label>
+                    <input id="editPgId" class="settingsInput" type="text">
+                </div>
+
+                <div class="editField">
+                    <label class="settingsLabel" for="editPhoto">Photo</label>
+                    <input id="editPhoto" class="settingsInput" type="text">
+                </div>
+
+                <div class="editField">
+                    <label class="settingsLabel" for="editNotes">Notes</label>
+                    <textarea id="editNotes" class="settingsInput editTextarea"></textarea>
+                </div>
+
+                <div class="editFieldGrid">
+                    <div class="editField">
+                        <label class="settingsLabel" for="editPurchaseDate">Purchase Date</label>
+                        <input id="editPurchaseDate" class="settingsInput" type="date">
+                    </div>
+                    <div class="editField">
+                        <label class="settingsLabel" for="editPurchasePrice">Purchase Price</label>
+                        <input id="editPurchasePrice" class="settingsInput" type="number" step="0.01">
+                    </div>
+                </div>
+
+                <div class="editField">
+                    <label class="settingsLabel" for="editPurchaseFrom">Purchase From</label>
+                    <textarea id="editPurchaseFrom" class="settingsInput editTextarea"></textarea>
+                </div>
+
+                <div class="editFieldGrid">
+                    <div class="editField">
+                        <label class="settingsLabel" for="editSoldDate">Sold Date</label>
+                        <input id="editSoldDate" class="settingsInput" type="date">
+                    </div>
+                    <div class="editField">
+                        <label class="settingsLabel" for="editSoldPrice">Sold Price</label>
+                        <input id="editSoldPrice" class="settingsInput" type="number" step="0.01">
+                    </div>
+                </div>
+
+                <div class="editField">
+                    <label class="settingsLabel" for="editSoldTo">Sold To</label>
+                    <textarea id="editSoldTo" class="settingsInput editTextarea"></textarea>
+                </div>
+            </div>
+
+            <div class="settingsModalFooter">
+                <button id="editCancelBtn" class="settingsFooterBtn settingsFooterBtnSecondary" type="button">Cancel</button>
+                <button id="editSaveBtn" class="settingsFooterBtn" type="submit">Save</button>
+            </div>
+        </form>
+    </div>
+
+
     <script src="loader.js"></script>
 </body>
 
