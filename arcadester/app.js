@@ -26,6 +26,57 @@
     mobileOverlay: document.getElementById("mobileOverlay")
   };
 
+  function formatApiDate(value) {
+    if (!value) return "";
+
+    const d = new Date(value);
+    if (Number.isNaN(d.getTime())) return String(value);
+
+    return new Intl.DateTimeFormat("en-US", {
+      month: "numeric",
+      day: "numeric",
+      year: "numeric"
+    }).format(d);
+  }
+
+  async function preloadExpensesForMachines(machines) {
+    await Promise.all(
+      machines.map(async machine => {
+        if (!machine?.id) return;
+
+        try {
+          const expenses = await loadExpensesForGame(machine.id);
+          machine.expenses = expenses;
+          machine.totalExpenses = sumExpenses(expenses);
+          machine.totalCost = addMoney(machine.purchasePrice, machine.totalExpenses);
+        } catch (err) {
+          console.warn(`Could not load expenses for ${machine.id}: ${err.message}`);
+          machine.expenses = [];
+          machine.totalExpenses = 0;
+          machine.totalCost = addMoney(machine.purchasePrice, 0);
+        }
+      })
+    );
+  }
+
+  async function loadExpensesForGame(gameID) {
+    if (!gameID) return [];
+
+    const payload = await apiGet({
+      resource: "expenses",
+      gameId: gameID
+    });
+
+    if (!payload || payload.ok !== true || !Array.isArray(payload.data)) {
+      throw new Error("Expenses API returned invalid data.");
+    }
+
+    return payload.data
+      .filter(row => String(row.gameID || "").trim() === String(gameID).trim())
+      .filter(row => row && (row.expenseID !== "" || row.description || row.amount !== ""))
+      .map(normalizeExpense);
+  }
+
   async function apiGet(params) {
     const url = new URL(API_URL);
     Object.entries(params).forEach(([k, v]) => {
@@ -58,6 +109,19 @@
     document.addEventListener("DOMContentLoaded", init);
   } else {
     init();
+  }
+
+  function normalizeExpense(exp) {
+    return {
+      expenseID: String(exp.expenseID || "").trim(),
+      gameID: String(exp.gameID || "").trim(),
+      date: formatApiDate(exp.date),
+      category: String(exp.category || "").trim(),
+      description: String(exp.description || "").trim(),
+      vendor: String(exp.vendor || "").trim(),
+      amount: toNumberOrNull(exp.amount) ?? 0,
+      note: String(exp.note || "").trim()
+    };
   }
 
   function normalizeMachine(machine) {
@@ -363,6 +427,7 @@
     try {
       await loadPriceguide();
       state.allMachines = await window.InventoryLoader.load();
+      await preloadExpensesForMachines(state.allMachines);
       populateFilters();
       applyFilters();
 
@@ -588,12 +653,11 @@
     }
   }
 
-  function selectMachine(id, openDetailPane = true) {
+  async function selectMachine(id, openDetailPane = true) {
     const machine = state.allMachines.find(m => m.id === id);
     if (!machine) return;
 
     state.selectedId = id;
-    renderDetail(machine);
     updateSelectedCard();
 
     if (openDetailPane) {
@@ -606,6 +670,23 @@
         history.pushState({ detailPane: true }, "");
         state.detailHistoryOpen = true;
       }
+    }
+
+    els.detailTitle.textContent = machine.title;
+    els.detailContent.innerHTML = `<div class="detailPlaceholder">Loading expenses…</div>`;
+
+    try {
+      if (!Array.isArray(machine.expenses) || machine.expenses.length === 0) {
+        machine.expenses = await loadExpensesForGame(machine.id);
+        machine.totalExpenses = sumExpenses(machine.expenses);
+        machine.totalCost = addMoney(machine.purchasePrice, machine.totalExpenses);
+      }
+
+      renderDetail(machine);
+      renderCards();
+      updateSelectedCard();
+    } catch (err) {
+      els.detailContent.innerHTML = `<div class="detailPlaceholder">Could not load expenses. ${escapeHtml(err.message)}</div>`;
     }
   }
 
@@ -634,13 +715,21 @@
 
     const expenseRows = Array.isArray(machine.expenses) && machine.expenses.length
       ? machine.expenses.map(exp => `
-        <div class="expenseRow">
-          <span class="label">${escapeHtml(exp.date || "")} ${exp.category ? "• " + escapeHtml(exp.category) : ""}</span>
-          <span class="value">${escapeHtml(formatMoney(exp.amount))}</span>
-        </div>
-        ${exp.note ? `<div class="detailMeta" style="margin: 2px 0 10px;">${escapeHtml(exp.note)}</div>` : ""}
-      `).join("")
-      : `<div class="detailMeta">No expense entries yet.</div>`;
+          <div class="expenseRow">
+            <div class="expenseMain">
+              <div class="expenseTop">
+                ${escapeHtml(exp.date || "—")}
+                ${exp.category ? ` • ${escapeHtml(exp.category)}` : ""}
+                ${exp.vendor ? ` • Vendor: ${escapeHtml(exp.vendor)}` : ""}
+              </div>
+              <div class="expenseDesc expenseDescMuted">
+                ${escapeHtml(exp.description || "—")}
+              </div>
+            </div>
+            <div class="expenseAmount">${escapeHtml(formatMoney(exp.amount))}</div>
+          </div>
+        `).join("")
+            : `<div class="detailMeta">No expense entries yet.</div>`;
 
     const photoStrip = machine.photos && machine.photos.length
       ? `
@@ -720,10 +809,10 @@
 
       <section class="detailSection">
         <h3>Purchase info</h3>
-        <div class="detailStats">
-          <div class="statRow"><span class="label">Purchase price</span><span class="value">${escapeHtml(formatMoney(machine.purchasePrice))}</span></div>
-          <div class="statRow"><span class="label">Total expenses</span><span class="value">${escapeHtml(formatMoney(totalExpenses))}</span></div>
-          <div class="statRow"><span class="label">Total cost</span><span class="value">${escapeHtml(formatMoney(totalCost))}</span></div>
+        <div class="detailStats detailMoneyList">
+          <div class="statRow statRowMoney"><span class="label">Purchase price</span><span class="value">${escapeHtml(formatMoney(machine.purchasePrice))}</span></div>
+          <div class="statRow statRowMoney"><span class="label">Total expenses</span><span class="value">${escapeHtml(formatMoney(totalExpenses))}</span></div>
+          <div class="statRow statRowMoney"><span class="label">Total cost</span><span class="value">${escapeHtml(formatMoney(totalCost))}</span></div>
         </div>
       </section>
 
@@ -734,9 +823,9 @@
 
       <section class="detailSection">
         <h3>Profit / loss</h3>
-        <div class="detailStats">
-          <div class="statRow"><span class="label">Sold price</span><span class="value">${escapeHtml(formatMoney(machine.soldPrice))}</span></div>
-          <div class="statRow"><span class="label">Profit / loss</span><span class="value">${escapeHtml(formatMoney(profit))}</span></div>
+        <div class="detailStats detailMoneyList">
+          <div class="statRow statRowMoney"><span class="label">Sold price</span><span class="value">${escapeHtml(formatMoney(machine.soldPrice))}</span></div>
+          <div class="statRow statRowMoney"><span class="label">Profit / loss</span><span class="value">${escapeHtml(formatMoney(profit))}</span></div>
         </div>
       </section>
     </div>

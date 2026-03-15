@@ -425,17 +425,6 @@ select {
   line-height: 1.45;
 }
 
-.detailMetaRow,
-.statRow,
-.expenseRow {
-  display: grid;
-  grid-template-columns: 170px minmax(0, 1fr);
-  align-items: start;
-  gap: 18px;
-  padding: 6px 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-}
-
 .detailMetaRow:last-child,
 .statRow:last-child,
 .expenseRow:last-child {
@@ -549,6 +538,81 @@ select {
   color: var(--text);
 }
 
+.detailMetaRow,
+.statRow,
+.expenseRow {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 118px;
+  align-items: start;
+  gap: 18px;
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.statRowMoney .value,
+.expenseAmount {
+  color: var(--text);
+  text-align: right;
+  white-space: nowrap;
+  font-weight: 700;
+}
+
+.statRowMoney .label {
+  color: var(--muted);
+}
+
+.expenseTop {
+  color: var(--muted);
+  font-size: 0.92rem;
+  line-height: 1.2;
+  margin-bottom: 4px;
+}
+
+.expenseDescMuted {
+  color: var(--muted);
+  line-height: 1.35;
+  word-break: break-word;
+}
+
+.expenseMain {
+  min-width: 0;
+}
+
+.expenseAmount {
+  padding-top: 1px;
+}
+
+.expenseMain {
+  min-width: 0;
+}
+
+.expenseTop {
+  color: var(--muted);
+  font-size: 0.92rem;
+  line-height: 1.2;
+  margin-bottom: 4px;
+}
+
+.expenseDesc {
+  color: var(--text);
+  line-height: 1.35;
+  word-break: break-word;
+}
+
+.expenseSub {
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.25;
+  margin-top: 4px;
+}
+
+.expenseAmount {
+  color: var(--text);
+  font-weight: 700;
+  white-space: nowrap;
+  text-align: right;
+}
+
 /* Desktop */
 
 @media (min-width: 1000px) {
@@ -599,7 +663,7 @@ select {
   .detailMetaRow,
   .statRow,
   .expenseRow {
-    grid-template-columns: 150px minmax(0, 1fr);
+    grid-template-columns: minmax(0, 1fr) 118px;
     gap: 14px;
   }
 
