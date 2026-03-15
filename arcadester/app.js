@@ -18,6 +18,8 @@
     },
     settingsOpen: false,
     editingId: null,
+    expenseEditingId: null,
+    expenseDraftRows: [],
     expenseLoadConcurrency: 4,
     noteLoadConcurrency: 4
   };
@@ -56,6 +58,14 @@
     editSaveBtn: document.getElementById("editSaveBtn"),
     editCancelBtn: document.getElementById("editCancelBtn"),
     editCloseBtn: document.getElementById("editCloseBtn"),
+    expenseOverlay: document.getElementById("expenseOverlay"),
+    expenseModal: document.getElementById("expenseModal"),
+    expenseForm: document.getElementById("expenseForm"),
+    expenseGameId: document.getElementById("expenseGameId"),
+    expenseRows: document.getElementById("expenseRows"),
+    expenseSaveBtn: document.getElementById("expenseSaveBtn"),
+    expenseCancelBtn: document.getElementById("expenseCancelBtn"),
+    expenseCloseBtn: document.getElementById("expenseCloseBtn"),
     cardsGrid: document.getElementById("cardsGrid"),
     emptyState: document.getElementById("emptyState"),
     detailPane: document.getElementById("detailPane"),
@@ -347,6 +357,248 @@
 
   function getMachineById(id) {
     return state.allMachines.find(m => m.id === id) || null;
+  }
+
+  function toApiDateValue(value) {
+    if (!value) return "";
+    const d = new Date(value);
+    if (Number.isNaN(d.getTime())) return String(value).trim();
+    const year = d.getFullYear();
+    const month = String(d.getMonth() + 1).padStart(2, "0");
+    const day = String(d.getDate()).padStart(2, "0");
+    return `${year}-${month}-${day}`;
+  }
+
+  function makeLocalExpenseRow(gameID) {
+    return {
+      expenseID: "",
+      gameID: String(gameID || "").trim(),
+      date: "",
+      category: "",
+      description: "",
+      vendor: "",
+      amount: "",
+      note: "",
+      _delete: false
+    };
+  }
+
+  function cloneExpenseForDraft(expense) {
+    return {
+      expenseID: String(expense?.expenseID || "").trim(),
+      gameID: String(expense?.gameID || "").trim(),
+      date: toApiDateValue(expense?.date),
+      category: String(expense?.category || "").trim(),
+      description: String(expense?.description || "").trim(),
+      vendor: String(expense?.vendor || "").trim(),
+      amount: expense?.amount === null || expense?.amount === undefined || expense?.amount === "" ? "" : String(expense.amount),
+      note: String(expense?.note || "").trim(),
+      _delete: false
+    };
+  }
+
+  function getExpenseMachineById(id) {
+    return state.allMachines.find(m => m.id === id) || null;
+  }
+
+  function renderExpenseEditorRows() {
+    if (!els.expenseRows) return;
+
+    const rows = state.expenseDraftRows;
+    els.expenseRows.innerHTML = rows.map((row, index) => `
+      <div class="expenseEditorRow ${row._delete ? "expenseEditorRowDeleted" : ""}" data-index="${index}">
+        <div class="expenseEditorRowHeader">
+          <div class="expenseEditorRowTitle">Expense ${index + 1}</div>
+          <button class="expenseIconBtn expenseDeleteBtn" type="button" data-action="delete" data-index="${index}" aria-label="Delete expense row" title="Delete expense">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path d="M9 3h6l1 2h4v2H4V5h4l1-2Zm1 6h2v8h-2V9Zm4 0h2v8h-2V9ZM7 9h2v8H7V9Zm-1 12h12a2 2 0 0 0 2-2V7H4v12a2 2 0 0 0 2 2Z"/>
+            </svg>
+          </button>
+        </div>
+
+        <div class="editFieldGrid expenseEditorGrid">
+          <div class="editField">
+            <label class="settingsLabel" for="expenseDate_${index}">Date</label>
+            <input id="expenseDate_${index}" class="settingsInput expenseDraftInput" data-field="date" data-index="${index}" type="date" value="${escapeAttr(row.date || "")}" ${row._delete ? "disabled" : ""}>
+          </div>
+          <div class="editField">
+            <label class="settingsLabel" for="expenseAmount_${index}">Amount</label>
+            <input id="expenseAmount_${index}" class="settingsInput expenseDraftInput" data-field="amount" data-index="${index}" type="number" step="0.01" value="${escapeAttr(row.amount || "")}" ${row._delete ? "disabled" : ""}>
+          </div>
+        </div>
+
+        <div class="editFieldGrid expenseEditorGrid">
+          <div class="editField">
+            <label class="settingsLabel" for="expenseCategory_${index}">Category</label>
+            <input id="expenseCategory_${index}" class="settingsInput expenseDraftInput" data-field="category" data-index="${index}" type="text" value="${escapeAttr(row.category || "")}" ${row._delete ? "disabled" : ""}>
+          </div>
+          <div class="editField">
+            <label class="settingsLabel" for="expenseVendor_${index}">Vendor</label>
+            <input id="expenseVendor_${index}" class="settingsInput expenseDraftInput" data-field="vendor" data-index="${index}" type="text" value="${escapeAttr(row.vendor || "")}" ${row._delete ? "disabled" : ""}>
+          </div>
+        </div>
+
+        <div class="editField">
+          <label class="settingsLabel" for="expenseDescription_${index}">Description</label>
+          <input id="expenseDescription_${index}" class="settingsInput expenseDraftInput" data-field="description" data-index="${index}" type="text" value="${escapeAttr(row.description || "")}" ${row._delete ? "disabled" : ""}>
+        </div>
+
+        <div class="editField">
+          <label class="settingsLabel" for="expenseNote_${index}">Note</label>
+          <textarea id="expenseNote_${index}" class="settingsInput editTextarea expenseDraftInput" data-field="note" data-index="${index}" ${row._delete ? "disabled" : ""}>${escapeHtml(row.note || "")}</textarea>
+        </div>
+
+        ${row._delete ? '<div class="expenseDeletedLabel">Will be deleted on save</div>' : ''}
+      </div>
+    `).join("") + `
+      <button class="expenseAddBtn" type="button" id="expenseAddBtn" aria-label="Add expense row" title="Add expense">
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <path d="M11 5h2v6h6v2h-6v6h-2v-6H5v-2h6z"/>
+        </svg>
+        <span>Add expense</span>
+      </button>
+    `;
+
+    els.expenseRows.querySelectorAll('.expenseDraftInput').forEach(input => {
+      input.addEventListener('input', handleExpenseDraftInput);
+    });
+
+    els.expenseRows.querySelectorAll('.expenseDeleteBtn').forEach(btn => {
+      btn.addEventListener('click', handleExpenseDraftDelete);
+    });
+
+    document.getElementById('expenseAddBtn')?.addEventListener('click', handleExpenseDraftAdd);
+  }
+
+  async function openExpenseModal(id) {
+    if (!state.auth.loggedIn) return;
+
+    const machine = getExpenseMachineById(id);
+    if (!machine || !els.expenseModal) return;
+
+    state.expenseEditingId = id;
+
+    if (!Array.isArray(machine.expenses)) {
+      try {
+        await hydrateMachineExpenses(machine);
+      } catch (err) {
+        window.alert(`Could not load expenses. ${err.message}`);
+        return;
+      }
+    }
+
+    state.expenseDraftRows = Array.isArray(machine.expenses)
+      ? machine.expenses.map(cloneExpenseForDraft)
+      : [];
+
+    els.expenseGameId.textContent = machine.id || "—";
+    renderExpenseEditorRows();
+
+    els.expenseOverlay?.classList.add('open');
+    els.expenseModal.classList.add('open');
+
+    els.expenseRows?.querySelector('input, textarea')?.focus();
+  }
+
+  function closeExpenseModal() {
+    state.expenseEditingId = null;
+    state.expenseDraftRows = [];
+    els.expenseModal?.classList.remove('open');
+    els.expenseOverlay?.classList.remove('open');
+    els.expenseForm?.reset();
+    if (els.expenseRows) {
+      els.expenseRows.innerHTML = '';
+    }
+  }
+
+  function handleExpenseDraftInput(event) {
+    const field = event.target?.dataset?.field;
+    const index = Number(event.target?.dataset?.index);
+    if (!field || !Number.isInteger(index) || !state.expenseDraftRows[index]) return;
+    state.expenseDraftRows[index][field] = event.target.value;
+  }
+
+  function handleExpenseDraftDelete(event) {
+    const index = Number(event.currentTarget?.dataset?.index);
+    if (!Number.isInteger(index) || !state.expenseDraftRows[index]) return;
+
+    if (state.expenseDraftRows[index].expenseID) {
+      state.expenseDraftRows[index]._delete = !state.expenseDraftRows[index]._delete;
+    } else {
+      state.expenseDraftRows.splice(index, 1);
+    }
+
+    renderExpenseEditorRows();
+  }
+
+  function handleExpenseDraftAdd() {
+    state.expenseDraftRows.push(makeLocalExpenseRow(state.expenseEditingId));
+    renderExpenseEditorRows();
+    const lastIndex = state.expenseDraftRows.length - 1;
+    document.getElementById(`expenseDate_${lastIndex}`)?.focus();
+  }
+
+  function buildExpensePayloadFromDraft(row) {
+    return {
+      expenseID: String(row.expenseID || '').trim(),
+      gameID: String(row.gameID || state.expenseEditingId || '').trim(),
+      date: String(row.date || '').trim(),
+      category: String(row.category || '').trim(),
+      description: String(row.description || '').trim(),
+      vendor: String(row.vendor || '').trim(),
+      amount: String(row.amount || '').trim(),
+      note: String(row.note || '').trim()
+    };
+  }
+
+  function isExpenseDraftMeaningful(row) {
+    return !!(String(row.date || '').trim() || String(row.category || '').trim() || String(row.description || '').trim() || String(row.vendor || '').trim() || String(row.amount || '').trim() || String(row.note || '').trim());
+  }
+
+  async function handleExpenseFormSubmit(event) {
+    event.preventDefault();
+
+    const id = state.expenseEditingId;
+    const machine = getExpenseMachineById(id);
+    if (!id || !machine) return;
+
+    const saveBtn = els.expenseSaveBtn;
+    const originalLabel = saveBtn?.textContent || 'Save';
+
+    try {
+      if (saveBtn) {
+        saveBtn.disabled = true;
+        saveBtn.textContent = 'Saving…';
+      }
+
+      for (const row of state.expenseDraftRows) {
+        if (row._delete && row.expenseID) {
+          await apiPost('deleteExpense', { expenseID: row.expenseID });
+          continue;
+        }
+
+        if (row._delete) continue;
+        if (!isExpenseDraftMeaningful(row)) continue;
+
+        const payload = buildExpensePayloadFromDraft(row);
+
+        if (payload.expenseID) {
+          await apiPost('updateExpense', payload);
+        } else {
+          await apiPost('createExpense', payload);
+        }
+      }
+
+      await refreshMachineExpenses(machine);
+      closeExpenseModal();
+    } catch (err) {
+      window.alert(`Could not save expenses. ${err.message}`);
+    } finally {
+      if (saveBtn) {
+        saveBtn.disabled = false;
+        saveBtn.textContent = originalLabel;
+      }
+    }
   }
 
   function openEditModal(id) {
@@ -816,6 +1068,11 @@
     els.editOverlay?.addEventListener("click", closeEditModal);
     els.editForm?.addEventListener("submit", handleEditFormSubmit);
 
+    els.expenseCloseBtn?.addEventListener("click", closeExpenseModal);
+    els.expenseCancelBtn?.addEventListener("click", closeExpenseModal);
+    els.expenseOverlay?.addEventListener("click", closeExpenseModal);
+    els.expenseForm?.addEventListener("submit", handleExpenseFormSubmit);
+
     els.closeDetailBtn.addEventListener("click", closeMobileDetail);
     els.mobileOverlay.addEventListener("click", closeMobileDetail);
 
@@ -1213,7 +1470,16 @@
       </section>
 
       <section class="detailSection">
-        <h3>Expenses</h3>
+        <div class="detailSectionHeader">
+          <h3>Expenses</h3>
+          ${state.auth.loggedIn ? `
+            <button class="detailExpenseEditBtn" type="button" data-expense-edit-id="${escapeAttr(machine.id)}" aria-label="Edit expenses" title="Edit expenses">
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25Zm14.71-9.04a1.003 1.003 0 0 0 0-1.42l-2.5-2.5a1.003 1.003 0 0 0-1.42 0l-1.96 1.96 3.75 3.75 2.13-1.79Z"/>
+              </svg>
+            </button>
+          ` : ''}
+        </div>
         <div class="detailList">${expenseRows}</div>
 
         <div class="detailMoneySummary">
@@ -1266,6 +1532,10 @@
 
     els.detailTitle.textContent = machine.title;
     els.detailContent.innerHTML = buildDetailMarkup(machine, true);
+    els.detailContent.querySelector('.detailExpenseEditBtn')?.addEventListener('click', event => {
+      event.stopPropagation();
+      openExpenseModal(machine.id);
+    });
   }
 
   function uniqueSorted(values) {

@@ -1080,3 +1080,115 @@ select {
 .editModalBody {
   padding-bottom: 90px;
 }
+
+.detailSectionHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.detailSectionHeader h3 {
+  margin: 0;
+}
+
+.detailExpenseEditBtn,
+.expenseIconBtn,
+.expenseAddBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--border);
+  background: var(--panel-2);
+  color: var(--muted);
+  cursor: pointer;
+}
+
+.detailExpenseEditBtn {
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  padding: 0;
+  flex: 0 0 auto;
+}
+
+.detailExpenseEditBtn svg,
+.expenseIconBtn svg,
+.expenseAddBtn svg {
+  width: 15px;
+  height: 15px;
+  fill: currentColor;
+}
+
+.detailExpenseEditBtn:hover,
+.expenseIconBtn:hover,
+.expenseAddBtn:hover {
+  color: var(--text);
+}
+
+.expenseModal {
+  width: min(94vw, 840px);
+}
+
+.expenseModalBody {
+  padding-bottom: 90px;
+}
+
+.expenseEditorRows {
+  display: grid;
+  gap: 16px;
+}
+
+.expenseEditorRow {
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: var(--panel-2);
+  padding: 14px;
+}
+
+.expenseEditorRowDeleted {
+  opacity: 0.6;
+}
+
+.expenseEditorRowHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.expenseEditorRowTitle {
+  font-weight: 700;
+}
+
+.expenseIconBtn {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  padding: 0;
+}
+
+.expenseDeletedLabel {
+  color: #ff9a9a;
+  font-size: 0.9rem;
+}
+
+.expenseAddBtn {
+  min-height: 44px;
+  border-radius: 12px;
+  padding: 0 14px;
+  gap: 8px;
+  justify-self: start;
+}
+
+.expenseAddBtn span {
+  color: var(--text);
+}
+
+@media (max-width: 640px) {
+  .expenseModal {
+    width: min(96vw, 840px);
+  }
+}

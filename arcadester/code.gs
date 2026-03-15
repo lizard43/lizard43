@@ -147,6 +147,7 @@ function doPost(e) {
         date: data.date || '',
         category: data.category || '',
         vendor: data.vendor || '',
+        description: data.description || '',
         amount: data.amount || '',
         note: data.note || ''
       });

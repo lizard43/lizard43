@@ -168,6 +168,32 @@
     </div>
 
 
+    <div id="expenseOverlay" class="modalOverlay"></div>
+
+    <div id="expenseModal" class="editModal expenseModal" role="dialog" aria-modal="true" aria-labelledby="expenseModalTitle">
+        <div class="settingsModalHeader">
+            <h2 id="expenseModalTitle" class="settingsModalTitle">Edit Expenses</h2>
+            <button id="expenseCloseBtn" class="iconBtn settingsModalCloseBtn" type="button" aria-label="Close expense dialog">×</button>
+        </div>
+
+        <form id="expenseForm" class="editForm expenseForm">
+            <div class="editModalBody expenseModalBody">
+                <div class="editField editFieldReadOnly">
+                    <label class="settingsLabel">Game ID</label>
+                    <div id="expenseGameId" class="settingsLoggedInValue">—</div>
+                </div>
+
+                <div id="expenseRows" class="expenseEditorRows"></div>
+            </div>
+
+            <div class="settingsModalFooter">
+                <button id="expenseCancelBtn" class="settingsFooterBtn settingsFooterBtnSecondary" type="button">Cancel</button>
+                <button id="expenseSaveBtn" class="settingsFooterBtn" type="submit">Save</button>
+            </div>
+        </form>
+    </div>
+
+
     <script src="loader.js"></script>
 </body>
 
