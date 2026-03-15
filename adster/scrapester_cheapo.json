@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-03-15T12:05:53.333Z",
+  "generated_at": "2026-03-15T13:08:41.036Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,53 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 33,
-      "droppedPrice": 127,
+      "exported_ads": 35,
+      "droppedPrice": 130,
       "droppedMissingGeo": 0,
-      "droppedCircle": 64
+      "droppedCircle": 77
     }
   },
   "ads": [
+    {
+      "adID": "1605226970725727",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100093837199858/?product_id=1605226970725727",
+      "author": "Ed James",
+      "postedTime": "2026-03-15T12:42:28.000Z",
+      "title": "Jet ski essentials",
+      "description": "As pictured, everything needed for jet ski accessories,anchors,life jackets(large&medium)paddles,dock lines,bumpers,bungee dock lines Waterproof footwear(12/13),etc Sold individually or as a lot, ask for prices",
+      "price": "$123",
+      "lat": 29.8946952,
+      "lon": -81.3145395,
+      "location": "St Augustine, FL",
+      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/650788748_1427402982399150_4681612572634713041_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=103&ccb=1-7&_nc_sid=92e707&_nc_ohc=_7c-lFcO6RcQ7kNvwGG0qc3&_nc_oc=Adl-S7S-ZwvcqJPJ_JSG3KvlKm_4oajTu70i4nkh2xZ24Fz7LwjHL3j5KMEQVy1MPtY&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=35VT4-iIIo2vWCz9a4MDmA&_nc_ss=8&oh=00_AfzX2hjcR_inL2iJSEjMWLkfNYqJuS0bBfVOgYvQTf8fGg&oe=69BC795D",
+      "adUrl": "https://www.facebook.com/marketplace/item/1605226970725727/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-03-15 13:06:08",
+      "lastSeen": "2026-03-15T13:08:08.121Z"
+    },
+    {
+      "adID": "1346886320793967",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/520803503/?product_id=1346886320793967",
+      "author": "Paulette Gose",
+      "postedTime": "2026-03-15T12:41:43.000Z",
+      "title": "Climbing rope for trees",
+      "description": "Climbing Rope Swings for Trees, Heavy Duty Plastic Disc Swing Seat for Kids and Adults with Hanging Strap and Snap Hooks",
+      "price": "$20",
+      "lat": 28.183222,
+      "lon": -82.5540279,
+      "location": "Odessa, FL",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/651816002_1950006378932169_1897459152546476255_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=105&ccb=1-7&_nc_sid=92e707&_nc_ohc=PkIEgWfXki0Q7kNvwHkyesG&_nc_oc=AdlQCdcQxdsHzPwOm8P1OGJ08nT1ig_iZG9TZ118BTFDBAet7eXpnumOIGeacRDmfQ0&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=LS5vylYUPemFfgqqtP_CgQ&_nc_ss=8&oh=00_Afxd293f76rVUdfChdUkvV6MTE63maNqZfuKwgiuYfs4Og&oe=69BC962F",
+      "adUrl": "https://www.facebook.com/marketplace/item/1346886320793967/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-03-15 13:06:08",
+      "lastSeen": "2026-03-15T13:08:08.155Z"
+    },
     {
       "adID": "4211074612469382",
       "source": "MP",
@@ -36,27 +76,27 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-15 11:04:26",
-      "lastSeen": "2026-03-15T12:04:24.287Z"
+      "lastSeen": "2026-03-15T13:04:20.196Z"
     },
     {
       "adID": "804583199343269",
       "source": "FB",
       "authorUrl": null,
       "author": "Shane Starr",
-      "postedTime": "2026-03-14T12:00:18.847Z",
+      "postedTime": "2026-03-14T13:00:18.509Z",
       "title": "(Pending) Original Gauntlet by Atari Project Cabinet",
       "description": "Non workout Gauntlet cabinet. Has original joysticks and monitor / bezel as far as I can tell. Also appears to have original artwork under the black paint on the sides and control panel. Would make for a great retro restoration project!",
       "price": "$300",
       "lat": 34.0234337,
       "lon": -84.6154897,
       "location": "KENNESAW, GA",
-      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.30808-6/651244967_10225140439936981_217521075182415945_n.jpg?stp=dst-jpegr_s590x590_tt6&_nc_cat=100&ccb=1-7&_nc_sid=e06c5d&_nc_ohc=WFgJ2Zgd9K8Q7kNvwHSVYyv&_nc_oc=Adk9vL5Vx6lbxybuRjshkLwHImfLIU9yPtVdhFeaH_aF_9YMz672SMcJE9mm2FNokr0&_nc_zt=23&se=-1&_nc_ht=scontent-dfw5-2.xx&_nc_gid=I6Db-jFuZAV__l-3sExsjw&_nc_ss=8&oh=00_Afx8jL7Zh-9g1iqb904TrAhWNKZ-s0VPnXi1o0x3UV-nJQ&oe=69BC6153",
+      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.30808-6/651244967_10225140439936981_217521075182415945_n.jpg?stp=dst-jpegr_s590x590_tt6&_nc_cat=100&ccb=1-7&_nc_sid=e06c5d&_nc_ohc=WFgJ2Zgd9K8Q7kNvwHSVYyv&_nc_oc=Adk9vL5Vx6lbxybuRjshkLwHImfLIU9yPtVdhFeaH_aF_9YMz672SMcJE9mm2FNokr0&_nc_zt=23&se=-1&_nc_ht=scontent-dfw5-2.xx&_nc_gid=dWCEYpq15qvNsPSWEXVFIg&_nc_ss=8&oh=00_Afw9AKRS1j44HRLJPIKIpT6iWLaiRUozBPd8NbRdJT2nYw&oe=69BC9993",
       "adUrl": "https://www.facebook.com/commerce/listing/804583199343269/",
       "priceChanged": 0,
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-13 22:00:18",
-      "lastSeen": "2026-03-15T12:00:19.082Z"
+      "lastSeen": "2026-03-15T13:00:18.774Z"
     },
     {
       "adID": "1511621653863915",
@@ -336,7 +376,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-04 12:09:54",
-      "lastSeen": "2026-03-15T12:05:53.151Z"
+      "lastSeen": "2026-03-15T13:08:40.795Z"
     },
     {
       "adID": "1570931707463297",
