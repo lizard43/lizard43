@@ -46,6 +46,8 @@ select {
   min-height: 100vh;
 }
 
+/* Top bar */
+
 .topBar {
   position: sticky;
   top: 0;
@@ -69,10 +71,6 @@ select {
   min-height: 42px;
   border-radius: 10px;
   border: 1px solid var(--border);
-}
-
-.searchInput,
-.filterSelect {
   background: var(--panel);
   color: var(--text);
   padding: 0 12px;
@@ -92,14 +90,11 @@ select {
   top: 8px;
   right: 12px;
   z-index: 40;
-
   width: 24px;
   height: 24px;
-
   display: flex;
   align-items: center;
   justify-content: center;
-
   border: none;
   background: none;
   padding: 0;
@@ -110,11 +105,13 @@ select {
 .addMachineFab svg {
   width: 24px;
   height: 24px;
-  stroke: #ffffff;
+  stroke: #fff;
   stroke-width: 2.6;
   stroke-linecap: round;
   fill: none;
 }
+
+/* Main layout */
 
 .mainLayout {
   display: block;
@@ -131,30 +128,6 @@ select {
   gap: 16px;
 }
 
-.card {
-  background: var(--panel);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  overflow: hidden;
-  box-shadow: var(--shadow);
-  cursor: pointer;
-  transition: transform 0.12s ease, border-color 0.12s ease;
-}
-
-.card:hover {
-  transform: translateY(-3px);
-  border-color: #4a4a4a;
-  box-shadow: 0 16px 40px rgba(0, 0, 0, .45);
-}
-
-.card.selected {
-  border-color: #7d7d7d;
-}
-
-.card:active {
-  transform: translateY(-1px);
-}
-
 .machineRow {
   display: block;
 }
@@ -163,90 +136,176 @@ select {
   display: none;
 }
 
+.emptyState {
+  padding: 28px 6px;
+  color: var(--muted);
+}
+
+/* Card */
+
+/* Card */
+
+.card {
+  display: grid;
+  grid-template-columns: 122px minmax(0, 1fr);
+  align-items: stretch;
+  min-height: 210px;
+  height: 210px;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  cursor: pointer;
+  transition: transform 0.12s ease, border-color 0.12s ease, box-shadow 0.12s ease;
+}
+
+.card.cardSold {
+  min-height: 240px;
+  height: 240px;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  border-color: #4a4a4a;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45);
+}
+
+.card:active {
+  transform: translateY(-1px);
+}
+
+.card.selected {
+  border-color: #7d7d7d;
+}
+
 .cardPhotoWrap {
-  width: 100%;
-  aspect-ratio: 4 / 3;
+  width: 122px;
+  height: 100%;
   background: #0d0d0d;
   overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .cardPhoto {
   width: 100%;
   height: 100%;
-  object-fit: contain;
   display: block;
+  object-fit: cover;
 }
 
 .cardBody {
-  padding: 14px;
-  position: relative;
+  min-width: 0;
+  padding: 12px 12px 12px 14px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
-.cardHeaderSingle {
-  margin-bottom: 8px;
+.cardTopRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 6px;
+}
+
+.cardIdLine {
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .cardTitleLine {
-  font-size: 1.1rem;
-  font-weight: 700;
   color: var(--text);
-  line-height: 1.2;
-  word-break: break-word;
+  font-size: 1.05rem;
+  font-weight: 700;
+  line-height: 1.12;
+  margin-bottom: 8px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .cardMetaLine {
   color: var(--muted);
-  line-height: 1.3;
-  margin-bottom: 6px;
-  word-break: break-word;
-}
-
-.cardMoneyLine {
-  color: var(--muted);
-  line-height: 1.3;
   font-size: 0.95rem;
-  margin-bottom: 8px;
-  word-break: break-word;
+  line-height: 1.25;
+  margin-bottom: 10px;
+  min-height: 2.4em;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
-.cardSold {
-  color: var(--text);
+.cardStats {
+  margin-top: auto;
+  display: grid;
+  gap: 4px;
 }
 
-.cardProfit {
+.cardStatRow {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.cardStatLabel {
+  color: var(--muted);
+  font-size: 0.84rem;
+  line-height: 1.2;
+  flex: 0 0 auto;
+}
+
+.cardStatValue {
   color: var(--text);
+  font-size: 0.98rem;
+  line-height: 1.2;
+  text-align: right;
+  min-width: 0;
+}
+
+.cardStatRowTotal .cardStatLabel,
+.cardStatRowTotal .cardStatValue {
   font-weight: 700;
 }
 
-.cardFooter {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-  margin-top: 2px;
+.cardProfit {
+  font-weight: 700;
 }
 
-.cardFooterSpacer {
-  flex: 1;
+.cardProfit.positive {
+  color: #4fd17c;
+}
+
+.cardProfit.negative {
+  color: #ff6a6a;
 }
 
 .detailsBtn {
-  position: absolute;
-  right: 12px;
-  top: 50%;
-  transform: translateY(-50%);
+  flex: 0 0 auto;
   border: none;
   background: none;
   color: var(--accent);
   font-size: 1.2rem;
+  line-height: 1;
   cursor: pointer;
+  padding: 0;
 }
 
 .detailsBtn:hover {
   opacity: 0.85;
+}
+
+.cardGameId {
+  color: var(--muted);
+  font-size: 0.85rem;
+  letter-spacing: 0.03em;
 }
 
 .actionLink {
@@ -266,10 +325,7 @@ select {
   filter: brightness(1.08);
 }
 
-.emptyState {
-  padding: 28px 6px;
-  color: var(--muted);
-}
+/* Detail pane */
 
 .detailPane {
   position: fixed;
@@ -374,6 +430,17 @@ select {
   border-bottom: 0;
 }
 
+.label {
+  color: var(--muted);
+}
+
+.value {
+  color: var(--text);
+  text-align: left;
+  min-width: 0;
+  word-break: break-word;
+}
+
 .detailButtons {
   display: flex;
   gap: 10px;
@@ -433,71 +500,7 @@ select {
   display: block;
 }
 
-.cardGameId {
-  color: var(--muted);
-  font-size: 0.85rem;
-  letter-spacing: 0.03em;
-}
-
-.label {
-  color: var(--muted);
-}
-
-.value {
-  color: var(--text);
-  text-align: left;
-  min-width: 0;
-  word-break: break-word;
-}
-
-.cardTitleLine {
-  font-size: 1.1rem;
-  line-height: 1.2;
-}
-
-.cardId {
-  color: var(--muted);
-  font-weight: 400;
-  font-size: 0.9rem;
-}
-
-.cardDot {
-  color: var(--muted);
-  margin: 0 4px;
-}
-
-.cardTitle {
-  font-weight: 700;
-  color: var(--text);
-}
-
-.cardProfit.positive {
-  color: #4fd17c;
-}
-
-.cardProfit.negative {
-  color: #ff6a6a;
-}
-
-.cardPhotoWrap {
-  position: relative;
-}
-
-.cardPhotoWrap::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  height: 60px;
-
-  background: linear-gradient(to bottom,
-      rgba(17, 17, 17, 0) 0%,
-      rgba(17, 17, 17, .75) 70%,
-      rgba(17, 17, 17, 1) 100%);
-
-  pointer-events: none;
-}
+/* Desktop */
 
 @media (min-width: 1000px) {
   .mainLayout {
@@ -508,16 +511,7 @@ select {
     min-width: 0;
   }
 
-  .machineRow {
-    display: block;
-  }
-
-  .machineDetailInline {
-    display: none;
-  }
-
   .detailPane {
-    display: flex;
     width: min(760px, calc(100vw - 64px));
     height: calc(100vh - 32px);
     top: 16px;
@@ -550,6 +544,7 @@ select {
     width: 100%;
     margin: 0;
     padding: 18px 20px 24px;
+    padding-top: 6px;
   }
 
   .detailMetaRow,
@@ -561,7 +556,7 @@ select {
 
   .priceguideHero {
     max-width: 250px;
-    margin: 0 auto 14px;
+    margin: 0 auto 10px;
   }
 
   .detailButtons,
@@ -575,22 +570,12 @@ select {
     margin-right: auto;
   }
 
-  .detailSection h3 {
-    margin-bottom: 10px;
-  }
-
-  .detailContent {
-    padding-top: 6px;
-  }
-
   .detailSection:first-child {
     margin-top: 0;
   }
-
-  .priceguideHero {
-    margin: 0 auto 10px;
-  }
 }
+
+/* Mobile */
 
 @media (max-width: 640px) {
   .topBarRow {
@@ -618,6 +603,24 @@ select {
 
   .cardsPane {
     padding: 12px;
+  }
+
+  .card {
+    grid-template-columns: 108px minmax(0, 1fr);
+  }
+
+  .card.cardSold {
+    min-height: 220px;
+    height: 220px;
+  }
+
+  .cardPhotoWrap {
+    width: 108px;
+    min-height: 150px;
+  }
+
+  .cardBody {
+    padding: 12px 38px 12px 12px;
   }
 
   .priceguideHero {

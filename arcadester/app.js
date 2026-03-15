@@ -445,6 +445,10 @@
       card.className = "card";
       card.dataset.id = machine.id;
 
+      if (isSoldMachine(machine)) {
+        card.classList.add("cardSold");
+      }
+
       if (machine.id === state.selectedId) {
         card.classList.add("selected");
       }
@@ -454,68 +458,61 @@
 
       const totalExpenses = machine.totalExpenses ?? sumExpenses(machine.expenses);
       const totalCost = machine.totalCost ?? addMoney(machine.purchasePrice, totalExpenses);
+      const isSold = isSoldMachine(machine);
       const profit = machine.soldPrice != null ? machine.soldPrice - (totalCost || 0) : null;
 
-      const moneyLine = machine.soldPrice != null
-            ? `
-        <span>${escapeHtml(formatMoney(machine.purchasePrice))}</span>
-        <span>+</span>
-        <span>${escapeHtml(formatMoney(totalExpenses))}</span>
-        <span>=</span>
-        <span>${escapeHtml(formatMoney(totalCost))}</span>
-        <span>-</span>
-        <span>${escapeHtml(formatMoney(machine.soldPrice))}</span>
-        <span>=</span>
-        <span class="cardProfit ${profit >= 0 ? 'positive' : 'negative'}">${escapeHtml(formatMoney(profit))}</span>
-      `
-            : `
-        <span>${escapeHtml(formatMoney(machine.purchasePrice))}</span>
-        <span>+</span>
-        <span>${escapeHtml(formatMoney(totalExpenses))}</span>
-        <span>=</span>
-        <span>${escapeHtml(formatMoney(totalCost))}</span>
-      `;
+      const locationCondition = [machine.location, machine.condition].filter(Boolean).join(" - ");
 
-      const soldText = isSoldMachine(machine) ? "sold" : "";
+      const soldBlock = isSold
+        ? `
+          <div class="cardStatRow">
+            <span class="cardStatLabel">Sold</span>
+            <span class="cardStatValue">${escapeHtml(formatMoney(machine.soldPrice))}</span>
+          </div>
+          <div class="cardStatRow">
+            <span class="cardStatLabel">P/L</span>
+            <span class="cardStatValue cardProfit ${profit >= 0 ? "positive" : "negative"}">${escapeHtml(formatMoney(profit))}</span>
+          </div>
+        `
+        : "";
 
       card.innerHTML = `
-      <div class="cardPhotoWrap">
-        <img class="cardPhoto" src="${escapeAttr(cardImageUrl)}" alt="${escapeAttr(machine.title)}">
-      </div>
-
-      <div class="cardBody">
-
-        <button class="detailsBtn" type="button">&raquo;</button>
-
-        <div class="cardHeaderSingle">
-          <div class="cardTitleLine">
-            <span class="cardId">${escapeHtml(machine.id)}</span>
-            <span class="cardDot">•</span>
-            <span class="cardTitle">${escapeHtml(machine.title)}</span>
-        </div>
+        <div class="cardPhotoWrap">
+          <img class="cardPhoto" src="${escapeAttr(cardImageUrl)}" alt="${escapeAttr(machine.title)}">
         </div>
 
-        <div class="cardMetaLine">
-          ${[
-          machine.location,
-          machine.condition,
-          soldText
-        ]
-          .filter(Boolean)
-          .map(v => v === soldText
-            ? `<span class="cardSold">${escapeHtml(v)}</span>`
-            : escapeHtml(v)
-          )
-          .join(" • ")
-        }
-        </div>
+        <div class="cardBody">
+          <div class="cardTopRow">
+            <div class="cardIdLine">${escapeHtml(machine.id || "—")}</div>
+            <button class="detailsBtn" type="button" aria-label="Open details">&raquo;</button>
+          </div>
 
-        <div class="cardMoneyLine">
-          ${moneyLine}
-        </div>
+          <div class="cardTitleLine">${escapeHtml(machine.title)}</div>
 
-      </div>
-    `;
+          <div class="cardMetaLine">
+            ${escapeHtml(locationCondition || "—")}
+          </div>
+
+          <div class="cardStats">
+            <div class="cardStatRow">
+              <span class="cardStatLabel">Purchase</span>
+              <span class="cardStatValue">${escapeHtml(formatMoney(machine.purchasePrice))}</span>
+            </div>
+
+            <div class="cardStatRow">
+              <span class="cardStatLabel">Expenses</span>
+              <span class="cardStatValue">${escapeHtml(formatMoney(totalExpenses))}</span>
+            </div>
+
+            <div class="cardStatRow cardStatRowTotal">
+              <span class="cardStatLabel">Investment</span>
+              <span class="cardStatValue">${escapeHtml(formatMoney(totalCost))}</span>
+            </div>
+
+            ${soldBlock}
+          </div>
+        </div>
+      `;
 
       card.addEventListener("click", event => {
         const clickedKlov = event.target.closest("a");
