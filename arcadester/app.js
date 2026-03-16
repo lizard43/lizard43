@@ -180,7 +180,7 @@
         const currentIndex = nextIndex++;
         const machine = queue[currentIndex];
         await hydrateMachineNotes(machine);
-        patchMachineUI(machine);
+        patchMachineUI(machine, { detailSections: ["notes"] });
       }
     }
 
@@ -188,6 +188,7 @@
     await Promise.all(Array.from({ length: workerCount }, () => worker()));
   }
 
+  
   async function hydrateMachineNotes(machine) {
     if (!machine?.id) return;
 
@@ -226,7 +227,7 @@
         const currentIndex = nextIndex++;
         const machine = queue[currentIndex];
         await hydrateMachineExpenses(machine);
-        patchMachineUI(machine);
+        patchMachineUI(machine, { detailSections: ["expenses", "profit"] });
       }
     }
 
@@ -234,6 +235,7 @@
     await Promise.all(Array.from({ length: workerCount }, () => worker()));
   }
 
+  
   async function hydrateMachineExpenses(machine) {
     if (!machine?.id) return;
 
@@ -400,15 +402,17 @@
     if (machine.photoStatus === "loading" || machine.photoStatus === "loaded") return;
 
     hydrateMachinePhotos(machine)
-      .then(() => patchMachineUI(machine))
-      .catch(() => patchMachineUI(machine));
+      .then(() => patchMachineUI(machine, { detailSections: ["photos"] }))
+      .catch(() => patchMachineUI(machine, { detailSections: ["photos"] }));
   }
 
+  
   async function refreshMachinePhotos(machine) {
     await hydrateMachinePhotos(machine, { force: true });
-    patchMachineUI(machine);
+    patchMachineUI(machine, { detailSections: ["photos"] });
   }
 
+  
   function preloadImageUrl(url) {
     const normalizedUrl = String(getPhotoUrl(url) || '').trim();
     if (!normalizedUrl || state.imagePreloadCache.has(normalizedUrl)) return;
@@ -1279,7 +1283,6 @@
     state.photoEditingId = id;
 
     if (!Array.isArray(machine.photos)) {
-      renderDetail(machine);
       try {
         await hydrateMachinePhotos(machine);
       } catch (err) {
@@ -1303,6 +1306,7 @@
     }
   }
 
+  
   function closePhotoModal(useHistoryBack = true) {
     const wasOpen = els.photoModal?.classList.contains("open");
     state.photoEditingId = null;
@@ -1666,10 +1670,11 @@
     machine.photoCarouselIndex = nextIndex;
     deferPhotoPreload(machine, nextIndex);
     if (state.selectedId === machine.id) {
-      renderDetail(machine);
+      patchSelectedMachineDetailSections(machine, ["photos"]);
     }
   }
 
+  
   function openEditModal(id) {
     if (!state.auth.loggedIn) return;
 
@@ -2344,9 +2349,11 @@
           <div class="cardIdLineWrap">
             <div class="cardIdLine">${escapeHtml(machine.id || "—")}</div>
             ${state.auth.loggedIn ? `
-              <button class="cardEditBtn" type="button" aria-label="Edit ${escapeAttr(machine.id || machine.title)}" title="Edit game">
-                <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-                  <path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25Zm14.71-9.04a1.003 1.003 0 0 0 0-1.42l-2.5-2.5a1.003 1.003 0 0 0-1.42 0l-1.96 1.96 3.75 3.75 2.13-1.79Z"/>
+              <button class="cardEditBtn" type="button">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path fill="#F4C542" d="M3 17.25V21h3.75L19.81 7.94l-3.75-3.75L3 17.25z"/>
+                  <path fill="#D8A420" d="M14.06 4.19l3.75 3.75 1.59-1.59a1 1 0 0 0 0-1.41l-2.34-2.34a1 1 0 0 0-1.41 0l-1.59 1.59z"/>
+                  <path fill="#333" d="M3 21l4.5-1.2L4.2 16.5 3 21z"/>
                 </svg>
               </button>
             ` : ""}
@@ -2410,18 +2417,30 @@
     return row;
   }
 
-  function patchMachineUI(machine) {
-    const existingRow = els.cardsGrid.querySelector(`.machineRow[data-id="${CSS.escape(machine.id)}"]`);
-    if (existingRow) {
-      existingRow.replaceWith(createMachineRow(machine));
+  function patchMachineUI(machine, options = {}) {
+    const {
+      patchCard = true,
+      detailSections = []
+    } = options;
+
+    if (patchCard) {
+      const existingRow = els.cardsGrid.querySelector(`.machineRow[data-id="${CSS.escape(machine.id)}"]`);
+      if (existingRow) {
+        existingRow.replaceWith(createMachineRow(machine));
+      }
     }
 
     if (state.selectedId === machine.id) {
-      renderDetail(machine);
+      if (Array.isArray(detailSections) && detailSections.length) {
+        patchSelectedMachineDetailSections(machine, detailSections);
+      } else {
+        renderDetail(machine);
+      }
       updateSelectedCard();
     }
   }
 
+  
   function renderCards() {
     els.cardsGrid.innerHTML = "";
 
@@ -2439,9 +2458,10 @@
 
   async function refreshMachineExpenses(machine) {
     await hydrateMachineExpenses(machine);
-    patchMachineUI(machine);
+    patchMachineUI(machine, { detailSections: ["expenses", "profit"] });
   }
 
+  
   function selectMachine(id, openDetailPane = true) {
     const machine = state.allMachines.find(m => m.id === id);
     if (!machine) return;
@@ -2519,34 +2539,16 @@
     return `<div class="detailNotesList">${parts.join("")}</div>`;
   }
 
-  function buildDetailMarkup(machine, includeHeader = true) {
-    const pg = getPriceguideEntry(machine);
+  function buildDetailNotesSectionMarkup(machine) {
+    return `
+      <section class="detailSection" data-detail-section="notes">
+        <h3>Notes</h3>
+        ${buildMachineNotesMarkup(machine)}
+      </section>
+    `;
+  }
 
-    const expensesLoading = machine.expenses === null;
-    const totalExpenses = machine.totalExpenses ?? sumExpenses(machine.expenses);
-    const totalCost = machine.totalCost ?? addMoney(machine.purchasePrice, totalExpenses);
-    const profit = machine.soldPrice != null && totalCost != null ? machine.soldPrice - totalCost : null;
-
-    const expenseRows = expensesLoading
-      ? `<div class="detailMeta detailMetaLoading">Loading expenses…</div>`
-      : Array.isArray(machine.expenses) && machine.expenses.length
-        ? sortExpensesByDateDesc(machine.expenses).map(exp => `
-        <div class="expenseRow">
-          <div class="expenseMain">
-            <div class="expenseTop">
-              ${escapeHtml(exp.date || "—")}
-              ${exp.category ? ` • ${escapeHtml(exp.category)}` : ""}
-              ${exp.vendor ? ` • ${escapeHtml(exp.vendor)}` : ""}
-            </div>
-            <div class="expenseDescMuted">
-              ${escapeHtml(exp.description || "—")}
-            </div>
-          </div>
-          <div class="expenseAmount">${escapeHtml(formatMoney(exp.amount))}</div>
-        </div>
-      `).join("")
-        : `<div class="detailMeta">No expense entries yet.</div>`;
-
+  function buildDetailPhotosSectionMarkup(machine) {
     const photoSectionMarkup = (() => {
       if (machine.photoStatus === "loading" || machine.photos === null) {
         return `<div class="detailMeta detailMetaLoading">Loading photos…</div>`;
@@ -2578,63 +2580,60 @@
       return `<div class="detailMeta">No additional photos.</div>`;
     })();
 
-    const heroImageUrl = getDetailHeroPhotoUrl(machine);
-
-    const pgImage = heroImageUrl
-      ? `
-      <div class="priceguideHero">
-        <img src="${escapeAttr(heroImageUrl)}" alt="${escapeAttr(pg?.title || machine.title)}">
-      </div>
-    `
-      : "";
-
     return `
-    ${includeHeader ? "" : `<div class="detailHeader"><h2 class="detailTitle">${escapeHtml(machine.title)}</h2></div>`}
-
-    <div class="detailContent">
-      ${pg ? `
-      <section class="detailSection detailHeroSection">
-        ${pgImage}
-        <div class="detailHeroInfo">
-          <div class="detailHeroLine">${escapeHtml(buildDetailInfoLine(pg))}</div>
-          <div class="detailHeroLine">${escapeHtml(buildDetailRatingLine(pg))}</div>
-          <div class="detailHeroLine">${escapeHtml(formatPriceguideRangeNoCents(pg))}</div>
-          <div class="detailHeroLine">
-            ${pg.pageUrl
-          ? `Reference: <a href="${escapeAttr(pg.pageUrl)}" target="_blank" rel="noopener noreferrer">${escapeHtml(pg.pageLabel || "Open reference")}</a>`
-          : `Reference: —`
-        }
-          </div>
-        </div>
-      </section>
-      ` : ""}
-
-      <section class="detailSection">
-        <h3>Notes</h3>
-        ${buildMachineNotesMarkup(machine)}
-      </section>
-
-      <section class="detailSection">
+      <section class="detailSection" data-detail-section="photos">
         <div class="detailSectionHeader">
           <h3>Photos</h3>
           ${state.auth.loggedIn ? `
             <button class="detailExpenseEditBtn" type="button" data-photo-edit-id="${escapeAttr(machine.id)}" aria-label="Edit photos" title="Edit photos">
               <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-                <path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25Zm14.71-9.04a1.003 1.003 0 0 0 0-1.42l-2.5-2.5a1.003 1.003 0 0 0-1.42 0l-1.96 1.96 3.75 3.75 2.13-1.79Z"/>
+                <path fill="#F4C542" d="M3 17.25V21h3.75L19.81 7.94l-3.75-3.75L3 17.25z"/>
+                <path fill="#D8A420" d="M14.06 4.19l3.75 3.75 1.59-1.59a1 1 0 0 0 0-1.41l-2.34-2.34a1 1 0 0 0-1.41 0l-1.59 1.59z"/>
+                <path fill="#333" d="M3 21l4.5-1.2L4.2 16.5 3 21z"/>
               </svg>
             </button>
           ` : ""}
         </div>
         ${photoSectionMarkup}
       </section>
+    `;
+  }
 
-      <section class="detailSection">
+  function buildDetailExpensesSectionMarkup(machine) {
+    const expensesLoading = machine.expenses === null;
+    const totalExpenses = machine.totalExpenses ?? sumExpenses(machine.expenses);
+    const totalCost = machine.totalCost ?? addMoney(machine.purchasePrice, totalExpenses);
+
+    const expenseRows = expensesLoading
+      ? `<div class="detailMeta detailMetaLoading">Loading expenses…</div>`
+      : Array.isArray(machine.expenses) && machine.expenses.length
+        ? sortExpensesByDateDesc(machine.expenses).map(exp => `
+        <div class="expenseRow">
+          <div class="expenseMain">
+            <div class="expenseTop">
+              ${escapeHtml(exp.date || "—")}
+              ${exp.category ? ` • ${escapeHtml(exp.category)}` : ""}
+              ${exp.vendor ? ` • ${escapeHtml(exp.vendor)}` : ""}
+            </div>
+            <div class="expenseDescMuted">
+              ${escapeHtml(exp.description || "—")}
+            </div>
+          </div>
+          <div class="expenseAmount">${escapeHtml(formatMoney(exp.amount))}</div>
+        </div>
+      `).join("")
+        : `<div class="detailMeta">No expense entries yet.</div>`;
+
+    return `
+      <section class="detailSection" data-detail-section="expenses">
         <div class="detailSectionHeader">
           <h3>Expenses</h3>
           ${state.auth.loggedIn ? `
             <button class="detailExpenseEditBtn" type="button" data-expense-edit-id="${escapeAttr(machine.id)}" aria-label="Edit expenses" title="Edit expenses">
               <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-                <path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25Zm14.71-9.04a1.003 1.003 0 0 0 0-1.42l-2.5-2.5a1.003 1.003 0 0 0-1.42 0l-1.96 1.96 3.75 3.75 2.13-1.79Z"/>
+                <path fill="#F4C542" d="M3 17.25V21h3.75L19.81 7.94l-3.75-3.75L3 17.25z"/>
+                <path fill="#D8A420" d="M14.06 4.19l3.75 3.75 1.59-1.59a1 1 0 0 0 0-1.41l-2.34-2.34a1 1 0 0 0-1.41 0l-1.59 1.59z"/>
+                <path fill="#333" d="M3 21l4.5-1.2L4.2 16.5 3 21z"/>
               </svg>
             </button>
           ` : ''}
@@ -2670,22 +2669,32 @@
           </div>
         </div>
       </section>
+    `;
+  }
 
-      <section class="detailSection">
+  function buildDetailProfitSectionMarkup(machine) {
+    const expensesLoading = machine.expenses === null;
+    const totalExpenses = machine.totalExpenses ?? sumExpenses(machine.expenses);
+    const totalCost = machine.totalCost ?? addMoney(machine.purchasePrice, totalExpenses);
+    const profit = machine.soldPrice != null && totalCost != null ? machine.soldPrice - totalCost : null;
+
+    return `
+      <section class="detailSection" data-detail-section="profit">
         <h3>Profit / loss</h3>
         <div class="detailMoneySummary">
-        <div class="moneyRow">
-          <span class="moneyLabel">Sold price</span>
-          <span class="moneyValue">${escapeHtml(formatMoney(machine.soldPrice))}</span>
-        </div>
-
-        ${machine.soldDate || machine.soldTo ? `
-          <div class="expenseDescMuted">
-            ${machine.soldDate ? escapeHtml(formatApiDate(machine.soldDate)) : ""}
-            ${machine.soldDate && machine.soldTo ? " • " : ""}
-            ${machine.soldTo ? escapeHtml(machine.soldTo) : ""}
+          <div class="moneyRow">
+            <span class="moneyLabel">Sold price</span>
+            <span class="moneyValue">${escapeHtml(formatMoney(machine.soldPrice))}</span>
           </div>
-        ` : ""}
+
+          ${machine.soldDate || machine.soldTo ? `
+            <div class="expenseDescMuted">
+              ${machine.soldDate ? escapeHtml(formatApiDate(machine.soldDate)) : ""}
+              ${machine.soldDate && machine.soldTo ? " • " : ""}
+              ${machine.soldTo ? escapeHtml(machine.soldTo) : ""}
+            </div>
+          ` : ""}
+
           <div class="moneyRow moneyRowTotal">
             <span class="moneyLabel">Profit / loss</span>
             <span class="moneyValue ${profit != null ? `moneyProfit ${profit >= 0 ? "positive" : "negative"}` : ""} ${expensesLoading ? "isLoading" : ""}">
@@ -2694,6 +2703,132 @@
           </div>
         </div>
       </section>
+    `;
+  }
+
+  function bindDetailExpenseEditButton(machine, root = els.detailContent) {
+    const expenseEditBtn = root.querySelector('[data-expense-edit-id]');
+    expenseEditBtn?.addEventListener('click', event => {
+      event.stopPropagation();
+      openExpenseModal(machine.id);
+    });
+  }
+
+  function bindDetailPhotoEditButton(machine, root = els.detailContent) {
+    const photoEditBtn = root.querySelector('[data-photo-edit-id]');
+    photoEditBtn?.addEventListener('click', event => {
+      event.stopPropagation();
+      openPhotoModal(machine.id);
+    });
+  }
+
+  function bindDetailPhotoSectionEvents(machine, root = els.detailContent) {
+    root.querySelectorAll('[data-photo-index]').forEach(btn => {
+      btn.addEventListener('click', event => {
+        const index = Number(event.currentTarget.dataset.photoIndex);
+        openPhotoViewer(machine, index);
+      });
+      btn.addEventListener('touchstart', handleDetailPhotoTouchStart, { passive: true });
+      btn.addEventListener('touchend', handleDetailPhotoTouchEnd, { passive: true });
+    });
+
+    root.querySelector(`[data-photo-prev-id="${CSS.escape(machine.id)}"]`)?.addEventListener('click', event => {
+      event.stopPropagation();
+      changeDetailPhoto(machine.id, -1);
+    });
+
+    root.querySelector(`[data-photo-next-id="${CSS.escape(machine.id)}"]`)?.addEventListener('click', event => {
+      event.stopPropagation();
+      changeDetailPhoto(machine.id, 1);
+    });
+
+    if (Array.isArray(machine.photos) && machine.photos.length) {
+      deferPhotoPreload(machine, Number(machine.photoCarouselIndex || 0));
+    }
+  }
+
+  function patchSelectedMachineDetailSections(machine, sectionNames = []) {
+    if (!machine || state.selectedId !== machine.id) return;
+
+    const detailRoot = els.detailContent?.querySelector('[data-detail-root="machine"]');
+    if (!detailRoot) {
+      renderDetail(machine);
+      return;
+    }
+
+    const uniqueSections = [...new Set(sectionNames)];
+
+    for (const sectionName of uniqueSections) {
+      const sectionEl = detailRoot.querySelector(`[data-detail-section="${sectionName}"]`);
+      if (!sectionEl) {
+        renderDetail(machine);
+        return;
+      }
+
+      let nextMarkup = "";
+
+      if (sectionName === "notes") {
+        nextMarkup = buildDetailNotesSectionMarkup(machine);
+      } else if (sectionName === "photos") {
+        nextMarkup = buildDetailPhotosSectionMarkup(machine);
+      } else if (sectionName === "expenses") {
+        nextMarkup = buildDetailExpensesSectionMarkup(machine);
+      } else if (sectionName === "profit") {
+        nextMarkup = buildDetailProfitSectionMarkup(machine);
+      } else {
+        continue;
+      }
+
+      sectionEl.outerHTML = nextMarkup;
+    }
+
+    if (uniqueSections.includes("expenses")) {
+      bindDetailExpenseEditButton(machine);
+    }
+
+    if (uniqueSections.includes("photos")) {
+      bindDetailPhotoEditButton(machine);
+      bindDetailPhotoSectionEvents(machine);
+    }
+  }
+
+  function buildDetailMarkup(machine, includeHeader = true) {
+    const pg = getPriceguideEntry(machine);
+    const heroImageUrl = getDetailHeroPhotoUrl(machine);
+
+    const pgImage = heroImageUrl
+      ? `
+      <div class="priceguideHero">
+        <img src="${escapeAttr(heroImageUrl)}" alt="${escapeAttr(pg?.title || machine.title)}">
+      </div>
+    `
+      : "";
+
+    return `
+    ${includeHeader ? "" : `<div class="detailHeader"><h2 class="detailTitle">${escapeHtml(machine.title)}</h2></div>`}
+
+    <div class="detailContent" data-detail-root="machine" data-machine-id="${escapeAttr(machine.id)}">
+      ${pg ? `
+      <section class="detailSection detailHeroSection">
+        ${pgImage}
+        <div class="detailHeroInfo">
+          <div class="detailHeroLine">${escapeHtml(buildDetailInfoLine(pg))}</div>
+          <div class="detailHeroLine">${escapeHtml(buildDetailRatingLine(pg))}</div>
+          <div class="detailHeroLine">${escapeHtml(formatPriceguideRangeNoCents(pg))}</div>
+          <div class="detailHeroLine">
+            ${pg.pageUrl
+          ? `Reference: <a href="${escapeAttr(pg.pageUrl)}" target="_blank" rel="noopener noreferrer">${escapeHtml(pg.pageLabel || "Open reference")}</a>`
+          : `Reference: —`
+        }
+          </div>
+        </div>
+      </section>
+      ` : ""}
+
+      ${buildDetailNotesSectionMarkup(machine)}
+      ${buildDetailPhotosSectionMarkup(machine)}
+      ${buildDetailExpensesSectionMarkup(machine)}
+      ${buildDetailProfitSectionMarkup(machine)}
     </div>
   `;
   }
@@ -2712,40 +2847,9 @@
     els.detailTitle.textContent = `${machine.id} • ${machine.title}`;
     els.detailContent.innerHTML = buildDetailMarkup(machine, true);
 
-    const expenseEditBtn = els.detailContent.querySelector('[data-expense-edit-id]');
-    expenseEditBtn?.addEventListener('click', event => {
-      event.stopPropagation();
-      openExpenseModal(machine.id);
-    });
-
-    const photoEditBtn = els.detailContent.querySelector('[data-photo-edit-id]');
-    photoEditBtn?.addEventListener('click', event => {
-      event.stopPropagation();
-      openPhotoModal(machine.id);
-    });
-
-    els.detailContent.querySelectorAll('[data-photo-index]').forEach(btn => {
-      btn.addEventListener('click', event => {
-        const index = Number(event.currentTarget.dataset.photoIndex);
-        openPhotoViewer(machine, index);
-      });
-      btn.addEventListener('touchstart', handleDetailPhotoTouchStart, { passive: true });
-      btn.addEventListener('touchend', handleDetailPhotoTouchEnd, { passive: true });
-    });
-
-    els.detailContent.querySelector(`[data-photo-prev-id="${CSS.escape(machine.id)}"]`)?.addEventListener('click', event => {
-      event.stopPropagation();
-      changeDetailPhoto(machine.id, -1);
-    });
-
-    els.detailContent.querySelector(`[data-photo-next-id="${CSS.escape(machine.id)}"]`)?.addEventListener('click', event => {
-      event.stopPropagation();
-      changeDetailPhoto(machine.id, 1);
-    });
-
-    if (Array.isArray(machine.photos) && machine.photos.length) {
-      deferPhotoPreload(machine, Number(machine.photoCarouselIndex || 0));
-    }
+    bindDetailExpenseEditButton(machine);
+    bindDetailPhotoEditButton(machine);
+    bindDetailPhotoSectionEvents(machine);
   }
 
   function uniqueSorted(values) {
