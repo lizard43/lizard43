@@ -20,6 +20,7 @@ function getOptionalParam_(e, name) {
 
 function doGet(e) {
   try {
+    ensureLegacyRowIds_();
     const resource = getParam_(e, 'resource');
 
     if (resource === 'games') {
@@ -100,6 +101,7 @@ function doGet(e) {
 
 function doPost(e) {
   try {
+    ensureLegacyRowIds_();
     const body = JSON.parse((e && e.postData && e.postData.contents) || '{}');
     const action = body.action;
     const data = body.data || {};
@@ -167,6 +169,7 @@ function doPost(e) {
     }
 
     if (action === 'updateExpense') {
+      data.expenseID = String(data.expenseID || '').trim();
       requireField_(data, 'expenseID');
       const row = updateRowByKey_(SHEET_EXPENSES, 'expenseID', data.expenseID, data);
 
@@ -389,4 +392,42 @@ function jsonOut_(obj) {
   return ContentService
     .createTextOutput(JSON.stringify(obj))
     .setMimeType(ContentService.MimeType.JSON);
+}
+
+function ensureSheetIds_(sheetName, idColumnName, prefix) {
+  const sheet = getSheet_(sheetName);
+  const values = sheet.getDataRange().getValues();
+
+  if (values.length < 2) return;
+
+  const headers = values[0];
+  const idColIndex = headers.indexOf(idColumnName);
+
+  if (idColIndex === -1) {
+    throw new Error('Missing ID column "' + idColumnName + '" in sheet: ' + sheetName);
+  }
+
+  let changed = false;
+
+  for (var i = 1; i < values.length; i++) {
+    const current = values[i][idColIndex];
+    const rowHasData = values[i].some(function (cell) {
+      return cell !== '';
+    });
+
+    if (rowHasData && (current === '' || current === null || current === undefined)) {
+      values[i][idColIndex] = makeId_(prefix);
+      changed = true;
+    }
+  }
+
+  if (changed) {
+    sheet.getRange(1, 1, values.length, headers.length).setValues(values);
+  }
+}
+
+function ensureLegacyRowIds_() {
+  ensureSheetIds_(SHEET_EXPENSES, 'expenseID', 'exp');
+  ensureSheetIds_(SHEET_NOTES, 'noteID', 'note');
+  ensureSheetIds_(SHEET_GAMES, 'ID', 'game');
 }
