@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-03-16T13:27:30.205Z",
+  "generated_at": "2026-03-16T14:06:44.639Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,33 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 34,
-      "droppedPrice": 174,
+      "exported_ads": 35,
+      "droppedPrice": 175,
       "droppedMissingGeo": 0,
-      "droppedCircle": 91
+      "droppedCircle": 95
     }
   },
   "ads": [
+    {
+      "adID": "2989311001272322",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100094981477573/?product_id=2989311001272322",
+      "author": "Joey Boatwright",
+      "postedTime": "2026-03-16T14:02:49.000Z",
+      "title": "Lawn care",
+      "description": "Message or call me for a quote! [hidden information]",
+      "price": "$60",
+      "lat": 32.8392013,
+      "lon": -86.6309229,
+      "location": "Clanton, AL",
+      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/654208539_1312886514234649_493670892276261459_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=104&ccb=1-7&_nc_sid=92e707&_nc_ohc=RR558N7ogxYQ7kNvwESG3H5&_nc_oc=Admiq_HK3GPUDEg0M4tdOp9gNUzJlk7TDvTD9oYqeH_V5bWNOxM-zd4MXaZoRGXUMVc&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=mNTsLYPwNApTlTf7BRxcsw&_nc_ss=8&oh=00_Afyf-9TuSLIsb6JsHRThu-w6O7o5NTtIAnZdBOgFQ5Ydsg&oe=69BDDC74",
+      "adUrl": "https://www.facebook.com/marketplace/item/2989311001272322/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-03-16 14:04:19",
+      "lastSeen": "2026-03-16T14:04:46.818Z"
+    },
     {
       "adID": "1248488034039426",
       "source": "MP",
@@ -56,7 +76,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-15 20:04:25",
-      "lastSeen": "2026-03-16T13:05:19.232Z"
+      "lastSeen": "2026-03-16T14:04:18.949Z"
     },
     {
       "adID": "4211074612469382",
@@ -76,27 +96,27 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-15 11:04:26",
-      "lastSeen": "2026-03-16T13:04:21.875Z"
+      "lastSeen": "2026-03-16T14:04:19.150Z"
     },
     {
       "adID": "804583199343269",
       "source": "FB",
       "authorUrl": null,
       "author": "Shane Starr",
-      "postedTime": "2026-03-14T13:00:18.775Z",
+      "postedTime": "2026-03-14T14:00:19.609Z",
       "title": "(Pending) Original Gauntlet by Atari Project Cabinet",
       "description": "Non workout Gauntlet cabinet. Has original joysticks and monitor / bezel as far as I can tell. Also appears to have original artwork under the black paint on the sides and control panel. Would make for a great retro restoration project!",
       "price": "$300",
       "lat": 34.0234337,
       "lon": -84.6154897,
       "location": "KENNESAW, GA",
-      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.30808-6/651244967_10225140439936981_217521075182415945_n.jpg?stp=dst-jpegr_s590x590_tt6&_nc_cat=100&ccb=1-7&_nc_sid=e06c5d&_nc_ohc=WFgJ2Zgd9K8Q7kNvwHSVYyv&_nc_oc=Adk9vL5Vx6lbxybuRjshkLwHImfLIU9yPtVdhFeaH_aF_9YMz672SMcJE9mm2FNokr0&_nc_zt=23&se=-1&_nc_ht=scontent-dfw5-2.xx&_nc_gid=U-yOG1owKO85wPIoxRTBHQ&_nc_ss=8&oh=00_AfzQiwRB3zJb_tT24yQKQr5wfjnth2y1JMeqWU9p_bneCg&oe=69BDEB13",
+      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.30808-6/651244967_10225140439936981_217521075182415945_n.jpg?stp=dst-jpegr_s590x590_tt6&_nc_cat=100&ccb=1-7&_nc_sid=e06c5d&_nc_ohc=WFgJ2Zgd9K8Q7kNvwHSVYyv&_nc_oc=Adk9vL5Vx6lbxybuRjshkLwHImfLIU9yPtVdhFeaH_aF_9YMz672SMcJE9mm2FNokr0&_nc_zt=23&se=-1&_nc_ht=scontent-dfw5-2.xx&_nc_gid=nIPK4rsaiHU_W75Pkxbn8A&_nc_ss=8&oh=00_AfyUcXPI9aHlCLKWs01VRAlbRM7GEfFGxlheckcD8yaRRA&oe=69BDEB13",
       "adUrl": "https://www.facebook.com/commerce/listing/804583199343269/",
       "priceChanged": 0,
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-13 22:00:18",
-      "lastSeen": "2026-03-16T13:00:19.076Z"
+      "lastSeen": "2026-03-16T14:00:20.180Z"
     },
     {
       "adID": "1511621653863915",
@@ -376,7 +396,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-04 12:09:54",
-      "lastSeen": "2026-03-16T13:06:57.383Z"
+      "lastSeen": "2026-03-16T14:06:44.421Z"
     },
     {
       "adID": "1570931707463297",
