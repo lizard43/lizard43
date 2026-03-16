@@ -20,6 +20,10 @@
     },
     settingsOpen: false,
     editingId: null,
+    editPhotoDraft: {
+      url: "",
+      uploading: false
+    },
     expenseEditingId: null,
     expenseDraftRows: [],
     photoEditingId: null,
@@ -67,6 +71,10 @@
     editCondition: document.getElementById("editCondition"),
     editPgId: document.getElementById("editPgId"),
     editPhoto: document.getElementById("editPhoto"),
+    editPhotoDropZone: document.getElementById("editPhotoDropZone"),
+    editPhotoCameraBtn: document.getElementById("editPhotoCameraBtn"),
+    editPhotoUrl: document.getElementById("editPhotoUrl"),
+    editPhotoStatus: document.getElementById("editPhotoStatus"),
     editNotes: document.getElementById("editNotes"),
     editPurchaseDate: document.getElementById("editPurchaseDate"),
     editPurchasePrice: document.getElementById("editPurchasePrice"),
@@ -271,9 +279,12 @@
   }
 
   function supportsCameraCapture() {
-    const hasTouch = window.matchMedia("(pointer: coarse)").matches || "ontouchstart" in window;
-    const isMobileUA = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent || "");
-    return hasTouch || isMobileUA;
+    const ua = navigator.userAgent || "";
+    const platform = navigator.platform || "";
+    const maxTouchPoints = Number(navigator.maxTouchPoints || 0);
+    const isMobileUA = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(ua);
+    const isIPadOS = platform === "MacIntel" && maxTouchPoints > 1;
+    return isMobileUA || isIPadOS;
   }
 
   async function openCameraCapture() {
@@ -1699,6 +1710,122 @@
   }
 
 
+
+  function renderEditPhotoControl() {
+    if (!els.editPhotoUrl) return;
+
+    const currentUrl = String(state.editPhotoDraft?.url || "").trim();
+    const uploading = !!state.editPhotoDraft?.uploading;
+    const hasPhoto = !!currentUrl;
+
+    els.editPhotoUrl.value = currentUrl;
+    if (els.editPhoto) {
+      els.editPhoto.value = currentUrl;
+    }
+
+    els.editPhotoDropZone?.classList.toggle("isUploading", uploading);
+
+    if (els.editPhotoStatus) {
+      els.editPhotoStatus.textContent = uploading
+        ? "Uploading…"
+        : (hasPhoto ? "Using game photo" : "Empty uses priceguide image");
+    }
+
+    if (els.editPhotoCameraBtn) {
+      els.editPhotoCameraBtn.disabled = uploading;
+      els.editPhotoCameraBtn.style.display = supportsCameraCapture() ? "" : "none";
+    }
+
+    if (els.editPhotoUrl) {
+      els.editPhotoUrl.disabled = uploading;
+    }
+  }
+
+  function setEditPhotoUploading(isUploading) {
+    state.editPhotoDraft.uploading = !!isUploading;
+    renderEditPhotoControl();
+  }
+
+  async function setEditPhotoFromFile(file) {
+    if (!file) throw new Error("No file provided.");
+    if (!file.type || !file.type.startsWith("image/")) {
+      throw new Error("Please choose an image file.");
+    }
+
+    setEditPhotoUploading(true);
+    try {
+      const url = await uploadPhotoToImgBB(file);
+      state.editPhotoDraft.url = url;
+      renderEditPhotoControl();
+      els.editPhotoUrl?.focus();
+      els.editPhotoUrl?.select?.();
+      return url;
+    } finally {
+      setEditPhotoUploading(false);
+    }
+  }
+
+  function promptEditPhotoFile(options = {}) {
+    if (state.editPhotoDraft?.uploading) return;
+
+    const input = document.createElement("input");
+    input.type = "file";
+    input.accept = "image/*";
+    if (options.capture) {
+      input.setAttribute("capture", options.capture);
+    }
+    input.style.position = "fixed";
+    input.style.left = "-9999px";
+    input.style.top = "0";
+
+    input.addEventListener("change", async event => {
+      try {
+        const file = event.target?.files?.[0];
+        if (!file) return;
+        await setEditPhotoFromFile(file);
+      } catch (err) {
+        window.alert(`Could not upload photo. ${err.message}`);
+      } finally {
+        window.setTimeout(() => input.remove(), 0);
+      }
+    }, { once: true });
+
+    document.body.appendChild(input);
+    input.click();
+  }
+
+  function handleEditPhotoCameraClick() {
+    if (!supportsCameraCapture()) return;
+    promptEditPhotoFile({ capture: "environment" });
+  }
+
+  function handleEditPhotoUrlInput(event) {
+    state.editPhotoDraft.url = String(event.target?.value || "").trim();
+    renderEditPhotoControl();
+  }
+
+  function handleEditPhotoDrop(event) {
+    event.preventDefault();
+    els.editPhotoDropZone?.classList.remove("isDragOver");
+
+    const file = event.dataTransfer?.files?.[0];
+    if (!file) return;
+
+    setEditPhotoFromFile(file).catch(err => {
+      window.alert(`Could not upload photo. ${err.message}`);
+    });
+  }
+
+  function handleEditPhotoDragOver(event) {
+    event.preventDefault();
+    if (state.editPhotoDraft?.uploading) return;
+    els.editPhotoDropZone?.classList.add("isDragOver");
+  }
+
+  function handleEditPhotoDragLeave() {
+    els.editPhotoDropZone?.classList.remove("isDragOver");
+  }
+
   function openEditModal(id) {
     if (!state.auth.loggedIn) return;
 
@@ -1711,7 +1838,11 @@
     els.editLocation.value = machine.location || "";
     els.editCondition.value = machine.condition || "";
     els.editPgId.value = machine.pgID || "";
-    els.editPhoto.value = machine.photo || "";
+    state.editPhotoDraft = {
+      url: machine.photo || "",
+      uploading: false
+    };
+    renderEditPhotoControl();
     els.editNotes.value = machine.notes || "";
     els.editPurchaseDate.value = toDateInputValue(machine.purchaseDate);
     els.editPurchasePrice.value = toFormNumberValue(machine.purchasePrice);
@@ -1732,6 +1863,7 @@
   function closeEditModal(useHistoryBack = true) {
     const wasOpen = els.editModal?.classList.contains("open");
     state.editingId = null;
+    state.editPhotoDraft = { url: "", uploading: false };
     els.editModal?.classList.remove("open");
     els.editOverlay?.classList.remove("open");
     els.editForm?.reset();
@@ -1749,7 +1881,7 @@
       location: String(els.editLocation?.value || "").trim(),
       condition: String(els.editCondition?.value || "").trim(),
       pgID: String(els.editPgId?.value || "").trim(),
-      photo: String(els.editPhoto?.value || "").trim(),
+      photo: String(state.editPhotoDraft?.url || els.editPhotoUrl?.value || "").trim(),
       notes: String(els.editNotes?.value || "").trim(),
       purchaseDate: String(els.editPurchaseDate?.value || "").trim(),
       purchasePrice: String(els.editPurchasePrice?.value || "").trim(),
@@ -2217,6 +2349,11 @@
     els.editCancelBtn?.addEventListener("click", closeEditModal);
     els.editOverlay?.addEventListener("click", closeEditModal);
     els.editForm?.addEventListener("submit", handleEditFormSubmit);
+    els.editPhotoCameraBtn?.addEventListener("click", handleEditPhotoCameraClick);
+    els.editPhotoUrl?.addEventListener("input", handleEditPhotoUrlInput);
+    els.editPhotoDropZone?.addEventListener("dragover", handleEditPhotoDragOver);
+    els.editPhotoDropZone?.addEventListener("dragleave", handleEditPhotoDragLeave);
+    els.editPhotoDropZone?.addEventListener("drop", handleEditPhotoDrop);
 
     els.expenseCloseBtn?.addEventListener("click", closeExpenseModal);
     els.expenseCancelBtn?.addEventListener("click", closeExpenseModal);

@@ -1624,3 +1624,74 @@ select {
     justify-content: center;
   }
 }
+
+.editPhotoControl {
+  display: grid;
+  gap: 12px;
+}
+
+.editPhotoActionRow {
+  display: flex;
+  align-items: stretch;
+  gap: 12px;
+}
+
+.editPhotoDropZone {
+  flex: 1 1 auto;
+  min-height: 38px;
+  padding: 0 14px;
+  border: 1px dashed rgba(255, 255, 255, 0.22);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.02);
+  color: var(--text);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  cursor: pointer;
+  transition: border-color 0.16s ease, background 0.16s ease, box-shadow 0.16s ease, opacity 0.16s ease;
+}
+
+.editPhotoDropZone:hover {
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.editPhotoDropZone:focus-visible {
+  outline: 2px solid rgba(255, 255, 255, 0.28);
+  outline-offset: 2px;
+}
+
+.editPhotoDropZone.isDragOver {
+  border-color: #7d7d7d;
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: 0 0 0 2px rgba(255,255,255,0.08) inset;
+}
+
+.editPhotoDropZone.isUploading {
+  opacity: 0.82;
+}
+
+.editPhotoCameraBtn {
+  flex: 0 0 auto;
+}
+
+.editPhotoUrlField {
+  margin-bottom: 0;
+}
+
+.editPhotoUrlTextarea {
+  min-height: 78px;
+  resize: vertical;
+}
+
+@media (max-width: 640px) {
+  .editPhotoActionRow {
+    gap: 10px;
+  }
+
+  .editPhotoDropZone,
+  .editPhotoCameraBtn {
+    flex: 1 1 calc(50% - 5px);
+    justify-content: center;
+  }
+}
