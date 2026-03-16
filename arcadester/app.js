@@ -188,7 +188,7 @@
     await Promise.all(Array.from({ length: workerCount }, () => worker()));
   }
 
-  
+
   async function hydrateMachineNotes(machine) {
     if (!machine?.id) return;
 
@@ -235,7 +235,7 @@
     await Promise.all(Array.from({ length: workerCount }, () => worker()));
   }
 
-  
+
   async function hydrateMachineExpenses(machine) {
     if (!machine?.id) return;
 
@@ -406,13 +406,13 @@
       .catch(() => patchMachineUI(machine, { detailSections: ["photos"] }));
   }
 
-  
+
   async function refreshMachinePhotos(machine) {
     await hydrateMachinePhotos(machine, { force: true });
     patchMachineUI(machine, { detailSections: ["photos"] });
   }
 
-  
+
   function preloadImageUrl(url) {
     const normalizedUrl = String(getPhotoUrl(url) || '').trim();
     if (!normalizedUrl || state.imagePreloadCache.has(normalizedUrl)) return;
@@ -451,21 +451,41 @@
 
   async function apiGet(params) {
     const url = new URL(API_URL);
+
     Object.entries(params).forEach(([k, v]) => {
       if (v !== undefined && v !== null && v !== "") {
         url.searchParams.set(k, v);
       }
     });
 
-    const res = await fetch(url.toString(), { cache: "no-store" });
+    const urlString = url.toString();
+    console.log(`[api:get] ${urlString}`);
+
+    const start = performance.now();
+
+    const res = await fetch(urlString, { cache: "no-store" });
+
+    const elapsed = Math.round(performance.now() - start);
+    console.log(`[api:get] response ${res.status} (${elapsed}ms)`);
+
     if (!res.ok) {
       throw new Error(`API request failed: HTTP ${res.status}`);
     }
 
-    return res.json();
+    const json = await res.json();
+
+    if (json?.data) {
+      console.log(`[api:get] rows=${Array.isArray(json.data) ? json.data.length : "?"}`);
+    }
+
+    return json;
   }
 
   async function apiPost(action, data) {
+    console.log(`[api:post] ${action}`, data);
+
+    const start = performance.now();
+
     const res = await fetch(API_URL, {
       method: "POST",
       headers: {
@@ -474,11 +494,15 @@
       body: JSON.stringify({ action, data })
     });
 
+    const elapsed = Math.round(performance.now() - start);
+    console.log(`[api:post] ${action} response ${res.status} (${elapsed}ms)`);
+
     if (!res.ok) {
       throw new Error(`API request failed: HTTP ${res.status}`);
     }
 
     const payload = await res.json();
+
     if (!payload || payload.ok !== true) {
       throw new Error(payload?.error || "API request failed.");
     }
@@ -1306,7 +1330,7 @@
     }
   }
 
-  
+
   function closePhotoModal(useHistoryBack = true) {
     const wasOpen = els.photoModal?.classList.contains("open");
     state.photoEditingId = null;
@@ -1674,7 +1698,7 @@
     }
   }
 
-  
+
   function openEditModal(id) {
     if (!state.auth.loggedIn) return;
 
@@ -2098,6 +2122,24 @@
     return formatMoneyNoCents(low ?? high);
   }
 
+  function getPriceguideAverage(entry) {
+    if (!entry || !entry.guideRange) return null;
+
+    // Pinside provides avg directly
+    if (entry.guideRange.avg != null) {
+      return entry.guideRange.avg;
+    }
+
+    const low = entry.guideRange.low;
+    const high = entry.guideRange.high;
+
+    if (Number.isFinite(low) && Number.isFinite(high)) {
+      return (low + high) / 2;
+    }
+
+    return low ?? high ?? null;
+  }
+
   function buildDetailInfoLine(pg) {
     if (!pg) return "—";
     return [pg.manufacturer, pg.date].filter(Boolean).join(" • ") || "—";
@@ -2320,6 +2362,9 @@
     const isSold = isSoldMachine(machine);
     const profit = machine.soldPrice != null && totalCost != null ? machine.soldPrice - totalCost : null;
 
+    const pg = getPriceguideEntry(machine);
+    const pgEstimate = getPriceguideAverage(pg);
+
     const locationCondition = [machine.location, machine.condition]
       .filter(Boolean)
       .join(" · ");
@@ -2374,19 +2419,25 @@
         <div class="cardStats">
           <div class="cardStatRow">
             <span class="cardStatLabel">Purchase</span>
-            <span class="cardStatValue">${escapeHtml(formatMoney(machine.purchasePrice))}</span>
+            <span class="cardStatValue">${escapeHtml(formatMoneyNoCents(machine.purchasePrice))}</span>
           </div>
 
           <div class="cardStatRow">
             <span class="cardStatLabel">Expenses</span>
-            <span class="cardStatValue ${expensesLoading ? "isLoading" : ""}">${escapeHtml(expensesLoading ? "…" : formatMoney(totalExpenses))}</span>
+            <span class="cardStatValue ${expensesLoading ? "isLoading" : ""}">${escapeHtml(expensesLoading ? "…" : formatMoneyNoCents(totalExpenses))}</span>
           </div>
 
           <div class="cardStatRow cardStatRowTotal">
             <span class="cardStatLabel">Investment</span>
-            <span class="cardStatValue ${expensesLoading ? "isLoading" : ""}">${escapeHtml(expensesLoading ? "…" : formatMoney(totalCost))}</span>
+            <span class="cardStatValue ${expensesLoading ? "isLoading" : ""}">${escapeHtml(expensesLoading ? "…" : formatMoneyNoCents(totalCost))}</span>
           </div>
 
+          <div class="cardStatRow">
+            <span class="cardStatLabel">Estimate</span>
+            <span class="cardStatValue">
+              ${escapeHtml(pgEstimate != null ? formatMoneyNoCents(pgEstimate) : "—")}
+            </span>
+          </div>          
           ${soldBlock}
         </div>
       </div>
@@ -2440,7 +2491,7 @@
     }
   }
 
-  
+
   function renderCards() {
     els.cardsGrid.innerHTML = "";
 
@@ -2461,7 +2512,7 @@
     patchMachineUI(machine, { detailSections: ["expenses", "profit"] });
   }
 
-  
+
   function selectMachine(id, openDetailPane = true) {
     const machine = state.allMachines.find(m => m.id === id);
     if (!machine) return;
