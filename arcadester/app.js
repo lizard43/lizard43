@@ -881,13 +881,16 @@
 
     const rows = state.photoDraftRows;
     els.photoRows.innerHTML = `
-      <button class="expenseAddBtn expenseAddBtnTop" type="button" id="photoAddBtn" aria-label="Add photo row" title="Add photo">
-        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-          <path d="M11 5h2v6h6v2h-6v6h-2v-6H5v-2h6z"/>
-        </svg>
-        <span>Add photo</span>
-      </button>
-      <div class="photoAddHint">Placeholder for now — we will hook this to imgbb next.</div>
+      <div class="photoEditorToolbar">
+        <button class="expenseAddBtn expenseAddBtnTop" type="button" id="photoAddBtn" aria-label="Add photo row" title="Add photo">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path d="M11 5h2v6h6v2h-6v6h-2v-6H5v-2h6z"/>
+          </svg>
+          <span>Add photo</span>
+        </button>
+        <div class="photoAddHint">Upload flow comes next. Existing photos below can be viewed or deleted now.</div>
+      </div>
+      ${rows.length ? '' : '<div class="detailMeta">No photos for this game yet.</div>'}
     ` + rows.map((row, index) => `
       <div class="expenseEditorRow ${row._delete ? "expenseEditorRowDeleted" : ""}" data-index="${index}">
         <div class="expenseEditorRowHeader">
