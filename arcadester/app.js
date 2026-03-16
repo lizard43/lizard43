@@ -77,6 +77,11 @@
     photoSaveBtn: document.getElementById("photoSaveBtn"),
     photoCancelBtn: document.getElementById("photoCancelBtn"),
     photoCloseBtn: document.getElementById("photoCloseBtn"),
+    photoViewerOverlay: document.getElementById("photoViewerOverlay"),
+    photoViewerModal: document.getElementById("photoViewerModal"),
+    photoViewerImage: document.getElementById("photoViewerImage"),
+    photoViewerCaption: document.getElementById("photoViewerCaption"),
+    photoViewerCloseBtn: document.getElementById("photoViewerCloseBtn"),
     cardsGrid: document.getElementById("cardsGrid"),
     emptyState: document.getElementById("emptyState"),
     detailPane: document.getElementById("detailPane"),
@@ -197,6 +202,7 @@
       .map(normalizeExpense);
   }
 
+
   async function loadPhotosForGame(gameID) {
     if (!gameID) return [];
 
@@ -213,22 +219,52 @@
       .filter(row => String(row.gameID || "").trim() === String(gameID).trim())
       .filter(row => row && (row.photoID !== "" || row.url))
       .map(normalizePhoto)
-      .sort((a, b) => String(a.photoID || "").localeCompare(String(b.photoID || "")));
+      .sort((a, b) => Number(a.photoID || 0) - Number(b.photoID || 0) || String(a.photoID || "").localeCompare(String(b.photoID || "")));
   }
 
-  async function hydrateMachinePhotos(machine) {
-    if (!machine?.id) return;
+  async function hydrateMachinePhotos(machine, options = {}) {
+    if (!machine?.id) return [];
 
-    try {
-      machine.photos = await loadPhotosForGame(machine.id);
-    } catch (err) {
-      console.warn(`Could not load photos for ${machine.id}: ${err.message}`);
-      machine.photos = [];
+    const force = options.force === true;
+
+    if (!force && machine.photoStatus === "loaded" && Array.isArray(machine.photos)) {
+      return machine.photos;
     }
+
+    if (!force && machine.photoStatus === "loading" && machine.photoPromise) {
+      return machine.photoPromise;
+    }
+
+    machine.photoStatus = "loading";
+    machine.photoPromise = loadPhotosForGame(machine.id)
+      .then(photos => {
+        machine.photos = photos;
+        machine.photoStatus = "loaded";
+        return photos;
+      })
+      .catch(err => {
+        machine.photos = [];
+        machine.photoStatus = "error";
+        throw err;
+      })
+      .finally(() => {
+        machine.photoPromise = null;
+      });
+
+    return machine.photoPromise;
+  }
+
+  function queuePhotoLoadForMachine(machine) {
+    if (!machine?.id) return;
+    if (machine.photoStatus === "loading" || machine.photoStatus === "loaded") return;
+
+    hydrateMachinePhotos(machine)
+      .then(() => patchMachineUI(machine))
+      .catch(() => patchMachineUI(machine));
   }
 
   async function refreshMachinePhotos(machine) {
-    await hydrateMachinePhotos(machine);
+    await hydrateMachinePhotos(machine, { force: true });
     patchMachineUI(machine);
   }
 
@@ -784,14 +820,22 @@
   }
 
 
+  function normalizePhoto(photo) {
+    return {
+      photoID: String(photo.photoID || "").trim(),
+      gameID: String(photo.gameID || "").trim(),
+      url: String(photo.url || "").trim()
+    };
+  }
+
   function clonePhotoForDraft(photo) {
     const row = {
-      photoID: String(photo?.photoID || '').trim(),
-      gameID: String(photo?.gameID || '').trim(),
-      url: String(photo?.url || '').trim(),
+      photoID: String(photo?.photoID || "").trim(),
+      gameID: String(photo?.gameID || "").trim(),
+      url: String(photo?.url || "").trim(),
       _delete: false,
       _dirty: false,
-      _originalFingerprint: ''
+      _originalFingerprint: ""
     };
 
     return markPhotoDraftClean(row);
@@ -799,20 +843,20 @@
 
   function makeLocalPhotoRow(gameID) {
     return {
-      photoID: '',
-      gameID: String(gameID || '').trim(),
-      url: '',
+      photoID: "",
+      gameID: String(gameID || "").trim(),
+      url: "",
       _delete: false,
       _dirty: true,
-      _originalFingerprint: ''
+      _originalFingerprint: ""
     };
   }
 
   function getComparablePhotoDraft(row) {
     return {
-      photoID: String(row?.photoID || '').trim(),
-      gameID: String(row?.gameID || '').trim(),
-      url: String(row?.url || '').trim()
+      photoID: String(row?.photoID || "").trim(),
+      gameID: String(row?.gameID || "").trim(),
+      url: String(row?.url || "").trim()
     };
   }
 
@@ -828,7 +872,7 @@
   }
 
   function refreshPhotoDraftDirty(row) {
-    row._dirty = photoDraftFingerprint(row) !== String(row._originalFingerprint || '');
+    row._dirty = photoDraftFingerprint(row) !== String(row._originalFingerprint || "");
     return row._dirty;
   }
 
@@ -845,41 +889,50 @@
       </button>
       <div class="photoAddHint">Placeholder for now — we will hook this to imgbb next.</div>
     ` + rows.map((row, index) => `
-      <div class="expenseEditorRow ${row._delete ? 'expenseEditorRowDeleted' : ''}" data-index="${index}">
+      <div class="expenseEditorRow ${row._delete ? "expenseEditorRowDeleted" : ""}" data-index="${index}">
         <div class="expenseEditorRowHeader">
           <div class="expenseEditorRowTitle">Photo ${index + 1}</div>
-          <button class="expenseIconBtn photoDeleteBtn" type="button" data-action="delete" data-index="${index}" aria-label="Delete photo row" title="Delete photo">
+          <button class="expenseIconBtn photoDeleteBtn" type="button" data-index="${index}" aria-label="Delete photo row" title="Delete photo">
             <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
               <path d="M9 3h6l1 2h4v2H4V5h4l1-2Zm1 6h2v8h-2V9Zm4 0h2v8h-2V9ZM7 9h2v8H7V9Zm-1 12h12a2 2 0 0 0 2-2V7H4v12a2 2 0 0 0 2 2Z"/>
             </svg>
           </button>
         </div>
 
-        <div class="photoEditorPreview">
-          <img src="${escapeAttr(getPhotoUrl(row.url))}" alt="${escapeAttr(`Photo ${index + 1}`)}">
+        <div class="photoEditorRow">
+          <button class="photoEditorThumbBtn" type="button" data-photo-preview-index="${index}" aria-label="Preview photo ${index + 1}">
+            <div class="photoEditorPreview">
+              <img src="${escapeAttr(getPhotoUrl(row.url))}" alt="${escapeAttr(`Photo ${index + 1}`)}" loading="lazy">
+            </div>
+          </button>
+
+          <div class="editField photoUrlField">
+            <label class="settingsLabel" for="photoUrl_${index}">URL</label>
+            <input id="photoUrl_${index}" class="settingsInput photoDraftInput" data-field="url" data-index="${index}" type="text" value="${escapeAttr(row.url || "")}" ${row._delete ? "disabled" : ""}>
+            ${row.photoID ? `<div class="photoMetaLine">photoID: ${escapeHtml(row.photoID)}</div>` : ""}
+          </div>
         </div>
 
-        <div class="editField photoUrlField">
-          <label class="settingsLabel" for="photoUrl_${index}">URL</label>
-          <textarea id="photoUrl_${index}" class="settingsInput editTextarea photoDraftInput" data-field="url" data-index="${index}" ${row._delete ? 'disabled' : ''}>${escapeHtml(row.url || '')}</textarea>
-        </div>
-
-        ${row.photoID ? `
-          <div class="photoMetaLine">photoID: ${escapeHtml(row.photoID)}</div>
-        ` : ''}
         ${row._delete ? '<div class="expenseDeletedLabel">Will be deleted on save</div>' : ''}
       </div>
-    `).join('');
+    `).join("");
 
-    els.photoRows.querySelectorAll('.photoDraftInput').forEach(input => {
-      input.addEventListener('input', handlePhotoDraftInput);
+    els.photoRows.querySelectorAll(".photoDraftInput").forEach(input => {
+      input.addEventListener("input", handlePhotoDraftInput);
     });
 
-    els.photoRows.querySelectorAll('.photoDeleteBtn').forEach(btn => {
-      btn.addEventListener('click', handlePhotoDraftDelete);
+    els.photoRows.querySelectorAll(".photoDeleteBtn").forEach(btn => {
+      btn.addEventListener("click", handlePhotoDraftDelete);
     });
 
-    document.getElementById('photoAddBtn')?.addEventListener('click', handlePhotoDraftAdd);
+    els.photoRows.querySelectorAll("[data-photo-preview-index]").forEach(btn => {
+      btn.addEventListener("click", event => {
+        const index = Number(event.currentTarget.dataset.photoPreviewIndex);
+        openPhotoViewerFromDraft(index);
+      });
+    });
+
+    document.getElementById("photoAddBtn")?.addEventListener("click", handlePhotoDraftAdd);
   }
 
   async function openPhotoModal(id) {
@@ -890,34 +943,35 @@
 
     state.photoEditingId = id;
 
-    try {
-      await hydrateMachinePhotos(machine);
-    } catch (err) {
-      window.alert(`Could not load photos. ${err.message}`);
-      return;
+    if (!Array.isArray(machine.photos)) {
+      renderDetail(machine);
+      try {
+        await hydrateMachinePhotos(machine);
+      } catch (err) {
+        window.alert(`Could not load photos. ${err.message}`);
+        return;
+      }
     }
 
     state.photoDraftRows = Array.isArray(machine.photos)
       ? machine.photos.map(clonePhotoForDraft)
       : [];
 
-    els.photoGameId.textContent = machine.id || '—';
+    els.photoGameId.textContent = machine.id || "—";
     renderPhotoEditorRows();
 
-    els.photoOverlay?.classList.add('open');
-    els.photoModal.classList.add('open');
-
-    els.photoRows?.querySelector('textarea, input')?.focus();
+    els.photoOverlay?.classList.add("open");
+    els.photoModal.classList.add("open");
   }
 
   function closePhotoModal() {
     state.photoEditingId = null;
     state.photoDraftRows = [];
-    els.photoModal?.classList.remove('open');
-    els.photoOverlay?.classList.remove('open');
+    els.photoModal?.classList.remove("open");
+    els.photoOverlay?.classList.remove("open");
     els.photoForm?.reset();
     if (els.photoRows) {
-      els.photoRows.innerHTML = '';
+      els.photoRows.innerHTML = "";
     }
   }
 
@@ -929,9 +983,9 @@
     const row = state.photoDraftRows[index];
     row[field] = event.target.value;
     refreshPhotoDraftDirty(row);
-    const editorRow = event.target.closest('.expenseEditorRow');
-    const previewImg = editorRow?.querySelector('.photoEditorPreview img');
-    if (previewImg && field === 'url') {
+
+    const previewImg = event.target.closest(".photoEditorRow")?.querySelector(".photoEditorPreview img");
+    if (previewImg && field === "url") {
       previewImg.src = getPhotoUrl(row.url);
     }
   }
@@ -955,20 +1009,18 @@
   function handlePhotoDraftAdd() {
     state.photoDraftRows.push(makeLocalPhotoRow(state.photoEditingId));
     renderPhotoEditorRows();
-    const lastIndex = state.photoDraftRows.length - 1;
-    document.getElementById(`photoUrl_${lastIndex}`)?.focus();
   }
 
   function buildPhotoPayloadFromDraft(row) {
     return {
-      photoID: String(row.photoID || '').trim(),
-      gameID: String(row.gameID || state.photoEditingId || '').trim(),
-      url: String(row.url || '').trim()
+      photoID: String(row.photoID || "").trim(),
+      gameID: String(row.gameID || state.photoEditingId || "").trim(),
+      url: String(row.url || "").trim()
     };
   }
 
   function isPhotoDraftMeaningful(row) {
-    return !!String(row.url || '').trim();
+    return !!String(row.url || "").trim();
   }
 
   async function handlePhotoFormSubmit(event) {
@@ -979,17 +1031,17 @@
     if (!id || !machine) return;
 
     const saveBtn = els.photoSaveBtn;
-    const originalLabel = saveBtn?.textContent || 'Save';
+    const originalLabel = saveBtn?.textContent || "Save";
 
     try {
       if (saveBtn) {
         saveBtn.disabled = true;
-        saveBtn.textContent = 'Saving…';
+        saveBtn.textContent = "Saving…";
       }
 
       for (const row of state.photoDraftRows) {
         if (row._delete && row.photoID) {
-          await apiPost('deletePhoto', { photoID: row.photoID });
+          await apiPost("deletePhoto", { photoID: row.photoID });
           continue;
         }
 
@@ -1000,9 +1052,9 @@
 
         if (payload.photoID) {
           if (!row._dirty) continue;
-          await apiPost('updatePhoto', payload);
+          await apiPost("updatePhoto", payload);
         } else {
-          await apiPost('createPhoto', payload);
+          await apiPost("createPhoto", payload);
         }
       }
 
@@ -1016,6 +1068,60 @@
         saveBtn.textContent = originalLabel;
       }
     }
+  }
+
+  function openPhotoViewer(machine, index = 0) {
+    const photos = Array.isArray(machine?.photos) ? machine.photos : [];
+    if (!photos.length) return;
+
+    const safeIndex = Math.max(0, Math.min(index, photos.length - 1));
+    const photo = photos[safeIndex];
+    if (!photo) return;
+
+    els.photoViewerImage.src = getPhotoUrl(photo.url);
+    els.photoViewerImage.alt = machine.title || "Photo";
+    els.photoViewerCaption.textContent = `${machine.id || ""}${machine.title ? ` • ${machine.title}` : ""} • ${safeIndex + 1} / ${photos.length}`;
+    els.photoViewerOverlay?.classList.add("open");
+    els.photoViewerModal?.classList.add("open");
+  }
+
+  function openPhotoViewerFromDraft(index = 0) {
+    const rows = state.photoDraftRows.filter(row => !row._delete && String(row.url || "").trim());
+    if (!rows.length) return;
+
+    const safeIndex = Math.max(0, Math.min(index, rows.length - 1));
+    const row = rows[safeIndex];
+
+    els.photoViewerImage.src = getPhotoUrl(row.url);
+    els.photoViewerImage.alt = `Photo ${safeIndex + 1}`;
+    els.photoViewerCaption.textContent = `${state.photoEditingId || ""} • ${safeIndex + 1} / ${rows.length}`;
+    els.photoViewerOverlay?.classList.add("open");
+    els.photoViewerModal?.classList.add("open");
+  }
+
+  function closePhotoViewer() {
+    els.photoViewerModal?.classList.remove("open");
+    els.photoViewerOverlay?.classList.remove("open");
+  }
+
+  function scrollPhotoStrip(machineId, direction = 1) {
+    const strip = els.detailContent?.querySelector(`[data-photo-strip-id="${CSS.escape(machineId)}"]`);
+    if (!strip) return;
+
+    const amount = Math.max(220, Math.floor(strip.clientWidth * 0.8));
+    strip.scrollBy({ left: direction * amount, behavior: "smooth" });
+  }
+
+  function updatePhotoStripButtons(machineId) {
+    const strip = els.detailContent?.querySelector(`[data-photo-strip-id="${CSS.escape(machineId)}"]`);
+    if (!strip) return;
+
+    const prevBtn = els.detailContent?.querySelector(`[data-photo-prev-id="${CSS.escape(machineId)}"]`);
+    const nextBtn = els.detailContent?.querySelector(`[data-photo-next-id="${CSS.escape(machineId)}"]`);
+    const maxScroll = Math.max(0, strip.scrollWidth - strip.clientWidth);
+
+    if (prevBtn) prevBtn.disabled = strip.scrollLeft <= 2;
+    if (nextBtn) nextBtn.disabled = strip.scrollLeft >= maxScroll - 2 || maxScroll <= 2;
   }
 
   function openEditModal(id) {
@@ -1075,7 +1181,9 @@
     merged.totalExpenses = existing.totalExpenses;
     merged.totalCost = addMoney(merged.purchasePrice, merged.totalExpenses);
     merged.apiNotes = existing.apiNotes;
-    merged.photos = Array.isArray(existing.photos) ? [...existing.photos] : [];
+    merged.photos = existing.photos;
+    merged.photoStatus = existing.photoStatus;
+    merged.photoPromise = existing.photoPromise;
     return merged;
   }
 
@@ -1132,24 +1240,6 @@
     };
   }
 
-  function normalizePhoto(photo) {
-    return {
-      photoID: String(photo.photoID || '').trim(),
-      gameID: String(photo.gameID || '').trim(),
-      url: String(photo.url || '').trim()
-    };
-  }
-
-  function normalizeNote(note) {
-    return {
-      noteID: String(note.noteID || "").trim(),
-      gameID: String(note.gameID || "").trim(),
-      date: formatApiDate(note.date),
-      category: String(note.category || "").trim(),
-      note: String(note.note || "").trim()
-    };
-  }
-
   function normalizeExpense(exp) {
     return {
       expenseID: String(exp.expenseID || "").trim(),
@@ -1191,7 +1281,9 @@
     item.apiNotes = null;
 
     item.photo = String(item.photo || "").trim();
-    item.photos = [];
+    item.photos = null;
+    item.photoStatus = "idle";
+    item.photoPromise = null;
 
     item.referenceUrl = String(pg?.pageUrl || "").trim();
     item.referenceLabel = String(pg?.pageLabel || "").trim();
@@ -1512,6 +1604,9 @@
     els.photoCancelBtn?.addEventListener("click", closePhotoModal);
     els.photoOverlay?.addEventListener("click", closePhotoModal);
     els.photoForm?.addEventListener("submit", handlePhotoFormSubmit);
+
+    els.photoViewerCloseBtn?.addEventListener("click", closePhotoViewer);
+    els.photoViewerOverlay?.addEventListener("click", closePhotoViewer);
 
     els.closeDetailBtn.addEventListener("click", closeMobileDetail);
     els.mobileOverlay.addEventListener("click", closeMobileDetail);
@@ -1859,17 +1954,33 @@
       `).join("")
         : `<div class="detailMeta">No expense entries yet.</div>`;
 
-    const photoStrip = machine.photos && machine.photos.length
-      ? `
-      <div class="photoStrip">
-        ${machine.photos.slice(1).map(photo => `
-          <div class="photoThumb">
-            <img src="${escapeAttr(getPhotoUrl(photo))}" alt="${escapeAttr(machine.title)}">
+    const photoSectionMarkup = (() => {
+      if (machine.photoStatus === "loading" || machine.photos === null) {
+        return `<div class="detailMeta detailMetaLoading">Fetching photos…</div>`;
+      }
+
+      if (machine.photoStatus === "error") {
+        return `<div class="detailMeta">Could not load photos.</div>`;
+      }
+
+      if (Array.isArray(machine.photos) && machine.photos.length) {
+        return `
+          <div class="photoCarousel">
+            <button class="photoScrollBtn" type="button" data-photo-prev-id="${escapeAttr(machine.id)}" aria-label="Previous photos">‹</button>
+            <div class="photoStrip" data-photo-strip-id="${escapeAttr(machine.id)}">
+              ${machine.photos.map((photo, index) => `
+                <button class="photoThumb" type="button" data-photo-index="${index}" aria-label="Open photo ${index + 1}">
+                  <img src="${escapeAttr(getPhotoUrl(photo.url))}" alt="${escapeAttr(`${machine.title} photo ${index + 1}`)}" loading="lazy">
+                </button>
+              `).join("")}
+            </div>
+            <button class="photoScrollBtn" type="button" data-photo-next-id="${escapeAttr(machine.id)}" aria-label="More photos">›</button>
           </div>
-        `).join("")}
-      </div>
-    `
-      : `<div class="detailMeta">No additional photos.</div>`;
+        `;
+      }
+
+      return `<div class="detailMeta">No additional photos.</div>`;
+    })();
 
     const heroImageUrl = getDetailHeroPhotoUrl(machine);
 
@@ -1911,14 +2022,14 @@
         <div class="detailSectionHeader">
           <h3>Photos</h3>
           ${state.auth.loggedIn ? `
-            <button class="detailExpenseEditBtn detailPhotoEditBtn" type="button" data-photo-edit-id="${escapeAttr(machine.id)}" aria-label="Edit photos" title="Edit photos">
+            <button class="detailExpenseEditBtn" type="button" data-photo-edit-id="${escapeAttr(machine.id)}" aria-label="Edit photos" title="Edit photos">
               <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
                 <path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25Zm14.71-9.04a1.003 1.003 0 0 0 0-1.42l-2.5-2.5a1.003 1.003 0 0 0-1.42 0l-1.96 1.96 3.75 3.75 2.13-1.79Z"/>
               </svg>
             </button>
-          ` : ''}
+          ` : ""}
         </div>
-        ${photoStrip}
+        ${photoSectionMarkup}
       </section>
 
       <section class="detailSection">
@@ -1998,6 +2109,10 @@
       return;
     }
 
+    if (machine.photoStatus === "idle" && machine.photos === null) {
+      queuePhotoLoadForMachine(machine);
+    }
+
     els.detailTitle.textContent = `${machine.id} • ${machine.title}`;
     els.detailContent.innerHTML = buildDetailMarkup(machine, true);
 
@@ -2011,6 +2126,29 @@
     photoEditBtn?.addEventListener('click', event => {
       event.stopPropagation();
       openPhotoModal(machine.id);
+    });
+
+    els.detailContent.querySelectorAll('[data-photo-index]').forEach(btn => {
+      btn.addEventListener('click', event => {
+        const index = Number(event.currentTarget.dataset.photoIndex);
+        openPhotoViewer(machine, index);
+      });
+    });
+
+    const strip = els.detailContent.querySelector(`[data-photo-strip-id="${CSS.escape(machine.id)}"]`);
+    if (strip) {
+      strip.addEventListener('scroll', () => updatePhotoStripButtons(machine.id), { passive: true });
+      requestAnimationFrame(() => updatePhotoStripButtons(machine.id));
+    }
+
+    els.detailContent.querySelector(`[data-photo-prev-id="${CSS.escape(machine.id)}"]`)?.addEventListener('click', event => {
+      event.stopPropagation();
+      scrollPhotoStrip(machine.id, -1);
+    });
+
+    els.detailContent.querySelector(`[data-photo-next-id="${CSS.escape(machine.id)}"]`)?.addEventListener('click', event => {
+      event.stopPropagation();
+      scrollPhotoStrip(machine.id, 1);
     });
   }
 
@@ -2065,7 +2203,7 @@
     }
 
     if (Array.isArray(machine.photos) && machine.photos.length) {
-      return getPhotoUrl(machine.photos[0]);
+      return getPhotoUrl(machine.photos[0]?.url);
     }
 
     return getPhotoUrl("");
@@ -2079,7 +2217,7 @@
     }
 
     if (Array.isArray(machine.photos) && machine.photos.length) {
-      return getPhotoUrl(machine.photos[0]);
+      return getPhotoUrl(machine.photos[0]?.url);
     }
 
     if (machine.photo) {

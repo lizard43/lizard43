@@ -203,6 +203,7 @@
     </div>
 
 
+
     <div id="photoOverlay" class="modalOverlay"></div>
 
     <div id="photoModal" class="editModal expenseModal" role="dialog" aria-modal="true"
@@ -230,6 +231,19 @@
             </div>
         </form>
     </div>
+
+    <div id="photoViewerOverlay" class="modalOverlay"></div>
+
+    <div id="photoViewerModal" class="photoViewerModal" role="dialog" aria-modal="true"
+        aria-labelledby="photoViewerCaption">
+        <button id="photoViewerCloseBtn" class="iconBtn photoViewerCloseBtn" type="button"
+            aria-label="Close photo viewer">×</button>
+        <div class="photoViewerBody">
+            <img id="photoViewerImage" class="photoViewerImage" src="" alt="Photo">
+            <div id="photoViewerCaption" class="photoViewerCaption"></div>
+        </div>
+    </div>
+
 
     <script src="loader.js"></script>
 </body>
