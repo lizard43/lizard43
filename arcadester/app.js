@@ -33,6 +33,10 @@
       touchStartX: 0,
       touchStartY: 0
     },
+    cameraCapture: {
+      file: null,
+      objectUrl: ""
+    },
     imagePreloadCache: new Set(),
     expenseLoadConcurrency: 4,
     noteLoadConcurrency: 4
@@ -95,6 +99,13 @@
     photoViewerCloseBtn: document.getElementById("photoViewerCloseBtn"),
     photoViewerPrevBtn: document.getElementById("photoViewerPrevBtn"),
     photoViewerNextBtn: document.getElementById("photoViewerNextBtn"),
+    photoCameraInput: document.getElementById("photoCameraInput"),
+    cameraConfirmOverlay: document.getElementById("cameraConfirmOverlay"),
+    cameraConfirmModal: document.getElementById("cameraConfirmModal"),
+    cameraConfirmPreview: document.getElementById("cameraConfirmPreview"),
+    cameraConfirmCloseBtn: document.getElementById("cameraConfirmCloseBtn"),
+    cameraDiscardBtn: document.getElementById("cameraDiscardBtn"),
+    cameraUploadBtn: document.getElementById("cameraUploadBtn"),
     cardsGrid: document.getElementById("cardsGrid"),
     emptyState: document.getElementById("emptyState"),
     detailPane: document.getElementById("detailPane"),
@@ -215,6 +226,93 @@
       .map(normalizeExpense);
   }
 
+  function resetCameraCaptureState() {
+    if (state.cameraCapture.objectUrl) {
+      URL.revokeObjectURL(state.cameraCapture.objectUrl);
+    }
+
+    state.cameraCapture.file = null;
+    state.cameraCapture.objectUrl = "";
+
+    if (els.photoCameraInput) {
+      els.photoCameraInput.value = "";
+    }
+
+    if (els.cameraConfirmPreview) {
+      els.cameraConfirmPreview.src = "";
+    }
+  }
+
+  function openCameraCapture() {
+    if (!els.photoCameraInput) return;
+    els.photoCameraInput.click();
+  }
+
+  function openCameraConfirmModal(file) {
+    if (!file) return;
+
+    resetCameraCaptureState();
+
+    state.cameraCapture.file = file;
+    state.cameraCapture.objectUrl = URL.createObjectURL(file);
+
+    if (els.cameraConfirmPreview) {
+      els.cameraConfirmPreview.src = state.cameraCapture.objectUrl;
+    }
+
+    els.cameraConfirmOverlay?.classList.add("open");
+    els.cameraConfirmModal?.classList.add("open");
+  }
+
+  function closeCameraConfirmModal() {
+    els.cameraConfirmModal?.classList.remove("open");
+    els.cameraConfirmOverlay?.classList.remove("open");
+    resetCameraCaptureState();
+  }
+
+  async function confirmCameraUpload() {
+    const file = state.cameraCapture.file;
+    if (!file) return;
+
+    const uploadBtn = els.cameraUploadBtn;
+    const discardBtn = els.cameraDiscardBtn;
+    const closeBtn = els.cameraConfirmCloseBtn;
+    const originalLabel = uploadBtn?.textContent || "Upload";
+
+    try {
+      if (uploadBtn) {
+        uploadBtn.disabled = true;
+        uploadBtn.textContent = "Uploading…";
+      }
+      if (discardBtn) discardBtn.disabled = true;
+      if (closeBtn) closeBtn.disabled = true;
+
+      await addPhotoFromFile(file);
+      closeCameraConfirmModal();
+    } catch (err) {
+      window.alert(`Could not upload photo. ${err.message}`);
+    } finally {
+      if (uploadBtn) {
+        uploadBtn.disabled = false;
+        uploadBtn.textContent = originalLabel;
+      }
+      if (discardBtn) discardBtn.disabled = false;
+      if (closeBtn) closeBtn.disabled = false;
+    }
+  }
+
+  function handleCameraInputChange(event) {
+    const file = event.target?.files?.[0];
+    if (!file) return;
+
+    if (!file.type || !file.type.startsWith("image/")) {
+      window.alert("Please choose an image file.");
+      resetCameraCaptureState();
+      return;
+    }
+
+    openCameraConfirmModal(file);
+  }
 
   async function loadPhotosForGame(gameID) {
     if (!gameID) return [];
@@ -295,7 +393,7 @@
     img.loading = 'eager';
     img.src = normalizedUrl;
     if (typeof img.decode === 'function') {
-      img.decode().catch(() => {});
+      img.decode().catch(() => { });
     }
   }
 
@@ -1044,19 +1142,29 @@
 
     const rows = state.photoDraftRows;
     els.photoRows.innerHTML = `
-      <div class="photoEditorToolbar">
-        <div class="photoAddDropZone" id="photoAddDropZone">
-          <button class="expenseAddBtn expenseAddBtnTop" type="button" id="photoAddBtn" aria-label="Add photo row" title="Add photo">
-            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-              <path d="M11 5h2v6h6v2h-6v6h-2v-6H5v-2h6z"/>
-            </svg>
-            <span>Add photo</span>
-          </button>
-          <div class="photoAddDropText">Or drop an image here to upload and add it.</div>
-        </div>
+  <div class="photoEditorToolbar">
+    <div class="photoAddDropZone" id="photoAddDropZone">
+      <div class="photoToolbarButtons">
+        <button class="expenseAddBtn expenseAddBtnTop" type="button" id="photoAddBtn" aria-label="Add photo row" title="Add photo">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path d="M11 5h2v6h6v2h-6v6h-2v-6H5v-2h6z"/>
+          </svg>
+          <span>Add photo</span>
+        </button>
+
+        <button class="expenseAddBtn expenseAddBtnTop" type="button" id="photoCameraBtn" aria-label="Take photo" title="Take photo">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path d="M9 4l1.4 2H15a2 2 0 0 1 2 2h1a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2h1a2 2 0 0 1 2-2Zm3 4.5A4.5 4.5 0 1 0 16.5 13 4.5 4.5 0 0 0 12 8.5Zm0 2A2.5 2.5 0 1 1 9.5 13 2.5 2.5 0 0 1 12 10.5Z"/>
+          </svg>
+          <span>Camera</span>
+        </button>
       </div>
-      ${rows.length ? '' : '<div class="detailMeta">No photos for this game yet.</div>'}
-    ` + rows.map((row, index) => `
+
+      <div class="photoAddDropText">Or drop an image here to upload and add it.</div>
+    </div>
+  </div>
+  ${rows.length ? '' : '<div class="detailMeta">No photos for this game yet.</div>'}
+  ` + rows.map((row, index) => `
       <div class="expenseEditorRow ${row._delete ? "expenseEditorRowDeleted" : ""}" data-index="${index}">
         <div class="expenseEditorRowHeader">
           <div class="expenseEditorRowTitle">${row.photoID ? `photoID: ${escapeHtml(row.photoID)}` : 'New photo'}</div>
@@ -1105,6 +1213,7 @@
     });
 
     document.getElementById("photoAddBtn")?.addEventListener("click", handlePhotoDraftAdd);
+    document.getElementById("photoCameraBtn")?.addEventListener("click", openCameraCapture);
 
     const photoAddDropZone = document.getElementById('photoAddDropZone');
     photoAddDropZone?.addEventListener('dragover', handlePhotoAddDragOver);
@@ -1923,6 +2032,12 @@
     els.photoViewerOverlay?.addEventListener("click", closePhotoViewer);
     els.photoViewerModal?.addEventListener('touchstart', handlePhotoViewerTouchStart, { passive: true });
     els.photoViewerModal?.addEventListener('touchend', handlePhotoViewerTouchEnd, { passive: true });
+
+    els.photoCameraInput?.addEventListener("change", handleCameraInputChange);
+    els.cameraConfirmCloseBtn?.addEventListener("click", closeCameraConfirmModal);
+    els.cameraDiscardBtn?.addEventListener("click", closeCameraConfirmModal);
+    els.cameraConfirmOverlay?.addEventListener("click", closeCameraConfirmModal);
+    els.cameraUploadBtn?.addEventListener("click", confirmCameraUpload);
 
     els.closeDetailBtn.addEventListener("click", closeMobileDetail);
     els.mobileOverlay.addEventListener("click", closeMobileDetail);
