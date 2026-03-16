@@ -99,7 +99,6 @@
     photoViewerCloseBtn: document.getElementById("photoViewerCloseBtn"),
     photoViewerPrevBtn: document.getElementById("photoViewerPrevBtn"),
     photoViewerNextBtn: document.getElementById("photoViewerNextBtn"),
-    photoCameraInput: document.getElementById("photoCameraInput"),
     cameraConfirmOverlay: document.getElementById("cameraConfirmOverlay"),
     cameraConfirmModal: document.getElementById("cameraConfirmModal"),
     cameraConfirmPreview: document.getElementById("cameraConfirmPreview"),
@@ -226,6 +225,12 @@
       .map(normalizeExpense);
   }
 
+  function supportsCameraCapture() {
+    const hasTouch = window.matchMedia("(pointer: coarse)").matches || "ontouchstart" in window;
+    const isMobileUA = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent || "");
+    return hasTouch || isMobileUA;
+  }
+
   function resetCameraCaptureState() {
     if (state.cameraCapture.objectUrl) {
       URL.revokeObjectURL(state.cameraCapture.objectUrl);
@@ -244,8 +249,23 @@
   }
 
   function openCameraCapture() {
-    if (!els.photoCameraInput) return;
-    els.photoCameraInput.click();
+    if (!supportsCameraCapture()) return;
+
+    const input = document.createElement("input");
+    input.type = "file";
+    input.accept = "image/*";
+    input.setAttribute("capture", "environment");
+    input.style.position = "fixed";
+    input.style.left = "-9999px";
+    input.style.top = "0";
+
+    input.addEventListener("change", event => {
+      handleCameraInputChange(event);
+      window.setTimeout(() => input.remove(), 0);
+    }, { once: true });
+
+    document.body.appendChild(input);
+    input.click();
   }
 
   function openCameraConfirmModal(file) {
@@ -1152,15 +1172,17 @@
           <span>Add photo</span>
         </button>
 
-        <button class="expenseAddBtn expenseAddBtnTop" type="button" id="photoCameraBtn" aria-label="Take photo" title="Take photo">
-          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-            <path d="M9 4l1.4 2H15a2 2 0 0 1 2 2h1a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2h1a2 2 0 0 1 2-2Zm3 4.5A4.5 4.5 0 1 0 16.5 13 4.5 4.5 0 0 0 12 8.5Zm0 2A2.5 2.5 0 1 1 9.5 13 2.5 2.5 0 0 1 12 10.5Z"/>
-          </svg>
-          <span>Camera</span>
-        </button>
+        ${supportsCameraCapture() ? `
+          <button class="expenseAddBtn expenseAddBtnTop" type="button" id="photoCameraBtn" aria-label="Take photo" title="Take photo">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path d="M9 4l1.4 2H15a2 2 0 0 1 2 2h1a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2h1a2 2 0 0 1 2-2Zm3 4.5A4.5 4.5 0 1 0 16.5 13 4.5 4.5 0 0 0 12 8.5Zm0 2A2.5 2.5 0 1 1 9.5 13 2.5 2.5 0 0 1 12 10.5Z"/>
+            </svg>
+            <span>Camera</span>
+          </button>
+        ` : ""}
       </div>
 
-      <div class="photoAddDropText">Or drop an image here to upload and add it.</div>
+      <div class="photoAddDropText">Drop an image here</div>
     </div>
   </div>
   ${rows.length ? '' : '<div class="detailMeta">No photos for this game yet.</div>'}
@@ -2033,7 +2055,6 @@
     els.photoViewerModal?.addEventListener('touchstart', handlePhotoViewerTouchStart, { passive: true });
     els.photoViewerModal?.addEventListener('touchend', handlePhotoViewerTouchEnd, { passive: true });
 
-    els.photoCameraInput?.addEventListener("change", handleCameraInputChange);
     els.cameraConfirmCloseBtn?.addEventListener("click", closeCameraConfirmModal);
     els.cameraDiscardBtn?.addEventListener("click", closeCameraConfirmModal);
     els.cameraConfirmOverlay?.addEventListener("click", closeCameraConfirmModal);
@@ -2386,7 +2407,7 @@
             <div class="expenseTop">
               ${escapeHtml(exp.date || "—")}
               ${exp.category ? ` • ${escapeHtml(exp.category)}` : ""}
-              ${exp.vendor ? ` • Vendor: ${escapeHtml(exp.vendor)}` : ""}
+              ${exp.vendor ? ` • ${escapeHtml(exp.vendor)}` : ""}
             </div>
             <div class="expenseDescMuted">
               ${escapeHtml(exp.description || "—")}
@@ -2399,7 +2420,7 @@
 
     const photoSectionMarkup = (() => {
       if (machine.photoStatus === "loading" || machine.photos === null) {
-        return `<div class="detailMeta detailMetaLoading">Fetching photos…</div>`;
+        return `<div class="detailMeta detailMetaLoading">Loading photos…</div>`;
       }
 
       if (machine.photoStatus === "error") {
