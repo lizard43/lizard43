@@ -13,6 +13,7 @@
     priceguideByTitle: new Map(),
     priceguideById: new Map(),
     detailHistoryOpen: false,
+    photoViewerHistoryOpen: false,
     auth: {
       username: "",
       loggedIn: false,
@@ -30,6 +31,11 @@
       machineId: null,
       rows: [],
       index: 0,
+      touchStartX: 0,
+      touchStartY: 0
+    },
+    detailPhotoTouch: {
+      machineId: null,
       touchStartX: 0,
       touchStartY: 0
     },
@@ -94,6 +100,7 @@
     photoCloseBtn: document.getElementById("photoCloseBtn"),
     photoViewerOverlay: document.getElementById("photoViewerOverlay"),
     photoViewerModal: document.getElementById("photoViewerModal"),
+    photoViewerBody: document.querySelector("#photoViewerModal .photoViewerBody"),
     photoViewerImage: document.getElementById("photoViewerImage"),
     photoViewerCaption: document.getElementById("photoViewerCaption"),
     photoViewerCloseBtn: document.getElementById("photoViewerCloseBtn"),
@@ -1478,6 +1485,8 @@
     const rows = getPhotoViewerRowsFromMachine(machine);
     if (!rows.length) return;
 
+    const wasOpen = state.photoViewer.open;
+
     state.photoViewer.open = true;
     state.photoViewer.source = 'machine';
     state.photoViewer.machineId = machine?.id || null;
@@ -1487,11 +1496,18 @@
     renderPhotoViewer();
     els.photoViewerOverlay?.classList.add('open');
     els.photoViewerModal?.classList.add('open');
+
+    if (!wasOpen) {
+      history.pushState({ photoViewer: true }, '');
+      state.photoViewerHistoryOpen = true;
+    }
   }
 
   function openPhotoViewerFromDraft(index = 0) {
     const rows = getPhotoViewerRowsFromDraft();
     if (!rows.length) return;
+
+    const wasOpen = state.photoViewer.open;
 
     state.photoViewer.open = true;
     state.photoViewer.source = 'draft';
@@ -1502,6 +1518,11 @@
     renderPhotoViewer();
     els.photoViewerOverlay?.classList.add('open');
     els.photoViewerModal?.classList.add('open');
+
+    if (!wasOpen) {
+      history.pushState({ photoViewer: true }, '');
+      state.photoViewerHistoryOpen = true;
+    }
   }
 
   function changePhotoViewer(direction = 1) {
@@ -1517,6 +1538,47 @@
     renderPhotoViewer();
   }
 
+
+  function getSwipeDirection(startX, startY, endX, endY) {
+    const deltaX = Number(endX || 0) - Number(startX || 0);
+    const deltaY = Number(endY || 0) - Number(startY || 0);
+
+    if (Math.abs(deltaX) < 40) return 0;
+    if (Math.abs(deltaX) <= Math.abs(deltaY)) return 0;
+
+    return deltaX < 0 ? 1 : -1;
+  }
+
+  function handleDetailPhotoTouchStart(event) {
+    const touch = event.changedTouches?.[0];
+    const machineId = event.currentTarget?.dataset?.photoSwipeId;
+    if (!touch || !machineId) return;
+
+    state.detailPhotoTouch.machineId = machineId;
+    state.detailPhotoTouch.touchStartX = touch.clientX;
+    state.detailPhotoTouch.touchStartY = touch.clientY;
+  }
+
+  function handleDetailPhotoTouchEnd(event) {
+    const touch = event.changedTouches?.[0];
+    const machineId = event.currentTarget?.dataset?.photoSwipeId || state.detailPhotoTouch.machineId;
+    if (!touch || !machineId) return;
+
+    const direction = getSwipeDirection(
+      state.detailPhotoTouch.touchStartX,
+      state.detailPhotoTouch.touchStartY,
+      touch.clientX,
+      touch.clientY
+    );
+
+    state.detailPhotoTouch.machineId = null;
+    state.detailPhotoTouch.touchStartX = 0;
+    state.detailPhotoTouch.touchStartY = 0;
+
+    if (!direction) return;
+    changeDetailPhoto(machineId, direction);
+  }
+
   function handlePhotoViewerTouchStart(event) {
     const touch = event.changedTouches?.[0];
     if (!touch) return;
@@ -1529,15 +1591,23 @@
     const touch = event.changedTouches?.[0];
     if (!touch) return;
 
-    const deltaX = touch.clientX - Number(state.photoViewer.touchStartX || 0);
-    const deltaY = touch.clientY - Number(state.photoViewer.touchStartY || 0);
+    const direction = getSwipeDirection(
+      state.photoViewer.touchStartX,
+      state.photoViewer.touchStartY,
+      touch.clientX,
+      touch.clientY
+    );
 
-    if (Math.abs(deltaX) < 40 || Math.abs(deltaX) < Math.abs(deltaY)) return;
+    state.photoViewer.touchStartX = 0;
+    state.photoViewer.touchStartY = 0;
 
-    changePhotoViewer(deltaX < 0 ? 1 : -1);
+    if (!direction) return;
+    changePhotoViewer(direction);
   }
 
-  function closePhotoViewer() {
+  function closePhotoViewer(useHistoryBack = true) {
+    const wasOpen = state.photoViewer.open;
+
     state.photoViewer.open = false;
     state.photoViewer.source = null;
     state.photoViewer.machineId = null;
@@ -1548,6 +1618,11 @@
 
     els.photoViewerModal?.classList.remove('open');
     els.photoViewerOverlay?.classList.remove('open');
+
+    if (useHistoryBack && wasOpen && state.photoViewerHistoryOpen) {
+      state.photoViewerHistoryOpen = false;
+      history.back();
+    }
   }
 
   function changeDetailPhoto(machineId, direction = 1) {
@@ -2052,8 +2127,8 @@
     els.photoViewerPrevBtn?.addEventListener("click", event => { event.stopPropagation(); changePhotoViewer(-1); });
     els.photoViewerNextBtn?.addEventListener("click", event => { event.stopPropagation(); changePhotoViewer(1); });
     els.photoViewerOverlay?.addEventListener("click", closePhotoViewer);
-    els.photoViewerModal?.addEventListener('touchstart', handlePhotoViewerTouchStart, { passive: true });
-    els.photoViewerModal?.addEventListener('touchend', handlePhotoViewerTouchEnd, { passive: true });
+    els.photoViewerBody?.addEventListener('touchstart', handlePhotoViewerTouchStart, { passive: true });
+    els.photoViewerBody?.addEventListener('touchend', handlePhotoViewerTouchEnd, { passive: true });
 
     els.cameraConfirmCloseBtn?.addEventListener("click", closeCameraConfirmModal);
     els.cameraDiscardBtn?.addEventListener("click", closeCameraConfirmModal);
@@ -2078,6 +2153,12 @@
     });
 
     window.addEventListener("popstate", () => {
+      if (state.photoViewer.open) {
+        state.photoViewerHistoryOpen = false;
+        closePhotoViewer(false);
+        return;
+      }
+
       if (els.detailPane.classList.contains("open")) {
         state.detailHistoryOpen = false;
         closeMobileDetail(false);
@@ -2343,6 +2424,11 @@
   function closeMobileDetail(useHistoryBack = true) {
     const wasOpen = els.detailPane.classList.contains("open");
 
+    if (state.photoViewer.open) {
+      closePhotoViewer(false);
+      state.photoViewerHistoryOpen = false;
+    }
+
     els.detailPane.classList.remove("open");
     els.mobileOverlay.classList.remove("open");
 
@@ -2435,7 +2521,7 @@
         return `
           <div class="photoCarouselSingleView">
             ${hasPrev ? `<button class="photoNavBtn photoNavBtnPrev" type="button" data-photo-prev-id="${escapeAttr(machine.id)}" aria-label="Previous photo">‹</button>` : ``}
-            <button class="photoStage" type="button" data-photo-index="${activeIndex}" aria-label="Open photo ${activeIndex + 1}">
+            <button class="photoStage" type="button" data-photo-index="${activeIndex}" data-photo-swipe-id="${escapeAttr(machine.id)}" aria-label="Open photo ${activeIndex + 1}">
               <img src="${escapeAttr(getPhotoUrl(activePhoto.url))}" alt="${escapeAttr(`${machine.title} photo ${activeIndex + 1}`)}" loading="eager" fetchpriority="high" decoding="async">
             </button>
             ${hasNext ? `<button class="photoNavBtn photoNavBtnNext" type="button" data-photo-next-id="${escapeAttr(machine.id)}" aria-label="Next photo">›</button>` : ``}
@@ -2600,6 +2686,8 @@
         const index = Number(event.currentTarget.dataset.photoIndex);
         openPhotoViewer(machine, index);
       });
+      btn.addEventListener('touchstart', handleDetailPhotoTouchStart, { passive: true });
+      btn.addEventListener('touchend', handleDetailPhotoTouchEnd, { passive: true });
     });
 
     els.detailContent.querySelector(`[data-photo-prev-id="${CSS.escape(machine.id)}"]`)?.addEventListener('click', event => {

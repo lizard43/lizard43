@@ -1501,6 +1501,9 @@ select {
   background: #0d0d0d;
   overflow: hidden;
   cursor: pointer;
+  touch-action: pan-y;
+  -webkit-user-select: none;
+  user-select: none;
 }
 
 .photoStage img {
