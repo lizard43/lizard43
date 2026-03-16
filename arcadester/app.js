@@ -24,6 +24,16 @@
     expenseDraftRows: [],
     photoEditingId: null,
     photoDraftRows: [],
+    photoViewer: {
+      open: false,
+      source: null,
+      machineId: null,
+      rows: [],
+      index: 0,
+      touchStartX: 0,
+      touchStartY: 0
+    },
+    imagePreloadCache: new Set(),
     expenseLoadConcurrency: 4,
     noteLoadConcurrency: 4
   };
@@ -83,6 +93,8 @@
     photoViewerImage: document.getElementById("photoViewerImage"),
     photoViewerCaption: document.getElementById("photoViewerCaption"),
     photoViewerCloseBtn: document.getElementById("photoViewerCloseBtn"),
+    photoViewerPrevBtn: document.getElementById("photoViewerPrevBtn"),
+    photoViewerNextBtn: document.getElementById("photoViewerNextBtn"),
     cardsGrid: document.getElementById("cardsGrid"),
     emptyState: document.getElementById("emptyState"),
     detailPane: document.getElementById("detailPane"),
@@ -243,6 +255,7 @@
         machine.photoStatus = "loaded";
         const maxIndex = Math.max(0, photos.length - 1);
         machine.photoCarouselIndex = Math.max(0, Math.min(Number(machine.photoCarouselIndex || 0), maxIndex));
+        deferPhotoPreload(machine, machine.photoCarouselIndex || 0);
         return photos;
       })
       .catch(err => {
@@ -269,6 +282,42 @@
   async function refreshMachinePhotos(machine) {
     await hydrateMachinePhotos(machine, { force: true });
     patchMachineUI(machine);
+  }
+
+  function preloadImageUrl(url) {
+    const normalizedUrl = String(getPhotoUrl(url) || '').trim();
+    if (!normalizedUrl || state.imagePreloadCache.has(normalizedUrl)) return;
+
+    state.imagePreloadCache.add(normalizedUrl);
+
+    const img = new Image();
+    img.decoding = 'async';
+    img.loading = 'eager';
+    img.src = normalizedUrl;
+    if (typeof img.decode === 'function') {
+      img.decode().catch(() => {});
+    }
+  }
+
+  function preloadMachinePhotoWindow(machine, centerIndex = 0) {
+    const photos = Array.isArray(machine?.photos) ? machine.photos : [];
+    if (!photos.length) return;
+
+    const safeIndex = Math.max(0, Math.min(Number(centerIndex || 0), photos.length - 1));
+    const indexes = [safeIndex, safeIndex + 1, safeIndex - 1, safeIndex + 2].filter(index => index >= 0 && index < photos.length);
+
+    indexes.forEach(index => {
+      preloadImageUrl(photos[index]?.url);
+    });
+  }
+
+  function deferPhotoPreload(machine, centerIndex = 0) {
+    const run = () => preloadMachinePhotoWindow(machine, centerIndex);
+    if (typeof window.requestIdleCallback === 'function') {
+      window.requestIdleCallback(run, { timeout: 800 });
+    } else {
+      window.setTimeout(run, 60);
+    }
   }
 
   async function apiGet(params) {
@@ -996,12 +1045,15 @@
     const rows = state.photoDraftRows;
     els.photoRows.innerHTML = `
       <div class="photoEditorToolbar">
-        <button class="expenseAddBtn expenseAddBtnTop" type="button" id="photoAddBtn" aria-label="Add photo row" title="Add photo">
-          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-            <path d="M11 5h2v6h6v2h-6v6h-2v-6H5v-2h6z"/>
-          </svg>
-          <span>Add photo</span>
-        </button>
+        <div class="photoAddDropZone" id="photoAddDropZone">
+          <button class="expenseAddBtn expenseAddBtnTop" type="button" id="photoAddBtn" aria-label="Add photo row" title="Add photo">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path d="M11 5h2v6h6v2h-6v6h-2v-6H5v-2h6z"/>
+            </svg>
+            <span>Add photo</span>
+          </button>
+          <div class="photoAddDropText">Or drop an image here to upload and add it.</div>
+        </div>
       </div>
       ${rows.length ? '' : '<div class="detailMeta">No photos for this game yet.</div>'}
     ` + rows.map((row, index) => `
@@ -1053,6 +1105,11 @@
     });
 
     document.getElementById("photoAddBtn")?.addEventListener("click", handlePhotoDraftAdd);
+
+    const photoAddDropZone = document.getElementById('photoAddDropZone');
+    photoAddDropZone?.addEventListener('dragover', handlePhotoAddDragOver);
+    photoAddDropZone?.addEventListener('dragleave', handlePhotoAddDragLeave);
+    photoAddDropZone?.addEventListener('drop', handlePhotoAddDrop);
   }
 
   async function openPhotoModal(id) {
@@ -1132,6 +1189,64 @@
     document.getElementById('photoUrl_0')?.focus();
   }
 
+  function createPendingPhotoDraftAtTop() {
+    const row = makeLocalPhotoRow(state.photoEditingId);
+    row._uploading = true;
+    state.photoDraftRows.unshift(row);
+    renderPhotoEditorRows();
+    return row;
+  }
+
+  async function addPhotoFromFile(file) {
+    if (!file) throw new Error('No file provided.');
+    if (!file.type || !file.type.startsWith('image/')) {
+      throw new Error('Please drop an image file.');
+    }
+
+    const row = createPendingPhotoDraftAtTop();
+
+    try {
+      const url = await uploadPhotoToImgBB(file);
+      row.url = url;
+      refreshPhotoDraftDirty(row);
+      await persistNewPhotoDraftRow(row);
+      row._uploading = false;
+      renderPhotoEditorRows();
+      document.getElementById('photoUrl_0')?.focus();
+    } catch (err) {
+      const index = state.photoDraftRows.indexOf(row);
+      if (index >= 0 && !row.photoID && !String(row.url || '').trim()) {
+        state.photoDraftRows.splice(index, 1);
+      } else {
+        row._uploading = false;
+      }
+      renderPhotoEditorRows();
+      throw err;
+    }
+  }
+
+  function handlePhotoAddDrop(event) {
+    event.preventDefault();
+    const zone = event.currentTarget;
+    zone?.classList.remove('isDragOver');
+
+    const file = event.dataTransfer?.files?.[0];
+    if (!file) return;
+
+    addPhotoFromFile(file).catch(err => {
+      window.alert(`Could not upload photo. ${err.message}`);
+    });
+  }
+
+  function handlePhotoAddDragOver(event) {
+    event.preventDefault();
+    event.currentTarget?.classList.add('isDragOver');
+  }
+
+  function handlePhotoAddDragLeave(event) {
+    event.currentTarget?.classList.remove('isDragOver');
+  }
+
   function buildPhotoPayloadFromDraft(row) {
     return {
       photoID: String(row.photoID || "").trim(),
@@ -1191,38 +1306,117 @@
     }
   }
 
+  function getPhotoViewerRowsFromMachine(machine) {
+    return Array.isArray(machine?.photos) ? machine.photos.filter(photo => String(photo?.url || '').trim()) : [];
+  }
+
+  function getPhotoViewerRowsFromDraft() {
+    return state.photoDraftRows.filter(row => !row._delete && String(row.url || '').trim());
+  }
+
+  function renderPhotoViewer() {
+    const viewerState = state.photoViewer;
+    const rows = Array.isArray(viewerState.rows) ? viewerState.rows : [];
+    if (!viewerState.open || !rows.length) return;
+
+    const safeIndex = Math.max(0, Math.min(Number(viewerState.index || 0), rows.length - 1));
+    viewerState.index = safeIndex;
+
+    const row = rows[safeIndex];
+    const isMachineSource = viewerState.source === 'machine';
+    const machine = isMachineSource ? getMachineById(viewerState.machineId) : null;
+    const titleText = isMachineSource
+      ? `${machine?.id || ''}${machine?.title ? ` • ${machine.title}` : ''}`
+      : `${state.photoEditingId || ''}`;
+
+    els.photoViewerImage.src = getPhotoUrl(row.url);
+    els.photoViewerImage.alt = isMachineSource ? (machine?.title || 'Photo') : `Photo ${safeIndex + 1}`;
+    els.photoViewerCaption.textContent = `${titleText} • ${safeIndex + 1} / ${rows.length}`.trim();
+
+    const hasPrev = safeIndex > 0;
+    const hasNext = safeIndex < rows.length - 1;
+    els.photoViewerPrevBtn?.classList.toggle('hidden', !hasPrev);
+    els.photoViewerNextBtn?.classList.toggle('hidden', !hasNext);
+
+    preloadImageUrl(row.url);
+    if (rows[safeIndex - 1]) preloadImageUrl(rows[safeIndex - 1].url);
+    if (rows[safeIndex + 1]) preloadImageUrl(rows[safeIndex + 1].url);
+  }
+
   function openPhotoViewer(machine, index = 0) {
-    const photos = Array.isArray(machine?.photos) ? machine.photos : [];
-    if (!photos.length) return;
+    const rows = getPhotoViewerRowsFromMachine(machine);
+    if (!rows.length) return;
 
-    const safeIndex = Math.max(0, Math.min(index, photos.length - 1));
-    const photo = photos[safeIndex];
-    if (!photo) return;
+    state.photoViewer.open = true;
+    state.photoViewer.source = 'machine';
+    state.photoViewer.machineId = machine?.id || null;
+    state.photoViewer.rows = rows;
+    state.photoViewer.index = Math.max(0, Math.min(index, rows.length - 1));
 
-    els.photoViewerImage.src = getPhotoUrl(photo.url);
-    els.photoViewerImage.alt = machine.title || "Photo";
-    els.photoViewerCaption.textContent = `${machine.id || ""}${machine.title ? ` • ${machine.title}` : ""} • ${safeIndex + 1} / ${photos.length}`;
-    els.photoViewerOverlay?.classList.add("open");
-    els.photoViewerModal?.classList.add("open");
+    renderPhotoViewer();
+    els.photoViewerOverlay?.classList.add('open');
+    els.photoViewerModal?.classList.add('open');
   }
 
   function openPhotoViewerFromDraft(index = 0) {
-    const rows = state.photoDraftRows.filter(row => !row._delete && String(row.url || "").trim());
+    const rows = getPhotoViewerRowsFromDraft();
     if (!rows.length) return;
 
-    const safeIndex = Math.max(0, Math.min(index, rows.length - 1));
-    const row = rows[safeIndex];
+    state.photoViewer.open = true;
+    state.photoViewer.source = 'draft';
+    state.photoViewer.machineId = state.photoEditingId || null;
+    state.photoViewer.rows = rows;
+    state.photoViewer.index = Math.max(0, Math.min(index, rows.length - 1));
 
-    els.photoViewerImage.src = getPhotoUrl(row.url);
-    els.photoViewerImage.alt = `Photo ${safeIndex + 1}`;
-    els.photoViewerCaption.textContent = `${state.photoEditingId || ""} • ${safeIndex + 1} / ${rows.length}`;
-    els.photoViewerOverlay?.classList.add("open");
-    els.photoViewerModal?.classList.add("open");
+    renderPhotoViewer();
+    els.photoViewerOverlay?.classList.add('open');
+    els.photoViewerModal?.classList.add('open');
+  }
+
+  function changePhotoViewer(direction = 1) {
+    if (!state.photoViewer.open) return;
+
+    const rows = Array.isArray(state.photoViewer.rows) ? state.photoViewer.rows : [];
+    if (!rows.length) return;
+
+    const nextIndex = Math.max(0, Math.min(rows.length - 1, Number(state.photoViewer.index || 0) + direction));
+    if (nextIndex === Number(state.photoViewer.index || 0)) return;
+
+    state.photoViewer.index = nextIndex;
+    renderPhotoViewer();
+  }
+
+  function handlePhotoViewerTouchStart(event) {
+    const touch = event.changedTouches?.[0];
+    if (!touch) return;
+
+    state.photoViewer.touchStartX = touch.clientX;
+    state.photoViewer.touchStartY = touch.clientY;
+  }
+
+  function handlePhotoViewerTouchEnd(event) {
+    const touch = event.changedTouches?.[0];
+    if (!touch) return;
+
+    const deltaX = touch.clientX - Number(state.photoViewer.touchStartX || 0);
+    const deltaY = touch.clientY - Number(state.photoViewer.touchStartY || 0);
+
+    if (Math.abs(deltaX) < 40 || Math.abs(deltaX) < Math.abs(deltaY)) return;
+
+    changePhotoViewer(deltaX < 0 ? 1 : -1);
   }
 
   function closePhotoViewer() {
-    els.photoViewerModal?.classList.remove("open");
-    els.photoViewerOverlay?.classList.remove("open");
+    state.photoViewer.open = false;
+    state.photoViewer.source = null;
+    state.photoViewer.machineId = null;
+    state.photoViewer.rows = [];
+    state.photoViewer.index = 0;
+    state.photoViewer.touchStartX = 0;
+    state.photoViewer.touchStartY = 0;
+
+    els.photoViewerModal?.classList.remove('open');
+    els.photoViewerOverlay?.classList.remove('open');
   }
 
   function changeDetailPhoto(machineId, direction = 1) {
@@ -1235,6 +1429,7 @@
     if (nextIndex === Number(machine.photoCarouselIndex || 0)) return;
 
     machine.photoCarouselIndex = nextIndex;
+    deferPhotoPreload(machine, nextIndex);
     if (state.selectedId === machine.id) {
       renderDetail(machine);
     }
@@ -1400,6 +1595,7 @@
     item.photos = null;
     item.photoStatus = "idle";
     item.photoPromise = null;
+    item.photoCarouselIndex = 0;
 
     item.referenceUrl = String(pg?.pageUrl || "").trim();
     item.referenceLabel = String(pg?.pageLabel || "").trim();
@@ -1722,12 +1918,28 @@
     els.photoForm?.addEventListener("submit", handlePhotoFormSubmit);
 
     els.photoViewerCloseBtn?.addEventListener("click", closePhotoViewer);
+    els.photoViewerPrevBtn?.addEventListener("click", event => { event.stopPropagation(); changePhotoViewer(-1); });
+    els.photoViewerNextBtn?.addEventListener("click", event => { event.stopPropagation(); changePhotoViewer(1); });
     els.photoViewerOverlay?.addEventListener("click", closePhotoViewer);
+    els.photoViewerModal?.addEventListener('touchstart', handlePhotoViewerTouchStart, { passive: true });
+    els.photoViewerModal?.addEventListener('touchend', handlePhotoViewerTouchEnd, { passive: true });
 
     els.closeDetailBtn.addEventListener("click", closeMobileDetail);
     els.mobileOverlay.addEventListener("click", closeMobileDetail);
 
     window.addEventListener("resize", updateSelectedCard);
+    window.addEventListener('keydown', event => {
+      if (!state.photoViewer.open) return;
+      if (event.key === 'Escape') {
+        closePhotoViewer();
+      } else if (event.key === 'ArrowLeft') {
+        event.preventDefault();
+        changePhotoViewer(-1);
+      } else if (event.key === 'ArrowRight') {
+        event.preventDefault();
+        changePhotoViewer(1);
+      }
+    });
 
     window.addEventListener("popstate", () => {
       if (els.detailPane.classList.contains("open")) {
@@ -2072,7 +2284,7 @@
 
     const photoSectionMarkup = (() => {
       if (machine.photoStatus === "loading" || machine.photos === null) {
-        return `<div class="detailMeta detailMetaLoading">Loading photos…</div>`;
+        return `<div class="detailMeta detailMetaLoading">Fetching photos…</div>`;
       }
 
       if (machine.photoStatus === "error") {
@@ -2088,7 +2300,7 @@
           <div class="photoCarouselSingleView">
             ${hasPrev ? `<button class="photoNavBtn photoNavBtnPrev" type="button" data-photo-prev-id="${escapeAttr(machine.id)}" aria-label="Previous photo">‹</button>` : ``}
             <button class="photoStage" type="button" data-photo-index="${activeIndex}" aria-label="Open photo ${activeIndex + 1}">
-              <img src="${escapeAttr(getPhotoUrl(activePhoto.url))}" alt="${escapeAttr(`${machine.title} photo ${activeIndex + 1}`)}" loading="lazy">
+              <img src="${escapeAttr(getPhotoUrl(activePhoto.url))}" alt="${escapeAttr(`${machine.title} photo ${activeIndex + 1}`)}" loading="eager" fetchpriority="high" decoding="async">
             </button>
             ${hasNext ? `<button class="photoNavBtn photoNavBtnNext" type="button" data-photo-next-id="${escapeAttr(machine.id)}" aria-label="Next photo">›</button>` : ``}
           </div>
@@ -2195,7 +2407,7 @@
       </section>
 
       <section class="detailSection">
-        <h3>Profit / Loss</h3>
+        <h3>Profit / loss</h3>
         <div class="detailMoneySummary">
         <div class="moneyRow">
           <span class="moneyLabel">Sold price</span>
@@ -2210,7 +2422,7 @@
           </div>
         ` : ""}
           <div class="moneyRow moneyRowTotal">
-            <span class="moneyLabel">P/L</span>
+            <span class="moneyLabel">Profit / loss</span>
             <span class="moneyValue ${profit != null ? `moneyProfit ${profit >= 0 ? "positive" : "negative"}` : ""} ${expensesLoading ? "isLoading" : ""}">
               ${escapeHtml(expensesLoading ? "…" : formatMoney(profit))}
             </span>
@@ -2263,6 +2475,10 @@
       event.stopPropagation();
       changeDetailPhoto(machine.id, 1);
     });
+
+    if (Array.isArray(machine.photos) && machine.photos.length) {
+      deferPhotoPreload(machine, Number(machine.photoCarouselIndex || 0));
+    }
   }
 
   function uniqueSorted(values) {

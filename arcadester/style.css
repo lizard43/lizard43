@@ -1351,12 +1351,15 @@ select {
   height: 100%;
   display: flex;
   flex-direction: column;
-  padding: 52px 16px 16px;
+  padding: 52px 72px 16px;
+  touch-action: pan-y;
+  user-select: none;
 }
 
 .photoViewerImage {
   flex: 1 1 auto;
   min-height: 0;
+  width: 100%;
   max-width: 100%;
   max-height: 100%;
   object-fit: contain;
@@ -1367,6 +1370,34 @@ select {
   color: var(--muted);
   text-align: center;
   padding-top: 12px;
+}
+
+
+
+.photoViewerNavBtn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 48px;
+  height: 48px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: rgba(17, 17, 17, 0.88);
+  color: var(--text);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 2;
+  font-size: 1.7rem;
+  line-height: 1;
+}
+
+.photoViewerNavBtnPrev { left: 16px; }
+.photoViewerNavBtnNext { right: 16px; }
+
+.photoViewerNavBtn.hidden {
+  display: none !important;
 }
 
 @media (max-width: 640px) {
@@ -1397,6 +1428,20 @@ select {
   .photoViewerModal {
     inset: 2vh 2vw;
   }
+
+  .photoViewerBody {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  .photoViewerNavBtn {
+    width: 42px;
+    height: 42px;
+    font-size: 1.5rem;
+  }
+
+  .photoViewerNavBtnPrev { left: 8px; }
+  .photoViewerNavBtnNext { right: 8px; }
 }
 
 .photoEditorToolbar {
@@ -1518,5 +1563,41 @@ select {
   .photoEditorPreview {
     max-width: none;
     height: 260px;
+  }
+}
+
+
+.photoAddDropZone {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  padding: 10px 12px;
+  border: 1px dashed rgba(255, 255, 255, 0.16);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.02);
+  transition: border-color 0.16s ease, background 0.16s ease, box-shadow 0.16s ease;
+}
+
+.photoAddDropZone.isDragOver {
+  border-color: #7d7d7d;
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: 0 0 0 2px rgba(255,255,255,0.08) inset;
+}
+
+.photoAddDropText {
+  color: var(--muted);
+  font-size: 0.92rem;
+  line-height: 1.3;
+}
+
+@media (max-width: 640px) {
+  .photoAddDropZone {
+    width: 100%;
+    align-items: stretch;
+  }
+
+  .photoAddDropText {
+    width: 100%;
   }
 }
