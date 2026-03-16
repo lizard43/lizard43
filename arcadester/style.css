@@ -1298,16 +1298,10 @@ select {
   object-fit: cover;
 }
 
-.photoMetaLine,
-.photoAddHint {
+.photoMetaLine {
   color: var(--muted);
   font-size: 0.9rem;
   line-height: 1.35;
-}
-
-.photoAddHint {
-  margin-top: -8px;
-  margin-bottom: 4px;
 }
 
 .photoUrlField {
@@ -1386,4 +1380,57 @@ select {
   .photoViewerModal {
     inset: 2vh 2vw;
   }
+}
+
+
+.photoEditorToolbar {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-bottom: 2px;
+}
+
+.photoEditorThumbBtn {
+  position: relative;
+  border-radius: 10px;
+}
+
+.photoEditorThumbBtn:disabled {
+  cursor: default;
+  opacity: 0.7;
+}
+
+.photoEditorPreview {
+  position: relative;
+}
+
+.photoDropHint {
+  position: absolute;
+  inset: auto 8px 8px 8px;
+  padding: 6px 8px;
+  border-radius: 8px;
+  background: rgba(0, 0, 0, 0.58);
+  color: #f2f2f2;
+  font-size: 0.82rem;
+  line-height: 1.1;
+  text-align: center;
+  pointer-events: none;
+}
+
+.photoEditorThumbBtn.isDragOver .photoEditorPreview,
+.photoEditorPreview.isDragOver {
+  border-color: #7d7d7d;
+  box-shadow: 0 0 0 2px rgba(255,255,255,0.12) inset;
+}
+
+.photoUploadStatus {
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.35;
+  margin-top: 8px;
+  min-height: 1.2em;
+}
+
+.photoEditorRowUploading {
+  opacity: 0.82;
 }

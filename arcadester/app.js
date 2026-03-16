@@ -3,6 +3,7 @@
   const VERSION = 'v20260314';
 
   const API_URL = 'https://script.google.com/macros/s/AKfycbyfpebveJYArafZ2FaMWNTT5IYrkwdc56vOyGA8CrStTu1dXiqvIanfS_YQtMJdVu53kA/exec';
+  const IMGBB_API_KEY = '10002e3b737dac20990ce3adef55b8f9';
 
   const state = {
     allMachines: [],
@@ -876,6 +877,90 @@
     return row._dirty;
   }
 
+  async function uploadPhotoToImgBB(file) {
+    if (!file) throw new Error('No file provided.');
+
+    const formData = new FormData();
+    formData.append('image', file);
+    formData.append('name', file.name || `arcadester_${Date.now()}`);
+
+    const res = await fetch(`https://api.imgbb.com/1/upload?key=${encodeURIComponent(IMGBB_API_KEY)}`, {
+      method: 'POST',
+      body: formData
+    });
+
+    if (!res.ok) {
+      throw new Error(`ImgBB upload failed: HTTP ${res.status}`);
+    }
+
+    const payload = await res.json();
+    if (!payload?.success || !payload?.data?.url) {
+      throw new Error(payload?.error?.message || 'ImgBB upload failed.');
+    }
+
+    return String(payload.data.url).trim();
+  }
+
+  function setPhotoDraftUploading(index, isUploading) {
+    const row = state.photoDraftRows[index];
+    if (!row) return;
+    row._uploading = !!isUploading;
+
+    const rowEl = els.photoRows?.querySelector(`.expenseEditorRow[data-index="${index}"]`);
+    if (!rowEl) return;
+    rowEl.classList.toggle('photoEditorRowUploading', !!isUploading);
+
+    rowEl.querySelectorAll('input, button').forEach(control => {
+      if (control.id === 'photoCancelBtn' || control.id === 'photoSaveBtn') return;
+      if (control.classList.contains('photoDeleteBtn') || control.classList.contains('photoEditorThumbBtn') || control.classList.contains('photoDraftInput')) {
+        control.disabled = !!isUploading || row._delete;
+      }
+    });
+
+    const statusEl = rowEl.querySelector('.photoUploadStatus');
+    if (statusEl) {
+      statusEl.textContent = isUploading ? 'Uploading…' : '';
+    }
+  }
+
+  async function handlePhotoDrop(event) {
+    event.preventDefault();
+    const index = Number(event.currentTarget?.dataset?.index);
+    if (!Number.isInteger(index) || !state.photoDraftRows[index]) return;
+
+    event.currentTarget.classList.remove('isDragOver');
+
+    const file = event.dataTransfer?.files?.[0];
+    if (!file) return;
+    if (!file.type || !file.type.startsWith('image/')) {
+      window.alert('Please drop an image file.');
+      return;
+    }
+
+    try {
+      setPhotoDraftUploading(index, true);
+      const url = await uploadPhotoToImgBB(file);
+      const row = state.photoDraftRows[index];
+      if (!row) return;
+      row.url = url;
+      refreshPhotoDraftDirty(row);
+      renderPhotoEditorRows();
+      document.getElementById(`photoUrl_${index}`)?.focus();
+    } catch (err) {
+      window.alert(`Could not upload photo. ${err.message}`);
+      setPhotoDraftUploading(index, false);
+    }
+  }
+
+  function handlePhotoDragOver(event) {
+    event.preventDefault();
+    event.currentTarget?.classList.add('isDragOver');
+  }
+
+  function handlePhotoDragLeave(event) {
+    event.currentTarget?.classList.remove('isDragOver');
+  }
+
   function renderPhotoEditorRows() {
     if (!els.photoRows) return;
 
@@ -888,13 +973,12 @@
           </svg>
           <span>Add photo</span>
         </button>
-        <div class="photoAddHint">Upload flow comes next. Existing photos below can be viewed or deleted now.</div>
       </div>
       ${rows.length ? '' : '<div class="detailMeta">No photos for this game yet.</div>'}
     ` + rows.map((row, index) => `
       <div class="expenseEditorRow ${row._delete ? "expenseEditorRowDeleted" : ""}" data-index="${index}">
         <div class="expenseEditorRowHeader">
-          <div class="expenseEditorRowTitle">Photo ${index + 1}</div>
+          <div class="expenseEditorRowTitle">${row.photoID ? `photoID: ${escapeHtml(row.photoID)}` : 'New photo'}</div>
           <button class="expenseIconBtn photoDeleteBtn" type="button" data-index="${index}" aria-label="Delete photo row" title="Delete photo">
             <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
               <path d="M9 3h6l1 2h4v2H4V5h4l1-2Zm1 6h2v8h-2V9Zm4 0h2v8h-2V9ZM7 9h2v8H7V9Zm-1 12h12a2 2 0 0 0 2-2V7H4v12a2 2 0 0 0 2 2Z"/>
@@ -903,16 +987,18 @@
         </div>
 
         <div class="photoEditorRow">
-          <button class="photoEditorThumbBtn" type="button" data-photo-preview-index="${index}" aria-label="Preview photo ${index + 1}">
-            <div class="photoEditorPreview">
-              <img src="${escapeAttr(getPhotoUrl(row.url))}" alt="${escapeAttr(`Photo ${index + 1}`)}" loading="lazy">
+          <button class="photoEditorThumbBtn ${row._uploading ? 'isUploading' : ''}" type="button" data-photo-preview-index="${index}" data-index="${index}" aria-label="Preview photo ${index + 1}" ${row._delete ? 'disabled' : ''}>
+            <div class="photoEditorPreview" data-index="${index}">
+              <img src="${escapeAttr(getPhotoUrl(row.url))}" alt="${escapeAttr(row.photoID ? row.photoID : `Photo ${index + 1}`)}" loading="lazy">
+              <div class="photoDropHint">Drop image here</div>
             </div>
           </button>
 
           <div class="editField photoUrlField">
             <label class="settingsLabel" for="photoUrl_${index}">URL</label>
-            <input id="photoUrl_${index}" class="settingsInput photoDraftInput" data-field="url" data-index="${index}" type="text" value="${escapeAttr(row.url || "")}" ${row._delete ? "disabled" : ""}>
-            ${row.photoID ? `<div class="photoMetaLine">photoID: ${escapeHtml(row.photoID)}</div>` : ""}
+            <input id="photoUrl_${index}" class="settingsInput photoDraftInput" data-field="url" data-index="${index}" type="text" value="${escapeAttr(row.url || "")}" ${row._delete || row._uploading ? "disabled" : ""}>
+            <div class="photoMetaLine">${row.photoID ? `photoID: ${escapeHtml(row.photoID)}` : 'Drop an image on the thumbnail frame to upload to ImgBB.'}</div>
+            <div class="photoUploadStatus">${row._uploading ? 'Uploading…' : ''}</div>
           </div>
         </div>
 
@@ -933,6 +1019,9 @@
         const index = Number(event.currentTarget.dataset.photoPreviewIndex);
         openPhotoViewerFromDraft(index);
       });
+      btn.addEventListener('dragover', handlePhotoDragOver);
+      btn.addEventListener('dragleave', handlePhotoDragLeave);
+      btn.addEventListener('drop', handlePhotoDrop);
     });
 
     document.getElementById("photoAddBtn")?.addEventListener("click", handlePhotoDraftAdd);
@@ -1010,8 +1099,9 @@
   }
 
   function handlePhotoDraftAdd() {
-    state.photoDraftRows.push(makeLocalPhotoRow(state.photoEditingId));
+    state.photoDraftRows.unshift(makeLocalPhotoRow(state.photoEditingId));
     renderPhotoEditorRows();
+    document.getElementById('photoUrl_0')?.focus();
   }
 
   function buildPhotoPayloadFromDraft(row) {
