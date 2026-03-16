@@ -21,6 +21,8 @@
     editingId: null,
     expenseEditingId: null,
     expenseDraftRows: [],
+    photoEditingId: null,
+    photoDraftRows: [],
     expenseLoadConcurrency: 4,
     noteLoadConcurrency: 4
   };
@@ -67,6 +69,14 @@
     expenseSaveBtn: document.getElementById("expenseSaveBtn"),
     expenseCancelBtn: document.getElementById("expenseCancelBtn"),
     expenseCloseBtn: document.getElementById("expenseCloseBtn"),
+    photoOverlay: document.getElementById("photoOverlay"),
+    photoModal: document.getElementById("photoModal"),
+    photoForm: document.getElementById("photoForm"),
+    photoGameId: document.getElementById("photoGameId"),
+    photoRows: document.getElementById("photoRows"),
+    photoSaveBtn: document.getElementById("photoSaveBtn"),
+    photoCancelBtn: document.getElementById("photoCancelBtn"),
+    photoCloseBtn: document.getElementById("photoCloseBtn"),
     cardsGrid: document.getElementById("cardsGrid"),
     emptyState: document.getElementById("emptyState"),
     detailPane: document.getElementById("detailPane"),
@@ -185,6 +195,41 @@
       .filter(row => String(row.gameID || "").trim() === String(gameID).trim())
       .filter(row => row && (row.expenseID !== "" || row.description || row.amount !== ""))
       .map(normalizeExpense);
+  }
+
+  async function loadPhotosForGame(gameID) {
+    if (!gameID) return [];
+
+    const payload = await apiGet({
+      resource: "photos",
+      gameID
+    });
+
+    if (!payload || payload.ok !== true || !Array.isArray(payload.data)) {
+      throw new Error("Photos API returned invalid data.");
+    }
+
+    return payload.data
+      .filter(row => String(row.gameID || "").trim() === String(gameID).trim())
+      .filter(row => row && (row.photoID !== "" || row.url))
+      .map(normalizePhoto)
+      .sort((a, b) => String(a.photoID || "").localeCompare(String(b.photoID || "")));
+  }
+
+  async function hydrateMachinePhotos(machine) {
+    if (!machine?.id) return;
+
+    try {
+      machine.photos = await loadPhotosForGame(machine.id);
+    } catch (err) {
+      console.warn(`Could not load photos for ${machine.id}: ${err.message}`);
+      machine.photos = [];
+    }
+  }
+
+  async function refreshMachinePhotos(machine) {
+    await hydrateMachinePhotos(machine);
+    patchMachineUI(machine);
   }
 
   async function apiGet(params) {
@@ -738,6 +783,241 @@
     }
   }
 
+
+  function clonePhotoForDraft(photo) {
+    const row = {
+      photoID: String(photo?.photoID || '').trim(),
+      gameID: String(photo?.gameID || '').trim(),
+      url: String(photo?.url || '').trim(),
+      _delete: false,
+      _dirty: false,
+      _originalFingerprint: ''
+    };
+
+    return markPhotoDraftClean(row);
+  }
+
+  function makeLocalPhotoRow(gameID) {
+    return {
+      photoID: '',
+      gameID: String(gameID || '').trim(),
+      url: '',
+      _delete: false,
+      _dirty: true,
+      _originalFingerprint: ''
+    };
+  }
+
+  function getComparablePhotoDraft(row) {
+    return {
+      photoID: String(row?.photoID || '').trim(),
+      gameID: String(row?.gameID || '').trim(),
+      url: String(row?.url || '').trim()
+    };
+  }
+
+  function photoDraftFingerprint(row) {
+    return JSON.stringify(getComparablePhotoDraft(row));
+  }
+
+  function markPhotoDraftClean(row) {
+    const fingerprint = photoDraftFingerprint(row);
+    row._originalFingerprint = fingerprint;
+    row._dirty = false;
+    return row;
+  }
+
+  function refreshPhotoDraftDirty(row) {
+    row._dirty = photoDraftFingerprint(row) !== String(row._originalFingerprint || '');
+    return row._dirty;
+  }
+
+  function renderPhotoEditorRows() {
+    if (!els.photoRows) return;
+
+    const rows = state.photoDraftRows;
+    els.photoRows.innerHTML = `
+      <button class="expenseAddBtn expenseAddBtnTop" type="button" id="photoAddBtn" aria-label="Add photo row" title="Add photo">
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <path d="M11 5h2v6h6v2h-6v6h-2v-6H5v-2h6z"/>
+        </svg>
+        <span>Add photo</span>
+      </button>
+      <div class="photoAddHint">Placeholder for now — we will hook this to imgbb next.</div>
+    ` + rows.map((row, index) => `
+      <div class="expenseEditorRow ${row._delete ? 'expenseEditorRowDeleted' : ''}" data-index="${index}">
+        <div class="expenseEditorRowHeader">
+          <div class="expenseEditorRowTitle">Photo ${index + 1}</div>
+          <button class="expenseIconBtn photoDeleteBtn" type="button" data-action="delete" data-index="${index}" aria-label="Delete photo row" title="Delete photo">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path d="M9 3h6l1 2h4v2H4V5h4l1-2Zm1 6h2v8h-2V9Zm4 0h2v8h-2V9ZM7 9h2v8H7V9Zm-1 12h12a2 2 0 0 0 2-2V7H4v12a2 2 0 0 0 2 2Z"/>
+            </svg>
+          </button>
+        </div>
+
+        <div class="photoEditorPreview">
+          <img src="${escapeAttr(getPhotoUrl(row.url))}" alt="${escapeAttr(`Photo ${index + 1}`)}">
+        </div>
+
+        <div class="editField photoUrlField">
+          <label class="settingsLabel" for="photoUrl_${index}">URL</label>
+          <textarea id="photoUrl_${index}" class="settingsInput editTextarea photoDraftInput" data-field="url" data-index="${index}" ${row._delete ? 'disabled' : ''}>${escapeHtml(row.url || '')}</textarea>
+        </div>
+
+        ${row.photoID ? `
+          <div class="photoMetaLine">photoID: ${escapeHtml(row.photoID)}</div>
+        ` : ''}
+        ${row._delete ? '<div class="expenseDeletedLabel">Will be deleted on save</div>' : ''}
+      </div>
+    `).join('');
+
+    els.photoRows.querySelectorAll('.photoDraftInput').forEach(input => {
+      input.addEventListener('input', handlePhotoDraftInput);
+    });
+
+    els.photoRows.querySelectorAll('.photoDeleteBtn').forEach(btn => {
+      btn.addEventListener('click', handlePhotoDraftDelete);
+    });
+
+    document.getElementById('photoAddBtn')?.addEventListener('click', handlePhotoDraftAdd);
+  }
+
+  async function openPhotoModal(id) {
+    if (!state.auth.loggedIn) return;
+
+    const machine = getMachineById(id);
+    if (!machine || !els.photoModal) return;
+
+    state.photoEditingId = id;
+
+    try {
+      await hydrateMachinePhotos(machine);
+    } catch (err) {
+      window.alert(`Could not load photos. ${err.message}`);
+      return;
+    }
+
+    state.photoDraftRows = Array.isArray(machine.photos)
+      ? machine.photos.map(clonePhotoForDraft)
+      : [];
+
+    els.photoGameId.textContent = machine.id || '—';
+    renderPhotoEditorRows();
+
+    els.photoOverlay?.classList.add('open');
+    els.photoModal.classList.add('open');
+
+    els.photoRows?.querySelector('textarea, input')?.focus();
+  }
+
+  function closePhotoModal() {
+    state.photoEditingId = null;
+    state.photoDraftRows = [];
+    els.photoModal?.classList.remove('open');
+    els.photoOverlay?.classList.remove('open');
+    els.photoForm?.reset();
+    if (els.photoRows) {
+      els.photoRows.innerHTML = '';
+    }
+  }
+
+  function handlePhotoDraftInput(event) {
+    const field = event.target?.dataset?.field;
+    const index = Number(event.target?.dataset?.index);
+    if (!field || !Number.isInteger(index) || !state.photoDraftRows[index]) return;
+
+    const row = state.photoDraftRows[index];
+    row[field] = event.target.value;
+    refreshPhotoDraftDirty(row);
+    const editorRow = event.target.closest('.expenseEditorRow');
+    const previewImg = editorRow?.querySelector('.photoEditorPreview img');
+    if (previewImg && field === 'url') {
+      previewImg.src = getPhotoUrl(row.url);
+    }
+  }
+
+  function handlePhotoDraftDelete(event) {
+    const index = Number(event.currentTarget?.dataset?.index);
+    if (!Number.isInteger(index) || !state.photoDraftRows[index]) return;
+
+    const row = state.photoDraftRows[index];
+
+    if (row.photoID) {
+      row._delete = !row._delete;
+      row._dirty = true;
+    } else {
+      state.photoDraftRows.splice(index, 1);
+    }
+
+    renderPhotoEditorRows();
+  }
+
+  function handlePhotoDraftAdd() {
+    state.photoDraftRows.push(makeLocalPhotoRow(state.photoEditingId));
+    renderPhotoEditorRows();
+    const lastIndex = state.photoDraftRows.length - 1;
+    document.getElementById(`photoUrl_${lastIndex}`)?.focus();
+  }
+
+  function buildPhotoPayloadFromDraft(row) {
+    return {
+      photoID: String(row.photoID || '').trim(),
+      gameID: String(row.gameID || state.photoEditingId || '').trim(),
+      url: String(row.url || '').trim()
+    };
+  }
+
+  function isPhotoDraftMeaningful(row) {
+    return !!String(row.url || '').trim();
+  }
+
+  async function handlePhotoFormSubmit(event) {
+    event.preventDefault();
+
+    const id = state.photoEditingId;
+    const machine = getMachineById(id);
+    if (!id || !machine) return;
+
+    const saveBtn = els.photoSaveBtn;
+    const originalLabel = saveBtn?.textContent || 'Save';
+
+    try {
+      if (saveBtn) {
+        saveBtn.disabled = true;
+        saveBtn.textContent = 'Saving…';
+      }
+
+      for (const row of state.photoDraftRows) {
+        if (row._delete && row.photoID) {
+          await apiPost('deletePhoto', { photoID: row.photoID });
+          continue;
+        }
+
+        if (row._delete) continue;
+        if (!isPhotoDraftMeaningful(row)) continue;
+
+        const payload = buildPhotoPayloadFromDraft(row);
+
+        if (payload.photoID) {
+          if (!row._dirty) continue;
+          await apiPost('updatePhoto', payload);
+        } else {
+          await apiPost('createPhoto', payload);
+        }
+      }
+
+      await refreshMachinePhotos(machine);
+      closePhotoModal();
+    } catch (err) {
+      window.alert(`Could not save photos. ${err.message}`);
+    } finally {
+      if (saveBtn) {
+        saveBtn.disabled = false;
+        saveBtn.textContent = originalLabel;
+      }
+    }
+  }
+
   function openEditModal(id) {
     if (!state.auth.loggedIn) return;
 
@@ -840,6 +1120,24 @@
         saveBtn.textContent = originalLabel;
       }
     }
+  }
+
+  function normalizeNote(note) {
+    return {
+      noteID: String(note.noteID || "").trim(),
+      gameID: String(note.gameID || "").trim(),
+      date: formatApiDate(note.date),
+      category: String(note.category || "").trim(),
+      note: String(note.note || "").trim()
+    };
+  }
+
+  function normalizePhoto(photo) {
+    return {
+      photoID: String(photo.photoID || '').trim(),
+      gameID: String(photo.gameID || '').trim(),
+      url: String(photo.url || '').trim()
+    };
   }
 
   function normalizeNote(note) {
@@ -1209,6 +1507,11 @@
     els.expenseCancelBtn?.addEventListener("click", closeExpenseModal);
     els.expenseOverlay?.addEventListener("click", closeExpenseModal);
     els.expenseForm?.addEventListener("submit", handleExpenseFormSubmit);
+
+    els.photoCloseBtn?.addEventListener("click", closePhotoModal);
+    els.photoCancelBtn?.addEventListener("click", closePhotoModal);
+    els.photoOverlay?.addEventListener("click", closePhotoModal);
+    els.photoForm?.addEventListener("submit", handlePhotoFormSubmit);
 
     els.closeDetailBtn.addEventListener("click", closeMobileDetail);
     els.mobileOverlay.addEventListener("click", closeMobileDetail);
@@ -1605,7 +1908,16 @@
       </section>
 
       <section class="detailSection">
-        <h3>Photos</h3>
+        <div class="detailSectionHeader">
+          <h3>Photos</h3>
+          ${state.auth.loggedIn ? `
+            <button class="detailExpenseEditBtn detailPhotoEditBtn" type="button" data-photo-edit-id="${escapeAttr(machine.id)}" aria-label="Edit photos" title="Edit photos">
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25Zm14.71-9.04a1.003 1.003 0 0 0 0-1.42l-2.5-2.5a1.003 1.003 0 0 0-1.42 0l-1.96 1.96 3.75 3.75 2.13-1.79Z"/>
+              </svg>
+            </button>
+          ` : ''}
+        </div>
         ${photoStrip}
       </section>
 
@@ -1688,9 +2000,17 @@
 
     els.detailTitle.textContent = `${machine.id} • ${machine.title}`;
     els.detailContent.innerHTML = buildDetailMarkup(machine, true);
-    els.detailContent.querySelector('.detailExpenseEditBtn')?.addEventListener('click', event => {
+
+    const expenseEditBtn = els.detailContent.querySelector('[data-expense-edit-id]');
+    expenseEditBtn?.addEventListener('click', event => {
       event.stopPropagation();
       openExpenseModal(machine.id);
+    });
+
+    const photoEditBtn = els.detailContent.querySelector('[data-photo-edit-id]');
+    photoEditBtn?.addEventListener('click', event => {
+      event.stopPropagation();
+      openPhotoModal(machine.id);
     });
   }
 
