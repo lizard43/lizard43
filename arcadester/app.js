@@ -1872,11 +1872,11 @@
       }
     ];
 
-    state.priceguideEntries = [];
-    state.priceguideByTitle = new Map();
-    state.priceguideById = new Map();
+    const nextEntries = [];
+    const nextByTitle = new Map();
+    const nextById = new Map();
 
-    for (const source of sources) {
+    await Promise.all(sources.map(async source => {
       try {
         const response = await fetch(source.url, { cache: "no-store" });
         if (!response.ok) {
@@ -1898,15 +1898,15 @@
           const entry = normalizePriceguideEntry(rawEntry, source.key);
           if (!entry || !entry.id) continue;
 
-          state.priceguideEntries.push(entry);
+          nextEntries.push(entry);
 
           const titleKey = normalizeLookupTitle(entry.title);
-          if (titleKey && !state.priceguideByTitle.has(titleKey)) {
-            state.priceguideByTitle.set(titleKey, entry);
+          if (titleKey && !nextByTitle.has(titleKey)) {
+            nextByTitle.set(titleKey, entry);
           }
 
-          if (!state.priceguideById.has(entry.id)) {
-            state.priceguideById.set(entry.id, entry);
+          if (!nextById.has(entry.id)) {
+            nextById.set(entry.id, entry);
           }
         }
 
@@ -1914,7 +1914,11 @@
       } catch (err) {
         console.warn(`[priceguide] failed to load ${source.url}: ${err.message}`);
       }
-    }
+    }));
+
+    state.priceguideEntries = nextEntries;
+    state.priceguideByTitle = nextByTitle;
+    state.priceguideById = nextById;
 
     console.log(`[priceguide] loaded ${state.priceguideEntries.length} normalized entries total`);
   }
@@ -2116,13 +2120,28 @@
     wireEvents();
 
     try {
-      await loadPriceguide();
       state.allMachines = await window.InventoryLoader.load();
       populateFilters();
       applyFilters();
       preloadExpensesForMachinesInBackground(state.allMachines);
       preloadNotesForMachinesInBackground(state.allMachines);
 
+      loadPriceguide()
+        .then(() => {
+          state.allMachines = state.allMachines.map(machine => normalizeMachine(machine));
+          populateFilters();
+          applyFilters();
+
+          if (state.selectedId) {
+            const selected = state.allMachines.find(machine => machine.id === state.selectedId);
+            if (selected) {
+              renderDetail(selected);
+            }
+          }
+        })
+        .catch(err => {
+          console.warn(`[priceguide] background refresh failed: ${err.message}`);
+        });
     } catch (err) {
       els.cardsGrid.innerHTML = "";
       els.emptyState.classList.remove("hidden");
