@@ -12,8 +12,7 @@
     priceguideEntries: [],
     priceguideByTitle: new Map(),
     priceguideById: new Map(),
-    detailHistoryOpen: false,
-    photoViewerHistoryOpen: false,
+    uiRouteStack: [],
     auth: {
       username: "",
       loggedIn: false,
@@ -110,6 +109,53 @@
     closeDetailBtn: document.getElementById("closeDetailBtn"),
     mobileOverlay: document.getElementById("mobileOverlay")
   };
+
+
+  function pushUiRoute(layer) {
+    if (!layer) return;
+    state.uiRouteStack.push(layer);
+    history.pushState({ arcadesterLayer: layer }, "");
+  }
+
+  function removeUiRoute(layer) {
+    const index = state.uiRouteStack.lastIndexOf(layer);
+    if (index >= 0) {
+      state.uiRouteStack.splice(index, 1);
+    }
+  }
+
+  function getTopUiRoute() {
+    return state.uiRouteStack.length ? state.uiRouteStack[state.uiRouteStack.length - 1] : null;
+  }
+
+  function closeTopUiLayerFromHistory() {
+    const topLayer = getTopUiRoute();
+    if (!topLayer) return false;
+
+    switch (topLayer) {
+      case 'photoViewer':
+        closePhotoViewer(false);
+        return true;
+      case 'photo':
+        closePhotoModal(false);
+        return true;
+      case 'expense':
+        closeExpenseModal(false);
+        return true;
+      case 'edit':
+        closeEditModal(false);
+        return true;
+      case 'settings':
+        closeSettingsModal(false);
+        return true;
+      case 'detail':
+        closeMobileDetail(false);
+        return true;
+      default:
+        removeUiRoute(topLayer);
+        return false;
+    }
+  }
 
   function formatApiDate(value) {
     if (!value) return "";
@@ -599,16 +645,26 @@
   }
 
   function openSettingsModal() {
+    const wasOpen = state.settingsOpen;
     state.settingsOpen = true;
     renderSettingsModal();
     els.settingsModal?.classList.add("open");
     els.settingsOverlay?.classList.add("open");
+    if (!wasOpen) {
+      pushUiRoute('settings');
+    }
   }
 
-  function closeSettingsModal() {
+  function closeSettingsModal(useHistoryBack = true) {
+    const wasOpen = state.settingsOpen;
     state.settingsOpen = false;
     els.settingsModal?.classList.remove("open");
     els.settingsOverlay?.classList.remove("open");
+    if (useHistoryBack && wasOpen) {
+      history.back();
+      return;
+    }
+    removeUiRoute('settings');
   }
 
   if (document.readyState === "loading") {
@@ -831,13 +887,18 @@
     els.expenseGameId.textContent = machine.id || "—";
     renderExpenseEditorRows();
 
+    const wasOpen = els.expenseModal.classList.contains('open');
     els.expenseOverlay?.classList.add('open');
     els.expenseModal.classList.add('open');
+    if (!wasOpen) {
+      pushUiRoute('expense');
+    }
 
     els.expenseRows?.querySelector('input, textarea')?.focus();
   }
 
-  function closeExpenseModal() {
+  function closeExpenseModal(useHistoryBack = true) {
+    const wasOpen = els.expenseModal?.classList.contains('open');
     state.expenseEditingId = null;
     state.expenseDraftRows = [];
     els.expenseModal?.classList.remove('open');
@@ -846,6 +907,11 @@
     if (els.expenseRows) {
       els.expenseRows.innerHTML = '';
     }
+    if (useHistoryBack && wasOpen) {
+      history.back();
+      return;
+    }
+    removeUiRoute('expense');
   }
 
   function handleExpenseDraftInput(event) {
@@ -1229,11 +1295,16 @@
     els.photoGameId.textContent = machine.id || "—";
     renderPhotoEditorRows();
 
+    const wasOpen = els.photoModal.classList.contains("open");
     els.photoOverlay?.classList.add("open");
     els.photoModal.classList.add("open");
+    if (!wasOpen) {
+      pushUiRoute('photo');
+    }
   }
 
-  function closePhotoModal() {
+  function closePhotoModal(useHistoryBack = true) {
+    const wasOpen = els.photoModal?.classList.contains("open");
     state.photoEditingId = null;
     state.photoDraftRows = [];
     els.photoModal?.classList.remove("open");
@@ -1242,6 +1313,11 @@
     if (els.photoRows) {
       els.photoRows.innerHTML = "";
     }
+    if (useHistoryBack && wasOpen) {
+      history.back();
+      return;
+    }
+    removeUiRoute('photo');
   }
 
   function handlePhotoDraftInput(event) {
@@ -1452,8 +1528,7 @@
     els.photoViewerModal?.classList.add('open');
 
     if (!wasOpen) {
-      history.pushState({ photoViewer: true }, '');
-      state.photoViewerHistoryOpen = true;
+      pushUiRoute('photoViewer');
     }
   }
 
@@ -1474,8 +1549,7 @@
     els.photoViewerModal?.classList.add('open');
 
     if (!wasOpen) {
-      history.pushState({ photoViewer: true }, '');
-      state.photoViewerHistoryOpen = true;
+      pushUiRoute('photoViewer');
     }
   }
 
@@ -1573,10 +1647,11 @@
     els.photoViewerModal?.classList.remove('open');
     els.photoViewerOverlay?.classList.remove('open');
 
-    if (useHistoryBack && wasOpen && state.photoViewerHistoryOpen) {
-      state.photoViewerHistoryOpen = false;
+    if (useHistoryBack && wasOpen) {
       history.back();
+      return;
     }
+    removeUiRoute('photoViewer');
   }
 
   function changeDetailPhoto(machineId, direction = 1) {
@@ -1616,16 +1691,26 @@
     els.editSoldPrice.value = toFormNumberValue(machine.soldPrice);
     els.editSoldTo.value = machine.soldTo || "";
 
+    const wasOpen = els.editModal.classList.contains("open");
     els.editOverlay?.classList.add("open");
     els.editModal.classList.add("open");
+    if (!wasOpen) {
+      pushUiRoute('edit');
+    }
     els.editTitle?.focus();
   }
 
-  function closeEditModal() {
+  function closeEditModal(useHistoryBack = true) {
+    const wasOpen = els.editModal?.classList.contains("open");
     state.editingId = null;
     els.editModal?.classList.remove("open");
     els.editOverlay?.classList.remove("open");
     els.editForm?.reset();
+    if (useHistoryBack && wasOpen) {
+      history.back();
+      return;
+    }
+    removeUiRoute('edit');
   }
 
   function buildGamePayloadFromForm(id) {
@@ -2102,16 +2187,7 @@
     });
 
     window.addEventListener("popstate", () => {
-      if (state.photoViewer.open) {
-        state.photoViewerHistoryOpen = false;
-        closePhotoViewer(false);
-        return;
-      }
-
-      if (els.detailPane.classList.contains("open")) {
-        state.detailHistoryOpen = false;
-        closeMobileDetail(false);
-      }
+      closeTopUiLayerFromHistory();
     });
   }
 
@@ -2361,8 +2437,7 @@
       els.mobileOverlay.classList.add("open");
 
       if (!wasOpen) {
-        history.pushState({ detailPane: true }, "");
-        state.detailHistoryOpen = true;
+        pushUiRoute('detail');
       }
     }
 
@@ -2375,16 +2450,16 @@
 
     if (state.photoViewer.open) {
       closePhotoViewer(false);
-      state.photoViewerHistoryOpen = false;
     }
 
     els.detailPane.classList.remove("open");
     els.mobileOverlay.classList.remove("open");
 
-    if (useHistoryBack && wasOpen && state.detailHistoryOpen) {
-      state.detailHistoryOpen = false;
+    if (useHistoryBack && wasOpen) {
       history.back();
+      return;
     }
+    removeUiRoute('detail');
   }
 
   function updateSelectedCard() {
