@@ -2,6 +2,7 @@ const SHEET_GAMES = 'games';
 const SHEET_EXPENSES = 'expenses';
 const SHEET_NOTES = 'notes';
 const SHEET_USERS = 'user';
+const SHEET_PHOTOS = 'photos';
 
 function getOptionalParam_(e, name) {
   if (!e || !e.parameter) return '';
@@ -72,6 +73,18 @@ function doGet(e) {
       const data = gameID
         ? getRowsByMatch_(SHEET_NOTES, 'gameID', gameID)
         : getAllRows_(SHEET_NOTES);
+
+      return jsonOut_({
+        ok: true,
+        data: data
+      });
+    }
+
+    if (resource === 'photos') {
+      const gameID = getOptionalParam_(e, 'gameID');
+      const data = gameID
+        ? getRowsByMatch_(SHEET_PHOTOS, 'gameID', gameID)
+        : getAllRows_(SHEET_PHOTOS);
 
       return jsonOut_({
         ok: true,
@@ -218,6 +231,40 @@ function doPost(e) {
     if (action === 'deleteNote') {
       requireField_(data, 'noteID');
       deleteRowByKey_(SHEET_NOTES, 'noteID', data.noteID);
+
+      return jsonOut_({
+        ok: true
+      });
+    }
+
+    if (action === 'createPhoto') {
+      requireField_(data, 'gameID');
+
+      const row = appendRowObject_(SHEET_PHOTOS, {
+        photoID: data.photoID || makeId_('photo'),
+        gameID: data.gameID,
+        url: data.url || ''
+      });
+
+      return jsonOut_({
+        ok: true,
+        data: row
+      });
+    }
+
+    if (action === 'updatePhoto') {
+      requireField_(data, 'photoID');
+      const row = updateRowByKey_(SHEET_PHOTOS, 'photoID', data.photoID, data);
+
+      return jsonOut_({
+        ok: true,
+        data: row
+      });
+    }
+
+    if (action === 'deletePhoto') {
+      requireField_(data, 'photoID');
+      deleteRowByKey_(SHEET_PHOTOS, 'photoID', data.photoID);
 
       return jsonOut_({
         ok: true
@@ -430,4 +477,5 @@ function ensureLegacyRowIds_() {
   ensureSheetIds_(SHEET_EXPENSES, 'expenseID', 'exp');
   ensureSheetIds_(SHEET_NOTES, 'noteID', 'note');
   ensureSheetIds_(SHEET_GAMES, 'ID', 'game');
+  ensureSheetIds_(SHEET_PHOTOS, 'photoID', 'photo');
 }

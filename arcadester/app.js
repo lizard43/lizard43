@@ -469,12 +469,14 @@
       vendor: "",
       amount: "",
       note: "",
-      _delete: false
+      _delete: false,
+      _dirty: false,
+      _originalFingerprint: ""
     };
   }
 
   function cloneExpenseForDraft(expense) {
-    return {
+    const row = {
       expenseID: String(expense?.expenseID || "").trim(),
       gameID: String(expense?.gameID || "").trim(),
       date: toApiDateValue(expense?.date),
@@ -483,8 +485,41 @@
       vendor: String(expense?.vendor || "").trim(),
       amount: expense?.amount === null || expense?.amount === undefined || expense?.amount === "" ? "" : String(expense.amount),
       note: String(expense?.note || "").trim(),
-      _delete: false
+      _delete: false,
+      _dirty: false,
+      _originalFingerprint: ""
     };
+
+    return markExpenseDraftClean(row);
+  }
+
+  function getComparableExpenseDraft(row) {
+    return {
+      expenseID: String(row?.expenseID || "").trim(),
+      gameID: String(row?.gameID || "").trim(),
+      date: String(row?.date || "").trim(),
+      category: String(row?.category || "").trim(),
+      description: String(row?.description || "").trim(),
+      vendor: String(row?.vendor || "").trim(),
+      amount: String(row?.amount || "").trim(),
+      note: String(row?.note || "").trim()
+    };
+  }
+
+  function expenseDraftFingerprint(row) {
+    return JSON.stringify(getComparableExpenseDraft(row));
+  }
+
+  function markExpenseDraftClean(row) {
+    const fingerprint = expenseDraftFingerprint(row);
+    row._originalFingerprint = fingerprint;
+    row._dirty = false;
+    return row;
+  }
+
+  function refreshExpenseDraftDirty(row) {
+    row._dirty = expenseDraftFingerprint(row) !== String(row._originalFingerprint || "");
+    return row._dirty;
   }
 
   function getExpenseMachineById(id) {
@@ -605,15 +640,21 @@
     const field = event.target?.dataset?.field;
     const index = Number(event.target?.dataset?.index);
     if (!field || !Number.isInteger(index) || !state.expenseDraftRows[index]) return;
-    state.expenseDraftRows[index][field] = event.target.value;
+
+    const row = state.expenseDraftRows[index];
+    row[field] = event.target.value;
+    refreshExpenseDraftDirty(row);
   }
 
   function handleExpenseDraftDelete(event) {
     const index = Number(event.currentTarget?.dataset?.index);
     if (!Number.isInteger(index) || !state.expenseDraftRows[index]) return;
 
-    if (state.expenseDraftRows[index].expenseID) {
-      state.expenseDraftRows[index]._delete = !state.expenseDraftRows[index]._delete;
+    const row = state.expenseDraftRows[index];
+
+    if (row.expenseID) {
+      row._delete = !row._delete;
+      row._dirty = true;
     } else {
       state.expenseDraftRows.splice(index, 1);
     }
@@ -673,6 +714,7 @@
         const payload = buildExpensePayloadFromDraft(row);
 
         if (payload.expenseID) {
+          if (!row._dirty) continue;
           await apiPost('updateExpense', payload);
         } else {
           await apiPost('createExpense', payload);
@@ -680,6 +722,11 @@
       }
 
       await refreshMachineExpenses(machine);
+
+      state.expenseDraftRows = Array.isArray(machine.expenses)
+        ? sortExpensesByDateDesc(machine.expenses).map(cloneExpenseForDraft)
+        : [];
+
       closeExpenseModal();
     } catch (err) {
       window.alert(`Could not save expenses. ${err.message}`);
@@ -1238,7 +1285,10 @@
         .toLowerCase();
 
       return blob.includes(q);
-    });
+    })
+      .sort((a, b) =>
+        a.title.localeCompare(b.title, undefined, { sensitivity: "base" })
+      );
 
     renderCards();
 
@@ -1489,7 +1539,7 @@
     const expenseRows = expensesLoading
       ? `<div class="detailMeta detailMetaLoading">Loading expenses…</div>`
       : Array.isArray(machine.expenses) && machine.expenses.length
-      ? sortExpensesByDateDesc(machine.expenses).map(exp => `
+        ? sortExpensesByDateDesc(machine.expenses).map(exp => `
         <div class="expenseRow">
           <div class="expenseMain">
             <div class="expenseTop">
@@ -1504,7 +1554,7 @@
           <div class="expenseAmount">${escapeHtml(formatMoney(exp.amount))}</div>
         </div>
       `).join("")
-      : `<div class="detailMeta">No expense entries yet.</div>`;
+        : `<div class="detailMeta">No expense entries yet.</div>`;
 
     const photoStrip = machine.photos && machine.photos.length
       ? `
@@ -1585,6 +1635,14 @@
             <span class="moneyValue">${escapeHtml(formatMoney(machine.purchasePrice))}</span>
           </div>
 
+          ${machine.purchaseDate || machine.purchaseFrom ? `
+            <div class="expenseDescMuted">
+              ${machine.purchaseDate ? escapeHtml(formatApiDate(machine.purchaseDate)) : ""}
+              ${machine.purchaseDate && machine.purchaseFrom ? " • " : ""}
+              ${machine.purchaseFrom ? escapeHtml(machine.purchaseFrom) : ""}
+            </div>
+          ` : ""}
+
           <div class="moneySpacer"></div>
 
           <div class="moneyRow moneyRowTotal">
@@ -1597,10 +1655,18 @@
       <section class="detailSection">
         <h3>Profit / loss</h3>
         <div class="detailMoneySummary">
-          <div class="moneyRow">
-            <span class="moneyLabel">Sold price</span>
-            <span class="moneyValue">${escapeHtml(formatMoney(machine.soldPrice))}</span>
+        <div class="moneyRow">
+          <span class="moneyLabel">Sold price</span>
+          <span class="moneyValue">${escapeHtml(formatMoney(machine.soldPrice))}</span>
+        </div>
+
+        ${machine.soldDate || machine.soldTo ? `
+          <div class="expenseDescMuted">
+            ${machine.soldDate ? escapeHtml(formatApiDate(machine.soldDate)) : ""}
+            ${machine.soldDate && machine.soldTo ? " • " : ""}
+            ${machine.soldTo ? escapeHtml(machine.soldTo) : ""}
           </div>
+        ` : ""}
           <div class="moneyRow moneyRowTotal">
             <span class="moneyLabel">Profit / loss</span>
             <span class="moneyValue ${profit != null ? `moneyProfit ${profit >= 0 ? "positive" : "negative"}` : ""} ${expensesLoading ? "isLoading" : ""}">
@@ -1620,7 +1686,7 @@
       return;
     }
 
-    els.detailTitle.textContent = machine.title;
+    els.detailTitle.textContent = `${machine.id} • ${machine.title}`;
     els.detailContent.innerHTML = buildDetailMarkup(machine, true);
     els.detailContent.querySelector('.detailExpenseEditBtn')?.addEventListener('click', event => {
       event.stopPropagation();
