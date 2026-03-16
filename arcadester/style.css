@@ -1613,49 +1613,6 @@ select {
   flex-wrap: wrap;
 }
 
-.cameraConfirmModal {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  width: min(94vw, 560px);
-  max-height: 90vh;
-  background: var(--panel);
-  border: 1px solid var(--border);
-  border-radius: 16px;
-  box-shadow: var(--shadow);
-  transform: translate(-50%, calc(-50% + 14px));
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.2s ease, transform 0.2s ease;
-  z-index: 83;
-  overflow: hidden;
-}
-
-.cameraConfirmModal.open {
-  opacity: 1;
-  pointer-events: auto;
-  transform: translate(-50%, -50%);
-}
-
-.cameraConfirmBody {
-  padding: 16px;
-}
-
-.cameraPreviewWrap {
-  width: 100%;
-  border: 1px solid var(--border);
-  border-radius: 14px;
-  overflow: hidden;
-  background: #0d0d0d;
-}
-
-.cameraConfirmPreview {
-  display: block;
-  width: 100%;
-  max-height: min(68vh, 720px);
-  object-fit: contain;
-  background: #0d0d0d;
-}
 
 @media (max-width: 640px) {
   .photoToolbarButtons {
@@ -1665,13 +1622,5 @@ select {
   .photoToolbarButtons .expenseAddBtn {
     flex: 1 1 calc(50% - 5px);
     justify-content: center;
-  }
-
-  .cameraConfirmModal {
-    width: min(96vw, 560px);
-  }
-
-  .cameraConfirmPreview {
-    max-height: 58vh;
   }
 }

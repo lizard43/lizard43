@@ -39,10 +39,6 @@
       touchStartX: 0,
       touchStartY: 0
     },
-    cameraCapture: {
-      file: null,
-      objectUrl: ""
-    },
     imagePreloadCache: new Set(),
     expenseLoadConcurrency: 4,
     noteLoadConcurrency: 4
@@ -106,12 +102,6 @@
     photoViewerCloseBtn: document.getElementById("photoViewerCloseBtn"),
     photoViewerPrevBtn: document.getElementById("photoViewerPrevBtn"),
     photoViewerNextBtn: document.getElementById("photoViewerNextBtn"),
-    cameraConfirmOverlay: document.getElementById("cameraConfirmOverlay"),
-    cameraConfirmModal: document.getElementById("cameraConfirmModal"),
-    cameraConfirmPreview: document.getElementById("cameraConfirmPreview"),
-    cameraConfirmCloseBtn: document.getElementById("cameraConfirmCloseBtn"),
-    cameraDiscardBtn: document.getElementById("cameraDiscardBtn"),
-    cameraUploadBtn: document.getElementById("cameraUploadBtn"),
     cardsGrid: document.getElementById("cardsGrid"),
     emptyState: document.getElementById("emptyState"),
     detailPane: document.getElementById("detailPane"),
@@ -238,25 +228,12 @@
     return hasTouch || isMobileUA;
   }
 
-  function resetCameraCaptureState() {
-    if (state.cameraCapture.objectUrl) {
-      URL.revokeObjectURL(state.cameraCapture.objectUrl);
-    }
-
-    state.cameraCapture.file = null;
-    state.cameraCapture.objectUrl = "";
-
-    if (els.photoCameraInput) {
-      els.photoCameraInput.value = "";
-    }
-
-    if (els.cameraConfirmPreview) {
-      els.cameraConfirmPreview.src = "";
-    }
-  }
-
-  function openCameraCapture() {
+  async function openCameraCapture() {
     if (!supportsCameraCapture()) return;
+    if (!state.photoEditingId) return;
+
+    const cameraBtn = document.getElementById("photoCameraBtn");
+    if (cameraBtn?.disabled) return;
 
     const input = document.createElement("input");
     input.type = "file";
@@ -266,82 +243,59 @@
     input.style.left = "-9999px";
     input.style.top = "0";
 
-    input.addEventListener("change", event => {
-      handleCameraInputChange(event);
-      window.setTimeout(() => input.remove(), 0);
+    input.addEventListener("change", async event => {
+      try {
+        await handleCameraInputChange(event);
+      } finally {
+        window.setTimeout(() => input.remove(), 0);
+      }
     }, { once: true });
 
     document.body.appendChild(input);
     input.click();
   }
 
-  function openCameraConfirmModal(file) {
-    if (!file) return;
-
-    resetCameraCaptureState();
-
-    state.cameraCapture.file = file;
-    state.cameraCapture.objectUrl = URL.createObjectURL(file);
-
-    if (els.cameraConfirmPreview) {
-      els.cameraConfirmPreview.src = state.cameraCapture.objectUrl;
-    }
-
-    els.cameraConfirmOverlay?.classList.add("open");
-    els.cameraConfirmModal?.classList.add("open");
-  }
-
-  function closeCameraConfirmModal() {
-    els.cameraConfirmModal?.classList.remove("open");
-    els.cameraConfirmOverlay?.classList.remove("open");
-    resetCameraCaptureState();
-  }
-
-  async function confirmCameraUpload() {
-    const file = state.cameraCapture.file;
-    if (!file) return;
-
-    const uploadBtn = els.cameraUploadBtn;
-    const discardBtn = els.cameraDiscardBtn;
-    const closeBtn = els.cameraConfirmCloseBtn;
-    const originalLabel = uploadBtn?.textContent || "Upload";
-
-    try {
-      if (uploadBtn) {
-        uploadBtn.disabled = true;
-        uploadBtn.textContent = "Uploading…";
-      }
-      if (discardBtn) discardBtn.disabled = true;
-      if (closeBtn) closeBtn.disabled = true;
-
-      await addPhotoFromFile(file);
-      closeCameraConfirmModal();
-    } catch (err) {
-      window.alert(`Could not upload photo. ${err.message}`);
-    } finally {
-      if (uploadBtn) {
-        uploadBtn.disabled = false;
-        uploadBtn.textContent = originalLabel;
-      }
-      if (discardBtn) discardBtn.disabled = false;
-      if (closeBtn) closeBtn.disabled = false;
-    }
-  }
-
-  function handleCameraInputChange(event) {
+  async function handleCameraInputChange(event) {
     const file = event.target?.files?.[0];
     if (!file) return;
 
     if (!file.type || !file.type.startsWith("image/")) {
       window.alert("Please choose an image file.");
-      resetCameraCaptureState();
       return;
     }
 
-    openCameraConfirmModal(file);
+    const cameraBtn = document.getElementById("photoCameraBtn");
+    const originalLabel = cameraBtn?.querySelector("span")?.textContent || "Camera";
+
+    try {
+      if (cameraBtn) {
+        cameraBtn.disabled = true;
+        const label = cameraBtn.querySelector("span");
+        if (label) {
+          label.textContent = "Uploading…";
+        } else {
+          cameraBtn.textContent = "Uploading…";
+        }
+      }
+
+      await addPhotoFromFile(file);
+    } catch (err) {
+      window.alert(`Could not upload photo. ${err.message}`);
+    } finally {
+      if (cameraBtn) {
+        cameraBtn.disabled = false;
+        const label = cameraBtn.querySelector("span");
+        if (label) {
+          label.textContent = originalLabel;
+        } else {
+          cameraBtn.textContent = originalLabel;
+        }
+      }
+    }
   }
 
   async function loadPhotosForGame(gameID) {
+
     if (!gameID) return [];
 
     const payload = await apiGet({
@@ -2129,11 +2083,6 @@
     els.photoViewerOverlay?.addEventListener("click", closePhotoViewer);
     els.photoViewerBody?.addEventListener('touchstart', handlePhotoViewerTouchStart, { passive: true });
     els.photoViewerBody?.addEventListener('touchend', handlePhotoViewerTouchEnd, { passive: true });
-
-    els.cameraConfirmCloseBtn?.addEventListener("click", closeCameraConfirmModal);
-    els.cameraDiscardBtn?.addEventListener("click", closeCameraConfirmModal);
-    els.cameraConfirmOverlay?.addEventListener("click", closeCameraConfirmModal);
-    els.cameraUploadBtn?.addEventListener("click", confirmCameraUpload);
 
     els.closeDetailBtn.addEventListener("click", closeMobileDetail);
     els.mobileOverlay.addEventListener("click", closeMobileDetail);
