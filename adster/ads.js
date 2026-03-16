@@ -998,7 +998,7 @@ async function loadLocationsJson() {
 
     try {
         const url = new URL("locations.json?v=1", window.location.href).toString();
-        console.log("[locations] fetching:", url);
+        console.log("[locations] loading:", url);
 
         const r = await fetch(url, { cache: "no-store" });
         console.log("[locations] status:", r.status, r.ok);
@@ -1026,7 +1026,7 @@ async function loadCitiesJson() {
     citiesLoadPromise = (async () => {
         try {
             const url = new URL("cities.json?v=1", window.location.href).toString();
-            console.log("[cities] fetching:", url);
+            console.log("[cities] loading:", url);
 
             const r = await fetch(url, { cache: "no-store" });
             console.log("[cities] status:", r.status, r.ok);

@@ -241,6 +241,8 @@
       .then(photos => {
         machine.photos = photos;
         machine.photoStatus = "loaded";
+        const maxIndex = Math.max(0, photos.length - 1);
+        machine.photoCarouselIndex = Math.max(0, Math.min(Number(machine.photoCarouselIndex || 0), maxIndex));
         return photos;
       })
       .catch(err => {
@@ -923,6 +925,22 @@
     }
   }
 
+  async function persistNewPhotoDraftRow(row) {
+    if (!row || row.photoID || !String(row.gameID || state.photoEditingId || '').trim() || !String(row.url || '').trim()) {
+      return row;
+    }
+
+    const payload = buildPhotoPayloadFromDraft(row);
+    const result = await apiPost('createPhoto', payload);
+    const saved = normalizePhoto(result?.data || payload);
+
+    row.photoID = saved.photoID;
+    row.gameID = saved.gameID || row.gameID;
+    row.url = saved.url || row.url;
+    markPhotoDraftClean(row);
+    return row;
+  }
+
   async function handlePhotoDrop(event) {
     event.preventDefault();
     const index = Number(event.currentTarget?.dataset?.index);
@@ -942,13 +960,24 @@
       const url = await uploadPhotoToImgBB(file);
       const row = state.photoDraftRows[index];
       if (!row) return;
+
       row.url = url;
       refreshPhotoDraftDirty(row);
+
+      if (!row.photoID) {
+        await persistNewPhotoDraftRow(row);
+      }
+
+      row._uploading = false;
       renderPhotoEditorRows();
       document.getElementById(`photoUrl_${index}`)?.focus();
     } catch (err) {
+      const row = state.photoDraftRows[index];
+      if (row) {
+        row._uploading = false;
+      }
+      renderPhotoEditorRows();
       window.alert(`Could not upload photo. ${err.message}`);
-      setPhotoDraftUploading(index, false);
     }
   }
 
@@ -997,7 +1026,6 @@
           <div class="editField photoUrlField">
             <label class="settingsLabel" for="photoUrl_${index}">URL</label>
             <input id="photoUrl_${index}" class="settingsInput photoDraftInput" data-field="url" data-index="${index}" type="text" value="${escapeAttr(row.url || "")}" ${row._delete || row._uploading ? "disabled" : ""}>
-            <div class="photoMetaLine">${row.photoID ? `photoID: ${escapeHtml(row.photoID)}` : 'Drop an image on the thumbnail frame to upload to ImgBB.'}</div>
             <div class="photoUploadStatus">${row._uploading ? 'Uploading…' : ''}</div>
           </div>
         </div>
@@ -1197,24 +1225,19 @@
     els.photoViewerOverlay?.classList.remove("open");
   }
 
-  function scrollPhotoStrip(machineId, direction = 1) {
-    const strip = els.detailContent?.querySelector(`[data-photo-strip-id="${CSS.escape(machineId)}"]`);
-    if (!strip) return;
+  function changeDetailPhoto(machineId, direction = 1) {
+    const machine = getMachineById(machineId);
+    const photos = Array.isArray(machine?.photos) ? machine.photos : [];
+    if (!machine || !photos.length) return;
 
-    const amount = Math.max(220, Math.floor(strip.clientWidth * 0.8));
-    strip.scrollBy({ left: direction * amount, behavior: "smooth" });
-  }
+    const maxIndex = photos.length - 1;
+    const nextIndex = Math.max(0, Math.min(maxIndex, Number(machine.photoCarouselIndex || 0) + direction));
+    if (nextIndex === Number(machine.photoCarouselIndex || 0)) return;
 
-  function updatePhotoStripButtons(machineId) {
-    const strip = els.detailContent?.querySelector(`[data-photo-strip-id="${CSS.escape(machineId)}"]`);
-    if (!strip) return;
-
-    const prevBtn = els.detailContent?.querySelector(`[data-photo-prev-id="${CSS.escape(machineId)}"]`);
-    const nextBtn = els.detailContent?.querySelector(`[data-photo-next-id="${CSS.escape(machineId)}"]`);
-    const maxScroll = Math.max(0, strip.scrollWidth - strip.clientWidth);
-
-    if (prevBtn) prevBtn.disabled = strip.scrollLeft <= 2;
-    if (nextBtn) nextBtn.disabled = strip.scrollLeft >= maxScroll - 2 || maxScroll <= 2;
+    machine.photoCarouselIndex = nextIndex;
+    if (state.selectedId === machine.id) {
+      renderDetail(machine);
+    }
   }
 
   function openEditModal(id) {
@@ -2049,7 +2072,7 @@
 
     const photoSectionMarkup = (() => {
       if (machine.photoStatus === "loading" || machine.photos === null) {
-        return `<div class="detailMeta detailMetaLoading">Fetching photos…</div>`;
+        return `<div class="detailMeta detailMetaLoading">Loading photos…</div>`;
       }
 
       if (machine.photoStatus === "error") {
@@ -2057,18 +2080,21 @@
       }
 
       if (Array.isArray(machine.photos) && machine.photos.length) {
+        const activeIndex = Math.max(0, Math.min(Number(machine.photoCarouselIndex || 0), machine.photos.length - 1));
+        const activePhoto = machine.photos[activeIndex];
+        const hasPrev = activeIndex > 0;
+        const hasNext = activeIndex < machine.photos.length - 1;
         return `
-          <div class="photoCarousel">
-            <button class="photoScrollBtn" type="button" data-photo-prev-id="${escapeAttr(machine.id)}" aria-label="Previous photos">‹</button>
-            <div class="photoStrip" data-photo-strip-id="${escapeAttr(machine.id)}">
-              ${machine.photos.map((photo, index) => `
-                <button class="photoThumb" type="button" data-photo-index="${index}" aria-label="Open photo ${index + 1}">
-                  <img src="${escapeAttr(getPhotoUrl(photo.url))}" alt="${escapeAttr(`${machine.title} photo ${index + 1}`)}" loading="lazy">
-                </button>
-              `).join("")}
-            </div>
-            <button class="photoScrollBtn" type="button" data-photo-next-id="${escapeAttr(machine.id)}" aria-label="More photos">›</button>
+          <div class="photoCarouselSingleView">
+            ${hasPrev ? `<button class="photoNavBtn photoNavBtnPrev" type="button" data-photo-prev-id="${escapeAttr(machine.id)}" aria-label="Previous photo">‹</button>` : ``}
+            <button class="photoStage" type="button" data-photo-index="${activeIndex}" aria-label="Open photo ${activeIndex + 1}">
+              <img src="${escapeAttr(getPhotoUrl(activePhoto.url))}" alt="${escapeAttr(`${machine.title} photo ${activeIndex + 1}`)}" loading="lazy">
+            </button>
+            ${hasNext ? `<button class="photoNavBtn photoNavBtnNext" type="button" data-photo-next-id="${escapeAttr(machine.id)}" aria-label="Next photo">›</button>` : ``}
           </div>
+          ${machine.photos.length > 1 ? `
+            <div class="photoPager">${activeIndex + 1} / ${machine.photos.length}</div>
+          ` : ``}
         `;
       }
 
@@ -2169,7 +2195,7 @@
       </section>
 
       <section class="detailSection">
-        <h3>Profit / loss</h3>
+        <h3>Profit / Loss</h3>
         <div class="detailMoneySummary">
         <div class="moneyRow">
           <span class="moneyLabel">Sold price</span>
@@ -2184,7 +2210,7 @@
           </div>
         ` : ""}
           <div class="moneyRow moneyRowTotal">
-            <span class="moneyLabel">Profit / loss</span>
+            <span class="moneyLabel">P/L</span>
             <span class="moneyValue ${profit != null ? `moneyProfit ${profit >= 0 ? "positive" : "negative"}` : ""} ${expensesLoading ? "isLoading" : ""}">
               ${escapeHtml(expensesLoading ? "…" : formatMoney(profit))}
             </span>
@@ -2228,20 +2254,14 @@
       });
     });
 
-    const strip = els.detailContent.querySelector(`[data-photo-strip-id="${CSS.escape(machine.id)}"]`);
-    if (strip) {
-      strip.addEventListener('scroll', () => updatePhotoStripButtons(machine.id), { passive: true });
-      requestAnimationFrame(() => updatePhotoStripButtons(machine.id));
-    }
-
     els.detailContent.querySelector(`[data-photo-prev-id="${CSS.escape(machine.id)}"]`)?.addEventListener('click', event => {
       event.stopPropagation();
-      scrollPhotoStrip(machine.id, -1);
+      changeDetailPhoto(machine.id, -1);
     });
 
     els.detailContent.querySelector(`[data-photo-next-id="${CSS.escape(machine.id)}"]`)?.addEventListener('click', event => {
       event.stopPropagation();
-      scrollPhotoStrip(machine.id, 1);
+      changeDetailPhoto(machine.id, 1);
     });
   }
 
