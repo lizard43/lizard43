@@ -15,8 +15,12 @@
     uiRouteStack: [],
     auth: {
       username: "",
+      seed: "",
       loggedIn: false,
-      error: ""
+      error: "",
+      hashPreview: "",
+      versionTapCount: 0,
+      versionTapTimer: null
     },
     settingsOpen: false,
     editingId: null,
@@ -85,6 +89,7 @@
     settingsSaveBtn: document.getElementById("settingsSaveBtn"),
     settingsCancelBtn: document.getElementById("settingsCancelBtn"),
     settingsCloseBtn: document.getElementById("settingsCloseBtn"),
+    settingsSeedInput: document.getElementById("settingsSeedInput"),
     editOverlay: document.getElementById("editOverlay"),
     editModal: document.getElementById("editModal"),
     editModalTitle: document.getElementById("editModalTitle"),
@@ -731,8 +736,11 @@
   function loadAuthState() {
     const savedUsername = localStorage.getItem("arcadesterUsername") || "";
     state.auth.username = savedUsername.trim();
+    state.auth.seed = "";
     state.auth.loggedIn = !!state.auth.username;
     state.auth.error = "";
+    state.auth.hashPreview = "";
+    clearVersionTapState();
   }
 
   function saveAuthState() {
@@ -769,12 +777,84 @@
     window.location.reload();
   }
 
+  async function sha256Hex(value) {
+    const text = String(value || "");
+    const data = new TextEncoder().encode(text);
+    const digest = await crypto.subtle.digest("SHA-256", data);
+    return Array.from(new Uint8Array(digest))
+      .map(byte => byte.toString(16).padStart(2, "0"))
+      .join("");
+  }
+
+  async function buildUserSeedHash(username, seed) {
+    const normalizedUsername = String(username || "").trim().toLowerCase();
+    const normalizedSeed = String(seed || "").trim();
+    if (!normalizedUsername || !normalizedSeed) {
+      return "";
+    }
+    return sha256Hex(`${normalizedUsername}|${normalizedSeed}`);
+  }
+
+  function clearVersionTapState() {
+    state.auth.versionTapCount = 0;
+    if (state.auth.versionTapTimer) {
+      clearTimeout(state.auth.versionTapTimer);
+      state.auth.versionTapTimer = null;
+    }
+  }
+
+  async function handleSettingsVersionClick() {
+    if (state.auth.loggedIn) return;
+
+    state.auth.versionTapCount += 1;
+
+    if (state.auth.versionTapTimer) {
+      clearTimeout(state.auth.versionTapTimer);
+    }
+
+    state.auth.versionTapTimer = setTimeout(() => {
+      clearVersionTapState();
+    }, 900);
+
+    if (state.auth.versionTapCount < 3) {
+      return;
+    }
+
+    clearVersionTapState();
+
+    const username = String(els.settingsUsernameInput?.value || "").trim();
+    const seed = String(els.settingsSeedInput?.value || "").trim();
+
+    if (!username || !seed) {
+      state.auth.error = "Enter both username and seed before generating.";
+      state.auth.hashPreview = "";
+      renderSettingsModal();
+      return;
+    }
+
+    try {
+      state.auth.error = "";
+      state.auth.hashPreview = await buildUserSeedHash(username, seed);
+      renderSettingsModal();
+    } catch (err) {
+      state.auth.hashPreview = "";
+      state.auth.error = `Could not generate hash. ${err.message}`;
+      renderSettingsModal();
+    }
+  }
+
   async function loginWithUsername() {
     const username = String(els.settingsUsernameInput?.value || "").trim();
-    if (!username) {
-      state.auth.error = "Enter a username.";
+    const seed = String(els.settingsSeedInput?.value || "").trim();
+
+    if (!username || !seed) {
+      state.auth.error = "Enter both username and seed.";
       renderSettingsModal();
-      els.settingsUsernameInput?.focus();
+      if (!username) {
+        els.settingsUsernameInput?.focus();
+      } else {
+        els.settingsSeedInput?.focus();
+      }
       return;
     }
 
@@ -785,6 +865,8 @@
 
     try {
       state.auth.error = "";
+      state.auth.hashPreview = "";
+
       if (loginBtn) {
         loginBtn.disabled = true;
         loginBtn.textContent = "Checking…";
@@ -794,18 +876,23 @@
         saveBtn.textContent = "Checking…";
       }
 
+      const hash = await buildUserSeedHash(username, seed);
+
       const payload = await apiGet({ resource: "users" });
       if (!payload || payload.ok !== true || !Array.isArray(payload.data)) {
         throw new Error("Users API returned invalid data.");
       }
 
-      const normalizedUsername = username.toLowerCase();
-      const isAllowed = payload.data.some(row => String(row?.name || "").trim().toLowerCase() === normalizedUsername);
+      const isAllowed = payload.data.some(row =>
+        String(row?.name || "").trim().toLowerCase() === hash.toLowerCase()
+      );
 
       if (!isAllowed) {
         state.auth.username = "";
+        state.auth.seed = "";
         state.auth.loggedIn = false;
-        state.auth.error = "User not found.";
+        state.auth.error = "Login not recognized.";
+        state.auth.hashPreview = "";
         localStorage.removeItem("arcadesterUsername");
         renderSettingsModal();
         els.settingsUsernameInput?.focus();
@@ -814,14 +901,18 @@
       }
 
       state.auth.username = username;
+      state.auth.seed = "";
       state.auth.loggedIn = true;
       state.auth.error = "";
+      state.auth.hashPreview = "";
       saveAuthState();
       reloadForAuthStateChange();
     } catch (err) {
       state.auth.username = "";
+      state.auth.seed = "";
       state.auth.loggedIn = false;
       state.auth.error = `Login failed. ${err.message}`;
+      state.auth.hashPreview = "";
       localStorage.removeItem("arcadesterUsername");
       renderSettingsModal();
       els.settingsUsernameInput?.focus();
@@ -841,8 +932,11 @@
 
   function logoutUser() {
     state.auth.username = "";
+    state.auth.seed = "";
     state.auth.loggedIn = false;
     state.auth.error = "";
+    state.auth.hashPreview = "";
+    clearVersionTapState();
     localStorage.removeItem("arcadesterUsername");
     reloadForAuthStateChange();
   }
@@ -871,26 +965,49 @@
       logoutBtn?.addEventListener("click", logoutUser);
     } else {
       els.settingsUsernameRow.innerHTML = `
-        <label class="settingsLabel" for="settingsUsernameInput">Username</label>
-        <div class="settingsInputRow">
-          <input id="settingsUsernameInput" class="settingsInput" type="text" autocomplete="username" placeholder="Enter username" value="${escapeAttr(state.auth.username || "")}">
-          <button id="settingsLoginBtn" class="settingsActionBtn" type="button">Login</button>
-        </div>
+  <label class="settingsLabel" for="settingsUsernameInput">Username</label>
+  <div class="settingsLoginRow">
+    <input
+      id="settingsUsernameInput"
+      class="settingsInput settingsUsernameInput"
+      type="text"
+      autocomplete="username"
+      placeholder="Enter username"
+      value="${escapeAttr(state.auth.username || "")}">
+    <input
+      id="settingsSeedInput"
+      class="settingsInput settingsSeedInput"
+      type="password"
+      autocomplete="off"
+      placeholder=""
+      value="${escapeAttr(state.auth.seed || "")}">
+  </div>
         ${state.auth.error ? `<div class="settingsError">${escapeHtml(state.auth.error)}</div>` : ""}
+        ${state.auth.hashPreview ? `<div class="settingsHashPreview">${escapeHtml(state.auth.hashPreview)}</div>` : ""}
       `;
 
-      els.settingsAuthActions.innerHTML = "";
+      els.settingsAuthActions.innerHTML = `
+        <button id="settingsLoginBtn" class="settingsFooterBtn" type="button">
+          Login
+        </button>
+      `;
 
       const usernameInput = document.getElementById("settingsUsernameInput");
+      const seedInput = document.getElementById("settingsSeedInput");
       const loginBtn = document.getElementById("settingsLoginBtn");
+
+      if (loginBtn) {
+        loginBtn.addEventListener("click", loginWithUsername);
+      }
 
       if (usernameInput) {
         els.settingsUsernameInput = usernameInput;
         usernameInput.addEventListener("input", () => {
-          if (state.auth.error) {
+          state.auth.username = usernameInput.value;
+          if (state.auth.error || state.auth.hashPreview) {
             state.auth.error = "";
-            const errorEl = els.settingsUsernameRow?.querySelector(".settingsError");
-            errorEl?.remove();
+            state.auth.hashPreview = "";
+            renderSettingsModal();
           }
         });
         usernameInput.addEventListener("keydown", event => {
@@ -901,7 +1018,27 @@
         });
       }
 
-      loginBtn?.addEventListener("click", loginWithUsername);
+      if (seedInput) {
+        els.settingsSeedInput = seedInput;
+        seedInput.addEventListener("input", () => {
+          state.auth.seed = seedInput.value;
+          if (state.auth.error || state.auth.hashPreview) {
+            state.auth.error = "";
+            state.auth.hashPreview = "";
+            renderSettingsModal();
+          }
+        });
+        seedInput.addEventListener("keydown", event => {
+          if (event.key === "Enter") {
+            event.preventDefault();
+            loginWithUsername();
+          }
+        });
+      }
+
+      els.settingsVersion?.classList.add("settingsVersionClickable");
+      els.settingsVersion?.removeEventListener("click", handleSettingsVersionClick);
+      els.settingsVersion?.addEventListener("click", handleSettingsVersionClick);
     }
   }
 
@@ -918,13 +1055,25 @@
 
   function closeSettingsModal(useHistoryBack = true) {
     const wasOpen = state.settingsOpen;
+
     state.settingsOpen = false;
+
+    if (!state.auth.loggedIn) {
+      state.auth.username = "";
+      state.auth.seed = "";
+      state.auth.error = "";
+      state.auth.hashPreview = "";
+      clearVersionTapState();
+    }
+
     els.settingsModal?.classList.remove("open");
     els.settingsOverlay?.classList.remove("open");
+
     if (useHistoryBack && wasOpen) {
       history.back();
       return;
     }
+
     removeUiRoute('settings');
   }
 

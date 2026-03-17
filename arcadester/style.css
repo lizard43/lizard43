@@ -1831,3 +1831,56 @@ select {
     transform: rotate(360deg);
   }
 }
+
+.settingsLoginRow {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.settingsUsernameInput {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.settingsSeedInput {
+  flex: 0 0 110px;
+  min-width: 90px;
+  text-align: center;
+}
+
+.settingsVersion.settingsVersionClickable {
+  cursor: pointer;
+  user-select: none;
+}
+
+.settingsVersion.settingsVersionClickable:hover {
+  opacity: 0.9;
+}
+
+.settingsHashPreview {
+  margin-top: 10px;
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--panel-2);
+  color: var(--text);
+  font-size: 0.9rem;
+  line-height: 1.35;
+  word-break: break-all;
+}
+
+@media (max-width: 640px) {
+  .settingsLoginRow {
+    align-items: stretch;
+  }
+
+  .settingsUsernameInput {
+    flex: 1 1 auto;
+  }
+
+  .settingsSeedInput {
+    flex: 0 0 96px;
+    min-width: 96px;
+  }
+}
