@@ -20,6 +20,8 @@
     },
     settingsOpen: false,
     editingId: null,
+    editMode: "edit",
+    editOriginalId: null,
     editPhotoDraft: {
       url: "",
       uploading: false
@@ -85,6 +87,7 @@
     settingsCloseBtn: document.getElementById("settingsCloseBtn"),
     editOverlay: document.getElementById("editOverlay"),
     editModal: document.getElementById("editModal"),
+    editModalTitle: document.getElementById("editModalTitle"),
     editForm: document.getElementById("editForm"),
     editGameId: document.getElementById("editGameId"),
     editTitle: document.getElementById("editTitle"),
@@ -831,10 +834,13 @@
       `;
 
       els.settingsAuthActions.innerHTML = `
+        <button id="settingsAddGameBtn" class="settingsActionBtn" type="button">Add New Game</button>
         <button id="settingsLogoutBtn" class="settingsActionBtn settingsLogoutBtn" type="button">Logout</button>
       `;
 
+      const addGameBtn = document.getElementById("settingsAddGameBtn");
       const logoutBtn = document.getElementById("settingsLogoutBtn");
+      addGameBtn?.addEventListener("click", openNewGameModal);
       logoutBtn?.addEventListener("click", logoutUser);
     } else {
       els.settingsUsernameRow.innerHTML = `
@@ -2079,14 +2085,158 @@
     els.editPhotoDropZone?.classList.remove("isDragOver");
   }
 
+  function getSuggestedNewGameId() {
+    const ids = state.allMachines
+      .map(machine => String(machine?.id || "").trim())
+      .filter(Boolean);
+
+    if (!ids.length) {
+      return "m001";
+    }
+
+    const numericIds = ids
+      .map(id => {
+        const match = id.match(/^m(\d+)$/i); // <-- updated pattern
+        return match ? Number(match[1]) : NaN;
+      })
+      .filter(Number.isFinite);
+
+    if (numericIds.length) {
+      const next = Math.max(...numericIds) + 1;
+      return `m${String(next).padStart(3, "0")}`;
+    }
+
+    // fallback if nothing matches pattern
+    return "m001";
+  }
+
+  function ensureEditGameIdInput() {
+    let input = document.getElementById("editGameIdInput");
+    if (input) return input;
+
+    const display = els.editGameId;
+    if (!display || !display.parentElement) return null;
+
+    input = document.createElement("input");
+    input.type = "text";
+    input.id = "editGameIdInput";
+    input.className = "settingsInput";
+    input.autocomplete = "off";
+    input.spellcheck = false;
+    input.style.display = "none";
+
+    display.insertAdjacentElement("afterend", input);
+    return input;
+  }
+
+  function setEditGameIdMode(mode, value) {
+    const display = els.editGameId;
+    const input = ensureEditGameIdInput();
+    const normalizedValue = String(value || "").trim() || "—";
+    const isNew = mode === "new";
+
+    if (display) {
+      display.textContent = normalizedValue;
+      display.style.display = isNew ? "none" : "";
+    }
+
+    if (input) {
+      input.value = normalizedValue === "—" ? "" : normalizedValue;
+      input.style.display = isNew ? "" : "none";
+      input.disabled = !isNew;
+    }
+  }
+
+  function getEditGameIdValue() {
+    if (state.editMode === "new") {
+      const input = document.getElementById("editGameIdInput");
+      return String(input?.value || "").trim();
+    }
+    return String(state.editingId || "").trim();
+  }
+
+  function sortMachinesInPlace() {
+    state.allMachines.sort((a, b) =>
+      String(a?.title || "").localeCompare(String(b?.title || ""), undefined, { sensitivity: "base" })
+    );
+  }
+
+  async function reloadGamesFromApi() {
+    state.allMachines = await window.InventoryLoader.load();
+    sortMachinesInPlace();
+    applyResourceCacheToMachines('expenses');
+    applyResourceCacheToMachines('notes');
+    applyResourceCacheToMachines('photos');
+    populateFilters();
+    applyFilters();
+  }
+
+  function openNewGameModal() {
+    if (!state.auth.loggedIn || !els.editModal) return;
+
+    const draftId = getSuggestedNewGameId();
+
+    state.editMode = "new";
+    state.editingId = draftId;
+    state.editOriginalId = null;
+
+    if (els.editModalTitle) {
+      els.editModalTitle.textContent = "Add New Game";
+    }
+    if (els.editSaveBtn) {
+      els.editSaveBtn.textContent = "Create";
+    }
+
+    setEditGameIdMode("new", draftId);
+    els.editTitle.value = "";
+    els.editLocation.value = "";
+    els.editCondition.value = "";
+    els.editPgId.value = "";
+    state.editPhotoDraft = {
+      url: "",
+      uploading: false
+    };
+    renderEditPhotoControl();
+    els.editNotes.value = "";
+    els.editPurchaseDate.value = "";
+    els.editPurchasePrice.value = "";
+    els.editPurchaseFrom.value = "";
+    els.editSoldDate.value = "";
+    els.editSoldPrice.value = "";
+    els.editSoldTo.value = "";
+
+    closeSettingsModal(false);
+
+    const wasOpen = els.editModal.classList.contains("open");
+    els.editOverlay?.classList.add("open");
+    els.editModal.classList.add("open");
+    if (!wasOpen) {
+      pushUiRoute('edit');
+    }
+
+    const input = ensureEditGameIdInput();
+    (input || els.editTitle)?.focus();
+    input?.select?.();
+  }
+
   function openEditModal(id) {
     if (!state.auth.loggedIn) return;
 
     const machine = getMachineById(id);
     if (!machine || !els.editModal) return;
 
+    state.editMode = "edit";
     state.editingId = id;
-    els.editGameId.textContent = machine.id || "—";
+    state.editOriginalId = id;
+
+    if (els.editModalTitle) {
+      els.editModalTitle.textContent = "Edit Game";
+    }
+    if (els.editSaveBtn) {
+      els.editSaveBtn.textContent = "Save";
+    }
+
+    setEditGameIdMode("edit", machine.id || "—");
     els.editTitle.value = machine.title || "";
     els.editLocation.value = machine.location || "";
     els.editCondition.value = machine.condition || "";
@@ -2116,7 +2266,16 @@
   function closeEditModal(useHistoryBack = true) {
     const wasOpen = els.editModal?.classList.contains("open");
     state.editingId = null;
+    state.editMode = "edit";
+    state.editOriginalId = null;
     state.editPhotoDraft = { url: "", uploading: false };
+    if (els.editModalTitle) {
+      els.editModalTitle.textContent = "Edit Game";
+    }
+    if (els.editSaveBtn) {
+      els.editSaveBtn.textContent = "Save";
+    }
+    setEditGameIdMode("edit", "—");
     els.editModal?.classList.remove("open");
     els.editOverlay?.classList.remove("open");
     els.editForm?.reset();
@@ -2129,7 +2288,7 @@
 
   function buildGamePayloadFromForm(id) {
     return {
-      ID: id,
+      ID: String(id || "").trim(),
       title: String(els.editTitle?.value || "").trim(),
       location: String(els.editLocation?.value || "").trim(),
       condition: String(els.editCondition?.value || "").trim(),
@@ -2160,38 +2319,66 @@
   async function handleEditFormSubmit(event) {
     event.preventDefault();
 
-    const id = state.editingId;
-    const machine = getMachineById(id);
-    if (!id || !machine) return;
+    const isNew = state.editMode === "new";
+    const id = getEditGameIdValue();
+    const machine = isNew ? null : getMachineById(state.editOriginalId || state.editingId);
+    if (!id) {
+      window.alert("Game ID is required.");
+      const idInput = document.getElementById("editGameIdInput");
+      idInput?.focus();
+      return;
+    }
+    if (!isNew && !machine) return;
+
+    const duplicate = state.allMachines.find(item => item.id === id);
+    if (isNew && duplicate) {
+      window.alert(`Game ID ${id} already exists.`);
+      const idInput = document.getElementById("editGameIdInput");
+      idInput?.focus();
+      idInput?.select?.();
+      return;
+    }
 
     const saveBtn = els.editSaveBtn;
-    const originalLabel = saveBtn?.textContent || "Save";
+    const originalLabel = saveBtn?.textContent || (isNew ? "Create" : "Save");
 
     try {
       if (saveBtn) {
         saveBtn.disabled = true;
-        saveBtn.textContent = "Saving…";
+        saveBtn.textContent = isNew ? "Creating…" : "Saving…";
       }
 
       const payload = buildGamePayloadFromForm(id);
-      const result = await apiPost("updateGame", payload);
-      const updated = mergeMachineFromApiRow(machine, result.data || payload);
-      const index = state.allMachines.findIndex(item => item.id === id);
-      if (index >= 0) {
-        state.allMachines[index] = updated;
+      const action = isNew ? "createGame" : "updateGame";
+      const result = await apiPost(action, payload);
+
+      if (isNew) {
+        await reloadGamesFromApi();
+        state.selectedId = id;
+        closeEditModal(false);
+        selectMachine(id, true);
+      } else {
+        const updated = mergeMachineFromApiRow(machine, result.data || payload);
+        const index = state.allMachines.findIndex(item => item.id === state.editOriginalId);
+        if (index >= 0) {
+          state.allMachines[index] = updated;
+        }
+
+        sortMachinesInPlace();
+        populateFilters();
+        applyFilters();
+
+        state.selectedId = updated.id;
+
+        if (state.selectedId === updated.id) {
+          renderDetail(updated);
+          updateSelectedCard();
+        }
+
+        closeEditModal();
       }
-
-      populateFilters();
-      applyFilters();
-
-      if (state.selectedId === id) {
-        renderDetail(updated);
-        updateSelectedCard();
-      }
-
-      closeEditModal();
     } catch (err) {
-      window.alert(`Could not save game. ${err.message}`);
+      window.alert(`Could not ${isNew ? "create" : "save"} game. ${err.message}`);
     } finally {
       if (saveBtn) {
         saveBtn.disabled = false;
@@ -2554,12 +2741,14 @@
 
     try {
       state.allMachines = await trackStartupLoad(window.InventoryLoader.load());
+      sortMachinesInPlace();
       populateFilters();
       applyFilters();
 
       loadPriceguide()
         .then(() => {
           state.allMachines = state.allMachines.map(machine => normalizeMachine(machine));
+          sortMachinesInPlace();
           populateFilters();
           applyFilters();
 

@@ -1393,8 +1393,13 @@ select {
   line-height: 1;
 }
 
-.photoViewerNavBtnPrev { left: 16px; }
-.photoViewerNavBtnNext { right: 16px; }
+.photoViewerNavBtnPrev {
+  left: 16px;
+}
+
+.photoViewerNavBtnNext {
+  right: 16px;
+}
 
 .photoViewerNavBtn.hidden {
   display: none !important;
@@ -1440,8 +1445,13 @@ select {
     font-size: 1.5rem;
   }
 
-  .photoViewerNavBtnPrev { left: 8px; }
-  .photoViewerNavBtnNext { right: 8px; }
+  .photoViewerNavBtnPrev {
+    left: 8px;
+  }
+
+  .photoViewerNavBtnNext {
+    right: 8px;
+  }
 }
 
 .photoEditorToolbar {
@@ -1467,7 +1477,7 @@ select {
 .photoEditorThumbBtn.isDragOver .photoEditorPreview,
 .photoEditorPreview.isDragOver {
   border-color: #7d7d7d;
-  box-shadow: 0 0 0 2px rgba(255,255,255,0.12) inset;
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.12) inset;
 }
 
 .photoUploadStatus {
@@ -1522,7 +1532,7 @@ select {
   height: 42px;
   border-radius: 999px;
   border: 1px solid var(--border);
-  background: rgba(17,17,17,0.88);
+  background: rgba(17, 17, 17, 0.88);
   color: var(--text);
   display: inline-flex;
   align-items: center;
@@ -1533,8 +1543,13 @@ select {
   line-height: 1;
 }
 
-.photoNavBtnPrev { left: 12px; }
-.photoNavBtnNext { right: 12px; }
+.photoNavBtnPrev {
+  left: 12px;
+}
+
+.photoNavBtnNext {
+  right: 12px;
+}
 
 .photoPager {
   color: var(--muted);
@@ -1560,8 +1575,13 @@ select {
     height: 38px;
   }
 
-  .photoNavBtnPrev { left: 8px; }
-  .photoNavBtnNext { right: 8px; }
+  .photoNavBtnPrev {
+    left: 8px;
+  }
+
+  .photoNavBtnNext {
+    right: 8px;
+  }
 
   .photoEditorPreview {
     max-width: none;
@@ -1585,7 +1605,7 @@ select {
 .photoAddDropZone.isDragOver {
   border-color: #7d7d7d;
   background: rgba(255, 255, 255, 0.05);
-  box-shadow: 0 0 0 2px rgba(255,255,255,0.08) inset;
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.08) inset;
 }
 
 .photoAddDropText {
@@ -1664,7 +1684,7 @@ select {
 .editPhotoDropZone.isDragOver {
   border-color: #7d7d7d;
   background: rgba(255, 255, 255, 0.05);
-  box-shadow: 0 0 0 2px rgba(255,255,255,0.08) inset;
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.08) inset;
 }
 
 .editPhotoDropZone.isUploading {
@@ -1700,21 +1720,26 @@ select {
 .startupToast {
   position: fixed;
   left: 50%;
-  bottom: 20px;
-  transform: translateX(-50%) translateY(16px);
+  top: calc(var(--topbar-h) - 8px);
+  /* sits just over search bar */
+  transform: translateX(-50%) translateY(-16px);
+
   display: inline-flex;
   align-items: center;
   gap: 10px;
   min-height: 44px;
   padding: 0 16px;
+
   border: 1px solid var(--border);
   border-radius: 999px;
   background: rgba(26, 26, 26, 0.96);
   color: var(--text);
   box-shadow: var(--shadow);
+
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.18s ease, transform 0.18s ease;
+
   z-index: 120;
 }
 
