@@ -2111,48 +2111,22 @@
   }
 
   function ensureEditGameIdInput() {
-    let input = document.getElementById("editGameIdInput");
-    if (input) return input;
-
-    const display = els.editGameId;
-    if (!display || !display.parentElement) return null;
-
-    input = document.createElement("input");
-    input.type = "text";
-    input.id = "editGameIdInput";
-    input.className = "settingsInput";
-    input.autocomplete = "off";
-    input.spellcheck = false;
-    input.style.display = "none";
-
-    display.insertAdjacentElement("afterend", input);
-    return input;
+    return els.editGameId || null;
   }
 
   function setEditGameIdMode(mode, value) {
-    const display = els.editGameId;
     const input = ensureEditGameIdInput();
-    const normalizedValue = String(value || "").trim() || "—";
-    const isNew = mode === "new";
+    if (!input) return;
 
-    if (display) {
-      display.textContent = normalizedValue;
-      display.style.display = isNew ? "none" : "";
-    }
+    const normalizedValue = String(value || "").trim();
 
-    if (input) {
-      input.value = normalizedValue === "—" ? "" : normalizedValue;
-      input.style.display = isNew ? "" : "none";
-      input.disabled = !isNew;
-    }
+    input.value = normalizedValue;
+    input.readOnly = mode !== "new";
+    input.disabled = false;
   }
 
   function getEditGameIdValue() {
-    if (state.editMode === "new") {
-      const input = document.getElementById("editGameIdInput");
-      return String(input?.value || "").trim();
-    }
-    return String(state.editingId || "").trim();
+    return String(els.editGameId?.value || "").trim();
   }
 
   function sortMachinesInPlace() {
