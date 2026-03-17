@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-03-16T23:07:29.091Z",
+  "generated_at": "2026-03-17T00:07:38.414Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,33 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 36,
-      "droppedPrice": 195,
+      "exported_ads": 37,
+      "droppedPrice": 200,
       "droppedMissingGeo": 0,
-      "droppedCircle": 121
+      "droppedCircle": 107
     }
   },
   "ads": [
+    {
+      "adID": "1248001270789397",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100000301698547/?product_id=1248001270789397",
+      "author": "Sathu Bhogapathi",
+      "postedTime": "2026-03-16T23:52:00.000Z",
+      "title": "Wave Runner Snorkel Set - Mask & Snorkel",
+      "description": "Fun snorkel set. Has a black mask with orange trim and a black snorkel. Snorkel is Wave Runner brand. Mask lenses show some scratches.",
+      "price": "$10",
+      "lat": 34.2073196,
+      "lon": -84.1401926,
+      "location": "Cumming, GA",
+      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/653811537_941368488259890_720435328398528415_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=108&ccb=1-7&_nc_sid=92e707&_nc_ohc=_f13YlXwMrEQ7kNvwFQWEXp&_nc_oc=AdkZSGh6NY95IHBL4XU7tjTRjPtGoHAEN0rG1QLBtnVuHT_S_YftZSFDS0ti5hgEJLQ&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=mpSlMywKgqN6zaqahr9NaQ&_nc_ss=8&oh=00_AfwO2f_biwMYN9lOsUp-YQkbMdCxl0uiNb-tAI3Pa-8VLw&oe=69BE864B",
+      "adUrl": "https://www.facebook.com/marketplace/item/1248001270789397/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-03-17 00:05:40",
+      "lastSeen": "2026-03-17T00:07:00.043Z"
+    },
     {
       "adID": "4238530446402052",
       "source": "MP",
