@@ -474,24 +474,25 @@
     return isMobileUA || isIPadOS;
   }
 
-  async function openCameraCapture() {
-    if (!supportsCameraCapture()) return;
-    if (!state.photoEditingId) return;
+  function openImageFilePicker(options = {}) {
+    const { capture = null, onSelect } = options;
+    if (typeof onSelect !== 'function') return;
 
-    const cameraBtn = document.getElementById("photoCameraBtn");
-    if (cameraBtn?.disabled) return;
+    const input = document.createElement('input');
+    input.type = 'file';
+    input.accept = 'image/*';
+    if (capture) {
+      input.setAttribute('capture', capture);
+    }
+    input.style.position = 'fixed';
+    input.style.left = '-9999px';
+    input.style.top = '0';
 
-    const input = document.createElement("input");
-    input.type = "file";
-    input.accept = "image/*";
-    input.setAttribute("capture", "environment");
-    input.style.position = "fixed";
-    input.style.left = "-9999px";
-    input.style.top = "0";
-
-    input.addEventListener("change", async event => {
+    input.addEventListener('change', async event => {
       try {
-        await handleCameraInputChange(event);
+        const file = event.target?.files?.[0];
+        if (!file) return;
+        await onSelect(file);
       } finally {
         window.setTimeout(() => input.remove(), 0);
       }
@@ -501,8 +502,22 @@
     input.click();
   }
 
-  async function handleCameraInputChange(event) {
-    const file = event.target?.files?.[0];
+  async function openCameraCapture() {
+    if (!supportsCameraCapture()) return;
+    if (!state.photoEditingId) return;
+
+    const cameraBtn = document.getElementById("photoCameraBtn");
+    if (cameraBtn?.disabled) return;
+
+    openImageFilePicker({
+      capture: 'environment',
+      onSelect: async file => {
+        await handleCameraFileSelected(file);
+      }
+    });
+  }
+
+  async function handleCameraFileSelected(file) {
     if (!file) return;
 
     if (!file.type || !file.type.startsWith("image/")) {
@@ -1348,6 +1363,62 @@
     return row;
   }
 
+  async function browsePhotoForDraftRow(index) {
+    if (!Number.isInteger(index) || !state.photoDraftRows[index]) return;
+    const row = state.photoDraftRows[index];
+    if (row._delete || row._uploading) return;
+
+    openImageFilePicker({
+      onSelect: async file => {
+        try {
+          setPhotoDraftUploading(index, true);
+          const url = await uploadPhotoToImgBB(file);
+          const currentRow = state.photoDraftRows[index];
+          if (!currentRow) return;
+
+          currentRow.url = url;
+          refreshPhotoDraftDirty(currentRow);
+
+          if (!currentRow.photoID) {
+            await persistNewPhotoDraftRow(currentRow);
+          }
+
+          currentRow._uploading = false;
+          renderPhotoEditorRows();
+          document.getElementById(`photoUrl_${index}`)?.focus();
+        } catch (err) {
+          const currentRow = state.photoDraftRows[index];
+          if (currentRow) {
+            currentRow._uploading = false;
+          }
+          renderPhotoEditorRows();
+          window.alert(`Could not upload photo. ${err.message}`);
+        }
+      }
+    });
+  }
+
+  function handlePhotoPreviewClick(event) {
+    const index = Number(event.currentTarget.dataset.photoPreviewIndex);
+    if (!Number.isInteger(index) || !state.photoDraftRows[index]) return;
+
+    const row = state.photoDraftRows[index];
+    if (row._delete || row._uploading) return;
+
+    if (String(row.url || '').trim()) {
+      openPhotoViewerFromDraft(index);
+      return;
+    }
+
+    browsePhotoForDraftRow(index);
+  }
+
+  function handlePhotoPreviewKeyDown(event) {
+    if (event.key !== 'Enter' && event.key !== ' ') return;
+    event.preventDefault();
+    handlePhotoPreviewClick(event);
+  }
+
   async function handlePhotoDrop(event) {
     event.preventDefault();
     const index = Number(event.currentTarget?.dataset?.index);
@@ -1403,7 +1474,7 @@
     const rows = state.photoDraftRows;
     els.photoRows.innerHTML = `
   <div class="photoEditorToolbar">
-    <div class="photoAddDropZone" id="photoAddDropZone">
+    <div class="photoAddDropZone" id="photoAddDropZone" role="button" tabindex="0" aria-label="Drop image or Click to Browse">
       <div class="photoToolbarButtons">
         <button class="expenseAddBtn expenseAddBtnTop" type="button" id="photoAddBtn" aria-label="Add photo row" title="Add photo">
           <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
@@ -1441,7 +1512,7 @@
           <button class="photoEditorThumbBtn ${row._uploading ? 'isUploading' : ''}" type="button" data-photo-preview-index="${index}" data-index="${index}" aria-label="Preview photo ${index + 1}" ${row._delete ? 'disabled' : ''}>
             <div class="photoEditorPreview" data-index="${index}">
               <img src="${escapeAttr(getPhotoUrl(row.url))}" alt="${escapeAttr(row.photoID ? row.photoID : `Photo ${index + 1}`)}" loading="lazy">
-              <div class="photoDropHint">Drop image here</div>
+              <div class="photoDropHint">Drop image</div>
             </div>
           </button>
 
@@ -1465,10 +1536,8 @@
     });
 
     els.photoRows.querySelectorAll("[data-photo-preview-index]").forEach(btn => {
-      btn.addEventListener("click", event => {
-        const index = Number(event.currentTarget.dataset.photoPreviewIndex);
-        openPhotoViewerFromDraft(index);
-      });
+      btn.addEventListener("click", handlePhotoPreviewClick);
+      btn.addEventListener('keydown', handlePhotoPreviewKeyDown);
       btn.addEventListener('dragover', handlePhotoDragOver);
       btn.addEventListener('dragleave', handlePhotoDragLeave);
       btn.addEventListener('drop', handlePhotoDrop);
@@ -1478,6 +1547,8 @@
     document.getElementById("photoCameraBtn")?.addEventListener("click", openCameraCapture);
 
     const photoAddDropZone = document.getElementById('photoAddDropZone');
+    photoAddDropZone?.addEventListener('click', handlePhotoAddBrowseClick);
+    photoAddDropZone?.addEventListener('keydown', handlePhotoAddBrowseKeyDown);
     photoAddDropZone?.addEventListener('dragover', handlePhotoAddDragOver);
     photoAddDropZone?.addEventListener('dragleave', handlePhotoAddDragLeave);
     photoAddDropZone?.addEventListener('drop', handlePhotoAddDrop);
@@ -1568,6 +1639,7 @@
     state.photoDraftRows.unshift(makeLocalPhotoRow(state.photoEditingId));
     renderPhotoEditorRows();
     document.getElementById('photoUrl_0')?.focus();
+    browsePhotoForDraftRow(0);
   }
 
   function createPendingPhotoDraftAtTop() {
@@ -1604,6 +1676,17 @@
       renderPhotoEditorRows();
       throw err;
     }
+  }
+
+  function handlePhotoAddBrowseClick() {
+    if (!state.photoEditingId) return;
+    handlePhotoDraftAdd();
+  }
+
+  function handlePhotoAddBrowseKeyDown(event) {
+    if (event.key !== 'Enter' && event.key !== ' ') return;
+    event.preventDefault();
+    handlePhotoAddBrowseClick();
   }
 
   function handlePhotoAddDrop(event) {
@@ -1942,35 +2025,31 @@
   function promptEditPhotoFile(options = {}) {
     if (state.editPhotoDraft?.uploading) return;
 
-    const input = document.createElement("input");
-    input.type = "file";
-    input.accept = "image/*";
-    if (options.capture) {
-      input.setAttribute("capture", options.capture);
-    }
-    input.style.position = "fixed";
-    input.style.left = "-9999px";
-    input.style.top = "0";
-
-    input.addEventListener("change", async event => {
-      try {
-        const file = event.target?.files?.[0];
-        if (!file) return;
-        await setEditPhotoFromFile(file);
-      } catch (err) {
-        window.alert(`Could not upload photo. ${err.message}`);
-      } finally {
-        window.setTimeout(() => input.remove(), 0);
+    openImageFilePicker({
+      capture: options.capture || null,
+      onSelect: async file => {
+        try {
+          await setEditPhotoFromFile(file);
+        } catch (err) {
+          window.alert(`Could not upload photo. ${err.message}`);
+        }
       }
-    }, { once: true });
-
-    document.body.appendChild(input);
-    input.click();
+    });
   }
 
   function handleEditPhotoCameraClick() {
     if (!supportsCameraCapture()) return;
     promptEditPhotoFile({ capture: "environment" });
+  }
+
+  function handleEditPhotoBrowseClick() {
+    promptEditPhotoFile();
+  }
+
+  function handleEditPhotoBrowseKeyDown(event) {
+    if (event.key !== 'Enter' && event.key !== ' ') return;
+    event.preventDefault();
+    handleEditPhotoBrowseClick();
   }
 
   function handleEditPhotoUrlInput(event) {
@@ -2562,6 +2641,8 @@
     els.editOverlay?.addEventListener("click", closeEditModal);
     els.editForm?.addEventListener("submit", handleEditFormSubmit);
     els.editPhotoCameraBtn?.addEventListener("click", handleEditPhotoCameraClick);
+    els.editPhotoDropZone?.addEventListener("click", handleEditPhotoBrowseClick);
+    els.editPhotoDropZone?.addEventListener("keydown", handleEditPhotoBrowseKeyDown);
     els.editPhotoUrl?.addEventListener("input", handleEditPhotoUrlInput);
     els.editPhotoDropZone?.addEventListener("dragover", handleEditPhotoDragOver);
     els.editPhotoDropZone?.addEventListener("dragleave", handleEditPhotoDragLeave);
