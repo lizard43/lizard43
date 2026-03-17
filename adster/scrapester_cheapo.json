@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-03-17T15:28:31.311Z",
+  "generated_at": "2026-03-17T16:07:34.409Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,19 +11,39 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 37,
-      "droppedPrice": 216,
+      "exported_ads": 38,
+      "droppedPrice": 220,
       "droppedMissingGeo": 0,
-      "droppedCircle": 104
+      "droppedCircle": 110
     }
   },
   "ads": [
+    {
+      "adID": "26291660883788109",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100000824291761/?product_id=26291660883788109",
+      "author": "Melinda Hallman Morris",
+      "postedTime": "2026-03-17T05:49:35.000Z",
+      "title": "Metal Santa sleigh. Pick up in Southside (Gadsden) I have 2 $10 for both",
+      "description": "Metal Santa sleigh. Pick up in Southside (Gadsden) I have 2 $10 for both",
+      "price": "$10",
+      "lat": 34.0128323,
+      "lon": -86.0030251,
+      "location": "Gadsden, AL",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/652942320_2003952067184171_6180970257054646671_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=110&ccb=1-7&_nc_sid=92e707&_nc_ohc=Yb5NS4T4c9wQ7kNvwGWs8uG&_nc_oc=AdkrqDSdnPvMNEUG7zzJCA1KlDD_FJ9dp6n7xiAq-NOI8yQY70bIwghRRYOWaK233QI&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=XOPzL-lBYmI0ABNvaIXSkQ&_nc_ss=8&oh=00_AfywE0qEVy7arnFdkwOCFUrh_jYht3Lgl3dBuzH16J75fw&oe=69BF5F3F",
+      "adUrl": "https://www.facebook.com/marketplace/item/26291660883788109/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-03-17 16:06:31",
+      "lastSeen": "2026-03-17T16:06:48.643Z"
+    },
     {
       "adID": "PI-189392",
       "source": "PS",
       "authorUrl": "https://pinside.com/pinball/community/pinsiders/militiaman/market",
       "author": "MilitiaMan",
-      "postedTime": "2026-03-17T14:09:14.958Z",
+      "postedTime": "2026-03-17T15:07:14.331Z",
       "title": "Williams System 11b Pinball Transformer (Tested, Working)",
       "description": "Used, good condition - “This is a fully tested and working pinball transformer pulled from a Williams Police Force. This transformer will work with other Williams System 11b pinball machines as it outputs...”",
       "price": "$200",
@@ -36,14 +56,14 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-17 15:07:15",
-      "lastSeen": "2026-03-17T15:07:15.159Z"
+      "lastSeen": "2026-03-17T16:07:15.336Z"
     },
     {
       "adID": "PI-189391",
       "source": "PS",
       "authorUrl": "https://pinside.com/pinball/community/pinsiders/militiaman/market",
       "author": "MilitiaMan",
-      "postedTime": "2026-03-17T14:09:14.958Z",
+      "postedTime": "2026-03-17T15:07:14.331Z",
       "title": "Capcom Pinball Transformer XF00105 (Tested, Working)",
       "description": "Used, good condition - “This is a fully tested and working pinball transformer from a Capcom Breakshot. This transformer will likely work with other Capcom pinball machines as it outputs the correct volta...”",
       "price": "$150",
@@ -56,7 +76,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-17 15:07:15",
-      "lastSeen": "2026-03-17T15:07:15.192Z"
+      "lastSeen": "2026-03-17T16:07:15.370Z"
     },
     {
       "adID": "1716037859381540",
