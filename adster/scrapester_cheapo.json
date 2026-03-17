@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-03-17T02:06:35.957Z",
+  "generated_at": "2026-03-17T07:28:06.652Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,73 +11,13 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 38,
-      "droppedPrice": 207,
+      "exported_ads": 34,
+      "droppedPrice": 205,
       "droppedMissingGeo": 0,
-      "droppedCircle": 104
+      "droppedCircle": 103
     }
   },
   "ads": [
-    {
-      "adID": "1808808526481429",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/1551104725/?product_id=1808808526481429",
-      "author": "Thinh Tran",
-      "postedTime": "2026-03-17T00:58:42.000Z",
-      "title": "Tinmoo lures",
-      "description": "14cm Works great for kings and tuna",
-      "price": "$10",
-      "lat": 30.4019789,
-      "lon": -86.8700821,
-      "location": "Navarre, FL",
-      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/651771069_1408561627240035_2439295751753997624_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=106&ccb=1-7&_nc_sid=92e707&_nc_ohc=ysSrikMER24Q7kNvwFFlM7M&_nc_oc=AdmIJJEXLuM5BAqVYundicIKiJ1d9o2hJL6Haa9TbaVdrkk0Tu3tlgJTTklC1z01vYE&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=WlKEttrVZzYovzQm6XRUkA&_nc_ss=8&oh=00_Afw1uGpSO1dciqQwgKdhI-Fa1D19qmBLPnjVZ7O2P-XMaQ&oe=69BE7A16",
-      "adUrl": "https://www.facebook.com/marketplace/item/1808808526481429/",
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-03-17 01:07:09",
-      "lastSeen": "2026-03-17T01:08:58.714Z"
-    },
-    {
-      "adID": "1466909284828999",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/61560545015727/?product_id=1466909284828999",
-      "author": "Miriam Ortiz",
-      "postedTime": "2026-03-17T00:36:34.000Z",
-      "title": "Patinetas para niños",
-      "description": "Tienen detalles de uso pero aún ruedan bien en las fotos se aprecian los detalles",
-      "price": "$5",
-      "lat": 30.3321838,
-      "lon": -81.655651,
-      "location": "Jacksonville, FL",
-      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/651218386_1235211185466472_1903256565515934993_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=103&ccb=1-7&_nc_sid=92e707&_nc_ohc=yn0ffF7hYX4Q7kNvwHza8XL&_nc_oc=AdlOaEJ1osjy23UG5BGgW81jz-QACGRLN_36A5E8JHLF55C9oxAu9QPVHG0zydQaAAo&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=j957kTFr9Bdboy2eIOdQwA&_nc_ss=8&oh=00_AfzrhDS2C4U9r_fGy02shmr1XBLKmv8KamnUalwFZFOelg&oe=69BE754E",
-      "adUrl": "https://www.facebook.com/marketplace/item/1466909284828999/",
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-03-17 01:07:09",
-      "lastSeen": "2026-03-17T01:08:58.896Z"
-    },
-    {
-      "adID": "1651907252630577",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/100068684087009/?product_id=1651907252630577",
-      "author": "Ashlee Watson",
-      "postedTime": "2026-03-17T00:40:55.000Z",
-      "title": "PSP with game and charger",
-      "description": "Porch pick up in Yatesville",
-      "price": "$130",
-      "lat": 32.8881879,
-      "lon": -84.3265855,
-      "location": "Thomaston, GA",
-      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/651405674_941574675068260_8398488451713186149_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=101&ccb=1-7&_nc_sid=92e707&_nc_ohc=V05NpPU_PtkQ7kNvwHZeykk&_nc_oc=Adnro0rma4sYn4yJTZKkIE_k4gjwBY6yvtljOvFbkj6xwYEhxVRkIUn-DsOYEWicr1c&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=kqQOgB2VwPo5NNDv61lOEw&_nc_ss=8&oh=00_Afw3cd74D4Ufypg5Wl9H-6stnim8D1lwehBhvUKO9VSkVA&oe=69BE96CF",
-      "adUrl": "https://www.facebook.com/marketplace/item/1651907252630577/",
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-03-17 01:05:18",
-      "lastSeen": "2026-03-17T01:06:38.192Z"
-    },
     {
       "adID": "1716037859381540",
       "source": "MP",
@@ -117,26 +57,6 @@
       "hidden": 0,
       "created_at": "2026-03-16 16:04:54",
       "lastSeen": "2026-03-17T02:05:29.783Z"
-    },
-    {
-      "adID": "1248488034039426",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/61553017989698/?product_id=1248488034039426",
-      "author": "Rocky James",
-      "postedTime": "2026-03-15T20:14:16.000Z",
-      "title": "Ascended Heroes PC ETB",
-      "description": "2x sealed ascended heroes ETB Open to trades",
-      "price": "$580",
-      "lat": 33.9887165,
-      "lon": -83.8979573,
-      "location": "Dacula, GA",
-      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/652374088_2838879223127899_5696100213354946431_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=102&ccb=1-7&_nc_sid=92e707&_nc_ohc=Nf3eiBxFKd8Q7kNvwE-Ro8_&_nc_oc=Adn96rtVttpbpUjPTCCqcvHn-0o0G7TvKopm_aTEYrmCrJq-vMXUATnMxZlx7Uz_1Mg&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=B6teUQRvIt-_UOYmJo68_w&_nc_ss=8&oh=00_AfxdRZq6qMiDYhSYaP_uhY8mgNM0ccfl3obbDYAcMwdc3g&oe=69BD07EC",
-      "adUrl": "https://www.facebook.com/marketplace/item/1248488034039426/",
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-03-15 21:04:29",
-      "lastSeen": "2026-03-15T21:04:43.470Z"
     },
     {
       "adID": "1470005248132316",
@@ -630,13 +550,13 @@
       "lat": 28.187755,
       "lon": -82.7416081,
       "location": "Holiday, FL",
-      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/612205263_2641541166199151_8920218618620303650_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=111&ccb=1-7&_nc_sid=92e707&_nc_ohc=7CAR0cK-IzkQ7kNvwHZKq55&_nc_oc=AdkLW1Ziikcd3tOqyVcq-tYufiEG2sc-VVJnsPy-uFmFl0ZDm4kiSp6E3ovhWlWYBSw&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=Ukhn_qaR4ildofQ33Bl-3g&_nc_ss=8&oh=00_AfyTpwT6_bhfhRWStU8RkZ0IPzZzbpTd9wiWVv3vPcA_hQ&oe=69BCEFF7",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/612205263_2641541166199151_8920218618620303650_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=111&ccb=1-7&_nc_sid=92e707&_nc_ohc=FjUf3hjV3mkQ7kNvwHR43TC&_nc_oc=AdmcE96a5vZYqpWTyBXBKb2zWTz-WrlLOu-zWdAVtJmpXEkO0RHMFDPB4OjZyIqdzsw&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=bOgkxHYji2AM7Zp_Z-SLNQ&_nc_ss=8&oh=00_AfxOSZJu6jA31CBASbK3cSE4Tt9GYtxKvCZv94ZZHRwE4A&oe=69BEEA37",
       "adUrl": "https://www.facebook.com/marketplace/item/1920698478541387/",
       "priceChanged": 0,
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-21 17:04:57",
-      "lastSeen": "2026-03-15T20:24:29.389Z"
+      "lastSeen": "2026-03-17T07:27:49.316Z"
     },
     {
       "adID": "KLOV-560677",
@@ -710,13 +630,13 @@
       "lat": 34.2978794,
       "lon": -83.8240663,
       "location": "Gainesville, GA",
-      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/571239722_2955250184672769_4689043281146817909_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=109&ccb=1-7&_nc_sid=92e707&_nc_ohc=VlBIqZGD8OgQ7kNvwEfjukx&_nc_oc=AdladH4Y9AQMWTIUna6az8Xc60ideDEFcGALQ9dPEk6lRQ3MnrHq3ziw1EbB_Ayqvu4&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=RgK8Ms1R-HFzbkn938FdQw&_nc_ss=8&oh=00_AfyCjKfvd7KhyoZsaBufdl0DRGOtBkk9HNEozMKKXdHbEw&oe=69BCE536",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/571239722_2955250184672769_4689043281146817909_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=109&ccb=1-7&_nc_sid=92e707&_nc_ohc=R63NLNYULPYQ7kNvwGsCLbv&_nc_oc=AdlXqGw5_sgcCzeVL2wfiAUTi8fiAMq-6qAo2ur56Ti4Y1I_D63KCrLMDe8dU9lWMrE&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=grbn6OyOMdtzG4v_DepLuA&_nc_ss=8&oh=00_Afy9brutIgqEM8wP38tqAj2fEqtQJlY0xBJRt0niGQVxug&oe=69BEDF76",
       "adUrl": "https://www.facebook.com/marketplace/item/1285196646716293/",
       "priceChanged": 0,
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-02-18 21:04:43",
-      "lastSeen": "2026-03-15T20:24:29.489Z"
+      "lastSeen": "2026-03-17T07:27:49.459Z"
     },
     {
       "adID": "2026958544812237",
