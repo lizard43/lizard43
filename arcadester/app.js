@@ -43,8 +43,29 @@
       touchStartY: 0
     },
     imagePreloadCache: new Set(),
-    expenseLoadConcurrency: 4,
-    noteLoadConcurrency: 4
+    resourceCache: {
+      expensesAll: null,
+      expensesByGame: new Map(),
+      notesAll: null,
+      notesByGame: new Map(),
+      photosAll: null,
+      photosByGame: new Map(),
+      expensesLoaded: false,
+      notesLoaded: false,
+      photosLoaded: false,
+      loading: {
+        expenses: null,
+        notes: null,
+        photos: null
+      }
+    }
+  };
+
+
+  const startupLoadState = {
+    pendingCount: 0,
+    toastEl: null,
+    textEl: null
   };
 
   const els = {
@@ -119,6 +140,56 @@
   };
 
 
+
+  function ensureStartupToast() {
+    if (startupLoadState.toastEl && document.body.contains(startupLoadState.toastEl)) {
+      return startupLoadState.toastEl;
+    }
+
+    const toast = document.createElement('div');
+    toast.className = 'startupToast';
+    toast.setAttribute('role', 'status');
+    toast.setAttribute('aria-live', 'polite');
+    toast.setAttribute('aria-atomic', 'true');
+    toast.innerHTML = `
+      <div class="startupToastSpinner" aria-hidden="true"></div>
+      <div class="startupToastText">Loading data</div>
+    `;
+
+    startupLoadState.toastEl = toast;
+    startupLoadState.textEl = toast.querySelector('.startupToastText');
+    document.body.appendChild(toast);
+    return toast;
+  }
+
+  function setStartupToastVisible(isVisible, message = 'Loading data') {
+    const toast = ensureStartupToast();
+    if (startupLoadState.textEl) {
+      startupLoadState.textEl.textContent = message;
+    }
+    toast.classList.toggle('visible', !!isVisible);
+  }
+
+  function beginStartupLoad(message = 'Loading data') {
+    startupLoadState.pendingCount += 1;
+    document.body.style.visibility = 'visible';
+    setStartupToastVisible(true, message);
+  }
+
+  function endStartupLoad() {
+    startupLoadState.pendingCount = Math.max(0, startupLoadState.pendingCount - 1);
+    if (startupLoadState.pendingCount === 0 && startupLoadState.toastEl) {
+      startupLoadState.toastEl.classList.remove('visible');
+    }
+  }
+
+  function trackStartupLoad(promise, message = 'Loading data') {
+    beginStartupLoad(message);
+    return Promise.resolve(promise).finally(() => {
+      endStartupLoad();
+    });
+  }
+
   function pushUiRoute(layer) {
     if (!layer) return;
     state.uiRouteStack.push(layer);
@@ -179,79 +250,200 @@
   }
 
 
-  async function preloadNotesForMachinesInBackground(machines, concurrency = state.noteLoadConcurrency) {
-    const queue = machines.filter(machine => machine?.id);
-    let nextIndex = 0;
-
-    async function worker() {
-      while (nextIndex < queue.length) {
-        const currentIndex = nextIndex++;
-        const machine = queue[currentIndex];
-        await hydrateMachineNotes(machine);
-        patchMachineUI(machine, { detailSections: ["notes"] });
-      }
+  function resetResourceCacheSection(resourceName) {
+    const cache = state.resourceCache;
+    if (resourceName === 'expenses') {
+      cache.expensesAll = null;
+      cache.expensesByGame = new Map();
+      cache.expensesLoaded = false;
+      cache.loading.expenses = null;
+      return;
     }
-
-    const workerCount = Math.max(1, Math.min(concurrency, queue.length));
-    await Promise.all(Array.from({ length: workerCount }, () => worker()));
+    if (resourceName === 'notes') {
+      cache.notesAll = null;
+      cache.notesByGame = new Map();
+      cache.notesLoaded = false;
+      cache.loading.notes = null;
+      return;
+    }
+    if (resourceName === 'photos') {
+      cache.photosAll = null;
+      cache.photosByGame = new Map();
+      cache.photosLoaded = false;
+      cache.loading.photos = null;
+    }
   }
 
+  function groupRowsByGameId(rows, normalizer, sorter) {
+    const map = new Map();
+
+    (Array.isArray(rows) ? rows : []).forEach(row => {
+      const normalized = normalizer ? normalizer(row) : row;
+      const gameID = String(normalized?.gameID || '').trim();
+      if (!gameID) return;
+      if (!map.has(gameID)) {
+        map.set(gameID, []);
+      }
+      map.get(gameID).push(normalized);
+    });
+
+    if (typeof sorter === 'function') {
+      map.forEach((list, key) => {
+        map.set(key, [...list].sort(sorter));
+      });
+    }
+
+    return map;
+  }
+
+  function applyExpenseCacheToMachine(machine) {
+    if (!machine?.id) return;
+    const expenses = state.resourceCache.expensesByGame.get(String(machine.id).trim()) || [];
+    machine.expenses = expenses;
+    machine.totalExpenses = sumExpenses(expenses) || 0;
+    machine.totalCost = addMoney(machine.purchasePrice, machine.totalExpenses);
+  }
+
+  function applyNoteCacheToMachine(machine) {
+    if (!machine?.id) return;
+    machine.apiNotes = state.resourceCache.notesByGame.get(String(machine.id).trim()) || [];
+  }
+
+  function applyPhotoCacheToMachine(machine) {
+    if (!machine?.id) return [];
+    const photos = state.resourceCache.photosByGame.get(String(machine.id).trim()) || [];
+    machine.photos = photos;
+    machine.photoStatus = 'loaded';
+    const maxIndex = Math.max(0, photos.length - 1);
+    machine.photoCarouselIndex = Math.max(0, Math.min(Number(machine.photoCarouselIndex || 0), maxIndex));
+    return photos;
+  }
+
+  function applyResourceCacheToMachines(resourceName, machines = state.allMachines) {
+    const list = Array.isArray(machines) ? machines : [];
+    if (resourceName === 'expenses') {
+      list.forEach(applyExpenseCacheToMachine);
+      return;
+    }
+    if (resourceName === 'notes') {
+      list.forEach(applyNoteCacheToMachine);
+      return;
+    }
+    if (resourceName === 'photos') {
+      list.forEach(applyPhotoCacheToMachine);
+    }
+  }
+
+  async function loadAllExpenses(force = false) {
+    const cache = state.resourceCache;
+    if (!force && cache.expensesLoaded) return cache.expensesAll || [];
+    if (!force && cache.loading.expenses) return cache.loading.expenses;
+
+    cache.loading.expenses = (async () => {
+      const payload = await apiGet({ resource: 'expenses' });
+      if (!payload || payload.ok !== true || !Array.isArray(payload.data)) {
+        throw new Error('Expenses API returned invalid data.');
+      }
+
+      const rows = payload.data
+        .filter(row => row && (row.expenseID !== '' || row.description || row.amount !== ''))
+        .map(normalizeExpense);
+
+      cache.expensesAll = rows;
+      cache.expensesByGame = groupRowsByGameId(rows, null, (a, b) => {
+        const diff = getSortableDateValue(b?.date) - getSortableDateValue(a?.date);
+        if (diff !== 0) return diff;
+        return String(b?.expenseID || '').localeCompare(String(a?.expenseID || ''));
+      });
+      cache.expensesLoaded = true;
+      applyResourceCacheToMachines('expenses');
+      return rows;
+    })();
+
+    try {
+      return await cache.loading.expenses;
+    } finally {
+      cache.loading.expenses = null;
+    }
+  }
+
+  async function loadAllNotes(force = false) {
+    const cache = state.resourceCache;
+    if (!force && cache.notesLoaded) return cache.notesAll || [];
+    if (!force && cache.loading.notes) return cache.loading.notes;
+
+    cache.loading.notes = (async () => {
+      const payload = await apiGet({ resource: 'notes' });
+      if (!payload || payload.ok !== true || !Array.isArray(payload.data)) {
+        throw new Error('Notes API returned invalid data.');
+      }
+
+      const rows = payload.data
+        .filter(row => row && (row.noteID !== '' || row.note || row.category || row.date))
+        .map(normalizeNote);
+
+      cache.notesAll = rows;
+      cache.notesByGame = groupRowsByGameId(rows);
+      cache.notesLoaded = true;
+      applyResourceCacheToMachines('notes');
+      return rows;
+    })();
+
+    try {
+      return await cache.loading.notes;
+    } finally {
+      cache.loading.notes = null;
+    }
+  }
+
+  async function loadAllPhotos(force = false) {
+    const cache = state.resourceCache;
+    if (!force && cache.photosLoaded) return cache.photosAll || [];
+    if (!force && cache.loading.photos) return cache.loading.photos;
+
+    cache.loading.photos = (async () => {
+      const payload = await apiGet({ resource: 'photos' });
+      if (!payload || payload.ok !== true || !Array.isArray(payload.data)) {
+        throw new Error('Photos API returned invalid data.');
+      }
+
+      const rows = payload.data
+        .filter(row => row && (row.photoID !== '' || row.url))
+        .map(normalizePhoto)
+        .sort((a, b) => Number(a.photoID || 0) - Number(b.photoID || 0) || String(a.photoID || '').localeCompare(String(b.photoID || '')));
+
+      cache.photosAll = rows;
+      cache.photosByGame = groupRowsByGameId(rows, null, (a, b) => Number(a.photoID || 0) - Number(b.photoID || 0) || String(a.photoID || '').localeCompare(String(b.photoID || '')));
+      cache.photosLoaded = true;
+      applyResourceCacheToMachines('photos');
+      return rows;
+    })();
+
+    try {
+      return await cache.loading.photos;
+    } finally {
+      cache.loading.photos = null;
+    }
+  }
 
   async function hydrateMachineNotes(machine) {
     if (!machine?.id) return;
 
     try {
-      machine.apiNotes = await loadNotesForGame(machine.id);
+      await loadAllNotes();
+      applyNoteCacheToMachine(machine);
     } catch (err) {
       console.warn(`Could not load notes for ${machine.id}: ${err.message}`);
       machine.apiNotes = [];
     }
   }
 
-  async function loadNotesForGame(gameID) {
-    if (!gameID) return [];
-
-    const payload = await apiGet({
-      resource: "notes",
-      gameID
-    });
-
-    if (!payload || payload.ok !== true || !Array.isArray(payload.data)) {
-      throw new Error("Notes API returned invalid data.");
-    }
-
-    return payload.data
-      .filter(row => String(row.gameID || "").trim() === String(gameID).trim())
-      .filter(row => row && (row.noteID !== "" || row.note || row.category || row.date))
-      .map(normalizeNote);
-  }
-
-  async function preloadExpensesForMachinesInBackground(machines, concurrency = state.expenseLoadConcurrency) {
-    const queue = machines.filter(machine => machine?.id);
-    let nextIndex = 0;
-
-    async function worker() {
-      while (nextIndex < queue.length) {
-        const currentIndex = nextIndex++;
-        const machine = queue[currentIndex];
-        await hydrateMachineExpenses(machine);
-        patchMachineUI(machine, { detailSections: ["expenses", "profit"] });
-      }
-    }
-
-    const workerCount = Math.max(1, Math.min(concurrency, queue.length));
-    await Promise.all(Array.from({ length: workerCount }, () => worker()));
-  }
-
-
   async function hydrateMachineExpenses(machine) {
     if (!machine?.id) return;
 
     try {
-      const expenses = await loadExpensesForGame(machine.id);
-      machine.expenses = expenses;
-      machine.totalExpenses = sumExpenses(expenses);
-      machine.totalCost = addMoney(machine.purchasePrice, machine.totalExpenses);
+      await loadAllExpenses();
+      applyExpenseCacheToMachine(machine);
     } catch (err) {
       console.warn(`Could not load expenses for ${machine.id}: ${err.message}`);
       machine.expenses = [];
@@ -260,25 +452,20 @@
     }
   }
 
+  async function loadNotesForGame(gameID) {
+    if (!gameID) return [];
+    await loadAllNotes();
+    return state.resourceCache.notesByGame.get(String(gameID).trim()) || [];
+  }
+
   async function loadExpensesForGame(gameID) {
     if (!gameID) return [];
-
-    const payload = await apiGet({
-      resource: "expenses",
-      gameId: gameID
-    });
-
-    if (!payload || payload.ok !== true || !Array.isArray(payload.data)) {
-      throw new Error("Expenses API returned invalid data.");
-    }
-
-    return payload.data
-      .filter(row => String(row.gameID || "").trim() === String(gameID).trim())
-      .filter(row => row && (row.expenseID !== "" || row.description || row.amount !== ""))
-      .map(normalizeExpense);
+    await loadAllExpenses();
+    return state.resourceCache.expensesByGame.get(String(gameID).trim()) || [];
   }
 
   function supportsCameraCapture() {
+
     const ua = navigator.userAgent || "";
     const platform = navigator.platform || "";
     const maxTouchPoints = Number(navigator.maxTouchPoints || 0);
@@ -357,20 +544,8 @@
 
     if (!gameID) return [];
 
-    const payload = await apiGet({
-      resource: "photos",
-      gameID
-    });
-
-    if (!payload || payload.ok !== true || !Array.isArray(payload.data)) {
-      throw new Error("Photos API returned invalid data.");
-    }
-
-    return payload.data
-      .filter(row => String(row.gameID || "").trim() === String(gameID).trim())
-      .filter(row => row && (row.photoID !== "" || row.url))
-      .map(normalizePhoto)
-      .sort((a, b) => Number(a.photoID || 0) - Number(b.photoID || 0) || String(a.photoID || "").localeCompare(String(b.photoID || "")));
+    await loadAllPhotos();
+    return state.resourceCache.photosByGame.get(String(gameID).trim()) || [];
   }
 
   async function hydrateMachinePhotos(machine, options = {}) {
@@ -387,15 +562,12 @@
     }
 
     machine.photoStatus = "loading";
-    machine.photoPromise = loadPhotosForGame(machine.id)
-      .then(photos => {
-        machine.photos = photos;
-        machine.photoStatus = "loaded";
-        const maxIndex = Math.max(0, photos.length - 1);
-        machine.photoCarouselIndex = Math.max(0, Math.min(Number(machine.photoCarouselIndex || 0), maxIndex));
-        deferPhotoPreload(machine, machine.photoCarouselIndex || 0);
-        return photos;
-      })
+    machine.photoPromise = (async () => {
+      await loadAllPhotos(force);
+      const photos = applyPhotoCacheToMachine(machine);
+      deferPhotoPreload(machine, machine.photoCarouselIndex || 0);
+      return photos;
+    })()
       .catch(err => {
         machine.photos = [];
         machine.photoStatus = "error";
@@ -419,7 +591,9 @@
 
 
   async function refreshMachinePhotos(machine) {
-    await hydrateMachinePhotos(machine, { force: true });
+    resetResourceCacheSection('photos');
+    await loadAllPhotos(true);
+    applyPhotoCacheToMachine(machine);
     patchMachineUI(machine, { detailSections: ["photos"] });
   }
 
@@ -2295,15 +2469,14 @@
   }
 
   async function init() {
+    document.body.style.visibility = 'visible';
     loadAuthState();
     wireEvents();
 
     try {
-      state.allMachines = await window.InventoryLoader.load();
+      state.allMachines = await trackStartupLoad(window.InventoryLoader.load());
       populateFilters();
       applyFilters();
-      preloadExpensesForMachinesInBackground(state.allMachines);
-      preloadNotesForMachinesInBackground(state.allMachines);
 
       loadPriceguide()
         .then(() => {
@@ -2321,7 +2494,46 @@
         .catch(err => {
           console.warn(`[priceguide] background refresh failed: ${err.message}`);
         });
+
+      trackStartupLoad(
+        loadAllExpenses()
+          .then(() => {
+            state.allMachines.forEach(machine => patchMachineUI(machine, { detailSections: ["expenses", "profit"] }));
+          })
+          .catch(err => {
+            console.warn(`[expenses] background refresh failed: ${err.message}`);
+          })
+      );
+
+      trackStartupLoad(
+        loadAllNotes()
+          .then(() => {
+            state.allMachines.forEach(machine => patchMachineUI(machine, { patchCard: false, detailSections: ["notes"] }));
+          })
+          .catch(err => {
+            console.warn(`[notes] background refresh failed: ${err.message}`);
+          })
+      );
+
+      trackStartupLoad(
+        loadAllPhotos()
+          .then(() => {
+            if (state.selectedId) {
+              const selected = state.allMachines.find(machine => machine.id === state.selectedId);
+              if (selected) {
+                patchMachineUI(selected, { patchCard: true, detailSections: ["photos"] });
+              }
+            }
+          })
+          .catch(err => {
+            console.warn(`[photos] background refresh failed: ${err.message}`);
+          })
+      );
     } catch (err) {
+      startupLoadState.pendingCount = 0;
+      if (startupLoadState.toastEl) {
+        startupLoadState.toastEl.classList.remove('visible');
+      }
       els.cardsGrid.innerHTML = "";
       els.emptyState.classList.remove("hidden");
       els.emptyState.textContent = `Could not load inventory. ${err.message}`;
@@ -2570,7 +2782,7 @@
           </div>
 
           <div class="cardStatRow">
-            <span class="cardStatLabel">Estimate</span>
+            <span class="cardStatLabel">PG Estimate</span>
             <span class="cardStatValue">
               ${escapeHtml(pgEstimate != null ? formatMoneyNoCents(pgEstimate) : "—")}
             </span>
@@ -2645,7 +2857,9 @@
   }
 
   async function refreshMachineExpenses(machine) {
-    await hydrateMachineExpenses(machine);
+    resetResourceCacheSection('expenses');
+    await loadAllExpenses(true);
+    applyExpenseCacheToMachine(machine);
     patchMachineUI(machine, { detailSections: ["expenses", "profit"] });
   }
 

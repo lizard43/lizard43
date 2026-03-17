@@ -21,7 +21,7 @@ function getOptionalParam_(e, name) {
 
 function doGet(e) {
   try {
-    ensureLegacyRowIds_();
+    // ensureLegacyRowIds_();
     const resource = getParam_(e, 'resource');
 
     if (resource === 'games') {
@@ -114,7 +114,7 @@ function doGet(e) {
 
 function doPost(e) {
   try {
-    ensureLegacyRowIds_();
+    // ensureLegacyRowIds_();
     const body = JSON.parse((e && e.postData && e.postData.contents) || '{}');
     const action = body.action;
     const data = body.data || {};
