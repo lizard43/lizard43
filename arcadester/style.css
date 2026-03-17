@@ -1783,7 +1783,7 @@ select {
 .startupToast {
   position: fixed;
   left: 50%;
-  top: calc(var(--topbar-h) - 8px);
+  top: calc(var(--topbar-h) - 60px);
   /* sits just over search bar */
   transform: translateX(-50%) translateY(-16px);
 

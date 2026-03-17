@@ -2667,11 +2667,16 @@
       .map(v => Number(v.price_higher))
       .filter(Number.isFinite);
 
-    if (!lows.length && !highs.length) return null;
+    const avgs = entry.variant
+      .map(v => Number(v.price_average))
+      .filter(Number.isFinite);
+
+    if (!lows.length && !highs.length && !avgs.length) return null;
 
     return {
       low: lows.length ? Math.min(...lows) : null,
-      high: highs.length ? Math.max(...highs) : null
+      high: highs.length ? Math.max(...highs) : null,
+      avg: avgs.length ? Math.round(avgs.reduce((sum, n) => sum + n, 0) / avgs.length) : null
     };
   }
 
@@ -3089,6 +3094,16 @@
       .join(" · ");
 
     const cardNotes = machine.notes || "";
+    const isServiceLocation = String(machine.location || "").trim().toLowerCase() === "service";
+
+    const purchaseBlock = isServiceLocation
+      ? ""
+      : `
+          <div class="cardStatRow">
+            <span class="cardStatLabel">Purchase</span>
+            <span class="cardStatValue">${escapeHtml(formatMoneyNoCents(machine.purchasePrice))}</span>
+          </div>
+        `;
 
     const soldBlock = isSold
       ? `
@@ -3136,10 +3151,7 @@
         ` : ""}
 
         <div class="cardStats">
-          <div class="cardStatRow">
-            <span class="cardStatLabel">Purchase</span>
-            <span class="cardStatValue">${escapeHtml(formatMoneyNoCents(machine.purchasePrice))}</span>
-          </div>
+          ${purchaseBlock}
 
           <div class="cardStatRow">
             <span class="cardStatLabel">Expenses</span>
@@ -3147,7 +3159,7 @@
           </div>
 
           <div class="cardStatRow cardStatRowTotal">
-            <span class="cardStatLabel">Totsl</span>
+            <span class="cardStatLabel">&nbsp;Total</span>
             <span class="cardStatValue ${expensesLoading ? "isLoading" : ""}">${escapeHtml(expensesLoading ? "…" : formatMoneyNoCents(totalCost))}</span>
           </div>
 
