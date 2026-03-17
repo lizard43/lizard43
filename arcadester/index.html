@@ -14,12 +14,12 @@
                 <input id="searchInput" class="searchInput" type="search"
                     placeholder="Search title, manufacturer, genre..." aria-label="Search machines" />
 
-                <select id="locationFilter" class="filterSelect" aria-label="Filter by location">
-                    <option value="">All locations</option>
-                </select>
-
                 <select id="conditionFilter" class="filterSelect" aria-label="Filter by condition">
                     <option value="">All conditions</option>
+                </select>
+
+                <select id="locationFilter" class="filterSelect" aria-label="Filter by location">
+                    <option value="">All locations</option>
                 </select>
 
                 <button id="settingsBtn" class="addMachineFab settingsFab" type="button" aria-label="Open settings"
@@ -127,18 +127,22 @@
                     <input id="editPhoto" type="hidden">
                     <div class="editPhotoControl">
                         <div class="editPhotoActionRow">
-                            <div id="editPhotoDropZone" class="editPhotoDropZone" role="button" tabindex="0" aria-label="Drop image or choose photo">
+                            <div id="editPhotoDropZone" class="editPhotoDropZone" role="button" tabindex="0"
+                                aria-label="Drop image or choose photo">
                                 <span>Drop image or Click to Browse</span>
                             </div>
-                            <button id="editPhotoCameraBtn" class="expenseAddBtn expenseAddBtnTop editPhotoCameraBtn" type="button">
+                            <button id="editPhotoCameraBtn" class="expenseAddBtn expenseAddBtnTop editPhotoCameraBtn"
+                                type="button">
                                 <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-                                    <path d="M9 4l1.4 2H15a2 2 0 0 1 2 2h1a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2h1a2 2 0 0 1 2-2Zm3 4.5A4.5 4.5 0 1 0 16.5 13 4.5 4.5 0 0 0 12 8.5Zm0 2A2.5 2.5 0 1 1 9.5 13 2.5 2.5 0 0 1 12 10.5Z"/>
+                                    <path
+                                        d="M9 4l1.4 2H15a2 2 0 0 1 2 2h1a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2h1a2 2 0 0 1 2-2Zm3 4.5A4.5 4.5 0 1 0 16.5 13 4.5 4.5 0 0 0 12 8.5Zm0 2A2.5 2.5 0 1 1 9.5 13 2.5 2.5 0 0 1 12 10.5Z" />
                                 </svg>
                                 <span>Camera</span>
                             </button>
                         </div>
                         <div class="editField photoUrlField editPhotoUrlField">
-                            <textarea id="editPhotoUrl" class="settingsInput editTextarea editPhotoUrlTextarea"></textarea>
+                            <textarea id="editPhotoUrl"
+                                class="settingsInput editTextarea editPhotoUrlTextarea"></textarea>
                             <div id="editPhotoStatus" class="photoUploadStatus"></div>
                         </div>
                     </div>

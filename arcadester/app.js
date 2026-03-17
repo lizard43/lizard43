@@ -1,6 +1,6 @@
 (() => {
 
-  const VERSION = 'v20260314';
+  const VERSION = 'v20260317';
 
   const API_URL = 'https://script.google.com/macros/s/AKfycbyfpebveJYArafZ2FaMWNTT5IYrkwdc56vOyGA8CrStTu1dXiqvIanfS_YQtMJdVu53kA/exec';
   const IMGBB_API_KEY = '10002e3b737dac20990ce3adef55b8f9';
@@ -505,7 +505,10 @@
     input.click();
   }
 
-  async function openCameraCapture() {
+  async function openCameraCapture(event) {
+    event?.preventDefault();
+    event?.stopPropagation();
+
     if (!supportsCameraCapture()) return;
     if (!state.photoEditingId) return;
 
@@ -740,6 +743,28 @@
     }
   }
 
+  function loadSavedFilterState() {
+    return {
+      location: localStorage.getItem("arcadesterLocationFilter") || "",
+      condition: localStorage.getItem("arcadesterConditionFilter") || ""
+    };
+  }
+
+  function saveFilterState() {
+    localStorage.setItem("arcadesterLocationFilter", String(els.locationFilter?.value || ""));
+    localStorage.setItem("arcadesterConditionFilter", String(els.conditionFilter?.value || ""));
+  }
+
+  function restoreFilterSelection(selectEl, preferredValue) {
+    const normalized = String(preferredValue || "");
+    const hasOption = Array.from(selectEl?.options || []).some(option => option.value === normalized);
+    selectEl.value = hasOption ? normalized : "";
+  }
+
+  function reloadForAuthStateChange() {
+    window.location.reload();
+  }
+
   function reloadForAuthStateChange() {
     window.location.reload();
   }
@@ -830,12 +855,14 @@
     if (state.auth.loggedIn) {
       els.settingsUsernameRow.innerHTML = `
         <label class="settingsLabel">Username</label>
-        <div class="settingsLoggedInValue">${escapeHtml(state.auth.username)}</div>
+        <div class="settingsLoggedInRow">
+          <div class="settingsLoggedInValue">${escapeHtml(state.auth.username)}</div>
+          <button id="settingsLogoutBtn" class="settingsActionBtn settingsLogoutBtn" type="button">Logout</button>
+        </div>
       `;
 
       els.settingsAuthActions.innerHTML = `
-        <button id="settingsAddGameBtn" class="settingsActionBtn" type="button">Add New Game</button>
-        <button id="settingsLogoutBtn" class="settingsActionBtn settingsLogoutBtn" type="button">Logout</button>
+        <button id="settingsAddGameBtn" class="settingsActionBtn settingsAddGameBtn" type="button">Add New Game</button>
       `;
 
       const addGameBtn = document.getElementById("settingsAddGameBtn");
@@ -1474,6 +1501,61 @@
     event.currentTarget?.classList.remove('isDragOver');
   }
 
+  function buildImageStateMarkup(kind = "loading") {
+    const message = kind === "error" ? "Image failed to load" : "Loading image…";
+    const className = kind === "error" ? "isError" : "isLoading";
+
+    return `
+    <div class="imageStateOverlay ${className}" aria-hidden="true">
+      <div class="imageStateMessage">${escapeHtml(message)}</div>
+    </div>
+  `;
+  }
+
+  function bindImageState(container) {
+    if (!container) return;
+
+    const img = container.querySelector("img");
+    const overlay = container.querySelector(".imageStateOverlay");
+    if (!img || !overlay) return;
+
+    const showLoading = () => {
+      overlay.classList.remove("isHidden", "isError");
+      overlay.classList.add("isLoading");
+      const msg = overlay.querySelector(".imageStateMessage");
+      if (msg) msg.textContent = "Loading image…";
+    };
+
+    const showError = () => {
+      overlay.classList.remove("isHidden", "isLoading");
+      overlay.classList.add("isError");
+      const msg = overlay.querySelector(".imageStateMessage");
+      if (msg) msg.textContent = "Image failed to load";
+    };
+
+    const hideOverlay = () => {
+      overlay.classList.add("isHidden");
+      overlay.classList.remove("isLoading", "isError");
+    };
+
+    img.addEventListener("load", hideOverlay);
+    img.addEventListener("error", showError);
+
+    if (img.complete) {
+      if (img.naturalWidth > 0) {
+        hideOverlay();
+      } else {
+        showError();
+      }
+    } else {
+      showLoading();
+    }
+  }
+
+  function bindImageStates(root = document) {
+    root.querySelectorAll("[data-image-state-container]").forEach(bindImageState);
+  }
+
   function renderPhotoEditorRows() {
     if (!els.photoRows) return;
 
@@ -1516,7 +1598,8 @@
 
         <div class="photoEditorRow">
           <button class="photoEditorThumbBtn ${row._uploading ? 'isUploading' : ''}" type="button" data-photo-preview-index="${index}" data-index="${index}" aria-label="Preview photo ${index + 1}" ${row._delete ? 'disabled' : ''}>
-            <div class="photoEditorPreview" data-index="${index}">
+            <div class="photoEditorPreview" data-index="${index}" data-image-state-container>
+              ${buildImageStateMarkup(row._uploading ? "loading" : "loading")}
               <img src="${escapeAttr(getPhotoUrl(row.url))}" alt="${escapeAttr(row.photoID ? row.photoID : `Photo ${index + 1}`)}" loading="lazy">
               <div class="photoDropHint">Drop image</div>
             </div>
@@ -1549,7 +1632,12 @@
       btn.addEventListener('drop', handlePhotoDrop);
     });
 
-    document.getElementById("photoAddBtn")?.addEventListener("click", handlePhotoDraftAdd);
+    document.getElementById("photoAddBtn")?.addEventListener("click", event => {
+      event.preventDefault();
+      event.stopPropagation();
+      handlePhotoDraftAdd({ autoBrowse: true });
+    });
+
     document.getElementById("photoCameraBtn")?.addEventListener("click", openCameraCapture);
 
     const photoAddDropZone = document.getElementById('photoAddDropZone');
@@ -1558,6 +1646,8 @@
     photoAddDropZone?.addEventListener('dragover', handlePhotoAddDragOver);
     photoAddDropZone?.addEventListener('dragleave', handlePhotoAddDragLeave);
     photoAddDropZone?.addEventListener('drop', handlePhotoAddDrop);
+
+    bindImageStates(els.photoRows);
   }
 
   async function openPhotoModal(id) {
@@ -1641,11 +1731,16 @@
     renderPhotoEditorRows();
   }
 
-  function handlePhotoDraftAdd() {
+  function handlePhotoDraftAdd(options = {}) {
+    const { autoBrowse = true } = options;
+
     state.photoDraftRows.unshift(makeLocalPhotoRow(state.photoEditingId));
     renderPhotoEditorRows();
     document.getElementById('photoUrl_0')?.focus();
-    browsePhotoForDraftRow(0);
+
+    if (autoBrowse) {
+      browsePhotoForDraftRow(0);
+    }
   }
 
   function createPendingPhotoDraftAtTop() {
@@ -1684,15 +1779,25 @@
     }
   }
 
-  function handlePhotoAddBrowseClick() {
+  function handlePhotoAddBrowseClick(event) {
     if (!state.photoEditingId) return;
+
+    const target = event?.target;
+
+    if (
+      target?.closest?.('#photoAddBtn') ||
+      target?.closest?.('#photoCameraBtn')
+    ) {
+      return;
+    }
+
     handlePhotoDraftAdd();
   }
 
   function handlePhotoAddBrowseKeyDown(event) {
     if (event.key !== 'Enter' && event.key !== ' ') return;
     event.preventDefault();
-    handlePhotoAddBrowseClick();
+    handlePhotoAddBrowseClick(event);
   }
 
   function handlePhotoAddDrop(event) {
@@ -2862,8 +2967,22 @@
     const locations = uniqueSorted(state.allMachines.map(m => m.location).filter(Boolean));
     const conditions = uniqueSorted(state.allMachines.map(getEffectiveCondition).filter(Boolean));
 
+    const savedFilters = loadSavedFilterState();
+    const currentLocation = String(els.locationFilter?.value || "");
+    const currentCondition = String(els.conditionFilter?.value || "");
+
     fillSelect(els.locationFilter, "All locations", locations);
     fillSelect(els.conditionFilter, "All conditions", conditions);
+
+    restoreFilterSelection(
+      els.locationFilter,
+      currentLocation || savedFilters.location || ""
+    );
+
+    restoreFilterSelection(
+      els.conditionFilter,
+      currentCondition || savedFilters.condition || ""
+    );
   }
 
   function fillSelect(selectEl, defaultLabel, values) {
@@ -2880,16 +2999,18 @@
     const location = els.locationFilter.value;
     const condition = els.conditionFilter.value;
 
+    saveFilterState();
+
     state.filteredMachines = state.allMachines.filter(machine => {
       const effectiveCondition = getEffectiveCondition(machine);
 
       if (location && machine.location !== location) return false;
 
-      if (condition) {
-        if (effectiveCondition !== condition) return false;
-      } else {
-        if (effectiveCondition === "sold") return false;
-      }
+      // Default "All" should EXCLUDE sold
+      if (!condition && effectiveCondition === "sold") return false;
+
+      // If a specific condition is selected, match it
+      if (condition && effectiveCondition !== condition) return false;
 
       if (!q) return true;
 
@@ -2918,6 +3039,11 @@
       );
 
     renderCards();
+
+    // ensure we always start at top after filtering/render
+    requestAnimationFrame(() => {
+      window.scrollTo({ top: 0, behavior: "instant" });
+    });
 
     if (window.innerWidth < 1000) {
       if (!state.filteredMachines.some(m => m.id === state.selectedId)) {
@@ -2958,7 +3084,7 @@
     const pg = getPriceguideEntry(machine);
     const pgEstimate = getPriceguideAverage(pg);
 
-    const locationCondition = [machine.location, machine.condition]
+    const locationCondition = [machine.condition, machine.location]
       .filter(Boolean)
       .join(" · ");
 
@@ -3021,7 +3147,7 @@
           </div>
 
           <div class="cardStatRow cardStatRowTotal">
-            <span class="cardStatLabel">Investment</span>
+            <span class="cardStatLabel">Totsl</span>
             <span class="cardStatValue ${expensesLoading ? "isLoading" : ""}">${escapeHtml(expensesLoading ? "…" : formatMoneyNoCents(totalCost))}</span>
           </div>
 
@@ -3212,10 +3338,13 @@
         return `
           <div class="photoCarouselSingleView">
             ${hasPrev ? `<button class="photoNavBtn photoNavBtnPrev" type="button" data-photo-prev-id="${escapeAttr(machine.id)}" aria-label="Previous photo">‹</button>` : ``}
-            <button class="photoStage" type="button" data-photo-index="${activeIndex}" data-photo-swipe-id="${escapeAttr(machine.id)}" aria-label="Open photo ${activeIndex + 1}">
+          <button class="photoStage" type="button" data-photo-index="${activeIndex}" data-photo-swipe-id="${escapeAttr(machine.id)}" aria-label="Open photo ${activeIndex + 1}">
+            <div class="imageStateWrap" data-image-state-container>
+              ${buildImageStateMarkup("loading")}
               <img src="${escapeAttr(getPhotoUrl(activePhoto.url))}" alt="${escapeAttr(`${machine.title} photo ${activeIndex + 1}`)}" loading="eager" fetchpriority="high" decoding="async">
-            </button>
-            ${hasNext ? `<button class="photoNavBtn photoNavBtnNext" type="button" data-photo-next-id="${escapeAttr(machine.id)}" aria-label="Next photo">›</button>` : ``}
+            </div>
+          </button>            
+          ${hasNext ? `<button class="photoNavBtn photoNavBtnNext" type="button" data-photo-next-id="${escapeAttr(machine.id)}" aria-label="Next photo">›</button>` : ``}
           </div>
           ${machine.photos.length > 1 ? `
             <div class="photoPager">${activeIndex + 1} / ${machine.photos.length}</div>
@@ -3310,7 +3439,7 @@
           <div class="moneySpacer"></div>
 
           <div class="moneyRow moneyRowTotal">
-            <span class="moneyLabel">Total Investment</span>
+            <span class="moneyLabel">Total</span>
             <span class="moneyValue ${expensesLoading ? "isLoading" : ""}">${escapeHtml(expensesLoading ? "…" : formatMoney(totalCost))}</span>
           </div>
         </div>
@@ -3435,6 +3564,7 @@
     if (uniqueSections.includes("photos")) {
       bindDetailPhotoEditButton(machine);
       bindDetailPhotoSectionEvents(machine);
+      bindImageStates(els.detailContent);
     }
   }
 
@@ -3496,6 +3626,7 @@
     bindDetailExpenseEditButton(machine);
     bindDetailPhotoEditButton(machine);
     bindDetailPhotoSectionEvents(machine);
+    bindImageStates(els.detailContent);
   }
 
   function uniqueSorted(values) {
