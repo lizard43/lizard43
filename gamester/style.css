@@ -48,15 +48,26 @@ select {
 
 /* Top bar */
 
-/* MENU OVERLAY (dim background) */
+/* Settings overlay/menu stack */
 #settingsOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
   z-index: 100;
+}
+
+#settingsOverlay.open {
+  opacity: 1;
+  pointer-events: auto;
 }
 
 .topBar {
   position: sticky;
   top: 0;
-  z-index: 10;
+  z-index: 1;
   background: rgba(17, 17, 17, 0.96);
   backdrop-filter: blur(8px);
   border-bottom: 1px solid var(--border);
@@ -64,7 +75,6 @@ select {
 }
 
 .topBarRow {
-  position: relative;
   display: flex;
   gap: 10px;
   align-items: center;
@@ -92,12 +102,12 @@ select {
 }
 
 .addMachineFab {
-  position: absolute;
-  top: 8px;
-  right: px;
-  z-index: 91;
-  width: 32px;
-  height: 32px;
+  position: fixed;
+  top: 14px;
+  right: 16px;
+  z-index: 120;
+  width: 34px;
+  height: 34px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -106,6 +116,8 @@ select {
   padding: 0;
   margin: 0;
   cursor: pointer;
+  color: #fff;
+  overflow: visible;
 }
 
 .addMachineFab svg {
@@ -758,7 +770,6 @@ select {
 
 @media (max-width: 640px) {
   .topBarRow {
-    position: relative;
     padding: 12px;
     gap: 8px;
   }
@@ -775,10 +786,10 @@ select {
   }
 
   .addMachineFab {
-    top: 10px;
+    top: 14px;
     right: 12px;
-    width: 24px;
-    height: 24px;
+    width: 34px;
+    height: 34px;
   }
 
   .cardsPane {
@@ -842,22 +853,26 @@ select {
 }
 
 .settingsFab {
+  position: relative;
   display: inline-flex;
   flex-direction: column;
-  gap: 6px;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
 }
 
 .settingsFabLine {
   display: block;
-  width: 18px;
+  width: 22px;
   height: 2px;
   border-radius: 999px;
-  background: #fff;
+  background: currentColor;
   transition: transform 0.18s ease, opacity 0.18s ease;
+  transform-origin: center;
 }
 
 .settingsFab.open .settingsFabLine:first-child {
-  transform: translateY(4px) rotate(45deg);
+  transform: translateY(7px) rotate(45deg);
 }
 
 .settingsFab.open .settingsFabLine:nth-child(2) {
@@ -865,7 +880,7 @@ select {
 }
 
 .settingsFab.open .settingsFabLine:last-child {
-  transform: translateY(-4px) rotate(-45deg);
+  transform: translateY(-7px) rotate(-45deg);
 }
 
 .modalOverlay {
@@ -883,36 +898,31 @@ select {
   pointer-events: auto;
 }
 
+/* HAMBURGER / X (ALWAYS ON TOP) */
 #settingsBtn {
   position: fixed;
-  top: 12px;
+  top: 14px;
   right: 16px;
-
-  width: 34px;
-  height: 34px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  z-index: 10000;
-  /* ALWAYS on top */
-
-  border-radius: 8px;
+  z-index: 120;
+  color: #fff;
 }
 
 .settingsModal {
   position: fixed;
   top: 0;
   right: 0;
+  left: auto;
+  width: min(88vw, 360px);
   height: 100vh;
-  width: min(90vw, 360px);
-
-  z-index: 9000;
-  /* BELOW button */
-
+  background: var(--panel);
+  border-left: 1px solid var(--border);
+  border-radius: 0;
+  box-shadow: var(--shadow);
   transform: translateX(100%);
+  opacity: 1;
+  pointer-events: none;
   transition: transform 0.2s ease;
+  z-index: 110;
 }
 
 .settingsModal.open {
