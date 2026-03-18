@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-03-18T23:05:42.465Z",
+  "generated_at": "2026-03-18T23:32:27.039Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,33 +11,13 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 37,
-      "droppedPrice": 277,
+      "exported_ads": 36,
+      "droppedPrice": 276,
       "droppedMissingGeo": 0,
-      "droppedCircle": 133
+      "droppedCircle": 128
     }
   },
   "ads": [
-    {
-      "adID": "1289116103111379",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/100000745659475/?product_id=1289116103111379",
-      "author": "Nate Blackmon IV",
-      "postedTime": "2026-03-18T22:57:59.000Z",
-      "title": "C7 corvette OEM air intake",
-      "description": "$100 obo",
-      "price": "$100",
-      "lat": 33.9528472,
-      "lon": -84.5496148,
-      "location": "Marietta, GA",
-      "imageUrl": "https://scontent-atl3-3.xx.fbcdn.net/v/t39.84726-6/653717749_3847112375425533_3254004431521923740_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=108&ccb=1-7&_nc_sid=92e707&_nc_ohc=WjW6WMQ4-5sQ7kNvwHzRTPa&_nc_oc=AdrCJu4hl_g5MJKc0A6IzIoVFXIpFPakfNHTsOhcgcvvD2QDDAT8eLYAyT6kNYTsh2Y&_nc_zt=14&_nc_ht=scontent-atl3-3.xx&_nc_gid=w1EVYxqr7CJi810RIQPwxg&_nc_ss=8&oh=00_AfyT8BQFnnE0RHUwYlkQhEoBR1CUquOwf5g1aaQsDAicwg&oe=69C11B3B",
-      "adUrl": "https://www.facebook.com/marketplace/item/1289116103111379/",
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-03-18 23:04:32",
-      "lastSeen": "2026-03-18T23:04:59.568Z"
-    },
     {
       "adID": "1599099644471922",
       "source": "MP",
