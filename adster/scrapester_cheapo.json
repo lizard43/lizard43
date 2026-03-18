@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-03-18T14:06:22.921Z",
+  "generated_at": "2026-03-18T15:05:58.672Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,53 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 34,
-      "droppedPrice": 253,
+      "exported_ads": 36,
+      "droppedPrice": 255,
       "droppedMissingGeo": 0,
-      "droppedCircle": 121
+      "droppedCircle": 124
     }
   },
   "ads": [
+    {
+      "adID": "1882052579166332",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100001810332159/?product_id=1882052579166332",
+      "author": "Linda Phillips",
+      "postedTime": "2026-03-18T14:51:34.000Z",
+      "title": "Atari Flashback 7",
+      "description": "New Atari flashback 7...was opened but not used...still in original box",
+      "price": "$40",
+      "lat": 30.4007626,
+      "lon": -88.8893818,
+      "location": "Biloxi, MS",
+      "imageUrl": "https://scontent-atl3-2.xx.fbcdn.net/v/t39.84726-6/653859667_927601969863008_5970032932846455065_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=105&ccb=1-7&_nc_sid=92e707&_nc_ohc=1uFhwtyUd_EQ7kNvwE4uF1w&_nc_oc=AdlqYh8uhNNtW6Nih8adJ7RiJ4Dn-Gw2x-UcbgSKpFeIRZ535edD0w5qCfMPxMaCbzI&_nc_zt=14&_nc_ht=scontent-atl3-2.xx&_nc_gid=vaKtdUzkb_H0BZc-3nIp4Q&_nc_ss=8&oh=00_Afzm21SDoLYhy69Mfw06VgypMPLDS5WD6KPdOh8sAj64Qw&oe=69C07B06",
+      "adUrl": "https://www.facebook.com/marketplace/item/1882052579166332/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-03-18 15:04:34",
+      "lastSeen": "2026-03-18T15:05:08.508Z"
+    },
+    {
+      "adID": "1568012657760981",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100048392352863/?product_id=1568012657760981",
+      "author": "Matt Bridges",
+      "postedTime": "2026-03-18T14:34:54.000Z",
+      "title": "The Legend of Zelda Ocarina of Time for Nintendo 64",
+      "description": "Game cartridge only.",
+      "price": "$55",
+      "lat": 30.421309,
+      "lon": -87.2169149,
+      "location": "Pensacola, FL",
+      "imageUrl": "https://scontent-atl3-3.xx.fbcdn.net/v/t39.84726-6/653835765_965208579523947_6902799328890511616_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=107&ccb=1-7&_nc_sid=92e707&_nc_ohc=5EfA_fQr7S8Q7kNvwGrin7Z&_nc_oc=AdnOP0UvoEZ8HvQ8lMLP4O1S0E6iuYmI11k5cu1rGJNEChIekJpLXnpR36-z44YMmO4&_nc_zt=14&_nc_ht=scontent-atl3-3.xx&_nc_gid=iQL62ZGLkcGcxNe9aO-sqA&_nc_ss=8&oh=00_AfxK3Q2ARLUv7Pru3NEvgoM9y4W-YK2Y41PIGPbsh99cdg&oe=69C0893E",
+      "adUrl": "https://www.facebook.com/marketplace/item/1568012657760981/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-03-18 15:04:34",
+      "lastSeen": "2026-03-18T15:05:08.537Z"
+    },
     {
       "adID": "2002022350661579",
       "source": "MP",
@@ -43,7 +83,7 @@
       "source": "PS",
       "authorUrl": "https://pinside.com/pinball/community/pinsiders/militiaman/market",
       "author": "MilitiaMan",
-      "postedTime": "2026-03-17T15:06:04.913Z",
+      "postedTime": "2026-03-17T15:05:39.472Z",
       "title": "Williams System 11b Pinball Transformer (Tested, Working)",
       "description": "Used, good condition - “This is a fully tested and working pinball transformer pulled from a Williams Police Force. This transformer will work with other Williams System 11b pinball machines as it outputs...”",
       "price": "$200",
@@ -56,14 +96,14 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-17 15:07:15",
-      "lastSeen": "2026-03-18T14:06:06.190Z"
+      "lastSeen": "2026-03-18T15:05:40.688Z"
     },
     {
       "adID": "PI-189391",
       "source": "PS",
       "authorUrl": "https://pinside.com/pinball/community/pinsiders/militiaman/market",
       "author": "MilitiaMan",
-      "postedTime": "2026-03-17T15:06:04.913Z",
+      "postedTime": "2026-03-17T15:05:39.472Z",
       "title": "Capcom Pinball Transformer XF00105 (Tested, Working)",
       "description": "Used, good condition - “This is a fully tested and working pinball transformer from a Capcom Breakshot. This transformer will likely work with other Capcom pinball machines as it outputs the correct volta...”",
       "price": "$150",
@@ -76,7 +116,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-17 15:07:15",
-      "lastSeen": "2026-03-18T14:06:06.223Z"
+      "lastSeen": "2026-03-18T15:05:40.721Z"
     },
     {
       "adID": "1716037859381540",
