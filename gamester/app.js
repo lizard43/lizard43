@@ -1,9 +1,7 @@
 (() => {
 
-  const VERSION = 'v20260317';
-
+  const VERSION = 'v20260318';
   const API_URL = 'https://script.google.com/macros/s/AKfycbyfpebveJYArafZ2FaMWNTT5IYrkwdc56vOyGA8CrStTu1dXiqvIanfS_YQtMJdVu53kA/exec';
-  const IMGBB_API_KEY = '10002e3b737dac20990ce3adef55b8f9';
 
   const state = {
     allMachines: [],
@@ -869,9 +867,7 @@
     }
 
     const loginBtn = document.getElementById("settingsLoginBtn");
-    const saveBtn = els.settingsSaveBtn;
-    const originalLoginLabel = loginBtn?.textContent || "Login";
-    const originalSaveLabel = saveBtn?.textContent || "Save";
+    const originalLoginLabel = loginBtn?.textContent || "Login ...";
 
     try {
       state.auth.error = "";
@@ -880,10 +876,6 @@
       if (loginBtn) {
         loginBtn.disabled = true;
         loginBtn.textContent = "Checking…";
-      }
-      if (saveBtn) {
-        saveBtn.disabled = true;
-        saveBtn.textContent = "Checking…";
       }
 
       const hash = await buildUserSeedHash(username, seed);
@@ -933,10 +925,6 @@
         refreshedLoginBtn.disabled = false;
         refreshedLoginBtn.textContent = originalLoginLabel;
       }
-      if (els.settingsSaveBtn) {
-        els.settingsSaveBtn.disabled = false;
-        els.settingsSaveBtn.textContent = originalSaveLabel;
-      }
     }
   }
 
@@ -954,112 +942,120 @@
   function renderSettingsModal() {
     if (!els.settingsVersion || !els.settingsUsernameRow || !els.settingsAuthActions) return;
 
+    if (els.settingsBtn) {
+      els.settingsBtn.classList.toggle("open", !!state.settingsOpen);
+      els.settingsBtn.setAttribute("aria-label", state.settingsOpen ? "Close settings menu" : "Open settings menu");
+      els.settingsBtn.title = state.settingsOpen ? "Close menu" : "Menu";
+    }
+
     els.settingsVersion.textContent = VERSION;
+    els.settingsVersion.classList.toggle("settingsVersionClickable", !state.auth.loggedIn);
+    els.settingsVersion.removeEventListener("click", handleSettingsVersionClick);
+    if (!state.auth.loggedIn) {
+      els.settingsVersion.addEventListener("click", handleSettingsVersionClick);
+    }
+
+    els.settingsAuthActions.innerHTML = `
+      <button id="settingsShowBooksBtn" class="settingsMenuItem" type="button">Show Books ...</button>
+      ${state.auth.loggedIn ? `<button id="settingsAddGameBtn" class="settingsMenuItem" type="button">Add Game ...</button>` : ``}
+    `;
+
+    document.getElementById("settingsShowBooksBtn")?.addEventListener("click", () => {
+      closeSettingsModal(false);
+      openBooksModal();
+    });
+
+    document.getElementById("settingsAddGameBtn")?.addEventListener("click", () => {
+      openNewGameModal();
+    });
 
     if (state.auth.loggedIn) {
       els.settingsUsernameRow.innerHTML = `
-        <label class="settingsLabel">Username</label>
+        <div class="settingsLabel">Account</div>
         <div class="settingsLoggedInRow">
           <div class="settingsLoggedInValue">${escapeHtml(state.auth.username)}</div>
-          <button id="settingsLogoutBtn" class="settingsActionBtn settingsLogoutBtn" type="button">Logout</button>
+          <button id="settingsLogoutBtn" class="settingsMenuItem" type="button">Logout</button>
         </div>
       `;
 
-      els.settingsAuthActions.innerHTML = `
-        <button id="settingsAddGameBtn" class="settingsActionBtn settingsAddGameBtn" type="button">Add New Game</button>
-        <button id="settingsShowBooksBtn" class="settingsActionBtn settingsAddGameBtn" type="button">Show Books</button>
-      `;
+      document.getElementById("settingsLogoutBtn")?.addEventListener("click", logoutUser);
+      return;
+    }
 
-      const addGameBtn = document.getElementById("settingsAddGameBtn");
-      const showBooksBtn = document.getElementById("settingsShowBooksBtn");
-      const logoutBtn = document.getElementById("settingsLogoutBtn");
+    els.settingsUsernameRow.innerHTML = `
+      <div class="settingsLabel">Login ...</div>
+      <div class="settingsLoginRow">
+        <input
+          id="settingsUsernameInput"
+          class="settingsInput settingsUsernameInput"
+          type="text"
+          autocomplete="username"
+          placeholder="Username"
+          value="${escapeAttr(state.auth.username || "")}">
+        <input
+          id="settingsSeedInput"
+          class="settingsInput settingsSeedInput"
+          type="password"
+          autocomplete="off"
+          placeholder="Seed"
+          value="${escapeAttr(state.auth.seed || "")}">
+      </div>
+      <button id="settingsLoginBtn" class="settingsMenuItem" type="button">Login ...</button>
+      ${state.auth.error ? `<div class="settingsError">${escapeHtml(state.auth.error)}</div>` : ""}
+      ${state.auth.hashPreview ? `<div class="settingsHashPreview">${escapeHtml(state.auth.hashPreview)}</div>` : ""}
+    `;
 
-      addGameBtn?.addEventListener("click", openNewGameModal);
-      showBooksBtn?.addEventListener("click", () => {
-        closeSettingsModal(false);
-        openBooksModal();
+    const usernameInput = document.getElementById("settingsUsernameInput");
+    const seedInput = document.getElementById("settingsSeedInput");
+    const loginBtn = document.getElementById("settingsLoginBtn");
+
+    if (loginBtn) {
+      loginBtn.addEventListener("click", loginWithUsername);
+    }
+
+    if (usernameInput) {
+      els.settingsUsernameInput = usernameInput;
+      usernameInput.addEventListener("input", () => {
+        state.auth.username = usernameInput.value;
+        if (state.auth.error || state.auth.hashPreview) {
+          state.auth.error = "";
+          state.auth.hashPreview = "";
+          renderSettingsModal();
+        }
       });
-      logoutBtn?.addEventListener("click", logoutUser);
-    } else {
-      els.settingsUsernameRow.innerHTML = `
-  <label class="settingsLabel" for="settingsUsernameInput">Username</label>
-  <div class="settingsLoginRow">
-    <input
-      id="settingsUsernameInput"
-      class="settingsInput settingsUsernameInput"
-      type="text"
-      autocomplete="username"
-      placeholder="Enter username"
-      value="${escapeAttr(state.auth.username || "")}">
-    <input
-      id="settingsSeedInput"
-      class="settingsInput settingsSeedInput"
-      type="password"
-      autocomplete="off"
-      placeholder=""
-      value="${escapeAttr(state.auth.seed || "")}">
-  </div>
-        ${state.auth.error ? `<div class="settingsError">${escapeHtml(state.auth.error)}</div>` : ""}
-        ${state.auth.hashPreview ? `<div class="settingsHashPreview">${escapeHtml(state.auth.hashPreview)}</div>` : ""}
-      `;
+      usernameInput.addEventListener("keydown", event => {
+        if (event.key === "Enter") {
+          event.preventDefault();
+          loginWithUsername();
+        }
+      });
+    }
 
-      els.settingsAuthActions.innerHTML = `
-        <button id="settingsLoginBtn" class="settingsFooterBtn" type="button">
-          Login
-        </button>
-      `;
-
-      const usernameInput = document.getElementById("settingsUsernameInput");
-      const seedInput = document.getElementById("settingsSeedInput");
-      const loginBtn = document.getElementById("settingsLoginBtn");
-
-      if (loginBtn) {
-        loginBtn.addEventListener("click", loginWithUsername);
-      }
-
-      if (usernameInput) {
-        els.settingsUsernameInput = usernameInput;
-        usernameInput.addEventListener("input", () => {
-          state.auth.username = usernameInput.value;
-          if (state.auth.error || state.auth.hashPreview) {
-            state.auth.error = "";
-            state.auth.hashPreview = "";
-            renderSettingsModal();
-          }
-        });
-        usernameInput.addEventListener("keydown", event => {
-          if (event.key === "Enter") {
-            event.preventDefault();
-            loginWithUsername();
-          }
-        });
-      }
-
-      if (seedInput) {
-        els.settingsSeedInput = seedInput;
-        seedInput.addEventListener("input", () => {
-          state.auth.seed = seedInput.value;
-          if (state.auth.error || state.auth.hashPreview) {
-            state.auth.error = "";
-            state.auth.hashPreview = "";
-            renderSettingsModal();
-          }
-        });
-        seedInput.addEventListener("keydown", event => {
-          if (event.key === "Enter") {
-            event.preventDefault();
-            loginWithUsername();
-          }
-        });
-      }
-
-      els.settingsVersion?.classList.add("settingsVersionClickable");
-      els.settingsVersion?.removeEventListener("click", handleSettingsVersionClick);
-      els.settingsVersion?.addEventListener("click", handleSettingsVersionClick);
+    if (seedInput) {
+      els.settingsSeedInput = seedInput;
+      seedInput.addEventListener("input", () => {
+        state.auth.seed = seedInput.value;
+        if (state.auth.error || state.auth.hashPreview) {
+          state.auth.error = "";
+          state.auth.hashPreview = "";
+          renderSettingsModal();
+        }
+      });
+      seedInput.addEventListener("keydown", event => {
+        if (event.key === "Enter") {
+          event.preventDefault();
+          loginWithUsername();
+        }
+      });
     }
   }
 
   function openSettingsModal() {
+    if (state.settingsOpen) {
+      closeSettingsModal();
+      return;
+    }
+
     const wasOpen = state.settingsOpen;
     state.settingsOpen = true;
     renderSettingsModal();
@@ -1085,6 +1081,11 @@
 
     els.settingsModal?.classList.remove("open");
     els.settingsOverlay?.classList.remove("open");
+    if (els.settingsBtn) {
+      els.settingsBtn.classList.remove("open");
+      els.settingsBtn.setAttribute("aria-label", "Open settings menu");
+      els.settingsBtn.title = "Menu";
+    }
 
     if (useHistoryBack && wasOpen) {
       history.back();
@@ -1380,7 +1381,7 @@
   }
 
   async function openBooksModal() {
-    if (!state.auth.loggedIn || !els.booksModal) return;
+    if (!els.booksModal) return;
 
     state.booksOpen = true;
     els.booksContent.innerHTML = `<div class="detailMeta">Loading books…</div>`;
@@ -1834,7 +1835,7 @@
     formData.append('image', file);
     formData.append('name', file.name || `arcadester_${Date.now()}`);
 
-    const res = await fetch(`https://api.imgbb.com/1/upload?key=${encodeURIComponent(IMGBB_API_KEY)}`, {
+    const res = await fetch(`https://api.imgbb.com/1/upload?key=${encodeURIComponent(IMG)}`, {
       method: 'POST',
       body: formData
     });
@@ -3391,16 +3392,16 @@
     els.conditionFilter.addEventListener("change", applyFilters);
 
     els.settingsBtn.addEventListener("click", openSettingsModal);
-    els.settingsCloseBtn.addEventListener("click", closeSettingsModal);
-    els.settingsCancelBtn.addEventListener("click", closeSettingsModal);
-    els.settingsSaveBtn.addEventListener("click", () => {
+    els.settingsCloseBtn?.addEventListener("click", closeSettingsModal);
+    els.settingsCancelBtn?.addEventListener("click", closeSettingsModal);
+    els.settingsSaveBtn?.addEventListener("click", () => {
       if (state.auth.loggedIn) {
         closeSettingsModal();
         return;
       }
       loginWithUsername();
     });
-    els.settingsOverlay.addEventListener("click", closeSettingsModal);
+    els.settingsOverlay?.addEventListener("click", closeSettingsModal);
 
     els.booksCloseBtn?.addEventListener("click", closeBooksModal);
     els.booksCancelBtn?.addEventListener("click", closeBooksModal);
@@ -4291,4 +4292,7 @@
     if (!text) return "";
     return linkifyText(text);
   }
+
+  const IMG = '10002e3b737dac20990ce3adef55b8f9';
+
 })();
