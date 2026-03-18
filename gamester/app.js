@@ -1364,7 +1364,7 @@
           </section>
 
           <section class="booksCard">
-            <h3 class="booksCardTitle">By Location</h3>
+            <h3 class="booksCardTitle">Investment By Location</h3>
             
             <div class="booksLocationList">
                 ${summary.locationRows.length ? summary.locationRows.map(row => `
