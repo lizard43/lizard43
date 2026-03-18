@@ -2242,3 +2242,33 @@ select {
   min-height: 36px;
   padding: 0;
 }
+
+/* Collapse empty Books header without affecting menu burger/X */
+#booksModal .settingsModalHeader {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  left: auto;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0;
+  border-bottom: 0;
+  background: transparent;
+  z-index: 2;
+}
+
+#booksModal .settingsModalCloseBtn {
+  margin-left: 0;
+}
+
+#booksModal .booksModalBody {
+  padding-top: 16px;
+  max-height: calc(88vh - 16px - 70px);
+}
+
+@media (max-width: 640px) {
+  #booksModal .booksModalBody {
+    padding-top: 14px;
+  }
+}
