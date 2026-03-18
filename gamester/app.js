@@ -23,6 +23,7 @@
       versionTapTimer: null
     },
     settingsOpen: false,
+    booksOpen: false,
     editingId: null,
     editMode: "edit",
     editOriginalId: null,
@@ -90,6 +91,12 @@
     settingsCancelBtn: document.getElementById("settingsCancelBtn"),
     settingsCloseBtn: document.getElementById("settingsCloseBtn"),
     settingsSeedInput: document.getElementById("settingsSeedInput"),
+    booksOverlay: document.getElementById("booksOverlay"),
+    booksModal: document.getElementById("booksModal"),
+    booksModalBody: document.getElementById("booksModalBody"),
+    booksContent: document.getElementById("booksContent"),
+    booksCloseBtn: document.getElementById("booksCloseBtn"),
+    booksCancelBtn: document.getElementById("booksCancelBtn"),
     editOverlay: document.getElementById("editOverlay"),
     editModal: document.getElementById("editModal"),
     editModalTitle: document.getElementById("editModalTitle"),
@@ -234,6 +241,9 @@
         return true;
       case 'settings':
         closeSettingsModal(false);
+        return true;
+      case 'books':
+        closeBooksModal(false);
         return true;
       case 'detail':
         closeMobileDetail(false);
@@ -957,11 +967,18 @@
 
       els.settingsAuthActions.innerHTML = `
         <button id="settingsAddGameBtn" class="settingsActionBtn settingsAddGameBtn" type="button">Add New Game</button>
+        <button id="settingsShowBooksBtn" class="settingsActionBtn settingsAddGameBtn" type="button">Show Books</button>
       `;
 
       const addGameBtn = document.getElementById("settingsAddGameBtn");
+      const showBooksBtn = document.getElementById("settingsShowBooksBtn");
       const logoutBtn = document.getElementById("settingsLogoutBtn");
+
       addGameBtn?.addEventListener("click", openNewGameModal);
+      showBooksBtn?.addEventListener("click", () => {
+        closeSettingsModal(false);
+        openBooksModal();
+      });
       logoutBtn?.addEventListener("click", logoutUser);
     } else {
       els.settingsUsernameRow.innerHTML = `
@@ -1075,6 +1092,333 @@
     }
 
     removeUiRoute('settings');
+  }
+
+  function buildBooksSummary() {
+    const machines = Array.isArray(state.allMachines) ? state.allMachines : [];
+
+    const soldMachines = machines.filter(machine => isSoldMachine(machine));
+    const activeMachines = machines.filter(machine => !isSoldMachine(machine));
+
+    let purchaseTotal = 0;
+    let expenseTotal = 0;
+    let soldRevenueTotal = 0;
+
+    let soldInvestmentTotal = 0;
+    let unsoldInvestmentTotal = 0;
+
+    let serviceInvestmentTotal = 0;
+    let bestFlip = null;
+    let worstFlip = null;
+
+    let inProgressCount = 0;
+    let storageCount = 0;
+
+    const locationTotals = new Map();
+    const locationCounts = new Map();
+
+    for (const machine of machines) {
+      const purchasePrice = Number(machine?.purchasePrice) || 0;
+      const totalExpenses = machine?.totalExpenses ?? sumExpenses(machine?.expenses);
+      const expenseAmount = Number(totalExpenses) || 0;
+      const totalCost = addMoney(purchasePrice, expenseAmount) || 0;
+      const soldPrice = Number(machine?.soldPrice) || 0;
+      const rawLocation = String(machine?.location || "").trim();
+      const locationKey = rawLocation || "Unknown";
+      const normalizedLocation = locationKey.toLowerCase();
+      const isSold = isSoldMachine(machine);
+      const isService = normalizedLocation === "service";
+
+      purchaseTotal += purchasePrice;
+      expenseTotal += expenseAmount;
+
+      if (isSold) {
+        soldRevenueTotal += soldPrice;
+        soldInvestmentTotal += totalCost;
+
+        const profit = soldPrice - totalCost;
+        const entry = {
+          id: machine.id || "—",
+          title: machine.title || "",
+          value: profit
+        };
+
+        if (!bestFlip || profit > bestFlip.value) bestFlip = entry;
+        if (!worstFlip || profit < worstFlip.value) worstFlip = entry;
+      } else {
+        unsoldInvestmentTotal += totalCost;
+
+        if (!isService && locationKey !== "-") {
+          locationTotals.set(locationKey, (locationTotals.get(locationKey) || 0) + totalCost);
+          locationCounts.set(locationKey, (locationCounts.get(locationKey) || 0) + 1);
+        }
+
+        if (normalizedLocation === "storage") {
+          storageCount += 1;
+        }
+
+        if (normalizedLocation === "workshop" || normalizedLocation === "in-progress" || normalizedLocation === "in progress") {
+          inProgressCount += 1;
+        }
+      }
+
+      if (!isSold && isService) {
+        serviceInvestmentTotal += totalCost;
+      }
+    }
+
+    const netProfit = soldRevenueTotal - soldInvestmentTotal;
+    const avgProfitPerSold = soldMachines.length ? netProfit / soldMachines.length : null;
+    const avgInvestmentPerMachine = machines.length ? (purchaseTotal + expenseTotal) / machines.length : null;
+
+    let estimatedOpenValue = 0;
+    let estimatedOpenProfit = 0;
+
+    for (const machine of activeMachines) {
+      const locationKey = String(machine?.location || "").trim().toLowerCase();
+      if (locationKey === "service") continue;
+
+      const pg = getPriceguideEntry(machine);
+      const pgEstimate = getPriceguideAverage(pg);
+      const totalExpenses = machine?.totalExpenses ?? sumExpenses(machine?.expenses);
+      const totalCost = addMoney(machine?.purchasePrice, totalExpenses) || 0;
+
+      if (Number.isFinite(pgEstimate)) {
+        estimatedOpenValue += pgEstimate;
+        estimatedOpenProfit += (pgEstimate - totalCost);
+      }
+    }
+
+    const locationRows = [...locationTotals.entries()]
+      .map(([location, total]) => ({
+        location,
+        total,
+        count: locationCounts.get(location) || 0
+      }))
+      .sort((a, b) => b.total - a.total);
+
+    return {
+      totalMachines: machines.length,
+      activeCount: activeMachines.length,
+      soldCount: soldMachines.length,
+      inProgressCount,
+      storageCount,
+      purchaseTotal,
+      expenseTotal,
+      investedTotal: purchaseTotal + expenseTotal,
+      soldRevenueTotal,
+      soldInvestmentTotal,
+      unsoldInvestmentTotal,
+      serviceInvestmentTotal,
+      netProfit,
+      avgProfitPerSold,
+      avgInvestmentPerMachine,
+      estimatedOpenValue,
+      estimatedOpenProfit,
+      bestFlip,
+      worstFlip,
+      locationRows
+    };
+  }
+
+  function buildBooksFlipMarkup(label, entry) {
+    if (!entry) {
+      return `
+        <div class="booksFlipBlock">
+          <div class="booksFlipHeader">${escapeHtml(label)}</div>
+          <div class="booksMuted">—</div>
+        </div>
+      `;
+    }
+
+    const profitClass = entry.value >= 0 ? "positive" : "negative";
+
+    return `
+      <div class="booksFlipBlock">
+        <div class="booksFlipHeader">${escapeHtml(label)}</div>
+        <div class="booksFlipMain">
+          <div class="booksFlipMeta">${escapeHtml(entry.id)} • ${escapeHtml(entry.title || "—")}</div>
+          <div class="booksFlipValue moneyProfit ${profitClass}">${escapeHtml(formatMoneyNoCents(entry.value))}</div>
+        </div>
+      </div>
+    `;
+  }
+
+  function buildBooksMarkup() {
+    const summary = buildBooksSummary();
+
+    return `
+      <div class="booksContent">
+        <div class="booksMiniStats">
+          <div class="booksMiniStat">
+            <div class="booksMiniStatLabel">In-Progress</div>
+            <div class="booksMiniStatValue">${escapeHtml(String(summary.inProgressCount))}</div>
+          </div>
+          <div class="booksMiniStat">
+            <div class="booksMiniStatLabel">Storage</div>
+            <div class="booksMiniStatValue">${escapeHtml(String(summary.storageCount))}</div>
+          </div>
+          <div class="booksMiniStat">
+            <div class="booksMiniStatLabel">Total Machines</div>
+            <div class="booksMiniStatValue">${escapeHtml(String(summary.totalMachines))}</div>
+          </div>
+          <div class="booksMiniStat">
+            <div class="booksMiniStatLabel">Sold</div>
+            <div class="booksMiniStatValue">${escapeHtml(String(summary.soldCount))}</div>
+          </div>
+        </div>
+
+        <div class="booksGrid">
+          <section class="booksCard">
+            <h3 class="booksCardTitle">Summary</h3>
+
+            <div class="detailMoneySummary">
+              <div class="moneyRow">
+                <span class="moneyLabel">Purchase Total</span>
+                <span class="moneyValue">${escapeHtml(formatMoneyNoCents(summary.purchaseTotal))}</span>
+              </div>
+
+              <div class="moneyRow">
+                <span class="moneyLabel">Expense Total</span>
+                <span class="moneyValue">${escapeHtml(formatMoneyNoCents(summary.expenseTotal))}</span>
+              </div>
+
+              <div class="moneyRow moneyRowTotal">
+                <span class="moneyLabel">Total Invested</span>
+                <span class="moneyValue">${escapeHtml(formatMoneyNoCents(summary.investedTotal))}</span>
+              </div>
+
+              <div class="moneySpacer"></div>
+
+              <div class="moneyRow">
+                <span class="moneyLabel">Sold Revenue</span>
+                <span class="moneyValue">${escapeHtml(formatMoneyNoCents(summary.soldRevenueTotal))}</span>
+              </div>
+
+              <div class="moneyRow moneyRowTotal">
+                <span class="moneyLabel">Total P/L</span>
+                <span class="moneyValue moneyProfit ${summary.netProfit >= 0 ? "positive" : "negative"}">
+                  ${escapeHtml(formatMoneyNoCents(summary.netProfit))}
+                </span>
+              </div>
+            </div>
+          </section>
+
+          <section class="booksCard">
+            <h3 class="booksCardTitle">Exposure</h3>
+
+            <div class="detailMoneySummary">
+              <div class="moneyRow">
+                <span class="moneyLabel">Open Inventory</span>
+                <span class="moneyValue">${escapeHtml(formatMoneyNoCents(summary.unsoldInvestmentTotal))}</span>
+              </div>
+
+              <div class="moneyRow">
+                <span class="moneyLabel">Service Investment</span>
+                <span class="moneyValue">${escapeHtml(formatMoneyNoCents(summary.serviceInvestmentTotal))}</span>
+              </div>
+
+              <div class="moneySpacer"></div>
+
+              <div class="moneyRow">
+                <span class="moneyLabel">PG Open Estimate</span>
+                <span class="moneyValue">${escapeHtml(formatMoneyNoCents(summary.estimatedOpenValue))}</span>
+              </div>
+
+              <div class="moneyRow moneyRowTotal">
+                <span class="moneyLabel">PG Potential P/L</span>
+                <span class="moneyValue moneyProfit ${summary.estimatedOpenProfit >= 0 ? "positive" : "negative"}">
+                  ${escapeHtml(formatMoneyNoCents(summary.estimatedOpenProfit))}
+                </span>
+              </div>
+            </div>
+          </section>
+
+          <section class="booksCard">
+            <h3 class="booksCardTitle">Insights</h3>
+
+            <div class="booksInsightList">
+              <div class="booksInsightRow">
+                <div class="booksInsightMetricRow">
+                  <div class="booksInsightLabel">Average profit per sold machine</div>
+                  <div class="booksInsightValue">${escapeHtml(formatMoneyNoCents(summary.avgProfitPerSold))}</div>
+                </div>
+              </div>
+
+              <div class="booksInsightRow">
+                <div class="booksInsightMetricRow">
+                  <div class="booksInsightLabel">Average investment per machine</div>
+                  <div class="booksInsightValue">${escapeHtml(formatMoneyNoCents(summary.avgInvestmentPerMachine))}</div>
+                </div>
+              </div>
+
+              <div class="booksInsightRow">
+                ${buildBooksFlipMarkup("Best flip", summary.bestFlip)}
+              </div>
+
+              <div class="booksInsightRow">
+                ${buildBooksFlipMarkup("Worst flip", summary.worstFlip)}
+              </div>
+            </div>
+          </section>
+
+          <section class="booksCard">
+            <h3 class="booksCardTitle">By Location</h3>
+            
+            <div class="booksLocationList">
+                ${summary.locationRows.length ? summary.locationRows.map(row => `
+                <div class="moneyRow">
+                  <span class="moneyLabel">${escapeHtml(String(row.count))} - ${escapeHtml(row.location)}</span>
+                  <span class="moneyValue">${escapeHtml(formatMoneyNoCents(row.total))}</span>
+                </div>
+              `).join("") : `<div class="booksMuted">No location data.</div>`}
+            </div>
+          </section>
+        </div>
+      </div>
+    `;
+  }
+
+  async function openBooksModal() {
+    if (!state.auth.loggedIn || !els.booksModal) return;
+
+    state.booksOpen = true;
+    els.booksContent.innerHTML = `<div class="detailMeta">Loading books…</div>`;
+
+    const wasOpen = els.booksModal.classList.contains("open");
+    els.booksOverlay?.classList.add("open");
+    els.booksModal.classList.add("open");
+
+    if (!wasOpen) {
+      pushUiRoute('books');
+    }
+
+    try {
+      await Promise.all([
+        loadAllExpenses().catch(() => []),
+        loadAllNotes().catch(() => []),
+        loadAllPhotos().catch(() => [])
+      ]);
+    } catch (err) {
+      console.warn(`[books] preload warning: ${err.message}`);
+    }
+
+    els.booksContent.innerHTML = buildBooksMarkup();
+  }
+
+  function closeBooksModal(useHistoryBack = true) {
+    const wasOpen = els.booksModal?.classList.contains("open");
+
+    state.booksOpen = false;
+    els.booksModal?.classList.remove("open");
+    els.booksOverlay?.classList.remove("open");
+
+    if (useHistoryBack && wasOpen) {
+      history.back();
+      return;
+    }
+
+    removeUiRoute('books');
   }
 
   if (document.readyState === "loading") {
@@ -3058,6 +3402,11 @@
     });
     els.settingsOverlay.addEventListener("click", closeSettingsModal);
 
+    els.booksCloseBtn?.addEventListener("click", closeBooksModal);
+    els.booksCancelBtn?.addEventListener("click", closeBooksModal);
+    els.booksOverlay?.addEventListener("click", closeBooksModal);
+    els.settingsOverlay.addEventListener("click", closeSettingsModal);
+
     els.editCloseBtn?.addEventListener("click", closeEditModal);
     els.editCancelBtn?.addEventListener("click", closeEditModal);
     els.editOverlay?.addEventListener("click", closeEditModal);
@@ -3258,7 +3607,7 @@
       ? `
           <div class="cardStatRow">
             <span class="cardStatLabel">Sold</span>
-            <span class="cardStatValue">${escapeHtml(formatMoney(machine.soldPrice))}</span>
+            <span class="cardStatValue">${escapeHtml(formatMoneyNoCents(machine.soldPrice))}</span>
           </div>
           <div class="cardStatRow">
             <span class="cardStatLabel">P/L</span>
@@ -3554,6 +3903,11 @@
             <div class="expenseDescMuted">
               ${escapeHtml(exp.description || "—")}
             </div>
+            ${String(exp.note || "").trim() ? `
+              <div class="expenseDescMuted expenseNoteLine">
+                ${formatExpenseNoteMarkup(exp.note)}
+              </div>
+            ` : ""}
           </div>
           <div class="expenseAmount">${escapeHtml(formatMoney(exp.amount))}</div>
         </div>
@@ -3586,7 +3940,7 @@
 
           <div class="moneyRow">
             <span class="moneyLabel">Purchase Price</span>
-            <span class="moneyValue">${escapeHtml(formatMoney(machine.purchasePrice))}</span>
+            <span class="moneyValue">${escapeHtml(formatMoneyNoCents(machine.purchasePrice))}</span>
           </div>
 
           ${machine.purchaseDate || machine.purchaseFrom ? `
@@ -3620,7 +3974,7 @@
         <div class="detailMoneySummary">
           <div class="moneyRow">
             <span class="moneyLabel">Sold price</span>
-            <span class="moneyValue">${escapeHtml(formatMoney(machine.soldPrice))}</span>
+            <span class="moneyValue">${escapeHtml(formatMoneyNoCents(machine.soldPrice))}</span>
           </div>
 
           ${machine.soldDate || machine.soldTo ? `
@@ -3634,7 +3988,7 @@
           <div class="moneyRow moneyRowTotal">
             <span class="moneyLabel">Profit / loss</span>
             <span class="moneyValue ${profit != null ? `moneyProfit ${profit >= 0 ? "positive" : "negative"}` : ""} ${expensesLoading ? "isLoading" : ""}">
-              ${escapeHtml(expensesLoading ? "…" : formatMoney(profit))}
+              ${escapeHtml(expensesLoading ? "…" : formatMoneyNoCents(profit))}
             </span>
           </div>
         </div>
@@ -3917,5 +4271,24 @@
 
   function escapeAttr(value) {
     return escapeHtml(value);
+  }
+
+  function linkifyText(value) {
+    const text = String(value || "");
+    if (!text) return "";
+
+    const urlRegex = /(https?:\/\/[^\s<>"']+)/gi;
+
+    return text.replace(urlRegex, url => {
+      const safeUrl = escapeAttr(url);
+      const safeLabel = escapeHtml(url);
+      return `<a href="${safeUrl}" target="_blank" rel="noopener noreferrer">${safeLabel}</a>`;
+    });
+  }
+
+  function formatExpenseNoteMarkup(note) {
+    const text = String(note || "").trim();
+    if (!text) return "";
+    return linkifyText(text);
   }
 })();

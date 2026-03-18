@@ -556,6 +556,21 @@ select {
   color: var(--muted);
 }
 
+.expenseNoteLine {
+  margin-top: 4px;
+}
+
+.expenseNoteLine a {
+  color: #8ab4ff;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  word-break: break-all;
+}
+
+.expenseNoteLine a:hover {
+  opacity: 0.9;
+}
+
 .moneyValue {
   color: var(--text);
   text-align: right;
@@ -1882,5 +1897,185 @@ select {
   .settingsSeedInput {
     flex: 0 0 96px;
     min-width: 96px;
+  }
+}
+
+.booksModal {
+  width: min(94vw, 920px);
+  z-index: 81;
+}
+
+.booksModalBody {
+  padding-bottom: 28px;
+  overflow: auto;
+  max-height: calc(88vh - 72px - 70px);
+}
+
+.booksContent {
+  display: grid;
+  gap: 18px;
+}
+
+.booksGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.booksCard {
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: var(--panel-2);
+  padding: 14px;
+}
+
+.booksCardTitle {
+  margin: 0 0 12px;
+  font-size: 1rem;
+  color: var(--text);
+}
+
+.booksMiniStats {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.booksMiniStat {
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.02);
+  padding: 12px;
+}
+
+.booksMiniStatLabel {
+  color: var(--muted);
+  font-size: 0.86rem;
+  line-height: 1.2;
+  margin-bottom: 6px;
+}
+
+.booksMiniStatValue {
+  color: var(--text);
+  font-size: 1.2rem;
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+.booksMuted {
+  color: var(--muted);
+}
+
+.booksLocationList {
+  display: grid;
+  gap: 10px;
+}
+
+.booksSectionIntro {
+  color: var(--muted);
+  line-height: 1.4;
+  margin-top: -4px;
+  margin-bottom: 2px;
+}
+
+.settingsAuthActions {
+  display: grid;
+  gap: 10px;
+  justify-content: center;
+}
+
+@media (max-width: 640px) {
+  .booksModal {
+    width: min(96vw, 920px);
+  }
+
+  .booksGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .booksMiniStats {
+    grid-template-columns: 1fr;
+  }
+
+  .booksInsightRow {
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+
+  .booksInsightValue {
+    text-align: left;
+    white-space: normal;
+    word-break: break-word;
+  }
+}
+
+.booksInsightList {
+  display: grid;
+  gap: 10px;
+}
+
+.booksInsightRow {
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.booksInsightRow:last-child {
+  border-bottom: 0;
+}
+
+.booksInsightMetricRow {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 12px;
+  align-items: start;
+}
+
+.booksInsightLabel {
+  color: var(--muted);
+  line-height: 1.35;
+}
+
+.booksInsightValue {
+  color: var(--text);
+  text-align: right;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.booksFlipBlock {
+  display: grid;
+  gap: 6px;
+}
+
+.booksFlipHeader {
+  color: var(--muted);
+  line-height: 1.2;
+}
+
+.booksFlipMain {
+  display: grid;
+  gap: 4px;
+}
+
+.booksFlipMeta {
+  color: var(--text);
+  line-height: 1.35;
+  word-break: break-word;
+}
+
+.booksFlipValue {
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+@media (max-width: 640px) {
+  .booksInsightMetricRow {
+    grid-template-columns: 1fr;
+    gap: 4px;
+  }
+
+  .booksInsightValue {
+    text-align: left;
+    white-space: normal;
   }
 }
