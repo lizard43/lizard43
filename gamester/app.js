@@ -1095,6 +1095,21 @@
     removeUiRoute('settings');
   }
 
+
+  function formatLocationDisplay(value) {
+    const text = String(value || "").trim();
+    if (!text) return "Unknown";
+    return text.split(/\s+/).map(p => p.charAt(0).toUpperCase() + p.slice(1)).join(" ");
+  }
+
+  function getDaysBetweenDates(startValue, endValue) {
+    const start = new Date(startValue);
+    const end = new Date(endValue);
+    if (isNaN(start) || isNaN(end)) return null;
+    const d = (end - start) / 86400000;
+    return d >= 0 ? d : null;
+  }
+
   function buildBooksSummary() {
     const machines = Array.isArray(state.allMachines) ? state.allMachines : [];
 
@@ -1172,6 +1187,14 @@
     const avgProfitPerSold = soldMachines.length ? netProfit / soldMachines.length : null;
     const avgInvestmentPerMachine = machines.length ? (purchaseTotal + expenseTotal) / machines.length : null;
 
+    const soldDays = soldMachines
+      .map(m => getDaysBetweenDates(m?.purchaseDate, m?.soldDate))
+      .filter(n => Number.isFinite(n));
+
+    const avgDaysToSell = soldDays.length
+      ? Math.round(soldDays.reduce((a, b) => a + b, 0) / soldDays.length)
+      : null;
+
     let estimatedOpenValue = 0;
     let estimatedOpenProfit = 0;
 
@@ -1216,6 +1239,7 @@
       avgInvestmentPerMachine,
       estimatedOpenValue,
       estimatedOpenProfit,
+      avgDaysToSell,
       bestFlip,
       worstFlip,
       locationRows
@@ -1353,6 +1377,13 @@
                 </div>
               </div>
 
+              <div class="booksInsightMetricRow">
+                <div class="booksInsightLabel">Avg days to sell</div>
+                <div class="booksInsightValue">
+                  ${summary.avgDaysToSell == null ? "—" : `${escapeHtml(String(summary.avgDaysToSell))} days`}
+                </div>
+              </div>              
+
               <div class="booksInsightRow">
                 ${buildBooksFlipMarkup("Best flip", summary.bestFlip)}
               </div>
@@ -1369,7 +1400,7 @@
             <div class="booksLocationList">
                 ${summary.locationRows.length ? summary.locationRows.map(row => `
                 <div class="moneyRow">
-                  <span class="moneyLabel">${escapeHtml(String(row.count))} - ${escapeHtml(row.location)}</span>
+                  <span class="moneyLabel">${escapeHtml(formatLocationDisplay(row.location))} (${escapeHtml(String(row.count))})</span>
                   <span class="moneyValue">${escapeHtml(formatMoneyNoCents(row.total))}</span>
                 </div>
               `).join("") : `<div class="booksMuted">No location data.</div>`}

@@ -143,7 +143,7 @@ select {
 .cardsGrid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 16px;
+  gap: 14px;
 }
 
 .machineRow {
@@ -211,7 +211,7 @@ select {
 
 .cardBody {
   min-width: 0;
-  padding: 10px 12px 10px 14px;
+  padding: 9px 11px 9px 13px;
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -239,7 +239,7 @@ select {
   font-size: 1.05rem;
   font-weight: 700;
   line-height: 1.08;
-  margin-bottom: 10px;
+  margin-bottom: 6px;
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
@@ -262,7 +262,7 @@ select {
   color: var(--muted);
   font-size: 0.9rem;
   line-height: 1.15;
-  margin-bottom: 8px;
+  margin-bottom: 6px;
 
   padding-left: 14px;
   /* indent */
@@ -517,7 +517,7 @@ select {
   color: var(--text);
   line-height: 1.45;
   font-size: 1rem;
-  margin-bottom: 10px;
+  margin-bottom: 6px;
   word-break: break-word;
 }
 
@@ -535,7 +535,7 @@ select {
 .moneyRow {
   display: grid;
   grid-template-columns: minmax(0, 1fr) 120px;
-  gap: 16px;
+  gap: 14px;
   align-items: start;
   padding: 8px 0;
   border-bottom: 1px solid rgba(255, 255, 255, 0.05);
@@ -838,7 +838,7 @@ select {
   .detailHeroLine {
     font-size: 0.98rem;
     line-height: 1.35;
-    margin-bottom: 8px;
+    margin-bottom: 6px;
   }
 
   .expenseRow,
@@ -960,7 +960,7 @@ select {
 .settingsLabel {
   color: var(--muted);
   font-size: 0.86rem;
-  margin-bottom: 8px;
+  margin-bottom: 6px;
 }
 
 .settingsValue,
@@ -1314,7 +1314,7 @@ select {
 
 .expenseEditorRows {
   display: grid;
-  gap: 16px;
+  gap: 14px;
 }
 
 .expenseEditorRow {
@@ -1389,7 +1389,7 @@ select {
 
 .photoStrip {
   display: flex;
-  gap: 16px;
+  gap: 14px;
   overflow-x: auto;
   overflow-y: hidden;
   scroll-behavior: smooth;
@@ -1425,7 +1425,7 @@ select {
 .photoEditorRow {
   display: grid;
   grid-template-columns: 260px minmax(0, 1fr);
-  gap: 16px;
+  gap: 14px;
   align-items: start;
 }
 
@@ -1940,7 +1940,7 @@ select {
 .booksGrid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 16px;
+  gap: 14px;
 }
 
 .booksCard {
