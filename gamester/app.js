@@ -1459,6 +1459,10 @@
     state.booksOpen = true;
     els.booksContent.innerHTML = `<div class="detailMeta">Loading books…</div>`;
 
+    if (els.booksModalBody) {
+      els.booksModalBody.scrollTop = 0;
+    }
+
     const wasOpen = els.booksModal.classList.contains("open");
     els.booksOverlay?.classList.add("open");
     els.booksModal.classList.add("open");
@@ -1478,6 +1482,10 @@
     }
 
     els.booksContent.innerHTML = buildBooksMarkup();
+
+    if (els.booksModalBody) {
+      els.booksModalBody.scrollTop = 0;
+    }
   }
 
   function closeBooksModal(useHistoryBack = true) {
@@ -4202,6 +4210,7 @@
     if (!machine) {
       els.detailTitle.textContent = "Select a machine";
       els.detailContent.innerHTML = `<div class="detailPlaceholder">No machine selected.</div>`;
+      els.detailContent.scrollTop = 0;
       return;
     }
 
@@ -4211,6 +4220,7 @@
 
     els.detailTitle.textContent = `${machine.id} • ${machine.title}`;
     els.detailContent.innerHTML = buildDetailMarkup(machine, true);
+    els.detailContent.scrollTop = 0;
 
     bindDetailExpenseEditButton(machine);
     bindDetailPhotoEditButton(machine);
