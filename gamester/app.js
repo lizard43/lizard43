@@ -1129,6 +1129,8 @@
 
     let inProgressCount = 0;
     let storageCount = 0;
+    let arcadeCount = 0;
+    let partedCount = 0;
 
     const locationTotals = new Map();
     const locationCounts = new Map();
@@ -1173,8 +1175,19 @@
           storageCount += 1;
         }
 
-        if (normalizedLocation === "workshop" || normalizedLocation === "in-progress" || normalizedLocation === "in progress") {
+        if (
+          normalizedLocation === "workshop" ||
+          normalizedLocation === "service"
+        ) {
           inProgressCount += 1;
+        }
+
+        if (normalizedLocation === "arcade") {
+          arcadeCount += 1;
+        }
+
+        if (normalizedLocation === "parted out") {
+          partedCount += 1;
         }
       }
 
@@ -1225,8 +1238,20 @@
       totalMachines: machines.length,
       activeCount: activeMachines.length,
       soldCount: soldMachines.length,
+
       inProgressCount,
       storageCount,
+      arcadeCount,
+      partedCount,
+
+      // aliases used by buildBooksMarkup()
+      inProgress: inProgressCount,
+      storage: storageCount,
+      arcade: arcadeCount,
+      total: machines.length,
+      sold: soldMachines.length,
+      parted: partedCount,
+
       purchaseTotal,
       expenseTotal,
       investedTotal: purchaseTotal + expenseTotal,
@@ -1274,24 +1299,39 @@
 
     return `
       <div class="booksContent">
-        <div class="booksMiniStats">
-          <div class="booksMiniStat">
-            <div class="booksMiniStatLabel">In-Progress</div>
-            <div class="booksMiniStatValue">${escapeHtml(String(summary.inProgressCount))}</div>
+          <div class="booksMiniStats booksMiniStats3">
+            <!-- Row 1 -->
+            <div class="booksMiniStat">
+              <div class="booksMiniStatLabel">In-Progress</div>
+              <div class="booksMiniStatValue">${summary.inProgress}</div>
+            </div>
+
+            <div class="booksMiniStat">
+              <div class="booksMiniStatLabel">Storage</div>
+              <div class="booksMiniStatValue">${summary.storage}</div>
+            </div>
+
+            <div class="booksMiniStat">
+              <div class="booksMiniStatLabel">Arcade</div>
+              <div class="booksMiniStatValue">${summary.arcade}</div>
+            </div>
+
+            <!-- Row 2 -->
+            <div class="booksMiniStat">
+              <div class="booksMiniStatLabel">Total</div>
+              <div class="booksMiniStatValue">${summary.total}</div>
+            </div>
+
+            <div class="booksMiniStat">
+              <div class="booksMiniStatLabel">Sold</div>
+              <div class="booksMiniStatValue">${summary.sold}</div>
+            </div>
+
+            <div class="booksMiniStat">
+              <div class="booksMiniStatLabel">Parted</div>
+              <div class="booksMiniStatValue">${summary.parted}</div>
+            </div>
           </div>
-          <div class="booksMiniStat">
-            <div class="booksMiniStatLabel">Storage</div>
-            <div class="booksMiniStatValue">${escapeHtml(String(summary.storageCount))}</div>
-          </div>
-          <div class="booksMiniStat">
-            <div class="booksMiniStatLabel">Total Machines</div>
-            <div class="booksMiniStatValue">${escapeHtml(String(summary.totalMachines))}</div>
-          </div>
-          <div class="booksMiniStat">
-            <div class="booksMiniStatLabel">Sold</div>
-            <div class="booksMiniStatValue">${escapeHtml(String(summary.soldCount))}</div>
-          </div>
-        </div>
 
         <div class="booksGrid">
           <section class="booksCard">
@@ -1363,26 +1403,28 @@
             <h3 class="booksCardTitle">Insights</h3>
 
             <div class="booksInsightList">
-              <div class="booksInsightRow">
-                <div class="booksInsightMetricRow">
-                  <div class="booksInsightLabel">Average profit per sold machine</div>
-                  <div class="booksInsightValue">${escapeHtml(formatMoneyNoCents(summary.avgProfitPerSold))}</div>
+              <div class="booksInsightsGrid3">
+                <div class="booksInsightMini">
+                  <div class="booksInsightMiniLabel">Avg Profit</div>
+                  <div class="booksInsightMiniValue ${summary.avgProfitPerSold >= 0 ? 'isPositive' : 'isNegative'}">
+                    ${formatMoneyNoCents(summary.avgProfitPerSold)}
+                  </div>
+                </div>
+
+                <div class="booksInsightMini">
+                  <div class="booksInsightMiniLabel">Avg Invest</div>
+                  <div class="booksInsightMiniValue">
+                    ${formatMoneyNoCents(summary.avgInvestmentPerMachine)}
+                  </div>
+                </div>
+
+                <div class="booksInsightMini">
+                  <div class="booksInsightMiniLabel">Avg Days</div>
+                  <div class="booksInsightMiniValue">
+                    ${summary.avgDaysToSell == null ? "—" : `${summary.avgDaysToSell}`}
+                  </div>
                 </div>
               </div>
-
-              <div class="booksInsightRow">
-                <div class="booksInsightMetricRow">
-                  <div class="booksInsightLabel">Average investment per machine</div>
-                  <div class="booksInsightValue">${escapeHtml(formatMoneyNoCents(summary.avgInvestmentPerMachine))}</div>
-                </div>
-              </div>
-
-              <div class="booksInsightMetricRow">
-                <div class="booksInsightLabel">Avg days to sell</div>
-                <div class="booksInsightValue">
-                  ${summary.avgDaysToSell == null ? "—" : `${escapeHtml(String(summary.avgDaysToSell))} days`}
-                </div>
-              </div>              
 
               <div class="booksInsightRow">
                 ${buildBooksFlipMarkup("Best flip", summary.bestFlip)}

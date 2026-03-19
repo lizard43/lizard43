@@ -797,7 +797,7 @@ select {
   }
 
   .card {
-    grid-template-columns: 108px minmax(0, 1fr);
+    grid-template-columns: 132px minmax(0, 1fr);
   }
 
   .card.cardSold {
@@ -806,12 +806,43 @@ select {
   }
 
   .cardPhotoWrap {
-    width: 108px;
-    min-height: 150px;
+    width: 132px;
+    min-height: 160px;
   }
 
   .cardBody {
-    padding: 10px 38px 10px 12px;
+    padding: 9px 10px 9px 10px;
+  }
+
+  .cardTopRow {
+    gap: 8px;
+  }
+
+  .cardTitleLine {
+    font-size: 1rem;
+    margin-bottom: 5px;
+  }
+
+  .cardMetaLine {
+    font-size: 0.9rem;
+    margin-bottom: 3px;
+  }
+
+  .cardNotesLine {
+    font-size: 0.86rem;
+    margin-bottom: 5px;
+  }
+
+  .cardStatRow {
+    gap: 8px;
+  }
+
+  .cardStatLabel {
+    font-size: 0.81rem;
+  }
+
+  .cardStatValue {
+    font-size: 0.94rem;
   }
 
   .priceguideHero {
@@ -1947,19 +1978,24 @@ select {
   border: 1px solid var(--border);
   border-radius: 14px;
   background: var(--panel-2);
-  padding: 14px;
+  padding: 8px 8px;
 }
 
 .booksCardTitle {
-  margin: 0 0 12px;
+  margin: 0 0 5px;
   font-size: 1rem;
   color: var(--text);
 }
 
 .booksMiniStats {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 12px;
+  gap: 10px;
+  padding: 10px 8px;
+}
+
+.booksMiniStats3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
 }
 
 .booksMiniStat {
@@ -1981,6 +2017,25 @@ select {
   font-size: 1.2rem;
   font-weight: 700;
   line-height: 1.1;
+}
+
+.booksMiniStatLabel {
+  font-size: 0.78rem;
+  letter-spacing: 0.3px;
+}
+
+@media (max-width: 640px) {
+  .booksMiniStats3 {
+    gap: 10px;
+  }
+
+  .booksMiniStat {
+    padding: 10px 8px;
+  }
+
+  .booksMiniStatValue {
+    font-size: 1rem;
+  }
 }
 
 .booksMuted {
@@ -2010,21 +2065,24 @@ select {
   }
 
   .booksMiniStats {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 12px;
+    gap: 10px;
+  }
+
+  .booksMiniStats3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
   .booksMiniStat {
-    padding: 10px 12px;
+    padding: 10px 8px;
   }
 
   .booksMiniStatLabel {
-    font-size: 0.82rem;
+    font-size: 0.78rem;
     margin-bottom: 4px;
   }
 
   .booksMiniStatValue {
-    font-size: 1.05rem;
+    font-size: 1rem;
   }
 
   .booksInsightRow {
@@ -2246,8 +2304,8 @@ select {
 /* Collapse empty Books header without affecting menu burger/X */
 #booksModal .settingsModalHeader {
   position: absolute;
-  top: 12px;
-  right: 16px;
+  top: 0px;
+  right: 14px;
   left: auto;
   display: flex;
   align-items: center;
@@ -2255,7 +2313,17 @@ select {
   padding: 0;
   border-bottom: 0;
   background: transparent;
-  z-index: 2;
+  z-index: 3;
+}
+
+#booksModal #booksCloseBtn {
+  min-width: 28px;
+  min-height: 28px;
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  font-size: 2.0rem;
+  line-height: 1;
 }
 
 #booksModal .settingsModalCloseBtn {
@@ -2271,4 +2339,100 @@ select {
   #booksModal .booksModalBody {
     padding-top: 14px;
   }
+}
+
+.booksInsightsGrid3 {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.booksInsightMini {
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.02);
+  padding: 12px;
+}
+
+.booksInsightMiniLabel {
+  color: var(--muted);
+  font-size: 0.78rem;
+  line-height: 1.2;
+  margin-bottom: 6px;
+  letter-spacing: 0.3px;
+}
+
+.booksInsightMiniValue {
+  color: var(--text);
+  font-size: 1.2rem;
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+.booksInsightMiniValue.isPositive {
+  color: #4fd17c;
+}
+
+.booksInsightMiniValue.isNegative {
+  color: #ff6a6a;
+}
+
+@media (max-width: 640px) {
+  .booksInsightsGrid3 {
+    gap: 10px;
+  }
+
+  .booksInsightMini {
+    padding: 3px 8px;
+  }
+
+  .booksInsightMiniLabel {
+    font-size: 0.78rem;
+    margin-bottom: 4px;
+  }
+
+  .booksInsightMiniValue {
+    font-size: 1rem;
+  }
+}
+
+.booksMiniStat,
+.booksInsightMini {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.settingsModalCloseBtn {
+  margin-left: auto;
+  flex: 0 0 auto;
+  border: none;
+  background: transparent;
+  box-shadow: none;
+  min-width: 28px;
+  min-height: 28px;
+  padding: 0;
+  color: var(--muted);
+}
+
+.settingsModalCloseBtn:hover {
+  color: var(--text);
+}
+
+.settingsModalHeader {
+  position: relative;
+}
+
+.settingsModalCloseBtn {
+  font-size: 1.4rem;
+  line-height: 1;
+  padding: 4px;
+  opacity: 0.7;
+}
+
+.settingsModalCloseBtn:hover {
+  opacity: 1;
 }
