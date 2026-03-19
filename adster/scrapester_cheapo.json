@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-03-19T18:05:00.235Z",
+  "generated_at": "2026-03-19T18:30:29.348Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,10 +11,10 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 38,
-      "droppedPrice": 322,
+      "exported_ads": 37,
+      "droppedPrice": 321,
       "droppedMissingGeo": 0,
-      "droppedCircle": 151
+      "droppedCircle": 150
     }
   },
   "ads": [
@@ -419,26 +419,6 @@
       "lastSeen": "2026-03-18T18:25:29.158Z"
     },
     {
-      "adID": "2141263043336540",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/543013669/?product_id=2141263043336540",
-      "author": "Allen Robinson",
-      "postedTime": "2026-03-03T15:45:35.000Z",
-      "title": "Capcom Bowling, Upright Arcade, Capcom 1988",
-      "description": "Vintage Upright Arcade – Capcom Bowling (Capcom, 1988) Price: $325 OBO Capcom Bowling upright cabinet. Condition: • Cabinet is very old and needs some love. • Monitor powers on, image is good, but probably needs new caps for long-term reliability. • Lights come on. • Sound works. • Controls are functional. • Sold as-is. • Serious buyers only.",
-      "price": "$325",
-      "lat": 33.8595492,
-      "lon": -84.683824,
-      "location": "Powder Springs, GA",
-      "imageUrl": "https://scontent-atl3-3.xx.fbcdn.net/v/t39.84726-6/645315433_1550317807046822_6208765174307380647_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=109&ccb=1-7&_nc_sid=92e707&_nc_ohc=w7mRpLJvpX0Q7kNvwGeSz8q&_nc_oc=AdkVMTA2pgUDFuzFyO87lqY2Q6L9_-fZnYY1AsBT0v7BPwe9_FloZhyrcCfeChcZizw&_nc_zt=14&_nc_ht=scontent-atl3-3.xx&_nc_gid=g0Vk_VdR_LY8CdeGxhqKmA&_nc_ss=8&oh=00_AfzRtpW-uD_DMytHpyhjgu89Z-KTz26-iq1DQc75rJC0hg&oe=69C080B2",
-      "adUrl": "https://www.facebook.com/marketplace/item/2141263043336540/",
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-03-05 03:05:00",
-      "lastSeen": "2026-03-18T15:26:09.142Z"
-    },
-    {
       "adID": "2125179731611282",
       "source": "MP",
       "authorUrl": "https://www.facebook.com/marketplace/profile/100034832353579/?product_id=2125179731611282",
@@ -510,13 +490,13 @@
       "lat": 29.8835055,
       "lon": -90.1184486,
       "location": "Marrero, LA",
-      "imageUrl": "https://scontent-atl3-2.xx.fbcdn.net/v/t39.84726-6/646398849_1974956623090657_6859071185498253722_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=102&ccb=1-7&_nc_sid=92e707&_nc_ohc=9UKQVKWldK4Q7kNvwF1fS0n&_nc_oc=Adnu-iK7Jg5wQjIuP61lxs_anLepdrJLgnq6ploeaeE1imboHRrBxByJGI49hVIE0rg&_nc_zt=14&_nc_ht=scontent-atl3-2.xx&_nc_gid=St9aPilEKki9K_4NBwtvOQ&_nc_ss=8&oh=00_AfwfGzYgDU1R-YgJ9s5M7REw1mF4bVwogNB8DgecYphjtw&oe=69C07F5C",
+      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/646398849_1974956623090657_6859071185498253722_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=102&ccb=1-7&_nc_sid=92e707&_nc_ohc=2w_jC_5fNoIQ7kNvwGEQHDn&_nc_oc=AdqN-Z1QJCoLumjVUJwicNci_gdNCWJ-_2_RkaF56IT5l01UDMUUmQbBsgCW5CTZCKI&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=tnPxlupGBtoxSZO8StK6jA&_nc_ss=8&oh=00_Afx9yOeaQpmsphYpesjgbJwAuWF5zXHj-U0BmGcidJKyFg&oe=69C2091C",
       "adUrl": "https://www.facebook.com/marketplace/item/1952481942009327/",
       "priceChanged": 0,
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-03 21:04:50",
-      "lastSeen": "2026-03-18T15:26:09.176Z"
+      "lastSeen": "2026-03-19T18:29:50.884Z"
     },
     {
       "adID": "898178436530988",
@@ -570,13 +550,13 @@
       "lat": 27.7712264,
       "lon": -82.6340259,
       "location": "St Petersburg, FL",
-      "imageUrl": "https://scontent-atl3-2.xx.fbcdn.net/v/t39.84726-6/644149844_721213757623669_282624024751023147_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=101&ccb=1-7&_nc_sid=92e707&_nc_ohc=9ohNbWNc80sQ7kNvwFg8rSg&_nc_oc=AdkLhucuIsh73DP5xYjrb9r6p8TgfYOt0wTLAPA4z64KR3NM9rxm1_HgAfb1d2cnV9g&_nc_zt=14&_nc_ht=scontent-atl3-2.xx&_nc_gid=a4wU07dJlOJd_vTczM3P4Q&_nc_ss=8&oh=00_Afwy2IXV-IVmUFb6-GwYXLnHDA8s_njQb__WyYSufkDUzg&oe=69C0A1F7",
+      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/644149844_721213757623669_282624024751023147_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=101&ccb=1-7&_nc_sid=92e707&_nc_ohc=GeNe9rfRAccQ7kNvwHHNn03&_nc_oc=AdpS9ZNuwpP2izG8HbfP_aro1gDk3ZdcT-xffqtiOonB2Bj-TG9QcWY5lc2ekpWm9RE&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=8IMS1H9WKOV_Nnt0zVEx9g&_nc_ss=8&oh=00_Afx_oF5Q0EkTdcxLiDXFIDX3aXF7UXB9iTY3qTsjf7BAYQ&oe=69C22BB7",
       "adUrl": "https://www.facebook.com/marketplace/item/1856522195025743/",
       "priceChanged": 0,
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-01 12:04:44",
-      "lastSeen": "2026-03-18T15:27:49.687Z"
+      "lastSeen": "2026-03-19T18:29:50.951Z"
     },
     {
       "adID": "PI-210181",
