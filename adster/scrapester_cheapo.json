@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-03-19T08:32:59.576Z",
+  "generated_at": "2026-03-19T11:07:25.945Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,33 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 38,
-      "droppedPrice": 286,
+      "exported_ads": 39,
+      "droppedPrice": 300,
       "droppedMissingGeo": 0,
-      "droppedCircle": 130
+      "droppedCircle": 143
     }
   },
   "ads": [
+    {
+      "adID": "1605058224119385",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100007013828361/?product_id=1605058224119385",
+      "author": "Josué Sweet",
+      "postedTime": "2026-03-19T07:16:33.000Z",
+      "title": "Arcade machines",
+      "description": "$220 EACH* If you want delivery it’ll be EXTRA $ FIRM ON PRICE WILL NOT RESPOND TO ANY LOW BALLERS.",
+      "price": "$220",
+      "lat": 30.4380832,
+      "lon": -84.2809332,
+      "location": "Tallahassee, FL",
+      "imageUrl": "https://scontent-atl3-1.xx.fbcdn.net/v/t39.84726-6/652577540_2311725336032140_5736777191957589681_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=103&ccb=1-7&_nc_sid=92e707&_nc_ohc=_gNAOuL1GqUQ7kNvwGwn5iM&_nc_oc=Ado12nu2awB9rNwsmDFyhgsklYTnfKZb5FWu6sqi4FfW7QRRs3RUKWDkn81EdSljyio&_nc_zt=14&_nc_ht=scontent-atl3-1.xx&_nc_gid=tYWvovzX7zdvRBGJumXN7g&_nc_ss=8&oh=00_AfzadnNjYAEfloD8KT6eTcdGtyEmRefkaI01kq0Dru1O0Q&oe=69C1B2A4",
+      "adUrl": "https://www.facebook.com/marketplace/item/1605058224119385/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-03-19 11:04:31",
+      "lastSeen": "2026-03-19T11:05:20.796Z"
+    },
     {
       "adID": "1602707701014796",
       "source": "MP",
@@ -96,7 +116,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-18 18:04:20",
-      "lastSeen": "2026-03-19T02:04:35.474Z"
+      "lastSeen": "2026-03-19T11:04:31.499Z"
     },
     {
       "adID": "2002022350661579",
@@ -123,7 +143,7 @@
       "source": "PS",
       "authorUrl": "https://pinside.com/pinball/community/pinsiders/militiaman/market",
       "author": "MilitiaMan",
-      "postedTime": "2026-03-17T15:07:50.073Z",
+      "postedTime": "2026-03-17T15:07:10.404Z",
       "title": "Williams System 11b Pinball Transformer (Tested, Working)",
       "description": "Used, good condition - “This is a fully tested and working pinball transformer pulled from a Williams Police Force. This transformer will work with other Williams System 11b pinball machines as it outputs...”",
       "price": "$200",
@@ -136,14 +156,14 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-17 15:07:15",
-      "lastSeen": "2026-03-19T02:07:52.161Z"
+      "lastSeen": "2026-03-19T11:07:11.408Z"
     },
     {
       "adID": "PI-189391",
       "source": "PS",
       "authorUrl": "https://pinside.com/pinball/community/pinsiders/militiaman/market",
       "author": "MilitiaMan",
-      "postedTime": "2026-03-17T15:07:50.073Z",
+      "postedTime": "2026-03-17T15:07:10.404Z",
       "title": "Capcom Pinball Transformer XF00105 (Tested, Working)",
       "description": "Used, good condition - “This is a fully tested and working pinball transformer from a Capcom Breakshot. This transformer will likely work with other Capcom pinball machines as it outputs the correct volta...”",
       "price": "$150",
@@ -156,7 +176,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-17 15:07:15",
-      "lastSeen": "2026-03-19T02:07:52.195Z"
+      "lastSeen": "2026-03-19T11:07:11.442Z"
     },
     {
       "adID": "1716037859381540",
