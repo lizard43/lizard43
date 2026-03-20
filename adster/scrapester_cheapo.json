@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-03-20T08:25:52.695Z",
+  "generated_at": "2026-03-20T11:07:26.270Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,53 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 40,
-      "droppedPrice": 343,
+      "exported_ads": 42,
+      "droppedPrice": 348,
       "droppedMissingGeo": 0,
-      "droppedCircle": 151
+      "droppedCircle": 158
     }
   },
   "ads": [
+    {
+      "adID": "909537545403988",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100006448266013/?product_id=909537545403988",
+      "author": "Jimmy Rovolis",
+      "postedTime": "2026-03-20T02:07:04.000Z",
+      "title": "Vintage pinball game",
+      "description": "Used vintage pinball game still works perfect for the man cave asking $30",
+      "price": "$30",
+      "lat": 31.805769,
+      "lon": -81.4306642,
+      "location": "Midway, GA",
+      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/652971973_26444952291860582_1672641282991282050_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=104&ccb=1-7&_nc_sid=92e707&_nc_ohc=19YKTsoASloQ7kNvwH1oKnI&_nc_oc=Adqvy8eHdLKJixED9ZefeOooXAmsTpwCbJEAmE9xtaY-eoEAimR7-7fGs0snDMG04_I&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=jyYrWjEWNww4rfGAclGpqA&_nc_ss=7a30f&oh=00_AfxM-pAYn-CykSHIpWgskzEHY6NDs4DYxxKZ71QzHU2nHA&oe=69C2E3D9",
+      "adUrl": "https://www.facebook.com/marketplace/item/909537545403988/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-03-20 11:05:45",
+      "lastSeen": "2026-03-20T11:06:44.483Z"
+    },
+    {
+      "adID": "2119293942157321",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100001396754370/?product_id=2119293942157321",
+      "author": "Edgar Acosta",
+      "postedTime": "2026-03-20T05:33:54.000Z",
+      "title": "Space Invaders",
+      "description": "Old school arcade game.",
+      "price": "$25",
+      "lat": 34.2978794,
+      "lon": -83.8240663,
+      "location": "Gainesville, GA",
+      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/653716329_793413383363715_8815958081784377529_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=106&ccb=1-7&_nc_sid=92e707&_nc_ohc=V9W40aUxLoUQ7kNvwGVoz2V&_nc_oc=Ado134TrqaSuK6cMv6i6FLeAzH760GL40zb1h9Nb4jjfItkfZpVpL18TZ7TIKlyid7U&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=Srr7nmzNYUgPI6-W7LyJZw&_nc_ss=7a30f&oh=00_AfxOM1JPrloLa7prodeokbBcbC_YTW_99YGLoXOd5phtRQ&oe=69C3182C",
+      "adUrl": "https://www.facebook.com/marketplace/item/2119293942157321/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-03-20 11:04:40",
+      "lastSeen": "2026-03-20T11:05:23.256Z"
+    },
     {
       "adID": "1235896172031270",
       "source": "MP",
@@ -36,7 +76,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-20 01:06:29",
-      "lastSeen": "2026-03-20T02:04:37.299Z"
+      "lastSeen": "2026-03-20T11:05:45.989Z"
     },
     {
       "adID": "2787366384930420",
@@ -56,7 +96,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-19 22:04:20",
-      "lastSeen": "2026-03-20T02:04:26.364Z"
+      "lastSeen": "2026-03-20T11:04:40.942Z"
     },
     {
       "adID": "963776836051132",
@@ -76,7 +116,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-19 21:04:18",
-      "lastSeen": "2026-03-20T03:19:58.025Z"
+      "lastSeen": "2026-03-20T11:05:45.772Z"
     },
     {
       "adID": "901738832663151",
@@ -96,7 +136,7 @@
       "priceChangedAt": "2026-03-20 01:04:29",
       "hidden": 0,
       "created_at": "2026-03-19 20:04:19",
-      "lastSeen": "2026-03-20T02:04:26.498Z"
+      "lastSeen": "2026-03-20T11:04:41.076Z"
     },
     {
       "adID": "1578251313230842",
@@ -136,7 +176,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-19 02:04:35",
-      "lastSeen": "2026-03-20T02:04:26.531Z"
+      "lastSeen": "2026-03-20T11:04:41.109Z"
     },
     {
       "adID": "1458526922302297",
@@ -156,7 +196,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-19 02:04:35",
-      "lastSeen": "2026-03-20T02:04:26.564Z"
+      "lastSeen": "2026-03-20T11:04:41.143Z"
     },
     {
       "adID": "1599099644471922",
