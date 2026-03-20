@@ -578,14 +578,16 @@ select {
   margin-top: 4px;
 }
 
-.expenseNoteLine a {
+.expenseNoteLine a,
+.detailNoteEntry a {
   color: #8ab4ff;
   text-decoration: underline;
   text-underline-offset: 2px;
   word-break: break-all;
 }
 
-.expenseNoteLine a:hover {
+.expenseNoteLine a:hover,
+.detailNoteEntry a:hover {
   opacity: 0.9;
 }
 

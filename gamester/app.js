@@ -31,6 +31,8 @@
     },
     expenseEditingId: null,
     expenseDraftRows: [],
+    noteEditingId: null,
+    noteDraftRows: [],
     photoEditingId: null,
     photoDraftRows: [],
     photoViewer: {
@@ -127,6 +129,14 @@
     expenseSaveBtn: document.getElementById("expenseSaveBtn"),
     expenseCancelBtn: document.getElementById("expenseCancelBtn"),
     expenseCloseBtn: document.getElementById("expenseCloseBtn"),
+    noteOverlay: document.getElementById("noteOverlay"),
+    noteModal: document.getElementById("noteModal"),
+    noteForm: document.getElementById("noteForm"),
+    noteGameId: document.getElementById("noteGameId"),
+    noteRows: document.getElementById("noteRows"),
+    noteSaveBtn: document.getElementById("noteSaveBtn"),
+    noteCancelBtn: document.getElementById("noteCancelBtn"),
+    noteCloseBtn: document.getElementById("noteCloseBtn"),
     photoOverlay: document.getElementById("photoOverlay"),
     photoModal: document.getElementById("photoModal"),
     photoForm: document.getElementById("photoForm"),
@@ -233,6 +243,9 @@
         return true;
       case 'expense':
         closeExpenseModal(false);
+        return true;
+      case 'note':
+        closeNoteModal(false);
         return true;
       case 'edit':
         closeEditModal(false);
@@ -399,7 +412,11 @@
         .map(normalizeNote);
 
       cache.notesAll = rows;
-      cache.notesByGame = groupRowsByGameId(rows);
+      cache.notesByGame = groupRowsByGameId(rows, null, (a, b) => {
+        const diff = getSortableDateValue(b?.date) - getSortableDateValue(a?.date);
+        if (diff !== 0) return diff;
+        return String(b?.noteID || '').localeCompare(String(a?.noteID || ''));
+      });
       cache.notesLoaded = true;
       applyResourceCacheToMachines('notes');
       return rows;
@@ -1852,6 +1869,280 @@
     }
   }
 
+
+  function sortNotesByDateDesc(notes) {
+    if (!Array.isArray(notes)) return [];
+
+    return [...notes].sort((a, b) => {
+      const diff = getSortableDateValue(b?.date) - getSortableDateValue(a?.date);
+      if (diff !== 0) return diff;
+      return String(b?.noteID || '').localeCompare(String(a?.noteID || ''));
+    });
+  }
+
+  function makeLocalNoteRow(gameID) {
+    return {
+      noteID: '',
+      gameID: String(gameID || '').trim(),
+      date: '',
+      category: '',
+      note: '',
+      _delete: false,
+      _dirty: false,
+      _originalFingerprint: ''
+    };
+  }
+
+  function cloneNoteForDraft(note) {
+    const row = {
+      noteID: String(note?.noteID || '').trim(),
+      gameID: String(note?.gameID || '').trim(),
+      date: toApiDateValue(note?.date),
+      category: String(note?.category || '').trim(),
+      note: String(note?.note || '').trim(),
+      _delete: false,
+      _dirty: false,
+      _originalFingerprint: ''
+    };
+
+    return markNoteDraftClean(row);
+  }
+
+  function getComparableNoteDraft(row) {
+    return {
+      noteID: String(row?.noteID || '').trim(),
+      gameID: String(row?.gameID || '').trim(),
+      date: String(row?.date || '').trim(),
+      category: String(row?.category || '').trim(),
+      note: String(row?.note || '').trim()
+    };
+  }
+
+  function noteDraftFingerprint(row) {
+    return JSON.stringify(getComparableNoteDraft(row));
+  }
+
+  function markNoteDraftClean(row) {
+    const fingerprint = noteDraftFingerprint(row);
+    row._originalFingerprint = fingerprint;
+    row._dirty = false;
+    return row;
+  }
+
+  function refreshNoteDraftDirty(row) {
+    row._dirty = noteDraftFingerprint(row) !== String(row._originalFingerprint || '');
+    return row._dirty;
+  }
+
+  function renderNoteEditorRows() {
+    if (!els.noteRows) return;
+
+    const rows = state.noteDraftRows;
+    els.noteRows.innerHTML = `
+      <button class="expenseAddBtn expenseAddBtnTop" type="button" id="noteAddBtn" aria-label="Add note row" title="Add note">
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <path d="M11 5h2v6h6v2h-6v6h-2v-6H5v-2h6z"/>
+        </svg>
+        <span>Add note</span>
+      </button>
+    ` + rows.map((row, index) => `
+      <div class="expenseEditorRow ${row._delete ? "expenseEditorRowDeleted" : ""}" data-index="${index}">
+        <div class="expenseEditorRowHeader">
+          <div class="expenseEditorRowTitle">Note ${index + 1}</div>
+          <button class="expenseIconBtn noteDeleteBtn" type="button" data-action="delete" data-index="${index}" aria-label="Delete note row" title="Delete note">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path d="M9 3h6l1 2h4v2H4V5h4l1-2Zm1 6h2v8h-2V9Zm4 0h2v8h-2V9ZM7 9h2v8H7V9Zm-1 12h12a2 2 0 0 0 2-2V7H4v12a2 2 0 0 0 2 2Z"/>
+            </svg>
+          </button>
+        </div>
+
+        <div class="editFieldGrid expenseEditorGrid">
+          <div class="editField">
+            <label class="settingsLabel" for="noteDate_${index}">Date</label>
+            <input id="noteDate_${index}" class="settingsInput noteDraftInput" data-field="date" data-index="${index}" type="date" value="${escapeAttr(row.date || "")}" ${row._delete ? "disabled" : ""}>
+          </div>
+          <div class="editField">
+            <label class="settingsLabel" for="noteCategory_${index}">Category</label>
+            <input id="noteCategory_${index}" class="settingsInput noteDraftInput" data-field="category" data-index="${index}" type="text" value="${escapeAttr(row.category || "")}" ${row._delete ? "disabled" : ""}>
+          </div>
+        </div>
+
+        <div class="editField">
+          <label class="settingsLabel" for="noteBody_${index}">Note</label>
+          <textarea id="noteBody_${index}" class="settingsInput editTextarea noteDraftInput" data-field="note" data-index="${index}" ${row._delete ? "disabled" : ""}>${escapeHtml(row.note || "")}</textarea>
+        </div>
+
+        ${row._delete ? '<div class="expenseDeletedLabel">Will be deleted on save</div>' : ''}
+      </div>
+    `).join('');
+
+    els.noteRows.querySelectorAll('.noteDraftInput').forEach(input => {
+      input.addEventListener('input', handleNoteDraftInput);
+    });
+
+    els.noteRows.querySelectorAll('.noteDeleteBtn').forEach(btn => {
+      btn.addEventListener('click', handleNoteDraftDelete);
+    });
+
+    document.getElementById('noteAddBtn')?.addEventListener('click', handleNoteDraftAdd);
+  }
+
+  async function openNoteModal(id) {
+    if (!state.auth.loggedIn) return;
+
+    const machine = getMachineById(id);
+    if (!machine || !els.noteModal) return;
+
+    state.noteEditingId = id;
+
+    if (!Array.isArray(machine.apiNotes)) {
+      try {
+        await hydrateMachineNotes(machine);
+      } catch (err) {
+        window.alert(`Could not load notes. ${err.message}`);
+        return;
+      }
+    }
+
+    state.noteDraftRows = Array.isArray(machine.apiNotes)
+      ? sortNotesByDateDesc(machine.apiNotes).map(cloneNoteForDraft)
+      : [];
+
+    els.noteGameId.textContent = machine.id || '—';
+    renderNoteEditorRows();
+
+    const wasOpen = els.noteModal.classList.contains('open');
+    els.noteOverlay?.classList.add('open');
+    els.noteModal.classList.add('open');
+    if (!wasOpen) {
+      pushUiRoute('note');
+    }
+
+    els.noteRows?.querySelector('input, textarea')?.focus();
+  }
+
+  function closeNoteModal(useHistoryBack = true) {
+    const wasOpen = els.noteModal?.classList.contains('open');
+    state.noteEditingId = null;
+    state.noteDraftRows = [];
+    els.noteModal?.classList.remove('open');
+    els.noteOverlay?.classList.remove('open');
+    els.noteForm?.reset();
+    if (els.noteRows) {
+      els.noteRows.innerHTML = '';
+    }
+    if (useHistoryBack && wasOpen) {
+      history.back();
+      return;
+    }
+    removeUiRoute('note');
+  }
+
+  function handleNoteDraftInput(event) {
+    const field = event.target?.dataset?.field;
+    const index = Number(event.target?.dataset?.index);
+    if (!field || !Number.isInteger(index) || !state.noteDraftRows[index]) return;
+
+    const row = state.noteDraftRows[index];
+    row[field] = event.target.value;
+    refreshNoteDraftDirty(row);
+  }
+
+  function handleNoteDraftDelete(event) {
+    const index = Number(event.currentTarget?.dataset?.index);
+    if (!Number.isInteger(index) || !state.noteDraftRows[index]) return;
+
+    const row = state.noteDraftRows[index];
+
+    if (row.noteID) {
+      row._delete = !row._delete;
+      row._dirty = true;
+    } else {
+      state.noteDraftRows.splice(index, 1);
+    }
+
+    renderNoteEditorRows();
+  }
+
+  function handleNoteDraftAdd() {
+    state.noteDraftRows.push(makeLocalNoteRow(state.noteEditingId));
+    renderNoteEditorRows();
+    const lastIndex = state.noteDraftRows.length - 1;
+    document.getElementById(`noteDate_${lastIndex}`)?.focus();
+  }
+
+  function buildNotePayloadFromDraft(row) {
+    return {
+      noteID: String(row.noteID || '').trim(),
+      gameID: String(row.gameID || state.noteEditingId || '').trim(),
+      date: String(row.date || '').trim(),
+      category: String(row.category || '').trim(),
+      note: String(row.note || '').trim()
+    };
+  }
+
+  function isNoteDraftMeaningful(row) {
+    return !!(String(row.date || '').trim() || String(row.category || '').trim() || String(row.note || '').trim());
+  }
+
+  async function refreshMachineNotes(machine) {
+    resetResourceCacheSection('notes');
+    await loadAllNotes(true);
+    applyNoteCacheToMachine(machine);
+    patchMachineUI(machine, { patchCard: false, detailSections: ['notes'] });
+  }
+
+  async function handleNoteFormSubmit(event) {
+    event.preventDefault();
+
+    const id = state.noteEditingId;
+    const machine = getMachineById(id);
+    if (!id || !machine) return;
+
+    const saveBtn = els.noteSaveBtn;
+    const originalLabel = saveBtn?.textContent || 'Save';
+
+    try {
+      if (saveBtn) {
+        saveBtn.disabled = true;
+        saveBtn.textContent = 'Saving…';
+      }
+
+      for (const row of state.noteDraftRows) {
+        if (row._delete && row.noteID) {
+          await apiPost('deleteNote', { noteID: row.noteID });
+          continue;
+        }
+
+        if (row._delete) continue;
+        if (!isNoteDraftMeaningful(row)) continue;
+
+        const payload = buildNotePayloadFromDraft(row);
+
+        if (payload.noteID) {
+          if (!row._dirty) continue;
+          await apiPost('updateNote', payload);
+        } else {
+          await apiPost('createNote', payload);
+        }
+      }
+
+      await refreshMachineNotes(machine);
+
+      state.noteDraftRows = Array.isArray(machine.apiNotes)
+        ? sortNotesByDateDesc(machine.apiNotes).map(cloneNoteForDraft)
+        : [];
+
+      closeNoteModal();
+    } catch (err) {
+      window.alert(`Could not save notes. ${err.message}`);
+    } finally {
+      if (saveBtn) {
+        saveBtn.disabled = false;
+        saveBtn.textContent = originalLabel;
+      }
+    }
+  }
 
   function normalizePhoto(photo) {
     return {
@@ -3506,6 +3797,11 @@
     els.expenseOverlay?.addEventListener("click", closeExpenseModal);
     els.expenseForm?.addEventListener("submit", handleExpenseFormSubmit);
 
+    els.noteCloseBtn?.addEventListener("click", closeNoteModal);
+    els.noteCancelBtn?.addEventListener("click", closeNoteModal);
+    els.noteOverlay?.addEventListener("click", closeNoteModal);
+    els.noteForm?.addEventListener("submit", handleNoteFormSubmit);
+
     els.photoCloseBtn?.addEventListener("click", closePhotoModal);
     els.photoCancelBtn?.addEventListener("click", closePhotoModal);
     els.photoOverlay?.addEventListener("click", closePhotoModal);
@@ -3879,19 +4175,19 @@
     const parts = [];
 
     if (baseNote) {
-      parts.push(`<div class="detailNoteEntry detailNoteEntryBase">${escapeHtml(baseNote)}</div>`);
+      parts.push(`<div class="detailNoteEntry detailNoteEntryBase">${formatExpenseNoteMarkup(baseNote)}</div>`);
     }
 
     if (apiNotes === null) {
       parts.push(`<div class="detailMeta detailMetaLoading">Loading notes…</div>`);
     } else if (apiNotes.length) {
-      parts.push(apiNotes.map(note => `
+      parts.push(sortNotesByDateDesc(apiNotes).map(note => `
         <div class="detailNoteEntry detailNoteEntryApi">
           <div class="expenseTop detailNoteMeta">
             ${escapeHtml(note.date || "—")}
             ${note.category ? ` • ${escapeHtml(note.category)}` : ""}
           </div>
-          <div class="expenseDescMuted detailNoteTextIndented">${escapeHtml(note.note || "—")}</div>
+          <div class="expenseDescMuted detailNoteTextIndented">${formatExpenseNoteMarkup(note.note || "—")}</div>
         </div>
       `).join(""));
     }
@@ -3906,7 +4202,18 @@
   function buildDetailNotesSectionMarkup(machine) {
     return `
       <section class="detailSection" data-detail-section="notes">
-        <h3>Notes</h3>
+        <div class="detailSectionHeader">
+          <h3>Notes</h3>
+          ${state.auth.loggedIn ? `
+            <button class="detailExpenseEditBtn" type="button" data-note-edit-id="${escapeAttr(machine.id)}" aria-label="Edit notes" title="Edit notes">
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <path fill="#F4C542" d="M3 17.25V21h3.75L19.81 7.94l-3.75-3.75L3 17.25z"/>
+                <path fill="#D8A420" d="M14.06 4.19l3.75 3.75 1.59-1.59a1 1 0 0 0 0-1.41l-2.34-2.34a1 1 0 0 0-1.41 0l-1.59 1.59z"/>
+                <path fill="#333" d="M3 21l4.5-1.2L4.2 16.5 3 21z"/>
+              </svg>
+            </button>
+          ` : ""}
+        </div>
         ${buildMachineNotesMarkup(machine)}
       </section>
     `;
@@ -4086,6 +4393,14 @@
     });
   }
 
+  function bindDetailNoteEditButton(machine, root = els.detailContent) {
+    const noteEditBtn = root.querySelector('[data-note-edit-id]');
+    noteEditBtn?.addEventListener('click', event => {
+      event.stopPropagation();
+      openNoteModal(machine.id);
+    });
+  }
+
   function bindDetailPhotoEditButton(machine, root = els.detailContent) {
     const photoEditBtn = root.querySelector('[data-photo-edit-id]');
     photoEditBtn?.addEventListener('click', event => {
@@ -4158,6 +4473,10 @@
       bindDetailExpenseEditButton(machine);
     }
 
+    if (uniqueSections.includes("notes")) {
+      bindDetailNoteEditButton(machine);
+    }
+
     if (uniqueSections.includes("photos")) {
       bindDetailPhotoEditButton(machine);
       bindDetailPhotoSectionEvents(machine);
@@ -4223,6 +4542,7 @@
     els.detailContent.scrollTop = 0;
 
     bindDetailExpenseEditButton(machine);
+    bindDetailNoteEditButton(machine);
     bindDetailPhotoEditButton(machine);
     bindDetailPhotoSectionEvents(machine);
     bindImageStates(els.detailContent);
