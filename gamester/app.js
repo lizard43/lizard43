@@ -1558,6 +1558,10 @@
     return `${year}-${month}-${day}`;
   }
 
+  function getTodayDateInputValue() {
+    return toApiDateValue(new Date());
+  }
+
   function getSortableDateValue(value) {
     if (!value) return 0;
 
@@ -1584,7 +1588,7 @@
     return {
       expenseID: "",
       gameID: String(gameID || "").trim(),
-      date: "",
+      date: getTodayDateInputValue(),
       category: "",
       description: "",
       vendor: "",
@@ -1661,7 +1665,7 @@
     ` + rows.map((row, index) => `
       <div class="expenseEditorRow ${row._delete ? "expenseEditorRowDeleted" : ""}" data-index="${index}">
         <div class="expenseEditorRowHeader">
-          <div class="expenseEditorRowTitle">Expense ${index + 1}</div>
+          <div class="expenseEditorRowTitle">${row.expenseID ? `expenseID: ${escapeHtml(row.expenseID)}` : 'New expense'}</div>
           <button class="expenseIconBtn expenseDeleteBtn" type="button" data-action="delete" data-index="${index}" aria-label="Delete expense row" title="Delete expense">
             <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
               <path d="M9 3h6l1 2h4v2H4V5h4l1-2Zm1 6h2v8h-2V9Zm4 0h2v8h-2V9ZM7 9h2v8H7V9Zm-1 12h12a2 2 0 0 0 2-2V7H4v12a2 2 0 0 0 2 2Z"/>
@@ -1698,7 +1702,7 @@
 
         <div class="editField">
           <label class="settingsLabel" for="expenseNote_${index}">Note</label>
-          <textarea id="expenseNote_${index}" class="settingsInput editTextarea expenseDraftInput" data-field="note" data-index="${index}" ${row._delete ? "disabled" : ""}>${escapeHtml(row.note || "")}</textarea>
+          <textarea id="expenseNote_${index}" class="settingsInput editTextarea expenseDraftInput ${row.note ? "" : "expenseDraftTextareaEmpty"}" data-field="note" data-index="${index}" rows="${row.note ? 4 : 1}" ${row._delete ? "disabled" : ""}>${escapeHtml(row.note || "")}</textarea>
         </div>
 
         ${row._delete ? '<div class="expenseDeletedLabel">Will be deleted on save</div>' : ''}
@@ -1884,7 +1888,7 @@
     return {
       noteID: '',
       gameID: String(gameID || '').trim(),
-      date: '',
+      date: getTodayDateInputValue(),
       category: '',
       note: '',
       _delete: false,
@@ -1948,7 +1952,7 @@
     ` + rows.map((row, index) => `
       <div class="expenseEditorRow ${row._delete ? "expenseEditorRowDeleted" : ""}" data-index="${index}">
         <div class="expenseEditorRowHeader">
-          <div class="expenseEditorRowTitle">Note ${index + 1}</div>
+          <div class="expenseEditorRowTitle">${row.noteID ? `noteID: ${escapeHtml(row.noteID)}` : 'New note'}</div>
           <button class="expenseIconBtn noteDeleteBtn" type="button" data-action="delete" data-index="${index}" aria-label="Delete note row" title="Delete note">
             <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
               <path d="M9 3h6l1 2h4v2H4V5h4l1-2Zm1 6h2v8h-2V9Zm4 0h2v8h-2V9ZM7 9h2v8H7V9Zm-1 12h12a2 2 0 0 0 2-2V7H4v12a2 2 0 0 0 2 2Z"/>
@@ -1969,7 +1973,7 @@
 
         <div class="editField">
           <label class="settingsLabel" for="noteBody_${index}">Note</label>
-          <textarea id="noteBody_${index}" class="settingsInput editTextarea noteDraftInput" data-field="note" data-index="${index}" ${row._delete ? "disabled" : ""}>${escapeHtml(row.note || "")}</textarea>
+          <textarea id="noteBody_${index}" class="settingsInput editTextarea noteDraftInput ${row.note ? "" : "expenseDraftTextareaEmpty"}" data-field="note" data-index="${index}" rows="${row.note ? 4 : 1}" ${row._delete ? "disabled" : ""}>${escapeHtml(row.note || "")}</textarea>
         </div>
 
         ${row._delete ? '<div class="expenseDeletedLabel">Will be deleted on save</div>' : ''}

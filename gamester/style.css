@@ -391,7 +391,7 @@ select {
   align-items: center;
   justify-content: space-between;
   gap: 12px;
-  padding: 14px 16px;
+  padding: 40px 16px;
   border-bottom: 1px solid var(--border);
 }
 
@@ -1347,14 +1347,27 @@ select {
 
 .expenseEditorRows {
   display: grid;
-  gap: 14px;
+  gap: 10px;
 }
 
 .expenseEditorRow {
   border: 1px solid var(--border);
   border-radius: 14px;
   background: var(--panel-2);
-  padding: 14px;
+  padding: 10px 14px 12px;
+}
+
+.expenseEditorRow .editField,
+.expenseEditorRow .editFieldGrid {
+  margin-bottom: 10px;
+}
+
+.expenseEditorRow .editField:last-of-type {
+  margin-bottom: 0;
+}
+
+.expenseEditorGrid {
+  gap: 10px;
 }
 
 .expenseEditorRowDeleted {
@@ -1366,11 +1379,33 @@ select {
   align-items: center;
   justify-content: space-between;
   gap: 12px;
-  margin-bottom: 12px;
+  margin-bottom: 6px;
 }
 
 .expenseEditorRowTitle {
   font-weight: 700;
+  line-height: 1.1;
+}
+
+.expenseEditorRow .settingsLabel {
+  margin-bottom: 4px;
+}
+
+.expenseEditorRow .settingsInput {
+  min-height: 40px;
+}
+
+.expenseEditorRow .editTextarea {
+  min-height: 78px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  resize: vertical;
+}
+
+.expenseEditorRow .editTextarea.expenseDraftTextareaEmpty {
+  min-height: 40px;
+  padding-top: 9px;
+  padding-bottom: 9px;
 }
 
 .expenseIconBtn {
