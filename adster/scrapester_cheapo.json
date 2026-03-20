@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-03-20T20:34:23.262Z",
+  "generated_at": "2026-03-20T21:06:34.799Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,33 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 39,
-      "droppedPrice": 356,
+      "exported_ads": 40,
+      "droppedPrice": 359,
       "droppedMissingGeo": 0,
-      "droppedCircle": 159
+      "droppedCircle": 163
     }
   },
   "ads": [
+    {
+      "adID": "1398655692277713",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100013949979857/?product_id=1398655692277713",
+      "author": "Kaylee Melton",
+      "postedTime": "2026-03-20T20:54:42.000Z",
+      "title": "Western breast collar",
+      "description": "Turquoise fringe breast collar, used it for a very short period of time a few years ago and went away from flashy colors and fringe",
+      "price": "$75",
+      "lat": 30.3321838,
+      "lon": -81.655651,
+      "location": "Jacksonville, FL",
+      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/654821117_2234349923639150_8556269594978985478_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=101&ccb=1-7&_nc_sid=92e707&_nc_ohc=GQcBT6Gi34EQ7kNvwGRiUTM&_nc_oc=AdpdeHdcjo9EhDy9Mmcgv4khB8FFh0UhAwvFCFBfescvhzMcScFthPN6VR4b_pqvnYY&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=-2lbbEc7zrde47iKGs-qbA&_nc_ss=7a30f&oh=00_Afy1VPH4rSP5Twi3971Lj0M8BoPkLtLLr9LVGpRcx2-oEg&oe=69C386E1",
+      "adUrl": "https://www.facebook.com/marketplace/item/1398655692277713/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-03-20 21:05:23",
+      "lastSeen": "2026-03-20T21:05:59.095Z"
+    },
     {
       "adID": "2689267818114950",
       "source": "MP",
@@ -56,7 +76,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-20 15:04:29",
-      "lastSeen": "2026-03-20T20:04:18.673Z"
+      "lastSeen": "2026-03-20T21:04:31.455Z"
     },
     {
       "adID": "2787366384930420",
@@ -96,7 +116,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-19 21:04:18",
-      "lastSeen": "2026-03-20T20:05:30.782Z"
+      "lastSeen": "2026-03-20T21:05:23.256Z"
     },
     {
       "adID": "901738832663151",
