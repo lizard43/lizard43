@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-03-21T18:32:29.421Z",
+  "generated_at": "2026-03-21T19:07:40.195Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -12,12 +12,52 @@
     },
     "counts": {
       "exported_ads": 38,
-      "droppedPrice": 245,
+      "droppedPrice": 154,
       "droppedMissingGeo": 0,
-      "droppedCircle": 137
+      "droppedCircle": 102
     }
   },
   "ads": [
+    {
+      "adID": "1581447243346672",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100001264450242/?product_id=1581447243346672",
+      "author": "Toni Harper",
+      "postedTime": "2026-03-20T11:50:42.000Z",
+      "title": "Fostoria Star Ornament - $10",
+      "description": "Glass Fostoria Star Ornament. Approximately 3.5” tall x 3.25” across. $10",
+      "price": "$10",
+      "lat": 34.729847,
+      "lon": -86.5859011,
+      "location": "Huntsville, AL",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/655747831_916474421185901_4798098734327788743_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=111&ccb=1-7&_nc_sid=92e707&_nc_ohc=Jhpb2LnXsNoQ7kNvwHL_Rq4&_nc_oc=AdoVnLZEWoXUJnGl3XrFZAg1h7czgJB2rTZBygS1MOv4jUS9H8DBZdzyReK0Ofj0o5A&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=gV5JeVf2m-WyHP0S7TzP0A&_nc_ss=7a30f&oh=00_AfzT9NH--Pfbdjyt3JSxwfcNTrq2Sk5C350cr_RtHbB3PQ&oe=69C4D256",
+      "adUrl": "https://www.facebook.com/marketplace/item/1581447243346672/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-03-21 19:05:08",
+      "lastSeen": "2026-03-21T19:06:59.629Z"
+    },
+    {
+      "adID": "1250160837315037",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100049816265159/?product_id=1250160837315037",
+      "author": "Slime Notary Kay",
+      "postedTime": "2026-03-21T12:57:10.000Z",
+      "title": "Polo Short Sets",
+      "description": "Polo Short Sets... All sizes & colors $60.00 a set or 2 for $100.00",
+      "price": "$60",
+      "lat": 27.9449854,
+      "lon": -82.4583107,
+      "location": "Tampa, FL",
+      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/653702359_805508869262226_5734204752524233826_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=102&ccb=1-7&_nc_sid=92e707&_nc_ohc=BNnsSMRuuSUQ7kNvwFO0OIF&_nc_oc=AdpDrv04IxJAVvozMk8pJdt4dhWzTDI2HV9VIMTq3Oc3R7fjzIZRG8ZmlfcAbQUmMt4&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=8x7jVzFSjoyV39LZuX8fhA&_nc_ss=7a30f&oh=00_AfwJg0LtWJJiNJgRk2JcO7Dv8XoNgLAO9ScKw_KsQa4ptA&oe=69C4C05B",
+      "adUrl": "https://www.facebook.com/marketplace/item/1250160837315037/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-03-21 19:05:08",
+      "lastSeen": "2026-03-21T19:06:59.696Z"
+    },
     {
       "adID": "1248552914145092",
       "source": "MP",
@@ -36,7 +76,7 @@
       "priceChangedAt": "2026-03-21 18:05:57",
       "hidden": 0,
       "created_at": "2026-03-21 12:04:44",
-      "lastSeen": "2026-03-21T18:06:32.690Z"
+      "lastSeen": "2026-03-21T19:05:07.721Z"
     },
     {
       "adID": "2689267818114950",
@@ -76,7 +116,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-20 15:04:29",
-      "lastSeen": "2026-03-21T18:04:29.501Z"
+      "lastSeen": "2026-03-21T19:04:16.576Z"
     },
     {
       "adID": "2787366384930420",
@@ -116,7 +156,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-19 21:04:18",
-      "lastSeen": "2026-03-21T18:05:56.433Z"
+      "lastSeen": "2026-03-21T19:05:07.549Z"
     },
     {
       "adID": "901738832663151",
@@ -177,26 +217,6 @@
       "hidden": 0,
       "created_at": "2026-03-19 02:04:35",
       "lastSeen": "2026-03-21T11:26:09.148Z"
-    },
-    {
-      "adID": "3462850837201698",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/100009428336122/?product_id=3462850837201698",
-      "author": "Bree Bree",
-      "postedTime": "2026-03-18T17:54:27.000Z",
-      "title": "Blitz arcade game",
-      "description": "4 player blitz arcade game Online wifi option No trade No delivery Must come to peewees pawn on chalkville rd Ask for Bri and I'll make you a deal",
-      "price": "$600",
-      "lat": 33.5206824,
-      "lon": -86.8024326,
-      "location": "Birmingham, AL",
-      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t15.5256-10/623823822_1825740244764855_2658263518087406272_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=107&ccb=1-7&_nc_sid=d4195b&_nc_ohc=elxAB4YdEDsQ7kNvwF4yEpU&_nc_oc=AdqPKDMiaWG_t-ZB3dgfq1Ov_dINyPmAy63JPApbA3wqJ4p73KiEYBuaphhN8LIhL_0&_nc_zt=23&_nc_ht=scontent-dfw5-2.xx&_nc_gid=C7taPQQWNBFUO_bG3hKCDg&_nc_ss=7a30f&oh=00_Afz0n8puEu5qQVcEPiMM9i_rlAHVfC_bX_mBwSYe26a0RQ&oe=69C38374",
-      "adUrl": "https://www.facebook.com/marketplace/item/3462850837201698/",
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-03-18 18:04:20",
-      "lastSeen": "2026-03-20T20:27:28.185Z"
     },
     {
       "adID": "2002022350661579",
@@ -557,26 +577,6 @@
       "hidden": 0,
       "created_at": "2026-03-01 13:04:45",
       "lastSeen": "2026-03-20T18:32:06.775Z"
-    },
-    {
-      "adID": "1485430376357846",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/500583233/?product_id=1485430376357846",
-      "author": "Matt Drowne",
-      "postedTime": "2026-02-17T21:17:54.000Z",
-      "title": "Arkanoid Supertop Arcaid Game",
-      "description": "1986 Taito Arkanoid Supertop video game. Game works great and powers up. I just turned it on before posting. There are a couple wear marks and peeling along the edge but game its self is great. The white one player button does need to be replaced. Game does have a free play button installed from before I purchased it. Looking for $750 OBO. I can not ship. If it is posted it is available. This comes as is.",
-      "price": "$750",
-      "lat": 27.7712264,
-      "lon": -82.6340259,
-      "location": "St Petersburg, FL",
-      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/637171824_1687963965509211_5242952937573972112_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=103&ccb=1-7&_nc_sid=92e707&_nc_ohc=0m1X7hLm1BYQ7kNvwGQN5hb&_nc_oc=Adp2rpncRyzf7quW6nclzucduIg5f0XgnC1DL2V4iyZ9gwvAWI16XlYc496myCTu-Gc&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=AzscJm29B0dXFc3TyUWkkg&_nc_ss=7a30f&oh=00_AfxWc48dcj23ICRLkLF2BfLsH_DgfSifIBXTqtm7rYQ2KA&oe=69C3643B",
-      "adUrl": "https://www.facebook.com/marketplace/item/1485430376357846/",
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-03-01 12:04:45",
-      "lastSeen": "2026-03-20T18:32:06.907Z"
     },
     {
       "adID": "1856522195025743",
