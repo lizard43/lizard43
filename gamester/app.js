@@ -42,7 +42,23 @@
       rows: [],
       index: 0,
       touchStartX: 0,
-      touchStartY: 0
+      touchStartY: 0,
+      scale: 1,
+      translateX: 0,
+      translateY: 0,
+      isPanning: false,
+      panStartX: 0,
+      panStartY: 0,
+      panOriginX: 0,
+      panOriginY: 0,
+      mouseDownX: 0,
+      mouseDownY: 0,
+      mousePointerId: null,
+      pinchStartDistance: 0,
+      pinchStartScale: 1,
+      pinchCenterX: 0,
+      pinchCenterY: 0,
+      lastTapAt: 0
     },
     detailPhotoTouch: {
       machineId: null,
@@ -148,6 +164,7 @@
     photoViewerOverlay: document.getElementById("photoViewerOverlay"),
     photoViewerModal: document.getElementById("photoViewerModal"),
     photoViewerBody: document.querySelector("#photoViewerModal .photoViewerBody"),
+    photoViewerViewport: document.getElementById("photoViewerViewport"),
     photoViewerImage: document.getElementById("photoViewerImage"),
     photoViewerCaption: document.getElementById("photoViewerCaption"),
     photoViewerCloseBtn: document.getElementById("photoViewerCloseBtn"),
@@ -2759,6 +2776,119 @@
     return state.photoDraftRows.filter(row => !row._delete && String(row.url || '').trim());
   }
 
+  function clampPhotoViewerTranslation() {
+    const viewerState = state.photoViewer;
+    const viewport = els.photoViewerViewport;
+    const img = els.photoViewerImage;
+    if (!viewport || !img) return;
+
+    const scale = Math.max(1, Number(viewerState.scale || 1));
+    if (scale <= 1) {
+      viewerState.translateX = 0;
+      viewerState.translateY = 0;
+      return;
+    }
+
+    const rect = viewport.getBoundingClientRect();
+    const naturalWidth = Number(img.naturalWidth || 0);
+    const naturalHeight = Number(img.naturalHeight || 0);
+    if (!rect.width || !rect.height || !naturalWidth || !naturalHeight) return;
+
+    const imageRatio = naturalWidth / naturalHeight;
+    const viewportRatio = rect.width / rect.height;
+
+    let baseWidth = rect.width;
+    let baseHeight = rect.height;
+
+    if (imageRatio > viewportRatio) {
+      baseHeight = rect.width / imageRatio;
+    } else {
+      baseWidth = rect.height * imageRatio;
+    }
+
+    const maxOffsetX = Math.max(0, ((baseWidth * scale) - baseWidth) / 2);
+    const maxOffsetY = Math.max(0, ((baseHeight * scale) - baseHeight) / 2);
+
+    viewerState.translateX = Math.max(-maxOffsetX, Math.min(maxOffsetX, Number(viewerState.translateX || 0)));
+    viewerState.translateY = Math.max(-maxOffsetY, Math.min(maxOffsetY, Number(viewerState.translateY || 0)));
+  }
+
+  function applyPhotoViewerTransform() {
+    const viewerState = state.photoViewer;
+    const img = els.photoViewerImage;
+    const modal = els.photoViewerModal;
+    if (!img) return;
+
+    clampPhotoViewerTranslation();
+
+    const scale = Math.max(1, Number(viewerState.scale || 1));
+    const x = Number(viewerState.translateX || 0);
+    const y = Number(viewerState.translateY || 0);
+
+    img.style.transform = `translate(${x}px, ${y}px) scale(${scale})`;
+    img.classList.toggle('isZoomed', scale > 1.001);
+    modal?.classList.toggle('photoViewerZoomed', scale > 1.001);
+  }
+
+  function resetPhotoViewerZoom() {
+    state.photoViewer.scale = 1;
+    state.photoViewer.translateX = 0;
+    state.photoViewer.translateY = 0;
+    state.photoViewer.isPanning = false;
+    state.photoViewer.panStartX = 0;
+    state.photoViewer.panStartY = 0;
+    state.photoViewer.panOriginX = 0;
+    state.photoViewer.panOriginY = 0;
+    state.photoViewer.mouseDownX = 0;
+    state.photoViewer.mouseDownY = 0;
+    state.photoViewer.mousePointerId = null;
+    state.photoViewer.pinchStartDistance = 0;
+    state.photoViewer.pinchStartScale = 1;
+    state.photoViewer.pinchCenterX = 0;
+    state.photoViewer.pinchCenterY = 0;
+    applyPhotoViewerTransform();
+  }
+
+  function setPhotoViewerScale(nextScale, centerX = null, centerY = null) {
+    const viewerState = state.photoViewer;
+    const prevScale = Math.max(1, Number(viewerState.scale || 1));
+    const clampedScale = Math.max(1, Math.min(4, Number(nextScale || 1)));
+
+    if (clampedScale <= 1) {
+      viewerState.scale = 1;
+      viewerState.translateX = 0;
+      viewerState.translateY = 0;
+      applyPhotoViewerTransform();
+      return;
+    }
+
+    const viewport = els.photoViewerViewport;
+    if (viewport && centerX != null && centerY != null && prevScale > 0) {
+      const rect = viewport.getBoundingClientRect();
+      const offsetX = Number(centerX) - rect.left - (rect.width / 2);
+      const offsetY = Number(centerY) - rect.top - (rect.height / 2);
+      const ratio = clampedScale / prevScale;
+      viewerState.translateX = (Number(viewerState.translateX || 0) - offsetX) * ratio + offsetX;
+      viewerState.translateY = (Number(viewerState.translateY || 0) - offsetY) * ratio + offsetY;
+    }
+
+    viewerState.scale = clampedScale;
+    applyPhotoViewerTransform();
+  }
+
+  function getTouchDistance(touchA, touchB) {
+    const dx = Number(touchB?.clientX || 0) - Number(touchA?.clientX || 0);
+    const dy = Number(touchB?.clientY || 0) - Number(touchA?.clientY || 0);
+    return Math.hypot(dx, dy);
+  }
+
+  function getTouchCenter(touchA, touchB) {
+    return {
+      x: (Number(touchA?.clientX || 0) + Number(touchB?.clientX || 0)) / 2,
+      y: (Number(touchA?.clientY || 0) + Number(touchB?.clientY || 0)) / 2
+    };
+  }
+
   function renderPhotoViewer() {
     const viewerState = state.photoViewer;
     const rows = Array.isArray(viewerState.rows) ? viewerState.rows : [];
@@ -2777,6 +2907,7 @@
     els.photoViewerImage.src = getPhotoUrl(row.url);
     els.photoViewerImage.alt = isMachineSource ? (machine?.title || 'Photo') : `Photo ${safeIndex + 1}`;
     els.photoViewerCaption.textContent = `${titleText} • ${safeIndex + 1} / ${rows.length}`.trim();
+    resetPhotoViewerZoom();
 
     const hasPrev = safeIndex > 0;
     const hasNext = safeIndex < rows.length - 1;
@@ -2885,16 +3016,125 @@
   }
 
   function handlePhotoViewerTouchStart(event) {
+    if (!state.photoViewer.open) return;
+
+    if (event.touches?.length >= 2) {
+      const touchA = event.touches[0];
+      const touchB = event.touches[1];
+      const center = getTouchCenter(touchA, touchB);
+
+      state.photoViewer.isPanning = false;
+      state.photoViewer.pinchStartDistance = getTouchDistance(touchA, touchB);
+      state.photoViewer.pinchStartScale = Math.max(1, Number(state.photoViewer.scale || 1));
+      state.photoViewer.pinchCenterX = center.x;
+      state.photoViewer.pinchCenterY = center.y;
+      return;
+    }
+
     const touch = event.changedTouches?.[0];
     if (!touch) return;
 
     state.photoViewer.touchStartX = touch.clientX;
     state.photoViewer.touchStartY = touch.clientY;
+
+    if (Number(state.photoViewer.scale || 1) > 1) {
+      state.photoViewer.isPanning = true;
+      state.photoViewer.panStartX = touch.clientX;
+      state.photoViewer.panStartY = touch.clientY;
+      state.photoViewer.panOriginX = Number(state.photoViewer.translateX || 0);
+      state.photoViewer.panOriginY = Number(state.photoViewer.translateY || 0);
+    }
+  }
+
+  function handlePhotoViewerTouchMove(event) {
+    if (!state.photoViewer.open) return;
+
+    if (event.touches?.length >= 2) {
+      const touchA = event.touches[0];
+      const touchB = event.touches[1];
+      const distance = getTouchDistance(touchA, touchB);
+      if (!distance) return;
+
+      if (event.cancelable) {
+        event.preventDefault();
+      }
+
+      const center = getTouchCenter(touchA, touchB);
+      state.photoViewer.pinchCenterX = center.x;
+      state.photoViewer.pinchCenterY = center.y;
+
+      const baseDistance = Number(state.photoViewer.pinchStartDistance || 0) || distance;
+      const baseScale = Math.max(1, Number(state.photoViewer.pinchStartScale || state.photoViewer.scale || 1));
+      setPhotoViewerScale((distance / baseDistance) * baseScale, center.x, center.y);
+      return;
+    }
+
+    if (!state.photoViewer.isPanning || Number(state.photoViewer.scale || 1) <= 1) {
+      return;
+    }
+
+    const touch = event.changedTouches?.[0];
+    if (!touch) return;
+
+    if (event.cancelable) {
+      event.preventDefault();
+    }
+
+    state.photoViewer.translateX = Number(state.photoViewer.panOriginX || 0) + (touch.clientX - Number(state.photoViewer.panStartX || 0));
+    state.photoViewer.translateY = Number(state.photoViewer.panOriginY || 0) + (touch.clientY - Number(state.photoViewer.panStartY || 0));
+    applyPhotoViewerTransform();
   }
 
   function handlePhotoViewerTouchEnd(event) {
+    if (!state.photoViewer.open) return;
+
+    if (event.touches?.length >= 2) {
+      const touchA = event.touches[0];
+      const touchB = event.touches[1];
+      state.photoViewer.pinchStartDistance = getTouchDistance(touchA, touchB);
+      state.photoViewer.pinchStartScale = Math.max(1, Number(state.photoViewer.scale || 1));
+      const center = getTouchCenter(touchA, touchB);
+      state.photoViewer.pinchCenterX = center.x;
+      state.photoViewer.pinchCenterY = center.y;
+      return;
+    }
+
     const touch = event.changedTouches?.[0];
+    const wasPanning = !!state.photoViewer.isPanning;
+    state.photoViewer.isPanning = false;
+    state.photoViewer.pinchStartDistance = 0;
+    state.photoViewer.pinchStartScale = Math.max(1, Number(state.photoViewer.scale || 1));
+
     if (!touch) return;
+
+    const now = Date.now();
+    const isDoubleTap = now - Number(state.photoViewer.lastTapAt || 0) < 280;
+    state.photoViewer.lastTapAt = now;
+
+    if (isDoubleTap) {
+      if (Number(state.photoViewer.scale || 1) > 1) {
+        resetPhotoViewerZoom();
+      } else {
+        setPhotoViewerScale(2, touch.clientX, touch.clientY);
+      }
+      state.photoViewer.touchStartX = 0;
+      state.photoViewer.touchStartY = 0;
+      return;
+    }
+
+    if (Number(state.photoViewer.scale || 1) > 1) {
+      clampPhotoViewerTranslation();
+      applyPhotoViewerTransform();
+      state.photoViewer.touchStartX = 0;
+      state.photoViewer.touchStartY = 0;
+      return;
+    }
+
+    if (wasPanning) {
+      state.photoViewer.touchStartX = 0;
+      state.photoViewer.touchStartY = 0;
+      return;
+    }
 
     const direction = getSwipeDirection(
       state.photoViewer.touchStartX,
@@ -2910,6 +3150,68 @@
     changePhotoViewer(direction);
   }
 
+  function handlePhotoViewerWheel(event) {
+    if (!state.photoViewer.open || !els.photoViewerViewport) return;
+    if (event.cancelable) {
+      event.preventDefault();
+    }
+
+    const currentScale = Math.max(1, Number(state.photoViewer.scale || 1));
+    const delta = event.deltaY < 0 ? 0.25 : -0.25;
+    setPhotoViewerScale(currentScale + delta, event.clientX, event.clientY);
+  }
+
+  function handlePhotoViewerMouseDown(event) {
+    if (!state.photoViewer.open) return;
+    if (event.button !== 0) return;
+    if (Number(state.photoViewer.scale || 1) <= 1) return;
+
+    event.preventDefault();
+
+    state.photoViewer.isPanning = true;
+    state.photoViewer.mouseDownX = event.clientX;
+    state.photoViewer.mouseDownY = event.clientY;
+    state.photoViewer.panStartX = event.clientX;
+    state.photoViewer.panStartY = event.clientY;
+    state.photoViewer.panOriginX = Number(state.photoViewer.translateX || 0);
+    state.photoViewer.panOriginY = Number(state.photoViewer.translateY || 0);
+    state.photoViewer.mousePointerId = 'mouse';
+
+    if (els.photoViewerImage) {
+      els.photoViewerImage.style.cursor = 'grabbing';
+    }
+  }
+
+  function handlePhotoViewerMouseMove(event) {
+    if (!state.photoViewer.open) return;
+    if (!state.photoViewer.isPanning) return;
+    if (state.photoViewer.mousePointerId !== 'mouse') return;
+    if (Number(state.photoViewer.scale || 1) <= 1) return;
+
+    event.preventDefault();
+
+    state.photoViewer.translateX = Number(state.photoViewer.panOriginX || 0) + (event.clientX - Number(state.photoViewer.panStartX || 0));
+    state.photoViewer.translateY = Number(state.photoViewer.panOriginY || 0) + (event.clientY - Number(state.photoViewer.panStartY || 0));
+    applyPhotoViewerTransform();
+  }
+
+  function handlePhotoViewerMouseUp() {
+    if (state.photoViewer.mousePointerId !== 'mouse') return;
+
+    state.photoViewer.isPanning = false;
+    state.photoViewer.mousePointerId = null;
+    state.photoViewer.panStartX = 0;
+    state.photoViewer.panStartY = 0;
+    state.photoViewer.panOriginX = Number(state.photoViewer.translateX || 0);
+    state.photoViewer.panOriginY = Number(state.photoViewer.translateY || 0);
+    clampPhotoViewerTranslation();
+    applyPhotoViewerTransform();
+
+    if (els.photoViewerImage) {
+      els.photoViewerImage.style.cursor = Number(state.photoViewer.scale || 1) > 1 ? 'grab' : '';
+    }
+  }
+
   function closePhotoViewer(useHistoryBack = true) {
     const wasOpen = state.photoViewer.open;
 
@@ -2920,6 +3222,24 @@
     state.photoViewer.index = 0;
     state.photoViewer.touchStartX = 0;
     state.photoViewer.touchStartY = 0;
+    state.photoViewer.scale = 1;
+    state.photoViewer.translateX = 0;
+    state.photoViewer.translateY = 0;
+    state.photoViewer.isPanning = false;
+    state.photoViewer.panStartX = 0;
+    state.photoViewer.panStartY = 0;
+    state.photoViewer.panOriginX = 0;
+    state.photoViewer.panOriginY = 0;
+    state.photoViewer.pinchStartDistance = 0;
+    state.photoViewer.pinchStartScale = 1;
+    state.photoViewer.pinchCenterX = 0;
+    state.photoViewer.pinchCenterY = 0;
+    state.photoViewer.lastTapAt = 0;
+    if (els.photoViewerImage) {
+      els.photoViewerImage.style.transform = '';
+      els.photoViewerImage.classList.remove('isZoomed');
+    }
+    els.photoViewerModal?.classList.remove('photoViewerZoomed');
 
     els.photoViewerModal?.classList.remove('open');
     els.photoViewerOverlay?.classList.remove('open');
@@ -3816,7 +4136,15 @@
     els.photoViewerNextBtn?.addEventListener("click", event => { event.stopPropagation(); changePhotoViewer(1); });
     els.photoViewerOverlay?.addEventListener("click", closePhotoViewer);
     els.photoViewerBody?.addEventListener('touchstart', handlePhotoViewerTouchStart, { passive: true });
+    els.photoViewerBody?.addEventListener('touchmove', handlePhotoViewerTouchMove, { passive: false });
     els.photoViewerBody?.addEventListener('touchend', handlePhotoViewerTouchEnd, { passive: true });
+    els.photoViewerBody?.addEventListener('touchcancel', handlePhotoViewerTouchEnd, { passive: true });
+    els.photoViewerBody?.addEventListener('wheel', handlePhotoViewerWheel, { passive: false });
+    els.photoViewerViewport?.addEventListener('mousedown', handlePhotoViewerMouseDown);
+    window.addEventListener('mousemove', handlePhotoViewerMouseMove);
+    window.addEventListener('mouseup', handlePhotoViewerMouseUp);
+    window.addEventListener('blur', handlePhotoViewerMouseUp);
+    els.photoViewerImage?.addEventListener('load', applyPhotoViewerTransform);
 
     els.closeDetailBtn.addEventListener("click", closeMobileDetail);
     els.mobileOverlay.addEventListener("click", closeMobileDetail);
