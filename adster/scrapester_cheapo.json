@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-03-21T14:05:53.941Z",
+  "generated_at": "2026-03-21T15:05:29.146Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,33 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 39,
-      "droppedPrice": 232,
+      "exported_ads": 40,
+      "droppedPrice": 237,
       "droppedMissingGeo": 0,
-      "droppedCircle": 131
+      "droppedCircle": 136
     }
   },
   "ads": [
+    {
+      "adID": "4477404455910813",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100070052202056/?product_id=4477404455910813",
+      "author": "Nevaeh Eason",
+      "postedTime": "2026-03-21T14:51:17.000Z",
+      "title": "Sportz Truck Tent",
+      "description": "Truck bed tent for multiple models",
+      "price": "$150",
+      "lat": 27.4989278,
+      "lon": -82.5748194,
+      "location": "Bradenton, FL",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/653928400_2074651643108171_2243251946034816429_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=105&ccb=1-7&_nc_sid=92e707&_nc_ohc=Nc_KBrzj9q4Q7kNvwEtBZEY&_nc_oc=AdohuV9kdH_tHfJ382faTgnJFwNsjHAMaobzP_nZiYaFIsw426-Y9rNE78X6Q44Xs-k&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=Ay-rqiukll346cNVUvPQpw&_nc_ss=7a30f&oh=00_AfxlLvcjeQByktj_x86Ty6AxN6S1aX9XZLPscZCFmRWp7Q&oe=69C48D86",
+      "adUrl": "https://www.facebook.com/marketplace/item/4477404455910813/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-03-21 15:04:40",
+      "lastSeen": "2026-03-21T15:04:56.790Z"
+    },
     {
       "adID": "955241627465185",
       "source": "MP",
@@ -36,7 +56,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-21 14:04:21",
-      "lastSeen": "2026-03-21T14:04:34.192Z"
+      "lastSeen": "2026-03-21T15:04:29.335Z"
     },
     {
       "adID": "1248552914145092",
@@ -56,7 +76,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-21 12:04:44",
-      "lastSeen": "2026-03-21T14:04:59.369Z"
+      "lastSeen": "2026-03-21T15:04:40.401Z"
     },
     {
       "adID": "2689267818114950",
@@ -96,7 +116,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-20 15:04:29",
-      "lastSeen": "2026-03-21T14:04:21.695Z"
+      "lastSeen": "2026-03-21T15:04:29.401Z"
     },
     {
       "adID": "2787366384930420",
@@ -136,7 +156,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-19 21:04:18",
-      "lastSeen": "2026-03-21T14:04:59.264Z"
+      "lastSeen": "2026-03-21T15:04:40.244Z"
     },
     {
       "adID": "901738832663151",
