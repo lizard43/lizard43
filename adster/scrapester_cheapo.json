@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-03-21T13:33:10.177Z",
+  "generated_at": "2026-03-21T14:05:53.941Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,33 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 38,
+      "exported_ads": 39,
       "droppedPrice": 232,
       "droppedMissingGeo": 0,
-      "droppedCircle": 127
+      "droppedCircle": 131
     }
   },
   "ads": [
+    {
+      "adID": "955241627465185",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100077414287221/?product_id=955241627465185",
+      "author": "Silvia Lpz",
+      "postedTime": "2026-03-20T21:26:39.000Z",
+      "title": "Classic ARCADE obo",
+      "description": "Perfect condition",
+      "price": "$360",
+      "lat": 34.203997,
+      "lon": -83.4571058,
+      "location": "Commerce, GA",
+      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/653878088_1666859118003558_2970453434628372001_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=108&ccb=1-7&_nc_sid=92e707&_nc_ohc=BAJqOlurK9YQ7kNvwExmhJ6&_nc_oc=Adrv1hXauCYKtgbri9D3nDWA24tOdgrRe1iCaJvRJ1-XPTxlZLMR_DvsHRSvY-fkXSE&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=uT0kh9BIft3KJwwC_nO9Mg&_nc_ss=7a32e&oh=00_AfxoGyeG_3G2o9HtsqXedy0QoTaKvScP0aUC31FdWkM0Vw&oe=69C48C60",
+      "adUrl": "https://www.facebook.com/marketplace/item/955241627465185/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-03-21 14:04:21",
+      "lastSeen": "2026-03-21T14:04:34.192Z"
+    },
     {
       "adID": "1248552914145092",
       "source": "MP",
@@ -36,7 +56,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-21 12:04:44",
-      "lastSeen": "2026-03-21T13:06:03.879Z"
+      "lastSeen": "2026-03-21T14:04:59.369Z"
     },
     {
       "adID": "2689267818114950",
@@ -76,7 +96,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-20 15:04:29",
-      "lastSeen": "2026-03-21T13:04:17.455Z"
+      "lastSeen": "2026-03-21T14:04:21.695Z"
     },
     {
       "adID": "2787366384930420",
@@ -116,7 +136,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-19 21:04:18",
-      "lastSeen": "2026-03-21T13:06:03.704Z"
+      "lastSeen": "2026-03-21T14:04:59.264Z"
     },
     {
       "adID": "901738832663151",
