@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-03-22T02:05:25.923Z",
+  "generated_at": "2026-03-22T02:15:18.370Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,33 +11,13 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 39,
+      "exported_ads": 37,
       "droppedPrice": 177,
       "droppedMissingGeo": 0,
-      "droppedCircle": 129
+      "droppedCircle": 121
     }
   },
   "ads": [
-    {
-      "adID": "1564476764846036",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/100000806835714/?product_id=1564476764846036",
-      "author": "Brent Nyman",
-      "postedTime": "2026-03-21T23:58:56.000Z",
-      "title": "8bit do",
-      "description": "Wireless 8-bit do arcade controller also works with a wire just wanted a couple months ago for $120 trying to get $80 for it or best offer",
-      "price": "$80",
-      "lat": 29.6519684,
-      "lon": -82.3249846,
-      "location": "Gainesville, FL",
-      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/654734629_797447912945243_546927914229633798_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=109&ccb=1-7&_nc_sid=92e707&_nc_ohc=2xoJHDwBdRkQ7kNvwFYZErx&_nc_oc=AdolVOkMWIgSAxus8eGtgtU-H4ttvm1E0BXyuxwnOLa_A5DmVGfOJAJBd78IsRcZXOU&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=jASR1ADCqvD2qgPqYmTH1w&_nc_ss=7a32e&oh=00_Afzj1xNA5DmBR8q55-JOixEcKeirLy52sZARl6VysP9P8Q&oe=69C4FA43",
-      "adUrl": "https://www.facebook.com/marketplace/item/1564476764846036/",
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-03-22 01:04:26",
-      "lastSeen": "2026-03-22T01:05:09.031Z"
-    },
     {
       "adID": "1240232088311793",
       "source": "MP",
@@ -57,26 +37,6 @@
       "hidden": 0,
       "created_at": "2026-03-22 01:04:26",
       "lastSeen": "2026-03-22T01:05:09.064Z"
-    },
-    {
-      "adID": "1322552916387552",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/100000959025650/?product_id=1322552916387552",
-      "author": "Robert Faulconer",
-      "postedTime": "2026-03-21T17:03:51.000Z",
-      "title": "Arcade cabinets",
-      "description": "Time Crisis 3 and Maximum Tune 2 cabinets and games. Games turn on but no video. Both need work. Free but must be able to pick up and haul from Clearwater FL.",
-      "price": "$1",
-      "lat": 27.9658533,
-      "lon": -82.8001026,
-      "location": "Clearwater, FL",
-      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/656906476_1376515587851943_9117373537279662628_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=106&ccb=1-7&_nc_sid=92e707&_nc_ohc=m_4tyzPZ-5EQ7kNvwEFxTTQ&_nc_oc=AdrlF204Wy7IW3WclLUeg-XwLZC8TuQ0NNRBosNpdMnITSsvPqg8YXswOfPfCBaHEds&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=y6s19y0aIcw2_tFLQ5O4lQ&_nc_ss=7a30f&oh=00_AfwBaGQFB3CWn5qsxaV-jsxQRhn4H3L70QQzM0hLNzE7pg&oe=69C4E099",
-      "adUrl": "https://www.facebook.com/marketplace/item/1322552916387552/",
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-03-21 21:04:16",
-      "lastSeen": "2026-03-21T21:06:32.733Z"
     },
     {
       "adID": "877471978658618",
