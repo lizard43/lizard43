@@ -1148,7 +1148,7 @@
     const machines = Array.isArray(state.allMachines) ? state.allMachines : [];
 
     const soldMachines = machines.filter(machine => isSoldMachine(machine));
-    const activeMachines = machines.filter(machine => !isSoldMachine(machine));
+    const activeMachines = machines.filter(machine => !isSoldMachine(machine) && !isPartedOutMachine(machine));
 
     let purchaseTotal = 0;
     let expenseTotal = 0;
@@ -1179,6 +1179,7 @@
       const locationKey = rawLocation || "Unknown";
       const normalizedLocation = locationKey.toLowerCase();
       const isSold = isSoldMachine(machine);
+      const isParted = isPartedOutMachine(machine);
       const isService = normalizedLocation === "service";
 
       purchaseTotal += purchasePrice;
@@ -1197,6 +1198,8 @@
 
         if (!bestFlip || profit > bestFlip.value) bestFlip = entry;
         if (!worstFlip || profit < worstFlip.value) worstFlip = entry;
+      } else if (isParted) {
+        partedCount += 1;
       } else {
         unsoldInvestmentTotal += totalCost;
 
@@ -1219,13 +1222,9 @@
         if (normalizedLocation === "arcade") {
           arcadeCount += 1;
         }
-
-        if (normalizedLocation === "parted out") {
-          partedCount += 1;
-        }
       }
 
-      if (!isSold && isService) {
+      if (!isSold && !isParted && isService) {
         serviceInvestmentTotal += totalCost;
       }
     }
@@ -4168,12 +4167,29 @@
     });
   }
 
+  function getMachineStatus(machine) {
+    const normalizedLocation = String(machine?.location || "").trim().toLowerCase();
+    if (normalizedLocation === "parted out") {
+      return "parted";
+    }
+
+    return !!String(machine?.soldDate || "").trim() ? "sold" : "active";
+  }
+
   function isSoldMachine(machine) {
-    return !!String(machine?.soldDate || "").trim();
+    return getMachineStatus(machine) === "sold";
+  }
+
+  function isPartedOutMachine(machine) {
+    return getMachineStatus(machine) === "parted";
   }
 
   function getEffectiveCondition(machine) {
-    return isSoldMachine(machine) ? "sold" : String(machine?.condition || "").trim();
+    if (isSoldMachine(machine) || isPartedOutMachine(machine)) {
+      return "sold";
+    }
+
+    return String(machine?.condition || "").trim();
   }
 
   function populateFilters() {
@@ -4219,11 +4235,15 @@
 
       if (location && machine.location !== location) return false;
 
-      // Default "All" should EXCLUDE sold
-      if (!condition && effectiveCondition === "sold") return false;
+      // Default "All" should EXCLUDE sold and parted-out inventory
+      if (!condition && (isSoldMachine(machine) || isPartedOutMachine(machine))) return false;
 
-      // If a specific condition is selected, match it
-      if (condition && effectiveCondition !== condition) return false;
+      // Sold filter should also surface parted-out inventory.
+      if (condition === "sold") {
+        if (!isSoldMachine(machine) && !isPartedOutMachine(machine)) return false;
+      } else if (condition && effectiveCondition !== condition) {
+        return false;
+      }
 
       if (!q) return true;
 
@@ -4279,7 +4299,7 @@
     card.className = "card";
     card.dataset.id = machine.id;
 
-    if (isSoldMachine(machine)) {
+    if (isSoldMachine(machine) || isPartedOutMachine(machine)) {
       card.classList.add("cardSold");
     }
 
@@ -4902,8 +4922,10 @@
       parts.push(machine.condition);
     }
 
-    if (machine.soldDate && String(machine.soldDate).trim() !== "") {
+    if (isSoldMachine(machine)) {
       parts.push("sold");
+    } else if (isPartedOutMachine(machine)) {
+      parts.push("parted out");
     }
 
     return parts.length ? parts.join(" - ") : "—";
