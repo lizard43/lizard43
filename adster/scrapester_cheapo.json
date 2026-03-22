@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-03-22T00:05:43.420Z",
+  "generated_at": "2026-03-22T01:06:01.236Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,53 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 37,
-      "droppedPrice": 171,
+      "exported_ads": 39,
+      "droppedPrice": 173,
       "droppedMissingGeo": 0,
-      "droppedCircle": 124
+      "droppedCircle": 127
     }
   },
   "ads": [
+    {
+      "adID": "1564476764846036",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100000806835714/?product_id=1564476764846036",
+      "author": "Brent Nyman",
+      "postedTime": "2026-03-21T23:58:56.000Z",
+      "title": "8bit do",
+      "description": "Wireless 8-bit do arcade controller also works with a wire just wanted a couple months ago for $120 trying to get $80 for it or best offer",
+      "price": "$80",
+      "lat": 29.6519684,
+      "lon": -82.3249846,
+      "location": "Gainesville, FL",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/654734629_797447912945243_546927914229633798_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=109&ccb=1-7&_nc_sid=92e707&_nc_ohc=2xoJHDwBdRkQ7kNvwFYZErx&_nc_oc=AdolVOkMWIgSAxus8eGtgtU-H4ttvm1E0BXyuxwnOLa_A5DmVGfOJAJBd78IsRcZXOU&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=jASR1ADCqvD2qgPqYmTH1w&_nc_ss=7a32e&oh=00_Afzj1xNA5DmBR8q55-JOixEcKeirLy52sZARl6VysP9P8Q&oe=69C4FA43",
+      "adUrl": "https://www.facebook.com/marketplace/item/1564476764846036/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-03-22 01:04:26",
+      "lastSeen": "2026-03-22T01:05:09.031Z"
+    },
+    {
+      "adID": "1240232088311793",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/573940790/?product_id=1240232088311793",
+      "author": "Andrew Spooner",
+      "postedTime": "2026-03-21T23:23:22.000Z",
+      "title": "Tron arcade game",
+      "description": "Tron arcade game",
+      "price": "$20",
+      "lat": 30.4753525,
+      "lon": -90.1010474,
+      "location": "Covington, LA",
+      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/655574049_1667737537692384_4746125574320537136_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=108&ccb=1-7&_nc_sid=92e707&_nc_ohc=UnZYz3XhPBAQ7kNvwHqQPlH&_nc_oc=AdqQI0vJQDxmYCNvRlQ4W7V7bqsRfTCKnK8xvC9_DI7inPwvv9KDUZOwc_OMx9t82Vc&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=VfPwINX0g7YW5Ovv8cGIYQ&_nc_ss=7a32e&oh=00_AfyoW5nzBY0VQ_aasdDNVmQe3ooardAmpwgBfUCb0za43Q&oe=69C50897",
+      "adUrl": "https://www.facebook.com/marketplace/item/1240232088311793/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-03-22 01:04:26",
+      "lastSeen": "2026-03-22T01:05:09.064Z"
+    },
     {
       "adID": "1322552916387552",
       "source": "MP",
@@ -56,7 +96,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-21 20:04:18",
-      "lastSeen": "2026-03-22T00:04:29.942Z"
+      "lastSeen": "2026-03-22T01:04:26.450Z"
     },
     {
       "adID": "1248552914145092",
@@ -76,7 +116,7 @@
       "priceChangedAt": "2026-03-21 18:05:57",
       "hidden": 0,
       "created_at": "2026-03-21 12:04:44",
-      "lastSeen": "2026-03-22T00:05:21.009Z"
+      "lastSeen": "2026-03-22T01:05:38.602Z"
     },
     {
       "adID": "2689267818114950",
@@ -156,7 +196,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-19 21:04:18",
-      "lastSeen": "2026-03-22T00:05:20.744Z"
+      "lastSeen": "2026-03-22T01:05:38.314Z"
     },
     {
       "adID": "901738832663151",
@@ -172,8 +212,8 @@
       "location": "Powder Springs, GA",
       "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/655313111_984677760938123_2350764973731020425_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=108&ccb=1-7&_nc_sid=92e707&_nc_ohc=ptuuEuRsRcUQ7kNvwHjCscP&_nc_oc=AdqQHihzlK5z1pw80wDxoJBEsPcSNGKOn_H6zp6kkUvoWqiq31MTXQjUCb-f4pI_cJM&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=-wmO2XjkfrT6p3TUTT6sUg&_nc_ss=7a30f&oh=00_AfyhFI0ASEYVU3E8RUUju_BUS6fFHnX4E8EDfDRGKtqf-g&oe=69C46467",
       "adUrl": "https://www.facebook.com/marketplace/item/901738832663151/",
-      "priceChanged": 1,
-      "priceChangedAt": "2026-03-20 01:04:29",
+      "priceChanged": 0,
+      "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-19 20:04:19",
       "lastSeen": "2026-03-21T13:27:38.593Z"
