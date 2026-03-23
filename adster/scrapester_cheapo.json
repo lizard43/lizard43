@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-03-23T21:06:19.345Z",
+  "generated_at": "2026-03-23T22:06:51.888Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,33 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 25,
-      "droppedPrice": 170,
+      "exported_ads": 26,
+      "droppedPrice": 177,
       "droppedMissingGeo": 0,
-      "droppedCircle": 97
+      "droppedCircle": 101
     }
   },
   "ads": [
+    {
+      "adID": "1783361516335593",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100003644231525/?product_id=1783361516335593",
+      "author": "Marty Tinsley",
+      "postedTime": "2026-03-23T21:30:12.000Z",
+      "title": "Arcade Game",
+      "description": "Has several games on it. Galaga, Mr. Do, Centipede, Pac Man, Ms. Pac Man, Donkey Kong and several others. Can't remember exactly how many games are on it. The board below the control panel is missing (holds control panel up).",
+      "price": "$600",
+      "lat": 33.9566391,
+      "lon": -83.9890066,
+      "location": "Lawrenceville, GA",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/658299866_3241942742655060_5249141213743303653_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=111&ccb=1-7&_nc_sid=92e707&_nc_ohc=oGN4vgebLGMQ7kNvwFjQOKV&_nc_oc=Adp4weH699vld0Wb0LxFAGgVAOLcmIdwWRQbJWOXyWaXXVwpn4e1W3asEd32re0GYoo&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=wABDXKCRPsPCzpKY4e49nA&_nc_ss=7a32e&oh=00_AfwMQ_hNvKoZhhyiIR99zmAuH79cTbt9BRZw7BNaxn7UCQ&oe=69C79C5B",
+      "adUrl": "https://www.facebook.com/marketplace/item/1783361516335593/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-03-23 22:04:29",
+      "lastSeen": "2026-03-23T22:04:58.311Z"
+    },
     {
       "adID": "1952401442829133",
       "source": "MP",
@@ -36,7 +56,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-23 19:05:41",
-      "lastSeen": "2026-03-23T21:05:20.675Z"
+      "lastSeen": "2026-03-23T22:05:22.623Z"
     },
     {
       "adID": "2016390372631723",
@@ -56,7 +76,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-23 17:04:17",
-      "lastSeen": "2026-03-23T21:04:26.372Z"
+      "lastSeen": "2026-03-23T22:04:29.921Z"
     },
     {
       "adID": "27089244044010215",
@@ -76,7 +96,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-23 00:04:16",
-      "lastSeen": "2026-03-23T21:04:26.606Z"
+      "lastSeen": "2026-03-23T22:04:30.167Z"
     },
     {
       "adID": "951075287858842",
@@ -96,7 +116,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-22 23:06:44",
-      "lastSeen": "2026-03-23T21:05:20.910Z"
+      "lastSeen": "2026-03-23T22:05:22.858Z"
     },
     {
       "adID": "885000927917718",
@@ -156,7 +176,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-19 21:04:18",
-      "lastSeen": "2026-03-23T21:05:19.929Z"
+      "lastSeen": "2026-03-23T22:05:22.384Z"
     },
     {
       "adID": "901738832663151",
