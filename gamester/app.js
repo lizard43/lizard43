@@ -1890,6 +1890,28 @@
   }
 
 
+  const NOTE_CATEGORY_OPTIONS = ['info', 'debug'];
+
+  function buildNoteCategoryOptionsMarkup(selectedValue) {
+    const normalized = String(selectedValue || '').trim().toLowerCase();
+    const known = new Set(NOTE_CATEGORY_OPTIONS);
+    const options = [''];
+
+    NOTE_CATEGORY_OPTIONS.forEach(option => {
+      if (!options.includes(option)) options.push(option)
+    });
+
+    if (normalized && !known.has(normalized)) {
+      options.push(normalized)
+    }
+
+    return options.map(option => {
+      const isSelected = option === normalized;
+      const label = option ? option : 'Select category';
+      return `<option value="${escapeAttr(option)}" ${isSelected ? 'selected' : ''}>${escapeHtml(label)}</option>`;
+    }).join('');
+  }
+
   function sortNotesByDateDesc(notes) {
     if (!Array.isArray(notes)) return [];
 
@@ -1983,7 +2005,7 @@
           </div>
           <div class="editField">
             <label class="settingsLabel" for="noteCategory_${index}">Category</label>
-            <input id="noteCategory_${index}" class="settingsInput noteDraftInput" data-field="category" data-index="${index}" type="text" value="${escapeAttr(row.category || "")}" ${row._delete ? "disabled" : ""}>
+            <select id="noteCategory_${index}" class="settingsInput noteDraftInput" data-field="category" data-index="${index}" ${row._delete ? "disabled" : ""}>${buildNoteCategoryOptionsMarkup(row.category)}</select>
           </div>
         </div>
 
