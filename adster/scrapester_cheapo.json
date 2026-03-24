@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-03-24T13:27:43.983Z",
+  "generated_at": "2026-03-24T14:07:19.597Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,32 +11,52 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 34,
-      "droppedPrice": 83,
+      "exported_ads": 35,
+      "droppedPrice": 90,
       "droppedMissingGeo": 0,
-      "droppedCircle": 112
+      "droppedCircle": 116
     }
   },
   "ads": [
+    {
+      "adID": "928443206756632",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/1262702801/?product_id=928443206756632",
+      "author": "Patrick Flores",
+      "postedTime": "2026-03-24T12:58:23.000Z",
+      "title": "Vintage Arcade Machine - For Parts or Restoration",
+      "description": "Selling a vintage arcade machine. The unit is currently not working and is being sold as-is. Great for collectors, hobbyists or anyone looking for parts. The cabinet is with the original components such as the joystick and buttons (condition may vary) Please check photos for details on condition. Feel free to message me with any question or offers. Price: open to offers Pickup only",
+      "price": "$0",
+      "lat": 29.0085924,
+      "lon": -82.0348092,
+      "location": "Summerfield, FL",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/657181213_1566029621166414_3489739840327963054_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=105&ccb=1-7&_nc_sid=92e707&_nc_ohc=LKKuxY42FJ0Q7kNvwFrp6rD&_nc_oc=AdqraGuSq6Ma6v3JUPfse8cu02VzqQknAKFGTioBOY_I_erEyH_8nGYcr589gOu2E04&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=fMf2pNCW2xk1zPclAugehA&_nc_ss=7a32e&oh=00_AfzLi6trDmkBVavqcAkHsXJzFrrsZkY5xW_R7uT0v0rBrg&oe=69C868A9",
+      "adUrl": "https://www.facebook.com/marketplace/item/928443206756632/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-03-24 14:04:32",
+      "lastSeen": "2026-03-24T14:05:24.002Z"
+    },
     {
       "adID": "1808057027247767",
       "source": "MP",
       "authorUrl": "https://www.facebook.com/marketplace/profile/1191763332/?product_id=1808057027247767",
       "author": "Claudio Guida",
-      "postedTime": "2026-03-23T17:17:52.000Z",
+      "postedTime": "2026-03-08T13:21:39.000Z",
       "title": "Skechers work footwear",
       "description": "New in box work boot slip ins",
       "price": "$49",
       "lat": 27.7712264,
       "lon": -82.6340259,
       "location": "St Petersburg, FL",
-      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/655894592_2174311483341567_7441988331803863288_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=110&ccb=1-7&_nc_sid=92e707&_nc_ohc=FT52NnSqr70Q7kNvwEC5sAg&_nc_oc=AdqT5VwAVx-B_CY5U20BT8EnAybdYGwNR4XyNyi_i3C_4YUML1I562pwiIZECvwpmp8&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=DV916-tvNKWbZFscJ9TIkw&_nc_ss=7a32e&oh=00_Afz1xAw1HxtNHhkTUrsDcOCUM__bxfO0aAZPZgTcuKo-Ow&oe=69C8776D",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/655894592_2174311483341567_7441988331803863288_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=110&ccb=1-7&_nc_sid=92e707&_nc_ohc=FT52NnSqr70Q7kNvwEC5sAg&_nc_oc=AdqT5VwAVx-B_CY5U20BT8EnAybdYGwNR4XyNyi_i3C_4YUML1I562pwiIZECvwpmp8&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=vLNTN0gwCFZow_sq7gKWmA&_nc_ss=7a32e&oh=00_AfzuV91wvePD63J2bFKfiCgdJDHq0fSTpy04od5FjUYpRQ&oe=69C8776D",
       "adUrl": "https://www.facebook.com/marketplace/item/1808057027247767/",
       "priceChanged": 0,
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-24 13:07:48",
-      "lastSeen": "2026-03-24T13:11:05.002Z"
+      "lastSeen": "2026-03-24T14:06:45.529Z"
     },
     {
       "adID": "950255924050366",
@@ -56,7 +76,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-24 13:07:48",
-      "lastSeen": "2026-03-24T13:11:05.036Z"
+      "lastSeen": "2026-03-24T14:05:47.888Z"
     },
     {
       "adID": "1496767525346237",
@@ -76,7 +96,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-24 13:07:48",
-      "lastSeen": "2026-03-24T13:11:05.102Z"
+      "lastSeen": "2026-03-24T14:05:47.954Z"
     },
     {
       "adID": "1736226120675917",
@@ -90,13 +110,13 @@
       "lat": 30.3674198,
       "lon": -89.0928155,
       "location": "Gulfport, MS",
-      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/656734405_1430499438776423_6026607018813057727_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=106&ccb=1-7&_nc_sid=92e707&_nc_ohc=H-26AGyHdjAQ7kNvwHyHSZm&_nc_oc=Ado82aBK_CNZ9sZHx0FdUM-E47RzXBWvKfXeZrew1dVVXjw5jLXE3Kl8IqM0mZCvs0c&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=RROuEN4rYLy27vtwkHv15A&_nc_ss=7a32e&oh=00_AfxEPpd1W-tcCnbB5zZEfT3m_zP59iV_m8e4PyqFBmdBSg&oe=69C8778B",
+      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/656734405_1430499438776423_6026607018813057727_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=106&ccb=1-7&_nc_sid=92e707&_nc_ohc=H-26AGyHdjAQ7kNvwHyHSZm&_nc_oc=Ado82aBK_CNZ9sZHx0FdUM-E47RzXBWvKfXeZrew1dVVXjw5jLXE3Kl8IqM0mZCvs0c&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=duJEJvm6jNQBeNTg53iiwQ&_nc_ss=7a32e&oh=00_AfzXFQRD6qMtgyy0836Qun8y1Baq00O41a9mgjxuvzgz8A&oe=69C8778B",
       "adUrl": "https://www.facebook.com/marketplace/item/1736226120675917/",
       "priceChanged": 0,
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-24 13:07:48",
-      "lastSeen": "2026-03-24T13:11:05.135Z"
+      "lastSeen": "2026-03-24T14:06:45.563Z"
     },
     {
       "adID": "946959194545951",
@@ -136,7 +156,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-24 13:07:46",
-      "lastSeen": "2026-03-24T13:11:04.700Z"
+      "lastSeen": "2026-03-24T14:05:47.485Z"
     },
     {
       "adID": "951119257428043",
@@ -156,7 +176,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-24 13:07:46",
-      "lastSeen": "2026-03-24T13:11:04.734Z"
+      "lastSeen": "2026-03-24T14:05:47.519Z"
     },
     {
       "adID": "809612331609917",
@@ -196,7 +216,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-24 11:06:51",
-      "lastSeen": "2026-03-24T13:07:46.141Z"
+      "lastSeen": "2026-03-24T14:05:46.676Z"
     },
     {
       "adID": "1901578407111742",
@@ -256,7 +276,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-23 17:04:17",
-      "lastSeen": "2026-03-24T13:07:46.308Z"
+      "lastSeen": "2026-03-24T14:05:46.844Z"
     },
     {
       "adID": "27089244044010215",
@@ -296,7 +316,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-22 23:06:44",
-      "lastSeen": "2026-03-24T13:07:46.783Z"
+      "lastSeen": "2026-03-24T14:05:47.077Z"
     },
     {
       "adID": "885000927917718",
@@ -356,7 +376,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-19 21:04:18",
-      "lastSeen": "2026-03-24T13:07:46.068Z"
+      "lastSeen": "2026-03-24T14:05:46.585Z"
     },
     {
       "adID": "901738832663151",
