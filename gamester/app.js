@@ -1590,6 +1590,28 @@
     return 0;
   }
 
+  const EXPENSE_CATEGORY_OPTIONS = ['transport', 'parts', 'supplies', 'art', 'docs', 'equipment', 'selling'];
+
+  function buildExpenseCategoryOptionsMarkup(selectedValue) {
+    const normalized = String(selectedValue || '').trim().toLowerCase();
+    const known = new Set(EXPENSE_CATEGORY_OPTIONS);
+    const options = [''];
+
+    EXPENSE_CATEGORY_OPTIONS.forEach(option => {
+      if (!options.includes(option)) options.push(option);
+    });
+
+    if (normalized && !known.has(normalized)) {
+      options.push(normalized);
+    }
+
+    return options.map(option => {
+      const isSelected = option === normalized;
+      const label = option ? option : 'Select category';
+      return `<option value="${escapeAttr(option)}" ${isSelected ? 'selected' : ''}>${escapeHtml(label)}</option>`;
+    }).join('');
+  }
+
   function sortExpensesByDateDesc(expenses) {
     if (!Array.isArray(expenses)) return [];
 
@@ -1703,7 +1725,7 @@
         <div class="editFieldGrid expenseEditorGrid">
           <div class="editField">
             <label class="settingsLabel" for="expenseCategory_${index}">Category</label>
-            <input id="expenseCategory_${index}" class="settingsInput expenseDraftInput" data-field="category" data-index="${index}" type="text" value="${escapeAttr(row.category || "")}" ${row._delete ? "disabled" : ""}>
+            <select id="expenseCategory_${index}" class="settingsInput expenseDraftInput" data-field="category" data-index="${index}" ${row._delete ? "disabled" : ""}>${buildExpenseCategoryOptionsMarkup(row.category)}</select>
           </div>
           <div class="editField">
             <label class="settingsLabel" for="expenseVendor_${index}">Vendor</label>
