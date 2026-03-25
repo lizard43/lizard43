@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-03-25T16:07:07.167Z",
+  "generated_at": "2026-03-25T17:12:47.480Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,93 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 26,
-      "droppedPrice": 67,
+      "exported_ads": 30,
+      "droppedPrice": 71,
       "droppedMissingGeo": 0,
-      "droppedCircle": 89
+      "droppedCircle": 100
     }
   },
   "ads": [
+    {
+      "adID": "1498823768513825",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100065243703877/?product_id=1498823768513825",
+      "author": "James Bonnete",
+      "postedTime": "2026-03-22T20:25:26.000Z",
+      "title": "Evolution Slides",
+      "description": "Comes with adjustable strap. Also have 8 and 9 wmns available. 200 or Best Offer!",
+      "price": "$200",
+      "lat": 30.4380832,
+      "lon": -84.2809332,
+      "location": "Tallahassee, FL",
+      "imageUrl": "https://scontent-atl3-3.xx.fbcdn.net/v/t39.84726-6/656019864_1371597818142664_3360098975950478261_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=107&ccb=1-7&_nc_sid=92e707&_nc_ohc=jyGSkwfRZrYQ7kNvwEzVM2g&_nc_oc=AdqXGYFcuZKiUn7gpN0M0W8fZ9QBXx56lBwsNXNQmO09wcCiDGPu0vNjKSNNUZ2xEWo&_nc_zt=14&_nc_ht=scontent-atl3-3.xx&_nc_gid=D9yPnPMTW5K2OUORA1ZHPw&_nc_ss=7a32e&oh=00_AfxUeKi93Gx2Zzn06JFOw55zE7C8TwhMhwVZkfwhQZC3OQ&oe=69CA033D",
+      "adUrl": "https://www.facebook.com/marketplace/item/1498823768513825/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-03-25 17:07:16",
+      "lastSeen": "2026-03-25T17:09:00.614Z"
+    },
+    {
+      "adID": "1974140933521768",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/61551887829495/?product_id=1974140933521768",
+      "author": "Freund Scott",
+      "postedTime": "2026-03-22T20:25:26.000Z",
+      "title": "100W Dummy Load DC-1GHz 50 Ohm",
+      "description": "This is a brand new dummy load that has not been used. It is rated for 100W power and operates within a frequency range of DC to 1GHz. The device has an impedance of 50 Ohm and is still in its original packaging.",
+      "price": "$50",
+      "lat": 28.8358176,
+      "lon": -82.3303715,
+      "location": "Inverness, FL",
+      "imageUrl": "https://scontent-atl3-3.xx.fbcdn.net/v/t39.84726-6/656183697_1248072337413184_5009642430057961519_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=109&ccb=1-7&_nc_sid=92e707&_nc_ohc=MaJTyTRUYeEQ7kNvwFzWeAp&_nc_oc=AdojUfPq1Zg4ziHVOLjr61wiI1-u5IEmfMhwY5WWXLhXYXyo7lbViynnMN_soUwKNtk&_nc_zt=14&_nc_ht=scontent-atl3-3.xx&_nc_gid=jpBOAeJfblEFORFRP8ALpg&_nc_ss=7a32e&oh=00_AfwaL4fLw-q1YD08sAebLHz-UNS8FYbIQUuzG_yBPtVQVA&oe=69C9FBF2",
+      "adUrl": "https://www.facebook.com/marketplace/item/1974140933521768/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-03-25 17:07:16",
+      "lastSeen": "2026-03-25T17:09:00.647Z"
+    },
+    {
+      "adID": "2149998255778047",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/206800699/?product_id=2149998255778047",
+      "author": "Bobby Mitchum",
+      "postedTime": "2026-03-25T01:49:24.000Z",
+      "title": "Spinner Arcade Machine",
+      "description": "Doesn’t operate and don’t know much about it. Message me if you are interested and want more pictures. Open to offers, must pick up.",
+      "price": "$50",
+      "lat": 29.9591183,
+      "lon": -82.9281833,
+      "location": "Branford, FL",
+      "imageUrl": "https://scontent-atl3-3.xx.fbcdn.net/v/t39.84726-6/656912648_4385488765101823_2587864308754947276_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=111&ccb=1-7&_nc_sid=92e707&_nc_ohc=G9Va4waEhpsQ7kNvwG0OrXt&_nc_oc=AdoTC03SVxkSC0HseiPoFETZHvtL2GEvS4tTefryOecdWUNIX1z5mz1OsOmmRouNpXI&_nc_zt=14&_nc_ht=scontent-atl3-3.xx&_nc_gid=dQM8H-yCcM6pE3LCXAPJFQ&_nc_ss=7a32e&oh=00_Afwfm_qYA-jHhbmG5gHgV974Tqv-bjbY29VbkEKR1LdQjw&oe=69C9FD57",
+      "adUrl": "https://www.facebook.com/marketplace/item/2149998255778047/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-03-25 17:04:18",
+      "lastSeen": "2026-03-25T17:06:49.322Z"
+    },
+    {
+      "adID": "1516153950147944",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/1684774224/?product_id=1516153950147944",
+      "author": "Jennifer Knowles Phillips",
+      "postedTime": "2026-03-25T16:47:04.000Z",
+      "title": "$400.00- street fighter 2 arcade cabinet Works great",
+      "description": "$400.00- street fighter 2 arcade cabinet Works great",
+      "price": "$400",
+      "lat": 34.3684295,
+      "lon": -86.908616,
+      "location": "Falkville, AL",
+      "imageUrl": "https://scontent-atl3-2.xx.fbcdn.net/v/t15.5256-10/656734524_805445978752463_464368418757724777_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=d4195b&_nc_ohc=oqBMhZpuvyAQ7kNvwFg_hnU&_nc_oc=AdpmCC-Q182CSmQNUbkq01ApQ-xxyG-EZmbF_IBh5Kny1HFmHRWOz2Hv9CcRTOGuyBs&_nc_zt=23&_nc_ht=scontent-atl3-2.xx&_nc_gid=LQkOBV_QxPBRGgmurbVnGg&_nc_ss=7a32e&oh=00_Afx8dgc_PZ6EE0qAqRznGrzj0EhsHMA7FtB4S3gGYyFLvA&oe=69C9FB2C",
+      "adUrl": "https://www.facebook.com/marketplace/item/1516153950147944/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-03-25 17:04:17",
+      "lastSeen": "2026-03-25T17:06:49.168Z"
+    },
     {
       "adID": "793820476675683",
       "source": "MP",
@@ -36,7 +116,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-25 16:05:45",
-      "lastSeen": "2026-03-25T16:06:35.987Z"
+      "lastSeen": "2026-03-25T17:07:15.688Z"
     },
     {
       "adID": "1505913734463453",
@@ -216,7 +296,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-19 21:04:18",
-      "lastSeen": "2026-03-25T16:05:44.033Z"
+      "lastSeen": "2026-03-25T17:07:14.709Z"
     },
     {
       "adID": "901738832663151",
