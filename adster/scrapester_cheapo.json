@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-03-25T15:28:11.188Z",
+  "generated_at": "2026-03-25T16:07:07.167Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,33 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 25,
-      "droppedPrice": 64,
+      "exported_ads": 26,
+      "droppedPrice": 67,
       "droppedMissingGeo": 0,
-      "droppedCircle": 84
+      "droppedCircle": 89
     }
   },
   "ads": [
+    {
+      "adID": "793820476675683",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100023789261083/?product_id=793820476675683",
+      "author": "Mbandi Odette Kertemar",
+      "postedTime": "2026-03-25T06:50:32.000Z",
+      "title": "Dolce & Gabbana Casual Short-Sleeve (6)",
+      "description": "Want to know more about watches, shoes, bags and jewelry, etc. Please contact me.WhatsApp: +8616503349999 https://wa.me/message/5JRXQJUDUWRFC1 Click the link to contact me",
+      "price": "$91",
+      "lat": 30.3321838,
+      "lon": -81.655651,
+      "location": "Jacksonville, FL",
+      "imageUrl": "https://scontent-atl3-2.xx.fbcdn.net/v/t39.84726-6/658064689_1356419326294335_4532848615969611579_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=101&ccb=1-7&_nc_sid=92e707&_nc_ohc=OG7na0aRJn4Q7kNvwH6QZP-&_nc_oc=Adqegphoj_7Tu_Ce3tF7SLLaA9xFRongPW0k-dxc0_LXYYHDuvev0qjkaFO0S5OyI64&_nc_zt=14&_nc_ht=scontent-atl3-2.xx&_nc_gid=y_yQ_dDUfN6Dy60Xm1y5sA&_nc_ss=7a32e&oh=00_AfyoVD8FmkLL1xI6q12JbwT1GlzG8yerJMGiSB4TCfBVOw&oe=69C9D36C",
+      "adUrl": "https://www.facebook.com/marketplace/item/793820476675683/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-03-25 16:05:45",
+      "lastSeen": "2026-03-25T16:06:35.987Z"
+    },
     {
       "adID": "1505913734463453",
       "source": "MP",
@@ -196,7 +216,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-19 21:04:18",
-      "lastSeen": "2026-03-25T15:04:24.359Z"
+      "lastSeen": "2026-03-25T16:05:44.033Z"
     },
     {
       "adID": "901738832663151",
