@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-03-26T22:06:49.414Z",
+  "generated_at": "2026-03-26T23:06:06.097Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,33 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 28,
-      "droppedPrice": 65,
+      "exported_ads": 29,
+      "droppedPrice": 67,
       "droppedMissingGeo": 0,
-      "droppedCircle": 110
+      "droppedCircle": 117
     }
   },
   "ads": [
+    {
+      "adID": "1472871257696707",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100071676554054/?product_id=1472871257696707",
+      "author": "Joshua Lainey",
+      "postedTime": "2026-03-24T12:58:23.000Z",
+      "title": "Goku pin for sale",
+      "description": "Numerous pins for sale message me!",
+      "price": "$39",
+      "lat": 28.2441768,
+      "lon": -82.7192671,
+      "location": "New Port Richey, FL",
+      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/659149752_1905116346787306_8392138085875304770_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=100&ccb=1-7&_nc_sid=92e707&_nc_ohc=GAhdE9y2SZsQ7kNvwHRMFCt&_nc_oc=Ado21sMbG9AzDY-lkeX8q1RXrWW1fjr45h6TffQFruurgSjpFgOta4Uvki4pE1aJIPI&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=jVzLZX5JdFdZ9bZ45l-22A&_nc_ss=7a32e&oh=00_AfzQPPoHTwHsZIKqMUieXHDlBaWqYBPfg4hrWjHLc4oMAw&oe=69CB9119",
+      "adUrl": "https://www.facebook.com/marketplace/item/1472871257696707/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-03-26 23:04:44",
+      "lastSeen": "2026-03-26T23:05:29.650Z"
+    },
     {
       "adID": "823870387406697",
       "source": "MP",
@@ -36,7 +56,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-26 22:05:39",
-      "lastSeen": "2026-03-26T22:06:18.137Z"
+      "lastSeen": "2026-03-26T23:04:45.203Z"
     },
     {
       "adID": "1650238842779578",
@@ -56,7 +76,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-26 18:04:34",
-      "lastSeen": "2026-03-26T22:04:23.807Z"
+      "lastSeen": "2026-03-26T23:04:33.255Z"
     },
     {
       "adID": "1243488697897212",
@@ -76,7 +96,7 @@
       "priceChangedAt": "2026-03-26 18:05:50",
       "hidden": 0,
       "created_at": "2026-03-26 17:05:14",
-      "lastSeen": "2026-03-26T22:05:39.760Z"
+      "lastSeen": "2026-03-26T23:04:45.270Z"
     },
     {
       "adID": "1250714837178747",
@@ -96,7 +116,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-26 02:04:42",
-      "lastSeen": "2026-03-26T22:04:23.874Z"
+      "lastSeen": "2026-03-26T23:04:33.356Z"
     },
     {
       "adID": "1516153950147944",
@@ -256,7 +276,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-19 21:04:18",
-      "lastSeen": "2026-03-26T22:05:39.570Z"
+      "lastSeen": "2026-03-26T23:04:44.473Z"
     },
     {
       "adID": "901738832663151",
