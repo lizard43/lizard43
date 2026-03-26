@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-03-26T11:29:35.147Z",
+  "generated_at": "2026-03-26T12:06:49.662Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,33 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 27,
-      "droppedPrice": 73,
+      "exported_ads": 28,
+      "droppedPrice": 68,
       "droppedMissingGeo": 0,
-      "droppedCircle": 101
+      "droppedCircle": 106
     }
   },
   "ads": [
+    {
+      "adID": "1308748491118589",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/23206692/?product_id=1308748491118589",
+      "author": "Christina Rice",
+      "postedTime": "2026-03-26T11:57:58.000Z",
+      "title": "Baby floats (read description)",
+      "description": "ALL OF THEM FOR $15 If it’s listed, it’s still available. Only message with available pickup time if interested. This is located 10 mins from downtown Roswell off of Shallowford Rd. Venmo accepted.",
+      "price": "$15",
+      "lat": 34.02332,
+      "lon": -84.360022,
+      "location": "Roswell, GA",
+      "imageUrl": "https://scontent-atl3-2.xx.fbcdn.net/v/t39.84726-6/656451757_3199744143567252_651301638948008060_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=101&ccb=1-7&_nc_sid=92e707&_nc_ohc=gIjTPHpnDGAQ7kNvwG0ak_I&_nc_oc=Ado8Kz1t9wBB1S5UX4MGaBo3BPm-uqTu50IW78jckhIhKIz87Ul9jHCkoafV4kvzyS8&_nc_zt=14&_nc_ht=scontent-atl3-2.xx&_nc_gid=x9cLNGvqb1iv4tKaDIVXSg&_nc_ss=7a3a8&oh=00_AfwF7-7KQV0Vk0sIccAr4cvARE20oeLfTMEQzbnmgtckfA&oe=69CAFF29",
+      "adUrl": "https://www.facebook.com/marketplace/item/1308748491118589/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-03-26 12:05:06",
+      "lastSeen": "2026-03-26T12:06:11.749Z"
+    },
     {
       "adID": "1250714837178747",
       "source": "MP",
@@ -56,7 +76,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-25 17:04:17",
-      "lastSeen": "2026-03-26T00:04:37.462Z"
+      "lastSeen": "2026-03-26T12:04:26.450Z"
     },
     {
       "adID": "1505913734463453",
@@ -236,7 +256,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-19 21:04:18",
-      "lastSeen": "2026-03-26T11:05:17.365Z"
+      "lastSeen": "2026-03-26T12:05:06.277Z"
     },
     {
       "adID": "901738832663151",
