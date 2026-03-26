@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-03-26T13:23:20.200Z",
+  "generated_at": "2026-03-26T14:06:14.908Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,33 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 27,
-      "droppedPrice": 74,
+      "exported_ads": 28,
+      "droppedPrice": 75,
       "droppedMissingGeo": 0,
-      "droppedCircle": 111
+      "droppedCircle": 114
     }
   },
   "ads": [
+    {
+      "adID": "1444979086489884",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/61568254499250/?product_id=1444979086489884",
+      "author": "Justin Lee Scherer",
+      "postedTime": "2026-03-26T05:13:35.000Z",
+      "title": "Patching machine",
+      "description": "Good as new. This machine patchs baseball and softball.,who needs a well made patching machine. Speeds up to 90 mph.Grand balls or pop-up.",
+      "price": "$800",
+      "lat": 31.2837867,
+      "lon": -90.4684315,
+      "location": "Summit, MS",
+      "imageUrl": "https://scontent-atl3-2.xx.fbcdn.net/v/t39.84726-6/659234797_3397702993718605_7006940828923555922_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=101&ccb=1-7&_nc_sid=92e707&_nc_ohc=GywP1z7vL68Q7kNvwFGkC6A&_nc_oc=AdpciCwml4U5Lgpfd4uh7i0KXGhvQSpJNN88rGbzkzAFdFs4gAkv8_t6ZbdBr3I77DQ&_nc_zt=14&_nc_ht=scontent-atl3-2.xx&_nc_gid=zIyGUsTs6P4CLaDMpAyKXw&_nc_ss=7a32e&oh=00_AfxVSFdSmXjG67gSdZg8wSUkGpddMz1y0inpS6YkUaH9vQ&oe=69CB1473",
+      "adUrl": "https://www.facebook.com/marketplace/item/1444979086489884/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-03-26 14:04:58",
+      "lastSeen": "2026-03-26T14:05:40.032Z"
+    },
     {
       "adID": "1250714837178747",
       "source": "MP",
@@ -56,7 +76,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-25 17:04:17",
-      "lastSeen": "2026-03-26T13:04:24.438Z"
+      "lastSeen": "2026-03-26T14:04:16.798Z"
     },
     {
       "adID": "1505913734463453",
@@ -236,7 +256,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-19 21:04:18",
-      "lastSeen": "2026-03-26T13:04:35.332Z"
+      "lastSeen": "2026-03-26T14:04:58.057Z"
     },
     {
       "adID": "901738832663151",
