@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-03-26T15:25:19.428Z",
+  "generated_at": "2026-03-26T16:07:21.265Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,33 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 27,
-      "droppedPrice": 71,
+      "exported_ads": 28,
+      "droppedPrice": 81,
       "droppedMissingGeo": 0,
-      "droppedCircle": 93
+      "droppedCircle": 94
     }
   },
   "ads": [
+    {
+      "adID": "1625302055259729",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100041057852093/?product_id=1625302055259729",
+      "author": "Johnny Herndon",
+      "postedTime": "2026-03-26T15:17:56.000Z",
+      "title": "1940 Caddilac Pin Ball Machine",
+      "description": "1940’s Cadillac Pin Ball machine. Lights work on the unit. Other stuff didn’t This thing is really heavy",
+      "price": "$800",
+      "lat": 34.5248245,
+      "lon": -84.491494,
+      "location": "Talking Rock, GA",
+      "imageUrl": "https://scontent-atl3-1.xx.fbcdn.net/v/t39.84726-6/659043363_906882329003838_8400242667591147035_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=106&ccb=1-7&_nc_sid=92e707&_nc_ohc=Sszu1F_x1MMQ7kNvwGCJ9SS&_nc_oc=AdpbRbdZbrTmiH-pvWFEitioYChz2tQfb1pePlsg5SPtG8TmpVdJ6rRjtRpruhNmfpM&_nc_zt=14&_nc_ht=scontent-atl3-1.xx&_nc_gid=qQ0oCV3sQXK7Ggx0OYVgUw&_nc_ss=7a32e&oh=00_AfxeWS-ot1eIXo8y2g_2avJv6Gw9Cra9jFeNdQhxrODZNA&oe=69CB1064",
+      "adUrl": "https://www.facebook.com/marketplace/item/1625302055259729/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-03-26 16:04:34",
+      "lastSeen": "2026-03-26T16:06:46.606Z"
+    },
     {
       "adID": "1444979086489884",
       "source": "MP",
@@ -76,7 +96,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-25 17:04:17",
-      "lastSeen": "2026-03-26T15:04:20.057Z"
+      "lastSeen": "2026-03-26T16:04:23.462Z"
     },
     {
       "adID": "1505913734463453",
@@ -236,7 +256,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-19 21:04:18",
-      "lastSeen": "2026-03-26T15:04:55.675Z"
+      "lastSeen": "2026-03-26T16:04:33.136Z"
     },
     {
       "adID": "901738832663151",
