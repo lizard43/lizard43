@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-03-26T00:05:56.637Z",
+  "generated_at": "2026-03-26T01:05:00.965Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,33 +11,13 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 27,
-      "droppedPrice": 74,
+      "exported_ads": 26,
+      "droppedPrice": 71,
       "droppedMissingGeo": 0,
-      "droppedCircle": 107
+      "droppedCircle": 100
     }
   },
   "ads": [
-    {
-      "adID": "1244185437911860",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/100024795040293/?product_id=1244185437911860",
-      "author": "Cody Whitehead",
-      "postedTime": "2025-12-21T17:06:41.000Z",
-      "title": "Galaga arcade game",
-      "description": "Galaga / Galaxi arcade game",
-      "price": "$75",
-      "lat": 30.5552959,
-      "lon": -87.7109526,
-      "location": "Robertsdale, AL",
-      "imageUrl": "https://scontent-atl3-1.xx.fbcdn.net/v/t15.5256-10/658375511_1603038497666677_384145663529549145_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=103&ccb=1-7&_nc_sid=d4195b&_nc_ohc=9__pcJPf8BwQ7kNvwGH_dlK&_nc_oc=Adq_Ia2xn8ALuhpTgsp49VkYvIISK5jE7oPO4W7zh0sDmbQTDdcC7CrKQiXw1AGQyrA&_nc_zt=23&_nc_ht=scontent-atl3-1.xx&_nc_gid=0x3f9AOW5KPT9Gl1HiGozw&_nc_ss=7a32e&oh=00_AfyAiJb-4Y2VnQeGw8ZhWSi7Rs2-Y_7iE6S1hJPkO00RdA&oe=69CA44B0",
-      "adUrl": "https://www.facebook.com/marketplace/item/1244185437911860/",
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-03-26 00:04:37",
-      "lastSeen": "2026-03-26T00:05:05.629Z"
-    },
     {
       "adID": "1516153950147944",
       "source": "MP",
@@ -236,7 +216,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-19 21:04:18",
-      "lastSeen": "2026-03-26T00:05:34.280Z"
+      "lastSeen": "2026-03-26T01:04:40.291Z"
     },
     {
       "adID": "901738832663151",
