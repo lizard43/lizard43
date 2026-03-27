@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-03-27T00:18:35.887Z",
+  "generated_at": "2026-03-27T01:08:06.666Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,33 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 28,
-      "droppedPrice": 70,
+      "exported_ads": 29,
+      "droppedPrice": 76,
       "droppedMissingGeo": 0,
-      "droppedCircle": 117
+      "droppedCircle": 126
     }
   },
   "ads": [
+    {
+      "adID": "1454751732325985",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100065333504547/?product_id=1454751732325985",
+      "author": "Cheyenne Burke",
+      "postedTime": "2026-03-27T00:57:28.000Z",
+      "title": "Cricut Explore Air 2",
+      "description": "Have two so selling 1! Works perfect, simply missing a $9 knob but can still turn to change specific cut so not needed.",
+      "price": "$120",
+      "lat": 29.652377,
+      "lon": -81.599589,
+      "location": "East Palatka, FL",
+      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/657675461_1337245491567932_4592209238912554211_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=101&ccb=1-7&_nc_sid=92e707&_nc_ohc=C9szsr1_wRwQ7kNvwEg98iC&_nc_oc=AdpRmRhSMkiRK9IjypUAjj51Y5kk0J425lssiuSIZDPDekMk9IlLCsFHwgOL4TqIYvU&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=aE8dBfRCyNKVLxMsjd6tUw&_nc_ss=7a32e&oh=00_Afydxt9HZj4harcivf6EpKXFyDRTAls9hh40LRZ9IPsALw&oe=69CBAEC4",
+      "adUrl": "https://www.facebook.com/marketplace/item/1454751732325985/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-03-27 01:06:07",
+      "lastSeen": "2026-03-27T01:07:31.841Z"
+    },
     {
       "adID": "823870387406697",
       "source": "MP",
@@ -36,7 +56,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-26 22:05:39",
-      "lastSeen": "2026-03-27T00:07:59.766Z"
+      "lastSeen": "2026-03-27T01:06:06.491Z"
     },
     {
       "adID": "1650238842779578",
@@ -56,7 +76,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-26 18:04:34",
-      "lastSeen": "2026-03-27T00:04:24.870Z"
+      "lastSeen": "2026-03-27T01:04:25.513Z"
     },
     {
       "adID": "1243488697897212",
@@ -76,7 +96,7 @@
       "priceChangedAt": "2026-03-26 18:05:50",
       "hidden": 0,
       "created_at": "2026-03-26 17:05:14",
-      "lastSeen": "2026-03-27T00:07:59.834Z"
+      "lastSeen": "2026-03-27T01:06:06.557Z"
     },
     {
       "adID": "1250714837178747",
@@ -96,7 +116,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-26 02:04:42",
-      "lastSeen": "2026-03-27T00:04:24.937Z"
+      "lastSeen": "2026-03-27T01:04:25.625Z"
     },
     {
       "adID": "1516153950147944",
@@ -256,7 +276,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-19 21:04:18",
-      "lastSeen": "2026-03-27T00:07:59.530Z"
+      "lastSeen": "2026-03-27T01:06:06.253Z"
     },
     {
       "adID": "901738832663151",
