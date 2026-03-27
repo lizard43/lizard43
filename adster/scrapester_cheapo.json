@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-03-27T18:26:49.977Z",
+  "generated_at": "2026-03-27T19:06:21.976Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,33 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 25,
-      "droppedPrice": 83,
+      "exported_ads": 26,
+      "droppedPrice": 89,
       "droppedMissingGeo": 0,
-      "droppedCircle": 100
+      "droppedCircle": 102
     }
   },
   "ads": [
+    {
+      "adID": "2244254176101694",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/1781109444/?product_id=2244254176101694",
+      "author": "Bart Mecum",
+      "postedTime": "2026-03-27T18:52:54.000Z",
+      "title": "New FS-U Universal Fluorescent Starter replaces FS2, 4, 5 Arcade Pinball Machine",
+      "description": "New FS-U Universal Fluorescent Starter replaces FS2, 4, 5 Arcade Pinball Machine",
+      "price": "$10",
+      "lat": 27.937801,
+      "lon": -82.2859247,
+      "location": "Brandon, FL",
+      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/660868747_1440987467526092_7939501553499309395_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=107&ccb=1-7&_nc_sid=92e707&_nc_ohc=YVmtoeEqowwQ7kNvwGaOdF5&_nc_oc=AdqTYbxLxLaz1RuZwRbeB2ZPJ_p3j-dY-8rhuDipQyVM_BOhu_XACdVcgzMqNoSfPYI&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=0tVoDLZXqiJWVxpe5a3NKw&_nc_ss=7a32e&oh=00_AfyqKAQodNgIws49KgtP_lD9N8P09w9lipb-pSYmblzrvw&oe=69CC8C5B",
+      "adUrl": "https://www.facebook.com/marketplace/item/2244254176101694/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-03-27 19:05:10",
+      "lastSeen": "2026-03-27T19:05:45.551Z"
+    },
     {
       "adID": "1243488697897212",
       "source": "MP",
@@ -56,7 +76,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-26 02:04:42",
-      "lastSeen": "2026-03-27T18:04:19.313Z"
+      "lastSeen": "2026-03-27T19:04:23.539Z"
     },
     {
       "adID": "1505913734463453",
@@ -196,7 +216,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-19 21:04:18",
-      "lastSeen": "2026-03-27T18:05:35.797Z"
+      "lastSeen": "2026-03-27T19:05:10.621Z"
     },
     {
       "adID": "901738832663151",
