@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-03-27T08:27:59.839Z",
+  "generated_at": "2026-03-27T11:06:18.482Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,33 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 28,
-      "droppedPrice": 63,
+      "exported_ads": 29,
+      "droppedPrice": 70,
       "droppedMissingGeo": 0,
-      "droppedCircle": 109
+      "droppedCircle": 112
     }
   },
   "ads": [
+    {
+      "adID": "1779505106757745",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/61569837921185/?product_id=1779505106757745",
+      "author": "Charles Hooper",
+      "postedTime": "2026-03-27T05:08:20.000Z",
+      "title": "Numbered Pin Game",
+      "description": "Brand New Pick up in Metairie",
+      "price": "$10",
+      "lat": 29.9899926,
+      "lon": -90.1505426,
+      "location": "Metairie, LA",
+      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/655003637_881378534878390_7210465454395330716_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=107&ccb=1-7&_nc_sid=92e707&_nc_ohc=HC58wKKiWAIQ7kNvwEGg492&_nc_oc=AdrOzY-q7mTUPCsSh_w4tJ4b-5FkR44hB1Mqi5iuRnU56im0MbVYaMtYNm0SWg6zOvA&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=e6Be7v1AIu3Q2Em8NfaGGw&_nc_ss=7a32e&oh=00_AfxkHjccGYM4P8WTvw_Lyi9RFx6dCIMedS05lQV_cyaMew&oe=69CC2543",
+      "adUrl": "https://www.facebook.com/marketplace/item/1779505106757745/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-03-27 11:05:17",
+      "lastSeen": "2026-03-27T11:05:47.685Z"
+    },
     {
       "adID": "823870387406697",
       "source": "MP",
@@ -56,7 +76,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-26 18:04:34",
-      "lastSeen": "2026-03-27T02:04:32.594Z"
+      "lastSeen": "2026-03-27T11:04:35.789Z"
     },
     {
       "adID": "1243488697897212",
@@ -76,7 +96,7 @@
       "priceChangedAt": "2026-03-26 18:05:50",
       "hidden": 0,
       "created_at": "2026-03-26 17:05:14",
-      "lastSeen": "2026-03-27T02:05:11.507Z"
+      "lastSeen": "2026-03-27T11:05:16.807Z"
     },
     {
       "adID": "1250714837178747",
@@ -96,7 +116,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-26 02:04:42",
-      "lastSeen": "2026-03-27T02:04:33.004Z"
+      "lastSeen": "2026-03-27T11:04:35.856Z"
     },
     {
       "adID": "1516153950147944",
@@ -256,7 +276,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-19 21:04:18",
-      "lastSeen": "2026-03-27T02:05:11.268Z"
+      "lastSeen": "2026-03-27T11:05:16.597Z"
     },
     {
       "adID": "901738832663151",
