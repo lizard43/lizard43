@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-03-27T11:06:18.482Z",
+  "generated_at": "2026-03-27T11:26:12.448Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,72 +11,32 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 29,
-      "droppedPrice": 70,
+      "exported_ads": 27,
+      "droppedPrice": 65,
       "droppedMissingGeo": 0,
-      "droppedCircle": 112
+      "droppedCircle": 94
     }
   },
   "ads": [
-    {
-      "adID": "1779505106757745",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/61569837921185/?product_id=1779505106757745",
-      "author": "Charles Hooper",
-      "postedTime": "2026-03-27T05:08:20.000Z",
-      "title": "Numbered Pin Game",
-      "description": "Brand New Pick up in Metairie",
-      "price": "$10",
-      "lat": 29.9899926,
-      "lon": -90.1505426,
-      "location": "Metairie, LA",
-      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/655003637_881378534878390_7210465454395330716_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=107&ccb=1-7&_nc_sid=92e707&_nc_ohc=HC58wKKiWAIQ7kNvwEGg492&_nc_oc=AdrOzY-q7mTUPCsSh_w4tJ4b-5FkR44hB1Mqi5iuRnU56im0MbVYaMtYNm0SWg6zOvA&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=e6Be7v1AIu3Q2Em8NfaGGw&_nc_ss=7a32e&oh=00_AfxkHjccGYM4P8WTvw_Lyi9RFx6dCIMedS05lQV_cyaMew&oe=69CC2543",
-      "adUrl": "https://www.facebook.com/marketplace/item/1779505106757745/",
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-03-27 11:05:17",
-      "lastSeen": "2026-03-27T11:05:47.685Z"
-    },
     {
       "adID": "823870387406697",
       "source": "MP",
       "authorUrl": "https://www.facebook.com/marketplace/profile/100027113994023/?product_id=823870387406697",
       "author": "Jay Church Jr.",
       "postedTime": "2026-03-26T21:06:10.000Z",
-      "title": "Black knight pinball",
+      "title": "(PENDING) Black knight pinball",
       "description": "Great machine needs work",
       "price": "$450",
       "lat": 27.9094665,
       "lon": -82.7873244,
       "location": "Largo, FL",
-      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/656874754_925549836862881_8170522952528532787_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=109&ccb=1-7&_nc_sid=92e707&_nc_ohc=dTQdWbjv7HYQ7kNvwEVAdzD&_nc_oc=Adq2rKw8e-H1c_Y3Jb6okUx4dcQwt6w60r67ilRJqgNAAJonKtojgcR4AxJ9YP3ttDc&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=aq986aibyOpeD0yJSQqCLA&_nc_ss=7a32e&oh=00_AfxRdYVO4W6rYSA9C8zPx5rwEJ_e21kj2kcKi5wGPQiyqA&oe=69CB93A2",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/656874754_925549836862881_8170522952528532787_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=109&ccb=1-7&_nc_sid=92e707&_nc_ohc=dTQdWbjv7HYQ7kNvwEVAdzD&_nc_oc=Adq2rKw8e-H1c_Y3Jb6okUx4dcQwt6w60r67ilRJqgNAAJonKtojgcR4AxJ9YP3ttDc&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=8lQftfukQ7iI5IxS7y0TLA&_nc_ss=7a32e&oh=00_Afwy8PJmi0qVfiFYa50IagOCAZ5x0QPN2uJ6wW86LuQlXg&oe=69CC3C62",
       "adUrl": "https://www.facebook.com/marketplace/item/823870387406697/",
       "priceChanged": 0,
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-26 22:05:39",
-      "lastSeen": "2026-03-27T01:06:06.491Z"
-    },
-    {
-      "adID": "1650238842779578",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/1609632619/?product_id=1650238842779578",
-      "author": "Scot Bri",
-      "postedTime": "2026-03-26T06:50:54.000Z",
-      "title": "One X fly pro OLED 2 TB",
-      "description": "",
-      "price": "$900",
-      "lat": 33.7123305,
-      "lon": -84.1051939,
-      "location": "Lithonia, GA",
-      "imageUrl": "https://scontent-atl3-3.xx.fbcdn.net/v/t39.84726-6/658139183_2475739732899724_7788039501004130818_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=107&ccb=1-7&_nc_sid=92e707&_nc_ohc=X9CUuQ_yWHcQ7kNvwH-cED1&_nc_oc=AdqFMlkkvonb_0tJAe-7e2Sj90KZNo_eA6DtHBCwLZFZRZmGrWEGtTVtYsmDr9gKTGk&_nc_zt=14&_nc_ht=scontent-atl3-3.xx&_nc_gid=wP5P-8fwEkYhLDJETpJg4g&_nc_ss=7a32e&oh=00_AfwZuDceNWz9P9mfvQDg91p9UslHzMS-9QpjmAmnd0tsIw&oe=69CB54CB",
-      "adUrl": "https://www.facebook.com/marketplace/item/1650238842779578/",
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-03-26 18:04:34",
-      "lastSeen": "2026-03-27T11:04:35.789Z"
+      "lastSeen": "2026-03-27T11:25:54.895Z"
     },
     {
       "adID": "1243488697897212",
@@ -170,13 +130,13 @@
       "lat": 28.8004955,
       "lon": -81.6446961,
       "location": "Mt Dora, FL",
-      "imageUrl": "https://scontent-atl3-2.xx.fbcdn.net/v/t39.84726-6/657349668_922734543977254_3035977454764546333_n.jpg?stp=dst-jpg_p960x960_tt6&_nc_cat=101&ccb=1-7&_nc_sid=92e707&_nc_ohc=7GgMjhaqPNQQ7kNvwHQG3oH&_nc_oc=Adr5igNTNoRyim6sahTEyA_NF2nFap_DMTqD2KVDg-7unp7eT2w8IrsmHyIyuIMd99I&_nc_zt=14&_nc_ht=scontent-atl3-2.xx&_nc_gid=PMux5lOOf64eNTiAOIJJJA&_nc_ss=7a32e&oh=00_Afxh7W1S7KbPpFtfM1zKlFENPI7KMwWwiAB6-pz-Yb0Wmw&oe=69CAD131",
+      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/657349668_922734543977254_3035977454764546333_n.jpg?stp=dst-jpg_p960x960_tt6&_nc_cat=101&ccb=1-7&_nc_sid=92e707&_nc_ohc=GUzmK0-H9ZwQ7kNvwGA_nG5&_nc_oc=Adqy_d9K30u8i_kWEUBcQu8ba06Nn0mJiz7wWklEqGhpofwwLVioQw__tu_xT3y7RBg&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=VSgR4S9F48ggtAAshbfDnw&_nc_ss=7a32e&oh=00_Afw2YDagcpt2Ke5w8R1Hwp0O6d-nRm0-4YgJvc3xR1aDUw&oe=69CC22B1",
       "adUrl": "https://www.facebook.com/marketplace/item/1952401442829133/",
       "priceChanged": 0,
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-23 19:05:41",
-      "lastSeen": "2026-03-26T08:25:10.410Z"
+      "lastSeen": "2026-03-27T11:25:26.586Z"
     },
     {
       "adID": "27089244044010215",
@@ -190,13 +150,13 @@
       "lat": 30.3321838,
       "lon": -81.655651,
       "location": "Jacksonville, FL",
-      "imageUrl": "https://scontent-atl3-1.xx.fbcdn.net/v/t15.5256-10/519961364_1107646294571024_8029420294226648876_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=105&ccb=1-7&_nc_sid=d4195b&_nc_ohc=DSYT7NBRBoAQ7kNvwF8Ylyi&_nc_oc=AdoVAxc5SRM2k7s9QGA5vTskJxhlLGlsV2aiwx8qpG8XVtqClJNTk08cU_Jl8PzghTs&_nc_zt=23&_nc_ht=scontent-atl3-1.xx&_nc_gid=OLyp3Ut76bZS2g6WzjIS4A&_nc_ss=7a32e&oh=00_AfyxyXhf4Z3OP-_wWktCw2PXP45vT9KN-Nj3jpaZgJTieA&oe=69CAA856",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t15.5256-10/519961364_1107646294571024_8029420294226648876_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=105&ccb=1-7&_nc_sid=d4195b&_nc_ohc=DSYT7NBRBoAQ7kNvwF8Ylyi&_nc_oc=AdoVAxc5SRM2k7s9QGA5vTskJxhlLGlsV2aiwx8qpG8XVtqClJNTk08cU_Jl8PzghTs&_nc_zt=23&_nc_ht=scontent-dfw5-1.xx&_nc_gid=K_tcQQGp67QtKEwIqnjOTA&_nc_ss=7a32e&oh=00_Afz9uUcbPh64R4kbr7YmxnIncRsHMefCeQmRf-NGBTTL-w&oe=69CC3216",
       "adUrl": "https://www.facebook.com/marketplace/item/27089244044010215/",
       "priceChanged": 0,
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-23 00:04:16",
-      "lastSeen": "2026-03-26T08:25:10.447Z"
+      "lastSeen": "2026-03-27T11:25:26.619Z"
     },
     {
       "adID": "951075287858842",
