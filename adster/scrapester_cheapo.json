@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-03-28T22:06:59.025Z",
+  "generated_at": "2026-03-28T23:07:34.039Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -12,12 +12,32 @@
     },
     "counts": {
       "exported_ads": 31,
-      "droppedPrice": 67,
+      "droppedPrice": 70,
       "droppedMissingGeo": 0,
-      "droppedCircle": 103
+      "droppedCircle": 107
     }
   },
   "ads": [
+    {
+      "adID": "1426596129219796",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/61559579586763/?product_id=1426596129219796",
+      "author": "Lumiere HausofBeauty",
+      "postedTime": "2026-03-28T22:02:21.000Z",
+      "title": "Classic Arcade Game Machine",
+      "description": "Basically New. Has plenty of classic games. Single or double players. Pick up only.",
+      "price": "$580",
+      "lat": 33.9887165,
+      "lon": -83.8979573,
+      "location": "Dacula, GA",
+      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/658854533_925534513681630_2272940833383424241_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=106&ccb=1-7&_nc_sid=92e707&_nc_ohc=LdlLwbYoMZAQ7kNvwF9F0w3&_nc_oc=Adqfv7fu8p-eePczGSXzuMsTT8JZS_vc2RYE7eQgJBYOizBNnAuJ3uKa9bi1EFg4kpg&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=31_TDvoB0V0OCngl4Vld3Q&_nc_ss=7a32e&oh=00_Afxe-VDp9Zc_F--e42-rNUCYTx9ZSjOed6CxCcUtDYuzzg&oe=69CE3485",
+      "adUrl": "https://www.facebook.com/marketplace/item/1426596129219796/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-03-28 23:05:25",
+      "lastSeen": "2026-03-28T23:06:18.674Z"
+    },
     {
       "adID": "KLOV-561857",
       "source": "KLOV",
@@ -36,27 +56,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-28 22:06:58",
-      "lastSeen": "2026-03-28T22:06:58.828Z"
-    },
-    {
-      "adID": "1689354988754360",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/100000061421299/?product_id=1689354988754360",
-      "author": "Master Jonathan D Hall",
-      "postedTime": "2026-03-28T21:51:42.000Z",
-      "title": "Game truck partys/Free VR EXPERIENCE 1",
-      "description": "Alloutgamingatl.com Booking AVAILABLE Service All Georgia [hidden information]",
-      "price": "$450",
-      "lat": 33.2467807,
-      "lon": -84.2640904,
-      "location": "Griffin, GA",
-      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t15.5256-10/480801680_913264434062861_3634853897469746694_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=110&ccb=1-7&_nc_sid=d4195b&_nc_ohc=7-dCowacJ60Q7kNvwGadBFk&_nc_oc=AdoX5jPwxiQH-PlxhTtg0CPINH-bdr3XWur4LOTIrSgzwEBPU9hWwRThF15ice6Hdao&_nc_zt=23&_nc_ht=scontent-dfw5-1.xx&_nc_gid=8Lc40ymZDRc-Pvr5qm3a9A&_nc_ss=7a32e&oh=00_AfzA24aw0TkNZzoXBjFI9Lihwy_6EjCkxEQebkJwTuGlzA&oe=69CE12F0",
-      "adUrl": "https://www.facebook.com/marketplace/item/1689354988754360/",
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-03-28 22:05:34",
-      "lastSeen": "2026-03-28T22:05:50.415Z"
+      "lastSeen": "2026-03-28T23:07:33.814Z"
     },
     {
       "adID": "918138427864047",
@@ -76,7 +76,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-28 20:06:23",
-      "lastSeen": "2026-03-28T22:06:13.633Z"
+      "lastSeen": "2026-03-28T23:06:49.672Z"
     },
     {
       "adID": "1606749603898937",
@@ -336,7 +336,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-19 21:04:18",
-      "lastSeen": "2026-03-28T22:06:13.531Z"
+      "lastSeen": "2026-03-28T23:06:49.534Z"
     },
     {
       "adID": "901738832663151",
