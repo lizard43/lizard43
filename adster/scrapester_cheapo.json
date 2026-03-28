@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-03-28T15:30:42.788Z",
+  "generated_at": "2026-03-28T16:07:26.451Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,33 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 26,
-      "droppedPrice": 64,
+      "exported_ads": 27,
+      "droppedPrice": 66,
       "droppedMissingGeo": 0,
-      "droppedCircle": 96
+      "droppedCircle": 95
     }
   },
   "ads": [
+    {
+      "adID": "1742695679871217",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/1243165829/?product_id=1742695679871217",
+      "author": "Kevin Von Danz",
+      "postedTime": "2026-03-28T15:57:31.000Z",
+      "title": "20L Metal Jerry Cans (6 Available)",
+      "description": "Pricing: - 1 can: $30 - 2 cans: $50 - 6 cans: $120 Description: Selling six 20-liter (5.3 gallon) metal jerry cans. These are solid, heavy-duty containers with locking caps and carry handles. Great for fuel and gas storage. Pickup or local delivery for a fee. Accept cash, Venmo, or Zelle",
+      "price": "$30",
+      "lat": 33.9566391,
+      "lon": -83.9890066,
+      "location": "Lawrenceville, GA",
+      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/658161137_1658059608556111_6939326501173238676_n.jpg?stp=dst-jpg_p960x960_tt6&_nc_cat=103&ccb=1-7&_nc_sid=92e707&_nc_ohc=MybjlewrFOQQ7kNvwEUxfZ4&_nc_oc=AdqkqRIP7qPySeasPQ7_Y1lYf45cE5GSwu6gajRbduP50oVayL88Gim1DQrWrO7hguQ&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=GRGC3LlR-I8FJyvWvHAOoA&_nc_ss=7a32e&oh=00_AfwHchKGx4SafoW-gAV-z8CJ6jpJcSfhex6GSf_gEQOp-A&oe=69CDE8B9",
+      "adUrl": "https://www.facebook.com/marketplace/item/1742695679871217/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-03-28 16:04:27",
+      "lastSeen": "2026-03-28T16:06:46.765Z"
+    },
     {
       "adID": "2013740726218883",
       "source": "MP",
@@ -36,7 +56,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-28 11:04:51",
-      "lastSeen": "2026-03-28T15:04:35.301Z"
+      "lastSeen": "2026-03-28T16:04:27.388Z"
     },
     {
       "adID": "936495348997395",
@@ -236,7 +256,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-19 21:04:18",
-      "lastSeen": "2026-03-28T15:04:35.268Z"
+      "lastSeen": "2026-03-28T16:04:26.718Z"
     },
     {
       "adID": "901738832663151",
