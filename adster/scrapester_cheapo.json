@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-03-28T18:24:24.086Z",
+  "generated_at": "2026-03-28T19:06:39.376Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,33 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 27,
-      "droppedPrice": 76,
+      "exported_ads": 28,
+      "droppedPrice": 78,
       "droppedMissingGeo": 0,
-      "droppedCircle": 105
+      "droppedCircle": 106
     }
   },
   "ads": [
+    {
+      "adID": "1606749603898937",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/1451792717/?product_id=1606749603898937",
+      "author": "John Owen",
+      "postedTime": "2026-03-28T18:52:59.000Z",
+      "title": "Free Pinball Game, Needs Restoration",
+      "description": "Old pinball game, 60’s-70’s? Needs restoration, free",
+      "price": "$0",
+      "lat": 34.2367621,
+      "lon": -84.4907621,
+      "location": "Canton, GA",
+      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/659780868_1476016337636853_6504586343527770728_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=104&ccb=1-7&_nc_sid=92e707&_nc_ohc=eTtH5PuT_RQQ7kNvwE-iTWx&_nc_oc=AdpY0--RbKiM-ACQxL7lN8s6y_HJrSRxA3p0glHx0P-iGZuhyK89DwuYTMZhxStycaw&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=q7Nms405vRF1aL0oT73pkg&_nc_ss=7a32e&oh=00_AfxMAhDZuZ5OMKzav3x4dswvuT5NiFnkDbwkWOpoxxSQcQ&oe=69CDEFFD",
+      "adUrl": "https://www.facebook.com/marketplace/item/1606749603898937/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-03-28 19:05:38",
+      "lastSeen": "2026-03-28T19:06:05.940Z"
+    },
     {
       "adID": "947783414517644",
       "source": "MP",
@@ -36,7 +56,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-28 17:04:29",
-      "lastSeen": "2026-03-28T17:05:38.571Z"
+      "lastSeen": "2026-03-28T19:05:25.671Z"
     },
     {
       "adID": "2013740726218883",
@@ -56,7 +76,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-28 11:04:51",
-      "lastSeen": "2026-03-28T18:05:42.245Z"
+      "lastSeen": "2026-03-28T19:05:38.793Z"
     },
     {
       "adID": "936495348997395",
@@ -192,8 +212,8 @@
       "location": "St Petersburg, FL",
       "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/656902512_1507754244108140_6341606460667017301_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=100&ccb=1-7&_nc_sid=92e707&_nc_ohc=zPkc4LOP5skQ7kNvwGUZO7D&_nc_oc=AdqIsVk52iwIT_krU2f3VbLzoOY4X4_KIzeM-LWlJFepjDUXESRgq2bxrG4Ul0cU0EY&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=6wgkFVVdE7CQL3qN4-9aDw&_nc_ss=7a32e&oh=00_AfxOR9A0AkGPTQ43me7_924DIKF41uLBV8_etkMChxsexg&oe=69CCC0CD",
       "adUrl": "https://www.facebook.com/marketplace/item/951075287858842/",
-      "priceChanged": 1,
-      "priceChangedAt": "2026-03-26 18:25:35",
+      "priceChanged": 0,
+      "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-22 23:06:44",
       "lastSeen": "2026-03-27T20:25:32.858Z"
@@ -256,7 +276,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-19 21:04:18",
-      "lastSeen": "2026-03-28T18:05:42.059Z"
+      "lastSeen": "2026-03-28T19:05:38.537Z"
     },
     {
       "adID": "901738832663151",
