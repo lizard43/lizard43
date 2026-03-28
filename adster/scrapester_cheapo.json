@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-03-28T20:24:51.239Z",
+  "generated_at": "2026-03-28T21:06:50.511Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,33 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 29,
-      "droppedPrice": 66,
+      "exported_ads": 30,
+      "droppedPrice": 67,
       "droppedMissingGeo": 0,
-      "droppedCircle": 100
+      "droppedCircle": 101
     }
   },
   "ads": [
+    {
+      "adID": "1581461546291428",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100000202129699/?product_id=1581461546291428",
+      "author": "Victoria Corbin",
+      "postedTime": "2026-03-28T20:27:39.000Z",
+      "title": "Arcade game",
+      "description": "Selling due to move- child does not play it. Nashville GA",
+      "price": "$250",
+      "lat": 31.2074197,
+      "lon": -83.2501548,
+      "location": "Nashville, GA",
+      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/656536165_1779891053327964_8698129227427908303_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=104&ccb=1-7&_nc_sid=92e707&_nc_ohc=K64hH4OE01QQ7kNvwEf4S4r&_nc_oc=AdpIo6OZj377Ki86cuubmAqIdrsMrg7oPYTYrdOr5YG7qpxHbutZprt85vZlsIpFb3E&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=4dcrsy-hFw2JKoPj41M4Xw&_nc_ss=7a32e&oh=00_AfzdkZIY-WWVDJtf2liLlzmT9DIw4fmStarTQCNuupYOYA&oe=69CE0D08",
+      "adUrl": "https://www.facebook.com/marketplace/item/1581461546291428/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-03-28 21:05:25",
+      "lastSeen": "2026-03-28T21:05:57.629Z"
+    },
     {
       "adID": "918138427864047",
       "source": "MP",
@@ -36,7 +56,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-28 20:06:23",
-      "lastSeen": "2026-03-28T20:06:45.927Z"
+      "lastSeen": "2026-03-28T21:06:29.595Z"
     },
     {
       "adID": "1606749603898937",
@@ -296,7 +316,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-19 21:04:18",
-      "lastSeen": "2026-03-28T20:06:23.539Z"
+      "lastSeen": "2026-03-28T21:06:29.530Z"
     },
     {
       "adID": "901738832663151",
