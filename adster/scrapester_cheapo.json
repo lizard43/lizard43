@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-03-28T13:26:29.033Z",
+  "generated_at": "2026-03-28T14:08:06.641Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,53 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 26,
-      "droppedPrice": 69,
+      "exported_ads": 28,
+      "droppedPrice": 63,
       "droppedMissingGeo": 0,
-      "droppedCircle": 104
+      "droppedCircle": 111
     }
   },
   "ads": [
+    {
+      "adID": "954729477088119",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100000577325932/?product_id=954729477088119",
+      "author": "Kamryn Hartman",
+      "postedTime": "2026-03-28T13:58:13.000Z",
+      "title": "Momcozy Pregnancy Pillow",
+      "description": "Tried using and just doesn't work for me. Smoke free home, but don't have cats. Free to anyone, just trying to get it out.",
+      "price": "$0",
+      "lat": 28.1300994,
+      "lon": -82.4591842,
+      "location": "Lutz, FL",
+      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/657255286_792597480585641_5400847719179914437_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=108&ccb=1-7&_nc_sid=92e707&_nc_ohc=RzigeCN0dKsQ7kNvwFPRbmF&_nc_oc=Adokl1_eceFPIBjpg1WdwCSoxs5ZGRgw3ExB59Mm1_hNXq_oC5LDQeoSKq-sS8EMYQk&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=rBxxja6bsOYMwqX-nKxvBw&_nc_ss=7a32e&oh=00_AfxDs5cfGqQHGX5pSY3BSaqfVVrHERWrbfrenjW9o9HKhQ&oe=69CDA424",
+      "adUrl": "https://www.facebook.com/marketplace/item/954729477088119/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-03-28 14:04:49",
+      "lastSeen": "2026-03-28T14:07:36.406Z"
+    },
+    {
+      "adID": "980171221356077",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100003306075249/?product_id=980171221356077",
+      "author": "Mary Robinson",
+      "postedTime": "2026-03-27T16:31:53.000Z",
+      "title": "Pad of paper placemats. New in package",
+      "description": "Fun for doodling while waiting for dinner! I bought for my kids and forgot I had them. Or, cute to use just as they are",
+      "price": "$10",
+      "lat": 34.2367621,
+      "lon": -84.4907621,
+      "location": "Canton, GA",
+      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/656957222_1474592130940757_9210587480810228074_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=106&ccb=1-7&_nc_sid=92e707&_nc_ohc=2Fb2yb0vWdsQ7kNvwEfAQuj&_nc_oc=AdqnRCdF5NyDx_4p-gO0ou9OyWNDM2HpKDh7V2Ri1w3ODtC-DcW51S3CzabvjDa8m8E&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=zQtr82vbfpB-ExDU8oe1yQ&_nc_ss=7a32e&oh=00_AfyxX019ycH2mSSJN1URmf2b-WEFEOwVR6iVZiQqEYC-Eg&oe=69CDC02A",
+      "adUrl": "https://www.facebook.com/marketplace/item/980171221356077/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-03-28 14:04:49",
+      "lastSeen": "2026-03-28T14:07:36.439Z"
+    },
     {
       "adID": "2013740726218883",
       "source": "MP",
@@ -36,7 +76,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-28 11:04:51",
-      "lastSeen": "2026-03-28T13:05:23.820Z"
+      "lastSeen": "2026-03-28T14:04:48.888Z"
     },
     {
       "adID": "936495348997395",
@@ -236,7 +276,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-19 21:04:18",
-      "lastSeen": "2026-03-28T13:05:23.786Z"
+      "lastSeen": "2026-03-28T14:04:48.470Z"
     },
     {
       "adID": "901738832663151",
