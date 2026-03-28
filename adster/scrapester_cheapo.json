@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-03-28T19:54:16.554Z",
+  "generated_at": "2026-03-28T20:07:24.353Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,33 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 28,
+      "exported_ads": 29,
       "droppedPrice": 66,
       "droppedMissingGeo": 0,
-      "droppedCircle": 96
+      "droppedCircle": 100
     }
   },
   "ads": [
+    {
+      "adID": "918138427864047",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100091265407483/?product_id=918138427864047",
+      "author": "Cassy Sands",
+      "postedTime": "2026-03-28T19:07:45.000Z",
+      "title": "Pin ball machine",
+      "description": "Pin ball machine from storage unit selling as is or obo",
+      "price": "$200",
+      "lat": 29.5957696,
+      "lon": -90.7195348,
+      "location": "Houma, LA",
+      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/660309776_2021712171777950_6913581385847320437_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=101&ccb=1-7&_nc_sid=92e707&_nc_ohc=IOt_QU3g8okQ7kNvwFWy-dJ&_nc_oc=Adp2qaAVDGK8o1PY7U9KgzlWYzJm_PP-ImOOEwjsZDk823wHNsbb7Orur_npfMSn44I&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=yX8gQg52BMaBykid5xmk7Q&_nc_ss=7a32e&oh=00_AfzpA7vDcZ0QncvgxBoZYUyFjtEEFfb2KI6f-13HT48zrQ&oe=69CDEE32",
+      "adUrl": "https://www.facebook.com/marketplace/item/918138427864047/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-03-28 20:06:23",
+      "lastSeen": "2026-03-28T20:06:45.927Z"
+    },
     {
       "adID": "1606749603898937",
       "source": "MP",
@@ -56,7 +76,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-28 17:04:29",
-      "lastSeen": "2026-03-28T19:05:25.671Z"
+      "lastSeen": "2026-03-28T20:05:22.674Z"
     },
     {
       "adID": "2013740726218883",
@@ -276,7 +296,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-19 21:04:18",
-      "lastSeen": "2026-03-28T19:05:38.537Z"
+      "lastSeen": "2026-03-28T20:06:23.539Z"
     },
     {
       "adID": "901738832663151",
