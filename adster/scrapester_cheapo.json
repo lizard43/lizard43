@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-03-28T00:06:04.410Z",
+  "generated_at": "2026-03-28T00:09:25.570Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,10 +11,10 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 25,
-      "droppedPrice": 64,
+      "exported_ads": 24,
+      "droppedPrice": 63,
       "droppedMissingGeo": 0,
-      "droppedCircle": 101
+      "droppedCircle": 100
     }
   },
   "ads": [
@@ -437,26 +437,6 @@
       "hidden": 0,
       "created_at": "2026-03-04 12:05:03",
       "lastSeen": "2026-03-27T20:28:00.807Z"
-    },
-    {
-      "adID": "3066044210260578",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/1247068570/?product_id=3066044210260578",
-      "author": "Paul 'Unclepauly' Weekes",
-      "postedTime": "2026-02-27T04:12:57.000Z",
-      "title": "Arcade game",
-      "description": "Arcade game Galaga Originals made by Midway MFG CO. Please make an acceptable offer for this item. Price is negotiable. Local pick up only.",
-      "price": "$400",
-      "lat": 33.5670562,
-      "lon": -84.5810418,
-      "location": "Fairburn, GA",
-      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/644303478_1399303718176217_2077132874584052803_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=104&ccb=1-7&_nc_sid=92e707&_nc_ohc=XjIpthfTLfAQ7kNvwEgyoQc&_nc_oc=AdqsFLymRXxi18OuC3m7Otgv0bIl-JDszcuoylJSnhYj_nfdWkqpzsxA5Xm11JA1jTc&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=gt5UOen_v-l4bddPvBOiTQ&_nc_ss=7a32e&oh=00_AfzhoWjtizf9sEPx_Cxmvmmg1qYuFAbKaOZEPoOzX6lY6w&oe=69CCD50F",
-      "adUrl": "https://www.facebook.com/marketplace/item/3066044210260578/",
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-02-27 12:04:40",
-      "lastSeen": "2026-03-27T20:28:00.841Z"
     },
     {
       "adID": "PI-210181",
