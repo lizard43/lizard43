@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-03-29T01:06:35.210Z",
+  "generated_at": "2026-03-29T02:06:41.758Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,33 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 29,
-      "droppedPrice": 70,
+      "exported_ads": 30,
+      "droppedPrice": 74,
       "droppedMissingGeo": 0,
-      "droppedCircle": 105
+      "droppedCircle": 109
     }
   },
   "ads": [
+    {
+      "adID": "2662828817423000",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/641828511/?product_id=2662828817423000",
+      "author": "Jeanni Perry",
+      "postedTime": "2026-03-29T01:30:25.000Z",
+      "title": "Buttonbush, Cephalanthus occidentalis",
+      "description": "https://bellajardins.boutique/product/buttonbush/ My company is Bella Jardins Boutique, an on-line garden shop (no storefront) that specializes in Florida native plants. Orders are made on-line (copy/paste link above to your browser search) then I deliver the plants to you. Sales are limited to only these North Central Florida counties: Baker, Columbia, Union, Alachua, Bradford, Putnam, Clay, St. Johns, and Duval. Total orders that are over $25 before taxes have no delivery fee, orders that are under $25 have a $5 delivery fee. Botanical Name: Cephalanthus occidentalis Common Name: Buttonbush, Honeyballs, Spanish Pincushion, Globeflowers, Swampwood, Button-Willow, Crane Willow, Little Snowball, Pinball, Pond Dogwood Description: Buttonbush is another one of my favorite Florida native shrubs. The fragrant, white ball-shaped flowers look like pincushions and bloom Spring to Summer. In its native habitat, Buttonbush is a wetland shrub, but it adapts to regular garden environments as long as it gets water on a regular basis from either rain or irrigation. Its roots can withstand full submersion in wet areas. I wouldn’t call it a drought tolerant plant. Plant it in that rain garden you’ve been planning, or beside that downspout, or in that low area that stays moist where nothing else will grow, or at the edge of your pond, or in your regular garden beds that get irrigation. It’s fast growing, likes sun, part sun, or part shade, is deciduous, and grows 5 – 12′ tall x 4 – 8′ wide into a loose, rounded habit. The more shade it’s in, the more open the foliage will be. I’ve seen these growing in the wild, and they are glorious plants that are abuzz with butterflies, Titan sphinx moth, Hydrangea sphinx moth, hummers, native bees, honey bees, bumble bees, and all kinds of other pollinators when in bloom, and at least 25 species of birds eat the seeds! You need this shrub in your garden. Is not deer tolerant. Is host plant to several moths including titan sphinx (Aellopos titan) and hydrangea sphinx (Darapsa versicolor) moths. The foliage is poisonous to livestock and people if eaten. It grows in clay, loam, organic material (muck), and sandy soils that are acidic to calcareous. Not salt tolerant of inundation by salty or brackish water. Low/no tolerance of salty wind or direct salt spray. This plant in 3-gallon containers is 2-4′ tall. Plant Lore: The genus Cephalanthus is from the Greek words kephale, or “head,” and ánthos, or “flower.” The species epithet occidentalis is Latin for “west” or “western,” suggesting the plant is native to the western hemisphere. Florida Hardiness Zones 8 – 11",
+      "price": "$20",
+      "lat": 29.9443549,
+      "lon": -82.1101114,
+      "location": "Starke, FL",
+      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/657398787_833625852330646_268578295607289246_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=92e707&_nc_ohc=MP9QvvftR9kQ7kNvwH9ecTR&_nc_oc=AdrzY3WspmjqU8HyFszQUhyMBIRBKk22JdqgZYhbaL42oLjsCvXYHKU_iFRHZO3_CyI&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=CYzxOuDEc_DvYsO6Lv6log&_nc_ss=7a32e&oh=00_AfyxE43uh9V0NJsFZNPA1HZPjJYgjUAvx4KVaSorMsw3-A&oe=69CE53E2",
+      "adUrl": "https://www.facebook.com/marketplace/item/2662828817423000/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-03-29 02:05:54",
+      "lastSeen": "2026-03-29T02:06:09.879Z"
+    },
     {
       "adID": "KLOV-561857",
       "source": "KLOV",
@@ -36,7 +56,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-28 22:06:58",
-      "lastSeen": "2026-03-29T01:06:34.994Z"
+      "lastSeen": "2026-03-29T02:06:41.540Z"
     },
     {
       "adID": "918138427864047",
@@ -296,7 +316,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-19 21:04:18",
-      "lastSeen": "2026-03-29T01:05:39.528Z"
+      "lastSeen": "2026-03-29T02:05:54.559Z"
     },
     {
       "adID": "901738832663151",
