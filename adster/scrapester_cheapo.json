@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-03-29T13:28:43.083Z",
+  "generated_at": "2026-03-29T14:07:07.439Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,33 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 29,
-      "droppedPrice": 65,
+      "exported_ads": 30,
+      "droppedPrice": 69,
       "droppedMissingGeo": 0,
-      "droppedCircle": 99
+      "droppedCircle": 103
     }
   },
   "ads": [
+    {
+      "adID": "953519420947599",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100011196420319/?product_id=953519420947599",
+      "author": "Cassidy McKissick",
+      "postedTime": "2026-03-29T12:46:51.000Z",
+      "title": "Mario & Luigi Cart",
+      "description": "$200 for both very good deal since Separately they go for $179-200 each",
+      "price": "$200",
+      "lat": 30.9248878,
+      "lon": -88.5879421,
+      "location": "Lucedale, MS",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/661085221_982016811432014_5120969554984500108_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=92e707&_nc_ohc=KC0JprJPxnUQ7kNvwFUg5sg&_nc_oc=AdqYAD5mMBsberwQUgQC43wCM8FXrpT9SomMUoY54T7LaRbDAIgVZr_G16uYTUA0x4k&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=PiwR3KyHF1ZKL5jLR8Bgmg&_nc_ss=7a32e&oh=00_AfzczGte1TxhB8SBKn7SMkIsvhlBcOrGyYjTTDje2UAIpg&oe=69CF007E",
+      "adUrl": "https://www.facebook.com/marketplace/item/953519420947599/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-03-29 14:05:17",
+      "lastSeen": "2026-03-29T14:05:32.314Z"
+    },
     {
       "adID": "1221760719945165",
       "source": "MP",
@@ -36,7 +56,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-29 11:06:02",
-      "lastSeen": "2026-03-29T12:05:26.582Z"
+      "lastSeen": "2026-03-29T14:06:00.283Z"
     },
     {
       "adID": "KLOV-561857",
@@ -56,7 +76,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-28 22:06:58",
-      "lastSeen": "2026-03-29T12:05:45.865Z"
+      "lastSeen": "2026-03-29T14:07:07.220Z"
     },
     {
       "adID": "947783414517644",
@@ -296,7 +316,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-19 21:04:18",
-      "lastSeen": "2026-03-29T12:05:26.533Z"
+      "lastSeen": "2026-03-29T14:05:59.539Z"
     },
     {
       "adID": "901738832663151",
