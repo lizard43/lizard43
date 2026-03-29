@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-03-29T11:27:01.882Z",
+  "generated_at": "2026-03-29T12:05:46.069Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,10 +11,10 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 30,
-      "droppedPrice": 73,
+      "exported_ads": 29,
+      "droppedPrice": 66,
       "droppedMissingGeo": 0,
-      "droppedCircle": 101
+      "droppedCircle": 98
     }
   },
   "ads": [
@@ -36,27 +36,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-29 11:06:02",
-      "lastSeen": "2026-03-29T11:07:03.153Z"
-    },
-    {
-      "adID": "1445525830636605",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/100025244452487/?product_id=1445525830636605",
-      "author": "Mks Westin",
-      "postedTime": "2026-03-29T03:21:33.000Z",
-      "title": "Arcade machine with 45 preloaded licensed games.",
-      "description": "UNICO MVS Mini Home Arcade Machine, 45 Pre-Loaded Classic Games:10 KOF / 5 Metal SLUG / 7 Fatal Fury / 6 Samurai SHODOWN and More, 3.5inch Screen, HDMI and Gamepads Port",
-      "price": "$50",
-      "lat": 30.8736613,
-      "lon": -84.5740953,
-      "location": "Decatur, GA",
-      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t15.5256-10/644694254_2020883641814833_5623400651476702988_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=103&ccb=1-7&_nc_sid=d4195b&_nc_ohc=iILExuzKtLsQ7kNvwEBL2vs&_nc_oc=AdpR05YAftpnk6G3hWAvQIjDAMYh8HpkzfuWuIUJIYA8vKXSJdu7ovFfBRD0PfFnm0E&_nc_zt=23&_nc_ht=scontent-dfw6-1.xx&_nc_gid=CKZIJNlTXGG996ZvwmF1RQ&_nc_ss=7a32e&oh=00_AfyzycIUTxuGiL6kJRNYt5ooFRwxjn_yQiShsFMcpYkcFA&oe=69CEC3EF",
-      "adUrl": "https://www.facebook.com/marketplace/item/1445525830636605/",
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-03-29 11:05:20",
-      "lastSeen": "2026-03-29T11:05:37.884Z"
+      "lastSeen": "2026-03-29T12:05:26.582Z"
     },
     {
       "adID": "KLOV-561857",
@@ -76,7 +56,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-28 22:06:58",
-      "lastSeen": "2026-03-29T11:07:32.376Z"
+      "lastSeen": "2026-03-29T12:05:45.865Z"
     },
     {
       "adID": "947783414517644",
@@ -316,7 +296,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-19 21:04:18",
-      "lastSeen": "2026-03-29T11:06:02.532Z"
+      "lastSeen": "2026-03-29T12:05:26.533Z"
     },
     {
       "adID": "901738832663151",
