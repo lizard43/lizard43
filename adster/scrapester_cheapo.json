@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-03-29T16:07:18.746Z",
+  "generated_at": "2026-03-29T17:07:16.836Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,53 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 29,
-      "droppedPrice": 78,
+      "exported_ads": 31,
+      "droppedPrice": 81,
       "droppedMissingGeo": 0,
-      "droppedCircle": 106
+      "droppedCircle": 107
     }
   },
   "ads": [
+    {
+      "adID": "929614959940304",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/61577316410821/?product_id=929614959940304",
+      "author": "James Konet",
+      "postedTime": "2026-03-29T16:17:55.000Z",
+      "title": "Cool cat pinball one inch",
+      "description": "Very decorative cat with amber tone eyes about 1 inch tall",
+      "price": "$10",
+      "lat": 28.01633,
+      "lon": -82.1234803,
+      "location": "Plant City, FL",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/658696238_1594887851742413_9181957319533356724_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=111&ccb=1-7&_nc_sid=92e707&_nc_ohc=uONzAdzX2rIQ7kNvwGtDi8R&_nc_oc=AdpLhAklc9NhFO-sYwig9FLCVTXYFyPEt-WNVOiC0AZRyT9AiWkvN9uoY29U0OFu5l8&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=REzL2k3XL2-JUAJEfKF91g&_nc_ss=7a3a8&oh=00_AfxsaSOpRGk1Ve984v0aPYL1z7MMniyBFrKiVrhWQhZIog&oe=69CF434C",
+      "adUrl": "https://www.facebook.com/marketplace/item/929614959940304/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-03-29 17:05:40",
+      "lastSeen": "2026-03-29T17:06:37.547Z"
+    },
+    {
+      "adID": "2106073653568141",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/61577316410821/?product_id=2106073653568141",
+      "author": "James Konet",
+      "postedTime": "2026-03-14T03:40:21.000Z",
+      "title": "HARLEY DAVIDSON STURGIS 1996 NEW",
+      "description": "New pinball from Sturgis 1996 about 2 inches long",
+      "price": "$10",
+      "lat": 28.01633,
+      "lon": -82.1234803,
+      "location": "Plant City, FL",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/657603062_1549608352766970_2946127711033100471_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=111&ccb=1-7&_nc_sid=92e707&_nc_ohc=jJqgNovyv8gQ7kNvwEGm99L&_nc_oc=Adr86NuEfPXfxHyIEmrayjM5quc4Sl2CR1oka_t5yMqqOFz3Ff7HRw-bQ9JvobSqo98&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=Rv7t5m-BVw8i1JaPrUeiEg&_nc_ss=7a3a8&oh=00_AfzUEV6OlrVVz-6wBcqWzGbhIVTQkXOx24xuFo17W9tH-w&oe=69CF18D6",
+      "adUrl": "https://www.facebook.com/marketplace/item/2106073653568141/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-03-29 17:05:40",
+      "lastSeen": "2026-03-29T17:06:37.580Z"
+    },
     {
       "adID": "1221760719945165",
       "source": "MP",
@@ -36,7 +76,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-29 11:06:02",
-      "lastSeen": "2026-03-29T16:06:27.736Z"
+      "lastSeen": "2026-03-29T17:05:40.886Z"
     },
     {
       "adID": "KLOV-561857",
@@ -56,7 +96,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-28 22:06:58",
-      "lastSeen": "2026-03-29T16:07:18.508Z"
+      "lastSeen": "2026-03-29T17:07:16.611Z"
     },
     {
       "adID": "947783414517644",
@@ -296,7 +336,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-19 21:04:18",
-      "lastSeen": "2026-03-29T16:06:27.530Z"
+      "lastSeen": "2026-03-29T17:05:40.535Z"
     },
     {
       "adID": "901738832663151",
