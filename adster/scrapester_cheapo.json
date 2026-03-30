@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-03-30T08:29:00.568Z",
+  "generated_at": "2026-03-30T11:07:09.268Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,33 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 31,
-      "droppedPrice": 86,
+      "exported_ads": 32,
+      "droppedPrice": 101,
       "droppedMissingGeo": 0,
-      "droppedCircle": 112
+      "droppedCircle": 118
     }
   },
   "ads": [
+    {
+      "adID": "1733454874577037",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/1013088364/?product_id=1733454874577037",
+      "author": "Jared Bannister",
+      "postedTime": "2026-03-30T04:49:43.000Z",
+      "title": "Pinball game",
+      "description": "MLB pinball tabletop game",
+      "price": "$50",
+      "lat": 34.257038,
+      "lon": -85.1646726,
+      "location": "Rome, GA",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/660240612_958388863856745_5960519420644899865_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=111&ccb=1-7&_nc_sid=92e707&_nc_ohc=gTll05KexdoQ7kNvwFBHRLj&_nc_oc=AdoIjjj2BqiZxHBEbDkq1EF8SuyDoZ2_iCxT37_2-UB_jJA3qVIlcg_oQnmtCBmX4bk&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=awJt99AF_WUlsXv2EitAlg&_nc_ss=7a3a8&oh=00_AfwYwD3-LCBSx_Nru_idq0vav14T1-5-syHmN4Sxzl959g&oe=69D01CA0",
+      "adUrl": "https://www.facebook.com/marketplace/item/1733454874577037/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-03-30 11:05:38",
+      "lastSeen": "2026-03-30T11:06:29.203Z"
+    },
     {
       "adID": "1238639218253031",
       "source": "MP",
@@ -56,7 +76,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-30 00:07:01",
-      "lastSeen": "2026-03-30T02:06:46.383Z"
+      "lastSeen": "2026-03-30T11:05:38.790Z"
     },
     {
       "adID": "1604145237535121",
@@ -76,7 +96,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-29 23:07:02",
-      "lastSeen": "2026-03-30T02:06:46.416Z"
+      "lastSeen": "2026-03-30T11:05:38.824Z"
     },
     {
       "adID": "1221760719945165",
@@ -96,7 +116,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-29 11:06:02",
-      "lastSeen": "2026-03-30T02:06:46.650Z"
+      "lastSeen": "2026-03-30T11:05:39.024Z"
     },
     {
       "adID": "KLOV-561857",
@@ -116,7 +136,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-28 22:06:58",
-      "lastSeen": "2026-03-30T02:07:07.252Z"
+      "lastSeen": "2026-03-30T11:07:09.001Z"
     },
     {
       "adID": "947783414517644",
@@ -336,7 +356,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-19 21:04:18",
-      "lastSeen": "2026-03-30T02:06:46.345Z"
+      "lastSeen": "2026-03-30T11:05:38.607Z"
     },
     {
       "adID": "901738832663151",
