@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-03-30T21:20:57.717Z",
+  "generated_at": "2026-03-30T22:05:55.714Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,52 +11,32 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 32,
+      "exported_ads": 31,
       "droppedPrice": 108,
       "droppedMissingGeo": 0,
-      "droppedCircle": 118
+      "droppedCircle": 124
     }
   },
   "ads": [
     {
-      "adID": "26434203262855414",
+      "adID": "1596065234988733",
       "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/100003228700621/?product_id=26434203262855414",
-      "author": "Jessica Cancienne Huston",
-      "postedTime": "2026-03-30T15:11:16.000Z",
-      "title": "Drop it. Shot game.",
-      "description": "Drop it. Shot game.",
-      "price": "$5",
-      "lat": 29.9899926,
-      "lon": -90.1505426,
-      "location": "Metairie, LA",
-      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/657588443_782499841601271_5639304407779581297_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=106&ccb=1-7&_nc_sid=92e707&_nc_ohc=Q9g5hFTWANAQ7kNvwH81_iB&_nc_oc=AdqCfA66C2zpKC0LmOqoY4lBUbCQd74hUKZ1_N2DJ1UyAFMlYOJzPmBYjw2traTZuMA&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=t6s1IgBUwUI9cTOK6GrZHA&_nc_ss=7a3a8&oh=00_Afw2jALyDgP7MeyKiGnqjkyoXhcJJfH__d5ZJHkbVrjgyw&oe=69D0CE4B",
-      "adUrl": "https://www.facebook.com/marketplace/item/26434203262855414/",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100065429146382/?product_id=1596065234988733",
+      "author": "Justin Smith",
+      "postedTime": "2026-03-25T23:08:18.000Z",
+      "title": "Electronic arcade pinball",
+      "description": "Brand new played maybe 10 min in all. No box and still have the sticker sheet for it. Works like it should",
+      "price": "$30",
+      "lat": 31.0748252,
+      "lon": -83.199564,
+      "location": "Ray City, GA",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/658376070_1456226786202286_2594551159397176616_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=110&ccb=1-7&_nc_sid=92e707&_nc_ohc=RAuvgh3xdOAQ7kNvwHaQCWO&_nc_oc=AdpLiyovq80T57hMHSmkkQ4JTI4wRMeBFtQATFWWAh-9UD4F1uJSnfNpQ2jbOwUkuns&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=PHbD4xEr0ItuiI2fO3bZ2w&_nc_ss=7a3a8&oh=00_AfxyyFfCX1pf5lsHY2ar6e0fQhGawtRElWWBTSDELsYuXg&oe=69D0C1F0",
+      "adUrl": "https://www.facebook.com/marketplace/item/1596065234988733/",
       "priceChanged": 0,
       "priceChangedAt": null,
       "hidden": 0,
-      "created_at": "2026-03-30 21:19:05",
-      "lastSeen": "2026-03-30T21:20:21.173Z"
-    },
-    {
-      "adID": "26288431837481717",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/61581771447362/?product_id=26288431837481717",
-      "author": "Ericka Sellers",
-      "postedTime": "2026-03-30T19:19:35.000Z",
-      "title": "PAC•MAN Arcade",
-      "description": "",
-      "price": "$200",
-      "lat": 34.729847,
-      "lon": -86.5859011,
-      "location": "Huntsville, AL",
-      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/659169564_815900218227375_9079358625774475717_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=101&ccb=1-7&_nc_sid=92e707&_nc_ohc=pkTcd9MCyN0Q7kNvwHHXiLT&_nc_oc=AdrYDyzDfM9QMn3sujXT7XksxwqRSVsvqRDXiwiMx73Di941oy0ZNF9lCoAfE1HHgfw&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=noTstdDWv1r69-z2aHDoZQ&_nc_ss=7a3a8&oh=00_Afymi8zISQk4a1DYNbLqfxDfIyyzMz3qsSauxeR5GBumtQ&oe=69D0D568",
-      "adUrl": "https://www.facebook.com/marketplace/item/26288431837481717/",
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-03-30 21:17:23",
-      "lastSeen": "2026-03-30T21:18:39.100Z"
+      "created_at": "2026-03-30 22:04:25",
+      "lastSeen": "2026-03-30T22:05:34.997Z"
     },
     {
       "adID": "1296577305687942",
@@ -76,7 +56,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-30 18:05:28",
-      "lastSeen": "2026-03-30T21:17:23.273Z"
+      "lastSeen": "2026-03-30T22:04:25.794Z"
     },
     {
       "adID": "1238639218253031",
@@ -96,7 +76,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-30 02:04:27",
-      "lastSeen": "2026-03-30T21:17:23.586Z"
+      "lastSeen": "2026-03-30T22:04:26.092Z"
     },
     {
       "adID": "1256616466578380",
@@ -136,7 +116,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-29 23:07:02",
-      "lastSeen": "2026-03-30T21:19:04.957Z"
+      "lastSeen": "2026-03-30T22:05:35.618Z"
     },
     {
       "adID": "1221760719945165",
@@ -156,7 +136,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-29 11:06:02",
-      "lastSeen": "2026-03-30T21:19:05.124Z"
+      "lastSeen": "2026-03-30T22:05:35.785Z"
     },
     {
       "adID": "KLOV-561857",
@@ -176,7 +156,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-28 22:06:58",
-      "lastSeen": "2026-03-30T21:20:57.346Z"
+      "lastSeen": "2026-03-30T22:05:55.433Z"
     },
     {
       "adID": "947783414517644",
@@ -356,7 +336,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-19 21:04:18",
-      "lastSeen": "2026-03-30T21:19:04.592Z"
+      "lastSeen": "2026-03-30T22:05:34.861Z"
     },
     {
       "adID": "901738832663151",
