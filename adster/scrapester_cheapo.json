@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-03-30T14:09:51.136Z",
+  "generated_at": "2026-03-30T15:05:48.838Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,33 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 36,
-      "droppedPrice": 97,
+      "exported_ads": 37,
+      "droppedPrice": 99,
       "droppedMissingGeo": 0,
-      "droppedCircle": 114
+      "droppedCircle": 115
     }
   },
   "ads": [
+    {
+      "adID": "1213347624209639",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100062515162513/?product_id=1213347624209639",
+      "author": "Shannon Blackwell",
+      "postedTime": "2026-03-30T03:07:16.000Z",
+      "title": "DS game",
+      "description": "Fcfs",
+      "price": "$5",
+      "lat": 30.1586518,
+      "lon": -85.6602936,
+      "location": "Panama City, FL",
+      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/660301927_1861420187878647_5274943512446102940_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=102&ccb=1-7&_nc_sid=92e707&_nc_ohc=yFL9b_MxznMQ7kNvwEp4KeB&_nc_oc=Ado0NPKPOEMjPMdEgxybEcsM-GTkrd6J4t65HS6SGT7fNeiPe9KUNoH8z8nHOhROcpM&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=c3NXo8A95MQkJvsPFhhBmw&_nc_ss=7a3a8&oh=00_AfyhqGPNQsmM51NITFE5R4wfeNjmkqOEeV6iHL5kDfD5WQ&oe=69D0765A",
+      "adUrl": "https://www.facebook.com/marketplace/item/1213347624209639/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-03-30 15:04:33",
+      "lastSeen": "2026-03-30T15:05:00.274Z"
+    },
     {
       "adID": "831597362559496",
       "source": "MP",
@@ -136,7 +156,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-30 02:04:27",
-      "lastSeen": "2026-03-30T14:04:18.579Z"
+      "lastSeen": "2026-03-30T15:04:33.616Z"
     },
     {
       "adID": "1256616466578380",
@@ -176,7 +196,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-29 23:07:02",
-      "lastSeen": "2026-03-30T14:07:08.832Z"
+      "lastSeen": "2026-03-30T15:05:28.235Z"
     },
     {
       "adID": "1221760719945165",
@@ -196,7 +216,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-29 11:06:02",
-      "lastSeen": "2026-03-30T14:07:09.032Z"
+      "lastSeen": "2026-03-30T15:05:28.435Z"
     },
     {
       "adID": "KLOV-561857",
@@ -216,7 +236,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-28 22:06:58",
-      "lastSeen": "2026-03-30T14:09:50.791Z"
+      "lastSeen": "2026-03-30T15:05:48.524Z"
     },
     {
       "adID": "947783414517644",
@@ -436,7 +456,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-19 21:04:18",
-      "lastSeen": "2026-03-30T14:07:08.747Z"
+      "lastSeen": "2026-03-30T15:05:28.164Z"
     },
     {
       "adID": "901738832663151",
