@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-03-30T17:08:21.500Z",
+  "generated_at": "2026-03-30T18:07:33.721Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,33 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 29,
-      "droppedPrice": 101,
+      "exported_ads": 30,
+      "droppedPrice": 97,
       "droppedMissingGeo": 0,
-      "droppedCircle": 106
+      "droppedCircle": 103
     }
   },
   "ads": [
+    {
+      "adID": "1296577305687942",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100000261093199/?product_id=1296577305687942",
+      "author": "Danny Bocchiaro Jr.",
+      "postedTime": "2026-03-30T17:57:35.000Z",
+      "title": "Arcade machine",
+      "description": "Great machine for kids has over 1000+ games from all consoles. The name on it is just a sticker I ordered for my son. Can be taken off.",
+      "price": "$800",
+      "lat": 27.9094665,
+      "lon": -82.7873244,
+      "location": "Largo, FL",
+      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t15.5256-10/659743220_2779517629055493_2503743055816082840_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=107&ccb=1-7&_nc_sid=d4195b&_nc_ohc=zJXeyWwN9asQ7kNvwEJ_go7&_nc_oc=Adr0kfFYXBTg7lIdfhc5HeeCDYr-GwMYPVFUUOoailqBv46rwA4KpKFywJz0hPsOmVE&_nc_zt=23&_nc_ht=scontent-dfw5-2.xx&_nc_gid=hYECflqkgJiBDCGVB5vloQ&_nc_ss=7a3a8&oh=00_AfweEdFhvduuDz2CpM5BOtPn5dEXqZ8RDssRqiYUXdSCNQ&oe=69D08E88",
+      "adUrl": "https://www.facebook.com/marketplace/item/1296577305687942/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-03-30 18:05:28",
+      "lastSeen": "2026-03-30T18:05:46.515Z"
+    },
     {
       "adID": "1238639218253031",
       "source": "MP",
@@ -116,7 +136,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-28 22:06:58",
-      "lastSeen": "2026-03-30T17:08:21.236Z"
+      "lastSeen": "2026-03-30T18:07:33.368Z"
     },
     {
       "adID": "947783414517644",
@@ -296,7 +316,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-19 21:04:18",
-      "lastSeen": "2026-03-30T17:06:16.534Z"
+      "lastSeen": "2026-03-30T18:06:14.106Z"
     },
     {
       "adID": "901738832663151",
