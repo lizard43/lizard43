@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-03-30T11:07:09.268Z",
+  "generated_at": "2026-03-30T11:14:02.935Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,33 +11,13 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 32,
-      "droppedPrice": 101,
+      "exported_ads": 31,
+      "droppedPrice": 92,
       "droppedMissingGeo": 0,
-      "droppedCircle": 118
+      "droppedCircle": 102
     }
   },
   "ads": [
-    {
-      "adID": "1733454874577037",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/1013088364/?product_id=1733454874577037",
-      "author": "Jared Bannister",
-      "postedTime": "2026-03-30T04:49:43.000Z",
-      "title": "Pinball game",
-      "description": "MLB pinball tabletop game",
-      "price": "$50",
-      "lat": 34.257038,
-      "lon": -85.1646726,
-      "location": "Rome, GA",
-      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/660240612_958388863856745_5960519420644899865_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=111&ccb=1-7&_nc_sid=92e707&_nc_ohc=gTll05KexdoQ7kNvwFBHRLj&_nc_oc=AdoIjjj2BqiZxHBEbDkq1EF8SuyDoZ2_iCxT37_2-UB_jJA3qVIlcg_oQnmtCBmX4bk&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=awJt99AF_WUlsXv2EitAlg&_nc_ss=7a3a8&oh=00_AfwYwD3-LCBSx_Nru_idq0vav14T1-5-syHmN4Sxzl959g&oe=69D01CA0",
-      "adUrl": "https://www.facebook.com/marketplace/item/1733454874577037/",
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-03-30 11:05:38",
-      "lastSeen": "2026-03-30T11:06:29.203Z"
-    },
     {
       "adID": "1238639218253031",
       "source": "MP",
