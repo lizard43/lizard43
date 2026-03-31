@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-03-31T15:27:33.586Z",
+  "generated_at": "2026-03-31T16:06:43.761Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,53 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 29,
-      "droppedPrice": 103,
+      "exported_ads": 31,
+      "droppedPrice": 107,
       "droppedMissingGeo": 0,
-      "droppedCircle": 109
+      "droppedCircle": 111
     }
   },
   "ads": [
+    {
+      "adID": "1485275349893696",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100036338289740/?product_id=1485275349893696",
+      "author": "Joselyn Light",
+      "postedTime": "2026-03-31T02:44:49.000Z",
+      "title": "Pinball machine",
+      "description": "Very nice like new!",
+      "price": "$30",
+      "lat": 27.7712264,
+      "lon": -82.6340259,
+      "location": "St Petersburg, FL",
+      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/657268796_946497681079089_4025470825722773421_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=104&ccb=1-7&_nc_sid=92e707&_nc_ohc=DpLcdIQQrsAQ7kNvwEMXidS&_nc_oc=AdrOInT7lxuCNdtns8rsIwTBpRsRco3bud9LRm8WznUoS4WEDOAHuzvNq2XJoU5VJkw&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=b4SgmVnA56oG-fYV_FE9Vw&_nc_ss=7a3a8&oh=00_AfxTdKxrG7xK1MF4cMn2sxGnuuhztU5o8aSwJj5Lxk9P-g&oe=69D1D024",
+      "adUrl": "https://www.facebook.com/marketplace/item/1485275349893696/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-03-31 16:05:33",
+      "lastSeen": "2026-03-31T16:06:07.140Z"
+    },
+    {
+      "adID": "1663903674751881",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100001051942422/?product_id=1663903674751881",
+      "author": "Carlos Villatoro",
+      "postedTime": "2026-03-30T21:23:07.000Z",
+      "title": "2003 MARVEL \"THE INCREDIBLE HULK\" ELECTRONIC PINBALL MACHINE",
+      "description": "2003 MARVEL \"THE INCREDIBLE HULK\" ELECTRONIC PINBALL MACHINE",
+      "price": "$50",
+      "lat": 34.0234337,
+      "lon": -84.6154897,
+      "location": "Kennesaw, GA",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t15.5256-10/644421033_1584526102838172_1247581816817620910_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=110&ccb=1-7&_nc_sid=d4195b&_nc_ohc=oFsadhb3PMUQ7kNvwELBao-&_nc_oc=Adopzeenl5u_J3KFryDbnn2nD6C3Y0xdZ1UNO5wqS6Vj78l4rTuItOSJ6Cn__628xms&_nc_zt=23&_nc_ht=scontent-dfw5-1.xx&_nc_gid=8FhL4h37eS1GX9i_Wq4zrQ&_nc_ss=7a3a8&oh=00_AfybafAfPgIX151lW-y5mIsDBOIdMY0MFSc7HMRAaLs40w&oe=69D1B7F5",
+      "adUrl": "https://www.facebook.com/marketplace/item/1663903674751881/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-03-31 16:05:33",
+      "lastSeen": "2026-03-31T16:06:07.175Z"
+    },
     {
       "adID": "1238639218253031",
       "source": "MP",
@@ -116,7 +156,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-28 22:06:58",
-      "lastSeen": "2026-03-31T15:05:20.282Z"
+      "lastSeen": "2026-03-31T16:06:43.504Z"
     },
     {
       "adID": "947783414517644",
@@ -296,7 +336,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-19 21:04:18",
-      "lastSeen": "2026-03-31T15:04:35.822Z"
+      "lastSeen": "2026-03-31T16:05:33.660Z"
     },
     {
       "adID": "901738832663151",
