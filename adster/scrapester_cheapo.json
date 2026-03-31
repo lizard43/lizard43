@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-03-31T08:23:56.544Z",
+  "generated_at": "2026-03-31T11:07:46.439Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,53 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 29,
-      "droppedPrice": 96,
+      "exported_ads": 31,
+      "droppedPrice": 109,
       "droppedMissingGeo": 0,
-      "droppedCircle": 103
+      "droppedCircle": 122
     }
   },
   "ads": [
+    {
+      "adID": "1671455354194548",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100000128873191/?product_id=1671455354194548",
+      "author": "Lisa Estes",
+      "postedTime": "2026-03-31T02:30:15.000Z",
+      "title": "Snoopy Pinball Game",
+      "description": "Works perfectly $10 OBO PORCH PICKUP IN ARAB NO HOLDS!!!!",
+      "price": "$10",
+      "lat": 34.3181497,
+      "lon": -86.4958219,
+      "location": "Arab, AL",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/658977352_26259637713657770_3219620660246690033_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=110&ccb=1-7&_nc_sid=92e707&_nc_ohc=ir31zNHM_hYQ7kNvwHXSBup&_nc_oc=AdoHHfg8VMyRgNLLGwc2cSmqdPT-XwCKKM9Aqgrkv1gym9m3X90z8zTjC6JTSEXuuTE&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=7IDHIwELmDpt63Iu5hHwng&_nc_ss=7a3a8&oh=00_Afw67WIcFJsKbcMNJfDyh8C2QkwoIe2XCTgVZd1JqJ-o-w&oe=69D18093",
+      "adUrl": "https://www.facebook.com/marketplace/item/1671455354194548/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-03-31 11:05:56",
+      "lastSeen": "2026-03-31T11:07:11.400Z"
+    },
+    {
+      "adID": "938802498891909",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/1394983054/?product_id=938802498891909",
+      "author": "Brittney Bustamante",
+      "postedTime": "2026-03-31T03:29:59.000Z",
+      "title": "Duck shooting electronic arcade game",
+      "description": "New",
+      "price": "$25",
+      "lat": 29.9559145,
+      "lon": -90.0730259,
+      "location": "New Orleans, LA",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/657866486_1260784185586934_2396471268362039787_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=110&ccb=1-7&_nc_sid=92e707&_nc_ohc=jL0wlBw01MYQ7kNvwEwTcFA&_nc_oc=Adq--NKRuqH5nIGANvPzorZGmjQoLA8TAq3kzG4oTfza8-n0zrkJfIqMvSAprUQ1hbQ&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=bwrgMWxLlXS6YBNTdQQNDA&_nc_ss=7a3a8&oh=00_AfyqJLAk2NqOo49c1JJFJNGHgZ9OO0a3-O11wa8f3rOJVA&oe=69D17AD0",
+      "adUrl": "https://www.facebook.com/marketplace/item/938802498891909/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-03-31 11:04:38",
+      "lastSeen": "2026-03-31T11:05:35.411Z"
+    },
     {
       "adID": "1238639218253031",
       "source": "MP",
@@ -116,7 +156,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-28 22:06:58",
-      "lastSeen": "2026-03-31T02:05:52.310Z"
+      "lastSeen": "2026-03-31T11:07:46.011Z"
     },
     {
       "adID": "947783414517644",
@@ -296,7 +336,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-19 21:04:18",
-      "lastSeen": "2026-03-31T02:05:27.594Z"
+      "lastSeen": "2026-03-31T11:05:56.815Z"
     },
     {
       "adID": "901738832663151",
