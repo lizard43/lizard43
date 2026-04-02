@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-02T11:33:46.063Z",
+  "generated_at": "2026-04-02T12:08:54.786Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,93 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 26,
-      "droppedPrice": 177,
+      "exported_ads": 30,
+      "droppedPrice": 169,
       "droppedMissingGeo": 0,
-      "droppedCircle": 90
+      "droppedCircle": 99
     }
   },
   "ads": [
+    {
+      "adID": "1268091038809033",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100035340191846/?product_id=1268091038809033",
+      "author": "William Latimer",
+      "postedTime": "2026-04-02T02:12:06.000Z",
+      "title": "Vintage Gottlieb Hi-Diver Pinball Machine",
+      "description": "Vintage Gottlieb Hi-Diver pinball machine. Has a pool theme with diver artwork. The machine is not working, has some rust and wear. The cabinet has some damage and the paint is faded. The glass is intact.",
+      "price": "$750",
+      "lat": 29.960933,
+      "lon": -90.3705407,
+      "location": "Destrehan, LA",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/662603728_1433642891339318_3216174791087013550_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=110&ccb=1-7&_nc_sid=92e707&_nc_ohc=ea_Bc2gNC0IQ7kNvwEuK_6c&_nc_oc=Adrhk1c3JzHwFpnsj12hA6XK4Pkfr2UN5mAYD136I4710jLhyyciut9dzjhexWLnnQc&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=97LszhTCIgQShxmrEmRavQ&_nc_ss=7a3a8&oh=00_Af2t_TOY7KJNGj0i5oobeWSyhM43qnwX7OL9vfcXUMQ4Cw&oe=69D438FF",
+      "adUrl": "https://www.facebook.com/marketplace/item/1268091038809033/",
+      "priceChanged": 1,
+      "priceChangedAt": "2026-04-02 12:07:40",
+      "hidden": 0,
+      "created_at": "2026-04-02 11:07:41",
+      "lastSeen": "2026-04-02T12:08:18.724Z"
+    },
+    {
+      "adID": "2055084418557552",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/61551632728841/?product_id=2055084418557552",
+      "author": "David Mckinney",
+      "postedTime": "2026-04-01T20:24:26.000Z",
+      "title": "Arcade game",
+      "description": "Ms.pac-man 40th Anniversary",
+      "price": "$500",
+      "lat": 31.8295972,
+      "lon": -86.6177517,
+      "location": "Greenville, AL",
+      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/658401786_1258689843044464_5210681350157919952_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=102&ccb=1-7&_nc_sid=92e707&_nc_ohc=zRxtkaIDIOAQ7kNvwGyhyGq&_nc_oc=AdpBjELuzGTjg5-s_vYpZDDtTHh4Aun3AMASIFmjfX-3_QfCFLx3P4jYQFlfPSZsDIg&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=gvVkq5ZZni0Td3biXewJIA&_nc_ss=7a3a8&oh=00_Af2-jqMui91P4wl8XsI7R7HbFwiJa5kjhQNUrV0sT9NhiQ&oe=69D436D2",
+      "adUrl": "https://www.facebook.com/marketplace/item/2055084418557552/",
+      "priceChanged": 1,
+      "priceChangedAt": "2026-04-02 12:04:17",
+      "hidden": 0,
+      "created_at": "2026-04-02 11:04:28",
+      "lastSeen": "2026-04-02T12:07:16.861Z"
+    },
+    {
+      "adID": "928385250163407",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100001034710870/?product_id=928385250163407",
+      "author": "Randall Williams",
+      "postedTime": "2026-04-01T15:25:19.000Z",
+      "title": "5 pcs cable for arcade connectors for DIY Electronics",
+      "description": "Box of 18",
+      "price": "$25",
+      "lat": 33.6131588,
+      "lon": -86.1183061,
+      "location": "Lincoln, AL",
+      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/660183464_3341810115994335_4753375195970490057_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=101&ccb=1-7&_nc_sid=92e707&_nc_ohc=UaB3_bve1vIQ7kNvwGeIVPG&_nc_oc=AdoY3x5Rg7wWuAxUMew4uBqqXAuoRjIbVOj-UN3HMbvRJoFihfdN7WHz2T3TU4pWLuM&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=aa5pszQ5BEFbQp9eaUozsQ&_nc_ss=7a3a8&oh=00_Af3jSVedhC4EWPnyBrdm01gt9m5pQuAmQETTKCumhbifjA&oe=69D4476D",
+      "adUrl": "https://www.facebook.com/marketplace/item/928385250163407/",
+      "priceChanged": 1,
+      "priceChangedAt": "2026-04-02 12:04:17",
+      "hidden": 0,
+      "created_at": "2026-04-02 11:04:28",
+      "lastSeen": "2026-04-02T12:07:17.028Z"
+    },
+    {
+      "adID": "3769783649827906",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/42809389/?product_id=3769783649827906",
+      "author": "Josh Peoples",
+      "postedTime": "2026-04-02T07:13:35.000Z",
+      "title": "Harley arcade game",
+      "description": "Really nice arcade machine. It has a lot of different games on it like pac man, donkey Kong, and space invaders just to name a few. I simply never use the thing and I could use the extra space. Pretty firm on the price at $750. No trades.",
+      "price": "$750",
+      "lat": 32.2731475,
+      "lon": -89.9868058,
+      "location": "Brandon, MS",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/662348671_906034732431189_5829205672068493706_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=110&ccb=1-7&_nc_sid=92e707&_nc_ohc=VhGjTfWCO4UQ7kNvwEB-jhJ&_nc_oc=Adrin732CwFiROnJvnK3sgI7uyzOVAQteJZht9lwGLv6dSmENsQhrIKgirXDfpe0190&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=g6iubvQVLg012QaVIomuiw&_nc_ss=7a3a8&oh=00_Af2Al4XJznh3EZpKZ-xoElicxuc_aqYG907_hGN9QkJ5Dg&oe=69D43355",
+      "adUrl": "https://www.facebook.com/marketplace/item/3769783649827906/",
+      "priceChanged": 1,
+      "priceChangedAt": "2026-04-02 12:04:17",
+      "hidden": 0,
+      "created_at": "2026-04-02 11:04:28",
+      "lastSeen": "2026-04-02T12:07:17.162Z"
+    },
     {
       "adID": "26928214550109810",
       "source": "MP",
@@ -76,7 +156,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-01 12:57:56",
-      "lastSeen": "2026-04-02T11:07:42.711Z"
+      "lastSeen": "2026-04-02T12:07:40.173Z"
     },
     {
       "adID": "2393758711145736",
@@ -116,7 +196,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-01 12:51:03",
-      "lastSeen": "2026-04-02T11:07:42.644Z"
+      "lastSeen": "2026-04-02T12:07:40.106Z"
     },
     {
       "adID": "1269627545125625",
@@ -216,7 +296,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-28 22:06:58",
-      "lastSeen": "2026-04-02T11:12:33.674Z"
+      "lastSeen": "2026-04-02T12:08:54.523Z"
     },
     {
       "adID": "951075287858842",
@@ -296,7 +376,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-19 21:04:18",
-      "lastSeen": "2026-04-02T11:07:41.799Z"
+      "lastSeen": "2026-04-02T12:07:39.689Z"
     },
     {
       "adID": "PI-189392",
