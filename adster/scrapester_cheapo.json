@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-02T11:12:34.074Z",
+  "generated_at": "2026-04-02T11:33:46.063Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,10 +11,10 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 30,
-      "droppedPrice": 198,
+      "exported_ads": 26,
+      "droppedPrice": 177,
       "droppedMissingGeo": 0,
-      "droppedCircle": 92
+      "droppedCircle": 90
     }
   },
   "ads": [
@@ -219,26 +219,6 @@
       "lastSeen": "2026-04-02T11:12:33.674Z"
     },
     {
-      "adID": "1952401442829133",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/100004434104586/?product_id=1952401442829133",
-      "author": "Harmony Pentecost",
-      "postedTime": "2026-03-23T18:31:08.000Z",
-      "title": "(PENDING) Gottlieb's Cross Town Pinball Machine",
-      "description": "Glass is broken. It might cost $60 to $150 to get it repaired. Sold as-is is. It does work.",
-      "price": "$300",
-      "lat": 28.8004955,
-      "lon": -81.6446961,
-      "location": "Mt Dora, FL",
-      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/657349668_922734543977254_3035977454764546333_n.jpg?stp=dst-jpg_p960x960_tt6&_nc_cat=101&ccb=1-7&_nc_sid=92e707&_nc_ohc=EbCfXP3cCMYQ7kNvwGNB9NM&_nc_oc=Adrb1X8OQTul5wqyTsmgNOmb5LrHDHpANVsAYBoMdmqYAW3OOuMT1hpElPHzEOnWjKI&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=og3AahY54zP948BwDAQBxQ&_nc_ss=7a3a8&oh=00_AfxG4x1ATqwjlStATxmrv5Mipaxj7rCzYYK0y4VInP2BAQ&oe=69D087B1",
-      "adUrl": "https://www.facebook.com/marketplace/item/1952401442829133/",
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-03-23 19:05:41",
-      "lastSeen": "2026-03-30T18:24:42.615Z"
-    },
-    {
       "adID": "951075287858842",
       "source": "MP",
       "authorUrl": "https://www.facebook.com/marketplace/profile/100011799276462/?product_id=951075287858842",
@@ -250,13 +230,13 @@
       "lat": 27.7712264,
       "lon": -82.6340259,
       "location": "St Petersburg, FL",
-      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/656902512_1507754244108140_6341606460667017301_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=100&ccb=1-7&_nc_sid=92e707&_nc_ohc=PC5Awl3U07kQ7kNvwGjfplc&_nc_oc=AdqkGdjVoy44z8tEtxjTXNZiNvSPC_r5rLFywgRNsqZCDrJ40gB0ksmijzRTk4F30BU&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=GLBNPQ3IIfLfMxAg16FFSg&_nc_ss=7a3a8&oh=00_Afwgyqoze3VqBnbU1-_8pNdJcJaogCYandsZb8WnlS9R9w&oe=69D1964D",
+      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/656902512_1507754244108140_6341606460667017301_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=100&ccb=1-7&_nc_sid=92e707&_nc_ohc=wyRPLHcBZ1AQ7kNvwE5iWzm&_nc_oc=AdpmD2vIjyFvKbQGXg0bWANj54Vz8zf0Rb62b9QTXey2cOIzb4cKUW3cSrwzNaCcUP4&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=KCb_Ufyhn0At_-L5QYGXbw&_nc_ss=7a3a8&oh=00_Af3HhNBVZCdRLxHQcALalYUSGn5brdchTokzagvLLwnH8Q&oe=69D4394D",
       "adUrl": "https://www.facebook.com/marketplace/item/951075287858842/",
-      "priceChanged": 1,
-      "priceChangedAt": "2026-03-31 11:24:57",
+      "priceChanged": 0,
+      "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-22 23:06:44",
-      "lastSeen": "2026-03-31T11:24:57.519Z"
+      "lastSeen": "2026-04-02T11:26:47.992Z"
     },
     {
       "adID": "885000927917718",
@@ -270,13 +250,13 @@
       "lat": 33.5966005,
       "lon": -83.8598742,
       "location": "Covington, GA",
-      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/653793765_980072881110480_8867129848757448113_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=107&ccb=1-7&_nc_sid=92e707&_nc_ohc=zr_ibTyzvd0Q7kNvwFkm-Zi&_nc_oc=Adpn36uMR8beNs5z0AliS_PDWPmLbMim76RxGLQ6gc-O5kVeLaeh-iJJzBwSJfBIKOI&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=ytvfQ3_ESPmo7LY9juGZAg&_nc_ss=7a3a8&oh=00_AfyK41wa13w2UDiXIcZUeUXJhOp4Gqo7VJ5iUAI--DoREQ&oe=69D0AC84",
+      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/653793765_980072881110480_8867129848757448113_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=107&ccb=1-7&_nc_sid=92e707&_nc_ohc=T5b7Gsb21ysQ7kNvwG4_BjR&_nc_oc=AdqEoj69NuesAsBdKQdBemf4JMphttfRIr_txmZVy2vU8Cxgn_Wlxi0VLviJ3yhg7JI&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=_twVCuvWZFVZL4_iH11F6A&_nc_ss=7a3a8&oh=00_Af0D8o4X38KKcCHjYI2me_rLUpQnRZNozSatXMmxkMaTkw&oe=69D43084",
       "adUrl": "https://www.facebook.com/marketplace/item/885000927917718/",
       "priceChanged": 0,
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-20 15:04:29",
-      "lastSeen": "2026-03-30T20:29:07.324Z"
+      "lastSeen": "2026-04-02T11:29:57.602Z"
     },
     {
       "adID": "2787366384930420",
@@ -290,13 +270,13 @@
       "lat": 27.937801,
       "lon": -82.2859247,
       "location": "Brandon, FL",
-      "imageUrl": "https://scontent-atl3-2.xx.fbcdn.net/v/t15.5256-10/614896911_1535778977724327_6977411616609231404_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=104&ccb=1-7&_nc_sid=d4195b&_nc_ohc=cmBdYV78R1kQ7kNvwGRN9rQ&_nc_oc=Adp8NadEhicpjYFCQ8fVP2I8FzoIzMby4hK0tAMGYfcdqAJ4yDrNoDMW9nfTjQ__fWk&_nc_zt=23&_nc_ht=scontent-atl3-2.xx&_nc_gid=bxo78xT63vKaHZQQC5WBzA&_nc_ss=7a3a8&oh=00_AfySWaqmqx4WDzPiQDlOV4HJSN8nc7XZ1s9Bf4W-epRA1A&oe=69D1EA5F",
+      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t15.5256-10/614896911_1535778977724327_6977411616609231404_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=104&ccb=1-7&_nc_sid=d4195b&_nc_ohc=cmBdYV78R1kQ7kNvwGRN9rQ&_nc_oc=Adp8NadEhicpjYFCQ8fVP2I8FzoIzMby4hK0tAMGYfcdqAJ4yDrNoDMW9nfTjQ__fWk&_nc_zt=23&_nc_ht=scontent-dfw5-2.xx&_nc_gid=nTbIipzKjSbg7U7e3LJ4bA&_nc_ss=7a3a8&oh=00_Af27zG0I8QlDjt48FXPIMcug1dFD-Rv24Ci8cSf0PdbilA&oe=69D41CDF",
       "adUrl": "https://www.facebook.com/marketplace/item/2787366384930420/",
       "priceChanged": 0,
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-19 22:04:20",
-      "lastSeen": "2026-03-31T18:25:59.966Z"
+      "lastSeen": "2026-04-02T11:29:57.667Z"
     },
     {
       "adID": "963776836051132",
@@ -319,66 +299,6 @@
       "lastSeen": "2026-04-02T11:07:41.799Z"
     },
     {
-      "adID": "901738832663151",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/543013669/?product_id=901738832663151",
-      "author": "Allen Robinson",
-      "postedTime": "2026-03-19T01:56:53.000Z",
-      "title": "Double Axle, Upright Arcade, Taitio 1990",
-      "description": "Double Axle, Upright Arcade (Taito, 1990) Price: $550 obo Condition: - Cabinet is original and shows its age — it needs some love. - Monitor has been converted to LCD. - Lights power on. - Sound is present. - Game plays and works! Highlights: - Classic Taito racing arcade with unique monster truck gameplay. - LCD conversion makes it easier to maintain. - Great candidate for restoration or display in a collection. - A working cabinet from 1990 — not something you see every day. Important: - Price is negotiable, but only slightly. - Sold as-is. - Serious buyers only. No I don’t deliver but it can be picked up or shipped (arranged by buyer) in Powder Springs, GA.",
-      "price": "$550",
-      "lat": 33.8595492,
-      "lon": -84.683824,
-      "location": "Powder Springs, GA",
-      "imageUrl": "https://scontent-atl3-3.xx.fbcdn.net/v/t39.84726-6/655313111_984677760938123_2350764973731020425_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=108&ccb=1-7&_nc_sid=92e707&_nc_ohc=IiaDrgUlJSMQ7kNvwGOLTC9&_nc_oc=AdovGBZ8PhSo4lXziN6sG12X8uCL1ZLZxy_tT3gAOQcMr2hY5lWwjbR3KeCOox4bH7w&_nc_zt=14&_nc_ht=scontent-atl3-3.xx&_nc_gid=V4_7kK8WlMTBcaI7MYGZVA&_nc_ss=7a3a8&oh=00_AfxYfYPnVJ14Z6uDm9UimR_mylufX8f4tDvlKa3nsWNORA&oe=69D1CBA7",
-      "adUrl": "https://www.facebook.com/marketplace/item/901738832663151/",
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-03-19 20:04:19",
-      "lastSeen": "2026-03-31T18:26:00.103Z"
-    },
-    {
-      "adID": "1602707701014796",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/543013669/?product_id=1602707701014796",
-      "author": "Allen Robinson",
-      "postedTime": "2026-03-19T01:56:50.000Z",
-      "title": "P.O.W. Prisoners of War, Upright Arcade, SNK 1988",
-      "description": "Vintage Upright Arcade – P.O.W. Prisoners of War (SNK, 1988) Price: $275 OBO P.O.W. – Prisoners of War upright cabinet from SNK, released in 1988. Condition: - Cabinet is very old and needs a lot of love. - Boards need work and likely new caps. - Monitor powers on but the image quality is poor. - Lights come on. - No sound currently. - This is a project cabinet — ideal for restoration enthusiasts. Important: - Sold as-is. - Serious buyers only.",
-      "price": "$275",
-      "lat": 33.8595492,
-      "lon": -84.683824,
-      "location": "Powder Springs, GA",
-      "imageUrl": "https://scontent-atl3-1.xx.fbcdn.net/v/t39.84726-6/653200949_1480547393670811_922156270540302610_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=103&ccb=1-7&_nc_sid=92e707&_nc_ohc=SvMhZztbdCEQ7kNvwFDFA7G&_nc_oc=AdpROpI1RMcdc6G0rNaq-jHzYBUUHtFhf430yOq6mYGstN5vIi8F5TZA3K4HSCeX7NY&_nc_zt=14&_nc_ht=scontent-atl3-1.xx&_nc_gid=5jjJgj6phRLMP4KYUmOJ0Q&_nc_ss=7a3a8&oh=00_AfyNY_jfY6jdjDTBHQrskGSwC2ST_OFqliHK9zhtxrlHRw&oe=69D1C9D9",
-      "adUrl": "https://www.facebook.com/marketplace/item/1602707701014796/",
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-03-19 02:04:35",
-      "lastSeen": "2026-03-31T18:25:59.833Z"
-    },
-    {
-      "adID": "1458526922302297",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/543013669/?product_id=1458526922302297",
-      "author": "Allen Robinson",
-      "postedTime": "2026-03-19T01:56:36.000Z",
-      "title": "Capcom Bowling, Upright Arcade, Capcom 1988 (Project Cab)",
-      "description": "Vintage Upright Arcade – Capcom Bowling (Capcom, 1988) Price: $200 (or best offer) This is a Capcom Bowling upright arcade cabinet in a Centipede Cabinet. Condition: - Cabinet is very old and needs a lot of love. - Monitor does not currently power on — likely needs new caps. - Nothing comes on at the moment; best to start troubleshooting with the power supply and work your way from there. - Sold as-is. Highlights: - Classic Capcom sports arcade with bowling gameplay. - Upright cabinet design from the golden age of arcades. - Great candidate for restoration or display in a retro collection. Important: - Price is $200, or best offer - Serious buyers only. Price Breakdown: Capcom Bowling PCS ($40) Control Panel and Trackball ($60) Cabinet ($100) CRT (dunno if its dead so $0?) Wiring, coin door, misc ($40)",
-      "price": "$200",
-      "lat": 33.8595492,
-      "lon": -84.683824,
-      "location": "Powder Springs, GA",
-      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/652991413_4070255276598359_7330133558922826468_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=103&ccb=1-7&_nc_sid=92e707&_nc_ohc=XQ1a0ECJ1jAQ7kNvwEqIHLF&_nc_oc=AdrVvHYgCCi8CIb2u7_B3ovM1g-XZbPgEZwmGAX5IvDSZiH_PWZkk6wPVQAZQGFKfu4&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=gK1A4a794WtRD5MZOqUn0w&_nc_ss=7a3a8&oh=00_Afw79WE0FnPQZOV4u7gJmQ9Gj27Aj8S-sooPWb2UTmBXig&oe=69D1CAD6",
-      "adUrl": "https://www.facebook.com/marketplace/item/1458526922302297/",
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-03-19 02:04:35",
-      "lastSeen": "2026-03-31T15:27:13.887Z"
-    },
-    {
       "adID": "PI-189392",
       "source": "PS",
       "authorUrl": "https://pinside.com/pinball/community/pinsiders/militiaman/market",
@@ -396,7 +316,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-17 15:07:15",
-      "lastSeen": "2026-03-31T11:26:45.754Z"
+      "lastSeen": "2026-04-02T11:32:24.674Z"
     },
     {
       "adID": "PI-189391",
@@ -416,7 +336,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-17 15:07:15",
-      "lastSeen": "2026-03-31T11:26:45.788Z"
+      "lastSeen": "2026-04-02T11:32:25.049Z"
     },
     {
       "adID": "1470005248132316",
