@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-03T17:07:12.230Z",
+  "generated_at": "2026-04-03T18:06:24.846Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,52 +11,32 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 41,
-      "droppedPrice": 141,
+      "exported_ads": 39,
+      "droppedPrice": 117,
       "droppedMissingGeo": 0,
-      "droppedCircle": 155
+      "droppedCircle": 144
     }
   },
   "ads": [
     {
-      "adID": "714970448309011",
+      "adID": "1306673278026615",
       "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/100011630016142/?product_id=714970448309011",
-      "author": "Quaynaise Williamson",
-      "postedTime": "2026-04-03T16:34:02.000Z",
-      "title": "Arcade",
-      "description": "Payed $330",
-      "price": "$175",
-      "lat": 32.6200973,
-      "lon": -83.606568,
-      "location": "Warner Robins, GA",
-      "imageUrl": "https://scontent-atl3-3.xx.fbcdn.net/v/t39.84726-6/660125838_1677983600042792_1310082848243590334_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=110&ccb=1-7&_nc_sid=92e707&_nc_eui2=AeEFJhUi8T-oSIe7-MWCEJBtyNmi56Qt3i_I2aLnpC3eL0kmDEPJKpOrdE6H5r_4tPI&_nc_ohc=PKt4AwoQoCsQ7kNvwFnl-UB&_nc_oc=AdqBC0y_9HW6n7pEObLQ7KDYggp5paEg01GdagArc-mz4juOEDzhoFIPCnqo_WjJ3GE&_nc_zt=14&_nc_ht=scontent-atl3-3.xx&_nc_gid=Cti39lowBspdhpmdGYr44A&_nc_ss=7a3a8&oh=00_Af1lhdIZcoKNc8eozn9WDBvK0Ax6t61UrFVOzIKpB2kLIA&oe=69D5B44B",
-      "adUrl": "https://www.facebook.com/marketplace/item/714970448309011/",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100000008614796/?product_id=1306673278026615",
+      "author": "Cindy Hoehn",
+      "postedTime": "2026-04-03T17:52:49.000Z",
+      "title": "Pinball machine",
+      "description": "Wizard pinball machine. Not currently working. Restore or use for parts. Located in Hernando Beach.",
+      "price": "$75",
+      "lat": 28.4635266,
+      "lon": -82.5363557,
+      "location": "Spring Hill, FL",
+      "imageUrl": "https://scontent-atl3-2.xx.fbcdn.net/v/t39.84726-6/660014690_970577842170441_4305865429924133261_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=92e707&_nc_eui2=AeFycXeBwL9BP9tJw5Yzuta6aZ6seszmeBFpnqx6zOZ4EWuoMoz0-Tj8nlvzC3hvyfQ&_nc_ohc=KziC0yHo6D0Q7kNvwESC8HI&_nc_oc=AdpBNkmjoJWpyIPpHem4Ecf9jflp83GXS4qj3Hsgy1ty6O9MTdUmK2-dOn48tCNKAug&_nc_zt=14&_nc_ht=scontent-atl3-2.xx&_nc_gid=dBcp3KuQ-vVuK8_k1V-m4w&_nc_ss=7a3a8&oh=00_Af2tvO5ix6rx5eCX2fi4bpgFcvmZ7kMULybfd3kYsLfZSg&oe=69D5ED0E",
+      "adUrl": "https://www.facebook.com/marketplace/item/1306673278026615/",
       "priceChanged": 0,
       "priceChangedAt": null,
       "hidden": 0,
-      "created_at": "2026-04-03 17:04:31",
-      "lastSeen": "2026-04-03T17:04:49.391Z"
-    },
-    {
-      "adID": "1724166811733122",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/1104530806/?product_id=1724166811733122",
-      "author": "Jami Gunn",
-      "postedTime": "2026-03-25T23:08:18.000Z",
-      "title": "Barbie",
-      "description": "Never Opened in original packaging",
-      "price": "$35",
-      "lat": 28.3581405,
-      "lon": -82.692005,
-      "location": "Hudson, FL",
-      "imageUrl": "https://scontent-atl3-2.xx.fbcdn.net/v/t39.84726-6/661602733_1377346077490957_3496872839442625624_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=101&ccb=1-7&_nc_sid=92e707&_nc_eui2=AeG6v_5z-xrEEuYRqsjbT-EuIeDHafmGNEIh4Mdp-YY0Qj6SC2_0UX5kRtwq_3Y8Occ&_nc_ohc=sA7C8mfF_DkQ7kNvwGsUKVa&_nc_oc=Adqv5IAq6ijlGeFkXhQ4SRWHNC26cbjWXpujJtGq8bcSQF9iwIz-XqI_J6R1o1D5E6o&_nc_zt=14&_nc_ht=scontent-atl3-2.xx&_nc_gid=jtRB63edySDhoufj1Hsy0g&_nc_ss=7a3a8&oh=00_Af2uZhf4CI4s7fPtpQyknJh-MlN9dwuM0FSPfO6Vrazvfw&oe=69D5D5DC",
-      "adUrl": "https://www.facebook.com/marketplace/item/1724166811733122/",
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-04-03 16:18:19",
-      "lastSeen": "2026-04-03T16:23:21.562Z"
+      "created_at": "2026-04-03 18:05:20",
+      "lastSeen": "2026-04-03T18:05:50.193Z"
     },
     {
       "adID": "1555438232183864",
@@ -76,7 +56,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-03 16:18:16",
-      "lastSeen": "2026-04-03T17:05:21.531Z"
+      "lastSeen": "2026-04-03T18:05:21.664Z"
     },
     {
       "adID": "26555578544130131",
@@ -96,7 +76,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-03 16:18:15",
-      "lastSeen": "2026-04-03T17:05:20.897Z"
+      "lastSeen": "2026-04-03T18:05:21.063Z"
     },
     {
       "adID": "949815341079690",
@@ -116,27 +96,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-03 16:18:15",
-      "lastSeen": "2026-04-03T17:05:21.074Z"
-    },
-    {
-      "adID": "26670058892588338",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/201409477/?product_id=26670058892588338",
-      "author": "Jason Berkowitz",
-      "postedTime": "2026-03-25T23:08:18.000Z",
-      "title": "Super Mario Bros. 2 NES Nintendo - NO GAME BOX ONLY",
-      "description": "Hi all! Box only - Super Mario Bros 2 for NES! Please see pics for condition. Some creases, not a mint box. No game, no manuals. Pickup in Gainesville near Las Margaritas",
-      "price": "$30",
-      "lat": 29.6519684,
-      "lon": -82.3249846,
-      "location": "Gainesville, FL",
-      "imageUrl": "https://scontent-atl3-2.xx.fbcdn.net/v/t39.84726-6/662899642_1486735489794560_1240033882463195899_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=101&ccb=1-7&_nc_sid=92e707&_nc_eui2=AeG-_fLGfoT6QysNKD_flhmKXjy4I7L9zbVePLgjsv3Ntf60UP9QpyrS_6N3ccUnwRc&_nc_ohc=ZKDVaNae9o0Q7kNvwGQJ8iV&_nc_oc=AdqVKHQDjA7DSqwERbK4-Ea7E_XbNEsVECrnk5H3FqtvLH6DBzcYml_sEYUEDDevLUQ&_nc_zt=14&_nc_ht=scontent-atl3-2.xx&_nc_gid=zuDWfOGE1xcETl3EQei-JA&_nc_ss=7a3a8&oh=00_Af3xHdDXyJj1m8iUfSDqnnysdjITiz0CSo3NjvC1vmCntw&oe=69D5CEAC",
-      "adUrl": "https://www.facebook.com/marketplace/item/26670058892588338/",
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-04-03 16:12:14",
-      "lastSeen": "2026-04-03T17:04:32.289Z"
+      "lastSeen": "2026-04-03T18:05:21.241Z"
     },
     {
       "adID": "914144004939235",
@@ -156,7 +116,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-03 16:12:14",
-      "lastSeen": "2026-04-03T17:04:32.334Z"
+      "lastSeen": "2026-04-03T18:04:33.259Z"
     },
     {
       "adID": "1506272807726306",
@@ -176,7 +136,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-03 16:12:14",
-      "lastSeen": "2026-04-03T17:04:32.756Z"
+      "lastSeen": "2026-04-03T18:04:33.899Z"
     },
     {
       "adID": "2347286009091966",
@@ -476,7 +436,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-28 22:06:58",
-      "lastSeen": "2026-04-03T17:07:11.883Z"
+      "lastSeen": "2026-04-03T18:06:24.482Z"
     },
     {
       "adID": "947783414517644",
@@ -596,7 +556,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-19 21:04:18",
-      "lastSeen": "2026-04-03T17:05:20.764Z"
+      "lastSeen": "2026-04-03T18:05:20.852Z"
     },
     {
       "adID": "PI-189392",
