@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-03T22:08:11.179Z",
+  "generated_at": "2026-04-03T23:09:49.039Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,52 +11,132 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 41,
-      "droppedPrice": 110,
+      "exported_ads": 45,
+      "droppedPrice": 114,
       "droppedMissingGeo": 0,
-      "droppedCircle": 130
+      "droppedCircle": 146
     }
   },
   "ads": [
     {
-      "adID": "1600135557928656",
+      "adID": "1480666997037455",
       "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/100005395472406/?product_id=1600135557928656",
-      "author": "Debbie Spinney",
-      "postedTime": "2026-04-03T21:28:03.000Z",
-      "title": "Family Guy Stewie talking electronic pinball",
-      "description": "Pinball machine still in box . Cash/local Pickup only.",
-      "price": "$10",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/1781010934/?product_id=1480666997037455",
+      "author": "James Brown",
+      "postedTime": "2026-04-03T23:01:02.000Z",
+      "title": "YSL Myself LE Parfum 2.0 oz",
+      "description": "Purchased on 02 April from the Redstone Arsenal Exchange, have sprayed about 4 times. Did not end up liking the scent. I cannot return as I do not have the original packaging anymore. I have the receipt as proof of purchase if desired. Batch code: [hidden information]645",
+      "price": "$100",
+      "lat": 34.729847,
+      "lon": -86.5859011,
+      "location": "Huntsville, AL",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/660830100_1560747666059007_3245243839227271799_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=110&ccb=1-7&_nc_sid=92e707&_nc_eui2=AeFUhNf8nUmRwYo9_A3hsJU1jk6CwBABik2OToLAEAGKTS6Skott-X9riowBFULFQuc&_nc_ohc=rtLh8vUZxf8Q7kNvwEdJzGZ&_nc_oc=Adr3e0h5Kup7kUBfj0sHXmjP5R5k9JxA0I-OsBCVEdtWsnI5XE2r8YgsT6qoinrZKtg&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=5hoZDc2b3mPGAbc83dxDsQ&_nc_ss=7a3a8&oh=00_Af2ahKVaTZ_dfIf3QwYQjEMhwdeVqXy5UTsaaUnx5n2Ung&oe=69D62974",
+      "adUrl": "https://www.facebook.com/marketplace/item/1480666997037455/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-04-03 23:07:32",
+      "lastSeen": "2026-04-03T23:09:09.148Z"
+    },
+    {
+      "adID": "1298899885497220",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/61577863659386/?product_id=1298899885497220",
+      "author": "Mike Hopkins",
+      "postedTime": "2026-04-03T23:00:49.000Z",
+      "title": "FENCEs",
+      "description": "FENCEs",
+      "price": "$1",
+      "lat": 27.831977,
+      "lon": -82.2974043,
+      "location": "Riverview, FL",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/663275713_1624378041944454_485133810395422414_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=92e707&_nc_eui2=AeHh3IKwkUjYpT9RDLE0yfhjl7YgdsVwdzOXtiB2xXB3MxJH5Hul0HlDYM4jphs9OrE&_nc_ohc=qTtZhFcWBrAQ7kNvwGUdDMg&_nc_oc=AdqI-HyPYS9V7U6uKl5NB5MCirIIUrVHIvSy7AZewAnZG3kfCOaks94AsNCBIxzmHRQ&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=aRaAEZG8VF9_Z-Krq8OkuA&_nc_ss=7a3a8&oh=00_Af1Oc8j2hbjqAGa-wuR8Nnq2li7TuxroCoGnPOAUTwj_1w&oe=69D62FF7",
+      "adUrl": "https://www.facebook.com/marketplace/item/1298899885497220/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-04-03 23:07:32",
+      "lastSeen": "2026-04-03T23:09:09.237Z"
+    },
+    {
+      "adID": "1586141802686225",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100000651602495/?product_id=1586141802686225",
+      "author": "Taylor Terrio Nunez",
+      "postedTime": "2026-04-03T23:00:43.000Z",
+      "title": "Baby bottle warmer",
+      "description": "Baby bottle warmer, barely used",
+      "price": "$20",
+      "lat": 30.2385294,
+      "lon": -90.9200987,
+      "location": "Gonzales, LA",
+      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/660383518_2022359611993340_5301689518217987658_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=103&ccb=1-7&_nc_sid=92e707&_nc_eui2=AeF7p4LiDDj-5ZN6DC6h4mEu3sQRUeZr69PexBFR5mvr0ylGP70NaQagbQBYi34GR90&_nc_ohc=UvTwSGgXVSEQ7kNvwGvMIh0&_nc_oc=Adoa1PrEfuoAW_Oleio99B-9RkS8ReWcTZmkEI4SEoOUf7Jd3wQ7rm7NNpHbqvyTqgU&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=PcYY4lEjPsgB5QYTpfrBlQ&_nc_ss=7a3a8&oh=00_Af0n9Tgt59GV-fLwWojjfXhXaOMcRTQXBfwUNpbYih3jig&oe=69D609FE",
+      "adUrl": "https://www.facebook.com/marketplace/item/1586141802686225/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-04-03 23:07:32",
+      "lastSeen": "2026-04-03T23:09:09.281Z"
+    },
+    {
+      "adID": "1415484100331674",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100034499333480/?product_id=1415484100331674",
+      "author": "Armando Marquez",
+      "postedTime": "2026-04-03T22:57:42.000Z",
+      "title": "Live crawfish",
+      "description": "Crawfish",
+      "price": "$110",
+      "lat": 30.3122527,
+      "lon": -90.9497329,
+      "location": "Prairieville, LA",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/661195177_1700679524432392_1885627502709162996_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=109&ccb=1-7&_nc_sid=92e707&_nc_eui2=AeFqaKGLmmPcPW2lpemNohW9QAUvDXuXKK9ABS8Ne5cor2RR40VA5RCzGZXE5sDTCB8&_nc_ohc=Nxj_BDkePtIQ7kNvwFOiIOq&_nc_oc=AdrIsAXQRK4bb1IS-Yo-hah3hlLdADdoagtC1YDxUjx4rJzlAEBOsIvjY-De0EVbI38&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=vbZfuvU2VyDxPFCRjnbINA&_nc_ss=7a3a8&oh=00_Af3bH3HpFNVxqGuCuUpW-ajaTWxExGcb3t4T9xZiJzet9w&oe=69D6329C",
+      "adUrl": "https://www.facebook.com/marketplace/item/1415484100331674/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-04-03 23:04:41",
+      "lastSeen": "2026-04-03T23:07:03.650Z"
+    },
+    {
+      "adID": "26398971326409060",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100001129449937/?product_id=26398971326409060",
+      "author": "Chuck Day",
+      "postedTime": "2026-04-03T22:55:29.000Z",
+      "title": "Looking to upgrade your floors?",
+      "description": "Commercial and residential Lvp don’t miss this sell !! Time’s running out. [hidden information] call/text !!!",
+      "price": "$2",
       "lat": 30.421309,
       "lon": -87.2169149,
       "location": "Pensacola, FL",
-      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/661857808_1934042144143047_8116435428192269173_n.jpg?stp=dst-jpg_p960x960_tt6&_nc_cat=101&ccb=1-7&_nc_sid=92e707&_nc_eui2=AeH_2ng9_GeuCKBj7MwffCa1J1w9p6_qHygnXD2nr-ofKGjAgf5tdyuHUn3ZEeAZtbw&_nc_ohc=Sco2Kq_P4l0Q7kNvwHIJagu&_nc_oc=Adq3KCYdo7_lzslg9jRA1uxrJBfijQXHVjcrmAN2o2pbzGgYsn-1jz8-dmuGg2cLtUQ&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=r3MDHv8ttbz18xG7GqK32w&_nc_ss=7a3a8&oh=00_Af0pI-drjc8j-MCCx3vZ7xgJ5af7w9w1VkyNNarccpz_fA&oe=69D6064F",
-      "adUrl": "https://www.facebook.com/marketplace/item/1600135557928656/",
+      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/660512127_2147403589327199_2026899763735884589_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=103&ccb=1-7&_nc_sid=92e707&_nc_eui2=AeFkVnvOsnByaWOFUmDehqM_ykapXTNuVCvKRqldM25UK-IRj1-gNTiaghildzpCZ4Q&_nc_ohc=qtbXu6Bb0xUQ7kNvwHux8Wu&_nc_oc=Ado_VThj7hrCynCsffJD40GnbI3ltT5ZGohz5cf7VcbE-dGfeCO_H9fjQPrZXMk7els&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=o54OAgtMFpP2Sn-NW8DBjg&_nc_ss=7a3a8&oh=00_Af3I183ElW36ZmKA0_abBzGqAC_m4rNgkhuYrljmLmKNiw&oe=69D6234B",
+      "adUrl": "https://www.facebook.com/marketplace/item/26398971326409060/",
       "priceChanged": 0,
       "priceChangedAt": null,
       "hidden": 0,
-      "created_at": "2026-04-03 22:05:47",
-      "lastSeen": "2026-04-03T22:07:38.049Z"
+      "created_at": "2026-04-03 23:04:41",
+      "lastSeen": "2026-04-03T23:07:03.826Z"
     },
     {
-      "adID": "1542232427615786",
+      "adID": "1485200333001909",
       "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/100003081770535/?product_id=1542232427615786",
-      "author": "Lizbeth Martínez",
-      "postedTime": "2026-04-03T17:52:49.000Z",
-      "title": "Tamales",
-      "description": "Tamales área center point",
-      "price": "$3",
-      "lat": 33.5206824,
-      "lon": -86.8024326,
-      "location": "Birmingham, AL",
-      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/663344092_1683708072967195_2021027821261025884_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=103&ccb=1-7&_nc_sid=92e707&_nc_eui2=AeHzsEvgpLZsxzqe67aT19tyuSOkvoFIEA65I6S-gUgQDtgXiso5o7djXXZffNfRKbo&_nc_ohc=4tCLiVDwjz0Q7kNvwFLpy6G&_nc_oc=Adqxi99sNTjff2CP_zwHKOtAL9oZbYAeF-QeKmG35PGL25Ns-P8RvALCQYfNUT8WCwc&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=fdR7J3BIkEfQQP28R-v4Kg&_nc_ss=7a3a8&oh=00_Af2KxEzLpTqH3VJgLDvGGT1MUyAyZKMt_ij48yWm7zjIag&oe=69D6270E",
-      "adUrl": "https://www.facebook.com/marketplace/item/1542232427615786/",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100060443142669/?product_id=1485200333001909",
+      "author": "David Wilkerson",
+      "postedTime": "2026-04-03T22:55:53.000Z",
+      "title": "V r headset",
+      "description": "Never used",
+      "price": "$260",
+      "lat": 29.9919779,
+      "lon": -81.6781097,
+      "location": "Green Cove Springs, FL",
+      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/661007117_1611744573435427_5222944332765405146_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=103&ccb=1-7&_nc_sid=92e707&_nc_eui2=AeHiF1sRvMn0bNjGawYzDjPW3vuDFk-kl2Pe-4MWT6SXY44xZPVW4pu_SBNqNMSARBI&_nc_ohc=8CZrzR3jzTcQ7kNvwFnbQkI&_nc_oc=Adr6MPOPzt6D1HvdS0b9Agdtr0_rREBiKlkhV6XUqrezdlb6VOYsJEf6VmZga558i5w&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=OYK75ggIKm6xu6aISz_xUA&_nc_ss=7a3a8&oh=00_Af1ZFNyreRLhmWVFh2DX6nCz8bXVQ7AUPdapsXkoX4q4OQ&oe=69D63376",
+      "adUrl": "https://www.facebook.com/marketplace/item/1485200333001909/",
       "priceChanged": 0,
       "priceChangedAt": null,
       "hidden": 0,
-      "created_at": "2026-04-03 22:04:29",
-      "lastSeen": "2026-04-03T22:05:19.710Z"
+      "created_at": "2026-04-03 23:04:40",
+      "lastSeen": "2026-04-03T23:07:03.408Z"
     },
     {
       "adID": "955095033767132",
@@ -76,7 +156,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-03 21:04:35",
-      "lastSeen": "2026-04-03T22:05:47.224Z"
+      "lastSeen": "2026-04-03T23:07:31.715Z"
     },
     {
       "adID": "1306673278026615",
@@ -96,7 +176,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-03 18:05:20",
-      "lastSeen": "2026-04-03T22:05:47.269Z"
+      "lastSeen": "2026-04-03T23:07:31.770Z"
     },
     {
       "adID": "1555438232183864",
@@ -116,7 +196,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-03 16:18:16",
-      "lastSeen": "2026-04-03T22:05:47.713Z"
+      "lastSeen": "2026-04-03T23:07:32.270Z"
     },
     {
       "adID": "26555578544130131",
@@ -136,7 +216,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-03 16:18:15",
-      "lastSeen": "2026-04-03T22:05:47.314Z"
+      "lastSeen": "2026-04-03T23:07:31.825Z"
     },
     {
       "adID": "949815341079690",
@@ -156,7 +236,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-03 16:18:15",
-      "lastSeen": "2026-04-03T22:05:47.402Z"
+      "lastSeen": "2026-04-03T23:07:31.937Z"
     },
     {
       "adID": "914144004939235",
@@ -176,7 +256,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-03 16:12:14",
-      "lastSeen": "2026-04-03T22:04:28.982Z"
+      "lastSeen": "2026-04-03T23:04:40.566Z"
     },
     {
       "adID": "1506272807726306",
@@ -196,7 +276,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-03 16:12:14",
-      "lastSeen": "2026-04-03T22:04:29.071Z"
+      "lastSeen": "2026-04-03T23:04:40.655Z"
     },
     {
       "adID": "1268091038809033",
@@ -216,7 +296,7 @@
       "priceChangedAt": "2026-04-02 12:07:40",
       "hidden": 0,
       "created_at": "2026-04-02 11:07:41",
-      "lastSeen": "2026-04-03T22:05:48.058Z"
+      "lastSeen": "2026-04-03T23:07:32.583Z"
     },
     {
       "adID": "3769783649827906",
@@ -476,7 +556,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-28 22:06:58",
-      "lastSeen": "2026-04-03T22:08:10.849Z"
+      "lastSeen": "2026-04-03T23:09:48.644Z"
     },
     {
       "adID": "947783414517644",
@@ -596,7 +676,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-19 21:04:18",
-      "lastSeen": "2026-04-03T22:05:46.903Z"
+      "lastSeen": "2026-04-03T23:07:31.469Z"
     },
     {
       "adID": "PI-189392",
