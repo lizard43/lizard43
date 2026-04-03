@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-03T21:05:37.859Z",
+  "generated_at": "2026-04-03T22:08:11.179Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,53 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 39,
-      "droppedPrice": 106,
+      "exported_ads": 41,
+      "droppedPrice": 110,
       "droppedMissingGeo": 0,
-      "droppedCircle": 123
+      "droppedCircle": 130
     }
   },
   "ads": [
+    {
+      "adID": "1600135557928656",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100005395472406/?product_id=1600135557928656",
+      "author": "Debbie Spinney",
+      "postedTime": "2026-04-03T21:28:03.000Z",
+      "title": "Family Guy Stewie talking electronic pinball",
+      "description": "Pinball machine still in box . Cash/local Pickup only.",
+      "price": "$10",
+      "lat": 30.421309,
+      "lon": -87.2169149,
+      "location": "Pensacola, FL",
+      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/661857808_1934042144143047_8116435428192269173_n.jpg?stp=dst-jpg_p960x960_tt6&_nc_cat=101&ccb=1-7&_nc_sid=92e707&_nc_eui2=AeH_2ng9_GeuCKBj7MwffCa1J1w9p6_qHygnXD2nr-ofKGjAgf5tdyuHUn3ZEeAZtbw&_nc_ohc=Sco2Kq_P4l0Q7kNvwHIJagu&_nc_oc=Adq3KCYdo7_lzslg9jRA1uxrJBfijQXHVjcrmAN2o2pbzGgYsn-1jz8-dmuGg2cLtUQ&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=r3MDHv8ttbz18xG7GqK32w&_nc_ss=7a3a8&oh=00_Af0pI-drjc8j-MCCx3vZ7xgJ5af7w9w1VkyNNarccpz_fA&oe=69D6064F",
+      "adUrl": "https://www.facebook.com/marketplace/item/1600135557928656/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-04-03 22:05:47",
+      "lastSeen": "2026-04-03T22:07:38.049Z"
+    },
+    {
+      "adID": "1542232427615786",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100003081770535/?product_id=1542232427615786",
+      "author": "Lizbeth Martínez",
+      "postedTime": "2026-04-03T17:52:49.000Z",
+      "title": "Tamales",
+      "description": "Tamales área center point",
+      "price": "$3",
+      "lat": 33.5206824,
+      "lon": -86.8024326,
+      "location": "Birmingham, AL",
+      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/663344092_1683708072967195_2021027821261025884_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=103&ccb=1-7&_nc_sid=92e707&_nc_eui2=AeHzsEvgpLZsxzqe67aT19tyuSOkvoFIEA65I6S-gUgQDtgXiso5o7djXXZffNfRKbo&_nc_ohc=4tCLiVDwjz0Q7kNvwFLpy6G&_nc_oc=Adqxi99sNTjff2CP_zwHKOtAL9oZbYAeF-QeKmG35PGL25Ns-P8RvALCQYfNUT8WCwc&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=fdR7J3BIkEfQQP28R-v4Kg&_nc_ss=7a3a8&oh=00_Af2KxEzLpTqH3VJgLDvGGT1MUyAyZKMt_ij48yWm7zjIag&oe=69D6270E",
+      "adUrl": "https://www.facebook.com/marketplace/item/1542232427615786/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-04-03 22:04:29",
+      "lastSeen": "2026-04-03T22:05:19.710Z"
+    },
     {
       "adID": "955095033767132",
       "source": "MP",
@@ -36,7 +76,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-03 21:04:35",
-      "lastSeen": "2026-04-03T21:04:59.126Z"
+      "lastSeen": "2026-04-03T22:05:47.224Z"
     },
     {
       "adID": "1306673278026615",
@@ -56,7 +96,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-03 18:05:20",
-      "lastSeen": "2026-04-03T21:04:35.526Z"
+      "lastSeen": "2026-04-03T22:05:47.269Z"
     },
     {
       "adID": "1555438232183864",
@@ -76,7 +116,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-03 16:18:16",
-      "lastSeen": "2026-04-03T21:04:36.113Z"
+      "lastSeen": "2026-04-03T22:05:47.713Z"
     },
     {
       "adID": "26555578544130131",
@@ -96,7 +136,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-03 16:18:15",
-      "lastSeen": "2026-04-03T21:04:35.614Z"
+      "lastSeen": "2026-04-03T22:05:47.314Z"
     },
     {
       "adID": "949815341079690",
@@ -116,7 +156,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-03 16:18:15",
-      "lastSeen": "2026-04-03T21:04:35.725Z"
+      "lastSeen": "2026-04-03T22:05:47.402Z"
     },
     {
       "adID": "914144004939235",
@@ -136,7 +176,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-03 16:12:14",
-      "lastSeen": "2026-04-03T21:04:25.495Z"
+      "lastSeen": "2026-04-03T22:04:28.982Z"
     },
     {
       "adID": "1506272807726306",
@@ -156,7 +196,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-03 16:12:14",
-      "lastSeen": "2026-04-03T21:04:25.605Z"
+      "lastSeen": "2026-04-03T22:04:29.071Z"
     },
     {
       "adID": "1268091038809033",
@@ -176,7 +216,7 @@
       "priceChangedAt": "2026-04-02 12:07:40",
       "hidden": 0,
       "created_at": "2026-04-02 11:07:41",
-      "lastSeen": "2026-04-03T21:04:36.502Z"
+      "lastSeen": "2026-04-03T22:05:48.058Z"
     },
     {
       "adID": "3769783649827906",
@@ -436,7 +476,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-28 22:06:58",
-      "lastSeen": "2026-04-03T21:05:37.492Z"
+      "lastSeen": "2026-04-03T22:08:10.849Z"
     },
     {
       "adID": "947783414517644",
@@ -556,7 +596,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-19 21:04:18",
-      "lastSeen": "2026-04-03T21:04:35.405Z"
+      "lastSeen": "2026-04-03T22:05:46.903Z"
     },
     {
       "adID": "PI-189392",
