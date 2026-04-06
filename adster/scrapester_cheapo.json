@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-06T00:05:53.757Z",
+  "generated_at": "2026-04-06T01:08:32.903Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,32 +11,112 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 30,
-      "droppedPrice": 123,
+      "exported_ads": 34,
+      "droppedPrice": 127,
       "droppedMissingGeo": 0,
-      "droppedCircle": 113
+      "droppedCircle": 121
     }
   },
   "ads": [
     {
-      "adID": "1675895310073878",
-      "source": "FB",
-      "authorUrl": null,
+      "adID": "913852624767517",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/1065080449/?product_id=913852624767517",
+      "author": "Robert Kiedinger",
+      "postedTime": "2026-04-06T00:02:29.000Z",
+      "title": "New Lady Luck Pinball Machine Backglass",
+      "description": "New backglass for a Lucky Lady pinball machine. Dimensions- 24.75\"H x 26.\"W. Would be a replacement for a backglass except that the glasscutter mismeasured and it's 1/8\" too tall. So it's a great work of art and conversation piece as is.",
+      "price": "$70",
+      "lat": 33.3392842,
+      "lon": -84.6485417,
+      "location": "Sharpsburg, GA",
+      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/662467215_25871168572558069_886348697653962884_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=107&ccb=1-7&_nc_sid=92e707&_nc_eui2=AeFAuecEvmKiRpi5QXnOtTm5O_0WwQ-bB6A7_RbBD5sHoJNZdxvCD2fMtbjDAt0eBqg&_nc_ohc=G-pMwcRl3CkQ7kNvwGCasaT&_nc_oc=AdrQ2YJoTecQXTIS2mRMirZVxfJ5PlCtBc_RyNKHgu2XOwofqwT-PAqZc270cYaftFs&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=x7wfXEbx3UfaUiUFsKzETg&_nc_ss=7a3a8&oh=00_Af14MNFpZr3y3jOh-LoLTc3vuJPGxfoUtca0y_sYIWOETA&oe=69D8C206",
+      "adUrl": "https://www.facebook.com/marketplace/item/913852624767517/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-04-06 01:06:52",
+      "lastSeen": "2026-04-06T01:07:51.292Z"
+    },
+    {
+      "adID": "4147853815526315",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/1065080449/?product_id=4147853815526315",
+      "author": "Robert Kiedinger",
+      "postedTime": "2026-04-06T00:02:13.000Z",
+      "title": "Pinball Scoring LEDS and Interconnect Board",
+      "description": "There is 1 seven-digit display, 1 display for credits and random number, and the interconnect board for the displays. They are original from a Williams system 7 machine, functioning 100%, no frizzing or missing numbers. $20 each. or $50 for all 3. Will ship for cost.",
+      "price": "$1",
+      "lat": 33.3392842,
+      "lon": -84.6485417,
+      "location": "Sharpsburg, GA",
+      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/663302458_961441746478707_1807921188949601583_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=100&ccb=1-7&_nc_sid=92e707&_nc_eui2=AeF6rhoX3GR5e2bMUceZ1wxjKRiH3YjtZjcpGIfdiO1mN_bB9sa-KeBzg4TLCwdZm4I&_nc_ohc=v_gGOr9fFgYQ7kNvwHjFi7q&_nc_oc=AdoJKbT2VeUa6YUe1XCrV880nlEbEuaVSnlySK4fg36VxiUHejJJH6EVlFhYWuifAOs&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=nRw868Y5y7P_z_lCukJZRA&_nc_ss=7a3a8&oh=00_Af01VLbYGXXE0ePSODLJNJCaZHjor73xTStmFyT14aAw9A&oe=69D8C9F5",
+      "adUrl": "https://www.facebook.com/marketplace/item/4147853815526315/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-04-06 01:06:52",
+      "lastSeen": "2026-04-06T01:07:51.331Z"
+    },
+    {
+      "adID": "1662895178359392",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100004005608845/?product_id=1662895178359392",
+      "author": "Cotenna Clark",
+      "postedTime": "2026-04-06T00:51:33.000Z",
+      "title": "VTG - RETRO game set! JAX & METAL BALL!",
+      "description": "NEW, never opened!! VTG~ Jax 'n Ball, a classic retro game set!! METAL JACKS WITH BALL! NOSTALGIA - childhood staple for generations.",
+      "price": "$5",
+      "lat": 33.8532701,
+      "lon": -84.2200729,
+      "location": "Tucker, GA",
+      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/661936249_949304984151690_1349561963514929576_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=100&ccb=1-7&_nc_sid=92e707&_nc_eui2=AeE5kPDr8-Y4DaMkSNlPHN76cffe887MMF5x997zzswwXuYQiNR4pqR6LCI4qjeK_3o&_nc_ohc=jtuJy3_iO9QQ7kNvwFcJFWZ&_nc_oc=AdpHu9MnzhGljTnQDyTeuHSQnfzuH9fG1zvVEMAWhfZXJCYkMGZM5elpwtRGNlwG1fI&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=hrcgrHY3hfXCB8DNbZViMQ&_nc_ss=7a3a8&oh=00_Af0w-O8vFSs1KlRgDyI17J4rsccY5dw6eaCUF2n0ZDJH0Q&oe=69D8E506",
+      "adUrl": "https://www.facebook.com/marketplace/item/1662895178359392/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-04-06 01:06:52",
+      "lastSeen": "2026-04-06T01:07:51.364Z"
+    },
+    {
+      "adID": "780213898245257",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/51102857/?product_id=780213898245257",
+      "author": "Melissa Carter McDaniel",
+      "postedTime": "2026-04-05T23:22:29.000Z",
+      "title": "Not working MIDWAY CRUIS'N USA Arcade Game JAMMA Main Board",
+      "description": "This is the motherboard (main board) for the 1994 Cruisin USA Arcade. It worked until recently. Someone who is savvy and has time could probably get it working with little work.",
+      "price": "$100",
+      "lat": 33.9566391,
+      "lon": -83.9890066,
+      "location": "Lawrenceville, GA",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t15.5256-10/666426269_3506480876175455_3558409849738324065_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=110&ccb=1-7&_nc_sid=d4195b&_nc_eui2=AeHcoqD0p-SRKt0lD3KY65aJddW4NLBCFjB11bg0sEIWMPWKGnr1gcdMvXineVl6khs&_nc_ohc=-1YVvOJ_hM0Q7kNvwHsip_6&_nc_oc=AdqwBIxcjNcjJDbfxCF-DnIqgZoNrqEKIHqnY0vWkMeMKZHnft6NEmWrTZ2SgMtz7aM&_nc_zt=23&_nc_ht=scontent-dfw5-1.xx&_nc_gid=g-0zIq3926M4o5nLYap4gg&_nc_ss=7a3a8&oh=00_Af2kU4qRGO9KDKZ3qqBOS2x8mrLKS8WKPOx40FFBlaM-2w&oe=69D8BDDC",
+      "adUrl": "https://www.facebook.com/marketplace/item/780213898245257/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-04-06 01:04:27",
+      "lastSeen": "2026-04-06T01:06:23.952Z"
+    },
+    {
+      "adID": "1560994874970319",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/640759387/?product_id=1560994874970319",
       "author": "Nate Jourdan",
-      "postedTime": "2026-04-05T23:51:26.584Z",
+      "postedTime": "2026-04-05T19:32:04.000Z",
       "title": "Empty Showcase Arcade Cabinet",
       "description": "Empty cabinet. Some jamma wiring left. No monitor buttons etc. Previously had a 32\" lcd monitor. The mount is adapted has been left in the cabinet. Separates into two sections for easier transport.",
       "price": "$150",
       "lat": 30.54193,
       "lon": -88.6716868,
-      "location": "VANCLEAVE, MS",
-      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.30808-6/660481604_10165076819989388_6566438158585067671_n.jpg?stp=cp6_dst-jpg_s590x590_tt6&_nc_cat=110&ccb=1-7&_nc_sid=e06c5d&_nc_eui2=AeF3K57_MRTjwllmu-VB-3aVNcO6IhYSMRE1w7oiFhIxEUXzdEq_NjnyJ1DnKB1au3Q&_nc_ohc=JV7GwxAZmpgQ7kNvwFVw4et&_nc_oc=AdrGEpXFhu-kbHavptKLF94ln2ykAHFHvQghRlY_WcIIq_jK8MxN8QOpFJRMFyUlbDw&_nc_zt=23&_nc_ht=scontent-dfw5-1.xx&_nc_gid=Gq6X3sXLI3ZDmylJKlcSLQ&_nc_ss=7a3a8&oh=00_Af2YEz2KOANn2H8s4IIr5Z5zGd4NuPwp-gSAI_Y1Wdiy2g&oe=69D8B6CC",
-      "adUrl": "https://www.facebook.com/commerce/listing/1675895310073878/",
+      "location": "Vancleave, MS",
+      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/661445916_34955356180746669_2882082715451933383_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=101&ccb=1-7&_nc_sid=92e707&_nc_eui2=AeH3D4AdT6dqhjnwy7pVV2WmuE2egDBJqhi4TZ6AMEmqGEXic_gT7JT8eBE0uIY3Fjo&_nc_ohc=KXf2iyXUetAQ7kNvwEsWvun&_nc_oc=AdrC0TQ_uleu866pKMDFXX8mg1dKGXRso1ow_Jhan8EKzKChAVTIbSHWP0P5Wfnnv8s&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=n5Ymypntj4MWA84-cz7ItA&_nc_ss=7a3a8&oh=00_Af1y4kWPPFOKL0BH0KJeWHHvdlu4rjPi26NWKqxu66N4lQ&oe=69D8D35B",
+      "adUrl": "https://www.facebook.com/marketplace/item/1560994874970319/",
       "priceChanged": 0,
       "priceChangedAt": null,
       "hidden": 0,
-      "created_at": "2026-04-06 00:03:27",
-      "lastSeen": "2026-04-06T00:03:27.729Z"
+      "created_at": "2026-04-06 01:04:27",
+      "lastSeen": "2026-04-06T01:06:24.152Z"
     },
     {
       "adID": "1266686865018954",
@@ -56,7 +136,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-05 16:05:35",
-      "lastSeen": "2026-04-06T00:04:32.082Z"
+      "lastSeen": "2026-04-06T01:06:52.425Z"
     },
     {
       "adID": "2452247775226839",
@@ -76,7 +156,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-05 02:04:24",
-      "lastSeen": "2026-04-06T00:04:22.348Z"
+      "lastSeen": "2026-04-06T01:04:27.482Z"
     },
     {
       "adID": "1431917821512074",
@@ -96,7 +176,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-05 02:04:24",
-      "lastSeen": "2026-04-06T00:04:22.381Z"
+      "lastSeen": "2026-04-06T01:04:27.516Z"
     },
     {
       "adID": "1125382159722232",
@@ -456,7 +536,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-19 21:04:18",
-      "lastSeen": "2026-04-06T00:04:31.894Z"
+      "lastSeen": "2026-04-06T01:06:52.135Z"
     },
     {
       "adID": "951204157860382",
