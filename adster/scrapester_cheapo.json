@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-06T08:28:41.256Z",
+  "generated_at": "2026-04-06T11:07:57.495Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,73 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 32,
-      "droppedPrice": 124,
+      "exported_ads": 35,
+      "droppedPrice": 128,
       "droppedMissingGeo": 0,
-      "droppedCircle": 121
+      "droppedCircle": 131
     }
   },
   "ads": [
+    {
+      "adID": "1455012053032082",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100036338289740/?product_id=1455012053032082",
+      "author": "Joselyn Light",
+      "postedTime": "2026-04-06T05:43:36.000Z",
+      "title": "Pinball machine",
+      "description": "Very nice like new!",
+      "price": "$30",
+      "lat": 27.7712264,
+      "lon": -82.6340259,
+      "location": "St Petersburg, FL",
+      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/662465903_1362136985960730_8030375294549799379_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=101&ccb=1-7&_nc_sid=92e707&_nc_eui2=AeEnQbnuF8BARu9XiH0s22DhPaK97sx3HG89or3uzHccb13mBvCUgF2fVuacCgogFLU&_nc_ohc=qQ2PTWtRAU8Q7kNvwGk-TvG&_nc_oc=AdrEipd7Uq588XLm9lXTJOtUqGKhiIkRndzgLF-wXPrx_xFNumEucTiPjC2FG0tMQxU&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=PwqkjcbQahsHfP7msWRgpQ&_nc_ss=7a3a8&oh=00_Af0pHijshWRE6B4zsbMCgkeS6hVBrs8ZHgVnK73qyhTdfg&oe=69D9688A",
+      "adUrl": "https://www.facebook.com/marketplace/item/1455012053032082/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-04-06 11:05:19",
+      "lastSeen": "2026-04-06T11:07:17.418Z"
+    },
+    {
+      "adID": "975281998405257",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/61576213715096/?product_id=975281998405257",
+      "author": "Detalles Mendoza",
+      "postedTime": "2026-03-19T02:19:15.000Z",
+      "title": "Ramos eternos",
+      "description": "Holis holis bendiciones en detalles Mendoza te ofrecemos variedad de estilos de ramos eternos a ti estilo y a tu presupuesto pregunta sin compromiso",
+      "price": "$400",
+      "lat": 29.9899926,
+      "lon": -90.1505426,
+      "location": "Metairie, LA",
+      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t15.5256-10/596005208_1896992160891658_7734296336334133439_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=103&ccb=1-7&_nc_sid=d4195b&_nc_eui2=AeHzvHtcYSY7ycmg_A55uq-nTjeuDMyHd-JON64MzId34tUCWi5pGvXjh4Z-oh4LOGg&_nc_ohc=mdZddMo0lz8Q7kNvwGMg7wt&_nc_oc=AdrVFNqVMOHnmrEOTnSglYO6d1rZA6_2h0LzLgoLeABdtsTWxFtKA3PeI6_nd_i7CDg&_nc_zt=23&_nc_ht=scontent-dfw6-1.xx&_nc_gid=-lasdEc_e6z_v9yaWiBlfQ&_nc_ss=7a3a8&oh=00_Af0qo3jym6G8uP1Sg5tPNIs0Q6lsa5M9HHv-Qse-IJouBw&oe=69D980D7",
+      "adUrl": "https://www.facebook.com/marketplace/item/975281998405257/",
+      "priceChanged": 1,
+      "priceChangedAt": "2026-04-06 11:07:17",
+      "hidden": 0,
+      "created_at": "2026-04-06 11:05:19",
+      "lastSeen": "2026-04-06T11:07:17.638Z"
+    },
+    {
+      "adID": "977844494664171",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/61576213715096/?product_id=977844494664171",
+      "author": "Detalles Mendoza",
+      "postedTime": "2026-04-02T14:09:30.000Z",
+      "title": "Ramos naturales",
+      "description": "Holis Holis bendiciones en detalles Mendoza te ofrecemos ramos a tu estilo pregunta sin compromiso",
+      "price": "$200",
+      "lat": 29.9899926,
+      "lon": -90.1505426,
+      "location": "Metairie, LA",
+      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/662466531_941556175295027_4105755804942144865_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=104&ccb=1-7&_nc_sid=92e707&_nc_eui2=AeHVuyKTMTWMrEdQEVuQS7pR0uLEbMmj3tnS4sRsyaPe2ein63VgIHo_pAnTIKJdzUU&_nc_ohc=LNg-hdiwBdsQ7kNvwFz8BUk&_nc_oc=AdpCJINqHmlPbwAZC1O-squLVnDIhgDLhQA_5biu9ymeRLFM9v7VmmCxbd717cmyFTY&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=JvNOVI_W15z7O2bjC0KjOQ&_nc_ss=7a3a8&oh=00_Af3JT1CFFig-eVxKdkdJk6STunVSzMCETe3mJAzAOqakSA&oe=69D960BB",
+      "adUrl": "https://www.facebook.com/marketplace/item/977844494664171/",
+      "priceChanged": 1,
+      "priceChangedAt": "2026-04-06 11:07:17",
+      "hidden": 0,
+      "created_at": "2026-04-06 11:05:19",
+      "lastSeen": "2026-04-06T11:07:17.705Z"
+    },
     {
       "adID": "913852624767517",
       "source": "MP",
@@ -36,7 +96,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-06 01:06:52",
-      "lastSeen": "2026-04-06T02:04:56.050Z"
+      "lastSeen": "2026-04-06T11:05:19.063Z"
     },
     {
       "adID": "4147853815526315",
@@ -56,7 +116,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-06 01:06:52",
-      "lastSeen": "2026-04-06T02:04:56.083Z"
+      "lastSeen": "2026-04-06T11:05:19.097Z"
     },
     {
       "adID": "780213898245257",
@@ -76,7 +136,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-06 01:04:27",
-      "lastSeen": "2026-04-06T01:06:23.952Z"
+      "lastSeen": "2026-04-06T11:04:15.570Z"
     },
     {
       "adID": "1560994874970319",
@@ -96,7 +156,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-06 01:04:27",
-      "lastSeen": "2026-04-06T01:06:24.152Z"
+      "lastSeen": "2026-04-06T11:05:19.232Z"
     },
     {
       "adID": "1266686865018954",
@@ -116,7 +176,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-05 16:05:35",
-      "lastSeen": "2026-04-06T02:04:56.217Z"
+      "lastSeen": "2026-04-06T11:05:19.331Z"
     },
     {
       "adID": "2452247775226839",
@@ -496,7 +556,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-19 21:04:18",
-      "lastSeen": "2026-04-06T02:04:56.016Z"
+      "lastSeen": "2026-04-06T11:05:18.991Z"
     },
     {
       "adID": "951204157860382",
