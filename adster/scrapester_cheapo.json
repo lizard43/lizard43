@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-05T23:15:50.354Z",
+  "generated_at": "2026-04-06T00:05:53.757Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,33 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 29,
-      "droppedPrice": 116,
+      "exported_ads": 30,
+      "droppedPrice": 123,
       "droppedMissingGeo": 0,
-      "droppedCircle": 108
+      "droppedCircle": 113
     }
   },
   "ads": [
+    {
+      "adID": "1675895310073878",
+      "source": "FB",
+      "authorUrl": null,
+      "author": "Nate Jourdan",
+      "postedTime": "2026-04-05T23:51:26.584Z",
+      "title": "Empty Showcase Arcade Cabinet",
+      "description": "Empty cabinet. Some jamma wiring left. No monitor buttons etc. Previously had a 32\" lcd monitor. The mount is adapted has been left in the cabinet. Separates into two sections for easier transport.",
+      "price": "$150",
+      "lat": 30.54193,
+      "lon": -88.6716868,
+      "location": "VANCLEAVE, MS",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.30808-6/660481604_10165076819989388_6566438158585067671_n.jpg?stp=cp6_dst-jpg_s590x590_tt6&_nc_cat=110&ccb=1-7&_nc_sid=e06c5d&_nc_eui2=AeF3K57_MRTjwllmu-VB-3aVNcO6IhYSMRE1w7oiFhIxEUXzdEq_NjnyJ1DnKB1au3Q&_nc_ohc=JV7GwxAZmpgQ7kNvwFVw4et&_nc_oc=AdrGEpXFhu-kbHavptKLF94ln2ykAHFHvQghRlY_WcIIq_jK8MxN8QOpFJRMFyUlbDw&_nc_zt=23&_nc_ht=scontent-dfw5-1.xx&_nc_gid=Gq6X3sXLI3ZDmylJKlcSLQ&_nc_ss=7a3a8&oh=00_Af2YEz2KOANn2H8s4IIr5Z5zGd4NuPwp-gSAI_Y1Wdiy2g&oe=69D8B6CC",
+      "adUrl": "https://www.facebook.com/commerce/listing/1675895310073878/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-04-06 00:03:27",
+      "lastSeen": "2026-04-06T00:03:27.729Z"
+    },
     {
       "adID": "1266686865018954",
       "source": "MP",
@@ -36,7 +56,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-05 16:05:35",
-      "lastSeen": "2026-04-05T23:04:49.120Z"
+      "lastSeen": "2026-04-06T00:04:32.082Z"
     },
     {
       "adID": "2452247775226839",
@@ -56,7 +76,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-05 02:04:24",
-      "lastSeen": "2026-04-05T23:04:11.238Z"
+      "lastSeen": "2026-04-06T00:04:22.348Z"
     },
     {
       "adID": "1431917821512074",
@@ -76,7 +96,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-05 02:04:24",
-      "lastSeen": "2026-04-05T22:04:33.805Z"
+      "lastSeen": "2026-04-06T00:04:22.381Z"
     },
     {
       "adID": "1125382159722232",
@@ -436,7 +456,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-19 21:04:18",
-      "lastSeen": "2026-04-05T23:04:48.986Z"
+      "lastSeen": "2026-04-06T00:04:31.894Z"
     },
     {
       "adID": "951204157860382",
