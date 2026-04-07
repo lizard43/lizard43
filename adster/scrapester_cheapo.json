@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-07T18:23:22.677Z",
+  "generated_at": "2026-04-07T19:06:41.901Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,33 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 30,
-      "droppedPrice": 110,
+      "exported_ads": 31,
+      "droppedPrice": 114,
       "droppedMissingGeo": 0,
-      "droppedCircle": 118
+      "droppedCircle": 120
     }
   },
   "ads": [
+    {
+      "adID": "791169003725231",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/61573186443510/?product_id=791169003725231",
+      "author": "Andres Ruiz",
+      "postedTime": "2026-04-07T18:54:55.000Z",
+      "title": "Play station 5",
+      "description": "Ps5 with two controllers, black ops 3 on a disk , black ops 6 on a disk, and bo7 on the ps5,",
+      "price": "$280",
+      "lat": 34.0028569,
+      "lon": -84.1441046,
+      "location": "Duluth, GA",
+      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/663093853_1237592215208494_2018116707806746380_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=107&ccb=1-7&_nc_sid=92e707&_nc_eui2=AeFGqPklnVZ8k_us9E37IFk_qkAqNexU5s2qQCo17FTmzYa7v3T737zNXQLG3X0-g2c&_nc_ohc=fXxho34FRF0Q7kNvwEpM9lJ&_nc_oc=AdoUR_n4u8w4H3xT1AVLUxRMXAoiC611IzJf3GkGOWpt0Os61vESFoKXGJvpSC4aYkc&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=FD3gaO23dxkgUahwKjkANw&_nc_ss=7a3a8&oh=00_Af1rbXW_XolWexhpLj_u8RvtOz6sYW88DMElfjss_1WDnA&oe=69DB1B69",
+      "adUrl": "https://www.facebook.com/marketplace/item/791169003725231/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-04-07 19:04:40",
+      "lastSeen": "2026-04-07T19:05:10.288Z"
+    },
     {
       "adID": "822431540301236",
       "source": "MP",
@@ -76,7 +96,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-06 14:07:05",
-      "lastSeen": "2026-04-07T18:06:35.327Z"
+      "lastSeen": "2026-04-07T19:06:41.498Z"
     },
     {
       "adID": "913852624767517",
@@ -456,7 +476,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-19 21:04:18",
-      "lastSeen": "2026-04-07T18:05:48.625Z"
+      "lastSeen": "2026-04-07T19:05:35.439Z"
     },
     {
       "adID": "951204157860382",
