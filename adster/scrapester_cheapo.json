@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-07T08:28:10.928Z",
+  "generated_at": "2026-04-07T11:09:38.225Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,113 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 34,
-      "droppedPrice": 122,
+      "exported_ads": 39,
+      "droppedPrice": 128,
       "droppedMissingGeo": 0,
-      "droppedCircle": 147
+      "droppedCircle": 157
     }
   },
   "ads": [
+    {
+      "adID": "1645349319992404",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/1275962807/?product_id=1645349319992404",
+      "author": "Robert Barnhart",
+      "postedTime": "2026-04-07T02:26:42.000Z",
+      "title": "Kong pinball game",
+      "description": "",
+      "price": "$30",
+      "lat": 27.9449854,
+      "lon": -82.4583107,
+      "location": "Tampa, FL",
+      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/662819677_1456115612829775_7660652119636324658_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=100&ccb=1-7&_nc_sid=92e707&_nc_eui2=AeEKk3HsnyMYUXgLUhvMri5YewsEyPOu_HR7CwTI8678dGOHrZ44L2I40N-V4yQWwFw&_nc_ohc=KqCnXrocTw8Q7kNvwF0ikIG&_nc_oc=AdpSlOrqsP53gJZCSW61KcQRdPENYPfvtdPelUIThFOunzYKol0LZe3F7z1v7JKSzWM&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=MVzW_XQaXwE73LzV5WE1Gg&_nc_ss=7a3a8&oh=00_Af0zYX5UyKgUChuzNcDKQZs6DXxzEO55KY3DTkmo7U1w5A&oe=69DACACF",
+      "adUrl": "https://www.facebook.com/marketplace/item/1645349319992404/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-04-07 11:07:40",
+      "lastSeen": "2026-04-07T11:09:01.634Z"
+    },
+    {
+      "adID": "1129678035956952",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100051447405904/?product_id=1129678035956952",
+      "author": "Ivan Caro",
+      "postedTime": "2026-04-06T17:57:36.000Z",
+      "title": "Game machine",
+      "description": "Used",
+      "price": "$100",
+      "lat": 27.9449854,
+      "lon": -82.4583107,
+      "location": "Tampa, FL",
+      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/663259263_1267378861559851_4788228495437143183_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=102&ccb=1-7&_nc_sid=92e707&_nc_eui2=AeHT3vwIfmt1fn1Er5CMOasf_Pq3UiQV4w78-rdSJBXjDkis8OdNH1Jppw3eNOVTpGE&_nc_ohc=Mf1bIp3zFVcQ7kNvwFO1MPx&_nc_oc=AdpppIli2SUSsCg4nWWvdq3Yhk7Kx2RQ25NdbmHiY0aYsME48XHiTMOh2shuID-fjMI&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=Zx68Hi85Pe5gVVK1fvMirA&_nc_ss=7a3a8&oh=00_Af0aby399nI08M1wlwk4B0Ty0X_iKXej2WCzC7g8XeobPw&oe=69DAB387",
+      "adUrl": "https://www.facebook.com/marketplace/item/1129678035956952/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-04-07 11:07:40",
+      "lastSeen": "2026-04-07T11:09:01.701Z"
+    },
+    {
+      "adID": "1400507151829026",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100000068818136/?product_id=1400507151829026",
+      "author": "Brandon Dauzat",
+      "postedTime": "2026-04-02T14:09:30.000Z",
+      "title": "Ps Vita",
+      "description": "2000 model just factory reset it comes with case and charger",
+      "price": "$200",
+      "lat": 30.3760263,
+      "lon": -89.7483974,
+      "location": "Pearl River, LA",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/662518613_708973872261888_9166351360464362073_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=110&ccb=1-7&_nc_sid=92e707&_nc_eui2=AeExxvrLxA9zdUEYf8Vmc84Ov6O0velfJ5q_o7S96V8nmmrIwZ8J9bl0LKeDQCMrEnM&_nc_ohc=BnELr28o478Q7kNvwE0r4H4&_nc_oc=AdpfB85o5KlrYkpCKWzAjjq0Sp8KYUAbQaz173RHbQwK5K4wzz8RugQczbyR5pljqS8&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=aVX9j6ch1OJwwymbCbsWRw&_nc_ss=7a3a8&oh=00_Af0bFCZUNBpgZ7r-xW9fZUVPQ47mwSTBcdt-VsZeNZ-dJg&oe=69DACFF1",
+      "adUrl": "https://www.facebook.com/marketplace/item/1400507151829026/",
+      "priceChanged": 1,
+      "priceChangedAt": "2026-04-07 11:07:18",
+      "hidden": 0,
+      "created_at": "2026-04-07 11:04:30",
+      "lastSeen": "2026-04-07T11:07:18.062Z"
+    },
+    {
+      "adID": "1521287112753873",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100003721848962/?product_id=1521287112753873",
+      "author": "Tyler Burger",
+      "postedTime": "2026-04-07T02:18:49.000Z",
+      "title": "Video Games",
+      "description": "Will sell $15/ea. individually or as a bundle for $250. Open to offers. Cash only",
+      "price": "$15",
+      "lat": 30.7621326,
+      "lon": -86.5705084,
+      "location": "Crestview, FL",
+      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/660457108_34959685050314118_2571807749434673285_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=104&ccb=1-7&_nc_sid=92e707&_nc_eui2=AeFpIhGQ7ni4oLjaYEaTSNwBuSmgECXKaMu5KaAQJcpoy8qtF-VjUmkBJlcCgoFCiWE&_nc_ohc=EzhMheXXyPQQ7kNvwHzeujc&_nc_oc=AdpE816JNoqeEY78CFWP998xhRh9oYiJ0wucraSkLWHyLEDrbB86UExSRAtC3HwTEQ8&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=mEne3kRhZULqjU37Bidsaw&_nc_ss=7a3a8&oh=00_Af09EvaenIfwXM6hoB_7m7lKOH0y4w7prxk1LpYpGr6-JQ&oe=69DAA2BE",
+      "adUrl": "https://www.facebook.com/marketplace/item/1521287112753873/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-04-07 11:04:30",
+      "lastSeen": "2026-04-07T11:07:18.129Z"
+    },
+    {
+      "adID": "1616263916317802",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100022505901228/?product_id=1616263916317802",
+      "author": "Ben Draper",
+      "postedTime": "2026-04-07T02:17:30.000Z",
+      "title": "2DS XL",
+      "description": "Good Condition! Screens are basically Flawless Outer shell is a bit scuffed but still Works Great! Pickup is On Amelia Island or Jacksonville Town Center Florida FCFS",
+      "price": "$250",
+      "lat": 30.6712285,
+      "lon": -81.4630025,
+      "location": "Fernandina Beach, FL",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/666590088_1151082140418023_5999939484419472631_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=110&ccb=1-7&_nc_sid=92e707&_nc_eui2=AeE1CO5cLL0HQ54O3dYaN7ZvtQ0U0Jfz5QO1DRTQl_PlAypksqHGpBia6iX4nxj5O-I&_nc_ohc=uSWy4IJ60foQ7kNvwETaVOF&_nc_oc=AdoCOO597DA6ANP-mr93uYCAVlwYf7VBusQ3lL-kErjC8hVz5s8ZOpZjh89Txwb7ZWg&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=ME6d0M58Gt_Ee1ZFcgx-Aw&_nc_ss=7a3a8&oh=00_Af2V3TGEDwnabRJfMl-gZBf-cT4oTxeo-x_JMFFujaqb0g&oe=69DAB43A",
+      "adUrl": "https://www.facebook.com/marketplace/item/1616263916317802/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-04-07 11:04:30",
+      "lastSeen": "2026-04-07T11:07:18.163Z"
+    },
     {
       "adID": "1512097790578750",
       "source": "MP",
@@ -56,7 +156,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-06 14:07:05",
-      "lastSeen": "2026-04-07T02:10:07.180Z"
+      "lastSeen": "2026-04-07T11:09:37.723Z"
     },
     {
       "adID": "1532483158498151",
@@ -96,7 +196,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-06 01:06:52",
-      "lastSeen": "2026-04-07T02:09:22.614Z"
+      "lastSeen": "2026-04-07T11:07:40.981Z"
     },
     {
       "adID": "4147853815526315",
@@ -116,7 +216,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-06 01:06:52",
-      "lastSeen": "2026-04-07T02:09:22.647Z"
+      "lastSeen": "2026-04-07T11:07:41.014Z"
     },
     {
       "adID": "780213898245257",
@@ -536,7 +636,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-19 21:04:18",
-      "lastSeen": "2026-04-07T02:09:22.144Z"
+      "lastSeen": "2026-04-07T11:07:39.950Z"
     },
     {
       "adID": "951204157860382",
