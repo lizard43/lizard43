@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-08T08:24:08.730Z",
+  "generated_at": "2026-04-08T11:12:37.628Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,53 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 36,
-      "droppedPrice": 117,
+      "exported_ads": 38,
+      "droppedPrice": 123,
       "droppedMissingGeo": 0,
-      "droppedCircle": 125
+      "droppedCircle": 155
     }
   },
   "ads": [
+    {
+      "adID": "1255206582984808",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/61557003324065/?product_id=1255206582984808",
+      "author": "Adam Worth",
+      "postedTime": "2026-04-08T10:10:59.000Z",
+      "title": "Huge \"Star Wars\" Sign 36\" X 7\"!!!",
+      "description": "Very Nice sign Measuring 36” X 7” Perfect for your Star wars collection, Mancave, She Shed, Arcade, Billiards room, and Etc.",
+      "price": "$15",
+      "lat": 33.7544657,
+      "lon": -84.3898151,
+      "location": "Atlanta, GA",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/668423766_1888470248477213_4290936953431318396_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=92e707&_nc_eui2=AeGhRa8QylHeouWnaY8Y3xsOVXiWUSCCrmNVeJZRIIKuYwy3WbfTLLPvmnZ0eNKlqhQ&_nc_ohc=rQM8sl3ZZswQ7kNvwEHUwwo&_nc_oc=Ado0OdaqpJRyr2Zx_6TB6F94qbiG3DK9EKRMDprIzKAxOTpRp4_M-u4Aa7DZ9ngCNeA&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=_iVmWXnaq3mt07ZzSvQdFQ&_nc_ss=7a3a8&oh=00_Af2KAiIqDkMpmqY9S74r2prReIQOT_0s2EdJmOP54ZUcdA&oe=69DBF3CE",
+      "adUrl": "https://www.facebook.com/marketplace/item/1255206582984808/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-04-08 11:04:33",
+      "lastSeen": "2026-04-08T11:07:39.573Z"
+    },
+    {
+      "adID": "1649476586487766",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/61557003324065/?product_id=1649476586487766",
+      "author": "Adam Worth",
+      "postedTime": "2026-04-08T10:10:49.000Z",
+      "title": "3D Deathstar Lenticular Art",
+      "description": "Very nice looks 3D and changes perspective as you walk by very cool. Perfect for a Star Wars fan or collector. Mancave, Home theater, Arcade, and etc",
+      "price": "$20",
+      "lat": 33.7544657,
+      "lon": -84.3898151,
+      "location": "Atlanta, GA",
+      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/667725709_1314391657223271_5150053462772727449_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=104&ccb=1-7&_nc_sid=92e707&_nc_eui2=AeEdwbMBVg0bRiY3T5_EMYXPvEdRPirqq9y8R1E-Kuqr3B90x5JAVI2QE1GwO8bwGuY&_nc_ohc=HK4-IJWolJMQ7kNvwEd5BcS&_nc_oc=AdqbrhxfBk7X5oPRLEbXgPbPC1zcGshrummLEAJt8ZsOiDF_Q_xmZKOYHCroHYcEqnE&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=OylfQx02ZteYESTjmfNEHg&_nc_ss=7a3a8&oh=00_Af2oPPs6jgWHNKvGubtLmZ9qq0SOevjnRlXfrOkFuHvThg&oe=69DC1CC2",
+      "adUrl": "https://www.facebook.com/marketplace/item/1649476586487766/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-04-08 11:04:33",
+      "lastSeen": "2026-04-08T11:07:39.606Z"
+    },
     {
       "adID": "1470524071294254",
       "source": "MP",
@@ -136,7 +176,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-07 21:05:45",
-      "lastSeen": "2026-04-08T02:07:18.924Z"
+      "lastSeen": "2026-04-08T11:08:29.001Z"
     },
     {
       "adID": "822431540301236",
@@ -196,7 +236,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-06 14:07:05",
-      "lastSeen": "2026-04-08T02:09:31.421Z"
+      "lastSeen": "2026-04-08T11:12:37.217Z"
     },
     {
       "adID": "913852624767517",
@@ -576,7 +616,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-03-19 21:04:18",
-      "lastSeen": "2026-04-08T02:07:18.978Z"
+      "lastSeen": "2026-04-08T11:08:29.048Z"
     },
     {
       "adID": "951204157860382",
