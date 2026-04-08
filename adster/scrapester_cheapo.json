@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-08T00:06:55.121Z",
+  "generated_at": "2026-04-08T00:58:06.214Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,53 +11,13 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 33,
-      "droppedPrice": 128,
+      "exported_ads": 31,
+      "droppedPrice": 110,
       "droppedMissingGeo": 0,
-      "droppedCircle": 146
+      "droppedCircle": 116
     }
   },
   "ads": [
-    {
-      "adID": "PI-212462",
-      "source": "PS",
-      "authorUrl": "https://pinside.com/pinball/community/pinsiders/atlpb/market",
-      "author": "ATLpb",
-      "postedTime": "2026-04-07T23:43:38.606Z",
-      "title": "TWD One of a kind blood armor upgrade kit",
-      "description": "Used, good condition - “selling this awesome custom one of a kind max effort armor I created for my The walking dead limited edition - would also work on premium, but not pro given the center button. you...”",
-      "price": "$700",
-      "lat": 33.7544657,
-      "lon": -84.3898151,
-      "location": "Atlanta, GA",
-      "imageUrl": "https://imgproxy.pinside.com/nqGfe991LqeE17bTQVEpakxC0Bw3e4qHWFzqHOcgpmw/rs:fit:640:480/fn:pinside_662c603fea50/enc/f4PF99wq7AO-xhwIya3ewRHoXB_uoZ7sLIF7F4ebaFGz0yRnWzo_PWkjnJucIvMn5vjYfuROFUNG_iNCGtB_FmckrCRGdRIj7AmvAs1Iq9DJKt3HwKEiMqnh9owpWeg1.jpeg",
-      "adUrl": "https://pinside.com/pinball/market/classifieds/ad/212462",
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-04-08 00:06:38",
-      "lastSeen": "2026-04-08T00:06:38.655Z"
-    },
-    {
-      "adID": "960648073474794",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/12427015/?product_id=960648073474794",
-      "author": "Beth Hermiller",
-      "postedTime": "2026-04-07T23:57:55.000Z",
-      "title": "Capcom Streetfighter II Arcade Machine",
-      "description": "Capcom Streetfighter II Champion Edition Arcade Game Height: 46 inches Width: 19 inches Depth: 23 inches",
-      "price": "$175",
-      "lat": 34.2073196,
-      "lon": -84.1401926,
-      "location": "Cumming, GA",
-      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/668376111_1576857080061406_5503102230723223869_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=108&ccb=1-7&_nc_sid=92e707&_nc_eui2=AeEQucrth1TY1P7gFMVoPYYS4T6KIj-zODLhPooiP7M4Mn5RJSk1Aed0A0b6Y2m7HkM&_nc_ohc=WDf--DIiHM0Q7kNvwE4HExu&_nc_oc=AdpbhPcUsifmvY9ryyAOTEY-6m9orTOBHt7BINN6S_ny7fvjbJpUKiu3OciM_qk6tog&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=oFpG-lBlCng_pMW2Sax5RA&_nc_ss=7a3a8&oh=00_Af1eUl5szEHfOcvtSkhusz6toWDL6Oa-awZa188pg63_Kw&oe=69DB7154",
-      "adUrl": "https://www.facebook.com/marketplace/item/960648073474794/",
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-04-08 00:04:36",
-      "lastSeen": "2026-04-08T00:05:20.672Z"
-    },
     {
       "adID": "934045759361321",
       "source": "MP",
