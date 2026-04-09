@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-09T15:26:33.290Z",
+  "generated_at": "2026-04-09T16:05:12.605Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,52 +11,32 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 31,
-      "droppedPrice": 92,
+      "exported_ads": 30,
+      "droppedPrice": 81,
       "droppedMissingGeo": 0,
-      "droppedCircle": 109
+      "droppedCircle": 93
     }
   },
   "ads": [
     {
-      "adID": "35467821822801540",
+      "adID": "1432644838656686",
       "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/100001208714342/?product_id=35467821822801540",
-      "author": "Caleb McBride",
-      "postedTime": "2026-04-08T23:47:54.000Z",
-      "title": "Pile up machine TAKING OFFERS",
-      "description": "Needs some work, all lights work comes with locks and keys, sounds work it just needs to be painted or rewrapped.",
-      "price": "$650",
-      "lat": 31.4146108,
-      "lon": -86.0677243,
-      "location": "Elba, AL",
-      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/669096448_972527765143322_8417695734316805116_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=106&ccb=1-7&_nc_sid=92e707&_nc_eui2=AeE8o9xo1P3uUYTsGVSk9CPwklW37Uqsw8OSVbftSqzDw4UHAz7yLrLWZC5DldljgSU&_nc_ohc=rV26ywU5uAQQ7kNvwHu_fH-&_nc_oc=AdosWmCgI0IqDyW4XfwNHCQjRpaCL603bD1tyICVtWWWVbi_zPtYmUoy6N7tEOEIojU&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=RgRnmH4gCrLy8S7sYyxy_Q&_nc_ss=7a3a8&oh=00_Af3I-Nxr5U_dD81iz2xjLjTwxBuKsuwmPiuD0lqtKWl-rA&oe=69DD6313",
-      "adUrl": "https://www.facebook.com/marketplace/item/35467821822801540/",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100000732667235/?product_id=1432644838656686",
+      "author": "Joel Morel",
+      "postedTime": "2026-04-09T15:40:41.000Z",
+      "title": "Gaming",
+      "description": "If interested message me.",
+      "price": "$25",
+      "lat": 33.6995565,
+      "lon": -84.7622973,
+      "location": "Douglas, GA",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/666949040_2515966855548645_5420243199964084728_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=109&ccb=1-7&_nc_sid=92e707&_nc_ohc=9u6kQz5DnmYQ7kNvwEBMrmr&_nc_oc=AdqAjT-wrkjJ6jMU80-msQJvmj78nflqwXRY5lVI5Z2cGC_KNNfiaw27jSqNkb5hZsI&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=MhFbWRa-sQPlLhnHJQSqlg&_nc_ss=7a3a8&oh=00_Af34FgTUW2VaRJLVxQmfYUli12RYP69ITEeKJDzhldjPgA&oe=69DDB747",
+      "adUrl": "https://www.facebook.com/marketplace/item/1432644838656686/",
       "priceChanged": 0,
       "priceChangedAt": null,
       "hidden": 0,
-      "created_at": "2026-04-09 11:08:55",
-      "lastSeen": "2026-04-09T15:04:26.183Z"
-    },
-    {
-      "adID": "1247087320748797",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/100006213541091/?product_id=1247087320748797",
-      "author": "Travis Wood",
-      "postedTime": "2026-04-08T15:23:35.000Z",
-      "title": "1985 Atari Gauntlet Dedicated 4 -Player Arcade Cabinet ONLY",
-      "description": "Dedicated Cabinet only. Great base to get a really nice Gauntlet cabinet going!",
-      "price": "$100",
-      "lat": 33.7544657,
-      "lon": -84.3898151,
-      "location": "Atlanta, GA",
-      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/666644220_1246741637672537_7217462686582034686_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=100&ccb=1-7&_nc_sid=92e707&_nc_eui2=AeE7xueoO2NbrDukX0lluU_bpyNe9ZxzrO6nI171nHOs7iuNZ3EiEjor_stTYdshPMM&_nc_ohc=eO6e-eiNJqIQ7kNvwFc5t-J&_nc_oc=AdqRyB3IUJL_EjXfyhJl5cFg0Fwtl2aLL2-ffZ50hp4lY6RDEPwar-83kF3XQKKw6lI&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=biSJ00tx39Q7fE94aQ7GHw&_nc_ss=7a3a8&oh=00_Af0x57mXxQVSuFaIrjVXJ1rJUPJTxNRDW9CoPPXt0rQtuw&oe=69DD4960",
-      "adUrl": "https://www.facebook.com/marketplace/item/1247087320748797/",
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-04-09 11:04:24",
-      "lastSeen": "2026-04-09T15:04:16.494Z"
+      "created_at": "2026-04-09 16:04:17",
+      "lastSeen": "2026-04-09T16:04:31.519Z"
     },
     {
       "adID": "934045759361321",
@@ -76,7 +56,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-07 21:05:45",
-      "lastSeen": "2026-04-09T15:04:26.110Z"
+      "lastSeen": "2026-04-09T16:04:53.659Z"
     },
     {
       "adID": "822431540301236",
@@ -123,7 +103,7 @@
       "source": "KLOV",
       "authorUrl": "https://forums.arcade-museum.com/members/gumby1109.63855/",
       "author": "gumby1109",
-      "postedTime": "2026-04-09T02:25:36.000Z",
+      "postedTime": "2026-04-09T15:43:48.000Z",
       "title": "Midway Terminator 2 Judgment Day $750",
       "description": "Selling my newly acquired Midway Terminator 2 game. The game play works as far as I can tell as it should. I've never played it before up to the point of owning this one. The explosion mirror is peeled and I haven't tested to make sure the explosion lights work yet. I will replace the bulbs and tes...",
       "price": "$750",
@@ -136,7 +116,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-06 14:07:05",
-      "lastSeen": "2026-04-09T15:05:20.972Z"
+      "lastSeen": "2026-04-09T16:05:12.229Z"
     },
     {
       "adID": "4147853815526315",
