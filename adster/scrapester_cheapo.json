@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-09T17:05:40.865Z",
+  "generated_at": "2026-04-09T18:08:37.572Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,53 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 30,
-      "droppedPrice": 82,
+      "exported_ads": 32,
+      "droppedPrice": 92,
       "droppedMissingGeo": 0,
-      "droppedCircle": 91
+      "droppedCircle": 97
     }
   },
   "ads": [
+    {
+      "adID": "1440927780563125",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/1837879370/?product_id=1440927780563125",
+      "author": "Ed Glatzmayer",
+      "postedTime": "2026-04-09T17:02:55.000Z",
+      "title": "Various Games",
+      "description": "Fun interactive Games for family backyard or get togethers. Children, young adults, and grown-ups can enjoy. All parts are accounted for too. Foosball is brand new.",
+      "price": "$30",
+      "lat": 29.8946952,
+      "lon": -81.3145395,
+      "location": "St Augustine, FL",
+      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/670191920_1275725300597451_5765105745033976857_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=108&ccb=1-7&_nc_sid=92e707&_nc_ohc=5Mnnqf5J8W8Q7kNvwGLqOTp&_nc_oc=AdryLQPd1cwA6lrUIVyEpZl5QktCC6tAJG-5_Q2DR0C-l8QZXALh4Y7gXl3DsjqtuzM&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=nV4jb9PDniOBoVYuU76OHQ&_nc_ss=7a3a8&oh=00_Af3dhWjG-GcppqfeNEMczlWfRxu5ln9jjYRNidjNU4t1CQ&oe=69DDB451",
+      "adUrl": "https://www.facebook.com/marketplace/item/1440927780563125/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-04-09 18:06:18",
+      "lastSeen": "2026-04-09T18:07:58.215Z"
+    },
+    {
+      "adID": "2932649893742145",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100001034710870/?product_id=2932649893742145",
+      "author": "Randall Williams",
+      "postedTime": "2026-04-09T16:09:46.000Z",
+      "title": "One pack of arcade connectors for DIY electronicsmk",
+      "description": "ARCADE CONNECTERS ( I have 18 total $35 for all)",
+      "price": "$5",
+      "lat": 33.6131588,
+      "lon": -86.1183061,
+      "location": "Lincoln, AL",
+      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/670284040_1821906121820868_7017620031971842693_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=108&ccb=1-7&_nc_sid=92e707&_nc_ohc=VSkXyudIBJEQ7kNvwEzErYc&_nc_oc=AdoZH9a3GpNfECe5uk-O9hQ66zF2sfxf9XzfwTKtNkl8ggkoncx5RYv--e8EXvhzLHg&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=kOusO79fGu3dC1_5YfUByQ&_nc_ss=7a3a8&oh=00_Af0YKCrYlQi5iHTVs3mgzVDFAi7jdzIFKGTAv9wk_863qA&oe=69DDD0E2",
+      "adUrl": "https://www.facebook.com/marketplace/item/2932649893742145/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-04-09 18:04:26",
+      "lastSeen": "2026-04-09T18:05:49.913Z"
+    },
     {
       "adID": "25597788709893887",
       "source": "MP",
@@ -36,7 +76,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-09 17:04:32",
-      "lastSeen": "2026-04-09T17:05:04.620Z"
+      "lastSeen": "2026-04-09T18:06:18.041Z"
     },
     {
       "adID": "934045759361321",
@@ -56,7 +96,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-07 21:05:45",
-      "lastSeen": "2026-04-09T17:04:32.030Z"
+      "lastSeen": "2026-04-09T18:06:17.900Z"
     },
     {
       "adID": "822431540301236",
@@ -116,7 +156,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-06 14:07:05",
-      "lastSeen": "2026-04-09T17:05:40.529Z"
+      "lastSeen": "2026-04-09T18:08:37.281Z"
     },
     {
       "adID": "4147853815526315",
