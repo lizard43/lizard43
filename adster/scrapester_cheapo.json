@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-10T22:05:13.307Z",
+  "generated_at": "2026-04-10T23:06:02.748Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,33 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 43,
-      "droppedPrice": 140,
+      "exported_ads": 44,
+      "droppedPrice": 142,
       "droppedMissingGeo": 0,
-      "droppedCircle": 130
+      "droppedCircle": 133
     }
   },
   "ads": [
+    {
+      "adID": "786668260923225",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100000437835362/?product_id=786668260923225",
+      "author": "Cliston Tyler Murphy",
+      "postedTime": "2026-04-10T22:20:48.000Z",
+      "title": "Arcade Machine",
+      "description": "Multi-Pac arcade machine It's a full size MDF cabinet not one of the smaller DIY ones. Has 60 games using Icade to run the games Cabinet works good, no issues. Coin-op operation, coin lever must be moved to add credit to play a game. Purchased as a project to add more games and expand the library but I don't have the time or space for it anymore. The LCD monitor isn't secured in the cabinet and just sits inside it. When moving the cabinet the monitor will need to be secured/disconnected and set back up when you get it in it's final location.",
+      "price": "$600",
+      "lat": 33.8389977,
+      "lon": -83.9007382,
+      "location": "Loganville, GA",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t15.5256-10/669675086_1470877474709237_7021594068886885168_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=111&ccb=1-7&_nc_sid=d4195b&_nc_ohc=aUJCt3oCUkYQ7kNvwEaqVva&_nc_oc=AdpqlgJcZQLrC4jw3rhLXhCFRq2Rno_vhf1x_Rj_dpXkW6oy20bIzQ_t8kjaFuUreqs&_nc_zt=23&_nc_ht=scontent-dfw5-1.xx&_nc_gid=1FXW7sbDohM4QwZYS8jwvQ&_nc_ss=7a3a8&oh=00_Af1x8Y40IpBuERs4BVdagzii1-peYTRZ3PGVHDYtDv1Jug&oe=69DF5E12",
+      "adUrl": "https://www.facebook.com/marketplace/item/786668260923225/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-04-10 23:04:20",
+      "lastSeen": "2026-04-10T23:05:11.094Z"
+    },
     {
       "adID": "1490619272428981",
       "source": "MP",
@@ -26,17 +46,17 @@
       "postedTime": "2026-04-10T20:27:35.000Z",
       "title": "2004 Golden Tee Arcade Machine Game",
       "description": "Worked when we unplugged everything. Just paid to move it to my house and i can’t fit it in my small basement door. Runs to an HDMI (have it covered for the time being)",
-      "price": "$600",
+      "price": "$500",
       "lat": 33.8584368,
       "lon": -84.340203,
       "location": "Brookhaven, GA",
-      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/668668122_1416336650180617_8234332440220071486_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=108&ccb=1-7&_nc_sid=92e707&_nc_ohc=5sLMtST0hIsQ7kNvwFJ18SN&_nc_oc=AdpUblMBJDOWigsEndmyg7DS2wxzZ0WiIpSV3TCo-GmF3VlSc6WtAdp_5LYxiGUXg58&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=9KsS7Jn-MdvIjKUjMT9hjQ&_nc_ss=7a3a8&oh=00_Af2Wo2rWdw3QtDs8f8jcUVpxr3rcIA0A2j2mGWTNFTcu8A&oe=69DF53F0",
+      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/668668122_1416336650180617_8234332440220071486_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=108&ccb=1-7&_nc_sid=92e707&_nc_ohc=5sLMtST0hIsQ7kNvwFJ18SN&_nc_oc=AdpUblMBJDOWigsEndmyg7DS2wxzZ0WiIpSV3TCo-GmF3VlSc6WtAdp_5LYxiGUXg58&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=nnWJoVj-FdUnrsjlW0uxoA&_nc_ss=7a3a8&oh=00_Af39uVyKGBqz__ipW00AjaWodTD1284EaePyeg0XF_hD2A&oe=69DF53F0",
       "adUrl": "https://www.facebook.com/marketplace/item/1490619272428981/",
-      "priceChanged": 0,
-      "priceChangedAt": null,
+      "priceChanged": 1,
+      "priceChangedAt": "2026-04-10 23:04:20",
       "hidden": 0,
       "created_at": "2026-04-10 21:04:18",
-      "lastSeen": "2026-04-10T22:04:13.333Z"
+      "lastSeen": "2026-04-10T23:05:10.993Z"
     },
     {
       "adID": "986760670700501",
@@ -116,7 +136,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-10 18:04:24",
-      "lastSeen": "2026-04-10T22:04:51.486Z"
+      "lastSeen": "2026-04-10T23:05:40.893Z"
     },
     {
       "adID": "1603488604445872",
@@ -156,7 +176,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-10 15:05:11",
-      "lastSeen": "2026-04-10T22:04:51.553Z"
+      "lastSeen": "2026-04-10T23:05:40.960Z"
     },
     {
       "adID": "969376785590068",
@@ -176,7 +196,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-10 15:04:12",
-      "lastSeen": "2026-04-10T22:04:52.090Z"
+      "lastSeen": "2026-04-10T23:05:41.495Z"
     },
     {
       "adID": "1501234838248856",
@@ -196,7 +216,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-10 14:05:25",
-      "lastSeen": "2026-04-10T22:04:52.157Z"
+      "lastSeen": "2026-04-10T23:05:41.563Z"
     },
     {
       "adID": "1756380378671853",
@@ -256,7 +276,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-10 01:05:21",
-      "lastSeen": "2026-04-10T22:04:51.922Z"
+      "lastSeen": "2026-04-10T23:05:41.327Z"
     },
     {
       "adID": "990303376858869",
@@ -276,7 +296,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-10 01:05:21",
-      "lastSeen": "2026-04-10T15:05:12.407Z"
+      "lastSeen": "2026-04-10T23:05:41.730Z"
     },
     {
       "adID": "1681455796329640",
@@ -296,7 +316,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-09 20:05:35",
-      "lastSeen": "2026-04-10T22:04:51.856Z"
+      "lastSeen": "2026-04-10T23:05:41.261Z"
     },
     {
       "adID": "638446469364194",
@@ -336,7 +356,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-09 17:04:32",
-      "lastSeen": "2026-04-10T22:04:51.956Z"
+      "lastSeen": "2026-04-10T23:05:41.361Z"
     },
     {
       "adID": "934045759361321",
@@ -356,7 +376,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-07 21:05:45",
-      "lastSeen": "2026-04-10T22:04:50.937Z"
+      "lastSeen": "2026-04-10T23:05:40.711Z"
     },
     {
       "adID": "822431540301236",
@@ -423,7 +443,7 @@
       "source": "KLOV",
       "authorUrl": "https://forums.arcade-museum.com/members/gumby1109.63855/",
       "author": "gumby1109",
-      "postedTime": "2026-04-10T21:44:37.000Z",
+      "postedTime": "2026-04-10T22:10:48.000Z",
       "title": "Midway Terminator 2 Judgment Day $750",
       "description": "Selling my newly acquired Midway Terminator 2 game. The game play works as far as I can tell as it should. I've never played it before up to the point of owning this one. The explosion mirror is peeled and I haven't tested to make sure the explosion lights work yet. I will replace the bulbs and tes...",
       "price": "$750",
@@ -436,7 +456,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-06 14:07:05",
-      "lastSeen": "2026-04-10T22:05:13.052Z"
+      "lastSeen": "2026-04-10T23:06:02.282Z"
     },
     {
       "adID": "4147853815526315",
