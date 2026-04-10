@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-10T18:26:37.959Z",
+  "generated_at": "2026-04-10T19:07:28.636Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,33 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 42,
-      "droppedPrice": 116,
+      "exported_ads": 43,
+      "droppedPrice": 128,
       "droppedMissingGeo": 0,
-      "droppedCircle": 117
+      "droppedCircle": 121
     }
   },
   "ads": [
+    {
+      "adID": "2117479888825004",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100007849026227/?product_id=2117479888825004",
+      "author": "Randall Teresa Pruitt",
+      "postedTime": "2026-04-10T18:49:00.000Z",
+      "title": "Corning ware Spice of life casserole set",
+      "description": "8 piece cassette set. $50 for all. Corning ware Spice of Life pattern. 4 dishes with 4 lids. Great condition. Sizes on pictures. No holds. I don't have any type of online payment. Located near Arcade Police department in Jefferson Georgia.",
+      "price": "$50",
+      "lat": 33.0380388,
+      "lon": -82.436141,
+      "location": "Jefferson, GA",
+      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/668829628_2020696968514620_3662360256679509824_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=103&ccb=1-7&_nc_sid=92e707&_nc_ohc=dY-1RntH7HIQ7kNvwFVyDIW&_nc_oc=AdrIhoTxD6wg44qBXZkEbxpTRTImMmdRcjybAefm-bmZcFtfOJbZ2-eJPNdU9hhbFvk&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=l9BMx2kefkx4jVGA3YUpHg&_nc_ss=7a3a8&oh=00_Af2xPUmI88Kvs8_ExHSSnm862FNHgae3_RdTNK72rG1lkg&oe=69DF0109",
+      "adUrl": "https://www.facebook.com/marketplace/item/2117479888825004/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-04-10 19:04:42",
+      "lastSeen": "2026-04-10T19:05:38.119Z"
+    },
     {
       "adID": "1305266828164922",
       "source": "MP",
@@ -76,7 +96,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-10 18:04:24",
-      "lastSeen": "2026-04-10T18:06:28.360Z"
+      "lastSeen": "2026-04-10T19:06:06.346Z"
     },
     {
       "adID": "1603488604445872",
@@ -116,7 +136,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-10 15:05:11",
-      "lastSeen": "2026-04-10T18:06:28.427Z"
+      "lastSeen": "2026-04-10T19:06:06.412Z"
     },
     {
       "adID": "969376785590068",
@@ -216,7 +236,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-10 01:05:21",
-      "lastSeen": "2026-04-10T18:06:28.796Z"
+      "lastSeen": "2026-04-10T19:06:06.781Z"
     },
     {
       "adID": "990303376858869",
@@ -256,7 +276,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-09 20:05:35",
-      "lastSeen": "2026-04-10T18:06:28.729Z"
+      "lastSeen": "2026-04-10T19:06:06.714Z"
     },
     {
       "adID": "638446469364194",
@@ -316,7 +336,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-09 17:04:32",
-      "lastSeen": "2026-04-10T18:06:28.828Z"
+      "lastSeen": "2026-04-10T19:06:06.815Z"
     },
     {
       "adID": "934045759361321",
@@ -336,7 +356,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-07 21:05:45",
-      "lastSeen": "2026-04-10T18:06:28.320Z"
+      "lastSeen": "2026-04-10T19:06:06.260Z"
     },
     {
       "adID": "822431540301236",
@@ -416,7 +436,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-06 14:07:05",
-      "lastSeen": "2026-04-10T18:07:18.343Z"
+      "lastSeen": "2026-04-10T19:07:28.373Z"
     },
     {
       "adID": "4147853815526315",
