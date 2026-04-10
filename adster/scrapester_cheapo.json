@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-10T14:06:38.233Z",
+  "generated_at": "2026-04-10T15:06:20.428Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,53 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 37,
-      "droppedPrice": 105,
+      "exported_ads": 39,
+      "droppedPrice": 108,
       "droppedMissingGeo": 0,
-      "droppedCircle": 110
+      "droppedCircle": 112
     }
   },
   "ads": [
+    {
+      "adID": "1561767718250317",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100000381489568/?product_id=1561767718250317",
+      "author": "James Duke",
+      "postedTime": "2026-04-10T14:38:16.000Z",
+      "title": "JACK IN THE BOX PINBALL MACHINE",
+      "description": "Works great and only needs some love and care",
+      "price": "$500",
+      "lat": 33.9566391,
+      "lon": -83.9890066,
+      "location": "Lawrenceville, GA",
+      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/668566268_1472009881216601_686047894688811375_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=108&ccb=1-7&_nc_sid=92e707&_nc_ohc=a-uRIiPW7HIQ7kNvwFVmviL&_nc_oc=AdrP0sY_EvFiOaslQEvY3xb8nS8HToSxj0V4lmcdoF4Jpo9x_XSZcoJ3aAZTvD66gEQ&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=NtJn7EzGEnFB6bheYDbgNQ&_nc_ss=7a3a8&oh=00_Af2P-v3xmdmxuT6k6vAISa2d2W4frBrybeMkmjcvxXlpVQ&oe=69DEE299",
+      "adUrl": "https://www.facebook.com/marketplace/item/1561767718250317/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-04-10 15:05:11",
+      "lastSeen": "2026-04-10T15:05:41.999Z"
+    },
+    {
+      "adID": "969376785590068",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100000360266122/?product_id=969376785590068",
+      "author": "Carolyn Johnson",
+      "postedTime": "2026-04-10T14:22:14.000Z",
+      "title": "Arcade games",
+      "description": "Arcade machine works needs cosmetic work need it gone asap.",
+      "price": "$350",
+      "lat": 31.8477347,
+      "lon": -81.5960705,
+      "location": "Hinesville, GA",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t15.5256-10/668689331_26456101494029697_6823632798801166496_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=109&ccb=1-7&_nc_sid=d4195b&_nc_ohc=8gw9ZJ6jdxMQ7kNvwGWue3Z&_nc_oc=AdqgApzj5dGp8VzVc9zqYThCVO4yRCV4uWvAnd_t3r_-gGOZ53DIT8f2Y_TmrnimqWc&_nc_zt=23&_nc_ht=scontent-dfw5-1.xx&_nc_gid=SwxnzQVstGoPB0NLppt5yg&_nc_ss=7a3a8&oh=00_Af2K3PiJJW05IvxH4gRg5fjlWY6yZ00Ai_6eiA2aMpYr0Q&oe=69DEEA3B",
+      "adUrl": "https://www.facebook.com/marketplace/item/969376785590068/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-04-10 15:04:12",
+      "lastSeen": "2026-04-10T15:05:12.173Z"
+    },
     {
       "adID": "1501234838248856",
       "source": "MP",
@@ -36,7 +76,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-10 14:05:25",
-      "lastSeen": "2026-04-10T14:05:58.062Z"
+      "lastSeen": "2026-04-10T15:05:12.240Z"
     },
     {
       "adID": "1756380378671853",
@@ -96,7 +136,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-10 01:05:21",
-      "lastSeen": "2026-04-10T14:05:24.268Z"
+      "lastSeen": "2026-04-10T15:05:12.073Z"
     },
     {
       "adID": "990303376858869",
@@ -116,7 +156,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-10 01:05:21",
-      "lastSeen": "2026-04-10T14:05:25.206Z"
+      "lastSeen": "2026-04-10T15:05:12.407Z"
     },
     {
       "adID": "1681455796329640",
@@ -136,7 +176,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-09 20:05:35",
-      "lastSeen": "2026-04-10T14:05:24.202Z"
+      "lastSeen": "2026-04-10T15:05:12.006Z"
     },
     {
       "adID": "638446469364194",
@@ -196,7 +236,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-09 17:04:32",
-      "lastSeen": "2026-04-10T14:05:24.302Z"
+      "lastSeen": "2026-04-10T15:05:12.106Z"
     },
     {
       "adID": "934045759361321",
@@ -216,7 +256,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-07 21:05:45",
-      "lastSeen": "2026-04-10T14:05:23.874Z"
+      "lastSeen": "2026-04-10T15:05:11.649Z"
     },
     {
       "adID": "822431540301236",
@@ -283,7 +323,7 @@
       "source": "KLOV",
       "authorUrl": "https://forums.arcade-museum.com/members/gumby1109.63855/",
       "author": "gumby1109",
-      "postedTime": "2026-04-09T19:54:17.000Z",
+      "postedTime": "2026-04-10T14:25:22.000Z",
       "title": "Midway Terminator 2 Judgment Day $750",
       "description": "Selling my newly acquired Midway Terminator 2 game. The game play works as far as I can tell as it should. I've never played it before up to the point of owning this one. The explosion mirror is peeled and I haven't tested to make sure the explosion lights work yet. I will replace the bulbs and tes...",
       "price": "$750",
@@ -296,7 +336,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-06 14:07:05",
-      "lastSeen": "2026-04-10T14:06:37.963Z"
+      "lastSeen": "2026-04-10T15:06:20.129Z"
     },
     {
       "adID": "4147853815526315",
