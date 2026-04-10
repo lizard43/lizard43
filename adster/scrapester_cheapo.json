@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-10T19:07:28.636Z",
+  "generated_at": "2026-04-10T20:06:03.388Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,33 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 43,
-      "droppedPrice": 128,
+      "exported_ads": 44,
+      "droppedPrice": 134,
       "droppedMissingGeo": 0,
-      "droppedCircle": 121
+      "droppedCircle": 124
     }
   },
   "ads": [
+    {
+      "adID": "813713827968292",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100011038801969/?product_id=813713827968292",
+      "author": "Warner Young",
+      "postedTime": "2026-04-10T19:15:30.000Z",
+      "title": "Tyrsen Pickball Set",
+      "description": "Used once with everything included. No wear to padel’s and looks brand new. Originally $130 on Amazon",
+      "price": "$105",
+      "lat": 29.9559145,
+      "lon": -90.0730259,
+      "location": "New Orleans, LA",
+      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/668942923_1709609740482401_4443160384778614910_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=101&ccb=1-7&_nc_sid=92e707&_nc_ohc=9TlRupP3BZgQ7kNvwGYJguL&_nc_oc=AdoSkWANZUR2jOG00oaOGuhbX-4__LQmnwUImp9niOAGP3ROwb8S0zWDmCVaGd7JEmg&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=jOSm2nBdFiTBnujTKMq0hw&_nc_ss=7a3a8&oh=00_Af1FccC1yXSeTrfUYLDNAkgHJzEjRuylrRcX-xviSbWycA&oe=69DF3B12",
+      "adUrl": "https://www.facebook.com/marketplace/item/813713827968292/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-04-10 20:04:39",
+      "lastSeen": "2026-04-10T20:05:28.389Z"
+    },
     {
       "adID": "2117479888825004",
       "source": "MP",
@@ -56,7 +76,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-10 18:04:24",
-      "lastSeen": "2026-04-10T18:05:57.608Z"
+      "lastSeen": "2026-04-10T20:04:28.743Z"
     },
     {
       "adID": "942734778679909",
@@ -76,7 +96,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-10 18:04:24",
-      "lastSeen": "2026-04-10T18:05:57.659Z"
+      "lastSeen": "2026-04-10T20:04:28.776Z"
     },
     {
       "adID": "1721657045883505",
@@ -96,7 +116,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-10 18:04:24",
-      "lastSeen": "2026-04-10T19:06:06.346Z"
+      "lastSeen": "2026-04-10T20:04:38.921Z"
     },
     {
       "adID": "1603488604445872",
@@ -116,7 +136,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-10 16:04:28",
-      "lastSeen": "2026-04-10T18:04:25.084Z"
+      "lastSeen": "2026-04-10T20:04:28.910Z"
     },
     {
       "adID": "1561767718250317",
@@ -136,7 +156,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-10 15:05:11",
-      "lastSeen": "2026-04-10T19:06:06.412Z"
+      "lastSeen": "2026-04-10T20:04:38.988Z"
     },
     {
       "adID": "969376785590068",
@@ -156,7 +176,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-10 15:04:12",
-      "lastSeen": "2026-04-10T18:04:25.151Z"
+      "lastSeen": "2026-04-10T20:04:39.887Z"
     },
     {
       "adID": "1501234838248856",
@@ -176,7 +196,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-10 14:05:25",
-      "lastSeen": "2026-04-10T16:05:38.192Z"
+      "lastSeen": "2026-04-10T20:04:39.954Z"
     },
     {
       "adID": "1756380378671853",
@@ -236,7 +256,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-10 01:05:21",
-      "lastSeen": "2026-04-10T19:06:06.781Z"
+      "lastSeen": "2026-04-10T20:04:39.686Z"
     },
     {
       "adID": "990303376858869",
@@ -276,7 +296,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-09 20:05:35",
-      "lastSeen": "2026-04-10T19:06:06.714Z"
+      "lastSeen": "2026-04-10T20:04:39.619Z"
     },
     {
       "adID": "638446469364194",
@@ -336,7 +356,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-09 17:04:32",
-      "lastSeen": "2026-04-10T19:06:06.815Z"
+      "lastSeen": "2026-04-10T20:04:39.720Z"
     },
     {
       "adID": "934045759361321",
@@ -356,7 +376,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-07 21:05:45",
-      "lastSeen": "2026-04-10T19:06:06.260Z"
+      "lastSeen": "2026-04-10T20:04:38.767Z"
     },
     {
       "adID": "822431540301236",
@@ -436,7 +456,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-06 14:07:05",
-      "lastSeen": "2026-04-10T19:07:28.373Z"
+      "lastSeen": "2026-04-10T20:06:03.104Z"
     },
     {
       "adID": "4147853815526315",
