@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-10T13:22:34.628Z",
+  "generated_at": "2026-04-10T14:06:38.233Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,33 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 36,
-      "droppedPrice": 99,
+      "exported_ads": 37,
+      "droppedPrice": 105,
       "droppedMissingGeo": 0,
-      "droppedCircle": 106
+      "droppedCircle": 110
     }
   },
   "ads": [
+    {
+      "adID": "1501234838248856",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/551417825/?product_id=1501234838248856",
+      "author": "Randy Orgeron",
+      "postedTime": "2026-04-10T12:59:06.000Z",
+      "title": "Skeetball",
+      "description": "",
+      "price": "$75",
+      "lat": 34.2073196,
+      "lon": -84.1401926,
+      "location": "Cumming, GA",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/666102670_810528128802960_4955469440053671301_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=105&ccb=1-7&_nc_sid=92e707&_nc_ohc=fQQnBMKu3UMQ7kNvwF0NAsx&_nc_oc=Adq4OUv5JurasjPtBKhrEePcSdVOrnRACCKAbQgmmn5DstJqabS_P3ZfenoAaIeqjCo&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=OArl2vhCfabzxiLg0fyDsw&_nc_ss=7a3a8&oh=00_Af2t1ErHPs7FabEctQnVfCYsY8DvvA0iTycn88TVfd88bQ&oe=69DEF247",
+      "adUrl": "https://www.facebook.com/marketplace/item/1501234838248856/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-04-10 14:05:25",
+      "lastSeen": "2026-04-10T14:05:58.062Z"
+    },
     {
       "adID": "1756380378671853",
       "source": "MP",
@@ -76,7 +96,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-10 01:05:21",
-      "lastSeen": "2026-04-10T13:05:16.095Z"
+      "lastSeen": "2026-04-10T14:05:24.268Z"
     },
     {
       "adID": "990303376858869",
@@ -96,7 +116,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-10 01:05:21",
-      "lastSeen": "2026-04-10T13:05:16.330Z"
+      "lastSeen": "2026-04-10T14:05:25.206Z"
     },
     {
       "adID": "1681455796329640",
@@ -116,7 +136,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-09 20:05:35",
-      "lastSeen": "2026-04-10T13:05:16.029Z"
+      "lastSeen": "2026-04-10T14:05:24.202Z"
     },
     {
       "adID": "638446469364194",
@@ -176,7 +196,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-09 17:04:32",
-      "lastSeen": "2026-04-10T13:05:16.129Z"
+      "lastSeen": "2026-04-10T14:05:24.302Z"
     },
     {
       "adID": "934045759361321",
@@ -196,7 +216,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-07 21:05:45",
-      "lastSeen": "2026-04-10T13:05:15.740Z"
+      "lastSeen": "2026-04-10T14:05:23.874Z"
     },
     {
       "adID": "822431540301236",
@@ -276,7 +296,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-06 14:07:05",
-      "lastSeen": "2026-04-10T13:05:36.076Z"
+      "lastSeen": "2026-04-10T14:06:37.963Z"
     },
     {
       "adID": "4147853815526315",
