@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-10T23:06:02.748Z",
+  "generated_at": "2026-04-11T00:06:47.744Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,33 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 44,
-      "droppedPrice": 142,
+      "exported_ads": 39,
+      "droppedPrice": 147,
       "droppedMissingGeo": 0,
-      "droppedCircle": 133
+      "droppedCircle": 138
     }
   },
   "ads": [
+    {
+      "adID": "1479663026997167",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100007849026227/?product_id=1479663026997167",
+      "author": "Randall Teresa Pruitt",
+      "postedTime": "2026-04-10T21:48:35.000Z",
+      "title": "Metal wings",
+      "description": "Metal wings for home decor. $20 for the set. Measurements are 34 inches long and 8 inches at the widest part. This is PER wing. No Holds. I don't have any type of online payment. Located near Arcade Police department in Jefferson Georgia is",
+      "price": "$20",
+      "lat": 33.0380388,
+      "lon": -82.436141,
+      "location": "Jefferson, GA",
+      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/668595016_1649105939698855_9067581248223702544_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=101&ccb=1-7&_nc_sid=92e707&_nc_ohc=oCk0OmnmEnQQ7kNvwE0g5HH&_nc_oc=AdpmNZui4HHIHXk0_OfCVcmAb9cPKmvVrKSDC_58kTziDBkauF9AlVKcl2TArxZSXtM&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=BimhZb5m7fLALk2H8QZRag&_nc_ss=7a3a8&oh=00_Af0D_1rbjTb1B7NYpzWRzKhnbkBJHFW496jIkfv5Tk_6kA&oe=69DF77B9",
+      "adUrl": "https://www.facebook.com/marketplace/item/1479663026997167/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-04-11 00:04:32",
+      "lastSeen": "2026-04-11T00:05:34.123Z"
+    },
     {
       "adID": "786668260923225",
       "source": "MP",
@@ -36,87 +56,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-10 23:04:20",
-      "lastSeen": "2026-04-10T23:05:11.094Z"
-    },
-    {
-      "adID": "1490619272428981",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/1511070382/?product_id=1490619272428981",
-      "author": "Kyle Anthony",
-      "postedTime": "2026-04-10T20:27:35.000Z",
-      "title": "2004 Golden Tee Arcade Machine Game",
-      "description": "Worked when we unplugged everything. Just paid to move it to my house and i can’t fit it in my small basement door. Runs to an HDMI (have it covered for the time being)",
-      "price": "$500",
-      "lat": 33.8584368,
-      "lon": -84.340203,
-      "location": "Brookhaven, GA",
-      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/668668122_1416336650180617_8234332440220071486_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=108&ccb=1-7&_nc_sid=92e707&_nc_ohc=5sLMtST0hIsQ7kNvwFJ18SN&_nc_oc=AdpUblMBJDOWigsEndmyg7DS2wxzZ0WiIpSV3TCo-GmF3VlSc6WtAdp_5LYxiGUXg58&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=nnWJoVj-FdUnrsjlW0uxoA&_nc_ss=7a3a8&oh=00_Af39uVyKGBqz__ipW00AjaWodTD1284EaePyeg0XF_hD2A&oe=69DF53F0",
-      "adUrl": "https://www.facebook.com/marketplace/item/1490619272428981/",
-      "priceChanged": 1,
-      "priceChangedAt": "2026-04-10 23:04:20",
-      "hidden": 0,
-      "created_at": "2026-04-10 21:04:18",
-      "lastSeen": "2026-04-10T23:05:10.993Z"
-    },
-    {
-      "adID": "986760670700501",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/100005062638174/?product_id=986760670700501",
-      "author": "Matthew Slayton",
-      "postedTime": "2026-04-10T20:26:42.000Z",
-      "title": "Arcade game fully functional",
-      "description": "Takes quarters or tokens",
-      "price": "$500",
-      "lat": 30.3321838,
-      "lon": -81.655651,
-      "location": "Jacksonville, FL",
-      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t15.5256-10/633760496_1404048650808468_4407778664550771357_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=101&ccb=1-7&_nc_sid=d4195b&_nc_ohc=5djCVohMMDEQ7kNvwFV7Bwf&_nc_oc=AdoCoglaPuaA1DOfj9SE3f4aOwYzGmFQ0mfE_C5-K8Ao1QknCZTOWKBZIR6_S1WvCY4&_nc_zt=23&_nc_ht=scontent-dfw6-1.xx&_nc_gid=2LMMJNhH_6AQYYuziHUVcw&_nc_ss=7a3a8&oh=00_Af0T6IaDdQlWVGTYBht-SVCCDN9OeZzJJy1QxOPC-3PaVw&oe=69DF5487",
-      "adUrl": "https://www.facebook.com/marketplace/item/986760670700501/",
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-04-10 21:04:18",
-      "lastSeen": "2026-04-10T22:04:13.667Z"
-    },
-    {
-      "adID": "1305266828164922",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/100064877582112/?product_id=1305266828164922",
-      "author": "Kurt Stricker",
-      "postedTime": "2026-04-10T17:38:33.000Z",
-      "title": "Vintage Pub Time Darts Electronic Dartboard Arcade Machine by Merit Industries - Beauty!",
-      "description": "Step back into the golden age of arcade fun with this authentic Pub Time Darts machine! This is the real deal – a classic 1980s Merit Industries Pub Time Darts electronic dartboard that’s been the life of the party in countless bars, game rooms, and man caves. The full-size cabinet features that iconic colorful graphics, the massive regulation-style dartboard display with all the vibrant red, blue, and gold detailing, player stations for up to 4 players (or 8 with competition mode), and the classic “throw darts” vibe complete with beer-mug branding. Condition highlights (being 100% transparent): Everything lights up beautifully – marquee, dartboard segments, buttons, score displays, and overhead lighting all glow bright and vibrant with that perfect retro arcade feel. Looks fantastic on the porch, in a game room, or tucked into a home bar setup. Game selection currently does not work (you can’t pick a game right now). This is a super common issue on these vintage Merit boards and usually comes down to a simple board-level repair, loose connection, or matrix issue that electronics hobbyists fix all the time. Parts are readily available online if you want to bring it back to full glory. Whether you’re a collector, a tinkerer who loves restoring arcade classics, or just want an awesome conversation piece that screams “Florida backyard bar,” this machine has serious character. Imagine firing up some tunes, grabbing a cold one, and turning your space into a mini pub night after night. Specs & Details: Full upright cabinet (approx. 7–8 ft tall when assembled) Coin-op ready (can be set to free play) Soft-tip darts style (safe & fun) Multiple game modes when working (301, Cricket, etc.) Heavy-duty commercial build – these things last forever",
-      "price": "$299",
-      "lat": 29.0491426,
-      "lon": -82.4609331,
-      "location": "Dunnellon, FL",
-      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/668588515_940650432153763_4014699791632054436_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=100&ccb=1-7&_nc_sid=92e707&_nc_ohc=v_dYoAjGn1wQ7kNvwGDBpiQ&_nc_oc=AdpnHoHqQtu3oEAIK1_FM02CDUxQfFPFa9fCIJ4DEGTeU5CNQiBlvyBQgBsnRqoL16c&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=Zm3-1aiXeA5az6nnHf_VIA&_nc_ss=7a3a8&oh=00_Af2nYJF6tXVDb23ZRzoXwUo4GTisdc3BQv2g5-6Z6wxpsQ&oe=69DF097A",
-      "adUrl": "https://www.facebook.com/marketplace/item/1305266828164922/",
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-04-10 18:04:24",
-      "lastSeen": "2026-04-10T22:04:13.767Z"
-    },
-    {
-      "adID": "942734778679909",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/1354353273/?product_id=942734778679909",
-      "author": "Brian Gaudreau",
-      "postedTime": "2026-04-10T17:35:16.000Z",
-      "title": "Arcade dartboard (GranBoard)",
-      "description": "Used dartboard that’s converted to GranBoard. Bing sold “as is”. It’s not registering darts for some reason right now, it may need a new matrix. Being sold with mounted TV and remote. It’s a good little project for a soft tip player.... Needs to be picked up.",
-      "price": "$100",
-      "lat": 28.7449901,
-      "lon": -82.063418,
-      "location": "Sumterville, FL",
-      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/669528251_1253244590353726_4402914167487560974_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=104&ccb=1-7&_nc_sid=92e707&_nc_ohc=ZTYGiW7vURgQ7kNvwFdMVt_&_nc_oc=Adrk5QdC-a-3C4mjnHxZJ3OJOSFLvUr1Ozx2d19dWJbw2IqP3At0k9sXH_HrI3Vvrn8&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=wjAasAoe3RYDsky_wBk9Vg&_nc_ss=7a3a8&oh=00_Af3A7WD4gHvGsSxM4agZCVJjrK7CVxNJL369BZeJrZvZhA&oe=69DF0661",
-      "adUrl": "https://www.facebook.com/marketplace/item/942734778679909/",
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-04-10 18:04:24",
-      "lastSeen": "2026-04-10T22:04:13.801Z"
+      "lastSeen": "2026-04-11T00:04:32.684Z"
     },
     {
       "adID": "1721657045883505",
@@ -136,27 +76,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-10 18:04:24",
-      "lastSeen": "2026-04-10T23:05:40.893Z"
-    },
-    {
-      "adID": "1603488604445872",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/100056979482177/?product_id=1603488604445872",
-      "author": "Henry Heidelberg",
-      "postedTime": "2026-04-10T15:33:14.000Z",
-      "title": "Arcade game",
-      "description": "Everything works like it should. Comes with 12 built in fun games.",
-      "price": "$300",
-      "lat": 31.6047734,
-      "lon": -89.195641,
-      "location": "Ellisville, MS",
-      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/669784904_1207599051255641_7892182230195911082_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=107&ccb=1-7&_nc_sid=92e707&_nc_ohc=IZtF5SRmt7YQ7kNvwGdF51o&_nc_oc=AdpNarXPVzgJNhm8oewy6dK48PiB2VZDFaZtQucm4EuM0sN54bebz2BVmLmbi4iEbyk&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=7UAf2pEVE83tU4IPSbE5JA&_nc_ss=7a3a8&oh=00_Af1sIfmTDgo8ht0CcystBSsY4b9yxyWc1pleHUcz2_MnSA&oe=69DEE334",
-      "adUrl": "https://www.facebook.com/marketplace/item/1603488604445872/",
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-04-10 16:04:28",
-      "lastSeen": "2026-04-10T21:04:19.224Z"
+      "lastSeen": "2026-04-11T00:05:56.492Z"
     },
     {
       "adID": "1561767718250317",
@@ -176,7 +96,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-10 15:05:11",
-      "lastSeen": "2026-04-10T23:05:40.960Z"
+      "lastSeen": "2026-04-11T00:05:56.560Z"
     },
     {
       "adID": "969376785590068",
@@ -196,27 +116,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-10 15:04:12",
-      "lastSeen": "2026-04-10T23:05:41.495Z"
-    },
-    {
-      "adID": "1501234838248856",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/551417825/?product_id=1501234838248856",
-      "author": "Randy Orgeron",
-      "postedTime": "2026-04-10T12:59:06.000Z",
-      "title": "Skeetball",
-      "description": "",
-      "price": "$75",
-      "lat": 34.2073196,
-      "lon": -84.1401926,
-      "location": "Cumming, GA",
-      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/666102670_810528128802960_4955469440053671301_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=105&ccb=1-7&_nc_sid=92e707&_nc_ohc=fQQnBMKu3UMQ7kNvwF0NAsx&_nc_oc=Adq4OUv5JurasjPtBKhrEePcSdVOrnRACCKAbQgmmn5DstJqabS_P3ZfenoAaIeqjCo&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=OArl2vhCfabzxiLg0fyDsw&_nc_ss=7a3a8&oh=00_Af2t1ErHPs7FabEctQnVfCYsY8DvvA0iTycn88TVfd88bQ&oe=69DEF247",
-      "adUrl": "https://www.facebook.com/marketplace/item/1501234838248856/",
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-04-10 14:05:25",
-      "lastSeen": "2026-04-10T23:05:41.563Z"
+      "lastSeen": "2026-04-11T00:05:57.094Z"
     },
     {
       "adID": "1756380378671853",
@@ -276,7 +176,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-10 01:05:21",
-      "lastSeen": "2026-04-10T23:05:41.327Z"
+      "lastSeen": "2026-04-11T00:05:56.927Z"
     },
     {
       "adID": "990303376858869",
@@ -296,7 +196,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-10 01:05:21",
-      "lastSeen": "2026-04-10T23:05:41.730Z"
+      "lastSeen": "2026-04-11T00:05:57.295Z"
     },
     {
       "adID": "1681455796329640",
@@ -316,7 +216,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-09 20:05:35",
-      "lastSeen": "2026-04-10T23:05:41.261Z"
+      "lastSeen": "2026-04-11T00:05:56.860Z"
     },
     {
       "adID": "638446469364194",
@@ -356,7 +256,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-09 17:04:32",
-      "lastSeen": "2026-04-10T23:05:41.361Z"
+      "lastSeen": "2026-04-11T00:05:56.961Z"
     },
     {
       "adID": "934045759361321",
@@ -376,7 +276,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-07 21:05:45",
-      "lastSeen": "2026-04-10T23:05:40.711Z"
+      "lastSeen": "2026-04-11T00:05:56.249Z"
     },
     {
       "adID": "822431540301236",
@@ -456,7 +356,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-06 14:07:05",
-      "lastSeen": "2026-04-10T23:06:02.282Z"
+      "lastSeen": "2026-04-11T00:06:47.430Z"
     },
     {
       "adID": "4147853815526315",
