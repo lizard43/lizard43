@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-11T00:06:47.744Z",
+  "generated_at": "2026-04-11T01:06:29.456Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,33 +11,13 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 39,
-      "droppedPrice": 147,
+      "exported_ads": 35,
+      "droppedPrice": 84,
       "droppedMissingGeo": 0,
-      "droppedCircle": 138
+      "droppedCircle": 104
     }
   },
   "ads": [
-    {
-      "adID": "1479663026997167",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/100007849026227/?product_id=1479663026997167",
-      "author": "Randall Teresa Pruitt",
-      "postedTime": "2026-04-10T21:48:35.000Z",
-      "title": "Metal wings",
-      "description": "Metal wings for home decor. $20 for the set. Measurements are 34 inches long and 8 inches at the widest part. This is PER wing. No Holds. I don't have any type of online payment. Located near Arcade Police department in Jefferson Georgia is",
-      "price": "$20",
-      "lat": 33.0380388,
-      "lon": -82.436141,
-      "location": "Jefferson, GA",
-      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/668595016_1649105939698855_9067581248223702544_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=101&ccb=1-7&_nc_sid=92e707&_nc_ohc=oCk0OmnmEnQQ7kNvwE0g5HH&_nc_oc=AdpmNZui4HHIHXk0_OfCVcmAb9cPKmvVrKSDC_58kTziDBkauF9AlVKcl2TArxZSXtM&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=BimhZb5m7fLALk2H8QZRag&_nc_ss=7a3a8&oh=00_Af0D_1rbjTb1B7NYpzWRzKhnbkBJHFW496jIkfv5Tk_6kA&oe=69DF77B9",
-      "adUrl": "https://www.facebook.com/marketplace/item/1479663026997167/",
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-04-11 00:04:32",
-      "lastSeen": "2026-04-11T00:05:34.123Z"
-    },
     {
       "adID": "786668260923225",
       "source": "MP",
@@ -56,7 +36,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-10 23:04:20",
-      "lastSeen": "2026-04-11T00:04:32.684Z"
+      "lastSeen": "2026-04-11T01:04:12.487Z"
     },
     {
       "adID": "1721657045883505",
@@ -76,7 +56,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-10 18:04:24",
-      "lastSeen": "2026-04-11T00:05:56.492Z"
+      "lastSeen": "2026-04-11T01:05:21.686Z"
     },
     {
       "adID": "1561767718250317",
@@ -96,7 +76,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-10 15:05:11",
-      "lastSeen": "2026-04-11T00:05:56.560Z"
+      "lastSeen": "2026-04-11T01:05:21.753Z"
     },
     {
       "adID": "969376785590068",
@@ -116,7 +96,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-10 15:04:12",
-      "lastSeen": "2026-04-11T00:05:57.094Z"
+      "lastSeen": "2026-04-11T01:05:22.255Z"
     },
     {
       "adID": "1756380378671853",
@@ -176,7 +156,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-10 01:05:21",
-      "lastSeen": "2026-04-11T00:05:56.927Z"
+      "lastSeen": "2026-04-11T01:05:22.021Z"
     },
     {
       "adID": "990303376858869",
@@ -216,27 +196,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-09 20:05:35",
-      "lastSeen": "2026-04-11T00:05:56.860Z"
-    },
-    {
-      "adID": "638446469364194",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/511461095/?product_id=638446469364194",
-      "author": "Presto Jacob",
-      "postedTime": "2026-04-09T19:55:54.000Z",
-      "title": "Arcade game cabinet",
-      "description": "Arcade game cabnite in good condition. Free come get it.",
-      "price": "$1",
-      "lat": 33.857328,
-      "lon": -84.0199108,
-      "location": "Snellville, GA",
-      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/670481963_1331119635735130_1767992220964748006_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=100&ccb=1-7&_nc_sid=92e707&_nc_ohc=6Qk3AxZKbKkQ7kNvwGbo6Dq&_nc_oc=AdpUBpFvOk1EuL1aQ-yOPsHkX8i6s4987w2RRxzN9N1ouafamkwJnEfOsPX9N4N_PiQ&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=lda5FQXk6EEokqas6sre1w&_nc_ss=7a3a8&oh=00_Af1tqLLMQQVgIuEm2b1DYNdMuodpdUwWXcfCdd6OqhAhVw&oe=69DDF3E7",
-      "adUrl": "https://www.facebook.com/marketplace/item/638446469364194/",
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-04-09 20:04:26",
-      "lastSeen": "2026-04-10T00:04:50.207Z"
+      "lastSeen": "2026-04-11T01:05:21.955Z"
     },
     {
       "adID": "25597788709893887",
@@ -256,7 +216,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-09 17:04:32",
-      "lastSeen": "2026-04-11T00:05:56.961Z"
+      "lastSeen": "2026-04-11T01:05:22.055Z"
     },
     {
       "adID": "934045759361321",
@@ -276,7 +236,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-07 21:05:45",
-      "lastSeen": "2026-04-11T00:05:56.249Z"
+      "lastSeen": "2026-04-11T01:05:21.127Z"
     },
     {
       "adID": "822431540301236",
@@ -356,27 +316,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-06 14:07:05",
-      "lastSeen": "2026-04-11T00:06:47.430Z"
-    },
-    {
-      "adID": "4147853815526315",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/1065080449/?product_id=4147853815526315",
-      "author": "Robert Kiedinger",
-      "postedTime": "2026-04-06T00:02:13.000Z",
-      "title": "Pinball Scoring LEDS and Interconnect Board",
-      "description": "There is 1 seven-digit display, 1 display for credits and random number, and the interconnect board for the displays. They are original from a Williams system 7 machine, functioning 100%, no frizzing or missing numbers. $20 each. or $50 for all 3. Will ship for cost.",
-      "price": "$1",
-      "lat": 33.3392842,
-      "lon": -84.6485417,
-      "location": "Sharpsburg, GA",
-      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/663302458_961441746478707_1807921188949601583_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=100&ccb=1-7&_nc_sid=92e707&_nc_ohc=iazEQmFPa0QQ7kNvwEnLvMW&_nc_oc=Adpy87NlR62KFeapN8UC6m1aay6oIB7LUh8EH58Epw_27JHrukUjnNoCtOLRbJBLlcc&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=qI6A8GsjzwMjum3MvLhQbg&_nc_ss=7a3a8&oh=00_Af3ZnAJ8q8y_fhJ27z_q0t4pL70BKVwRgefmAxb57qhM2g&oe=69DE8075",
-      "adUrl": "https://www.facebook.com/marketplace/item/4147853815526315/",
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-04-06 01:06:52",
-      "lastSeen": "2026-04-10T07:24:19.076Z"
+      "lastSeen": "2026-04-11T01:06:29.233Z"
     },
     {
       "adID": "780213898245257",
@@ -517,26 +457,6 @@
       "hidden": 0,
       "created_at": "2026-04-03 16:12:14",
       "lastSeen": "2026-04-10T15:24:09.968Z"
-    },
-    {
-      "adID": "1506272807726306",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/4923157/?product_id=1506272807726306",
-      "author": "Edward Ebeling",
-      "postedTime": "2026-04-02T21:02:00.000Z",
-      "title": "Vintage 80s Aftermarket Donkey Kong Arcade Game Control Panel",
-      "description": "Vintage 80s Aftermarket Donkey Kong Arcade Game Control Panel",
-      "price": "$40",
-      "lat": 34.02332,
-      "lon": -84.360022,
-      "location": "Roswell, GA",
-      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/661003183_2421730494905384_8500115857841598883_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=107&ccb=1-7&_nc_sid=92e707&_nc_ohc=0O1fW5lrfOQQ7kNvwGbOsIr&_nc_oc=Adqfn3MNDg4-2xkY5ol0-0sHXUONtLH48peSeruJpO4frK-X2Ljf9e0mBuLNFH123z8&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=nTacKZSHXcQQVDNPImLx1A&_nc_ss=7a3a8&oh=00_Af1YKALSL8NsTSz6UPVP8SvHfuHazVkbj1-xcVi1UK6SNg&oe=69DEE4FF",
-      "adUrl": "https://www.facebook.com/marketplace/item/1506272807726306/",
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-04-03 16:12:14",
-      "lastSeen": "2026-04-10T15:24:10.001Z"
     },
     {
       "adID": "1268091038809033",
