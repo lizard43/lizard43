@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-11T08:29:26.349Z",
+  "generated_at": "2026-04-11T11:07:58.675Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,53 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 35,
-      "droppedPrice": 86,
+      "exported_ads": 37,
+      "droppedPrice": 94,
       "droppedMissingGeo": 0,
-      "droppedCircle": 104
+      "droppedCircle": 110
     }
   },
   "ads": [
+    {
+      "adID": "1294397328790472",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100010896760894/?product_id=1294397328790472",
+      "author": "Sherri Smith",
+      "postedTime": "2026-04-11T05:04:20.000Z",
+      "title": "NIB On the Hook- 4 Player Ring Game",
+      "description": "See title and pictures for details. Porch pick up east Athens Ga.",
+      "price": "$12",
+      "lat": 33.9597677,
+      "lon": -83.376398,
+      "location": "Athens, GA",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/669806149_4517608891892103_8479497420205952256_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=109&ccb=1-7&_nc_sid=92e707&_nc_ohc=hq5mtMv-5lcQ7kNvwH3uhQS&_nc_oc=Adq3_FZNkQTE9HWIfFm6kCL5Joyc7k88Do5NPvwfNDWOGaIzvIylyNK-ysTnSHyxq18&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=ctW0TLp2zNWKOrzT02fH1w&_nc_ss=7a3a8&oh=00_Af19S0NVU9Odq4s7JqIe9ETZUKN2kW9a8pvAn7l0PfiqvA&oe=69DFE65A",
+      "adUrl": "https://www.facebook.com/marketplace/item/1294397328790472/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-04-11 11:06:17",
+      "lastSeen": "2026-04-11T11:07:23.559Z"
+    },
+    {
+      "adID": "923718917233038",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/61554022450447/?product_id=923718917233038",
+      "author": "Cece Martinez",
+      "postedTime": "2026-04-11T02:01:33.000Z",
+      "title": "Arcade",
+      "description": "Final fight arcade screen and deck",
+      "price": "$35",
+      "lat": 27.8590533,
+      "lon": -82.5326247,
+      "location": "Obrien, FL",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/669400069_1456633398743789_6549919074322475597_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=110&ccb=1-7&_nc_sid=92e707&_nc_ohc=-8OCYePzhNkQ7kNvwGDWn1N&_nc_oc=AdqbiYtQqxV_ZgOEwjHeOi7z7KkTr4XwT8dKLZVX15gBG1V21M56meNvLIL6-NHU1-g&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=7jqxFQ8jymWTXzGZq_zksg&_nc_ss=7a3a8&oh=00_Af2bvOGI6X5y1fvdy5m2aAZVOT3k5F0lzIwxaW9QS4nEbg&oe=69DFF3BD",
+      "adUrl": "https://www.facebook.com/marketplace/item/923718917233038/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-04-11 11:04:18",
+      "lastSeen": "2026-04-11T11:05:53.762Z"
+    },
     {
       "adID": "786668260923225",
       "source": "MP",
@@ -56,7 +96,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-10 18:04:24",
-      "lastSeen": "2026-04-11T02:04:26.270Z"
+      "lastSeen": "2026-04-11T11:06:16.719Z"
     },
     {
       "adID": "1561767718250317",
@@ -76,7 +116,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-10 15:05:11",
-      "lastSeen": "2026-04-11T02:04:26.337Z"
+      "lastSeen": "2026-04-11T11:06:16.786Z"
     },
     {
       "adID": "969376785590068",
@@ -96,7 +136,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-10 15:04:12",
-      "lastSeen": "2026-04-11T02:04:26.739Z"
+      "lastSeen": "2026-04-11T11:06:17.494Z"
     },
     {
       "adID": "1756380378671853",
@@ -156,7 +196,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-10 01:05:21",
-      "lastSeen": "2026-04-11T02:04:26.605Z"
+      "lastSeen": "2026-04-11T11:06:17.361Z"
     },
     {
       "adID": "990303376858869",
@@ -196,7 +236,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-09 20:05:35",
-      "lastSeen": "2026-04-11T02:04:26.537Z"
+      "lastSeen": "2026-04-11T11:06:17.294Z"
     },
     {
       "adID": "25597788709893887",
@@ -216,7 +256,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-09 17:04:32",
-      "lastSeen": "2026-04-11T02:04:26.639Z"
+      "lastSeen": "2026-04-11T11:06:17.394Z"
     },
     {
       "adID": "934045759361321",
@@ -236,7 +276,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-07 21:05:45",
-      "lastSeen": "2026-04-11T02:04:26.021Z"
+      "lastSeen": "2026-04-11T11:06:16.376Z"
     },
     {
       "adID": "822431540301236",
@@ -316,7 +356,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-06 14:07:05",
-      "lastSeen": "2026-04-11T02:04:46.876Z"
+      "lastSeen": "2026-04-11T11:07:58.449Z"
     },
     {
       "adID": "780213898245257",
