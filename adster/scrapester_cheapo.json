@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-12T15:32:19.040Z",
+  "generated_at": "2026-04-12T16:06:05.967Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,53 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 44,
-      "droppedPrice": 73,
+      "exported_ads": 46,
+      "droppedPrice": 76,
       "droppedMissingGeo": 0,
       "droppedCircle": 67
     }
   },
   "ads": [
+    {
+      "adID": "937840572292111",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100078819997024/?product_id=937840572292111",
+      "author": "Алена Лежнина",
+      "postedTime": "2026-04-12T15:16:00.000Z",
+      "title": "Pinball Games Space Race",
+      "description": "10” Rye Rd",
+      "price": "$5",
+      "lat": 27.4989278,
+      "lon": -82.5748194,
+      "location": "Bradenton, FL",
+      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/669741011_2226331044858545_7973933569559299323_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=106&ccb=1-7&_nc_sid=92e707&_nc_ohc=B0kTxgSRf60Q7kNvwEnUAmS&_nc_oc=Adr11_Pg3DgtpY3FfC6DvFWKc_qZ3pDwgyFvpRWtNC5-68X1-Gc7qW2uWihVrZEUXJ4&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=b7cyz_hKkRcyIYl3u_eDOg&_nc_ss=7a3a8&oh=00_Af2wfmFOjbv0ZRr7OJ4YsOQGMt5trlpcSyCWswpUFPN4pw&oe=69E186EA",
+      "adUrl": "https://www.facebook.com/marketplace/item/937840572292111/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-04-12 16:05:03",
+      "lastSeen": "2026-04-12T16:05:34.495Z"
+    },
+    {
+      "adID": "1430072175556084",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100070484535906/?product_id=1430072175556084",
+      "author": "Ronnie Driver",
+      "postedTime": "2026-04-12T14:58:17.000Z",
+      "title": "Romztar Kageki Arcade Game",
+      "description": "Kageki (1988) is a 1-on-1 fighting arcade game, licensed by Romstar, where players control a bandaged street fighter navigating nine rounds against a motorcycle gang, the Warriors.",
+      "price": "$200",
+      "lat": 33.8312185,
+      "lon": -87.2775053,
+      "location": "Jasper, AL",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t15.5256-10/670362224_4369476230008877_2063185678859144449_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=111&ccb=1-7&_nc_sid=d4195b&_nc_ohc=KuvqAIYDN1YQ7kNvwHlD4lL&_nc_oc=Ado6ZDQjZ28ew5ydc77midjlv-YSfVJ3pC3UNTfmAxj-F8qB7XzF5AxgbxqMgevozF8&_nc_zt=23&_nc_ht=scontent-dfw5-1.xx&_nc_gid=1IuNUw4woTprIgbVkGDMiw&_nc_ss=7a3a8&oh=00_Af2hwL8kP09Nai0FHGiJbQpG87WAlV_i53pxgKuEYFnHMw&oe=69E197E7",
+      "adUrl": "https://www.facebook.com/marketplace/item/1430072175556084/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-04-12 16:04:24",
+      "lastSeen": "2026-04-12T16:04:38.265Z"
+    },
     {
       "adID": "1453321776230684",
       "source": "MP",
@@ -36,7 +76,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-12 15:06:15",
-      "lastSeen": "2026-04-12T15:06:58.649Z"
+      "lastSeen": "2026-04-12T16:05:03.989Z"
     },
     {
       "adID": "26570133739310383",
@@ -56,7 +96,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-12 15:06:15",
-      "lastSeen": "2026-04-12T15:06:58.683Z"
+      "lastSeen": "2026-04-12T16:05:04.023Z"
     },
     {
       "adID": "1438359907554093",
@@ -76,7 +116,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-12 15:06:14",
-      "lastSeen": "2026-04-12T15:06:58.568Z"
+      "lastSeen": "2026-04-12T16:05:03.586Z"
     },
     {
       "adID": "961929259569622",
@@ -156,7 +196,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-12 14:04:21",
-      "lastSeen": "2026-04-12T15:04:27.064Z"
+      "lastSeen": "2026-04-12T16:04:24.077Z"
     },
     {
       "adID": "1675797470520572",
@@ -176,7 +216,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-12 13:21:53",
-      "lastSeen": "2026-04-12T15:06:14.946Z"
+      "lastSeen": "2026-04-12T16:05:03.721Z"
     },
     {
       "adID": "1283543623109800",
@@ -436,7 +476,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-07 21:05:45",
-      "lastSeen": "2026-04-12T15:06:14.776Z"
+      "lastSeen": "2026-04-12T16:05:03.485Z"
     },
     {
       "adID": "822431540301236",
@@ -516,7 +556,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-06 14:07:05",
-      "lastSeen": "2026-04-12T15:07:32.638Z"
+      "lastSeen": "2026-04-12T16:06:05.814Z"
     },
     {
       "adID": "1266686865018954",
