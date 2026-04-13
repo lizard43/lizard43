@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-13T00:05:40.580Z",
+  "generated_at": "2026-04-13T00:22:19.629Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,33 +11,13 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 38,
-      "droppedPrice": 82,
+      "exported_ads": 36,
+      "droppedPrice": 77,
       "droppedMissingGeo": 0,
-      "droppedCircle": 76
+      "droppedCircle": 74
     }
   },
   "ads": [
-    {
-      "adID": "4630254037260770",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/1199110126/?product_id=4630254037260770",
-      "author": "Ron Litzenberger",
-      "postedTime": "2026-04-12T22:48:23.000Z",
-      "title": "Defender arcade game",
-      "description": "Awesome original Defender arcade game with silver coin door. Monitor and sounds working great. Keys missing, coin door locked.",
-      "price": "$25",
-      "lat": 34.729847,
-      "lon": -86.5859011,
-      "location": "Huntsville, AL",
-      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/668868265_1278374317767121_1046071414569708792_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=111&ccb=1-7&_nc_sid=92e707&_nc_ohc=DjAmMZDpDXUQ7kNvwEp76A8&_nc_oc=AdpY8rUZdoFoOhl5iJCXcGbhN83bfaQA4KeQCoMv-4H584GNyiGdkm9orweG3nNRZTU&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=gwt4kgcuIU039uv2I6BEKg&_nc_ss=7a3a8&oh=00_Af2TnZDMjoThW-Kz45ey7QWxsc68KwMniO6saeY1eYppTw&oe=69E1FA35",
-      "adUrl": "https://www.facebook.com/marketplace/item/4630254037260770/",
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-04-12 23:04:24",
-      "lastSeen": "2026-04-12T23:05:42.990Z"
-    },
     {
       "adID": "924410153551936",
       "source": "MP",
@@ -70,33 +50,13 @@
       "lat": 33.8312185,
       "lon": -87.2775053,
       "location": "Jasper, AL",
-      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t15.5256-10/671365020_26830194816606413_4931869796022921169_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=103&ccb=1-7&_nc_sid=d4195b&_nc_ohc=JdSs2lvplAcQ7kNvwGNOWrr&_nc_oc=AdrdjOUPT-oBjRecnsckmcec_FW16ockpL78zv0N0dYgIE8IqMRSw7HD4Vfqvvm1jak&_nc_zt=23&_nc_ht=scontent-dfw6-1.xx&_nc_gid=UMlpCk6eLZZanSWtvKKOIw&_nc_ss=7a3a8&oh=00_Af2dTwa7UIQ0kmAggSHKGQy2lWKQpQHwGXReGO5Xqs4OSw&oe=69E1C7CB",
+      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t15.5256-10/671365020_26830194816606413_4931869796022921169_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=103&ccb=1-7&_nc_sid=d4195b&_nc_ohc=JdSs2lvplAcQ7kNvwGNOWrr&_nc_oc=AdrdjOUPT-oBjRecnsckmcec_FW16ockpL78zv0N0dYgIE8IqMRSw7HD4Vfqvvm1jak&_nc_zt=23&_nc_ht=scontent-dfw6-1.xx&_nc_gid=3UaiMMDKmhSzRc91VvkTWg&_nc_ss=7a3a8&oh=00_Af2am3XpC_fME4gE7yNGbW9n4TjPk-Cc95x1HMpQ9o5zew&oe=69E2000B",
       "adUrl": "https://www.facebook.com/marketplace/item/1554369162777200/",
       "priceChanged": 0,
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-12 18:04:29",
-      "lastSeen": "2026-04-13T00:04:27.014Z"
-    },
-    {
-      "adID": "1430072175556084",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/100070484535906/?product_id=1430072175556084",
-      "author": "Ronnie Driver",
-      "postedTime": "2026-04-12T14:58:17.000Z",
-      "title": "Romztar Kageki Arcade Game",
-      "description": "Kageki (1988) is a 1-on-1 fighting arcade game, licensed by Romstar, where players control a bandaged street fighter navigating nine rounds against a motorcycle gang, the Warriors.",
-      "price": "$200",
-      "lat": 33.8312185,
-      "lon": -87.2775053,
-      "location": "Jasper, AL",
-      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t15.5256-10/670362224_4369476230008877_2063185678859144449_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=111&ccb=1-7&_nc_sid=d4195b&_nc_ohc=KuvqAIYDN1YQ7kNvwHlD4lL&_nc_oc=Ado6ZDQjZ28ew5ydc77midjlv-YSfVJ3pC3UNTfmAxj-F8qB7XzF5AxgbxqMgevozF8&_nc_zt=23&_nc_ht=scontent-dfw5-1.xx&_nc_gid=1IuNUw4woTprIgbVkGDMiw&_nc_ss=7a3a8&oh=00_Af2hwL8kP09Nai0FHGiJbQpG87WAlV_i53pxgKuEYFnHMw&oe=69E197E7",
-      "adUrl": "https://www.facebook.com/marketplace/item/1430072175556084/",
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-04-12 16:04:24",
-      "lastSeen": "2026-04-12T17:04:38.980Z"
+      "lastSeen": "2026-04-13T00:21:59.816Z"
     },
     {
       "adID": "961929259569622",
