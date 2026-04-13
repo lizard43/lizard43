@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-13T14:06:15.732Z",
+  "generated_at": "2026-04-13T15:06:55.807Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,33 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 36,
-      "droppedPrice": 91,
+      "exported_ads": 37,
+      "droppedPrice": 92,
       "droppedMissingGeo": 0,
-      "droppedCircle": 92
+      "droppedCircle": 96
     }
   },
   "ads": [
+    {
+      "adID": "2282663135477081",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/1078875547/?product_id=2282663135477081",
+      "author": "Melvin Harris",
+      "postedTime": "2026-04-13T14:07:16.000Z",
+      "title": "Arcade setup",
+      "description": "Only used once don't have time to play it Comes with Screen Pandora box Arcade stand",
+      "price": "$400",
+      "lat": 33.883887,
+      "lon": -84.5147454,
+      "location": "Smyrna, GA",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/672246920_1405161024633436_6863331509507599436_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=110&ccb=1-7&_nc_sid=92e707&_nc_ohc=30Tm8KWvwM8Q7kNvwHK6GRd&_nc_oc=AdrJYfwZxtwPTBmIpEcANxn-yEVFKldD-91XJqRf1pNT-D7Wl_wlItwyzhik9-TfkZk&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=fFG8ORRZ_eu1wZjf-cmhCA&_nc_ss=7a3a8&oh=00_Af23g9Hkm74lMkMF0TQA-OqoKujQI1uigO0ZHwhMV6_crQ&oe=69E2D661",
+      "adUrl": "https://www.facebook.com/marketplace/item/2282663135477081/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-04-13 15:05:19",
+      "lastSeen": "2026-04-13T15:05:39.200Z"
+    },
     {
       "adID": "949982537435258",
       "source": "MP",
@@ -36,7 +56,7 @@
       "priceChangedAt": "2026-04-13 13:05:03",
       "hidden": 0,
       "created_at": "2026-04-13 11:06:09",
-      "lastSeen": "2026-04-13T14:05:56.239Z"
+      "lastSeen": "2026-04-13T15:06:10.267Z"
     },
     {
       "adID": "924410153551936",
@@ -296,7 +316,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-07 21:05:45",
-      "lastSeen": "2026-04-13T14:05:56.099Z"
+      "lastSeen": "2026-04-13T15:06:10.094Z"
     },
     {
       "adID": "822431540301236",
@@ -376,7 +396,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-06 14:07:05",
-      "lastSeen": "2026-04-13T14:06:15.520Z"
+      "lastSeen": "2026-04-13T15:06:55.604Z"
     },
     {
       "adID": "1266686865018954",
