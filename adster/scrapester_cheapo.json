@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-13T18:32:03.726Z",
+  "generated_at": "2026-04-13T19:06:31.984Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,53 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 38,
-      "droppedPrice": 98,
+      "exported_ads": 40,
+      "droppedPrice": 103,
       "droppedMissingGeo": 0,
-      "droppedCircle": 101
+      "droppedCircle": 102
     }
   },
   "ads": [
+    {
+      "adID": "1590561205507879",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/1172867149/?product_id=1590561205507879",
+      "author": "Wanda Kent",
+      "postedTime": "2026-04-13T18:14:34.000Z",
+      "title": "Base ball game",
+      "description": "Baseball game",
+      "price": "$10",
+      "lat": 31.2237285,
+      "lon": -85.3934375,
+      "location": "Dothan, AL",
+      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/670123998_1866508024066441_3655592765770970131_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=107&ccb=1-7&_nc_sid=92e707&_nc_ohc=PmcEsmONqWkQ7kNvwGVbqK9&_nc_oc=AdrABZqpwrqX9dNEIP9v_nWs5PsO6Q8D9hvAZlrxwC4kvsC505xlavQjzOSkCJ-g0J8&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=iCiAILI6B7WDastyLsS52w&_nc_ss=7a3a8&oh=00_Af06wusvgfTUkeqw-eO2q1eyE0vQHHJJe6W6IvBh0oo7Bw&oe=69E2FADC",
+      "adUrl": "https://www.facebook.com/marketplace/item/1590561205507879/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-04-13 19:05:05",
+      "lastSeen": "2026-04-13T19:05:55.693Z"
+    },
+    {
+      "adID": "1217983476852768",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100003965691693/?product_id=1217983476852768",
+      "author": "Scott Rose",
+      "postedTime": "2026-04-13T18:26:19.000Z",
+      "title": "Small pinball",
+      "description": "Good slightly used pinball you sit it on a table and play It.",
+      "price": "$30",
+      "lat": 30.6936569,
+      "lon": -85.3918968,
+      "location": "Alford, FL",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/670408282_979557797773006_8790774010468426162_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=109&ccb=1-7&_nc_sid=92e707&_nc_ohc=HzauWwCQjtYQ7kNvwGoBamK&_nc_oc=AdpfptM6qVoHFJc9p3rucH-1_huxLYvK0oP__HB5Qo2PQkxSKLcjzQQg5P2CfZ0xsaA&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=u5RZw8oQ8W6vlr7Z2G1QTA&_nc_ss=7a3a8&oh=00_Af3bOCBJx8r3uvWJczdp6atwNCpbawLbZvciC7ULOcIKTA&oe=69E2F574",
+      "adUrl": "https://www.facebook.com/marketplace/item/1217983476852768/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-04-13 19:05:04",
+      "lastSeen": "2026-04-13T19:05:55.596Z"
+    },
     {
       "adID": "928970659767682",
       "source": "MP",
@@ -36,7 +76,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-13 17:07:43",
-      "lastSeen": "2026-04-13T18:05:45.970Z"
+      "lastSeen": "2026-04-13T19:05:04.849Z"
     },
     {
       "adID": "4454744101449584",
@@ -56,7 +96,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-13 17:05:19",
-      "lastSeen": "2026-04-13T18:05:46.003Z"
+      "lastSeen": "2026-04-13T19:05:04.883Z"
     },
     {
       "adID": "949982537435258",
@@ -76,7 +116,7 @@
       "priceChangedAt": "2026-04-13 13:05:03",
       "hidden": 0,
       "created_at": "2026-04-13 11:06:09",
-      "lastSeen": "2026-04-13T17:07:43.721Z"
+      "lastSeen": "2026-04-13T19:05:05.359Z"
     },
     {
       "adID": "924410153551936",
@@ -96,7 +136,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-12 20:05:01",
-      "lastSeen": "2026-04-13T14:05:56.339Z"
+      "lastSeen": "2026-04-13T19:05:05.459Z"
     },
     {
       "adID": "1554369162777200",
@@ -136,7 +176,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-12 15:04:27",
-      "lastSeen": "2026-04-13T13:05:23.435Z"
+      "lastSeen": "2026-04-13T19:05:05.526Z"
     },
     {
       "adID": "1675797470520572",
@@ -156,7 +196,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-12 13:21:53",
-      "lastSeen": "2026-04-13T13:05:23.502Z"
+      "lastSeen": "2026-04-13T19:05:05.593Z"
     },
     {
       "adID": "1283543623109800",
@@ -336,7 +376,7 @@
       "priceChangedAt": "2026-04-13 17:06:44",
       "hidden": 0,
       "created_at": "2026-04-07 21:05:45",
-      "lastSeen": "2026-04-13T18:05:45.092Z"
+      "lastSeen": "2026-04-13T19:05:04.568Z"
     },
     {
       "adID": "822431540301236",
@@ -416,7 +456,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-06 14:07:05",
-      "lastSeen": "2026-04-13T18:07:01.813Z"
+      "lastSeen": "2026-04-13T19:06:31.779Z"
     },
     {
       "adID": "1266686865018954",
