@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-13T11:09:00.954Z",
+  "generated_at": "2026-04-13T12:06:01.959Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,10 +11,10 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 39,
-      "droppedPrice": 88,
+      "exported_ads": 36,
+      "droppedPrice": 89,
       "droppedMissingGeo": 0,
-      "droppedCircle": 92
+      "droppedCircle": 91
     }
   },
   "ads": [
@@ -30,73 +30,13 @@
       "lat": 30.8327022,
       "lon": -83.2784851,
       "location": "Valdosta, GA",
-      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/669877505_1869738571080817_3307381727095772584_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=110&ccb=1-7&_nc_sid=92e707&_nc_ohc=5RO15Ox_7RkQ7kNvwGY3fol&_nc_oc=Adq6O2FHad9JNzhGwESnJybAgyz8RCjzAdF_AGTuRg0RWXlYJ1ci7jddP_WgnKb4dXo&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=DF_gLvufUfi9yGJqMRRiMw&_nc_ss=7a3a8&oh=00_Af2mICj5sv8yYUV2FvujZbv9uMI05J904JvekKPeqfkBJw&oe=69E2A1A2",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/669877505_1869738571080817_3307381727095772584_n.jpg?stp=c0.43.261.261a_dst-jpg_p261x260_tt6&_nc_cat=110&ccb=1-7&_nc_sid=92e707&_nc_ohc=5RO15Ox_7RkQ7kNvwGY3fol&_nc_oc=Adq6O2FHad9JNzhGwESnJybAgyz8RCjzAdF_AGTuRg0RWXlYJ1ci7jddP_WgnKb4dXo&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=6SQRfOs-2mciUxyMcUnU-A&_nc_ss=7a3a8&oh=00_Af0swO7QsBdApYxT_QHEBk6tl06zh3vQldsJdQEw4YRv1A&oe=69E2A1A2",
       "adUrl": "https://www.facebook.com/marketplace/item/949982537435258/",
-      "priceChanged": 0,
-      "priceChangedAt": null,
+      "priceChanged": 1,
+      "priceChangedAt": "2026-04-13 12:05:14",
       "hidden": 0,
       "created_at": "2026-04-13 11:06:09",
-      "lastSeen": "2026-04-13T11:08:29.284Z"
-    },
-    {
-      "adID": "1264601782428738",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/100089125090585/?product_id=1264601782428738",
-      "author": "Robert Minshew",
-      "postedTime": "2026-04-12T16:44:40.000Z",
-      "title": "Game",
-      "description": "Slot machine with lots of tokens works good.",
-      "price": "$250",
-      "lat": 28.4635266,
-      "lon": -82.5363557,
-      "location": "Spring Hill, FL",
-      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/667819420_987402107286030_1224407705920207978_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=104&ccb=1-7&_nc_sid=92e707&_nc_ohc=QLCeqCTatNkQ7kNvwH4t5Ue&_nc_oc=AdqmPGxm_qbxcQWpmGVbgh6CKs9MJ2DFHAmq9SRD_RHQuxPZiM0MUcOaTEzVZ3Optow&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=lfw3uUzO8sTFmsXA48ll0w&_nc_ss=7a3a8&oh=00_Af3Bf1vDJzyFITdvBM3QAPgfPg9S3eAuIDrQQkP1vTKvDw&oe=69E2AD20",
-      "adUrl": "https://www.facebook.com/marketplace/item/1264601782428738/",
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-04-13 11:06:09",
-      "lastSeen": "2026-04-13T11:08:29.317Z"
-    },
-    {
-      "adID": "26762166323413201",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/100010848968424/?product_id=26762166323413201",
-      "author": "Andrew Eaton",
-      "postedTime": "2026-04-11T17:40:35.000Z",
-      "title": "Hammer Black Widow Ghost Pearl",
-      "description": "Hammer Black Widow Ghost Pearl for sale. 14# pin up. Thumb slug not included. Have a handful of other balls available, as well. See last photo.",
-      "price": "$50",
-      "lat": 30.421309,
-      "lon": -87.2169149,
-      "location": "Pensacola, FL",
-      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/669404687_1527708452251659_6943019097367601765_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=102&ccb=1-7&_nc_sid=92e707&_nc_ohc=sCzfNqJqA8sQ7kNvwHMQG0c&_nc_oc=Adqx34rqhXGSjYodcY7uftkek2LyoDFYMJPl7RW-VB7jGLE7sXAQ-SoJXuCFVh1-H9Y&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=KgFNNdu3l7h5p9mHNc5sUA&_nc_ss=7a3a8&oh=00_Af1-72NKYTH3Enq29vw6A5I3ecpVqP9Iy0sW5jcI-ypGCQ&oe=69E29D17",
-      "adUrl": "https://www.facebook.com/marketplace/item/26762166323413201/",
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-04-13 11:06:09",
-      "lastSeen": "2026-04-13T11:08:29.351Z"
-    },
-    {
-      "adID": "1958770041436014",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/1207448550/?product_id=1958770041436014",
-      "author": "Yasir Taj",
-      "postedTime": "2026-04-12T23:54:33.000Z",
-      "title": "Game",
-      "description": "Game",
-      "price": "$45",
-      "lat": 33.7544657,
-      "lon": -84.3898151,
-      "location": "Atlanta, GA",
-      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/670401384_1462633608743670_7154170369077757202_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=101&ccb=1-7&_nc_sid=92e707&_nc_ohc=tp9sz5n0mFAQ7kNvwElbGOr&_nc_oc=AdoWSrmkMpyXBc5NSXQhT3RD9Uc-wA4gDhn4bqtjL1r39mKe_ksMxGnxjpn1Sn4SQjo&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=bXu0g6EYZIuCaNShveT_YQ&_nc_ss=7a3a8&oh=00_Af3iKd_r0jq3vbYGiE_Pugms28NqmwPaI5Fn_ksJKfWN_Q&oe=69E2AEF0",
-      "adUrl": "https://www.facebook.com/marketplace/item/1958770041436014/",
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-04-13 11:04:26",
-      "lastSeen": "2026-04-13T11:05:44.967Z"
+      "lastSeen": "2026-04-13T12:05:41.825Z"
     },
     {
       "adID": "924410153551936",
@@ -116,7 +56,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-12 20:05:01",
-      "lastSeen": "2026-04-13T11:06:09.260Z"
+      "lastSeen": "2026-04-13T12:05:41.926Z"
     },
     {
       "adID": "1554369162777200",
@@ -136,7 +76,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-12 18:04:29",
-      "lastSeen": "2026-04-13T02:04:23.246Z"
+      "lastSeen": "2026-04-13T12:04:27.842Z"
     },
     {
       "adID": "961929259569622",
@@ -156,7 +96,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-12 15:04:27",
-      "lastSeen": "2026-04-13T11:06:09.360Z"
+      "lastSeen": "2026-04-13T12:05:41.993Z"
     },
     {
       "adID": "1675797470520572",
@@ -176,7 +116,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-12 13:21:53",
-      "lastSeen": "2026-04-13T11:06:09.427Z"
+      "lastSeen": "2026-04-13T12:05:42.058Z"
     },
     {
       "adID": "1283543623109800",
@@ -356,7 +296,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-07 21:05:45",
-      "lastSeen": "2026-04-13T11:06:09.013Z"
+      "lastSeen": "2026-04-13T12:05:41.673Z"
     },
     {
       "adID": "822431540301236",
@@ -436,7 +376,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-06 14:07:05",
-      "lastSeen": "2026-04-13T11:09:00.710Z"
+      "lastSeen": "2026-04-13T12:06:01.824Z"
     },
     {
       "adID": "1266686865018954",
