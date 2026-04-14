@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-14T08:23:43.565Z",
+  "generated_at": "2026-04-14T11:11:13.043Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,53 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 37,
-      "droppedPrice": 93,
+      "exported_ads": 38,
+      "droppedPrice": 114,
       "droppedMissingGeo": 0,
-      "droppedCircle": 93
+      "droppedCircle": 113
     }
   },
   "ads": [
+    {
+      "adID": "1436708584231015",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100000071392805/?product_id=1436708584231015",
+      "author": "Lisa Gregorio",
+      "postedTime": "2026-04-13T21:40:17.000Z",
+      "title": "Electronic Arcade Duck Shooting Gallery game",
+      "description": "Electronic Arcade Duck Shooting Gallery game! Comes with blaster, darts, and a stage with moving ducks. Has electronic sounds too. Super fun for kids or adults!",
+      "price": "$10",
+      "lat": 28.782535,
+      "lon": -82.6065272,
+      "location": "Homosassa, FL",
+      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/672283538_1629986804780818_967754282048084561_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=106&ccb=1-7&_nc_sid=92e707&_nc_ohc=KDfJ7jImiC0Q7kNvwGxmST0&_nc_oc=AdrEb_XctVupPwIJLqT6rOTuVPL9GI0gmqMOZs3Nk5W46CsOv_5-gmInukdua9q5SPw&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=ci5LcQJZAOkxnbH1Ny71zQ&_nc_ss=7a3a8&oh=00_Af2DjVd7HI-mt6-0L_6O9JGO7ClR2GU1VjZLMVvPDGdkCg&oe=69E3E9DE",
+      "adUrl": "https://www.facebook.com/marketplace/item/1436708584231015/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-04-14 11:04:34",
+      "lastSeen": "2026-04-14T11:07:04.793Z"
+    },
+    {
+      "adID": "1668950120956432",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100000504314494/?product_id=1668950120956432",
+      "author": "MrsAsheley Larry",
+      "postedTime": "2026-04-13T15:54:34.000Z",
+      "title": "Spider-Man Arcade Art Panel",
+      "description": "Vibrant Spider-Man art panel. Features classic red and blue Spider-Man in a dynamic pose. Background has cool blue and red web/splatter design. Looks like it's from an arcade machine side panel.",
+      "price": "$20",
+      "lat": 30.6324149,
+      "lon": -87.0396881,
+      "location": "Milton, FL",
+      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/670794194_1513313300520560_1835243535938527232_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=101&ccb=1-7&_nc_sid=92e707&_nc_ohc=q92DEKvGLkkQ7kNvwGyLwuI&_nc_oc=AdrzVmtzzx-sHS4t89pgSK06qrTBKKTfVcWyFZ_oz2GCzeOJCaZj-8QUelIBneeGh50&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=KpiJ2velKwnHdGEghWv9_g&_nc_ss=7a3a8&oh=00_Af1zBphvDxWy4RbdKEzaAg5QlpWydkchoQOM-1RTc3ydxw&oe=69E3E3A7",
+      "adUrl": "https://www.facebook.com/marketplace/item/1668950120956432/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-04-14 11:04:34",
+      "lastSeen": "2026-04-14T11:07:04.994Z"
+    },
     {
       "adID": "928970659767682",
       "source": "MP",
@@ -36,7 +76,7 @@
       "priceChangedAt": "2026-04-14 01:05:25",
       "hidden": 0,
       "created_at": "2026-04-13 17:07:43",
-      "lastSeen": "2026-04-14T02:05:07.497Z"
+      "lastSeen": "2026-04-14T11:07:28.706Z"
     },
     {
       "adID": "4454744101449584",
@@ -56,7 +96,7 @@
       "priceChangedAt": "2026-04-14 01:04:18",
       "hidden": 0,
       "created_at": "2026-04-13 17:05:19",
-      "lastSeen": "2026-04-14T02:05:07.531Z"
+      "lastSeen": "2026-04-14T11:07:28.739Z"
     },
     {
       "adID": "949982537435258",
@@ -96,7 +136,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-12 20:05:01",
-      "lastSeen": "2026-04-14T02:05:07.698Z"
+      "lastSeen": "2026-04-14T11:07:29.315Z"
     },
     {
       "adID": "1554369162777200",
@@ -316,7 +356,7 @@
       "priceChangedAt": "2026-04-13 21:51:39",
       "hidden": 0,
       "created_at": "2026-04-07 21:05:45",
-      "lastSeen": "2026-04-14T02:05:07.292Z"
+      "lastSeen": "2026-04-14T11:07:28.010Z"
     },
     {
       "adID": "822431540301236",
@@ -377,26 +417,6 @@
       "hidden": 0,
       "created_at": "2026-04-06 19:04:17",
       "lastSeen": "2026-04-13T18:28:04.069Z"
-    },
-    {
-      "adID": "KLOV-562096",
-      "source": "KLOV",
-      "authorUrl": "https://forums.arcade-museum.com/members/gumby1109.63855/",
-      "author": "gumby1109",
-      "postedTime": "2026-04-12T18:04:37.000Z",
-      "title": "Midway Terminator 2 Judgment Day $750",
-      "description": "Selling my newly acquired Midway Terminator 2 game. The game play works as far as I can tell as it should. I've never played it before up to the point of owning this one. The explosion mirror is peeled and I haven't tested to make sure the explosion lights work yet. I will replace the bulbs and tes...",
-      "price": "$750",
-      "lat": 29.1871986,
-      "lon": -82.1400923,
-      "location": "Ocala, Florida",
-      "imageUrl": "https://forums.arcade-museum.com/favicon.ico",
-      "adUrl": "https://forums.arcade-museum.com/threads/562096/",
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-04-06 14:07:05",
-      "lastSeen": "2026-04-14T02:05:29.364Z"
     },
     {
       "adID": "1266686865018954",
