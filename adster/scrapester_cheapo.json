@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-15T19:05:53.432Z",
+  "generated_at": "2026-04-15T20:06:43.615Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,33 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 42,
-      "droppedPrice": 83,
+      "exported_ads": 43,
+      "droppedPrice": 88,
       "droppedMissingGeo": 0,
-      "droppedCircle": 87
+      "droppedCircle": 89
     }
   },
   "ads": [
+    {
+      "adID": "1609141166961486",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/61564331231912/?product_id=1609141166961486",
+      "author": "Todd Bennett",
+      "postedTime": "2026-04-15T15:36:48.000Z",
+      "title": "Nintendo",
+      "description": "Nintendo/super Nintendo after player ,plays all Nintendo and Super Nintendo games ,2 controllers and hook ups ,brand new with 4 Nintendo games ,also a Nintendo switch with 23000 games downloaded on it ,from PlayStation,Nintendo,sega,Super Nintendo and arcade ,all the top games ,plays great no problems 100 cash",
+      "price": "$100",
+      "lat": 33.8137919,
+      "lon": -85.7612872,
+      "location": "Jacksonville, AL",
+      "imageUrl": "https://scontent-atl3-1.xx.fbcdn.net/v/t39.84726-6/671706644_2409630492847227_1555249737355063226_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=103&ccb=1-7&_nc_sid=92e707&_nc_ohc=6Ih8h3fi9EUQ7kNvwFaeKZb&_nc_oc=Adqnwrqa3bIoM-2GBDUcCKVuCQ72zzruwbV7Aen-0Cn1Un9XezrsaIvXx5oZFsJWbbc&_nc_zt=14&_nc_ht=scontent-atl3-1.xx&_nc_gid=4lyztFBhyU4XSeToaRlnuQ&_nc_ss=7a3a8&oh=00_Af26l1i7b71HxFP8QkbLi3Z1hHcOwmr6Qie3p-VHWBZsjA&oe=69E5A6A9",
+      "adUrl": "https://www.facebook.com/marketplace/item/1609141166961486/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-04-15 20:04:35",
+      "lastSeen": "2026-04-15T20:05:18.673Z"
+    },
     {
       "adID": "2107748353292168",
       "source": "MP",
@@ -36,7 +56,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-15 19:04:41",
-      "lastSeen": "2026-04-15T19:05:14.104Z"
+      "lastSeen": "2026-04-15T20:05:47.583Z"
     },
     {
       "adID": "1752811932361636",
@@ -56,7 +76,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-15 19:04:41",
-      "lastSeen": "2026-04-15T19:05:14.160Z"
+      "lastSeen": "2026-04-15T20:05:47.645Z"
     },
     {
       "adID": "2003925873540213",
@@ -96,7 +116,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-15 11:04:28",
-      "lastSeen": "2026-04-15T19:04:41.873Z"
+      "lastSeen": "2026-04-15T20:05:47.516Z"
     },
     {
       "adID": "1990772581832766",
@@ -116,7 +136,7 @@
       "priceChangedAt": "2026-04-15 12:04:28",
       "hidden": 0,
       "created_at": "2026-04-15 11:04:28",
-      "lastSeen": "2026-04-15T19:04:31.325Z"
+      "lastSeen": "2026-04-15T20:04:35.250Z"
     },
     {
       "adID": "3047749905430332",
@@ -416,7 +436,7 @@
       "priceChangedAt": "2026-04-15 17:05:16",
       "hidden": 0,
       "created_at": "2026-04-07 21:05:45",
-      "lastSeen": "2026-04-15T19:04:41.634Z"
+      "lastSeen": "2026-04-15T20:05:47.253Z"
     },
     {
       "adID": "822431540301236",
