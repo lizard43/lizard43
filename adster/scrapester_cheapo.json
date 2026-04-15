@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-15T11:23:57.795Z",
+  "generated_at": "2026-04-15T12:07:47.713Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,33 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 39,
-      "droppedPrice": 91,
+      "exported_ads": 40,
+      "droppedPrice": 94,
       "droppedMissingGeo": 0,
-      "droppedCircle": 103
+      "droppedCircle": 109
     }
   },
   "ads": [
+    {
+      "adID": "2003925873540213",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100001545888619/?product_id=2003925873540213",
+      "author": "Robert Kiehl",
+      "postedTime": "2026-04-15T03:14:57.000Z",
+      "title": "1981 Atari Centipede Arcade Game marquee sign header video glass 23.75 in x6.5",
+      "description": "Has some marks, but all in all very good condition. For the year.",
+      "price": "$80",
+      "lat": 27.9658533,
+      "lon": -82.8001026,
+      "location": "Clearwater, FL",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/672148486_1465228122048220_2835395292000437727_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=111&ccb=1-7&_nc_sid=92e707&_nc_ohc=-PZdYDM3oXYQ7kNvwFvkd8O&_nc_oc=Ado2_JaBKFjS64zfZd2ULn0vRdp6SseNQildLRu2LOFfUz0ZtlgevMAKheF24K32L2Q&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=U4NwK2ssYVmZExkVTX0mvA&_nc_ss=7a3a8&oh=00_Af0DbkPqDRT7rbH9Fc8Yqqd4y-2YqR7IDq13BbF8yVuL9g&oe=69E54095",
+      "adUrl": "https://www.facebook.com/marketplace/item/2003925873540213/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-04-15 12:04:28",
+      "lastSeen": "2026-04-15T12:06:37.363Z"
+    },
     {
       "adID": "4689964064569900",
       "source": "MP",
@@ -36,27 +56,27 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-15 11:04:28",
-      "lastSeen": "2026-04-15T11:07:57.277Z"
+      "lastSeen": "2026-04-15T12:07:03.842Z"
     },
     {
       "adID": "1990772581832766",
       "source": "MP",
       "authorUrl": "https://www.facebook.com/marketplace/profile/1766518071/?product_id=1990772581832766",
       "author": "Garvis Often Gravy",
-      "postedTime": "2026-01-05T01:38:05.000Z",
+      "postedTime": "2026-04-14T20:27:14.000Z",
       "title": "Vintage Star Wars Arcade Game",
       "description": "Vintage Star Wars Arcade game. Not working but quote from Gameroom Superstores to fix for $1200. Only other one for sale i could find is listed at $7500. You must pick up in St. Pete...and you must provide the muscle.",
-      "price": "$500",
+      "price": "$650",
       "lat": 27.7712264,
       "lon": -82.6340259,
       "location": "St Petersburg, FL",
-      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/672077705_944317168517903_2575185043624751215_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=108&ccb=1-7&_nc_sid=92e707&_nc_ohc=CHyO5ygK5wEQ7kNvwE77Z2W&_nc_oc=AdoKpAcj4rgdPC60iAQ1WhOsuOmzeLU3ZoK4sWfNZ_GHhVi67NxozVbLdcam15JzA8c&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=7ATNhg1Dg5wQyK1KdEqsdQ&_nc_ss=7a3a8&oh=00_Af3VnFaKzb2yG4mAhlCBdNF5haO7FrVhsTdVnT06dJD7rg&oe=69E552CD",
+      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/672077705_944317168517903_2575185043624751215_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=108&ccb=1-7&_nc_sid=92e707&_nc_ohc=CHyO5ygK5wEQ7kNvwE77Z2W&_nc_oc=AdoKpAcj4rgdPC60iAQ1WhOsuOmzeLU3ZoK4sWfNZ_GHhVi67NxozVbLdcam15JzA8c&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=Q5l7jjqpyjGwfZv0sJOuHw&_nc_ss=7a3a8&oh=00_Af24kA6ltYA1qGbLCJstSGyFxtF2XXXST0TwsPaq1m0efA&oe=69E552CD",
       "adUrl": "https://www.facebook.com/marketplace/item/1990772581832766/",
       "priceChanged": 1,
-      "priceChangedAt": "2026-04-15 11:07:34",
+      "priceChangedAt": "2026-04-15 12:04:28",
       "hidden": 0,
       "created_at": "2026-04-15 11:04:28",
-      "lastSeen": "2026-04-15T11:07:34.587Z"
+      "lastSeen": "2026-04-15T12:06:37.078Z"
     },
     {
       "adID": "3047749905430332",
@@ -96,7 +116,7 @@
       "priceChangedAt": "2026-04-14 01:05:25",
       "hidden": 0,
       "created_at": "2026-04-13 17:07:43",
-      "lastSeen": "2026-04-15T11:07:57.445Z"
+      "lastSeen": "2026-04-15T12:07:03.976Z"
     },
     {
       "adID": "4454744101449584",
@@ -350,13 +370,13 @@
       "lat": 30.1765914,
       "lon": -85.805386,
       "location": "Panama City Beach, FL",
-      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t45.5328-4/666018733_2067742134124617_5295979752222823461_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=104&ccb=1-7&_nc_sid=247b10&_nc_ohc=hBVQ-cnUeUIQ7kNvwFmTu09&_nc_oc=Adroq5G5lScI83-8gVWIJyPJ2GFKq7KNpv5qWYRMqQJVm2LODhaniQGViAEnOmKc9Og&_nc_zt=23&_nc_ht=scontent-dfw5-2.xx&_nc_gid=wye9iakYB7vQtKlQWbTgDA&_nc_ss=7a3a8&oh=00_Af3G8V705oJl6GfldJPU47u67UePmzvLWiXy2P-s118rVw&oe=69E54730",
+      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t45.5328-4/666018733_2067742134124617_5295979752222823461_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=104&ccb=1-7&_nc_sid=247b10&_nc_ohc=hBVQ-cnUeUIQ7kNvwFmTu09&_nc_oc=Adroq5G5lScI83-8gVWIJyPJ2GFKq7KNpv5qWYRMqQJVm2LODhaniQGViAEnOmKc9Og&_nc_zt=23&_nc_ht=scontent-dfw5-2.xx&_nc_gid=vp55X-tZTZuKYGZvlnwlPw&_nc_ss=7a3a8&oh=00_Af3AH0z4mi-CkknAhlQjdyB37P63sZ3rrh56Ad0u56LPNw&oe=69E54730",
       "adUrl": "https://www.facebook.com/marketplace/item/934045759361321/",
       "priceChanged": 1,
-      "priceChangedAt": "2026-04-15 11:07:34",
+      "priceChangedAt": "2026-04-15 12:06:37",
       "hidden": 0,
       "created_at": "2026-04-07 21:05:45",
-      "lastSeen": "2026-04-15T11:07:57.086Z"
+      "lastSeen": "2026-04-15T12:07:03.676Z"
     },
     {
       "adID": "822431540301236",
