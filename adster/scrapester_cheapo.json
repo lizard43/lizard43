@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-15T20:21:46.834Z",
+  "generated_at": "2026-04-15T21:06:54.621Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,33 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 40,
-      "droppedPrice": 88,
+      "exported_ads": 41,
+      "droppedPrice": 92,
       "droppedMissingGeo": 0,
-      "droppedCircle": 89
+      "droppedCircle": 92
     }
   },
   "ads": [
+    {
+      "adID": "1043576732177798",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100045315606889/?product_id=1043576732177798",
+      "author": "Lisa Anne",
+      "postedTime": "2026-04-15T20:37:43.000Z",
+      "title": "Roll and Score arcade game",
+      "description": ".",
+      "price": "$100",
+      "lat": 30.0771675,
+      "lon": -90.485784,
+      "location": "Laplace, LA",
+      "imageUrl": "https://scontent-atl3-3.xx.fbcdn.net/v/t39.84726-6/671665083_2065354304414089_7337944476036375927_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=108&ccb=1-7&_nc_sid=92e707&_nc_ohc=E_R4ZolZY40Q7kNvwEYAWlb&_nc_oc=AdplGsU9VXo7aa8RyxjMGfGTtkEYX6LdIhMOzac6YsScPxH7b1S8wg0iBg-m9oYz9mk&_nc_zt=14&_nc_ht=scontent-atl3-3.xx&_nc_gid=aFOOlG-wXG94tjyclN-qzg&_nc_ss=7a3a8&oh=00_Af34tlMrPK83JwBqjj1kyx3T2VGJDMxJGhEetGCVvlarrQ&oe=69E5E6BD",
+      "adUrl": "https://www.facebook.com/marketplace/item/1043576732177798/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-04-15 21:04:33",
+      "lastSeen": "2026-04-15T21:06:10.206Z"
+    },
     {
       "adID": "2003925873540213",
       "source": "MP",
@@ -56,7 +76,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-15 11:04:28",
-      "lastSeen": "2026-04-15T20:05:47.516Z"
+      "lastSeen": "2026-04-15T21:06:34.973Z"
     },
     {
       "adID": "1990772581832766",
@@ -76,7 +96,7 @@
       "priceChangedAt": "2026-04-15 12:04:28",
       "hidden": 0,
       "created_at": "2026-04-15 11:04:28",
-      "lastSeen": "2026-04-15T20:04:35.250Z"
+      "lastSeen": "2026-04-15T21:04:33.895Z"
     },
     {
       "adID": "3047749905430332",
@@ -376,7 +396,7 @@
       "priceChangedAt": "2026-04-15 17:05:16",
       "hidden": 0,
       "created_at": "2026-04-07 21:05:45",
-      "lastSeen": "2026-04-15T20:05:47.253Z"
+      "lastSeen": "2026-04-15T21:06:34.674Z"
     },
     {
       "adID": "822431540301236",
