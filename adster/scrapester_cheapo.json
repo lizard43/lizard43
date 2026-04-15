@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-15T18:22:37.552Z",
+  "generated_at": "2026-04-15T19:05:53.432Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,53 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 40,
-      "droppedPrice": 82,
+      "exported_ads": 42,
+      "droppedPrice": 83,
       "droppedMissingGeo": 0,
-      "droppedCircle": 85
+      "droppedCircle": 87
     }
   },
   "ads": [
+    {
+      "adID": "2107748353292168",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100002248287853/?product_id=2107748353292168",
+      "author": "Susan Formal",
+      "postedTime": "2026-04-15T17:38:16.000Z",
+      "title": "Arcade",
+      "description": "Skittleball game including prizes. Needs speakers for sound.",
+      "price": "$300",
+      "lat": 27.5214269,
+      "lon": -82.5723193,
+      "location": "Palmetto, FL",
+      "imageUrl": "https://scontent-atl3-3.xx.fbcdn.net/v/t39.84726-6/671019885_767644366279536_1044276480051356312_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=92e707&_nc_ohc=DXOEMbdoiXgQ7kNvwE59PXO&_nc_oc=AdrpHakHMkwgLNxTEn4BpEnbaXrC2_31vM7G1tA-M7P4akJGh2fwKk8yBJp4WPIrtXM&_nc_zt=14&_nc_ht=scontent-atl3-3.xx&_nc_gid=45MXT2ed3oSRMNRxXyMDRg&_nc_ss=7a3a8&oh=00_Af0IAH2uCU_d4LdQYj3w8YqUAHw-fHj83GiJ9n2bM8ajCQ&oe=69E598CF",
+      "adUrl": "https://www.facebook.com/marketplace/item/2107748353292168/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-04-15 19:04:41",
+      "lastSeen": "2026-04-15T19:05:14.104Z"
+    },
+    {
+      "adID": "1752811932361636",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/1525504319/?product_id=1752811932361636",
+      "author": "Krista Lyford",
+      "postedTime": "2026-04-15T16:20:20.000Z",
+      "title": "Franklin Whirlball",
+      "description": "Not used much, too many toys, so I’m Downsizing toy room, comes with the batteries for keeping score. Could be an adult version of beer pong haha! Cash n Carry only!!!",
+      "price": "$25",
+      "lat": 32.6200973,
+      "lon": -83.606568,
+      "location": "Warner Robins, GA",
+      "imageUrl": "https://scontent-atl3-3.xx.fbcdn.net/v/t39.84726-6/671292896_1620556249200872_3663931187936470803_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=108&ccb=1-7&_nc_sid=92e707&_nc_ohc=hKTFY02Q4nIQ7kNvwFUHa0h&_nc_oc=Adp_KRjtelPxd48pen0ax4eH-aULshQz9lthH5HAZIUePK10Zg9XBW5RrishYRBWnPQ&_nc_zt=14&_nc_ht=scontent-atl3-3.xx&_nc_gid=Rw0wv6rsW21wl24hZlPZWg&_nc_ss=7a3a8&oh=00_Af373Kw2aHVH3BOqrLUflUS1f42oee6CoYuFft3ND5VsUw&oe=69E5B870",
+      "adUrl": "https://www.facebook.com/marketplace/item/1752811932361636/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-04-15 19:04:41",
+      "lastSeen": "2026-04-15T19:05:14.160Z"
+    },
     {
       "adID": "2003925873540213",
       "source": "MP",
@@ -56,7 +96,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-15 11:04:28",
-      "lastSeen": "2026-04-15T18:09:48.368Z"
+      "lastSeen": "2026-04-15T19:04:41.873Z"
     },
     {
       "adID": "1990772581832766",
@@ -76,7 +116,7 @@
       "priceChangedAt": "2026-04-15 12:04:28",
       "hidden": 0,
       "created_at": "2026-04-15 11:04:28",
-      "lastSeen": "2026-04-15T18:09:03.133Z"
+      "lastSeen": "2026-04-15T19:04:31.325Z"
     },
     {
       "adID": "3047749905430332",
@@ -376,7 +416,7 @@
       "priceChangedAt": "2026-04-15 17:05:16",
       "hidden": 0,
       "created_at": "2026-04-07 21:05:45",
-      "lastSeen": "2026-04-15T18:09:48.047Z"
+      "lastSeen": "2026-04-15T19:04:41.634Z"
     },
     {
       "adID": "822431540301236",
