@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-16T18:56:44.059Z",
+  "generated_at": "2026-04-16T19:06:30.741Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,33 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 41,
-      "droppedPrice": 99,
+      "exported_ads": 42,
+      "droppedPrice": 102,
       "droppedMissingGeo": 0,
-      "droppedCircle": 102
+      "droppedCircle": 105
     }
   },
   "ads": [
+    {
+      "adID": "1438381700837842",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100000688186051/?product_id=1438381700837842",
+      "author": "Daryl Pixley",
+      "postedTime": "2026-04-16T18:08:59.000Z",
+      "title": "antique pinball machine",
+      "description": "Old school pinball machine. The legs and balls are inside. I guess it worked when it was stored sometime in the 70’s .. needs some serious love to get back up and running. $250 obo in st pete. Cash only",
+      "price": "$250",
+      "lat": 27.7712264,
+      "lon": -82.6340259,
+      "location": "St Petersburg, FL",
+      "imageUrl": "https://scontent-atl3-3.xx.fbcdn.net/v/t39.84726-6/670995926_945504388095850_8965219224894013034_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=108&ccb=1-7&_nc_sid=92e707&_nc_ohc=UILzMxuQYSkQ7kNvwFoNpQG&_nc_oc=AdqH2dpQ-UBpubtlBPceY5MnQLMe88nLPxtZZDOYEe0JfT3f_UOV05z1cXVic9H7U9I&_nc_zt=14&_nc_ht=scontent-atl3-3.xx&_nc_gid=DI1rXQAUIc0cjwIKcFz9Dg&_nc_ss=7a3a8&oh=00_Af16PUFPsHjTD8FCDwOpIokaFIrfmDyqM8NMQRXXmIRHOw&oe=69E71A74",
+      "adUrl": "https://www.facebook.com/marketplace/item/1438381700837842/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-04-16 19:05:16",
+      "lastSeen": "2026-04-16T19:05:58.554Z"
+    },
     {
       "adID": "1603735400923845",
       "source": "MP",
@@ -36,7 +56,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-16 18:06:54",
-      "lastSeen": "2026-04-16T18:07:28.987Z"
+      "lastSeen": "2026-04-16T19:05:16.459Z"
     },
     {
       "adID": "1307970474628070",
@@ -396,7 +416,7 @@
       "priceChangedAt": "2026-04-16 17:05:09",
       "hidden": 0,
       "created_at": "2026-04-07 21:05:45",
-      "lastSeen": "2026-04-16T18:56:32.051Z"
+      "lastSeen": "2026-04-16T19:05:16.510Z"
     },
     {
       "adID": "822431540301236",
