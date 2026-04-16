@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-16T12:05:59.473Z",
+  "generated_at": "2026-04-16T13:05:37.769Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,33 +11,13 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 41,
-      "droppedPrice": 83,
+      "exported_ads": 40,
+      "droppedPrice": 74,
       "droppedMissingGeo": 0,
-      "droppedCircle": 111
+      "droppedCircle": 95
     }
   },
   "ads": [
-    {
-      "adID": "1499334935170827",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/100000548619633/?product_id=1499334935170827",
-      "author": "Crystal Koratko",
-      "postedTime": "2026-04-15T22:45:08.000Z",
-      "title": "Pinball pint glass",
-      "description": "Madisonville pick up",
-      "price": "$10",
-      "lat": 30.4043607,
-      "lon": -90.1570232,
-      "location": "Madisonville, LA",
-      "imageUrl": "https://scontent-atl3-3.xx.fbcdn.net/v/t39.84726-6/673191818_2021862498710122_7804946223005018568_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=109&ccb=1-7&_nc_sid=92e707&_nc_ohc=Sbc1hAThL6IQ7kNvwGiP7oc&_nc_oc=Adro_XFxVMY-aFHqXYdQqNDnkjU2WegFiSgGHaNux6C6GHI-CkLDe0hAAgM0KDx-fwA&_nc_zt=14&_nc_ht=scontent-atl3-3.xx&_nc_gid=seeveLoCFsMXb9oL-ta7Hw&_nc_ss=7a3a8&oh=00_Af3F08fCzLbXWEdxcr-OxgAClIxmVHiyQwZcNCXGWpFXQQ&oe=69E5DC89",
-      "adUrl": "https://www.facebook.com/marketplace/item/1499334935170827/",
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-04-15 23:05:52",
-      "lastSeen": "2026-04-16T12:05:12.969Z"
-    },
     {
       "adID": "2003925873540213",
       "source": "MP",
@@ -396,7 +376,7 @@
       "priceChangedAt": "2026-04-15 17:05:16",
       "hidden": 0,
       "created_at": "2026-04-07 21:05:45",
-      "lastSeen": "2026-04-16T12:05:12.853Z"
+      "lastSeen": "2026-04-16T13:04:38.511Z"
     },
     {
       "adID": "822431540301236",
