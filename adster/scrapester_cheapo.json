@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-16T19:06:30.741Z",
+  "generated_at": "2026-04-16T20:07:06.195Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,53 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 42,
-      "droppedPrice": 102,
+      "exported_ads": 44,
+      "droppedPrice": 105,
       "droppedMissingGeo": 0,
-      "droppedCircle": 105
+      "droppedCircle": 111
     }
   },
   "ads": [
+    {
+      "adID": "946992121416419",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/1670707871/?product_id=946992121416419",
+      "author": "Lori Mueller Barron",
+      "postedTime": "2026-04-16T18:56:38.000Z",
+      "title": "Outtaline Extreme Sports Bladeball Game 1999 by Hedstrom",
+      "description": "see box for description of what is included in the game",
+      "price": "$25",
+      "lat": 27.8428025,
+      "lon": -82.6995444,
+      "location": "Pinellas Park, FL",
+      "imageUrl": "https://scontent-atl3-1.xx.fbcdn.net/v/t45.5328-4/673453748_1647456773266616_7662009995160994167_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=100&ccb=1-7&_nc_sid=247b10&_nc_ohc=psNoUv0JOTsQ7kNvwEu-eg4&_nc_oc=Adr9bFOc_L5_fyUbx6udA5U3XxytmnQoaGXo7eFeV7TQOk__Lgh-PDN8hdSZeRDRj1Q&_nc_zt=23&_nc_ht=scontent-atl3-1.xx&_nc_gid=6YJeQut1tXFfu18srLdFEw&_nc_ss=7a3a8&oh=00_Af35r1VWeBVoXkNRXMo_R8mEE2DXVU8sJntoP7uj6SFneQ&oe=69E707BE",
+      "adUrl": "https://www.facebook.com/marketplace/item/946992121416419/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-04-16 20:04:33",
+      "lastSeen": "2026-04-16T20:06:25.176Z"
+    },
+    {
+      "adID": "1665244384895340",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/1528977829/?product_id=1665244384895340",
+      "author": "JoAnn Smith McNatt",
+      "postedTime": "2026-04-06T17:07:16.000Z",
+      "title": "Game/bank",
+      "description": "ION Icade -Save your quarters and play the fame. Keep your $$",
+      "price": "$200",
+      "lat": 33.2292976,
+      "lon": -87.5771286,
+      "location": "Northport, AL",
+      "imageUrl": "https://scontent-atl3-3.xx.fbcdn.net/v/t39.84726-6/673843808_2257840268370206_3900907005078296678_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=109&ccb=1-7&_nc_sid=92e707&_nc_ohc=jKmukhqyJEAQ7kNvwGL6KzB&_nc_oc=AdoGZl6H3giYp7qB9JHh5Qn8jyYpX6yxoJDkoVJ4Ctn_fcoTZ3enUodRfVRmQGRu-vc&_nc_zt=14&_nc_ht=scontent-atl3-3.xx&_nc_gid=DD8bxoU7HCuPvlySp67rEQ&_nc_ss=7a3a8&oh=00_Af1sMyQsn9ZrAO1Ki73MKEIo5E76rGqc1a3xZx5CfKH-yA&oe=69E6FB18",
+      "adUrl": "https://www.facebook.com/marketplace/item/1665244384895340/",
+      "priceChanged": 1,
+      "priceChangedAt": "2026-04-16 20:06:25",
+      "hidden": 0,
+      "created_at": "2026-04-16 20:04:33",
+      "lastSeen": "2026-04-16T20:06:25.276Z"
+    },
     {
       "adID": "1438381700837842",
       "source": "MP",
@@ -56,7 +96,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-16 18:06:54",
-      "lastSeen": "2026-04-16T19:05:16.459Z"
+      "lastSeen": "2026-04-16T20:04:33.063Z"
     },
     {
       "adID": "1307970474628070",
@@ -76,7 +116,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-16 14:04:14",
-      "lastSeen": "2026-04-16T18:04:23.565Z"
+      "lastSeen": "2026-04-16T20:04:34.065Z"
     },
     {
       "adID": "2003925873540213",
@@ -416,7 +456,7 @@
       "priceChangedAt": "2026-04-16 17:05:09",
       "hidden": 0,
       "created_at": "2026-04-07 21:05:45",
-      "lastSeen": "2026-04-16T19:05:16.510Z"
+      "lastSeen": "2026-04-16T20:04:33.094Z"
     },
     {
       "adID": "822431540301236",
