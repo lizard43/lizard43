@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-16T14:07:07.841Z",
+  "generated_at": "2026-04-16T15:06:26.473Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,33 +11,13 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 43,
-      "droppedPrice": 78,
+      "exported_ads": 41,
+      "droppedPrice": 85,
       "droppedMissingGeo": 0,
-      "droppedCircle": 97
+      "droppedCircle": 98
     }
   },
   "ads": [
-    {
-      "adID": "1289586009345457",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/100002968963085/?product_id=1289586009345457",
-      "author": "Karina Hall",
-      "postedTime": "2026-04-16T13:05:14.000Z",
-      "title": "Pin",
-      "description": "Cool pin “Heart switch”",
-      "price": "$20",
-      "lat": 27.7741547,
-      "lon": -82.4062097,
-      "location": "Apollo Beach, FL",
-      "imageUrl": "https://scontent-atl3-1.xx.fbcdn.net/v/t39.84726-6/670859917_1600827167668295_6269313416620254708_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=106&ccb=1-7&_nc_sid=92e707&_nc_ohc=nx_SDWygazAQ7kNvwEGcR5j&_nc_oc=Adp-32Tkcb9w6BeQemi0kShTiYjIp1Fc3sEChPa-OqdAHoucimLW3mla2nDW4KNrev0&_nc_zt=14&_nc_ht=scontent-atl3-1.xx&_nc_gid=lfkbNa4HobAeQ0juj0BOfQ&_nc_ss=7a3a8&oh=00_Af2K2WUlP-hJ1WrrFfQe_fBYnoqcps6qUBvtwvE-aYzynA&oe=69E6DA30",
-      "adUrl": "https://www.facebook.com/marketplace/item/1289586009345457/",
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-04-16 14:05:09",
-      "lastSeen": "2026-04-16T14:06:28.632Z"
-    },
     {
       "adID": "2040941186822844",
       "source": "MP",
@@ -197,26 +177,6 @@
       "hidden": 0,
       "created_at": "2026-04-13 17:05:19",
       "lastSeen": "2026-04-16T07:24:13.293Z"
-    },
-    {
-      "adID": "949982537435258",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/100000599225525/?product_id=949982537435258",
-      "author": "Wes Warren",
-      "postedTime": "2026-04-13T01:58:41.000Z",
-      "title": "(PENDING) Pinball Machine",
-      "description": "Xenon Pinball machine, it lights up but nothing else. No sure what’s it worth. Need it gone. Best offer and it’s yours",
-      "price": "$1",
-      "lat": 30.8327022,
-      "lon": -83.2784851,
-      "location": "Valdosta, GA",
-      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/669877505_1869738571080817_3307381727095772584_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=110&ccb=1-7&_nc_sid=92e707&_nc_ohc=fr2WN99C51QQ7kNvwFkRJp_&_nc_oc=AdrHmO6g60XOyy9JCwsxcx1yRwrycKjq9K4L7YtOuZAltkos_8i77aEMzGkPRGfPjEc&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=eCSYepU_GdHRBJxB0For7g&_nc_ss=7a3a8&oh=00_Af2UoGqhAwqTbttDIIqlJKOPiMn730Qk8u32BEZZmd1bdQ&oe=69E5B522",
-      "adUrl": "https://www.facebook.com/marketplace/item/949982537435258/",
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-04-13 11:06:09",
-      "lastSeen": "2026-04-15T18:22:21.947Z"
     },
     {
       "adID": "924410153551936",
@@ -436,7 +396,7 @@
       "priceChangedAt": "2026-04-15 17:05:16",
       "hidden": 0,
       "created_at": "2026-04-07 21:05:45",
-      "lastSeen": "2026-04-16T14:05:08.754Z"
+      "lastSeen": "2026-04-16T15:05:05.967Z"
     },
     {
       "adID": "822431540301236",
