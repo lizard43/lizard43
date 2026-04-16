@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-16T17:06:33.371Z",
+  "generated_at": "2026-04-16T18:08:03.769Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,33 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 40,
-      "droppedPrice": 90,
+      "exported_ads": 41,
+      "droppedPrice": 99,
       "droppedMissingGeo": 0,
-      "droppedCircle": 93
+      "droppedCircle": 102
     }
   },
   "ads": [
+    {
+      "adID": "1603735400923845",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/1353189086/?product_id=1603735400923845",
+      "author": "Jon Sutcliffe",
+      "postedTime": "2026-04-16T17:52:33.000Z",
+      "title": "1984 Williams Laser Cue Pinball",
+      "description": "1984 Williams Laser Cue is a four flipper game. Pinside Info: Estimated value $1660 - $1940 https://pinside.com/pinball/machine/laser-cue Non working. I have not attempted to plug-in or troubleshoot. I need workshop space! Make an offer. Cash only. Look at pictures, ask for more. Prefer local pickup so you can check out condition but I will ship if you make all shipper arrangements.",
+      "price": "$750",
+      "lat": 30.4982516,
+      "lon": -86.1360517,
+      "location": "Freeport, FL",
+      "imageUrl": "https://scontent-atl3-2.xx.fbcdn.net/v/t45.5328-4/671973290_4543223422631207_3698060104583064033_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=247b10&_nc_ohc=3ZCMQbTo3gcQ7kNvwFNx5nM&_nc_oc=AdqiMTrpXYkxP_bKTevMwVnB7dIufL9MoSzfS90Tayz3Rj2olVnMOuNndGOQJln5jys&_nc_zt=23&_nc_ht=scontent-atl3-2.xx&_nc_gid=46HXnks3L2nsvfnvxbOKFA&_nc_ss=7a3a8&oh=00_Af0_a4Zea8Y6Fzh76q0_IcIT6aaPoIr_EaK6Jx7hfDxgIw&oe=69E6DF8A",
+      "adUrl": "https://www.facebook.com/marketplace/item/1603735400923845/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-04-16 18:06:54",
+      "lastSeen": "2026-04-16T18:07:28.987Z"
+    },
     {
       "adID": "1307970474628070",
       "source": "MP",
@@ -36,7 +56,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-16 14:04:14",
-      "lastSeen": "2026-04-16T14:05:09.053Z"
+      "lastSeen": "2026-04-16T18:04:23.565Z"
     },
     {
       "adID": "2003925873540213",
@@ -376,7 +396,7 @@
       "priceChangedAt": "2026-04-16 17:05:09",
       "hidden": 0,
       "created_at": "2026-04-07 21:05:45",
-      "lastSeen": "2026-04-16T17:05:51.683Z"
+      "lastSeen": "2026-04-16T18:06:54.954Z"
     },
     {
       "adID": "822431540301236",
