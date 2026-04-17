@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-17T17:07:39.149Z",
+  "generated_at": "2026-04-17T18:07:21.878Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,33 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 47,
-      "droppedPrice": 82,
+      "exported_ads": 48,
+      "droppedPrice": 84,
       "droppedMissingGeo": 0,
-      "droppedCircle": 95
+      "droppedCircle": 97
     }
   },
   "ads": [
+    {
+      "adID": "4392337107675105",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100001135084366/?product_id=4392337107675105",
+      "author": "Myers Darrell",
+      "postedTime": "2026-04-17T17:45:16.000Z",
+      "title": "Pinball for Nintendo NES *Complete in Box",
+      "description": "Pinball for Nintendo NES *Complete in Box Tampa Bay Pawn 2007 Gulf to Bay Blvd Clearwater, FL 33765 [hidden information] Open Tue-Fri 9AM-6PM Open Sat 9AM-4PM Closed Sunday & Monday",
+      "price": "$30",
+      "lat": 27.9658533,
+      "lon": -82.8001026,
+      "location": "Clearwater, FL",
+      "imageUrl": "https://scontent-atl3-2.xx.fbcdn.net/v/t39.84726-6/672313453_889033970826002_2078766487646765239_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=101&ccb=1-7&_nc_sid=92e707&_nc_ohc=u45jMdccmoYQ7kNvwF82iXY&_nc_oc=AdqqeL1-rMbjhQyml7yh1FTfXGR22AbL3bvvU41mA_00JcoqT1bq5A3y6I1XEG7uGck&_nc_zt=14&_nc_ht=scontent-atl3-2.xx&_nc_gid=qspLgLUGm5I94BgFbGhXAg&_nc_ss=7a3a8&oh=00_Af0Kr__i8B6yv2uQ3twaoArWSta3_kPbGqee-1CIJ-GTxA&oe=69E842BB",
+      "adUrl": "https://www.facebook.com/marketplace/item/4392337107675105/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-04-17 18:06:25",
+      "lastSeen": "2026-04-17T18:06:36.989Z"
+    },
     {
       "adID": "1645100336540426",
       "source": "MP",
@@ -36,7 +56,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-17 17:05:51",
-      "lastSeen": "2026-04-17T17:06:26.764Z"
+      "lastSeen": "2026-04-17T18:05:44.170Z"
     },
     {
       "adID": "1409623354267044",
@@ -76,7 +96,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-17 16:05:42",
-      "lastSeen": "2026-04-17T17:06:52.190Z"
+      "lastSeen": "2026-04-17T18:06:25.235Z"
     },
     {
       "adID": "804169872764166",
@@ -216,7 +236,7 @@
       "priceChangedAt": "2026-04-17 17:06:26",
       "hidden": 0,
       "created_at": "2026-04-16 18:06:54",
-      "lastSeen": "2026-04-17T17:06:52.091Z"
+      "lastSeen": "2026-04-17T18:06:25.093Z"
     },
     {
       "adID": "1307970474628070",
@@ -576,7 +596,7 @@
       "priceChangedAt": "2026-04-16 17:05:09",
       "hidden": 0,
       "created_at": "2026-04-07 21:05:45",
-      "lastSeen": "2026-04-17T17:06:52.123Z"
+      "lastSeen": "2026-04-17T18:06:25.135Z"
     },
     {
       "adID": "1606575293930017",
