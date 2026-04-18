@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-18T08:23:54.120Z",
+  "generated_at": "2026-04-18T11:08:23.618Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,73 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 46,
-      "droppedPrice": 70,
+      "exported_ads": 49,
+      "droppedPrice": 75,
       "droppedMissingGeo": 0,
       "droppedCircle": 87
     }
   },
   "ads": [
+    {
+      "adID": "1626526781797034",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/1774317788/?product_id=1626526781797034",
+      "author": "Janet Lee",
+      "postedTime": "2026-04-17T22:36:42.000Z",
+      "title": "BONANZA BANK NEVADA",
+      "description": "Vintage mini slot machine",
+      "price": "$40",
+      "lat": 28.2336196,
+      "lon": -82.1811947,
+      "location": "Zephyrhills, FL",
+      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/672671516_840384455090096_6324047264183051859_n.jpg?stp=dst-jpg_p960x960_tt6&_nc_cat=108&ccb=1-7&_nc_sid=92e707&_nc_ohc=FCMfYDGdSEkQ7kNvwELILo7&_nc_oc=AdpY0bUEKGtU-bRPO5pDt6ZI_5kE-aKfsoDsSBfuQFfxV8htoJ3clabIHn-xJfFUBbM&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=1ORYJ6UfmDPAItqY7it8kQ&_nc_ss=7a3a8&oh=00_Af2aPmerIQwSvhJ_jyNdd7-TcEVhHp4HZUAUkuIpkB_d4g&oe=69E9438D",
+      "adUrl": "https://www.facebook.com/marketplace/item/1626526781797034/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-04-18 11:06:52",
+      "lastSeen": "2026-04-18T11:07:31.635Z"
+    },
+    {
+      "adID": "1925503898070100",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100083610171201/?product_id=1925503898070100",
+      "author": "Laurence Min",
+      "postedTime": "2026-04-18T01:14:38.000Z",
+      "title": "G5 Game box",
+      "description": "500 Nintendo games and others",
+      "price": "$10",
+      "lat": 30.4380832,
+      "lon": -84.2809332,
+      "location": "Tallahassee, FL",
+      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/671891471_1255522283228918_8235480785191221255_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=101&ccb=1-7&_nc_sid=92e707&_nc_ohc=7Zp9iV69RlQQ7kNvwHi2mRX&_nc_oc=Adpi-2EvCG3Xc4hDi4ogWdAbn3aWrNz3_iLNmEE1NERGuiyqCYS70aN5EygGNS1JJi8&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=5A9ebaMUAIL9NzH_vzTWxQ&_nc_ss=7a3a8&oh=00_Af2g0QPIe_D_ObupX-z-UQ8ZbbpDzim_m00jp2IUCKwcSA&oe=69E92BBF",
+      "adUrl": "https://www.facebook.com/marketplace/item/1925503898070100/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-04-18 11:05:20",
+      "lastSeen": "2026-04-18T11:06:19.442Z"
+    },
+    {
+      "adID": "1649506129628274",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100043618939151/?product_id=1649506129628274",
+      "author": "Francisco Cholula",
+      "postedTime": "2026-04-18T01:12:58.000Z",
+      "title": "Mario kart 8",
+      "description": "Sin caja y cambio por algún juego de Pokémon para switch",
+      "price": "$35",
+      "lat": 33.7544657,
+      "lon": -84.3898151,
+      "location": "Atlanta, GA",
+      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/672262470_1309025431328320_9116552842843314175_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=103&ccb=1-7&_nc_sid=92e707&_nc_ohc=TuTYhAIdUVQQ7kNvwHWQt1Y&_nc_oc=AdotnTS6ZI5yZ-VkApDvPPpcI0zO8MPGNL6h4to6u_dWJdQGy6uivyHs_UdlnA6cFvM&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=xcjcWc0xqaywDxX09aN1XA&_nc_ss=7a3a8&oh=00_Af1R6PKVbV2M58hsL8hNyhOl6P-zX45BXBaHhQIo3vyprQ&oe=69E931C6",
+      "adUrl": "https://www.facebook.com/marketplace/item/1649506129628274/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-04-18 11:05:20",
+      "lastSeen": "2026-04-18T11:06:19.476Z"
+    },
     {
       "adID": "2032766877620071",
       "source": "MP",
@@ -36,7 +96,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-18 01:06:00",
-      "lastSeen": "2026-04-18T02:05:54.175Z"
+      "lastSeen": "2026-04-18T11:06:52.190Z"
     },
     {
       "adID": "927172130185097",
@@ -196,7 +256,7 @@
       "priceChangedAt": "2026-04-17 17:06:26",
       "hidden": 0,
       "created_at": "2026-04-16 18:06:54",
-      "lastSeen": "2026-04-18T02:05:54.091Z"
+      "lastSeen": "2026-04-18T11:06:52.092Z"
     },
     {
       "adID": "2051087549121664",
@@ -550,13 +610,13 @@
       "lat": 30.4982516,
       "lon": -86.1360517,
       "location": "Freeport, FL",
-      "imageUrl": "https://scontent-atl3-2.xx.fbcdn.net/v/t45.5328-4/666018733_2067742134124617_5295979752222823461_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=104&ccb=1-7&_nc_sid=247b10&_nc_ohc=hBVQ-cnUeUIQ7kNvwFmTu09&_nc_oc=Adroq5G5lScI83-8gVWIJyPJ2GFKq7KNpv5qWYRMqQJVm2LODhaniQGViAEnOmKc9Og&_nc_zt=23&_nc_ht=scontent-atl3-2.xx&_nc_gid=vKCaPf7oZB0tui96vp_hZw&_nc_ss=7a3a8&oh=00_Af343LRXcn6w7bNWG5Fm-BYuWbKUET4LvdCHEPY1JANdDA&oe=69E70930",
+      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t45.5328-4/666018733_2067742134124617_5295979752222823461_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=104&ccb=1-7&_nc_sid=247b10&_nc_ohc=4fVPIPVhjTAQ7kNvwF2lfGg&_nc_oc=AdpoY6O_nxY1uZWJLkadOt5vLtfTzYhIkzIxhyfXLOR5oL9SLDJrVPBMWKVTA_ndopc&_nc_zt=23&_nc_ht=scontent-dfw5-2.xx&_nc_gid=I5yW_DO-_rjjGgYXD6sHEQ&_nc_ss=7a3a8&oh=00_Af32XZpaqEJ_x-PqyCmDXy273Lcu43CJfqKuXU1EMKO6pA&oe=69E93BB0",
       "adUrl": "https://www.facebook.com/marketplace/item/934045759361321/",
       "priceChanged": 1,
-      "priceChangedAt": "2026-04-16 17:05:09",
+      "priceChangedAt": "2026-04-18 11:06:19",
       "hidden": 0,
       "created_at": "2026-04-07 21:05:45",
-      "lastSeen": "2026-04-18T02:05:54.141Z"
+      "lastSeen": "2026-04-18T11:06:52.123Z"
     },
     {
       "adID": "1606575293930017",
