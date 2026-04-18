@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-18T16:06:44.935Z",
+  "generated_at": "2026-04-18T17:07:09.797Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,33 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 54,
-      "droppedPrice": 114,
+      "exported_ads": 55,
+      "droppedPrice": 115,
       "droppedMissingGeo": 0,
-      "droppedCircle": 135
+      "droppedCircle": 139
     }
   },
   "ads": [
+    {
+      "adID": "1236221741874844",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/61566972595802/?product_id=1236221741874844",
+      "author": "Michelle Campbell",
+      "postedTime": "2026-04-18T16:42:32.000Z",
+      "title": "Pins",
+      "description": "Multiple vintage pins Buy all or separately $25",
+      "price": "$25",
+      "lat": 30.7918559,
+      "lon": -85.6796533,
+      "location": "Bonifay, FL",
+      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/672672930_1562877318732130_4374451831486051055_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=103&ccb=1-7&_nc_sid=92e707&_nc_ohc=cGyMYRy9TBAQ7kNvwFdTpGc&_nc_oc=AdoSO09j5D80tilE9qcfL5mqMZEoxIe_a3VjvQJBjlXhZd7XQ3gp5cRDjrYXupdIJOo&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=fEpTLbSTrhskpNYykwozlw&_nc_ss=7a3a8&oh=00_Af0c-dT8aE8GtG5c83ORrXbnOWaIzERmjlvQ7X5X_o5Qdg&oe=69E970B1",
+      "adUrl": "https://www.facebook.com/marketplace/item/1236221741874844/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-04-18 17:05:59",
+      "lastSeen": "2026-04-18T17:06:35.566Z"
+    },
     {
       "adID": "992037493161931",
       "source": "MP",
@@ -56,7 +76,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-18 16:04:22",
-      "lastSeen": "2026-04-18T16:05:57.294Z"
+      "lastSeen": "2026-04-18T17:05:59.192Z"
     },
     {
       "adID": "1302090008542767",
@@ -76,7 +96,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-18 16:04:22",
-      "lastSeen": "2026-04-18T16:05:57.730Z"
+      "lastSeen": "2026-04-18T17:05:59.627Z"
     },
     {
       "adID": "1628723615095725",
@@ -96,7 +116,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-18 16:04:22",
-      "lastSeen": "2026-04-18T16:05:35.432Z"
+      "lastSeen": "2026-04-18T17:04:37.723Z"
     },
     {
       "adID": "1505913734463453",
@@ -196,7 +216,7 @@
       "priceChangedAt": "2026-04-18 14:06:36",
       "hidden": 0,
       "created_at": "2026-04-18 13:03:45",
-      "lastSeen": "2026-04-18T16:05:57.874Z"
+      "lastSeen": "2026-04-18T17:05:59.761Z"
     },
     {
       "adID": "910598845354521",
@@ -216,7 +236,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-18 13:03:44",
-      "lastSeen": "2026-04-18T16:05:57.529Z"
+      "lastSeen": "2026-04-18T17:05:59.392Z"
     },
     {
       "adID": "1281190544106200",
@@ -236,7 +256,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-18 12:58:09",
-      "lastSeen": "2026-04-18T16:04:22.633Z"
+      "lastSeen": "2026-04-18T17:04:37.523Z"
     },
     {
       "adID": "2032766877620071",
@@ -256,7 +276,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-18 01:06:00",
-      "lastSeen": "2026-04-18T16:05:57.495Z"
+      "lastSeen": "2026-04-18T17:05:59.359Z"
     },
     {
       "adID": "927172130185097",
@@ -276,7 +296,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-17 23:05:29",
-      "lastSeen": "2026-04-18T16:04:22.365Z"
+      "lastSeen": "2026-04-18T17:04:37.243Z"
     },
     {
       "adID": "1645686226884930",
@@ -376,7 +396,7 @@
       "priceChangedAt": "2026-04-17 17:06:26",
       "hidden": 0,
       "created_at": "2026-04-16 18:06:54",
-      "lastSeen": "2026-04-18T16:05:56.883Z"
+      "lastSeen": "2026-04-18T17:05:59.053Z"
     },
     {
       "adID": "2051087549121664",
@@ -716,7 +736,7 @@
       "priceChangedAt": "2026-04-18 12:05:34",
       "hidden": 0,
       "created_at": "2026-04-07 21:05:45",
-      "lastSeen": "2026-04-18T16:05:56.920Z"
+      "lastSeen": "2026-04-18T17:05:59.091Z"
     },
     {
       "adID": "1606575293930017",
