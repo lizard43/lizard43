@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-19T20:06:16.166Z",
+  "generated_at": "2026-04-19T21:07:58.491Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,53 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 36,
-      "droppedPrice": 65,
+      "exported_ads": 38,
+      "droppedPrice": 72,
       "droppedMissingGeo": 0,
-      "droppedCircle": 81
+      "droppedCircle": 88
     }
   },
   "ads": [
+    {
+      "adID": "1478974690613293",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/1073886568/?product_id=1478974690613293",
+      "author": "John Paulchek",
+      "postedTime": "2026-04-19T20:20:49.000Z",
+      "title": "1978 close encounters pinball",
+      "description": "Vintage 1978 Gottlieb Close Encounters of the Third Kind pinball machine. Cabinet has yellow and blue graphics with wood grain accents. Playfield is multi-colored with sci-fi artwork. Ball won’t eject but everything else works.",
+      "price": "$600",
+      "lat": 30.3612885,
+      "lon": -87.1683428,
+      "location": "Gulf Breeze, FL",
+      "imageUrl": "https://scontent-atl3-2.xx.fbcdn.net/v/t39.84726-6/672692261_2417524918744332_5172625243563600612_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=104&ccb=1-7&_nc_sid=92e707&_nc_ohc=Wv2-4mYAuAYQ7kNvwGX_ZJo&_nc_oc=AdqdAo2k32QYeWePerSSmJzpjr-Awsw0JAmqBe_T7656Ri4BsgMUkjLSMVb-ix4SUCk&_nc_zt=14&_nc_ht=scontent-atl3-2.xx&_nc_gid=tCEpJJPOQxvGtsSaQVUI2Q&_nc_ss=7a3a8&oh=00_Af06s_FwH48wS-IhENKHmt4a5BvO4LQK7dPG5bi6pMtlyw&oe=69EB146A",
+      "adUrl": "https://www.facebook.com/marketplace/item/1478974690613293/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-04-19 21:06:46",
+      "lastSeen": "2026-04-19T21:07:28.031Z"
+    },
+    {
+      "adID": "2823926677962463",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/755014567/?product_id=2823926677962463",
+      "author": "Corey Olson",
+      "postedTime": "2026-04-19T20:06:48.000Z",
+      "title": "Arcade machine",
+      "description": "Arcade machine legacy edition bought for my boys, used a handful of times. Perfect for a playroom, air bnb, man cave fun to just play retro games from childhood.",
+      "price": "$200",
+      "lat": 28.0856815,
+      "lon": -82.756907,
+      "location": "Palm Harbor, FL",
+      "imageUrl": "https://scontent-atl3-2.xx.fbcdn.net/v/t15.5256-10/674243169_992846793310938_5146763708614172423_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=104&ccb=1-7&_nc_sid=d4195b&_nc_ohc=7mE7_PyRxmkQ7kNvwGU8DOT&_nc_oc=AdrOiNcKbecW3qheSCgOc84OSSdmGAhUB_W2QtU4mMrrzVNzrc0QcaKIEsmeXCupic4&_nc_zt=23&_nc_ht=scontent-atl3-2.xx&_nc_gid=OE1VNFiVhW4ahbXhLpofIQ&_nc_ss=7a3a8&oh=00_Af23yssT63XJa6QUWujmlToP_D2wR8QR-n4VqbGcAoH8aw&oe=69EB1B42",
+      "adUrl": "https://www.facebook.com/marketplace/item/2823926677962463/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-04-19 21:04:22",
+      "lastSeen": "2026-04-19T21:06:17.265Z"
+    },
     {
       "adID": "925782803596412",
       "source": "MP",
@@ -36,7 +76,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-19 11:05:09",
-      "lastSeen": "2026-04-19T20:05:15.229Z"
+      "lastSeen": "2026-04-19T21:06:46.880Z"
     },
     {
       "adID": "1505913734463453",
