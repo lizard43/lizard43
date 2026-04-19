@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-19T01:42:39.862Z",
+  "generated_at": "2026-04-19T01:55:42.555Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,53 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 40,
-      "droppedPrice": 61,
+      "exported_ads": 42,
+      "droppedPrice": 72,
       "droppedMissingGeo": 0,
-      "droppedCircle": 80
+      "droppedCircle": 82
     }
   },
   "ads": [
+    {
+      "adID": "1450086396333659",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/640644881/?product_id=1450086396333659",
+      "author": "Cathy Ann Glover Reister",
+      "postedTime": "2026-04-19T00:55:39.000Z",
+      "title": "Mip arcade",
+      "description": "Has all parts and instructions. New 60.00",
+      "price": "$20",
+      "lat": 30.3321838,
+      "lon": -81.655651,
+      "location": "Jacksonville, FL",
+      "imageUrl": "https://scontent-atl3-3.xx.fbcdn.net/v/t39.84726-6/671124282_2456754781448815_8617007880464265725_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=109&ccb=1-7&_nc_sid=92e707&_nc_ohc=a2-f01is0EsQ7kNvwEBocPI&_nc_oc=AdqIr79DIMJ7yC-MfChgQjzx6hsPqymo4yvBDAuHxMUvwzLppX3BkFpMrqYxJ8Ih2XE&_nc_zt=14&_nc_ht=scontent-atl3-3.xx&_nc_gid=iWw7zVqq2xXnLpYdL6djQQ&_nc_ss=7a3a8&oh=00_Af3sY8wVAP6XaSR6g0OerNfO-Z3NmVLXXXR7cLbPJDVY8w&oe=69EA2215",
+      "adUrl": "https://www.facebook.com/marketplace/item/1450086396333659/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-04-19 01:50:25",
+      "lastSeen": "2026-04-19T01:51:52.107Z"
+    },
+    {
+      "adID": "800770416072483",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/44305635/?product_id=800770416072483",
+      "author": "Buster Wallace",
+      "postedTime": "2026-04-18T18:24:04.000Z",
+      "title": "Asteroids arcade game non-working",
+      "description": "This is a non-working vintage Asteroids arcade game being sold for parts only. Must pick up in Macon. All original internal parts included.",
+      "price": "$125",
+      "lat": 32.8406946,
+      "lon": -83.6324022,
+      "location": "Macon, GA",
+      "imageUrl": "https://scontent-atl3-3.xx.fbcdn.net/v/t39.84726-6/674129227_2334286120428503_7468025294193077650_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=110&ccb=1-7&_nc_sid=92e707&_nc_ohc=FGQgNUjU7wMQ7kNvwGRAaWP&_nc_oc=AdqcudjkbFniuxqHGnA_o4v7jyVPv_onRG3Tf-KYWVWcBfW2qXkjpBrtz4UFSiN4XSc&_nc_zt=14&_nc_ht=scontent-atl3-3.xx&_nc_gid=hUv2AJjauOcOR4CfIRz7pg&_nc_ss=7a3a8&oh=00_Af35DpANl4FJfjeTZp0ED6eE_xlL-mfPuC87aizStFmcRg&oe=69EA0993",
+      "adUrl": "https://www.facebook.com/marketplace/item/800770416072483/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-04-19 01:50:25",
+      "lastSeen": "2026-04-19T01:51:52.283Z"
+    },
     {
       "adID": "1505913734463453",
       "source": "MP",
