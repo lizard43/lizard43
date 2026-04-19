@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-19T13:47:56.413Z",
+  "generated_at": "2026-04-19T14:06:06.354Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,33 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 42,
-      "droppedPrice": 68,
+      "exported_ads": 43,
+      "droppedPrice": 71,
       "droppedMissingGeo": 0,
-      "droppedCircle": 84
+      "droppedCircle": 88
     }
   },
   "ads": [
+    {
+      "adID": "1886555378727679",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/646882207/?product_id=1886555378727679",
+      "author": "Amber Lemieux",
+      "postedTime": "2026-04-19T13:34:20.000Z",
+      "title": "Pintle hook with 2 inch combination ball",
+      "description": "6 ton 2 inch ball",
+      "price": "$50",
+      "lat": 29.1871986,
+      "lon": -82.1400923,
+      "location": "Ocala, FL",
+      "imageUrl": "https://scontent-atl3-1.xx.fbcdn.net/v/t39.84726-6/672329124_1473768034148789_4250377988813440844_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=106&ccb=1-7&_nc_sid=92e707&_nc_ohc=2uE70VGbGqIQ7kNvwFFHvkV&_nc_oc=AdqF44MBR0jq67AI_VNmABjoSoW1kbpvL7kgiRqaY5BJ_nzF42N2x5QOGHyAvPcNafs&_nc_zt=14&_nc_ht=scontent-atl3-1.xx&_nc_gid=XfckSSiv5OvIM5lat8xBXA&_nc_ss=7a3a8&oh=00_Af0I6yszTN5KGW_tKctWoCW709PG5dlW1iKfc0KtHCmglg&oe=69EA9CFB",
+      "adUrl": "https://www.facebook.com/marketplace/item/1886555378727679/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-04-19 14:04:26",
+      "lastSeen": "2026-04-19T14:05:29.246Z"
+    },
     {
       "adID": "925782803596412",
       "source": "MP",
@@ -36,7 +56,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-19 11:05:09",
-      "lastSeen": "2026-04-19T13:04:52.770Z"
+      "lastSeen": "2026-04-19T14:04:26.596Z"
     },
     {
       "adID": "1995407561380886",
@@ -76,7 +96,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-19 01:50:25",
-      "lastSeen": "2026-04-19T12:04:32.217Z"
+      "lastSeen": "2026-04-19T14:04:16.565Z"
     },
     {
       "adID": "1505913734463453",
@@ -136,7 +156,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-18 01:06:00",
-      "lastSeen": "2026-04-19T13:04:53.037Z"
+      "lastSeen": "2026-04-19T14:04:26.864Z"
     },
     {
       "adID": "927172130185097",
