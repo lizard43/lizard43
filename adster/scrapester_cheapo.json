@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-20T17:06:12.751Z",
+  "generated_at": "2026-04-20T18:06:36.528Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,33 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 49,
-      "droppedPrice": 84,
+      "exported_ads": 50,
+      "droppedPrice": 87,
       "droppedMissingGeo": 0,
-      "droppedCircle": 114
+      "droppedCircle": 120
     }
   },
   "ads": [
+    {
+      "adID": "2368054013677670",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100006438098969/?product_id=2368054013677670",
+      "author": "Lane King",
+      "postedTime": "2026-04-20T17:31:53.000Z",
+      "title": "Space invaders arcade game",
+      "description": "Space invaders arcade game. 18.5in tall, 12.5in deep, 11.5 wide. Works good! $140 obo. Pick up in Tillmans Corner. First come first serve. No holds.",
+      "price": "$140",
+      "lat": 30.6913462,
+      "lon": -88.0437509,
+      "location": "Mobile, AL",
+      "imageUrl": "https://scontent-atl3-3.xx.fbcdn.net/v/t15.5256-10/677955431_1266686055121509_6397312562844226108_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=107&ccb=1-7&_nc_sid=d4195b&_nc_ohc=jcBXUCMM0XoQ7kNvwFVSysw&_nc_oc=Adqex_n5vuJDijq_tCJv5Eb35of3Vu1GmpR22y8vtzirL2Lj_xFWSo7-aiK9jl0B4Go&_nc_zt=23&_nc_ht=scontent-atl3-3.xx&_nc_gid=vkenyIQpsMWpDkiWbh47lw&_nc_ss=7a3a8&oh=00_Af3i9XVt1DYULPzhQAEyHUWyBkUu8QHKGbaeWXyobCObkA&oe=69EC499E",
+      "adUrl": "https://www.facebook.com/marketplace/item/2368054013677670/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-04-20 18:04:29",
+      "lastSeen": "2026-04-20T18:05:13.809Z"
+    },
     {
       "adID": "934253579408997",
       "source": "MP",
@@ -56,7 +76,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-20 16:05:07",
-      "lastSeen": "2026-04-20T17:05:10.240Z"
+      "lastSeen": "2026-04-20T18:05:41.876Z"
     },
     {
       "adID": "1626644155209563",
@@ -76,27 +96,27 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-20 16:04:23",
-      "lastSeen": "2026-04-20T17:04:33.211Z"
+      "lastSeen": "2026-04-20T18:04:29.859Z"
     },
     {
       "adID": "1631750341395675",
       "source": "FB",
       "authorUrl": null,
       "author": "Ryan Camoots",
-      "postedTime": "2026-04-20T16:03:58.406Z",
+      "postedTime": "2026-04-20T16:03:54.403Z",
       "title": "Title Fight Arcade Cabinet (Project)",
       "description": "Title Fight Arcade Cabinet Project Piece. Receives power and intermittent signal to monitors but game does not start and have too many other projects to work on to tack... See more",
       "price": "$650",
       "lat": 30.3321838,
       "lon": -81.655651,
       "location": "JACKSONVILLE, FL",
-      "imageUrl": "https://scontent-atl3-1.xx.fbcdn.net/v/t39.30808-6/672670396_10162341449126426_6600596566943273804_n.jpg?stp=cp6_dst-jpg_s590x590_tt6&_nc_cat=103&ccb=1-7&_nc_sid=e06c5d&_nc_ohc=MfnHG24cRs4Q7kNvwFMUkRi&_nc_oc=AdpGypjrDMLHQMve-H2zRgxkfVYSwXZ4TySJsNDC60wEHZ4T-WqJq5pw14PE5rr0UlY&_nc_zt=23&_nc_ht=scontent-atl3-1.xx&_nc_gid=2sVBbyuuKv3DHdfHc9Gb1Q&_nc_ss=7a3a8&oh=00_Af2JVJZKhtvqIqj8WiA7GYAqI5K2FcOlWcbF48YVuiopDA&oe=69EC3DD8",
+      "imageUrl": "https://scontent-atl3-1.xx.fbcdn.net/v/t39.30808-6/672670396_10162341449126426_6600596566943273804_n.jpg?stp=cp6_dst-jpg_s590x590_tt6&_nc_cat=103&ccb=1-7&_nc_sid=e06c5d&_nc_ohc=MfnHG24cRs4Q7kNvwFMUkRi&_nc_oc=AdpGypjrDMLHQMve-H2zRgxkfVYSwXZ4TySJsNDC60wEHZ4T-WqJq5pw14PE5rr0UlY&_nc_zt=23&_nc_ht=scontent-atl3-1.xx&_nc_gid=SLHFnTrQ5JsDFBIL5qqw5g&_nc_ss=7a3a8&oh=00_Af2-05Kt0ZOpcmdiGE_5oeiWwbbJ1Pv3QJJYV91Zibi-jg&oe=69EC3DD8",
       "adUrl": "https://www.facebook.com/commerce/listing/1631750341395675/",
       "priceChanged": 0,
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-20 16:03:05",
-      "lastSeen": "2026-04-20T17:03:58.485Z"
+      "lastSeen": "2026-04-20T18:03:54.539Z"
     },
     {
       "adID": "1364431349051724",
@@ -116,7 +136,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-20 15:05:06",
-      "lastSeen": "2026-04-20T17:05:10.307Z"
+      "lastSeen": "2026-04-20T18:05:41.943Z"
     },
     {
       "adID": "1502726361522035",
@@ -136,7 +156,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-20 15:04:19",
-      "lastSeen": "2026-04-20T17:04:33.244Z"
+      "lastSeen": "2026-04-20T18:04:29.893Z"
     },
     {
       "adID": "1496138735241129",
@@ -196,7 +216,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-20 13:07:27",
-      "lastSeen": "2026-04-20T17:05:10.373Z"
+      "lastSeen": "2026-04-20T18:05:42.010Z"
     },
     {
       "adID": "2185352358965594",
@@ -236,7 +256,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-20 13:04:03",
-      "lastSeen": "2026-04-20T17:04:33.345Z"
+      "lastSeen": "2026-04-20T18:04:29.994Z"
     },
     {
       "adID": "1478974690613293",
@@ -256,7 +276,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-19 21:06:46",
-      "lastSeen": "2026-04-20T17:05:10.542Z"
+      "lastSeen": "2026-04-20T18:05:42.178Z"
     },
     {
       "adID": "2823926677962463",
