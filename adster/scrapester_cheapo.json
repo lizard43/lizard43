@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-21T12:08:13.721Z",
+  "generated_at": "2026-04-21T13:07:07.329Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,53 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 57,
-      "droppedPrice": 97,
+      "exported_ads": 59,
+      "droppedPrice": 99,
       "droppedMissingGeo": 0,
-      "droppedCircle": 122
+      "droppedCircle": 128
     }
   },
   "ads": [
+    {
+      "adID": "1662087594939973",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/543013669/?product_id=1662087594939973",
+      "author": "Allen Robinson",
+      "postedTime": "2026-04-21T12:44:17.000Z",
+      "title": "Police Trainer, Upright Arcade, P&P Marketing 1996",
+      "description": "Vintage Upright Arcade – Police Trainer (P&P Marketing, 1996) Price: $375 (or best offer) Not the original dedicated cabinet. Condition: - Cabinet needs some love due to age. - Monitor powers on, image is good, but likely needs new caps - Lights and sound both work. - Controls function, but the guns need recalibration. - Sold as-is. - Serious buyers only.",
+      "price": "$375",
+      "lat": 33.8595492,
+      "lon": -84.683824,
+      "location": "Powder Springs, GA",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/677571802_942712288738530_2793792871765994033_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=111&ccb=1-7&_nc_sid=92e707&_nc_ohc=cDmmZ5wB__IQ7kNvwHqPz2N&_nc_oc=AdogfQWmbg5MyJXaUl9oS-AUlU_2Hophw0MKkFnP2t3YizkURDRVju2Le0ZTpd3KgA0&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=QMIpg72LKWwfT0CBejiSaw&_nc_ss=7a3a8&oh=00_Af2MrOY0ccwMk1ngxSvu6SPeNCvrvGAIug59U1H3qcNdjQ&oe=69ED4255",
+      "adUrl": "https://www.facebook.com/marketplace/item/1662087594939973/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-04-21 13:04:19",
+      "lastSeen": "2026-04-21T13:05:18.247Z"
+    },
+    {
+      "adID": "25412388035104486",
+      "source": "FB",
+      "authorUrl": null,
+      "author": "Jamie Boyd",
+      "postedTime": "2026-04-21T12:44:23.949Z",
+      "title": "Game of Thrones Pinball Playfield - NOS - Never Populated - Mint!",
+      "description": "Game of Thrones Pinball Playfield - NOS - Never Populated - Mint!",
+      "price": "$500",
+      "lat": 30.421309,
+      "lon": -87.2169149,
+      "location": "PENSACOLA, FL",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t45.5328-4/661725988_1947440402809815_5136687670510423060_n.jpg?stp=c3.101.584.584a_dst-jpg_p590x590_tt6&_nc_cat=109&ccb=1-7&_nc_sid=46f460&_nc_ohc=gZ8PeA8Qh0oQ7kNvwFOjtcf&_nc_oc=AdqbTNY1rPiB07sXCkNL4BGm1iroBCtO4JRJyO9iZH-_oODZe5Xm26EcsCVFumz1utY&_nc_zt=23&_nc_ht=scontent-dfw5-1.xx&_nc_gid=l3XZreWy-kRl2ujabOsfcA&_nc_ss=7a3a8&oh=00_Af22dasiJyVzN2TvAavhCeJ5o2FNLMzzGg6LSEmIb4zndw&oe=69ED2C89",
+      "adUrl": "https://www.facebook.com/commerce/listing/25412388035104486/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-04-21 13:02:24",
+      "lastSeen": "2026-04-21T13:02:24.019Z"
+    },
     {
       "adID": "2759653484380657",
       "source": "MP",
@@ -36,7 +76,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-21 12:07:16",
-      "lastSeen": "2026-04-21T12:07:35.822Z"
+      "lastSeen": "2026-04-21T13:05:18.314Z"
     },
     {
       "adID": "1660813785112025",
@@ -56,7 +96,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-21 12:04:26",
-      "lastSeen": "2026-04-21T12:06:52.727Z"
+      "lastSeen": "2026-04-21T13:04:20.594Z"
     },
     {
       "adID": "2395930537576985",
@@ -76,7 +116,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-21 12:04:26",
-      "lastSeen": "2026-04-21T12:07:15.511Z"
+      "lastSeen": "2026-04-21T13:05:18.281Z"
     },
     {
       "adID": "1000775729140917",
@@ -96,7 +136,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-21 11:05:26",
-      "lastSeen": "2026-04-21T12:07:15.010Z"
+      "lastSeen": "2026-04-21T13:05:17.779Z"
     },
     {
       "adID": "1828200414540291",
@@ -116,7 +156,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-21 11:05:26",
-      "lastSeen": "2026-04-21T12:07:15.044Z"
+      "lastSeen": "2026-04-21T13:05:17.812Z"
     },
     {
       "adID": "1342759521060822",
@@ -156,7 +196,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-21 02:04:28",
-      "lastSeen": "2026-04-21T12:07:14.953Z"
+      "lastSeen": "2026-04-21T13:05:17.745Z"
     },
     {
       "adID": "1582039339566946",
@@ -176,7 +216,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-21 02:04:28",
-      "lastSeen": "2026-04-21T12:04:26.038Z"
+      "lastSeen": "2026-04-21T13:04:20.159Z"
     },
     {
       "adID": "1959928694615885",
@@ -196,7 +236,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-20 22:05:58",
-      "lastSeen": "2026-04-21T12:07:15.143Z"
+      "lastSeen": "2026-04-21T13:05:17.912Z"
     },
     {
       "adID": "KLOV-562564",
@@ -216,7 +256,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-20 20:05:35",
-      "lastSeen": "2026-04-21T12:08:13.455Z"
+      "lastSeen": "2026-04-21T13:07:07.076Z"
     },
     {
       "adID": "934253579408997",
@@ -263,20 +303,20 @@
       "source": "FB",
       "authorUrl": null,
       "author": "Ryan Camoots",
-      "postedTime": "2026-04-20T16:03:51.317Z",
+      "postedTime": "2026-04-20T16:03:46.749Z",
       "title": "Title Fight Arcade Cabinet (Project)",
       "description": "Title Fight Arcade Cabinet Project Piece. Receives power and intermittent signal to monitors but game does not start and have too many other projects to work on to tack... See more",
       "price": "$650",
       "lat": 30.3321838,
       "lon": -81.655651,
       "location": "JACKSONVILLE, FL",
-      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.30808-6/672670396_10162341449126426_6600596566943273804_n.jpg?stp=cp6_dst-jpg_s590x590_tt6&_nc_cat=103&ccb=1-7&_nc_sid=e06c5d&_nc_ohc=MpPjzd7oywkQ7kNvwEsl2dO&_nc_oc=AdrLz60Il9__0lDyAhSH66KGOf9LCK1rzerEDF4apR-ilCHR8xR_YtXwd0bsLohwtmU&_nc_zt=23&_nc_ht=scontent-dfw6-1.xx&_nc_gid=hPJndJUSSpoueDG7s5R1-g&_nc_ss=7a3a8&oh=00_Af2kjiuAu1V6PBQwAOkIrqyo1IUulKlbjqSF_ynb9hSp8g&oe=69ED1ED8",
+      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.30808-6/672670396_10162341449126426_6600596566943273804_n.jpg?stp=cp6_dst-jpg_s590x590_tt6&_nc_cat=103&ccb=1-7&_nc_sid=e06c5d&_nc_ohc=MpPjzd7oywkQ7kNvwEsl2dO&_nc_oc=AdrLz60Il9__0lDyAhSH66KGOf9LCK1rzerEDF4apR-ilCHR8xR_YtXwd0bsLohwtmU&_nc_zt=23&_nc_ht=scontent-dfw6-1.xx&_nc_gid=NFy20HAbQMogUlY7BSshBw&_nc_ss=7a3a8&oh=00_Af3-OsnMMDApRKNC-2uZgQgljkbw5ukcyg2HFlSGmOWh4g&oe=69ED5718",
       "adUrl": "https://www.facebook.com/commerce/listing/1631750341395675/",
       "priceChanged": 0,
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-20 16:03:05",
-      "lastSeen": "2026-04-21T12:03:51.400Z"
+      "lastSeen": "2026-04-21T13:03:46.995Z"
     },
     {
       "adID": "1364431349051724",
@@ -296,7 +336,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-20 15:05:06",
-      "lastSeen": "2026-04-21T12:07:15.344Z"
+      "lastSeen": "2026-04-21T13:05:18.113Z"
     },
     {
       "adID": "1496138735241129",
@@ -356,7 +396,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-20 13:07:27",
-      "lastSeen": "2026-04-21T12:07:15.412Z"
+      "lastSeen": "2026-04-21T13:05:18.180Z"
     },
     {
       "adID": "2185352358965594",
