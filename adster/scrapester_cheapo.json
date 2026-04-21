@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-21T18:32:27.843Z",
+  "generated_at": "2026-04-21T18:45:03.115Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,10 +11,10 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 52,
+      "exported_ads": 51,
       "droppedPrice": 113,
       "droppedMissingGeo": 0,
-      "droppedCircle": 122
+      "droppedCircle": 119
     }
   },
   "ads": [
@@ -357,26 +357,6 @@
       "hidden": 0,
       "created_at": "2026-04-20 16:03:05",
       "lastSeen": "2026-04-21T18:04:01.492Z"
-    },
-    {
-      "adID": "1364431349051724",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/100041956920126/?product_id=1364431349051724",
-      "author": "Samantha Forte",
-      "postedTime": "2026-04-20T14:15:35.000Z",
-      "title": "1977 pinball machine for sale",
-      "description": "Pinball machine, a little dirty from being in the shed I will get it clean. It worked for a little while and then it stopped playing it does turn on.",
-      "price": "$1",
-      "lat": 30.1894252,
-      "lon": -82.6394803,
-      "location": "Lake City, FL",
-      "imageUrl": "https://scontent-atl3-1.xx.fbcdn.net/v/t39.84726-6/675144411_1750592799243477_6438228286416501024_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=103&ccb=1-7&_nc_sid=92e707&_nc_ohc=-6AAvX8TOFEQ7kNvwFGgk43&_nc_oc=Ado9cvihBzoFbUBwIvRbDKf3hptC5pMa65R845E8X6OloynUxF96iVDhrrMIU5s79jc&_nc_zt=14&_nc_ht=scontent-atl3-1.xx&_nc_gid=91xflzdpQi7sDNvE8gkHMQ&_nc_ss=7a3a8&oh=00_Af2W-95jJNdCvr9rQgWGvTNE62HmUd_tSHFtGanaWWt2Bg&oe=69EC1377",
-      "adUrl": "https://www.facebook.com/marketplace/item/1364431349051724/",
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-04-20 15:05:06",
-      "lastSeen": "2026-04-21T17:05:12.583Z"
     },
     {
       "adID": "2185352358965594",
