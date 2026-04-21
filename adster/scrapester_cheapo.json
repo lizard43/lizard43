@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-21T17:06:04.594Z",
+  "generated_at": "2026-04-21T18:06:52.119Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,33 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 55,
-      "droppedPrice": 110,
+      "exported_ads": 56,
+      "droppedPrice": 112,
       "droppedMissingGeo": 0,
-      "droppedCircle": 119
+      "droppedCircle": 122
     }
   },
   "ads": [
+    {
+      "adID": "27122009807384616",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100040329311053/?product_id=27122009807384616",
+      "author": "Justin Guy",
+      "postedTime": "2026-04-21T17:56:39.000Z",
+      "title": "Bally Bow and Arrow Pinball Machine Project",
+      "description": "Up for sale is a 1975 Bally Bow and Arrow pinball machine project. The playfield and backglass are in mint condition. The cabinet is fair for its age. It has the back door as well. Please see all the pictures for condition. Currently when powered on only the GI lights come on. I don't have the time right now to restore the machine so I am selling it. I will help you load it. The head and legs can be taken off for moving. I just recommend bringing some moving blankets. Pickup in Adairsville, Georgia. 650 obo",
+      "price": "$650",
+      "lat": 34.3683267,
+      "lon": -84.9349057,
+      "location": "Adairsville, GA",
+      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/673727110_923009960556465_3828663865813846967_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=104&ccb=1-7&_nc_sid=92e707&_nc_ohc=OtzWWp7Pu54Q7kNvwHosmct&_nc_oc=Adr0j0pGh4iKHj-WFPPdBEmDJsPXAsKkYc3fYuPiYbyAoX3o-aBQtbRuJylDNAs5fYw&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=7bmo3zKNcj3R7QwfCJUXEw&_nc_ss=7a3a8&oh=00_Af2hILBcbc7Xa8B5h2W4P_aCiMBJN0iXys1Gjp5fbnmJ4g&oe=69EDA811",
+      "adUrl": "https://www.facebook.com/marketplace/item/27122009807384616/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-04-21 18:05:28",
+      "lastSeen": "2026-04-21T18:06:15.609Z"
+    },
     {
       "adID": "1601973324246815",
       "source": "MP",
@@ -26,17 +46,17 @@
       "postedTime": "2026-04-21T15:35:53.000Z",
       "title": "Pinball Machine",
       "description": "Bolly Fireball pinball machine in working condition. Pick up in Fort Valley",
-      "price": "$750",
+      "price": "$400",
       "lat": 32.5537585,
       "lon": -83.8874084,
       "location": "Fort Valley, GA",
-      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/672684866_2115898455929316_718828356019856330_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=108&ccb=1-7&_nc_sid=92e707&_nc_ohc=RFyEQ2gy3c4Q7kNvwHJYGQp&_nc_oc=AdoMzwdv0xY0HmkMVt34HxBl5WuMid_Wxc58ZIcGvDF0SYpXEUMSnOh6mYOIqYyooSE&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=UEceqxw-Qfv49IQmJCy3vA&_nc_ss=7a3a8&oh=00_Af2boSvtmykeDzZfspzi4DIDBxB7bX1WViCN20LCTcZH0A&oe=69ED6F18",
+      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/672684866_2115898455929316_718828356019856330_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=108&ccb=1-7&_nc_sid=92e707&_nc_ohc=RFyEQ2gy3c4Q7kNvwHJYGQp&_nc_oc=AdoMzwdv0xY0HmkMVt34HxBl5WuMid_Wxc58ZIcGvDF0SYpXEUMSnOh6mYOIqYyooSE&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=C1tdlxZlDfvxF-VVpGirzQ&_nc_ss=7a3a8&oh=00_Af1e03u3AqP9sFw7wp-11RTEBh59Ua-U8BLjMM3i9XMzWA&oe=69EDA758",
       "adUrl": "https://www.facebook.com/marketplace/item/1601973324246815/",
-      "priceChanged": 0,
-      "priceChangedAt": null,
+      "priceChanged": 1,
+      "priceChangedAt": "2026-04-21 18:05:29",
       "hidden": 0,
       "created_at": "2026-04-21 16:06:37",
-      "lastSeen": "2026-04-21T17:05:12.016Z"
+      "lastSeen": "2026-04-21T18:06:15.686Z"
     },
     {
       "adID": "1306531064708336",
@@ -156,27 +176,27 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-21 13:04:19",
-      "lastSeen": "2026-04-21T17:05:12.751Z"
+      "lastSeen": "2026-04-21T18:04:36.140Z"
     },
     {
       "adID": "25412388035104486",
       "source": "FB",
       "authorUrl": null,
       "author": "Jamie Boyd",
-      "postedTime": "2026-04-21T13:02:27.541Z",
+      "postedTime": "2026-04-21T13:02:36.067Z",
       "title": "Game of Thrones Pinball Playfield - NOS - Never Populated - Mint!",
       "description": "Game of Thrones Pinball Playfield - NOS - Never Populated - Mint!",
       "price": "$500",
       "lat": 30.421309,
       "lon": -87.2169149,
       "location": "PENSACOLA, FL",
-      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t45.5328-4/661725988_1947440402809815_5136687670510423060_n.jpg?stp=c3.101.584.584a_dst-jpg_p590x590_tt6&_nc_cat=109&ccb=1-7&_nc_sid=46f460&_nc_ohc=gZ8PeA8Qh0oQ7kNvwFOjtcf&_nc_oc=AdqbTNY1rPiB07sXCkNL4BGm1iroBCtO4JRJyO9iZH-_oODZe5Xm26EcsCVFumz1utY&_nc_zt=23&_nc_ht=scontent-dfw5-1.xx&_nc_gid=a9V6Oss9RjiTP1RwXmgwPg&_nc_ss=7a3a8&oh=00_Af2YVkK366_X8cjyW9EA1V7KEyzilcy2RFrppUge9jdCmg&oe=69ED64C9",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t45.5328-4/661725988_1947440402809815_5136687670510423060_n.jpg?stp=c3.101.584.584a_dst-jpg_p590x590_tt6&_nc_cat=109&ccb=1-7&_nc_sid=46f460&_nc_ohc=gZ8PeA8Qh0oQ7kNvwFOjtcf&_nc_oc=AdqbTNY1rPiB07sXCkNL4BGm1iroBCtO4JRJyO9iZH-_oODZe5Xm26EcsCVFumz1utY&_nc_zt=23&_nc_ht=scontent-dfw5-1.xx&_nc_gid=raEZ45BwwcoiiAHtIbD5CA&_nc_ss=7a3a8&oh=00_Af3N7HVSkORXHbrwTJFKKzIuxjA2ohPBFaUZe2DHPs1y6g&oe=69ED9D09",
       "adUrl": "https://www.facebook.com/commerce/listing/25412388035104486/",
       "priceChanged": 0,
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-21 13:02:24",
-      "lastSeen": "2026-04-21T17:02:27.943Z"
+      "lastSeen": "2026-04-21T18:02:36.119Z"
     },
     {
       "adID": "2759653484380657",
@@ -236,7 +256,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-21 11:05:26",
-      "lastSeen": "2026-04-21T17:05:12.282Z"
+      "lastSeen": "2026-04-21T18:05:28.851Z"
     },
     {
       "adID": "1828200414540291",
@@ -256,7 +276,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-21 11:05:26",
-      "lastSeen": "2026-04-21T17:05:12.315Z"
+      "lastSeen": "2026-04-21T18:05:28.885Z"
     },
     {
       "adID": "1959928694615885",
@@ -276,7 +296,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-20 22:05:58",
-      "lastSeen": "2026-04-21T17:05:12.416Z"
+      "lastSeen": "2026-04-21T18:05:28.986Z"
     },
     {
       "adID": "KLOV-562564",
@@ -296,7 +316,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-20 20:05:35",
-      "lastSeen": "2026-04-21T17:06:04.243Z"
+      "lastSeen": "2026-04-21T18:06:51.750Z"
     },
     {
       "adID": "1626644155209563",
@@ -323,20 +343,20 @@
       "source": "FB",
       "authorUrl": null,
       "author": "Ryan Camoots",
-      "postedTime": "2026-04-20T17:03:53.453Z",
+      "postedTime": "2026-04-20T18:04:01.054Z",
       "title": "Title Fight Arcade Cabinet (Project)",
       "description": "Title Fight Arcade Cabinet Project Piece. Receives power and intermittent signal to monitors but game does not start and have too many other projects to work on to tack... See more",
       "price": "$650",
       "lat": 30.3321838,
       "lon": -81.655651,
       "location": "JACKSONVILLE, FL",
-      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.30808-6/672670396_10162341449126426_6600596566943273804_n.jpg?stp=cp6_dst-jpg_s590x590_tt6&_nc_cat=103&ccb=1-7&_nc_sid=e06c5d&_nc_ohc=MpPjzd7oywkQ7kNvwEsl2dO&_nc_oc=AdrLz60Il9__0lDyAhSH66KGOf9LCK1rzerEDF4apR-ilCHR8xR_YtXwd0bsLohwtmU&_nc_zt=23&_nc_ht=scontent-dfw6-1.xx&_nc_gid=8M8ffsdpkxnRgGh8hRv8cg&_nc_ss=7a3a8&oh=00_Af0dHX-ShvR0o1MweYGLh2IV59b9o7vUoqSogaeLYSHeMA&oe=69ED8F58",
+      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.30808-6/672670396_10162341449126426_6600596566943273804_n.jpg?stp=cp6_dst-jpg_s590x590_tt6&_nc_cat=103&ccb=1-7&_nc_sid=e06c5d&_nc_ohc=MpPjzd7oywkQ7kNvwEsl2dO&_nc_oc=AdrLz60Il9__0lDyAhSH66KGOf9LCK1rzerEDF4apR-ilCHR8xR_YtXwd0bsLohwtmU&_nc_zt=23&_nc_ht=scontent-dfw6-1.xx&_nc_gid=dRR1S7yaZhBknSx7PT2nkw&_nc_ss=7a3a8&oh=00_Af2ozVK3G2x_LhjfiWyeecYq6mz4LsI4Vo7hkTm2UPwCvQ&oe=69ED8F58",
       "adUrl": "https://www.facebook.com/commerce/listing/1631750341395675/",
       "priceChanged": 0,
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-20 16:03:05",
-      "lastSeen": "2026-04-21T17:03:53.732Z"
+      "lastSeen": "2026-04-21T18:04:01.492Z"
     },
     {
       "adID": "1364431349051724",
