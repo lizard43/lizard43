@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-21T07:26:26.960Z",
+  "generated_at": "2026-04-21T11:07:18.292Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,73 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 52,
-      "droppedPrice": 85,
+      "exported_ads": 55,
+      "droppedPrice": 94,
       "droppedMissingGeo": 0,
-      "droppedCircle": 111
+      "droppedCircle": 118
     }
   },
   "ads": [
+    {
+      "adID": "1000775729140917",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/590588297/?product_id=1000775729140917",
+      "author": "Mercedes Phillips",
+      "postedTime": "2026-04-21T00:29:32.000Z",
+      "title": "ATM machines",
+      "description": "ATM comes with key and combination",
+      "price": "$400",
+      "lat": 34.1206564,
+      "lon": -84.0043513,
+      "location": "Buford, GA",
+      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/672687344_968881916097049_7134896714997003119_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=101&ccb=1-7&_nc_sid=92e707&_nc_ohc=J-8UJAXRPTYQ7kNvwEEYPUk&_nc_oc=AdrFCg4VGZRch2iv4sUJabjs4fGAJmHAVo3ThVlOC66q0OIXXpbzYDDSf1ge5I4AkV0&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=pYWO12PGnhTm9kl0KUFnDg&_nc_ss=7a3a8&oh=00_Af1tOJjsI8JOzg9N9TJWgopwM4XWPxka7OBSxEusKz-V0A&oe=69ED28C4",
+      "adUrl": "https://www.facebook.com/marketplace/item/1000775729140917/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-04-21 11:05:26",
+      "lastSeen": "2026-04-21T11:06:30.645Z"
+    },
+    {
+      "adID": "1828200414540291",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/590588297/?product_id=1828200414540291",
+      "author": "Mercedes Phillips",
+      "postedTime": "2026-04-21T00:28:14.000Z",
+      "title": "ATM machine",
+      "description": "ATM comes with key and combination",
+      "price": "$400",
+      "lat": 34.1206564,
+      "lon": -84.0043513,
+      "location": "Buford, GA",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/676466195_1649357926386414_7664508892931152785_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=110&ccb=1-7&_nc_sid=92e707&_nc_ohc=DLD3Egt5-FwQ7kNvwGGQJWY&_nc_oc=AdrBCRUkYaoj12r7wsp_x_XqI69B7VdU95RKjkKC6syFk0jkVrpHhvs1mdulHpYHWuo&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=530zYy0DxSGGFMk2SxxA4Q&_nc_ss=7a3a8&oh=00_Af3dIhwl0FRSeTW2lV6O6kWFjvZvnbjm22TaSPihk-chQg&oe=69ED2208",
+      "adUrl": "https://www.facebook.com/marketplace/item/1828200414540291/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-04-21 11:05:26",
+      "lastSeen": "2026-04-21T11:06:30.679Z"
+    },
+    {
+      "adID": "1465153288323003",
+      "source": "FB",
+      "authorUrl": null,
+      "author": "Gaspar Ferreiro",
+      "postedTime": "2026-04-21T05:00:20.938Z",
+      "title": "Authentic Whac a mole arcade machines by Bob Spaceracers",
+      "description": "This is an authemtic whac a mole arcade machine made by Bob Space Racers (creators of the original whac a mole). Works as it should",
+      "price": "$975",
+      "lat": 34.0234337,
+      "lon": -84.6154897,
+      "location": "KENNESAW, GA",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.30808-6/673830663_10165686915365979_6091304558717977474_n.jpg?stp=cp6_dst-jpg_s590x590_tt6&_nc_cat=111&ccb=1-7&_nc_sid=e06c5d&_nc_ohc=1s4uWL_ourkQ7kNvwFOD9L6&_nc_oc=Adreiw8YgSNMW_sFBpo5KIwASQpoHIDxHBWr0u3kSFHfcoS9R-aJi6v9E7J5YlFKjOs&_nc_zt=23&_nc_ht=scontent-dfw5-1.xx&_nc_gid=e1cmrlHbr6PJ0UAocozSSQ&_nc_ss=7a3a8&oh=00_Af16tD6na147_-ibtpei3njoz-saZXPPKe77rmGOhWldUg&oe=69ED3EC6",
+      "adUrl": "https://www.facebook.com/commerce/listing/1465153288323003/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-04-21 11:00:21",
+      "lastSeen": "2026-04-21T11:00:21.025Z"
+    },
     {
       "adID": "1342759521060822",
       "source": "MP",
@@ -56,7 +116,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-21 02:04:28",
-      "lastSeen": "2026-04-21T02:05:55.012Z"
+      "lastSeen": "2026-04-21T11:05:26.553Z"
     },
     {
       "adID": "1582039339566946",
@@ -76,7 +136,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-21 02:04:28",
-      "lastSeen": "2026-04-21T02:05:34.923Z"
+      "lastSeen": "2026-04-21T11:04:40.256Z"
     },
     {
       "adID": "1959928694615885",
@@ -96,7 +156,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-20 22:05:58",
-      "lastSeen": "2026-04-21T02:05:55.112Z"
+      "lastSeen": "2026-04-21T11:05:26.721Z"
     },
     {
       "adID": "KLOV-562564",
@@ -116,7 +176,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-20 20:05:35",
-      "lastSeen": "2026-04-21T02:07:06.693Z"
+      "lastSeen": "2026-04-21T11:07:18.046Z"
     },
     {
       "adID": "934253579408997",
@@ -163,20 +223,20 @@
       "source": "FB",
       "authorUrl": null,
       "author": "Ryan Camoots",
-      "postedTime": "2026-04-20T16:03:51.796Z",
+      "postedTime": "2026-04-20T16:04:05.588Z",
       "title": "Title Fight Arcade Cabinet (Project)",
       "description": "Title Fight Arcade Cabinet Project Piece. Receives power and intermittent signal to monitors but game does not start and have too many other projects to work on to tack... See more",
       "price": "$650",
       "lat": 30.3321838,
       "lon": -81.655651,
       "location": "JACKSONVILLE, FL",
-      "imageUrl": "https://scontent-atl3-1.xx.fbcdn.net/v/t39.30808-6/672670396_10162341449126426_6600596566943273804_n.jpg?stp=cp6_dst-jpg_s590x590_tt6&_nc_cat=103&ccb=1-7&_nc_sid=e06c5d&_nc_ohc=MpPjzd7oywkQ7kNvwEsl2dO&_nc_oc=AdrLz60Il9__0lDyAhSH66KGOf9LCK1rzerEDF4apR-ilCHR8xR_YtXwd0bsLohwtmU&_nc_zt=23&_nc_ht=scontent-atl3-1.xx&_nc_gid=4VbYy2VgWCtIDtXS7rPjRw&_nc_ss=7a3a8&oh=00_Af0t8XwccstY0BhzGtwXejvZBYr0dOhA3SvfPsJro5_rkw&oe=69ECAE58",
+      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.30808-6/672670396_10162341449126426_6600596566943273804_n.jpg?stp=cp6_dst-jpg_s590x590_tt6&_nc_cat=103&ccb=1-7&_nc_sid=e06c5d&_nc_ohc=MpPjzd7oywkQ7kNvwEsl2dO&_nc_oc=AdrLz60Il9__0lDyAhSH66KGOf9LCK1rzerEDF4apR-ilCHR8xR_YtXwd0bsLohwtmU&_nc_zt=23&_nc_ht=scontent-dfw6-1.xx&_nc_gid=SThSnW1jOcAnwRmoAJSrCA&_nc_ss=7a3a8&oh=00_Af3KszGcIpURu94JErTiM1tKHfn46QfiEetQiorx2shu2w&oe=69ED1ED8",
       "adUrl": "https://www.facebook.com/commerce/listing/1631750341395675/",
       "priceChanged": 0,
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-20 16:03:05",
-      "lastSeen": "2026-04-21T02:03:51.990Z"
+      "lastSeen": "2026-04-21T11:04:05.693Z"
     },
     {
       "adID": "1364431349051724",
@@ -196,7 +256,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-20 15:05:06",
-      "lastSeen": "2026-04-21T02:05:55.280Z"
+      "lastSeen": "2026-04-21T11:05:26.934Z"
     },
     {
       "adID": "1496138735241129",
@@ -256,7 +316,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-20 13:07:27",
-      "lastSeen": "2026-04-21T02:05:55.347Z"
+      "lastSeen": "2026-04-21T11:05:27.308Z"
     },
     {
       "adID": "2185352358965594",
