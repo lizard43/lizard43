@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-22T18:34:11.377Z",
+  "generated_at": "2026-04-22T19:07:17.993Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,33 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 58,
-      "droppedPrice": 97,
+      "exported_ads": 59,
+      "droppedPrice": 103,
       "droppedMissingGeo": 0,
-      "droppedCircle": 123
+      "droppedCircle": 125
     }
   },
   "ads": [
+    {
+      "adID": "1396781145585650",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/1301335927/?product_id=1396781145585650",
+      "author": "Arthur Sumner",
+      "postedTime": "2026-04-22T18:33:13.000Z",
+      "title": "Galaga vintage Arcade Videogame",
+      "description": "Fully working Galaga 60-in-1 multigame in a real vintage cabinet (NOT an Arcade 1UP). Unit plays Centipede, Millipede, Pacman, Donkey Kong, Galaga, Frogger, and 45 other classic games. Machine is in good condition and takes quarters or can be set to free play. Brand new control panel overlay, joystick, buttons, and 3\" trackball. Pickup in Lawrenceville with easy street-level load out and assistance available. Open to straight trade for Epiphone Broadway or similar big fat hollow-body jazz guitar.",
+      "price": "$650",
+      "lat": 33.9566391,
+      "lon": -83.9890066,
+      "location": "Lawrenceville, GA",
+      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/679942995_1986773065251136_4057534853889895780_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=100&ccb=1-7&_nc_sid=92e707&_nc_ohc=aZCHoS9JbN4Q7kNvwHEPozK&_nc_oc=AdowsfHfIBQfmg4xIW2GA97Rz-6N3FZFkUqR-0J9AiQGjI7FeUE9vwGJP9x2DcCagD0&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=pOisn_UsxzNQOUFoiU7x0g&_nc_ss=7a3a8&oh=00_Af0Z27vYRFyXBLH_FaYGsQZxeNEGxkRbBYsALX2QKiB6_w&oe=69EEE467",
+      "adUrl": "https://www.facebook.com/marketplace/item/1396781145585650/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-04-22 19:04:31",
+      "lastSeen": "2026-04-22T19:05:58.608Z"
+    },
     {
       "adID": "1492958562365341",
       "source": "MP",
@@ -36,7 +56,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-22 17:05:45",
-      "lastSeen": "2026-04-22T18:05:44.181Z"
+      "lastSeen": "2026-04-22T19:06:31.233Z"
     },
     {
       "adID": "2240133526814765",
@@ -56,7 +76,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-22 16:04:38",
-      "lastSeen": "2026-04-22T18:05:44.231Z"
+      "lastSeen": "2026-04-22T19:06:31.267Z"
     },
     {
       "adID": "1512060540354229",
@@ -76,7 +96,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-22 16:04:38",
-      "lastSeen": "2026-04-22T18:05:44.265Z"
+      "lastSeen": "2026-04-22T19:06:31.301Z"
     },
     {
       "adID": "2142233829651347",
@@ -176,7 +196,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-22 00:04:25",
-      "lastSeen": "2026-04-22T17:05:53.940Z"
+      "lastSeen": "2026-04-22T19:04:31.502Z"
     },
     {
       "adID": "949642984726407",
@@ -196,7 +216,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-21 23:06:21",
-      "lastSeen": "2026-04-22T18:05:44.466Z"
+      "lastSeen": "2026-04-22T19:06:31.557Z"
     },
     {
       "adID": "1812617463030288",
@@ -276,7 +296,7 @@
       "priceChangedAt": "2026-04-22 16:04:39",
       "hidden": 0,
       "created_at": "2026-04-21 18:05:28",
-      "lastSeen": "2026-04-22T18:05:44.500Z"
+      "lastSeen": "2026-04-22T19:06:31.590Z"
     },
     {
       "adID": "1306531064708336",
@@ -336,7 +356,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-21 13:04:19",
-      "lastSeen": "2026-04-22T18:04:44.525Z"
+      "lastSeen": "2026-04-22T19:04:31.110Z"
     },
     {
       "adID": "2759653484380657",
@@ -436,7 +456,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-20 22:05:58",
-      "lastSeen": "2026-04-22T16:04:39.407Z"
+      "lastSeen": "2026-04-22T19:06:31.624Z"
     },
     {
       "adID": "KLOV-562564",
@@ -456,7 +476,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-20 20:05:35",
-      "lastSeen": "2026-04-22T18:06:05.326Z"
+      "lastSeen": "2026-04-22T19:07:17.812Z"
     },
     {
       "adID": "1626644155209563",
@@ -483,20 +503,20 @@
       "source": "FB",
       "authorUrl": null,
       "author": "Ryan Camoots",
-      "postedTime": "2026-04-20T18:04:09.080Z",
+      "postedTime": "2026-04-20T19:03:56.543Z",
       "title": "Title Fight Arcade Cabinet (Project)",
       "description": "Title Fight Arcade Cabinet Project Piece. Receives power and intermittent signal to monitors but game does not start and have too many other projects to work on to tack... See more",
       "price": "$650",
       "lat": 30.3321838,
       "lon": -81.655651,
       "location": "JACKSONVILLE, FL",
-      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.30808-6/672670396_10162341449126426_6600596566943273804_n.jpg?stp=cp6_dst-jpg_s590x590_tt6&_nc_cat=103&ccb=1-7&_nc_sid=e06c5d&_nc_ohc=MpPjzd7oywkQ7kNvwEsl2dO&_nc_oc=AdrLz60Il9__0lDyAhSH66KGOf9LCK1rzerEDF4apR-ilCHR8xR_YtXwd0bsLohwtmU&_nc_zt=23&_nc_ht=scontent-dfw6-1.xx&_nc_gid=P0n8f110hlKEpTcdomQXXQ&_nc_ss=7a3a8&oh=00_Af156aKG1cDmDOvVa7PQ33LuQDVqu79xAnEwipxaccRsWw&oe=69EEE0D8",
+      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.30808-6/672670396_10162341449126426_6600596566943273804_n.jpg?stp=cp6_dst-jpg_s590x590_tt6&_nc_cat=103&ccb=1-7&_nc_sid=e06c5d&_nc_ohc=MpPjzd7oywkQ7kNvwEsl2dO&_nc_oc=AdrLz60Il9__0lDyAhSH66KGOf9LCK1rzerEDF4apR-ilCHR8xR_YtXwd0bsLohwtmU&_nc_zt=23&_nc_ht=scontent-dfw6-1.xx&_nc_gid=TAjabfCyhSG0zJ5K4R4_jw&_nc_ss=7b2a8&oh=00_Af1fQ0pCvpcWFnFeL8k-bra91bJShaEcWpBt2pbmAs1qpg&oe=69EEE0D8",
       "adUrl": "https://www.facebook.com/commerce/listing/1631750341395675/",
       "priceChanged": 0,
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-20 16:03:05",
-      "lastSeen": "2026-04-22T18:04:09.262Z"
+      "lastSeen": "2026-04-22T19:03:56.648Z"
     },
     {
       "adID": "2185352358965594",
