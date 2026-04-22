@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-21T23:07:15.133Z",
+  "generated_at": "2026-04-22T00:05:48.839Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,53 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 52,
-      "droppedPrice": 132,
+      "exported_ads": 54,
+      "droppedPrice": 134,
       "droppedMissingGeo": 0,
-      "droppedCircle": 124
+      "droppedCircle": 126
     }
   },
   "ads": [
+    {
+      "adID": "849656047396213",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100090195422569/?product_id=849656047396213",
+      "author": "Amanda Narvaez",
+      "postedTime": "2026-04-21T23:05:58.000Z",
+      "title": "Video game",
+      "description": "",
+      "price": "$250",
+      "lat": 27.9449854,
+      "lon": -82.4583107,
+      "location": "Tampa, FL",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/676894057_1466927018173437_2035258292727422220_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=110&ccb=1-7&_nc_sid=92e707&_nc_ohc=wMplBMq8qMoQ7kNvwG23Wog&_nc_oc=AdpzeE5zzwEd-KppueCIVHjT-aMJnT0_x5UXpLr-3Ak_VoJ1t9Ibn9lJcKjJ8zIzhls&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=GeMODSE4S1RiphL3iqX74A&_nc_ss=7a3a8&oh=00_Af2w-9pd6ViWbxNuhZD9p6ECfF7dja6_YJO1Hbx9TRa2lA&oe=69EDF968",
+      "adUrl": "https://www.facebook.com/marketplace/item/849656047396213/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-04-22 00:04:25",
+      "lastSeen": "2026-04-22T00:05:00.440Z"
+    },
+    {
+      "adID": "4228627864069410",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/61550765768406/?product_id=4228627864069410",
+      "author": "Chiki E Tita",
+      "postedTime": "2026-04-20T22:03:53.000Z",
+      "title": "Arcade machine",
+      "description": "Para apagarla, tienes que desenchufar la máquina recreativa. Para más información llamar al [hidden information] o [hidden information]",
+      "price": "$300",
+      "lat": 33.9566391,
+      "lon": -83.9890066,
+      "location": "Lawrenceville, GA",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t15.5256-10/674959653_744410782091029_8210913528520044312_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=109&ccb=1-7&_nc_sid=d4195b&_nc_ohc=mdVcxLXeNaQQ7kNvwHaEUZH&_nc_oc=AdpNme-lUvHU_rgEG-6fPIJHt5TPhq3Z_fAVIihf2cqzZYzrCC7lk7NaHBhRzr9KScA&_nc_zt=23&_nc_ht=scontent-dfw5-1.xx&_nc_gid=iPYxrUYY1OHHXAVH9nSjGA&_nc_ss=7a3a8&oh=00_Af1GQNix7UKJEp4TpJamNcM-namazgB6QbdytyN-GnQQRQ&oe=69EDD682",
+      "adUrl": "https://www.facebook.com/marketplace/item/4228627864069410/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-04-22 00:04:25",
+      "lastSeen": "2026-04-22T00:05:00.491Z"
+    },
     {
       "adID": "949642984726407",
       "source": "MP",
@@ -36,7 +76,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-21 23:06:21",
-      "lastSeen": "2026-04-21T23:06:38.891Z"
+      "lastSeen": "2026-04-22T00:05:26.035Z"
     },
     {
       "adID": "1812617463030288",
@@ -56,7 +96,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-21 23:04:22",
-      "lastSeen": "2026-04-21T23:06:22.329Z"
+      "lastSeen": "2026-04-22T00:05:27.962Z"
     },
     {
       "adID": "1680718759942589",
@@ -76,7 +116,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-21 22:05:09",
-      "lastSeen": "2026-04-21T23:06:22.362Z"
+      "lastSeen": "2026-04-22T00:05:27.995Z"
     },
     {
       "adID": "1492966738897202",
@@ -96,7 +136,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-21 22:05:08",
-      "lastSeen": "2026-04-21T23:06:21.547Z"
+      "lastSeen": "2026-04-22T00:05:26.069Z"
     },
     {
       "adID": "27122009807384616",
@@ -116,7 +156,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-21 18:05:28",
-      "lastSeen": "2026-04-21T23:06:21.681Z"
+      "lastSeen": "2026-04-22T00:05:26.224Z"
     },
     {
       "adID": "1601973324246815",
@@ -136,7 +176,7 @@
       "priceChangedAt": "2026-04-21 18:05:29",
       "hidden": 0,
       "created_at": "2026-04-21 16:06:37",
-      "lastSeen": "2026-04-21T23:06:21.782Z"
+      "lastSeen": "2026-04-22T00:05:26.324Z"
     },
     {
       "adID": "1306531064708336",
@@ -176,7 +216,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-21 15:06:04",
-      "lastSeen": "2026-04-21T23:06:22.463Z"
+      "lastSeen": "2026-04-22T00:05:28.095Z"
     },
     {
       "adID": "1662087594939973",
@@ -196,27 +236,27 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-21 13:04:19",
-      "lastSeen": "2026-04-21T23:06:22.496Z"
+      "lastSeen": "2026-04-22T00:05:28.129Z"
     },
     {
       "adID": "25412388035104486",
       "source": "FB",
       "authorUrl": null,
       "author": "Jamie Boyd",
-      "postedTime": "2026-04-21T13:02:25.982Z",
+      "postedTime": "2026-04-21T13:02:27.508Z",
       "title": "Game of Thrones Pinball Playfield - NOS - Never Populated - Mint!",
       "description": "Game of Thrones Pinball Playfield - NOS - Never Populated - Mint!",
       "price": "$500",
       "lat": 30.421309,
       "lon": -87.2169149,
       "location": "PENSACOLA, FL",
-      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t45.5328-4/661725988_1947440402809815_5136687670510423060_n.jpg?stp=c3.101.584.584a_dst-jpg_p590x590_tt6&_nc_cat=109&ccb=1-7&_nc_sid=46f460&_nc_ohc=gZ8PeA8Qh0oQ7kNvwFOjtcf&_nc_oc=AdqbTNY1rPiB07sXCkNL4BGm1iroBCtO4JRJyO9iZH-_oODZe5Xm26EcsCVFumz1utY&_nc_zt=23&_nc_ht=scontent-dfw5-1.xx&_nc_gid=C1vn6eRLbzQP4IavU-EeNQ&_nc_ss=7a3a8&oh=00_Af17yEhawfLgMwpU1_vvmUFKoi6DbT28e6RxfuUUWEp2XQ&oe=69EDD549",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t45.5328-4/661725988_1947440402809815_5136687670510423060_n.jpg?stp=c3.101.584.584a_dst-jpg_p590x590_tt6&_nc_cat=109&ccb=1-7&_nc_sid=46f460&_nc_ohc=gZ8PeA8Qh0oQ7kNvwFOjtcf&_nc_oc=AdqbTNY1rPiB07sXCkNL4BGm1iroBCtO4JRJyO9iZH-_oODZe5Xm26EcsCVFumz1utY&_nc_zt=23&_nc_ht=scontent-dfw5-1.xx&_nc_gid=AB0_-byeTnUCjklZuz932w&_nc_ss=7a3a8&oh=00_Af2SQSti2FQD_L-fiEAef1U49BQa45Ftmo9LwyWZxsZ3Dw&oe=69EDD549",
       "adUrl": "https://www.facebook.com/commerce/listing/25412388035104486/",
       "priceChanged": 0,
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-21 13:02:24",
-      "lastSeen": "2026-04-21T23:02:26.118Z"
+      "lastSeen": "2026-04-22T00:02:27.571Z"
     },
     {
       "adID": "2759653484380657",
@@ -236,7 +276,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-21 12:07:16",
-      "lastSeen": "2026-04-21T15:06:04.786Z"
+      "lastSeen": "2026-04-22T00:05:28.195Z"
     },
     {
       "adID": "2395930537576985",
@@ -256,7 +296,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-21 12:04:26",
-      "lastSeen": "2026-04-21T17:05:12.784Z"
+      "lastSeen": "2026-04-22T00:05:28.162Z"
     },
     {
       "adID": "1000775729140917",
@@ -296,7 +336,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-21 11:05:26",
-      "lastSeen": "2026-04-21T23:06:22.015Z"
+      "lastSeen": "2026-04-22T00:05:27.529Z"
     },
     {
       "adID": "1959928694615885",
@@ -316,7 +356,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-20 22:05:58",
-      "lastSeen": "2026-04-21T23:06:22.116Z"
+      "lastSeen": "2026-04-22T00:05:27.650Z"
     },
     {
       "adID": "KLOV-562564",
@@ -336,7 +376,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-20 20:05:35",
-      "lastSeen": "2026-04-21T23:07:14.872Z"
+      "lastSeen": "2026-04-22T00:05:48.572Z"
     },
     {
       "adID": "1626644155209563",
@@ -363,20 +403,20 @@
       "source": "FB",
       "authorUrl": null,
       "author": "Ryan Camoots",
-      "postedTime": "2026-04-20T23:03:48.457Z",
+      "postedTime": "2026-04-21T00:03:52.417Z",
       "title": "Title Fight Arcade Cabinet (Project)",
       "description": "Title Fight Arcade Cabinet Project Piece. Receives power and intermittent signal to monitors but game does not start and have too many other projects to work on to tack... See more",
       "price": "$650",
       "lat": 30.3321838,
       "lon": -81.655651,
       "location": "JACKSONVILLE, FL",
-      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.30808-6/672670396_10162341449126426_6600596566943273804_n.jpg?stp=cp6_dst-jpg_s590x590_tt6&_nc_cat=103&ccb=1-7&_nc_sid=e06c5d&_nc_ohc=MpPjzd7oywkQ7kNvwEsl2dO&_nc_oc=AdrLz60Il9__0lDyAhSH66KGOf9LCK1rzerEDF4apR-ilCHR8xR_YtXwd0bsLohwtmU&_nc_zt=23&_nc_ht=scontent-dfw6-1.xx&_nc_gid=g_Xn3wthjEkd9wLH6iOADA&_nc_ss=7a3a8&oh=00_Af0SDL5VeW32CK_g7B3cXBjLNgx6Bh2CAIoPyekN5pkWUg&oe=69EDC798",
+      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.30808-6/672670396_10162341449126426_6600596566943273804_n.jpg?stp=cp6_dst-jpg_s590x590_tt6&_nc_cat=103&ccb=1-7&_nc_sid=e06c5d&_nc_ohc=MpPjzd7oywkQ7kNvwEsl2dO&_nc_oc=AdrLz60Il9__0lDyAhSH66KGOf9LCK1rzerEDF4apR-ilCHR8xR_YtXwd0bsLohwtmU&_nc_zt=23&_nc_ht=scontent-dfw6-1.xx&_nc_gid=NBseJCj2O1LqNtgtPtCONQ&_nc_ss=7a3a8&oh=00_Af2pd0rWG4RiO3EyLpPoed_qV8h78nhP6WuxizKZyI8AJQ&oe=69EDC798",
       "adUrl": "https://www.facebook.com/commerce/listing/1631750341395675/",
       "priceChanged": 0,
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-20 16:03:05",
-      "lastSeen": "2026-04-21T23:03:48.981Z"
+      "lastSeen": "2026-04-22T00:03:52.517Z"
     },
     {
       "adID": "2185352358965594",
