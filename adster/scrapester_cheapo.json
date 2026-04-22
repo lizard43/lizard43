@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-22T16:05:58.923Z",
+  "generated_at": "2026-04-22T17:07:48.530Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,33 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 57,
-      "droppedPrice": 88,
+      "exported_ads": 58,
+      "droppedPrice": 95,
       "droppedMissingGeo": 0,
-      "droppedCircle": 118
+      "droppedCircle": 119
     }
   },
   "ads": [
+    {
+      "adID": "1492958562365341",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100022527129435/?product_id=1492958562365341",
+      "author": "Randy Taylor",
+      "postedTime": "2026-04-22T16:53:42.000Z",
+      "title": "Vintage Pinball Video Game",
+      "description": "Very old ... pick up Bowdon Ga ... shipping available upon request",
+      "price": "$42",
+      "lat": 33.5378885,
+      "lon": -85.2532818,
+      "location": "Bowdon, GA",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/674574497_792048610650872_8475512817671380872_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=105&ccb=1-7&_nc_sid=92e707&_nc_ohc=5RNSaBr8HjgQ7kNvwFlhpGQ&_nc_oc=AdryFcvhbA1b7JZSJQfUfBOMp1lxVsVTNKkstSwoz2hMw-zLAskeTIxAwt6hDo34wBo&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=pT61o_UoRTxO_yku7Yu1HA&_nc_ss=7a3a8&oh=00_Af0CH7SRMDTlCpZ6wJUdelwqDkoLMGRV6aVAtbS8v2qusQ&oe=69EED6C1",
+      "adUrl": "https://www.facebook.com/marketplace/item/1492958562365341/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-04-22 17:05:45",
+      "lastSeen": "2026-04-22T17:06:43.619Z"
+    },
     {
       "adID": "2240133526814765",
       "source": "MP",
@@ -36,7 +56,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-22 16:04:38",
-      "lastSeen": "2026-04-22T16:05:24.029Z"
+      "lastSeen": "2026-04-22T17:06:45.543Z"
     },
     {
       "adID": "1512060540354229",
@@ -56,7 +76,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-22 16:04:38",
-      "lastSeen": "2026-04-22T16:05:24.077Z"
+      "lastSeen": "2026-04-22T17:06:47.253Z"
     },
     {
       "adID": "2142233829651347",
@@ -156,7 +176,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-22 00:04:25",
-      "lastSeen": "2026-04-22T16:04:27.804Z"
+      "lastSeen": "2026-04-22T17:05:53.940Z"
     },
     {
       "adID": "949642984726407",
@@ -176,7 +196,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-21 23:06:21",
-      "lastSeen": "2026-04-22T16:04:39.340Z"
+      "lastSeen": "2026-04-22T17:06:57.959Z"
     },
     {
       "adID": "1812617463030288",
@@ -256,7 +276,7 @@
       "priceChangedAt": "2026-04-22 16:04:39",
       "hidden": 0,
       "created_at": "2026-04-21 18:05:28",
-      "lastSeen": "2026-04-22T16:05:24.112Z"
+      "lastSeen": "2026-04-22T17:07:00.161Z"
     },
     {
       "adID": "1306531064708336",
@@ -316,7 +336,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-21 13:04:19",
-      "lastSeen": "2026-04-22T16:04:27.705Z"
+      "lastSeen": "2026-04-22T17:05:50.504Z"
     },
     {
       "adID": "2759653484380657",
@@ -436,7 +456,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-20 20:05:35",
-      "lastSeen": "2026-04-22T16:05:58.728Z"
+      "lastSeen": "2026-04-22T17:07:42.118Z"
     },
     {
       "adID": "1626644155209563",
@@ -463,20 +483,20 @@
       "source": "FB",
       "authorUrl": null,
       "author": "Ryan Camoots",
-      "postedTime": "2026-04-20T16:03:53.993Z",
+      "postedTime": "2026-04-20T17:05:05.882Z",
       "title": "Title Fight Arcade Cabinet (Project)",
       "description": "Title Fight Arcade Cabinet Project Piece. Receives power and intermittent signal to monitors but game does not start and have too many other projects to work on to tack... See more",
       "price": "$650",
       "lat": 30.3321838,
       "lon": -81.655651,
       "location": "JACKSONVILLE, FL",
-      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.30808-6/672670396_10162341449126426_6600596566943273804_n.jpg?stp=cp6_dst-jpg_s590x590_tt6&_nc_cat=103&ccb=1-7&_nc_sid=e06c5d&_nc_ohc=MpPjzd7oywkQ7kNvwEsl2dO&_nc_oc=AdrLz60Il9__0lDyAhSH66KGOf9LCK1rzerEDF4apR-ilCHR8xR_YtXwd0bsLohwtmU&_nc_zt=23&_nc_ht=scontent-dfw6-1.xx&_nc_gid=gdZ-2DhmbpfvNAEqfTmZMg&_nc_ss=7b3a8&oh=00_Af0jWFeH071bYpIuKfs4chbrrZofT4FgpKdTwBhHUAcDKw&oe=69EEA898",
+      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.30808-6/672670396_10162341449126426_6600596566943273804_n.jpg?stp=cp6_dst-jpg_s590x590_tt6&_nc_cat=103&ccb=1-7&_nc_sid=e06c5d&_nc_ohc=MpPjzd7oywkQ7kNvwEsl2dO&_nc_oc=AdrLz60Il9__0lDyAhSH66KGOf9LCK1rzerEDF4apR-ilCHR8xR_YtXwd0bsLohwtmU&_nc_zt=23&_nc_ht=scontent-dfw6-1.xx&_nc_gid=Nc4pDDWwUzBlsrGoDROWLA&_nc_ss=7a3a8&oh=00_Af1yCIw6C3ygLnX-F0jh9sA7xaI2_4HGxNfB54YExXehdQ&oe=69EEE0D8",
       "adUrl": "https://www.facebook.com/commerce/listing/1631750341395675/",
       "priceChanged": 0,
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-20 16:03:05",
-      "lastSeen": "2026-04-22T16:03:54.044Z"
+      "lastSeen": "2026-04-22T17:05:05.926Z"
     },
     {
       "adID": "2185352358965594",
