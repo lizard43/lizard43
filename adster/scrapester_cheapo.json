@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-22T15:25:52.354Z",
+  "generated_at": "2026-04-22T16:05:58.923Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,53 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 55,
-      "droppedPrice": 87,
+      "exported_ads": 57,
+      "droppedPrice": 88,
       "droppedMissingGeo": 0,
-      "droppedCircle": 117
+      "droppedCircle": 118
     }
   },
   "ads": [
+    {
+      "adID": "2240133526814765",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100000535238296/?product_id=2240133526814765",
+      "author": "Livingston Marie",
+      "postedTime": "2026-04-22T15:09:03.000Z",
+      "title": "Marvel pinball machine",
+      "description": "",
+      "price": "$150",
+      "lat": 33.857328,
+      "lon": -84.0199108,
+      "location": "Snellville, GA",
+      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/677046788_2061874161404288_4768173607162063408_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=104&ccb=1-7&_nc_sid=92e707&_nc_ohc=T7PuBpJitOgQ7kNvwHDa2Mo&_nc_oc=AdrBNPdWiVkyTDEWn-_jv6qgZAwyNvXDgmNU6Q0b38XYt9hD4Ed2130e3sxnim-5irE&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=_D0yzdNB--O2qZmnhqQcaw&_nc_ss=7a2a8&oh=00_Af2GmX0ecHVpIVF9zYDWwdEoH_4xc3oohmlFVdi0tqZkwA&oe=69EEB844",
+      "adUrl": "https://www.facebook.com/marketplace/item/2240133526814765/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-04-22 16:04:38",
+      "lastSeen": "2026-04-22T16:05:24.029Z"
+    },
+    {
+      "adID": "1512060540354229",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100000535238296/?product_id=1512060540354229",
+      "author": "Livingston Marie",
+      "postedTime": "2026-04-22T15:09:03.000Z",
+      "title": "Star Wars pinball machine",
+      "description": "",
+      "price": "$150",
+      "lat": 33.857328,
+      "lon": -84.0199108,
+      "location": "Snellville, GA",
+      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/678203313_4388940567992662_771609760031907128_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=106&ccb=1-7&_nc_sid=92e707&_nc_ohc=ly5S4NBOhZkQ7kNvwHEChLP&_nc_oc=AdrlUYQ4Jk-oIf7uHkyhDwetnxwbDsbxaQlv3gOS-4ziiRlSWPGBaK4IPb9towhuMfw&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=HkBK9ykfM_l8iZsNh4iy-g&_nc_ss=7b3a8&oh=00_Af3vLGo_VEgNPShhi8I43bE95bJsXjAO-pISqoPsuSvXXw&oe=69EEB9E4",
+      "adUrl": "https://www.facebook.com/marketplace/item/1512060540354229/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-04-22 16:04:38",
+      "lastSeen": "2026-04-22T16:05:24.077Z"
+    },
     {
       "adID": "2142233829651347",
       "source": "MP",
@@ -36,7 +76,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-22 15:04:21",
-      "lastSeen": "2026-04-22T15:06:33.422Z"
+      "lastSeen": "2026-04-22T16:04:28.073Z"
     },
     {
       "adID": "938357415780003",
@@ -76,7 +116,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-22 11:05:30",
-      "lastSeen": "2026-04-22T15:06:55.390Z"
+      "lastSeen": "2026-04-22T16:04:39.642Z"
     },
     {
       "adID": "993173913370696",
@@ -116,7 +156,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-22 00:04:25",
-      "lastSeen": "2026-04-22T15:04:20.520Z"
+      "lastSeen": "2026-04-22T16:04:27.804Z"
     },
     {
       "adID": "949642984726407",
@@ -136,7 +176,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-21 23:06:21",
-      "lastSeen": "2026-04-22T15:06:55.088Z"
+      "lastSeen": "2026-04-22T16:04:39.340Z"
     },
     {
       "adID": "1812617463030288",
@@ -156,7 +196,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-21 23:04:22",
-      "lastSeen": "2026-04-22T12:04:27.556Z"
+      "lastSeen": "2026-04-22T16:04:39.709Z"
     },
     {
       "adID": "1680718759942589",
@@ -176,7 +216,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-21 22:05:09",
-      "lastSeen": "2026-04-22T12:04:27.589Z"
+      "lastSeen": "2026-04-22T16:04:39.742Z"
     },
     {
       "adID": "1492966738897202",
@@ -205,18 +245,18 @@
       "author": "Justin Guy",
       "postedTime": "2026-04-21T17:56:39.000Z",
       "title": "Bally Bow and Arrow Pinball Machine Project",
-      "description": "Up for sale is a 1975 Bally Bow and Arrow pinball machine project. The playfield and backglass are in mint condition. The cabinet is fair for its age. It has the back door as well. Please see all the pictures for condition. Currently when powered on only the GI lights come on. I don't have the time right now to restore the machine so I am selling it. I will help you load it. The head and legs can be taken off for moving. I just recommend bringing some moving blankets. Pickup in Adairsville, Georgia. 650 obo",
-      "price": "$650",
+      "description": "Up for sale is a 1975 Bally Bow and Arrow pinball machine project. The playfield and backglass are in mint condition. The cabinet is fair for its age. It has the back door as well. Please see all the pictures for condition. Currently when powered on only the GI lights come on. I don't have the time right now to restore the machine so I am selling it. I will help you load it. The head and legs can be taken off for moving. I just recommend bringing some moving blankets. Pickup in Adairsville, Georgia. 550 obo",
+      "price": "$550",
       "lat": 34.3683267,
       "lon": -84.9349057,
       "location": "Adairsville, GA",
-      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/673727110_923009960556465_3828663865813846967_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=104&ccb=1-7&_nc_sid=92e707&_nc_ohc=OtzWWp7Pu54Q7kNvwHosmct&_nc_oc=Adr0j0pGh4iKHj-WFPPdBEmDJsPXAsKkYc3fYuPiYbyAoX3o-aBQtbRuJylDNAs5fYw&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=7bmo3zKNcj3R7QwfCJUXEw&_nc_ss=7a3a8&oh=00_Af2hILBcbc7Xa8B5h2W4P_aCiMBJN0iXys1Gjp5fbnmJ4g&oe=69EDA811",
+      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/673727110_923009960556465_3828663865813846967_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=104&ccb=1-7&_nc_sid=92e707&_nc_ohc=OtzWWp7Pu54Q7kNvwHosmct&_nc_oc=Adr0j0pGh4iKHj-WFPPdBEmDJsPXAsKkYc3fYuPiYbyAoX3o-aBQtbRuJylDNAs5fYw&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=MB_e7PiVMflecccT2SM_sw&_nc_ss=7a3a8&oh=00_Af1reQJlBBb3YNGb2oEI9aGAg5zPHmjncUkbk8q8gduFbQ&oe=69EEC151",
       "adUrl": "https://www.facebook.com/marketplace/item/27122009807384616/",
-      "priceChanged": 0,
-      "priceChangedAt": null,
+      "priceChanged": 1,
+      "priceChangedAt": "2026-04-22 16:04:39",
       "hidden": 0,
       "created_at": "2026-04-21 18:05:28",
-      "lastSeen": "2026-04-22T15:06:55.122Z"
+      "lastSeen": "2026-04-22T16:05:24.112Z"
     },
     {
       "adID": "1306531064708336",
@@ -276,7 +316,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-21 13:04:19",
-      "lastSeen": "2026-04-22T15:04:20.420Z"
+      "lastSeen": "2026-04-22T16:04:27.705Z"
     },
     {
       "adID": "2759653484380657",
@@ -376,7 +416,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-20 22:05:58",
-      "lastSeen": "2026-04-22T15:06:55.155Z"
+      "lastSeen": "2026-04-22T16:04:39.407Z"
     },
     {
       "adID": "KLOV-562564",
@@ -396,7 +436,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-20 20:05:35",
-      "lastSeen": "2026-04-22T15:08:00.282Z"
+      "lastSeen": "2026-04-22T16:05:58.728Z"
     },
     {
       "adID": "1626644155209563",
@@ -423,20 +463,20 @@
       "source": "FB",
       "authorUrl": null,
       "author": "Ryan Camoots",
-      "postedTime": "2026-04-21T15:03:47.936Z",
+      "postedTime": "2026-04-20T16:03:53.993Z",
       "title": "Title Fight Arcade Cabinet (Project)",
       "description": "Title Fight Arcade Cabinet Project Piece. Receives power and intermittent signal to monitors but game does not start and have too many other projects to work on to tack... See more",
       "price": "$650",
       "lat": 30.3321838,
       "lon": -81.655651,
       "location": "JACKSONVILLE, FL",
-      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.30808-6/672670396_10162341449126426_6600596566943273804_n.jpg?stp=cp6_dst-jpg_s590x590_tt6&_nc_cat=103&ccb=1-7&_nc_sid=e06c5d&_nc_ohc=MpPjzd7oywkQ7kNvwEsl2dO&_nc_oc=AdrLz60Il9__0lDyAhSH66KGOf9LCK1rzerEDF4apR-ilCHR8xR_YtXwd0bsLohwtmU&_nc_zt=23&_nc_ht=scontent-dfw6-1.xx&_nc_gid=8OjNBPq79EyIF4H7_GvmMQ&_nc_ss=7a3a8&oh=00_Af0DfeeRvYpXcctTXjFzjWtn0zWsnhfjBUfJ8OcdR1bREg&oe=69EEA898",
+      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.30808-6/672670396_10162341449126426_6600596566943273804_n.jpg?stp=cp6_dst-jpg_s590x590_tt6&_nc_cat=103&ccb=1-7&_nc_sid=e06c5d&_nc_ohc=MpPjzd7oywkQ7kNvwEsl2dO&_nc_oc=AdrLz60Il9__0lDyAhSH66KGOf9LCK1rzerEDF4apR-ilCHR8xR_YtXwd0bsLohwtmU&_nc_zt=23&_nc_ht=scontent-dfw6-1.xx&_nc_gid=gdZ-2DhmbpfvNAEqfTmZMg&_nc_ss=7b3a8&oh=00_Af0jWFeH071bYpIuKfs4chbrrZofT4FgpKdTwBhHUAcDKw&oe=69EEA898",
       "adUrl": "https://www.facebook.com/commerce/listing/1631750341395675/",
       "priceChanged": 0,
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-20 16:03:05",
-      "lastSeen": "2026-04-22T15:03:47.973Z"
+      "lastSeen": "2026-04-22T16:03:54.044Z"
     },
     {
       "adID": "2185352358965594",
