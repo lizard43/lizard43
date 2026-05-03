@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-03T20:07:02.912Z",
+  "generated_at": "2026-05-03T20:33:08.475Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,10 +11,10 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 58,
-      "droppedPrice": 286,
+      "exported_ads": 57,
+      "droppedPrice": 271,
       "droppedMissingGeo": 0,
-      "droppedCircle": 193
+      "droppedCircle": 191
     }
   },
   "ads": [
@@ -210,13 +210,13 @@
       "lat": 29.1871986,
       "lon": -82.1400923,
       "location": "Ocala, FL",
-      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/678493405_1281255170856707_3448229443709802465_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=102&ccb=1-7&_nc_sid=92e707&_nc_ohc=NosjHr4ukegQ7kNvwHrbMzP&_nc_oc=Adq6wXt61PTfvsZrkzf0hb_Kh93mBLhmJ30U9pwWKTC09f6gOkgJCR4IG5OjR-gqLUY&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=nI3jIejeC1V4ZTTJM52YBg&oh=00_Af2lm7nyHWGwsahhAjoCS4ZCvNljsssD26vTFYg9ga1vqg&oe=69F09B44",
+      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/678493405_1281255170856707_3448229443709802465_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=102&ccb=1-7&_nc_sid=92e707&_nc_eui2=AeF8Ld5eduCW8JOIiuTfWx9p7Nmxqrc22wLs2bGqtzbbAv6h3A0m3Zt6cJRJhjEWAyA&_nc_ohc=69zXq68sEFwQ7kNvwHShqI5&_nc_oc=AdpTHqIh7fA-LCGjrGmeDQ3MAXfihTRDU1HuRsBuJmyUU0nXwgsMlGZpkL2ZsLvmNq4&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=MDWgHlprt0wQUuxNCWjFnQ&_nc_ss=7b2a8&oh=00_Af54WwTHE5grS9DClWohGUGh1ZFBc8ju7A4K7gc6uhUqrw&oe=69FD9204",
       "adUrl": "https://www.facebook.com/marketplace/item/2839854709699910/",
       "priceChanged": 0,
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-24 02:04:32",
-      "lastSeen": "2026-04-24T14:05:26.528Z"
+      "lastSeen": "2026-05-03T20:28:16.787Z"
     },
     {
       "adID": "1517319620107510",
@@ -230,33 +230,13 @@
       "lat": 29.1871986,
       "lon": -82.1400923,
       "location": "Ocala, FL",
-      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/678963760_1932308397491189_5642407879753852457_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=104&ccb=1-7&_nc_sid=92e707&_nc_ohc=2qtSb2nzC4kQ7kNvwHYge2U&_nc_oc=AdoAxnzGtokxnYHkr7YQUNqpTsZ_25o-z3-ltLOYNYkFfO94890WeMdv3mzXlQAGxTg&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=zPD3-xhbCaJKt_eZvu6f5A&oh=00_Af3Rp2B0YexBo5xb0P3QtKja977hhdhqtwcZKliIB0y-rg&oe=69F0ABE3",
+      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/678963760_1932308397491189_5642407879753852457_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=104&ccb=1-7&_nc_sid=92e707&_nc_eui2=AeHjlYGfNfJCdhXCSzt0h6bhPwb0n3gQ75o_BvSfeBDvmgzgumxoAfYhLW4-6TDBolo&_nc_ohc=x219A3Lf9vEQ7kNvwGuJuQY&_nc_oc=AdqAFDZ7kly2nTkfcF5apSrksk1fu1rasfRDVpjqqHsiYhlVTTeiybksv8_0ThjhL-o&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=OMuwqiYoIDfTPWlBK5nHeg&_nc_ss=7b2a8&oh=00_Af5RH5-e_Am3hkFyqk9vV_Luhsus6XYbWrZWkDWpwiPcPg&oe=69FD6A63",
       "adUrl": "https://www.facebook.com/marketplace/item/1517319620107510/",
       "priceChanged": 0,
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-24 02:04:32",
-      "lastSeen": "2026-04-24T02:05:34.965Z"
-    },
-    {
-      "adID": "925969940464050",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/100013662791005/?product_id=925969940464050",
-      "author": "John Cage",
-      "postedTime": "2026-04-24T01:36:40.000Z",
-      "title": "Empty Arcade Cabinets $150 Each",
-      "description": "Empty Arcade Cabinets A Few Avaiable Counter Top Cabinet Rampart Cabinet Primal Rage Cabinet Sit Down Cabinet Back Section Space Encounters Cabinet good for restoration, multi game, mame, or rasp pi project I have a few cranes and several jukeboxes to clear out also if interested {352} 403 1821",
-      "price": "$150",
-      "lat": 29.1871986,
-      "lon": -82.1400923,
-      "location": "Ocala, FL",
-      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/678513762_35070681142547567_2206505955063105467_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=107&ccb=1-7&_nc_sid=92e707&_nc_ohc=BKzCXWgGPqMQ7kNvwFhQY18&_nc_oc=AdqUIiDGRmm7EKykKqzxLKyTF6UgZDFv6e6iMa4gsP3i_UCKdquxchflpUH9DvRdTMw&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=AaowTHvXlxPggulcyDkSTQ&oh=00_Af1g5hYrWLY3LdUc-9WgPW9BE0zS6DdQ3DMWw-iQuxapAg&oe=69F08F02",
-      "adUrl": "https://www.facebook.com/marketplace/item/925969940464050/",
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-04-24 02:04:32",
-      "lastSeen": "2026-04-24T02:05:34.998Z"
+      "lastSeen": "2026-05-03T20:28:16.729Z"
     },
     {
       "adID": "1541163514049497",
@@ -270,13 +250,13 @@
       "lat": 28.1866014,
       "lon": -82.366121,
       "location": "Wesley Chapel, FL",
-      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/678511625_1722737698891653_7041384149810298500_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=109&ccb=1-7&_nc_sid=92e707&_nc_ohc=VzyoszvIk40Q7kNvwFQhgsk&_nc_oc=Adq6qUem3tsVNSWpyqC6SQjBraImlx8CsP05s_c5Oa9lx9BQ2crUKBom5rUQC7F3kY8&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=0f-Ah464ilwPt70md3kuVw&oh=00_Af0mxkm0qHi24u2TtsJlxyi_6WH77NLcBfivYzgLDhG-7A&oe=69F08F0D",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/678511625_1722737698891653_7041384149810298500_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=109&ccb=1-7&_nc_sid=92e707&_nc_eui2=AeHId0kXoE3TbsSWVrw4SYWZGdrtZOOH7H8Z2u1k44fsf9cdnPVjNMFcuW3Tt8ERMRE&_nc_ohc=BEu8YXH1bJEQ7kNvwGw4Z2_&_nc_oc=Adop8ori9L_mr-q3_C1SaB8_ih2T5AGBZJ1_WGzeiIBl4L3-vrmwMqdD3b6WYT7zibU&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=gBcIeX7AyEh1qhnA2WeGIQ&_nc_ss=7b2a8&oh=00_Af5LWKzd_w1OamfnzPxcOVRL86ZYrJ7TyF34FOOzxRr8dg&oe=69FD85CD",
       "adUrl": "https://www.facebook.com/marketplace/item/1541163514049497/",
       "priceChanged": 0,
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-23 23:04:17",
-      "lastSeen": "2026-04-24T02:04:32.411Z"
+      "lastSeen": "2026-05-03T20:31:43.029Z"
     },
     {
       "adID": "1502775871357285",
