@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-04T22:06:08.095Z",
+  "generated_at": "2026-05-04T23:06:43.056Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,53 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 58,
-      "droppedPrice": 119,
+      "exported_ads": 59,
+      "droppedPrice": 122,
       "droppedMissingGeo": 0,
-      "droppedCircle": 165
+      "droppedCircle": 167
     }
   },
   "ads": [
+    {
+      "adID": "799489689681811",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100007693363702/?product_id=799489689681811",
+      "author": "Alex Caughman",
+      "postedTime": "2026-05-04T20:56:02.000Z",
+      "title": "Gottlieb Volley Pinball Machine Project",
+      "description": "I wanted to make this Volley into a cherry example, but I need to make room for another EM that I’m picking up. The game turns on and flips, keeps track of balls etc. The score relays are stuck on and continue to count up until you end your game, however they do reset to zero as they should. The good: little to no flaking on the backglass and the playfield has very light flipper drag near the right flipper, in the unpainted area. The front and back panels of the cabinet were delaminating so I replaced those and repaired gouges in the cabinet elsewhere. The bad: the game will need to be repainted and stenciled to look great again. Will need new bulbs and rubbers; the plastics will need to be flame polished, but they are not broken. Looking to get $700 for this. I have a lot of time into the cabinet work to make it structurally viable for years to come. Let me know if you have any questions. Thank you!",
+      "price": "$700",
+      "lat": 34.1014112,
+      "lon": -84.5192192,
+      "location": "Woodstock, GA",
+      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/690368471_1519422643135362_700510368873288769_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=106&ccb=1-7&_nc_sid=92e707&_nc_eui2=AeHJIM6LLlYo1ZuI3YMZ2vG_VRRyXl-meNlVFHJeX6Z42cH3VCHcwzSyChDSRoMDNNY&_nc_ohc=rSLUGFs9zp8Q7kNvwE5OEk-&_nc_oc=AdoRezSRKkoJuYGBbFoQ0X3rDQvYNjr9t9ZPOSYjOo_8tKyMrIfIObZqOm_AzVARQyY&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=_DG3cMxevp1Affh01yyEmA&_nc_ss=7b2a8&oh=00_Af5uC5t631j_H9s0Q1wliwYHfIZvqeNxNpccyunmUEaAzA&oe=69FEFBB3",
+      "adUrl": "https://www.facebook.com/marketplace/item/799489689681811/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-05-04 23:05:16",
+      "lastSeen": "2026-05-04T23:06:08.697Z"
+    },
+    {
+      "adID": "1320875349911469",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100000567660580/?product_id=1320875349911469",
+      "author": "William Temple",
+      "postedTime": "2026-05-04T22:29:39.000Z",
+      "title": "Space gun arcade",
+      "description": "Taito space gun arcade, old arcade cabinet that works fine, plastic is ok....a few small cracks on one piece Pedals will need work",
+      "price": "$500",
+      "lat": 34.0800419,
+      "lon": -87.2125687,
+      "location": "Arley, AL",
+      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/692009819_2064688570775187_5973747624221221800_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=100&ccb=1-7&_nc_sid=92e707&_nc_eui2=AeG1W7AMx5sth1EtECyci7mcuomx9Rp965q6ibH1Gn3rmq4PXfg4CY1u23a-ycL4W0w&_nc_ohc=cSkAJmpcA2MQ7kNvwEyI_zt&_nc_oc=Adq9CHTeGkqxLhorGaKUFGD2cg6i_8cbGpqytQzWh2zQIbUNWR7M9GKEUy1xn7VLRb4&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=fy8SNCSlsnbBfvYGaeJSTQ&_nc_ss=7b2a8&oh=00_Af5ePcARBC5qv9mXuNRKvVVeb2ZEgg2k1iIeF58kK5a84Q&oe=69FF0F12",
+      "adUrl": "https://www.facebook.com/marketplace/item/1320875349911469/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-05-04 23:04:29",
+      "lastSeen": "2026-05-04T23:05:19.486Z"
+    },
     {
       "adID": "1532695181707216",
       "source": "MP",
@@ -36,27 +76,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-04 22:04:22",
-      "lastSeen": "2026-05-04T22:04:52.503Z"
-    },
-    {
-      "adID": "995343692935402",
-      "source": "FB",
-      "authorUrl": null,
-      "author": "Alex Caughman",
-      "postedTime": "2026-05-04T21:02:22.593Z",
-      "title": "Gottlieb Volley Pinball Machine Project",
-      "description": "I wanted to make this Volley into a cherry example, but I need to make room for another EM that I’m picking up. The game turns on and flips, keeps track of balls etc. The score relays are stuck on and continue to count up until you end your game, however they do reset to zero as they should.",
-      "price": "$700",
-      "lat": 34.1014112,
-      "lon": -84.5192192,
-      "location": "WOODSTOCK, GA",
-      "imageUrl": "https://scontent-dfw5-3.xx.fbcdn.net/v/t39.30808-6/690668643_4325173027749100_2654636951543577258_n.jpg?stp=dst-jpg_s590x590_tt6&_nc_cat=110&ccb=1-7&_nc_sid=e06c5d&_nc_eui2=AeFXhHHf7iKYVYH4oV4AT5JoHZTnNqCCXOcdlOc2oIJc56wvEXCMFC5imVbXn8Dz1os&_nc_ohc=h8X1GukpMLgQ7kNvwFv7cfY&_nc_oc=AdoY8_o1UNzN4F6ugdgcrURhN9iKRC-6_OwMDgdy8DwchKFCQNF0zVFwsJZ0P4V3FTE&_nc_zt=23&_nc_ht=scontent-dfw5-3.xx&_nc_gid=QKfOIde7b_lGMEqeLzQ6Vg&_nc_ss=7b2a8&oh=00_Af5KxaqrapISNdfbHofcTV94Kj7W1nF6AgsV9z74BcnVaQ&oe=69FEE274",
-      "adUrl": "https://www.facebook.com/commerce/listing/995343692935402/",
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-05-04 22:02:22",
-      "lastSeen": "2026-05-04T22:02:22.715Z"
+      "lastSeen": "2026-05-04T23:04:29.926Z"
     },
     {
       "adID": "3187228368114640",
@@ -76,7 +96,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-04 21:04:22",
-      "lastSeen": "2026-05-04T22:04:23.098Z"
+      "lastSeen": "2026-05-04T23:04:30.615Z"
     },
     {
       "adID": "2196170624541998",
@@ -96,7 +116,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-04 18:04:41",
-      "lastSeen": "2026-05-04T22:05:15.981Z"
+      "lastSeen": "2026-05-04T23:05:17.746Z"
     },
     {
       "adID": "1283754513868645",
@@ -116,7 +136,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-04 16:04:36",
-      "lastSeen": "2026-05-04T22:05:16.159Z"
+      "lastSeen": "2026-05-04T23:05:17.923Z"
     },
     {
       "adID": "1293888982929817",
@@ -156,7 +176,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-04 15:05:58",
-      "lastSeen": "2026-05-04T22:05:16.315Z"
+      "lastSeen": "2026-05-04T23:05:18.056Z"
     },
     {
       "adID": "959188920035298",
@@ -176,7 +196,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-04 15:05:58",
-      "lastSeen": "2026-05-04T22:05:16.425Z"
+      "lastSeen": "2026-05-04T23:05:18.156Z"
     },
     {
       "adID": "1276937707967979",
@@ -196,7 +216,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-04 15:04:39",
-      "lastSeen": "2026-05-04T22:04:22.213Z"
+      "lastSeen": "2026-05-04T23:04:30.060Z"
     },
     {
       "adID": "1661786301755477",
@@ -296,7 +316,7 @@
       "priceChangedAt": "2026-05-04 16:04:37",
       "hidden": 0,
       "created_at": "2026-05-03 23:04:35",
-      "lastSeen": "2026-05-04T16:06:29.705Z"
+      "lastSeen": "2026-05-04T23:04:30.337Z"
     },
     {
       "adID": "1481440120149561",
@@ -323,7 +343,7 @@
       "source": "PS",
       "authorUrl": "https://pinside.com/pinball/community/pinsiders/smokinhos/market",
       "author": "smokinhos",
-      "postedTime": "2026-05-02T22:05:53.596Z",
+      "postedTime": "2026-05-02T23:06:29.142Z",
       "title": "CLIPs Godzilla plastic protectors set - complete minus Mothr",
       "description": "New (selling one, non-business) - “Complete set minus the Mothra plastic. 33 pcs. Never used. Yellow set.”",
       "price": "$125",
@@ -336,7 +356,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-03 19:48:38",
-      "lastSeen": "2026-05-04T22:05:53.670Z"
+      "lastSeen": "2026-05-04T23:06:29.202Z"
     },
     {
       "adID": "4530142440582683",
@@ -376,7 +396,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-03 19:36:34",
-      "lastSeen": "2026-05-04T22:05:18.679Z"
+      "lastSeen": "2026-05-04T23:05:19.397Z"
     },
     {
       "adID": "820143857829473",
@@ -396,7 +416,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-03 19:36:34",
-      "lastSeen": "2026-05-04T22:05:18.735Z"
+      "lastSeen": "2026-05-04T23:05:19.442Z"
     },
     {
       "adID": "1338486778099404",
@@ -436,7 +456,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-03 19:36:33",
-      "lastSeen": "2026-05-04T22:05:18.590Z"
+      "lastSeen": "2026-05-04T23:05:19.308Z"
     },
     {
       "adID": "26666420589679991",
@@ -676,7 +696,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-20 20:05:35",
-      "lastSeen": "2026-05-04T22:06:07.769Z"
+      "lastSeen": "2026-05-04T23:06:42.772Z"
     },
     {
       "adID": "1631750341395675",
