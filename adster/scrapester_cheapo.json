@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-04T02:05:41.784Z",
+  "generated_at": "2026-05-04T07:35:02.832Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,10 +11,10 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 61,
-      "droppedPrice": 85,
+      "exported_ads": 56,
+      "droppedPrice": 84,
       "droppedMissingGeo": 0,
-      "droppedCircle": 133
+      "droppedCircle": 131
     }
   },
   "ads": [
@@ -339,46 +339,6 @@
       "lastSeen": "2026-05-03T20:31:43.029Z"
     },
     {
-      "adID": "1502775871357285",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/100003779816960/?product_id=1502775871357285",
-      "author": "William Flynn",
-      "postedTime": "2026-04-23T19:55:34.000Z",
-      "title": "Pair of monte carlo pinball machines",
-      "description": "2 project monte carlo pinball machines partially working.",
-      "price": "$500",
-      "lat": 34.2073196,
-      "lon": -84.1401926,
-      "location": "Cumming, GA",
-      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/676983699_1521501563015631_1324270100448876777_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=111&ccb=1-7&_nc_sid=92e707&_nc_ohc=JqsK7Is2xHwQ7kNvwGEtmws&_nc_oc=Adrp1yhLGPYew35nXGGQZgm7H-q-XFuJpcW4LcZx710T9Led_JqZqeOcmWo2KckyCwA&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=U9cwK9L-S9swHNVELqjK7w&oh=00_Af1sIPRZLEMVQKHD5ku2vmGpQffVakqzMgevFTalCpSY7g&oe=69F040C6",
-      "adUrl": "https://www.facebook.com/marketplace/item/1502775871357285/",
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-04-23 20:05:58",
-      "lastSeen": "2026-04-23T20:06:49.908Z"
-    },
-    {
-      "adID": "935472725937224",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/100003779816960/?product_id=935472725937224",
-      "author": "William Flynn",
-      "postedTime": "2026-04-23T19:53:28.000Z",
-      "title": "Travel time pinball project",
-      "description": "Non working project",
-      "price": "$200",
-      "lat": 34.2073196,
-      "lon": -84.1401926,
-      "location": "Cumming, GA",
-      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/678917250_2467299743714699_5863180761225538985_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=106&ccb=1-7&_nc_sid=92e707&_nc_ohc=5yTBp8p4APwQ7kNvwEUSoWR&_nc_oc=AdopOR8RC8W58txjgWaAoT6ykhLxP134BDxrH_YyGXrID013nmu3SoYU6tUKrK6XiBQ&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=r1kQ0qxCBqFUYAtphuGDbg&oh=00_Af2CRVyEeoQB8CUPe4A5xs_mlwttST1AVWcbpMnnVszKlQ&oe=69F0491F",
-      "adUrl": "https://www.facebook.com/marketplace/item/935472725937224/",
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-04-23 20:05:58",
-      "lastSeen": "2026-04-23T20:06:49.940Z"
-    },
-    {
       "adID": "2093963361162918",
       "source": "MP",
       "authorUrl": "https://www.facebook.com/marketplace/profile/100064089049153/?product_id=2093963361162918",
@@ -390,13 +350,13 @@
       "lat": 29.0491426,
       "lon": -82.4609331,
       "location": "Dunnellon, FL",
-      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/678757771_1257358046559239_287073780236432992_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=110&ccb=1-7&_nc_sid=92e707&_nc_ohc=pznnqK5cVAEQ7kNvwHrG7dB&_nc_oc=Adr2TIowjqTYm0fHbSzN3ghRmgm9-gpDpPtztOjr9moPTLDu9mHE17Rf4DC-TyVkh_M&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=12D3ScNa2AScB1AbQIhl9A&oh=00_Af2oxdylluZqojbHiHZsCLOOGSIHQ9qunZ-Zom1eMdqa6w&oe=69F04AE8",
+      "imageUrl": "https://scontent-dfw5-3.xx.fbcdn.net/v/t39.84726-6/678757771_1257358046559239_287073780236432992_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=110&ccb=1-7&_nc_sid=92e707&_nc_eui2=AeEuhFfgh49x1hd0dtYUllyk0sRfxPSsRGPSxF_E9KxEY7zeTM32KlKw91Rl8hLvEeA&_nc_ohc=-wedQzXCxwMQ7kNvwEretIP&_nc_oc=AdpPJRUn6bk2sqO7zl8ym5_IFvPgdbmyFel4kPgqK67YjM-Hv_trmOUOblQZXEu3Ha0&_nc_zt=14&_nc_ht=scontent-dfw5-3.xx&_nc_gid=L_c2Ch1PPGrvMn638MQPWg&_nc_ss=7b2a8&oh=00_Af5DrgP2a7W9fnfK9atZ_WDTGKR35ISJFTMe3wdWf9udAw&oe=69FE22A8",
       "adUrl": "https://www.facebook.com/marketplace/item/2093963361162918/",
       "priceChanged": 0,
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-23 20:05:58",
-      "lastSeen": "2026-04-24T16:04:33.519Z"
+      "lastSeen": "2026-05-04T07:26:47.576Z"
     },
     {
       "adID": "956479610475988",
@@ -405,18 +365,18 @@
       "author": "James S. Patrick",
       "postedTime": "2026-04-23T19:54:46.000Z",
       "title": "Galaga & Galaxian Arcade",
-      "description": "Plug in Arcade has 2 games Galaga and Galaxian. Screen, sound, and all buttons works. Fun for anyone wanting a game room functions.",
-      "price": "$200",
+      "description": "Plug in Arcade has 2 games Galaga and Galaxian. Stand is included. Screen, sound, and all buttons works. Fun for anyone wanting a game room functions. Must Pick UP Only. Price is Firm no negotiating!",
+      "price": "$150",
       "lat": 30.3321838,
       "lon": -81.655651,
       "location": "Jacksonville, FL",
-      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t15.5256-10/679460075_843015148148160_1839879471929288051_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=d4195b&_nc_ohc=TfbbPKpOLA4Q7kNvwHdOhRb&_nc_oc=AdqYZp3rR1zRHvjfEWb_MH4rWBCvcwneE4jSu2vp_mVMSghN3S-rL6ihGxG7a6s1JWs&_nc_zt=23&_nc_ht=scontent-dfw5-1.xx&_nc_gid=yu4HX6KRFcLS9H22Kt1HWA&oh=00_Af1gn1zdkzgGJh3xV_aCpgDFyr6rx7abWcKu_UI1XLRC5A&oe=69F050B8",
+      "imageUrl": "https://scontent-dfw5-3.xx.fbcdn.net/v/t15.5256-10/679460075_843015148148160_1839879471929288051_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=d4195b&_nc_eui2=AeExDNWJGxvKplT-q1alVCP6r5UB2CtCZD2vlQHYK0JkPcy3jlr38P00xiBMKrL0psg&_nc_ohc=OI68KP55-FYQ7kNvwEpnjfd&_nc_oc=AdqyYt8yHJzjvhGEOC76xD5bX1T_2fC8xrdTRrA1d5aUocE7JlcaSHsaqCFxBafn0NI&_nc_zt=23&_nc_ht=scontent-dfw5-3.xx&_nc_gid=r5xj_voHJdF99r9YRUnTUg&_nc_ss=7b2a8&oh=00_Af4iLMxvECACzTuSn3X6lm83wGDFF4QD2ka_I1QQnG1ofg&oe=69FE2878",
       "adUrl": "https://www.facebook.com/marketplace/item/956479610475988/",
-      "priceChanged": 0,
-      "priceChangedAt": null,
+      "priceChanged": 1,
+      "priceChangedAt": "2026-05-04 07:26:47",
       "hidden": 0,
       "created_at": "2026-04-23 20:04:30",
-      "lastSeen": "2026-04-24T01:04:33.360Z"
+      "lastSeen": "2026-05-04T07:26:47.440Z"
     },
     {
       "adID": "1743809513660313",
@@ -430,13 +390,13 @@
       "lat": 28.8527675,
       "lon": -81.6853534,
       "location": "Eustis, FL",
-      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/678142411_776309318753139_6484603962100016867_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=109&ccb=1-7&_nc_sid=92e707&_nc_ohc=dko8jVGbl-IQ7kNvwExziuK&_nc_oc=AdqXBrowVOW5JQZcH99PpYs28MNrob6CsR4vop5Ksa3d5m2ZlCo6KdIfa5q4_eSfjsw&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=n28Uu5tI25jqE0lmZX7kSw&oh=00_Af0fKfz7KYD5qr_MstINZODTRVKg5AqZ6GQ7B48K0ROf5g&oe=69F0519F",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/678142411_776309318753139_6484603962100016867_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=109&ccb=1-7&_nc_sid=92e707&_nc_eui2=AeFUoFTymHtiHI2pyGiGu3iPCFuuFFXF4UAIW64UVcXhQLXkeLBny3v93Ad8OZjuWQ0&_nc_ohc=Q4q2CGLbOzUQ7kNvwHevxd_&_nc_oc=AdrCNs0Vkv2367u5TTVpNBkOrLGUv8lSNbVDGe5QMVE8eDNVgZwE9iftatSpWwbuKgQ&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=HYnLqC-uyZG0lalnFDv7aw&_nc_ss=7b2a8&oh=00_Af4N5IAWHKmlvfe85Y17eQkHSnTe3yNxTXVByoFrQJwdzQ&oe=69FE295F",
       "adUrl": "https://www.facebook.com/marketplace/item/1743809513660313/",
       "priceChanged": 0,
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-23 20:04:29",
-      "lastSeen": "2026-04-24T16:04:22.847Z"
+      "lastSeen": "2026-05-04T07:26:47.675Z"
     },
     {
       "adID": "2142233829651347",
@@ -450,33 +410,13 @@
       "lat": 29.1871986,
       "lon": -82.1400923,
       "location": "Ocala, FL",
-      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/677782358_2234421910702352_8040812479645391219_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=101&ccb=1-7&_nc_sid=92e707&_nc_ohc=H-Te4_YeJHEQ7kNvwHuqal2&_nc_oc=Adrqctkaa-mKHgZW8IMRhVpPUdnxEJvwvMoE401EjBUjeDeWW5bQltF_YIuyBmoTzaQ&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=tHwR8TyhqPAyXdEX944E2g&oh=00_Af1WItG3Ro1V6wOLf4DO5_UB_lVMR1Xs85HcUQKecOrlMw&oe=69F01D48",
+      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/677782358_2234421910702352_8040812479645391219_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=101&ccb=1-7&_nc_sid=92e707&_nc_eui2=AeHFgCGlPsLgyd4lYDoZOv1j0MjG8KxHQtTQyMbwrEdC1NzpaaKC_4oqn5_OdnhNlKc&_nc_ohc=BAlLYBK5_BAQ7kNvwGJWhEq&_nc_oc=Adq0BG0TJ3hAS9La1W3ZDxd8KjTEaBos3sj6ECeeZWSvf5t3zcGh_AD3xBASQ4i0UVI&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=O5g9msDqHbJUzK9zywv7SA&_nc_ss=7b2a8&oh=00_Af52-vgrG7UuwXFySwGVi7fGAqclCAapYACcEGEp9tDhng&oe=69FE2D48",
       "adUrl": "https://www.facebook.com/marketplace/item/2142233829651347/",
       "priceChanged": 0,
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-22 15:04:21",
-      "lastSeen": "2026-04-23T18:27:36.435Z"
-    },
-    {
-      "adID": "4228627864069410",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/61550765768406/?product_id=4228627864069410",
-      "author": "Chiki E Tita",
-      "postedTime": "2026-04-20T22:03:53.000Z",
-      "title": "Arcade machine",
-      "description": "Para apagarla, tienes que desenchufar la máquina recreativa. Para más información llamar al [hidden information] o [hidden information]",
-      "price": "$300",
-      "lat": 33.9566391,
-      "lon": -83.9890066,
-      "location": "Lawrenceville, GA",
-      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t15.5256-10/674959653_744410782091029_8210913528520044312_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=109&ccb=1-7&_nc_sid=d4195b&_nc_ohc=mdVcxLXeNaQQ7kNvwHaEUZH&_nc_oc=AdpNme-lUvHU_rgEG-6fPIJHt5TPhq3Z_fAVIihf2cqzZYzrCC7lk7NaHBhRzr9KScA&_nc_zt=23&_nc_ht=scontent-dfw5-1.xx&_nc_gid=iPYxrUYY1OHHXAVH9nSjGA&_nc_ss=7a3a8&oh=00_Af1GQNix7UKJEp4TpJamNcM-namazgB6QbdytyN-GnQQRQ&oe=69EDD682",
-      "adUrl": "https://www.facebook.com/marketplace/item/4228627864069410/",
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-04-22 00:04:25",
-      "lastSeen": "2026-04-23T19:04:32.043Z"
+      "lastSeen": "2026-05-04T07:30:04.408Z"
     },
     {
       "adID": "949642984726407",
@@ -490,33 +430,13 @@
       "lat": 33.9528472,
       "lon": -84.5496148,
       "location": "Marietta, GA",
-      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/677780570_1273537491027451_5108601986827289534_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=107&ccb=1-7&_nc_sid=92e707&_nc_ohc=zuYLZaDZpdsQ7kNvwFvkenj&_nc_oc=AdrVnRztY9OKXUx1adUhtrqmrGiAMDtEgX3MNdnRIz8RBQkYke-wmRESipcXb86NDcQ&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=AuHtJnV026P2qHOgzgxdbw&_nc_ss=7a3a8&oh=00_Af2KtVOTfp0EkkfXLtkoA2AMbaDSMSGS1RcfkcFdbu9F3A&oe=69EDD15C",
+      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/677780570_1273537491027451_5108601986827289534_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=107&ccb=1-7&_nc_sid=92e707&_nc_eui2=AeH9B1jumiXn9FoGUcYcGPxmsjqEspgerCGyOoSymB6sIZa8rdDaNPdOCZ_5rSRQxa4&_nc_ohc=AJ4NxPV9Ot8Q7kNvwFLuBmP&_nc_oc=AdqAHBMhatg5WWNg6iiQwA3xJd1OZnps-4TUaX9wcPzJocTVI_g0TpTK3pvmue0jxKU&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=2Hf0zp0LcKNHhX8HlIezfg&_nc_ss=7b2a8&oh=00_Af60LKjtcxs0-KbFcmdAiP23FjCn_k4q35_x1Rdg9ORXig&oe=69FE13DC",
       "adUrl": "https://www.facebook.com/marketplace/item/949642984726407/",
       "priceChanged": 0,
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-21 23:06:21",
-      "lastSeen": "2026-04-23T23:05:39.363Z"
-    },
-    {
-      "adID": "1812617463030288",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/100060101852109/?product_id=1812617463030288",
-      "author": "Gray Harvey",
-      "postedTime": "2026-04-21T20:12:49.000Z",
-      "title": "Arcade game machines",
-      "description": "4 retro arcade machine",
-      "price": "$600",
-      "lat": 33.8389977,
-      "lon": -83.9007382,
-      "location": "Loganville, GA",
-      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/679056318_1516730520085478_5093466878707487457_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=109&ccb=1-7&_nc_sid=92e707&_nc_ohc=QNYEZfHUEdwQ7kNvwEmVaFh&_nc_oc=AdoVp1okVdtaDgRHpxStMKs0t0_nzgMcEywQv7UxWTWc-Ert5R4k_TiRDoNIie5pyWY&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=LpFZLpXdXRvkDJK9zKHDRA&oh=00_Af09Vp34HSIZHixHbl0nt2IBBDXRsE1RKiFV1tQuLdZhJg&oe=69F02415",
-      "adUrl": "https://www.facebook.com/marketplace/item/1812617463030288/",
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-04-21 23:04:22",
-      "lastSeen": "2026-04-23T23:04:17.228Z"
+      "lastSeen": "2026-05-04T07:33:21.658Z"
     },
     {
       "adID": "1662087594939973",
@@ -525,38 +445,18 @@
       "author": "Allen Robinson",
       "postedTime": "2026-04-21T12:44:17.000Z",
       "title": "Police Trainer, Upright Arcade, P&P Marketing 1996",
-      "description": "Vintage Upright Arcade – Police Trainer (P&P Marketing, 1996) Price: $375 (or best offer) Not the original dedicated cabinet. Condition: - Cabinet needs some love due to age. - Monitor powers on, image is good, but likely needs new caps - Lights and sound both work. - Controls function, but the guns need recalibration. - Sold as-is. - Serious buyers only.",
-      "price": "$375",
+      "description": "Vintage Upright Arcade – Police Trainer (P&P Marketing, 1996) Not the original dedicated cabinet. Condition: - Cabinet needs some love due to age. - Monitor powers on, image is good, but likely needs new caps - Lights and sound both work. - Controls function, but the guns need recalibration. - Sold as-is. - Serious buyers only.",
+      "price": "$325",
       "lat": 33.8595492,
       "lon": -84.683824,
       "location": "Powder Springs, GA",
-      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/677571802_942712288738530_2793792871765994033_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=111&ccb=1-7&_nc_sid=92e707&_nc_ohc=cDmmZ5wB__IQ7kNvwHqPz2N&_nc_oc=AdogfQWmbg5MyJXaUl9oS-AUlU_2Hophw0MKkFnP2t3YizkURDRVju2Le0ZTpd3KgA0&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=QMIpg72LKWwfT0CBejiSaw&_nc_ss=7a3a8&oh=00_Af2MrOY0ccwMk1ngxSvu6SPeNCvrvGAIug59U1H3qcNdjQ&oe=69ED4255",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/677571802_942712288738530_2793792871765994033_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=111&ccb=1-7&_nc_sid=92e707&_nc_eui2=AeFMelbo1Wutn5cIDY70ppYG5ciyoALXo3rlyLKgAtejes9m_b-VAyWEq3dEz709Xmg&_nc_ohc=9XqpmWaxYKMQ7kNvwEgA58R&_nc_oc=AdqheXLg8lZv7ctk9a4ciQ5xF3c2nwf1wcX2UjPRjGp0UzlgzzgtaAnSziHXTj6ZCHg&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=dxTUSmK-JdoO03fKt7y3Vw&_nc_ss=7b2a8&oh=00_Af5sjaxh_tqStd5oeWX_rdxcZbMsBlIVdp9Qcw2JOC2OdA&oe=69FE2D95",
       "adUrl": "https://www.facebook.com/marketplace/item/1662087594939973/",
-      "priceChanged": 0,
-      "priceChangedAt": null,
+      "priceChanged": 1,
+      "priceChangedAt": "2026-05-04 07:33:21",
       "hidden": 0,
       "created_at": "2026-04-21 13:04:19",
-      "lastSeen": "2026-04-23T19:04:31.977Z"
-    },
-    {
-      "adID": "2395930537576985",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/676820978/?product_id=2395930537576985",
-      "author": "Gaspar Ferreiro",
-      "postedTime": "2026-04-21T04:41:43.000Z",
-      "title": "Authentic Whac a mole arcade machines by Bob Spaceracers",
-      "description": "This is an authemtic whac a mole arcade machine made by Bob Space Racers (creators of the original whac a mole). Works as it should",
-      "price": "$975",
-      "lat": 34.0234337,
-      "lon": -84.6154897,
-      "location": "Kennesaw, GA",
-      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t15.5256-10/678899090_988489953523993_8416764471076208434_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=d4195b&_nc_ohc=d2xnE26H460Q7kNvwGkbVa6&_nc_oc=Adqx63T2YiRRW_F69ReC_NhGdJrTRxwQqW_rX_QCWD6vbD_7oiOniFYrWcOxDnf2hUs&_nc_zt=23&_nc_ht=scontent-dfw6-1.xx&_nc_gid=RjYWhGp-EKo7PquZM_oCew&oh=00_Af3mOg17DNP1n95zhH05p1vW0KAddUnD_Q-DB2zwwZsqHw&oe=69F0F34E",
-      "adUrl": "https://www.facebook.com/marketplace/item/2395930537576985/",
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-04-21 12:04:26",
-      "lastSeen": "2026-04-24T08:27:39.350Z"
+      "lastSeen": "2026-05-04T07:33:22.036Z"
     },
     {
       "adID": "1959928694615885",
@@ -570,13 +470,13 @@
       "lat": 29.5957696,
       "lon": -90.7195348,
       "location": "Houma, LA",
-      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t15.5256-10/676599685_939692302288786_2075365635442263401_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=106&ccb=1-7&_nc_sid=d4195b&_nc_ohc=-4B0qSnjgNoQ7kNvwEzy94A&_nc_oc=AdrgVdD9CrDDORMky1BVA-MBn1LbKkbDzXwaC3l88XAE1nJPh9wNlcA1UmiclANiX_o&_nc_zt=23&_nc_ht=scontent-dfw6-1.xx&_nc_gid=ISEbdbSrNPI9mid_WTdKug&oh=00_Af0607MXY-Y0v--YlNz1O1bdojprU0Out1KcXY9pZn5-hw&oe=69F0D509",
+      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t15.5256-10/676599685_939692302288786_2075365635442263401_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=106&ccb=1-7&_nc_sid=d4195b&_nc_eui2=AeFoFmG6cw_8g8y8Z9ARuwnx7YA7iWI3Hi_tgDuJYjceL0YN9Xynyz9i9iz8ZPgsIvA&_nc_ohc=sEiRYqCZKJoQ7kNvwFiKYbj&_nc_oc=AdrWvjHetCMDOZBljM5b5hPcDjbEnhj7MdOEuxPmRJDUKr2SetTRAdq6qdGV9tzuhdQ&_nc_zt=23&_nc_ht=scontent-dfw6-1.xx&_nc_gid=xd4NNXM8DuYnEf1vpLd1nA&_nc_ss=7b2a8&oh=00_Af46cr-seDQnJXhHkmV32jZwVuxI2c_ruEssFBVqNvICMg&oe=69FE0409",
       "adUrl": "https://www.facebook.com/marketplace/item/1959928694615885/",
       "priceChanged": 0,
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-20 22:05:58",
-      "lastSeen": "2026-04-24T07:27:35.331Z"
+      "lastSeen": "2026-05-04T07:34:45.473Z"
     },
     {
       "adID": "KLOV-562564",
