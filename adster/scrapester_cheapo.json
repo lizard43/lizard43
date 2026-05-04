@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-04T14:06:22.847Z",
+  "generated_at": "2026-05-04T15:07:32.241Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,73 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 52,
-      "droppedPrice": 86,
+      "exported_ads": 55,
+      "droppedPrice": 89,
       "droppedMissingGeo": 0,
-      "droppedCircle": 134
+      "droppedCircle": 136
     }
   },
   "ads": [
+    {
+      "adID": "841686531735814",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100000043704306/?product_id=841686531735814",
+      "author": "JD Barlow",
+      "postedTime": "2026-05-04T14:43:04.000Z",
+      "title": "Bally Silver Sails pinball machine 1962",
+      "description": "Bally Silver Sails pinball machine 1962 was working up until it started blowing a fuse. I think it is a bad coil but no time to short it.",
+      "price": "$300",
+      "lat": 32.1534836,
+      "lon": -90.1311971,
+      "location": "Florence, MS",
+      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/689782451_1450352959623714_8268227573725693041_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=103&ccb=1-7&_nc_sid=92e707&_nc_eui2=AeGXEwhPovfVGzofKSDpMgAnafdcg0W6HRdp91yDRbodF4WWiCf2py6FOyS7jVNSkiE&_nc_ohc=OW6bB2XX4lgQ7kNvwHq1tOY&_nc_oc=Ado8xNnwCbWd-p_CRHEl9O0Z4ggJ4zYg8VTwFoJ_Xs7SVS06pUB35yYGp5nxQ2RGKZs&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=5MvSTeAAnLVqssW4-mg5qQ&_nc_ss=7b2a8&oh=00_Af6uKNWje8i2wyE-5bZaeKNwhwKSptheZMNR5gyZWmF5_A&oe=69FE8DFA",
+      "adUrl": "https://www.facebook.com/marketplace/item/841686531735814/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-05-04 15:05:58",
+      "lastSeen": "2026-05-04T15:06:56.302Z"
+    },
+    {
+      "adID": "959188920035298",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/506276281/?product_id=959188920035298",
+      "author": "Yas Carr",
+      "postedTime": "2026-05-04T14:35:20.000Z",
+      "title": "Electronic Pro Pinball",
+      "description": "Electronic Pro Pinball machine.",
+      "price": "$65",
+      "lat": 28.2188992,
+      "lon": -82.4575938,
+      "location": "Land O Lakes, FL",
+      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/687051345_1456654488917481_1162822770705358116_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=108&ccb=1-7&_nc_sid=92e707&_nc_eui2=AeGrcMIwyEDf5KOKEYctqGvgjds1jIQrireN2zWMhCuKt7_5LE2mb-cV9hL28z7-ZJ8&_nc_ohc=C-08oen3mrwQ7kNvwFEMu7b&_nc_oc=Adp5xMxELbFSHLZzkvUG7FchV1xFOfNkZgnxfCOF6MivT9KJ9L86CHnrBdrBzQQjLEA&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=WqER0b9d_QnlJsaFXymE5g&_nc_ss=7b2a8&oh=00_Af5q_ROf_KbSSWcWsYKViSGnFjfepKrJ7fEWUPAntN1fgg&oe=69FE756E",
+      "adUrl": "https://www.facebook.com/marketplace/item/959188920035298/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-05-04 15:05:58",
+      "lastSeen": "2026-05-04T15:06:56.365Z"
+    },
+    {
+      "adID": "1276937707967979",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100023535702240/?product_id=1276937707967979",
+      "author": "Berto Moon",
+      "postedTime": "2026-05-04T14:21:36.000Z",
+      "title": "Atari Zaxxon arcade game",
+      "description": "1982 Atari Zaxxon arcade game. Decent for it's age. Monitor looks great. Sounds good, all controls and buttons work. Coin mechs correctly also. Will need to drill out bottom coin box out and replace lock. I had 1 extra lock and put it on the panel to the PCB. Has a few bumps, right side little worse but still a nice surviver as is. Located in Acworth GA 30102",
+      "price": "$300",
+      "lat": 34.0659329,
+      "lon": -84.6768796,
+      "location": "Acworth, GA",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t15.5256-10/691359748_1167460015458890_4293601087056077083_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=109&ccb=1-7&_nc_sid=d4195b&_nc_eui2=AeF9cnaddtzzU9v63z5NJWFL0-f-OwALvXLT5_47AAu9cu04ZJrYQda77z4UhT_pzr8&_nc_ohc=-r_jTIjDKKoQ7kNvwFYTDwx&_nc_oc=Adq1tq9az7NLcU7-u39Wwm-2UcsvoewUSeFhMx1kCd5isuxSBbGZ8qaSWY3P3v84SDk&_nc_zt=23&_nc_ht=scontent-dfw5-1.xx&_nc_gid=54l9fxUXKJqe4O4IsSEtTw&_nc_ss=7b2a8&oh=00_Af70aVTYDT4E3iYJCfR3HbK8e-6ZnVfd1i_mTCrY1IU6Vw&oe=69FE85AB",
+      "adUrl": "https://www.facebook.com/marketplace/item/1276937707967979/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-05-04 15:04:39",
+      "lastSeen": "2026-05-04T15:05:35.772Z"
+    },
     {
       "adID": "1661786301755477",
       "source": "MP",
@@ -36,7 +96,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-04 13:04:16",
-      "lastSeen": "2026-05-04T14:05:20.416Z"
+      "lastSeen": "2026-05-04T15:04:39.636Z"
     },
     {
       "adID": "2507232566378145",
@@ -76,7 +136,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-04 11:04:38",
-      "lastSeen": "2026-05-04T14:04:24.821Z"
+      "lastSeen": "2026-05-04T15:04:39.968Z"
     },
     {
       "adID": "799489339685818",
@@ -203,7 +263,7 @@
       "source": "PS",
       "authorUrl": "https://pinside.com/pinball/community/pinsiders/smokinhos/market",
       "author": "smokinhos",
-      "postedTime": "2026-05-02T19:06:09.282Z",
+      "postedTime": "2026-05-02T19:07:17.211Z",
       "title": "CLIPs Godzilla plastic protectors set - complete minus Mothr",
       "description": "New (selling one, non-business) - “Complete set minus the Mothra plastic. 33 pcs. Never used. Yellow set.”",
       "price": "$125",
@@ -216,7 +276,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-03 19:48:38",
-      "lastSeen": "2026-05-04T14:06:09.351Z"
+      "lastSeen": "2026-05-04T15:07:17.282Z"
     },
     {
       "adID": "4530142440582683",
@@ -556,7 +616,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-20 20:05:35",
-      "lastSeen": "2026-05-04T14:06:22.638Z"
+      "lastSeen": "2026-05-04T15:07:31.964Z"
     },
     {
       "adID": "1631750341395675",
