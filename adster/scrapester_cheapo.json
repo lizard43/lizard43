@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-04T17:06:19.864Z",
+  "generated_at": "2026-05-04T18:06:17.241Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,53 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 57,
-      "droppedPrice": 100,
+      "exported_ads": 59,
+      "droppedPrice": 103,
       "droppedMissingGeo": 0,
-      "droppedCircle": 148
+      "droppedCircle": 150
     }
   },
   "ads": [
+    {
+      "adID": "1984141992221696",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/1479300980/?product_id=1984141992221696",
+      "author": "Chrissy Orcino",
+      "postedTime": "2026-05-04T16:57:13.000Z",
+      "title": "Klask Magnetic Game",
+      "description": "Brand new, never opened, Klask Magnetic Battle game. Brand new the game is $69 on Amazon",
+      "price": "$25",
+      "lat": 30.421309,
+      "lon": -87.2169149,
+      "location": "Pensacola, FL",
+      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/689768134_1460642815132947_4480419352414324777_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=104&ccb=1-7&_nc_sid=92e707&_nc_eui2=AeHNfyg7BIPkbWWlUDyNFcs71urInzrZWR_W6sifOtlZH63tRfoXUq6mp5exa-hR9nE&_nc_ohc=d7S2W8AqU7gQ7kNvwGM2fCo&_nc_oc=Adp8Am6KWC5I5gJhEZh6VnMbAJfYpDuBmsaCoDL0RhcWZOg1nKnl7ZVXPt-T0M97Q0E&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=05ohJyGO8DA3Et5sEunh2A&_nc_ss=7b2a8&oh=00_Af43P546dWvYFr0aD8dN-CCoYwwKChgKCdhdeGNVwuzIhQ&oe=69FEA45C",
+      "adUrl": "https://www.facebook.com/marketplace/item/1984141992221696/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-05-04 18:04:43",
+      "lastSeen": "2026-05-04T18:05:41.287Z"
+    },
+    {
+      "adID": "2196170624541998",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100024635679473/?product_id=2196170624541998",
+      "author": "Russell Fullone",
+      "postedTime": "2026-05-04T17:40:19.000Z",
+      "title": "Bally Attack from Mars electric pin ball machine",
+      "description": "Bally electronic pin ball machine. 10 different games",
+      "price": "$450",
+      "lat": 28.5552719,
+      "lon": -82.3878709,
+      "location": "Brooksville, FL",
+      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/689291171_835619169588774_7317439388172186377_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=102&ccb=1-7&_nc_sid=92e707&_nc_eui2=AeE84eFjeLp37q9nBO6sP5AuxXiOfVSOkibFeI59VI6SJoQtcxOsoGsdgOxneRLd-ns&_nc_ohc=Uin_QswLkIgQ7kNvwE-TGyh&_nc_oc=AdpxPu72F0ZnT88LvURAnxm5_NAGbsGO02T0LbVBRbhQCt9Q4BE9kQvYqOGsXQez1zQ&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=QErCSF9tj6WRqfZ8k90DPg&_nc_ss=7b2a8&oh=00_Af5O9BqE5pljyyEfnyDHmw4idSkaSUbJGvmim7Tx-cwCHQ&oe=69FEA3DA",
+      "adUrl": "https://www.facebook.com/marketplace/item/2196170624541998/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-05-04 18:04:41",
+      "lastSeen": "2026-05-04T18:05:41.189Z"
+    },
     {
       "adID": "1283754513868645",
       "source": "MP",
@@ -36,7 +76,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-04 16:04:36",
-      "lastSeen": "2026-05-04T17:04:46.335Z"
+      "lastSeen": "2026-05-04T18:04:41.598Z"
     },
     {
       "adID": "1293888982929817",
@@ -76,7 +116,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-04 15:05:58",
-      "lastSeen": "2026-05-04T17:04:47.305Z"
+      "lastSeen": "2026-05-04T18:04:41.754Z"
     },
     {
       "adID": "959188920035298",
@@ -96,7 +136,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-04 15:05:58",
-      "lastSeen": "2026-05-04T17:04:47.833Z"
+      "lastSeen": "2026-05-04T18:04:41.865Z"
     },
     {
       "adID": "1276937707967979",
@@ -116,7 +156,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-04 15:04:39",
-      "lastSeen": "2026-05-04T17:04:34.517Z"
+      "lastSeen": "2026-05-04T18:04:31.255Z"
     },
     {
       "adID": "1661786301755477",
@@ -176,7 +216,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-04 11:04:38",
-      "lastSeen": "2026-05-04T17:04:34.951Z"
+      "lastSeen": "2026-05-04T18:04:31.623Z"
     },
     {
       "adID": "799489339685818",
@@ -303,7 +343,7 @@
       "source": "PS",
       "authorUrl": "https://pinside.com/pinball/community/pinsiders/smokinhos/market",
       "author": "smokinhos",
-      "postedTime": "2026-05-02T19:06:04.937Z",
+      "postedTime": "2026-05-02T19:06:03.702Z",
       "title": "CLIPs Godzilla plastic protectors set - complete minus Mothr",
       "description": "New (selling one, non-business) - “Complete set minus the Mothra plastic. 33 pcs. Never used. Yellow set.”",
       "price": "$125",
@@ -316,7 +356,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-03 19:48:38",
-      "lastSeen": "2026-05-04T17:06:05.003Z"
+      "lastSeen": "2026-05-04T18:06:03.757Z"
     },
     {
       "adID": "4530142440582683",
@@ -356,7 +396,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-03 19:36:34",
-      "lastSeen": "2026-05-04T16:06:58.573Z"
+      "lastSeen": "2026-05-04T18:04:42.808Z"
     },
     {
       "adID": "820143857829473",
@@ -376,7 +416,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-03 19:36:34",
-      "lastSeen": "2026-05-04T16:06:58.628Z"
+      "lastSeen": "2026-05-04T18:04:42.853Z"
     },
     {
       "adID": "1338486778099404",
@@ -416,7 +456,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-03 19:36:33",
-      "lastSeen": "2026-05-04T16:06:58.461Z"
+      "lastSeen": "2026-05-04T18:04:42.720Z"
     },
     {
       "adID": "26666420589679991",
@@ -656,7 +696,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-20 20:05:35",
-      "lastSeen": "2026-05-04T17:06:19.564Z"
+      "lastSeen": "2026-05-04T18:06:16.922Z"
     },
     {
       "adID": "1631750341395675",
