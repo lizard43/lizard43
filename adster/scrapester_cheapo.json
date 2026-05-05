@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-04T23:49:06.881Z",
+  "generated_at": "2026-05-05T00:06:48.946Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,53 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 59,
-      "droppedPrice": 82,
+      "exported_ads": 61,
+      "droppedPrice": 85,
       "droppedMissingGeo": 0,
-      "droppedCircle": 163
+      "droppedCircle": 164
     }
   },
   "ads": [
+    {
+      "adID": "1458588666015427",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100002261704677/?product_id=1458588666015427",
+      "author": "Carlo Alaia",
+      "postedTime": "2026-05-04T20:20:24.000Z",
+      "title": "Teachers Pet Pinball",
+      "description": "1965 Williams vintage single player pinball machine with new bands, looks good and plays well, all lights and features working, power switch installed, set on free play, serious inquiries only",
+      "price": "$750",
+      "lat": 30.3321838,
+      "lon": -81.655651,
+      "location": "Jacksonville, FL",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/690653761_941287548516343_5772052319477774680_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=111&ccb=1-7&_nc_sid=92e707&_nc_eui2=AeGurCgsoNANg5Ges2EZJ4BTPn34czlBHGY-ffhzOUEcZoGodlWdEtfmudzbYy0tUa4&_nc_ohc=EqGleWp1jHAQ7kNvwEZKmej&_nc_oc=AdqQ5ZhlZ3ckzL9H-qtpAst5uUaX3FADGmLJra_oLxWWo2LDjfVIQ7fVa78Pxua0ESs&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=nSJxTk3C7HVwCIxazcjOhA&_nc_ss=7b2a8&oh=00_Af6aTQRf4VvRu0zRj-g9CTZ1UVmNL3--CdnJ0AfGRM9xgQ&oe=69FF0653",
+      "adUrl": "https://www.facebook.com/marketplace/item/1458588666015427/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-05-05 00:05:54",
+      "lastSeen": "2026-05-05T00:06:08.973Z"
+    },
+    {
+      "adID": "1655750865315371",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100002623115825/?product_id=1655750865315371",
+      "author": "Alfredo Navarro",
+      "postedTime": "2026-05-04T22:47:36.000Z",
+      "title": "Arcade Buttons",
+      "description": "Arcarde buttons with keyboard input/output for PC.",
+      "price": "$100",
+      "lat": 29.9032284,
+      "lon": -81.4145468,
+      "location": "St Johns, FL",
+      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/687660250_952086954409300_8267813653888398824_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=100&ccb=1-7&_nc_sid=92e707&_nc_eui2=AeHgUtSRqZNNxLDiiIo1SkrD8eispzMNg4zx6KynMw2DjAllurNo5_EQi0AkEUAX8hw&_nc_ohc=VrlnFrML2p8Q7kNvwGCVSBs&_nc_oc=AdrFK4R7QbOD8fFSUpZTm9fq9jCPyXpaclGgcaIhx0K82B3_GlfMM-X2IVuzacoxCSg&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=Eu7Kg9fPgtRCRBPG3vpYRw&_nc_ss=7b2a8&oh=00_Af6qDBQVqahSMsh0EbAKTRBAYVBwfJ9-SiERuWwp83yPBw&oe=69FF11FA",
+      "adUrl": "https://www.facebook.com/marketplace/item/1655750865315371/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-05-05 00:04:40",
+      "lastSeen": "2026-05-05T00:05:33.269Z"
+    },
     {
       "adID": "799489689681811",
       "source": "MP",
@@ -36,7 +76,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-04 23:05:16",
-      "lastSeen": "2026-05-04T23:06:08.697Z"
+      "lastSeen": "2026-05-05T00:05:54.774Z"
     },
     {
       "adID": "1320875349911469",
@@ -76,7 +116,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-04 22:04:22",
-      "lastSeen": "2026-05-04T23:04:29.926Z"
+      "lastSeen": "2026-05-05T00:04:40.200Z"
     },
     {
       "adID": "3187228368114640",
@@ -96,7 +136,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-04 21:04:22",
-      "lastSeen": "2026-05-04T23:04:30.615Z"
+      "lastSeen": "2026-05-05T00:04:40.946Z"
     },
     {
       "adID": "2196170624541998",
@@ -116,7 +156,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-04 18:04:41",
-      "lastSeen": "2026-05-04T23:05:17.746Z"
+      "lastSeen": "2026-05-05T00:05:54.943Z"
     },
     {
       "adID": "1283754513868645",
@@ -136,7 +176,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-04 16:04:36",
-      "lastSeen": "2026-05-04T23:05:17.923Z"
+      "lastSeen": "2026-05-05T00:05:55.076Z"
     },
     {
       "adID": "1293888982929817",
@@ -176,7 +216,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-04 15:05:58",
-      "lastSeen": "2026-05-04T23:05:18.056Z"
+      "lastSeen": "2026-05-05T00:05:55.165Z"
     },
     {
       "adID": "959188920035298",
@@ -196,7 +236,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-04 15:05:58",
-      "lastSeen": "2026-05-04T23:05:18.156Z"
+      "lastSeen": "2026-05-05T00:05:55.210Z"
     },
     {
       "adID": "1276937707967979",
@@ -216,7 +256,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-04 15:04:39",
-      "lastSeen": "2026-05-04T23:04:30.060Z"
+      "lastSeen": "2026-05-05T00:04:40.290Z"
     },
     {
       "adID": "1661786301755477",
@@ -316,7 +356,7 @@
       "priceChangedAt": "2026-05-04 16:04:37",
       "hidden": 0,
       "created_at": "2026-05-03 23:04:35",
-      "lastSeen": "2026-05-04T23:04:30.337Z"
+      "lastSeen": "2026-05-05T00:04:40.513Z"
     },
     {
       "adID": "1481440120149561",
@@ -343,7 +383,7 @@
       "source": "PS",
       "authorUrl": "https://pinside.com/pinball/community/pinsiders/smokinhos/market",
       "author": "smokinhos",
-      "postedTime": "2026-05-02T23:06:29.142Z",
+      "postedTime": "2026-05-03T00:06:34.620Z",
       "title": "CLIPs Godzilla plastic protectors set - complete minus Mothr",
       "description": "New (selling one, non-business) - “Complete set minus the Mothra plastic. 33 pcs. Never used. Yellow set.”",
       "price": "$125",
@@ -356,7 +396,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-03 19:48:38",
-      "lastSeen": "2026-05-04T23:06:29.202Z"
+      "lastSeen": "2026-05-05T00:06:34.696Z"
     },
     {
       "adID": "4530142440582683",
@@ -396,7 +436,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-03 19:36:34",
-      "lastSeen": "2026-05-04T23:05:19.397Z"
+      "lastSeen": "2026-05-05T00:05:56.020Z"
     },
     {
       "adID": "820143857829473",
@@ -416,7 +456,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-03 19:36:34",
-      "lastSeen": "2026-05-04T23:05:19.442Z"
+      "lastSeen": "2026-05-05T00:05:56.064Z"
     },
     {
       "adID": "1338486778099404",
@@ -456,7 +496,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-03 19:36:33",
-      "lastSeen": "2026-05-04T23:05:19.308Z"
+      "lastSeen": "2026-05-05T00:05:55.932Z"
     },
     {
       "adID": "26666420589679991",
@@ -696,7 +736,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-20 20:05:35",
-      "lastSeen": "2026-05-04T23:06:42.772Z"
+      "lastSeen": "2026-05-05T00:06:48.674Z"
     },
     {
       "adID": "1631750341395675",
