@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-05T13:33:59.661Z",
+  "generated_at": "2026-05-05T14:05:19.756Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,33 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 60,
-      "droppedPrice": 76,
+      "exported_ads": 61,
+      "droppedPrice": 77,
       "droppedMissingGeo": 0,
       "droppedCircle": 143
     }
   },
   "ads": [
+    {
+      "adID": "833435205979180",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/1421776519/?product_id=833435205979180",
+      "author": "Carlos Padilla",
+      "postedTime": "2026-05-05T13:18:55.000Z",
+      "title": "Home made arcade machine",
+      "description": "I made this arcade myself. The console has over 3000 games. I don't longer use it and since it's in my room i need the space.",
+      "price": "$500",
+      "lat": 32.2998686,
+      "lon": -90.1830408,
+      "location": "Jackson, MS",
+      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/687021604_997328209389400_7457131769447608982_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=101&ccb=1-7&_nc_sid=92e707&_nc_eui2=AeHnGfjKzEkaUc-ptJZKjfG_EYm6Rl9N8nwRibpGX03yfFOhCbPvalTs8GCxVNGuJlM&_nc_ohc=-PAuOA0i_d4Q7kNvwFmXVlH&_nc_oc=AdoLa-E_0xoeUTXy-2W6fBxfhkVupzk5RS8wR2iyBS053XOo84tMM6l8K-29laSJD-M&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=VK0G00U5Ttb5-ex834_a9w&_nc_ss=7b2a8&oh=00_Af5p48GN-fb8EGSg58dbhnh1iUVKq5MDgfkWSHXKrNjC-A&oe=69FFE75A",
+      "adUrl": "https://www.facebook.com/marketplace/item/833435205979180/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-05-05 14:04:18",
+      "lastSeen": "2026-05-05T14:04:34.925Z"
+    },
     {
       "adID": "959361277052127",
       "source": "MP",
@@ -56,7 +76,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-05 00:05:54",
-      "lastSeen": "2026-05-05T13:04:29.412Z"
+      "lastSeen": "2026-05-05T14:05:00.069Z"
     },
     {
       "adID": "1655750865315371",
@@ -116,7 +136,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-04 23:04:29",
-      "lastSeen": "2026-05-05T13:04:18.015Z"
+      "lastSeen": "2026-05-05T14:04:18.259Z"
     },
     {
       "adID": "1532695181707216",
@@ -136,7 +156,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-04 22:04:22",
-      "lastSeen": "2026-05-05T13:04:18.300Z"
+      "lastSeen": "2026-05-05T14:04:18.381Z"
     },
     {
       "adID": "3187228368114640",
@@ -176,7 +196,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-04 18:04:41",
-      "lastSeen": "2026-05-05T13:04:29.500Z"
+      "lastSeen": "2026-05-05T14:05:00.159Z"
     },
     {
       "adID": "1283754513868645",
@@ -196,7 +216,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-04 16:04:36",
-      "lastSeen": "2026-05-05T13:04:29.590Z"
+      "lastSeen": "2026-05-05T14:05:00.565Z"
     },
     {
       "adID": "1293888982929817",
@@ -216,7 +236,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-04 16:04:36",
-      "lastSeen": "2026-05-05T13:04:19.049Z"
+      "lastSeen": "2026-05-05T14:04:18.593Z"
     },
     {
       "adID": "841686531735814",
@@ -236,7 +256,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-04 15:05:58",
-      "lastSeen": "2026-05-05T13:04:29.679Z"
+      "lastSeen": "2026-05-05T14:05:00.666Z"
     },
     {
       "adID": "959188920035298",
@@ -256,7 +276,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-04 15:05:58",
-      "lastSeen": "2026-05-05T13:04:29.724Z"
+      "lastSeen": "2026-05-05T14:05:00.721Z"
     },
     {
       "adID": "1276937707967979",
@@ -276,7 +296,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-04 15:04:39",
-      "lastSeen": "2026-05-05T13:04:19.093Z"
+      "lastSeen": "2026-05-05T14:04:18.637Z"
     },
     {
       "adID": "1661786301755477",
@@ -403,7 +423,7 @@
       "source": "PS",
       "authorUrl": "https://pinside.com/pinball/community/pinsiders/smokinhos/market",
       "author": "smokinhos",
-      "postedTime": "2026-05-03T13:06:14.405Z",
+      "postedTime": "2026-05-03T14:05:07.083Z",
       "title": "CLIPs Godzilla plastic protectors set - complete minus Mothr",
       "description": "New (selling one, non-business) - “Complete set minus the Mothra plastic. 33 pcs. Never used. Yellow set.”",
       "price": "$125",
@@ -416,7 +436,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-03 19:48:38",
-      "lastSeen": "2026-05-05T13:06:14.513Z"
+      "lastSeen": "2026-05-05T14:05:07.189Z"
     },
     {
       "adID": "4530142440582683",
@@ -756,7 +776,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-20 20:05:35",
-      "lastSeen": "2026-05-05T13:06:27.641Z"
+      "lastSeen": "2026-05-05T14:05:19.577Z"
     },
     {
       "adID": "1631750341395675",
