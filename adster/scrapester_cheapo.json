@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-05T00:06:48.946Z",
+  "generated_at": "2026-05-05T01:06:27.567Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,33 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 61,
-      "droppedPrice": 85,
+      "exported_ads": 62,
+      "droppedPrice": 93,
       "droppedMissingGeo": 0,
-      "droppedCircle": 164
+      "droppedCircle": 166
     }
   },
   "ads": [
+    {
+      "adID": "959361277052127",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/676002069/?product_id=959361277052127",
+      "author": "Suzie Suzie Suzie",
+      "postedTime": "2026-05-05T00:35:24.000Z",
+      "title": "Valley Electronic Dart Board",
+      "description": "Cool Valley electronic dart board. Has that classic arcade look. Good for some fun games at home.",
+      "price": "$200",
+      "lat": 33.9528472,
+      "lon": -84.5496148,
+      "location": "Marietta, GA",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/687957095_2169115667207762_8071796116980210970_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=111&ccb=1-7&_nc_sid=92e707&_nc_eui2=AeF0IOiXBx6bKjLOEDHA9USjiHn2Iq_xLC6IefYir_EsLg19CDYxLr0iaLHFWcp-7TI&_nc_ohc=JhrTOy5VAigQ7kNvwGrak8k&_nc_oc=Adr4vhx2caKJSOuHOdssqXpxTTCXROFgl3d7cestJ9MB97EE653wwySZx-XYIb8Onq4&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=v-0c4u_XWAu5vDQ3wwsSwQ&_nc_ss=7b2a8&oh=00_Af4tEXveMUceuXG3oTkKbThCLo3Da8uRZxmZ962GafVywA&oe=69FF1B42",
+      "adUrl": "https://www.facebook.com/marketplace/item/959361277052127/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-05-05 01:04:31",
+      "lastSeen": "2026-05-05T01:04:58.971Z"
+    },
     {
       "adID": "1458588666015427",
       "source": "MP",
@@ -36,7 +56,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-05 00:05:54",
-      "lastSeen": "2026-05-05T00:06:08.973Z"
+      "lastSeen": "2026-05-05T01:05:25.692Z"
     },
     {
       "adID": "1655750865315371",
@@ -56,7 +76,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-05 00:04:40",
-      "lastSeen": "2026-05-05T00:05:33.269Z"
+      "lastSeen": "2026-05-05T01:04:31.632Z"
     },
     {
       "adID": "799489689681811",
@@ -96,7 +116,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-04 23:04:29",
-      "lastSeen": "2026-05-04T23:05:19.486Z"
+      "lastSeen": "2026-05-05T01:04:30.830Z"
     },
     {
       "adID": "1532695181707216",
@@ -136,7 +156,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-04 21:04:22",
-      "lastSeen": "2026-05-05T00:04:40.946Z"
+      "lastSeen": "2026-05-05T01:04:31.676Z"
     },
     {
       "adID": "2196170624541998",
@@ -156,7 +176,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-04 18:04:41",
-      "lastSeen": "2026-05-05T00:05:54.943Z"
+      "lastSeen": "2026-05-05T01:05:25.802Z"
     },
     {
       "adID": "1283754513868645",
@@ -176,7 +196,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-04 16:04:36",
-      "lastSeen": "2026-05-05T00:05:55.076Z"
+      "lastSeen": "2026-05-05T01:05:25.947Z"
     },
     {
       "adID": "1293888982929817",
@@ -216,7 +236,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-04 15:05:58",
-      "lastSeen": "2026-05-05T00:05:55.165Z"
+      "lastSeen": "2026-05-05T01:05:26.036Z"
     },
     {
       "adID": "959188920035298",
@@ -236,7 +256,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-04 15:05:58",
-      "lastSeen": "2026-05-05T00:05:55.210Z"
+      "lastSeen": "2026-05-05T01:05:26.080Z"
     },
     {
       "adID": "1276937707967979",
@@ -256,7 +276,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-04 15:04:39",
-      "lastSeen": "2026-05-05T00:04:40.290Z"
+      "lastSeen": "2026-05-05T01:04:31.010Z"
     },
     {
       "adID": "1661786301755477",
@@ -356,7 +376,7 @@
       "priceChangedAt": "2026-05-04 16:04:37",
       "hidden": 0,
       "created_at": "2026-05-03 23:04:35",
-      "lastSeen": "2026-05-05T00:04:40.513Z"
+      "lastSeen": "2026-05-05T01:04:31.276Z"
     },
     {
       "adID": "1481440120149561",
@@ -383,7 +403,7 @@
       "source": "PS",
       "authorUrl": "https://pinside.com/pinball/community/pinsiders/smokinhos/market",
       "author": "smokinhos",
-      "postedTime": "2026-05-03T00:06:34.620Z",
+      "postedTime": "2026-05-03T01:06:13.047Z",
       "title": "CLIPs Godzilla plastic protectors set - complete minus Mothr",
       "description": "New (selling one, non-business) - “Complete set minus the Mothra plastic. 33 pcs. Never used. Yellow set.”",
       "price": "$125",
@@ -396,7 +416,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-03 19:48:38",
-      "lastSeen": "2026-05-05T00:06:34.696Z"
+      "lastSeen": "2026-05-05T01:06:13.160Z"
     },
     {
       "adID": "4530142440582683",
@@ -736,7 +756,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-20 20:05:35",
-      "lastSeen": "2026-05-05T00:06:48.674Z"
+      "lastSeen": "2026-05-05T01:06:27.294Z"
     },
     {
       "adID": "1631750341395675",
