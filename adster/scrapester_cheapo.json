@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-05T18:07:31.137Z",
+  "generated_at": "2026-05-05T18:24:47.857Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,10 +11,10 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 67,
-      "droppedPrice": 84,
+      "exported_ads": 66,
+      "droppedPrice": 73,
       "droppedMissingGeo": 0,
-      "droppedCircle": 162
+      "droppedCircle": 156
     }
   },
   "ads": [
@@ -377,26 +377,6 @@
       "hidden": 0,
       "created_at": "2026-05-04 15:04:39",
       "lastSeen": "2026-05-05T18:04:24.449Z"
-    },
-    {
-      "adID": "1661786301755477",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/100007495628483/?product_id=1661786301755477",
-      "author": "Eric Paulette",
-      "postedTime": "2026-05-04T12:22:07.000Z",
-      "title": "Arcade game",
-      "description": "Multiple Pac-Man games and Gallaga! Awesome addition to your game room or kids room",
-      "price": "$120",
-      "lat": 28.3581405,
-      "lon": -82.692005,
-      "location": "Hudson, FL",
-      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/687039694_1288241879487363_8172383505168056875_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=111&ccb=1-7&_nc_sid=92e707&_nc_eui2=AeE6tcKIB0m-zHIA3I8YSk-hLDFMhei_pygsMUyF6L-nKDymVeiXMuoxRqbMWHaD2f4&_nc_ohc=_yuAt18AsH4Q7kNvwHx3orz&_nc_oc=AdqCdDch9C1JWlB_1K217EwJpDw5HMu9ZpKq4VWPvxKWldJE96cjiOYhV-QcQplY6Ds&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=hqzmuX5p9Vi-iDq0XIgKCQ&_nc_ss=7b2a8&oh=00_Af6DIQ5GhiTDU_ddglTINQEHRrkPaI_SlH67Rx9AO0HuWA&oe=69FE53E9",
-      "adUrl": "https://www.facebook.com/marketplace/item/1661786301755477/",
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-05-04 13:04:16",
-      "lastSeen": "2026-05-04T16:06:58.940Z"
     },
     {
       "adID": "799489339685818",
