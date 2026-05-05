@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-05T16:05:48.903Z",
+  "generated_at": "2026-05-05T17:05:47.386Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,33 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 63,
-      "droppedPrice": 80,
+      "exported_ads": 64,
+      "droppedPrice": 82,
       "droppedMissingGeo": 0,
-      "droppedCircle": 155
+      "droppedCircle": 156
     }
   },
   "ads": [
+    {
+      "adID": "1527823382308098",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100000886053780/?product_id=1527823382308098",
+      "author": "Lamar Massey",
+      "postedTime": "2026-05-05T15:42:32.000Z",
+      "title": "Top skater arcade",
+      "description": "Top skater arcade works",
+      "price": "$300",
+      "lat": 28.4635266,
+      "lon": -82.5363557,
+      "location": "Spring Hill, FL",
+      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/687797069_1523906869397727_1210246170798308119_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=102&ccb=1-7&_nc_sid=92e707&_nc_eui2=AeExsPbFm4eaHRMXUD9JM_hWkjC5elRQ6SWSMLl6VFDpJcm9WRjWRbNtlUNPRUtXfsU&_nc_ohc=7SKxUZSmNyQQ7kNvwEObI12&_nc_oc=Adpjqo5nxIPdICMUrMGiriaic5ZleakNI6ud0SP6MFUyxLSCWGYTPPxpsShD7EqdsKg&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=4hGSy51fLtsGHqr2hTXpmw&_nc_ss=7b2a8&oh=00_Af7dxCcxiRLK3SIuSOrtsUN89g1DWEyNIbNuNruEAA2E-A&oe=6A00096E",
+      "adUrl": "https://www.facebook.com/marketplace/item/1527823382308098/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-05-05 17:04:31",
+      "lastSeen": "2026-05-05T17:04:56.862Z"
+    },
     {
       "adID": "833435205979180",
       "source": "MP",
@@ -36,7 +56,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-05 14:04:18",
-      "lastSeen": "2026-05-05T16:04:32.491Z"
+      "lastSeen": "2026-05-05T17:04:30.552Z"
     },
     {
       "adID": "959361277052127",
@@ -76,7 +96,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-05 00:05:54",
-      "lastSeen": "2026-05-05T16:04:43.893Z"
+      "lastSeen": "2026-05-05T17:05:26.916Z"
     },
     {
       "adID": "1655750865315371",
@@ -136,7 +156,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-04 23:04:29",
-      "lastSeen": "2026-05-05T16:04:32.537Z"
+      "lastSeen": "2026-05-05T17:04:30.596Z"
     },
     {
       "adID": "1532695181707216",
@@ -156,7 +176,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-04 22:04:22",
-      "lastSeen": "2026-05-05T16:04:32.627Z"
+      "lastSeen": "2026-05-05T17:04:30.709Z"
     },
     {
       "adID": "3187228368114640",
@@ -196,7 +216,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-04 18:04:41",
-      "lastSeen": "2026-05-05T16:04:44.003Z"
+      "lastSeen": "2026-05-05T17:05:27.028Z"
     },
     {
       "adID": "1283754513868645",
@@ -216,7 +236,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-04 16:04:36",
-      "lastSeen": "2026-05-05T16:04:44.115Z"
+      "lastSeen": "2026-05-05T17:05:27.138Z"
     },
     {
       "adID": "1293888982929817",
@@ -236,7 +256,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-04 16:04:36",
-      "lastSeen": "2026-05-05T16:04:32.805Z"
+      "lastSeen": "2026-05-05T17:04:30.930Z"
     },
     {
       "adID": "841686531735814",
@@ -256,7 +276,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-04 15:05:58",
-      "lastSeen": "2026-05-05T16:04:44.225Z"
+      "lastSeen": "2026-05-05T17:05:27.249Z"
     },
     {
       "adID": "959188920035298",
@@ -276,7 +296,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-04 15:05:58",
-      "lastSeen": "2026-05-05T16:04:44.269Z"
+      "lastSeen": "2026-05-05T17:05:27.293Z"
     },
     {
       "adID": "1276937707967979",
@@ -296,7 +316,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-04 15:04:39",
-      "lastSeen": "2026-05-05T16:04:32.850Z"
+      "lastSeen": "2026-05-05T17:04:30.975Z"
     },
     {
       "adID": "1661786301755477",
@@ -776,7 +796,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-20 20:05:35",
-      "lastSeen": "2026-05-05T16:05:48.638Z"
+      "lastSeen": "2026-05-05T17:05:47.161Z"
     },
     {
       "adID": "1631750341395675",
