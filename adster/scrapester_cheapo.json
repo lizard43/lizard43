@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-06T19:04:49.306Z",
+  "generated_at": "2026-05-06T20:05:03.688Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,10 +11,10 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 52,
-      "droppedPrice": 89,
+      "exported_ads": 50,
+      "droppedPrice": 74,
       "droppedMissingGeo": 0,
-      "droppedCircle": 95
+      "droppedCircle": 93
     }
   },
   "ads": [
@@ -37,46 +37,6 @@
       "hidden": 0,
       "created_at": "2026-05-06 17:04:29",
       "lastSeen": "2026-05-06T17:04:54.141Z"
-    },
-    {
-      "adID": "954782004068533",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/61565205244027/?product_id=954782004068533",
-      "author": "Mark Gebhart",
-      "postedTime": "2026-05-06T15:18:47.000Z",
-      "title": "1953 GoGo Pinball machine from old pier at south Jax bch in the 60's",
-      "description": "",
-      "price": "$700",
-      "lat": 30.2946859,
-      "lon": -81.3931396,
-      "location": "Jacksonville Beach, FL",
-      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/687039856_1480501927088962_1764929014431794409_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=104&ccb=1-7&_nc_sid=92e707&_nc_eui2=AeHkbe63KxHDiSzTlTcp_wHin5YkGPsO6HufliQY-w7oez72x6z_FitGRk9M4kHFMq0&_nc_ohc=S_xDPbFXSi8Q7kNvwGQ8hZV&_nc_oc=AdoM0TwL24jq8XyGa77sBlIIpobzL4MWRFbjmaFCmb0JAso2b94EnyCN6SAa_HObaUI&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=EgUpwn40PYtvmaQtdjKxRA&_nc_ss=7b2a8&oh=00_Af67-H1HniCzOBiZjKwvs5rJp5t8BPcV4fTiMPJU3VrRyA&oe=6A0139B3",
-      "adUrl": "https://www.facebook.com/marketplace/item/954782004068533/",
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-05-06 16:05:32",
-      "lastSeen": "2026-05-06T17:05:16.371Z"
-    },
-    {
-      "adID": "858521053935854",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/100040472739270/?product_id=858521053935854",
-      "author": "Brodie Pugh",
-      "postedTime": "2026-05-06T14:19:53.000Z",
-      "title": "Time Killers Arcade Translite",
-      "description": "Original Time Killers Translite Marquee. Has some yellowing from bulb. One area has tape on back to fix a crack. Still very good to install in a cabinet.",
-      "price": "$30",
-      "lat": 34.729847,
-      "lon": -86.5859011,
-      "location": "Huntsville, AL",
-      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/687954815_1533821465051017_7385393643500372741_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=103&ccb=1-7&_nc_sid=92e707&_nc_eui2=AeGoHAIXenfZOj0KNxQf03qktxyLQtcSIMa3HItC1xIgxnLEGiTGBJVUEJU-RGCFqns&_nc_ohc=VC-j9-c089wQ7kNvwFfbubg&_nc_oc=Adqy0F1ghv4uLvv8-54onpdwqVW6cdd6K2-4adpdIztRBBNmgRxCt_ETQn63m1BM1qI&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=TPV1SQKD5eKtroAwFPHNaA&_nc_ss=7b2a8&oh=00_Af4LHZZg2O6aol0-sjpkTdF3p-6M3-g-0X1g1lQxMqpifw&oe=6A013810",
-      "adUrl": "https://www.facebook.com/marketplace/item/858521053935854/",
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-05-06 15:04:28",
-      "lastSeen": "2026-05-06T17:04:30.696Z"
     },
     {
       "adID": "1284999400402463",
@@ -603,20 +563,20 @@
       "source": "KLOV",
       "authorUrl": "https://forums.arcade-museum.com/members/groffdaddy.45271/",
       "author": "groffdaddy",
-      "postedTime": "2026-04-29T13:04:43.000Z",
-      "title": "Wild Cycle game for sale - Not Working - $300 - Anniston, AL",
+      "postedTime": "2026-05-06T19:17:24.000Z",
+      "title": "Wild Cycle game for sale - Not Working - $250 - Anniston, AL",
       "description": "Wild Cycle game for sale. Looks to be complete. Tested not working.",
-      "price": "$300",
+      "price": "$250",
       "lat": 33.6624824,
       "lon": -85.8283224,
       "location": "Anniston, Alabama",
       "imageUrl": "https://forums.arcade-museum.com/favicon.ico",
       "adUrl": "https://forums.arcade-museum.com/threads/562564/",
-      "priceChanged": 0,
-      "priceChangedAt": null,
+      "priceChanged": 1,
+      "priceChangedAt": "2026-05-06 20:05:03",
       "hidden": 0,
       "created_at": "2026-04-20 20:05:35",
-      "lastSeen": "2026-05-05T21:07:05.372Z"
+      "lastSeen": "2026-05-06T20:05:03.440Z"
     },
     {
       "adID": "1631750341395675",
