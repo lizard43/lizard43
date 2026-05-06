@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-06T11:33:23.465Z",
+  "generated_at": "2026-05-06T12:07:24.425Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,10 +11,10 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 62,
-      "droppedPrice": 83,
+      "exported_ads": 59,
+      "droppedPrice": 77,
       "droppedMissingGeo": 0,
-      "droppedCircle": 136
+      "droppedCircle": 132
     }
   },
   "ads": [
@@ -39,26 +39,6 @@
       "lastSeen": "2026-05-06T11:07:24.123Z"
     },
     {
-      "adID": "1390316063297438",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/100000261731710/?product_id=1390316063297438",
-      "author": "Ben Dale Diers",
-      "postedTime": "2026-05-05T17:49:54.000Z",
-      "title": "Tony Hawks pro skater 3",
-      "description": "Working",
-      "price": "$15",
-      "lat": 31.179998,
-      "lon": -83.7887928,
-      "location": "Moultrie, GA",
-      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/687041319_1716134079395041_546154678563572141_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=104&ccb=1-7&_nc_sid=92e707&_nc_eui2=AeEooUihWPnpiP_99w7iwMlJi6yRPv9HQLuLrJE-_0dAu2M1baHZozUKPi4XFbVSyGk&_nc_ohc=oJrFGvyci-gQ7kNvwFkPflS&_nc_oc=Adq3RKJ-jrXmRoxFWJwyVTQeSph7qj5HDW03GHS9dunBWGsiJH-2mm_zVtJNaiLR03A&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=Pi_2BJKB7fK4dkRTs5lWNg&_nc_ss=7b2a8&oh=00_Af7dMoXHquyPYxKwNaDxGyXgr-VoZ9wnH26YSz5kS-mZ8A&oe=6A010002",
-      "adUrl": "https://www.facebook.com/marketplace/item/1390316063297438/",
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-05-06 11:04:36",
-      "lastSeen": "2026-05-06T11:05:49.529Z"
-    },
-    {
       "adID": "1284999400402463",
       "source": "MP",
       "authorUrl": "https://www.facebook.com/marketplace/profile/100001638843429/?product_id=1284999400402463",
@@ -76,27 +56,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-06 11:04:36",
-      "lastSeen": "2026-05-06T11:05:49.585Z"
-    },
-    {
-      "adID": "769234772822194",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/100093351116622/?product_id=769234772822194",
-      "author": "Jackson Jordan",
-      "postedTime": "2026-05-05T17:55:26.000Z",
-      "title": "Tech repair",
-      "description": "Can repair basically anything as long as no soldering is required. can repair things like game consoles, PCs laptops, controllers, or anything else game or gaming related. Just charge for the part and labor",
-      "price": "FREE",
-      "lat": 32.6200973,
-      "lon": -83.606568,
-      "location": "Warner Robins, GA",
-      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/687033498_1419415076520600_2772706858826981626_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=111&ccb=1-7&_nc_sid=92e707&_nc_eui2=AeFHFUvod6zP7gBf7WGuiSv5QD1JdYvQTBhAPUl1i9BMGJQ_8SgzLqyOIJWPXYhWFP0&_nc_ohc=YaA5sLAMoc0Q7kNvwHdpLHt&_nc_oc=AdpjQTxSIDQ-_VAcMdx8Dpk8Zf0h0elIApR8e5ZF6XyAYAJHPaLsK8jpVSrYm2B4wG4&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=s-dWxEQeYEWcCZb6xm2hjg&_nc_ss=7b2a8&oh=00_Af6vNKvEiYhOwRi7bulHOflcYd-mp873fOo_RwGUd7TbYQ&oe=6A00F3A9",
-      "adUrl": "https://www.facebook.com/marketplace/item/769234772822194/",
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-05-06 11:04:35",
-      "lastSeen": "2026-05-06T11:05:49.418Z"
+      "lastSeen": "2026-05-06T12:04:23.954Z"
     },
     {
       "adID": "1527417545564416",
@@ -116,7 +76,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-06 11:04:35",
-      "lastSeen": "2026-05-06T11:05:49.474Z"
+      "lastSeen": "2026-05-06T12:04:23.900Z"
     },
     {
       "adID": "2123194578445121",
@@ -136,7 +96,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-06 02:04:43",
-      "lastSeen": "2026-05-06T11:04:35.627Z"
+      "lastSeen": "2026-05-06T12:04:23.678Z"
     },
     {
       "adID": "1712008663547524",
@@ -156,7 +116,7 @@
       "priceChangedAt": "2026-05-05 22:06:05",
       "hidden": 0,
       "created_at": "2026-05-05 21:05:28",
-      "lastSeen": "2026-05-06T11:06:11.172Z"
+      "lastSeen": "2026-05-06T12:06:21.745Z"
     },
     {
       "adID": "4399569796981774",
@@ -196,7 +156,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-05 00:05:54",
-      "lastSeen": "2026-05-06T11:06:11.350Z"
+      "lastSeen": "2026-05-06T12:06:21.989Z"
     },
     {
       "adID": "799489689681811",
@@ -256,7 +216,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-04 16:04:36",
-      "lastSeen": "2026-05-06T11:06:11.803Z"
+      "lastSeen": "2026-05-06T12:06:22.155Z"
     },
     {
       "adID": "959188920035298",
@@ -297,26 +257,6 @@
       "hidden": 0,
       "created_at": "2026-05-04 15:04:39",
       "lastSeen": "2026-05-06T02:04:43.225Z"
-    },
-    {
-      "adID": "799489339685818",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/1002646751/?product_id=799489339685818",
-      "author": "Thomas Tate",
-      "postedTime": "2026-05-03T23:49:15.000Z",
-      "title": "J.F. Frantz “SPACE SHOT” Antique 1960's vintage arcade shooter game.",
-      "description": "Missing a few parts. Could possibly find them from a retro-game restorer.",
-      "price": "$650",
-      "lat": 33.883887,
-      "lon": -84.5147454,
-      "location": "Smyrna, GA",
-      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/689897869_958968666840456_2726493549731814900_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=101&ccb=1-7&_nc_sid=92e707&_nc_eui2=AeFcv9jnVr8JrmJRE9pkQEPRo7fAyCTZVpajt8DIJNlWluIYdy0OCciDWtRn1lQzER4&_nc_ohc=FiZFiZ6si5AQ7kNvwFfpg5l&_nc_oc=AdrJ7lOOM7_BSy5gxGjkrz2lTrYN3iiSLORxTc5ih0ptgHBBjhW6Owj2ABH_r2xlqDE&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=dapwJ14YtWGOHzPJOVRWZw&_nc_ss=7b2a8&oh=00_Af4z36M7oIC1B_LNxBYkOWiIrJB2lcvSKjSMfi1iC1rnLg&oe=6A00DF17",
-      "adUrl": "https://www.facebook.com/marketplace/item/799489339685818/",
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-05-04 00:04:41",
-      "lastSeen": "2026-05-06T08:27:02.196Z"
     },
     {
       "adID": "976392128090706",
