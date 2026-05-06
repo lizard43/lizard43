@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-06T16:06:24.368Z",
+  "generated_at": "2026-05-06T17:05:38.769Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,33 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 60,
-      "droppedPrice": 86,
+      "exported_ads": 61,
+      "droppedPrice": 92,
       "droppedMissingGeo": 0,
-      "droppedCircle": 136
+      "droppedCircle": 137
     }
   },
   "ads": [
+    {
+      "adID": "2205177603632567",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/1337739964/?product_id=2205177603632567",
+      "author": "Ann Akers-Douglas",
+      "postedTime": "2026-05-06T16:45:58.000Z",
+      "title": "Golden Tee",
+      "description": "Golden Tee arcade game. Has several other games on it. good working condition",
+      "price": "$300",
+      "lat": 27.9358543,
+      "lon": -82.8062139,
+      "location": "Belleair, FL",
+      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/687730993_1147592308429722_1482850542574786630_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=101&ccb=1-7&_nc_sid=92e707&_nc_eui2=AeF6GOGT5JAIUWQLJPTrLaLw9nvEhpkhDBX2e8SGmSEMFTokrw-KLs10WgkGDLw7yqk&_nc_ohc=DlJiu5Pj5L8Q7kNvwF64RQ9&_nc_oc=AdqRY93HFpMmrztp4SFELKG2GuBWZZKy2EE9YvSinO5QcbDpkliXIrWAUN7amCi6bfs&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=32YqCrw6CIZQCzYBPCeMHQ&_nc_ss=7b2a8&oh=00_Af4sb8rRoLvPKeHBjTlim7NPkrAC5UCetB3x6JRUwPRQzQ&oe=6A016213",
+      "adUrl": "https://www.facebook.com/marketplace/item/2205177603632567/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-05-06 17:04:29",
+      "lastSeen": "2026-05-06T17:04:54.141Z"
+    },
     {
       "adID": "954782004068533",
       "source": "MP",
@@ -36,7 +56,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-06 16:05:32",
-      "lastSeen": "2026-05-06T16:05:52.331Z"
+      "lastSeen": "2026-05-06T17:05:16.371Z"
     },
     {
       "adID": "1256837736633086",
@@ -76,7 +96,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-06 15:04:28",
-      "lastSeen": "2026-05-06T16:04:18.634Z"
+      "lastSeen": "2026-05-06T17:04:30.696Z"
     },
     {
       "adID": "26696081466719257",
@@ -116,7 +136,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-06 11:04:36",
-      "lastSeen": "2026-05-06T16:04:17.829Z"
+      "lastSeen": "2026-05-06T17:04:29.455Z"
     },
     {
       "adID": "1527417545564416",
@@ -136,7 +156,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-06 11:04:35",
-      "lastSeen": "2026-05-06T16:04:17.785Z"
+      "lastSeen": "2026-05-06T17:04:29.411Z"
     },
     {
       "adID": "2123194578445121",
@@ -156,7 +176,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-06 02:04:43",
-      "lastSeen": "2026-05-06T16:04:17.299Z"
+      "lastSeen": "2026-05-06T17:04:29.233Z"
     },
     {
       "adID": "1712008663547524",
@@ -176,7 +196,7 @@
       "priceChangedAt": "2026-05-05 22:06:05",
       "hidden": 0,
       "created_at": "2026-05-05 21:05:28",
-      "lastSeen": "2026-05-06T16:05:32.783Z"
+      "lastSeen": "2026-05-06T17:05:16.617Z"
     },
     {
       "adID": "4399569796981774",
@@ -216,7 +236,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-05 00:05:54",
-      "lastSeen": "2026-05-06T16:05:33.050Z"
+      "lastSeen": "2026-05-06T17:05:16.839Z"
     },
     {
       "adID": "1320875349911469",
