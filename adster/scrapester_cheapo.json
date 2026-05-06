@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-06T14:05:53.292Z",
+  "generated_at": "2026-05-06T15:06:31.371Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,53 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 58,
-      "droppedPrice": 84,
+      "exported_ads": 60,
+      "droppedPrice": 86,
       "droppedMissingGeo": 0,
-      "droppedCircle": 133
+      "droppedCircle": 134
     }
   },
   "ads": [
+    {
+      "adID": "1256837736633086",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100000256060970/?product_id=1256837736633086",
+      "author": "Jeff Allen",
+      "postedTime": "2026-05-06T14:45:37.000Z",
+      "title": ".308 Peg Game / Bar Game",
+      "description": "Hand made peg game. Hard wood",
+      "price": "$25",
+      "lat": 28.2441768,
+      "lon": -82.7192671,
+      "location": "New Port Richey, FL",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/690636561_1472747957651817_4953785846570650011_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=109&ccb=1-7&_nc_sid=92e707&_nc_eui2=AeH1jK6zDEYIiWcsYyI3GO98b7-WV-CiGW5vv5ZX4KIZbmYphmbGVB1lvq0Sr1xWAF4&_nc_ohc=15g3RKcy5fAQ7kNvwGUoONt&_nc_oc=Ado3Dijq1MSmF98rragIXAchUDDtK0VeEzMNuxwPbBrkPf3iZFniuKqOf4SX4DWW87c&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=QyyRHn2-Lkv941q8lbywTQ&_nc_ss=7b2a8&oh=00_Af4KgY-w_WDjYE2LxiVEXjqKDXx68altln15rWYKSWX3sg&oe=6A013069",
+      "adUrl": "https://www.facebook.com/marketplace/item/1256837736633086/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-05-06 15:05:31",
+      "lastSeen": "2026-05-06T15:05:55.217Z"
+    },
+    {
+      "adID": "858521053935854",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100040472739270/?product_id=858521053935854",
+      "author": "Brodie Pugh",
+      "postedTime": "2026-05-06T14:19:53.000Z",
+      "title": "Time Killers Arcade Translite",
+      "description": "Original Time Killers Translite Marquee. Has some yellowing from bulb. One area has tape on back to fix a crack. Still very good to install in a cabinet.",
+      "price": "$30",
+      "lat": 34.729847,
+      "lon": -86.5859011,
+      "location": "Huntsville, AL",
+      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/687954815_1533821465051017_7385393643500372741_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=103&ccb=1-7&_nc_sid=92e707&_nc_eui2=AeGoHAIXenfZOj0KNxQf03qktxyLQtcSIMa3HItC1xIgxnLEGiTGBJVUEJU-RGCFqns&_nc_ohc=VC-j9-c089wQ7kNvwFfbubg&_nc_oc=Adqy0F1ghv4uLvv8-54onpdwqVW6cdd6K2-4adpdIztRBBNmgRxCt_ETQn63m1BM1qI&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=TPV1SQKD5eKtroAwFPHNaA&_nc_ss=7b2a8&oh=00_Af4LHZZg2O6aol0-sjpkTdF3p-6M3-g-0X1g1lQxMqpifw&oe=6A013810",
+      "adUrl": "https://www.facebook.com/marketplace/item/858521053935854/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-05-06 15:04:28",
+      "lastSeen": "2026-05-06T15:05:05.905Z"
+    },
     {
       "adID": "26696081466719257",
       "source": "MP",
@@ -36,7 +76,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-06 11:06:12",
-      "lastSeen": "2026-05-06T11:07:24.123Z"
+      "lastSeen": "2026-05-06T15:05:31.873Z"
     },
     {
       "adID": "1284999400402463",
@@ -56,7 +96,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-06 11:04:36",
-      "lastSeen": "2026-05-06T14:04:31.855Z"
+      "lastSeen": "2026-05-06T15:04:28.860Z"
     },
     {
       "adID": "1527417545564416",
@@ -76,7 +116,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-06 11:04:35",
-      "lastSeen": "2026-05-06T14:04:31.799Z"
+      "lastSeen": "2026-05-06T15:04:28.804Z"
     },
     {
       "adID": "2123194578445121",
@@ -96,7 +136,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-06 02:04:43",
-      "lastSeen": "2026-05-06T14:04:31.622Z"
+      "lastSeen": "2026-05-06T15:04:28.593Z"
     },
     {
       "adID": "1712008663547524",
@@ -116,7 +156,7 @@
       "priceChangedAt": "2026-05-05 22:06:05",
       "hidden": 0,
       "created_at": "2026-05-05 21:05:28",
-      "lastSeen": "2026-05-06T14:05:32.599Z"
+      "lastSeen": "2026-05-06T15:05:31.230Z"
     },
     {
       "adID": "4399569796981774",
@@ -156,7 +196,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-05 00:05:54",
-      "lastSeen": "2026-05-06T14:05:32.821Z"
+      "lastSeen": "2026-05-06T15:05:31.451Z"
     },
     {
       "adID": "1320875349911469",
@@ -196,7 +236,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-04 16:04:36",
-      "lastSeen": "2026-05-06T14:05:32.955Z"
+      "lastSeen": "2026-05-06T15:05:31.596Z"
     },
     {
       "adID": "959188920035298",
