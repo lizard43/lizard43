@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-06T15:34:02.480Z",
+  "generated_at": "2026-05-06T16:06:24.368Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,33 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 59,
-      "droppedPrice": 85,
+      "exported_ads": 60,
+      "droppedPrice": 86,
       "droppedMissingGeo": 0,
-      "droppedCircle": 133
+      "droppedCircle": 136
     }
   },
   "ads": [
+    {
+      "adID": "954782004068533",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/61565205244027/?product_id=954782004068533",
+      "author": "Mark Gebhart",
+      "postedTime": "2026-05-06T15:18:47.000Z",
+      "title": "1953 GoGo Pinball machine from old pier at south Jax bch in the 60's",
+      "description": "",
+      "price": "$700",
+      "lat": 30.2946859,
+      "lon": -81.3931396,
+      "location": "Jacksonville Beach, FL",
+      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/687039856_1480501927088962_1764929014431794409_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=104&ccb=1-7&_nc_sid=92e707&_nc_eui2=AeHkbe63KxHDiSzTlTcp_wHin5YkGPsO6HufliQY-w7oez72x6z_FitGRk9M4kHFMq0&_nc_ohc=S_xDPbFXSi8Q7kNvwGQ8hZV&_nc_oc=AdoM0TwL24jq8XyGa77sBlIIpobzL4MWRFbjmaFCmb0JAso2b94EnyCN6SAa_HObaUI&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=EgUpwn40PYtvmaQtdjKxRA&_nc_ss=7b2a8&oh=00_Af67-H1HniCzOBiZjKwvs5rJp5t8BPcV4fTiMPJU3VrRyA&oe=6A0139B3",
+      "adUrl": "https://www.facebook.com/marketplace/item/954782004068533/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-05-06 16:05:32",
+      "lastSeen": "2026-05-06T16:05:52.331Z"
+    },
     {
       "adID": "1256837736633086",
       "source": "MP",
@@ -36,7 +56,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-06 15:05:31",
-      "lastSeen": "2026-05-06T15:05:55.217Z"
+      "lastSeen": "2026-05-06T16:05:33.228Z"
     },
     {
       "adID": "858521053935854",
@@ -56,7 +76,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-06 15:04:28",
-      "lastSeen": "2026-05-06T15:05:05.905Z"
+      "lastSeen": "2026-05-06T16:04:18.634Z"
     },
     {
       "adID": "26696081466719257",
@@ -96,7 +116,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-06 11:04:36",
-      "lastSeen": "2026-05-06T15:04:28.860Z"
+      "lastSeen": "2026-05-06T16:04:17.829Z"
     },
     {
       "adID": "1527417545564416",
@@ -116,7 +136,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-06 11:04:35",
-      "lastSeen": "2026-05-06T15:04:28.804Z"
+      "lastSeen": "2026-05-06T16:04:17.785Z"
     },
     {
       "adID": "2123194578445121",
@@ -136,7 +156,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-06 02:04:43",
-      "lastSeen": "2026-05-06T15:04:28.593Z"
+      "lastSeen": "2026-05-06T16:04:17.299Z"
     },
     {
       "adID": "1712008663547524",
@@ -156,7 +176,7 @@
       "priceChangedAt": "2026-05-05 22:06:05",
       "hidden": 0,
       "created_at": "2026-05-05 21:05:28",
-      "lastSeen": "2026-05-06T15:05:31.230Z"
+      "lastSeen": "2026-05-06T16:05:32.783Z"
     },
     {
       "adID": "4399569796981774",
@@ -196,7 +216,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-05 00:05:54",
-      "lastSeen": "2026-05-06T15:05:31.451Z"
+      "lastSeen": "2026-05-06T16:05:33.050Z"
     },
     {
       "adID": "1320875349911469",
@@ -332,8 +352,8 @@
       "location": "Riverview, FL",
       "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/688765140_1325178936136021_7182260579192636264_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=103&ccb=1-7&_nc_sid=92e707&_nc_eui2=AeFTkAecsdu7ToOGsTcFR8sP5WXVZlPFjvDlZdVmU8WO8GlIcyY4MZchrLj95GfqpWo&_nc_ohc=29fSdOe73fEQ7kNvwGeRb_1&_nc_oc=AdqHjcAKU_R7qluxdQntjEoCsSHjKzkoNxJ-4hHGlS8k1eQKiuC7oH4lsAe0dCXJuTc&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=7QWkC1PUaLCKfDeyx6BV-Q&_nc_ss=7b2a8&oh=00_Af6zEO3dJ7c2e4fm_m8FRpyQb7QFlz7f3sJAxVf2-OA7Jg&oe=6A00B7A4",
       "adUrl": "https://www.facebook.com/marketplace/item/1536299548017337/",
-      "priceChanged": 1,
-      "priceChangedAt": "2026-05-04 16:04:37",
+      "priceChanged": 0,
+      "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-03 23:04:35",
       "lastSeen": "2026-05-06T07:27:03.352Z"
