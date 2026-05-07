@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-07T16:31:09.714Z",
+  "generated_at": "2026-05-07T17:07:15.465Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,33 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 50,
-      "droppedPrice": 51,
+      "exported_ads": 51,
+      "droppedPrice": 54,
       "droppedMissingGeo": 0,
-      "droppedCircle": 20
+      "droppedCircle": 24
     }
   },
   "ads": [
+    {
+      "adID": "1512411503920837",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100000043704306/?product_id=1512411503920837",
+      "author": "JD Barlow",
+      "postedTime": "2026-05-07T16:25:27.000Z",
+      "title": "United Laguna Arcade Bowling Game",
+      "description": "United Laguna Arcade Bowling Game. Plays as is but needs more cleaning and lubricating to be fully functional. 6Ol:2l4\\4L96",
+      "price": "$300",
+      "lat": 32.1534836,
+      "lon": -90.1311971,
+      "location": "Florence, MS",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t15.5256-10/690320168_1014563091008928_2679610672163943167_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=109&ccb=1-7&_nc_sid=d4195b&_nc_eui2=AeGuoOHDj1Dsn36kt6jRHIWz7-Y9UiWForPv5j1SJYWis2UsvBeDnOZ6a8L06Ggwpv4&_nc_ohc=zpIh2B97-LMQ7kNvwHFnceJ&_nc_oc=Adr_W8zonGYKs_awa_u8vC55EEg6cRI0l0lFOpcvWBmQTPvBu1O3nBL4lBbpJ9QSnpM&_nc_zt=23&_nc_ht=scontent-dfw5-1.xx&_nc_gid=upUpD3xEcG7kfoJB-Gxwbg&_nc_ss=7b2a8&oh=00_Af6xbNyiXRnQzItzdw8xBlJwYKkLrNyfh61qAbsy2FJdOA&oe=6A029ED6",
+      "adUrl": "https://www.facebook.com/marketplace/item/1512411503920837/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-05-07 17:04:29",
+      "lastSeen": "2026-05-07T17:05:13.519Z"
+    },
     {
       "adID": "1467373394393112",
       "source": "MP",
@@ -50,13 +70,13 @@
       "lat": 33.8901036,
       "lon": -84.1429719,
       "location": "Lilburn, GA",
-      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/689684180_27047870341511160_139313285830030809_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=107&ccb=1-7&_nc_sid=92e707&_nc_eui2=AeFbgrRjvfik3_F-jj5GtT5U9WtJDkGZ86P1a0kOQZnzoyiar7LC7bRX0TckhyPgqkY&_nc_ohc=22BEDdkfz60Q7kNvwG2kEPq&_nc_oc=AdoVWb2zFAoXQaPHSQQJVcG9Zf090z5foOkaeH-VQNaX4y_s_teTOgOUJQtTLaF63HQ&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=lG75xj5CtfTcXfahMGkatg&_nc_ss=7b2a8&oh=00_Af5BPBbyR4gOLRIuvDmeoIRxnBEjRJThxd6INQUy2RNZHw&oe=6A029DD0",
+      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/689684180_27047870341511160_139313285830030809_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=107&ccb=1-7&_nc_sid=92e707&_nc_eui2=AeFbgrRjvfik3_F-jj5GtT5U9WtJDkGZ86P1a0kOQZnzoyiar7LC7bRX0TckhyPgqkY&_nc_ohc=22BEDdkfz60Q7kNvwG2kEPq&_nc_oc=AdoVWb2zFAoXQaPHSQQJVcG9Zf090z5foOkaeH-VQNaX4y_s_teTOgOUJQtTLaF63HQ&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=YevP1NESQSXGs2Mds-uf4g&_nc_ss=7b2a8&oh=00_Af7GpkZdSZUnqPwhNvBEDnKfFS3D168a89fViYvFa86p8Q&oe=6A029DD0",
       "adUrl": "https://www.facebook.com/marketplace/item/1503391781375474/",
       "priceChanged": 0,
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-07 16:22:50",
-      "lastSeen": "2026-05-07T16:26:05.415Z"
+      "lastSeen": "2026-05-07T17:06:42.740Z"
     },
     {
       "adID": "852341703892972",
@@ -76,7 +96,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-07 16:22:50",
-      "lastSeen": "2026-05-07T16:29:25.287Z"
+      "lastSeen": "2026-05-07T17:05:41.347Z"
     },
     {
       "adID": "994753879569650",
@@ -96,7 +116,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-07 16:22:49",
-      "lastSeen": "2026-05-07T16:26:04.996Z"
+      "lastSeen": "2026-05-07T17:05:40.503Z"
     },
     {
       "adID": "918350267906511",
@@ -106,17 +126,17 @@
       "postedTime": "2026-05-07T03:05:44.000Z",
       "title": "Pinball machine",
       "description": "Other than needing a good cleaning this machine is perfect! It’s been in storage for quite some time and needs some tlc. Original box will come with it.",
-      "price": "$200",
+      "price": "$175",
       "lat": 34.4817816,
       "lon": -87.2919449,
       "location": "Moulton, AL",
-      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t15.5256-10/637435121_855078724229766_6415920308508600382_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=101&ccb=1-7&_nc_sid=d4195b&_nc_eui2=AeFLERhsQpJg4araF3wYFDOGsoyzZ6W-AzWyjLNnpb4DNZ1jwaIk7ZJEiyzH0VG60cY&_nc_ohc=wsjfEIYXu0sQ7kNvwEybgSD&_nc_oc=AdpiAUB-Q0IJqTjMKdyVvz3y07pdRwBC_-32s-Fm2JlcGENB5wqQqtkcTXpk2Ri0kG0&_nc_zt=23&_nc_ht=scontent-dfw6-1.xx&_nc_gid=AQU5zy9OifHf1PCC0Fz81g&_nc_ss=7b2a8&oh=00_Af7xnfndwGRUuhJ7oxwQ9RTyUs-MaRhWjvPC-UBsigQnyg&oe=6A0297A5",
+      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t15.5256-10/637435121_855078724229766_6415920308508600382_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=101&ccb=1-7&_nc_sid=d4195b&_nc_eui2=AeFLERhsQpJg4araF3wYFDOGsoyzZ6W-AzWyjLNnpb4DNZ1jwaIk7ZJEiyzH0VG60cY&_nc_ohc=wsjfEIYXu0sQ7kNvwEybgSD&_nc_oc=AdpiAUB-Q0IJqTjMKdyVvz3y07pdRwBC_-32s-Fm2JlcGENB5wqQqtkcTXpk2Ri0kG0&_nc_zt=23&_nc_ht=scontent-dfw6-1.xx&_nc_gid=s3KW__SVJnyQeVnjpadUjw&_nc_ss=7b2a8&oh=00_Af7DG7Xaz9qWPX9NngCx1YIClYEYjK8XWubMkG9xqzxCBw&oe=6A0297A5",
       "adUrl": "https://www.facebook.com/marketplace/item/918350267906511/",
-      "priceChanged": 0,
-      "priceChangedAt": null,
+      "priceChanged": 1,
+      "priceChangedAt": "2026-05-07 17:05:41",
       "hidden": 0,
       "created_at": "2026-05-07 16:22:49",
-      "lastSeen": "2026-05-07T16:26:05.180Z"
+      "lastSeen": "2026-05-07T17:06:42.707Z"
     },
     {
       "adID": "1681062223043765",
@@ -156,7 +176,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-07 16:16:50",
-      "lastSeen": "2026-05-07T16:20:10.265Z"
+      "lastSeen": "2026-05-07T17:04:29.707Z"
     },
     {
       "adID": "1678485696508147",
@@ -176,7 +196,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-07 16:16:50",
-      "lastSeen": "2026-05-07T16:20:10.298Z"
+      "lastSeen": "2026-05-07T17:04:29.742Z"
     },
     {
       "adID": "1467596391731544",
@@ -196,7 +216,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-07 16:16:50",
-      "lastSeen": "2026-05-07T16:20:10.343Z"
+      "lastSeen": "2026-05-07T17:04:29.775Z"
     },
     {
       "adID": "2217265739044863",
@@ -216,7 +236,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-07 16:16:50",
-      "lastSeen": "2026-05-07T16:20:10.376Z"
+      "lastSeen": "2026-05-07T17:04:29.842Z"
     },
     {
       "adID": "2205177603632567",
@@ -236,7 +256,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-06 17:04:29",
-      "lastSeen": "2026-05-07T16:16:50.487Z"
+      "lastSeen": "2026-05-07T17:04:29.574Z"
     },
     {
       "adID": "1284999400402463",
@@ -616,7 +636,7 @@
       "priceChangedAt": "2026-05-06 20:05:03",
       "hidden": 0,
       "created_at": "2026-04-20 20:05:35",
-      "lastSeen": "2026-05-07T16:31:09.400Z"
+      "lastSeen": "2026-05-07T17:07:15.299Z"
     },
     {
       "adID": "1631750341395675",
