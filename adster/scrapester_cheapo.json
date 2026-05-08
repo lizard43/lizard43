@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-08T15:24:20.263Z",
+  "generated_at": "2026-05-08T16:06:23.652Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,33 +11,13 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 50,
-      "droppedPrice": 72,
+      "exported_ads": 49,
+      "droppedPrice": 74,
       "droppedMissingGeo": 0,
-      "droppedCircle": 67
+      "droppedCircle": 72
     }
   },
   "ads": [
-    {
-      "adID": "1492536169003649",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/521398803/?product_id=1492536169003649",
-      "author": "Colette Damphousse Mittelstaedt",
-      "postedTime": "2026-05-08T14:05:09.000Z",
-      "title": "CATABIS ACTIVE BALLS",
-      "description": "Retails for $13.99. I have 8 available.",
-      "price": "$6",
-      "lat": 30.2751945,
-      "lon": -89.7811745,
-      "location": "Slidell, LA",
-      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/693630556_2373696593126317_5929508723023472601_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=101&ccb=1-7&_nc_sid=92e707&_nc_eui2=AeHEhVWpFP2ywoDFb-VOf_YDP7TZ00XACUU_tNnTRcAJRVhHDvq3YMXj0Ca0RX6o4sY&_nc_ohc=ww3Xg9pEgsoQ7kNvwFHuoCl&_nc_oc=AdoCOcmvOT0YVQRHYaaIRiIe-iwkBr1kBaLXLi-vVAkCXEWx4PjBvsa1Q-r3lJkOthU&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=5nKz8-i_4ez_Ox54SUkIzw&_nc_ss=7b2a8&oh=00_Af7lifAyjNiZXfSa2Ip1Jsc0niyMLuW0bIRgobT8Eo4Ryw&oe=6A03B4A7",
-      "adUrl": "https://www.facebook.com/marketplace/item/1492536169003649/",
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-05-08 15:05:12",
-      "lastSeen": "2026-05-08T15:05:38.911Z"
-    },
     {
       "adID": "4501915923372047",
       "source": "MP",
@@ -56,7 +36,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-08 14:05:12",
-      "lastSeen": "2026-05-08T15:05:11.765Z"
+      "lastSeen": "2026-05-08T16:05:35.373Z"
     },
     {
       "adID": "1615671769704065",
@@ -76,7 +56,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-08 13:05:51",
-      "lastSeen": "2026-05-08T15:05:12.034Z"
+      "lastSeen": "2026-05-08T16:05:35.664Z"
     },
     {
       "adID": "994893306431688",
@@ -136,7 +116,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-08 11:04:25",
-      "lastSeen": "2026-05-08T15:04:32.631Z"
+      "lastSeen": "2026-05-08T16:04:29.315Z"
     },
     {
       "adID": "2201169137379621",
@@ -156,7 +136,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-08 00:05:05",
-      "lastSeen": "2026-05-08T15:05:12.167Z"
+      "lastSeen": "2026-05-08T16:05:35.796Z"
     },
     {
       "adID": "1492821882572283",
@@ -196,7 +176,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-07 17:04:29",
-      "lastSeen": "2026-05-08T15:04:31.928Z"
+      "lastSeen": "2026-05-08T16:04:28.545Z"
     },
     {
       "adID": "1681062223043765",
@@ -236,7 +216,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-07 16:16:50",
-      "lastSeen": "2026-05-08T15:04:32.029Z"
+      "lastSeen": "2026-05-08T16:04:28.646Z"
     },
     {
       "adID": "1678485696508147",
@@ -256,7 +236,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-07 16:16:50",
-      "lastSeen": "2026-05-08T15:04:32.062Z"
+      "lastSeen": "2026-05-08T16:04:28.678Z"
     },
     {
       "adID": "1467596391731544",
@@ -276,7 +256,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-07 16:16:50",
-      "lastSeen": "2026-05-08T15:04:32.095Z"
+      "lastSeen": "2026-05-08T16:04:28.712Z"
     },
     {
       "adID": "2217265739044863",
@@ -296,7 +276,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-07 16:16:50",
-      "lastSeen": "2026-05-08T15:04:32.163Z"
+      "lastSeen": "2026-05-08T16:04:28.779Z"
     },
     {
       "adID": "2205177603632567",
@@ -616,7 +596,7 @@
       "priceChangedAt": "2026-05-06 20:05:03",
       "hidden": 0,
       "created_at": "2026-04-20 20:05:35",
-      "lastSeen": "2026-05-08T15:06:16.937Z"
+      "lastSeen": "2026-05-08T16:06:23.403Z"
     },
     {
       "adID": "1631750341395675",
