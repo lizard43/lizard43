@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-07T23:06:00.507Z",
+  "generated_at": "2026-05-08T00:06:30.648Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,33 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 47,
-      "droppedPrice": 48,
+      "exported_ads": 48,
+      "droppedPrice": 52,
       "droppedMissingGeo": 0,
-      "droppedCircle": 42
+      "droppedCircle": 46
     }
   },
   "ads": [
+    {
+      "adID": "2201169137379621",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100056131500167/?product_id=2201169137379621",
+      "author": "John Layton",
+      "postedTime": "2026-05-07T22:37:47.000Z",
+      "title": "Kansas City chief pins",
+      "description": "Jc chiefs pins. They say Lee day from 1989.",
+      "price": "$100",
+      "lat": 34.3683267,
+      "lon": -84.9349057,
+      "location": "Adairsville, GA",
+      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/693288790_966269339136482_5244138829003106665_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=106&ccb=1-7&_nc_sid=92e707&_nc_eui2=AeEsYtkvPrjMZsY7rUJu6NFQGV7h_ZbxY8YZXuH9lvFjxmRSfnhQNLrLnmG5T9ep68Y&_nc_ohc=ngAv7h_fV54Q7kNvwGE54G3&_nc_oc=Adr2RnsVC2z0UFIjwl0crm7SjRRyP-gxLaVaMTEiyMnQ_G27ntPtCk_U8BhkpoBwMZw&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=j0bXjIrLY7_wMfyb6vcz6w&_nc_ss=7b2a8&oh=00_Af6Ji_QehTjksQ__xHd8UktBPH7aAZ2qEHApb_uSiExahQ&oe=6A02E11F",
+      "adUrl": "https://www.facebook.com/marketplace/item/2201169137379621/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-05-08 00:05:05",
+      "lastSeen": "2026-05-08T00:05:53.397Z"
+    },
     {
       "adID": "1287520929575236",
       "source": "MP",
@@ -36,7 +56,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-07 21:05:23",
-      "lastSeen": "2026-05-07T23:05:13.296Z"
+      "lastSeen": "2026-05-08T00:05:05.585Z"
     },
     {
       "adID": "1492821882572283",
@@ -56,7 +76,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-07 21:04:25",
-      "lastSeen": "2026-05-07T23:05:13.397Z"
+      "lastSeen": "2026-05-08T00:05:05.685Z"
     },
     {
       "adID": "1512411503920837",
@@ -556,7 +576,7 @@
       "priceChangedAt": "2026-05-06 20:05:03",
       "hidden": 0,
       "created_at": "2026-04-20 20:05:35",
-      "lastSeen": "2026-05-07T23:06:00.298Z"
+      "lastSeen": "2026-05-08T00:06:30.420Z"
     },
     {
       "adID": "1631750341395675",
