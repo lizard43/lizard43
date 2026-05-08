@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-08T17:46:59.502Z",
+  "generated_at": "2026-05-08T18:06:48.624Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,33 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 50,
-      "droppedPrice": 79,
+      "exported_ads": 51,
+      "droppedPrice": 82,
       "droppedMissingGeo": 0,
-      "droppedCircle": 73
+      "droppedCircle": 77
     }
   },
   "ads": [
+    {
+      "adID": "1501670381665261",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100041603525120/?product_id=1501670381665261",
+      "author": "Ricardo Crawford",
+      "postedTime": "2026-05-08T17:43:33.000Z",
+      "title": "Arcade",
+      "description": "Basically new only played it maybe 5 or 6 times",
+      "price": "$400",
+      "lat": 32.4490141,
+      "lon": -81.7832912,
+      "location": "Statesboro, GA",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/691580056_2573257929758438_5481535935470934449_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=111&ccb=1-7&_nc_sid=92e707&_nc_eui2=AeFmO-Cm91TX-8iTnXfm_6xgmltzcUppFpGaW3NxSmkWkVlnS-9JjaABG1uqrIL1TvA&_nc_ohc=FEz-tI6lyUcQ7kNvwF3lXac&_nc_oc=AdoULzLzGTc-s8MmIUuTCTT54xzXMucrWYkz1o8OA4XuHP1nGLnIW1pvL0anEu3SQTg&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=ddb-viGel33x6W4mwNb9MA&_nc_ss=7b2a8&oh=00_Af7pGaNAm94T107gmJsX615I-ptjN8JjDH1Y4q8NpDlPcQ&oe=6A041494",
+      "adUrl": "https://www.facebook.com/marketplace/item/1501670381665261/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-05-08 18:05:33",
+      "lastSeen": "2026-05-08T18:06:12.245Z"
+    },
     {
       "adID": "2079905069610757",
       "source": "MP",
@@ -36,7 +56,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-08 17:05:15",
-      "lastSeen": "2026-05-08T17:05:30.134Z"
+      "lastSeen": "2026-05-08T18:05:32.817Z"
     },
     {
       "adID": "4501915923372047",
@@ -56,7 +76,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-08 14:05:12",
-      "lastSeen": "2026-05-08T17:05:15.179Z"
+      "lastSeen": "2026-05-08T18:05:32.917Z"
     },
     {
       "adID": "1615671769704065",
@@ -76,7 +96,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-08 13:05:51",
-      "lastSeen": "2026-05-08T17:05:15.798Z"
+      "lastSeen": "2026-05-08T18:05:33.628Z"
     },
     {
       "adID": "994893306431688",
@@ -196,7 +216,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-07 17:04:29",
-      "lastSeen": "2026-05-08T17:04:30.462Z"
+      "lastSeen": "2026-05-08T18:04:27.258Z"
     },
     {
       "adID": "1681062223043765",
@@ -616,7 +636,7 @@
       "priceChangedAt": "2026-05-06 20:05:03",
       "hidden": 0,
       "created_at": "2026-04-20 20:05:35",
-      "lastSeen": "2026-05-08T17:06:07.013Z"
+      "lastSeen": "2026-05-08T18:06:48.353Z"
     },
     {
       "adID": "1631750341395675",
