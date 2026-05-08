@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-08T16:06:23.652Z",
+  "generated_at": "2026-05-08T17:06:07.260Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,33 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 49,
-      "droppedPrice": 74,
+      "exported_ads": 50,
+      "droppedPrice": 79,
       "droppedMissingGeo": 0,
-      "droppedCircle": 72
+      "droppedCircle": 74
     }
   },
   "ads": [
+    {
+      "adID": "2079905069610757",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100077500961867/?product_id=2079905069610757",
+      "author": "Cole Albitz",
+      "postedTime": "2026-05-08T16:29:35.000Z",
+      "title": "Pop-A-Card Pinball Machine",
+      "description": "1972 Pinball Machine, 100% working, coin slot was switched out for a on / off start switch.",
+      "price": "$600",
+      "lat": 27.9094665,
+      "lon": -82.7873244,
+      "location": "Largo, FL",
+      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t15.5256-10/694919394_1745560099941471_1768675202507362477_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=100&ccb=1-7&_nc_sid=d4195b&_nc_eui2=AeFkNdCowIbCfjXsVgfi5G9RLaFwiJtXHEItoXCIm1ccQs5fl3VT34_2jbDTgU7jouE&_nc_ohc=VaAXKupigToQ7kNvwFxOf8Q&_nc_oc=AdqFH5cl4ZpTryI2XCNOUhu-KyfOKI-iLwCDE-Czk27tAR6xAHue5pHIeHrYuMnOoP0&_nc_zt=23&_nc_ht=scontent-dfw5-2.xx&_nc_gid=7U_GlnTyPKbCKOLVRspjQA&_nc_ss=7b2a8&oh=00_Af7TLFEUsjydZYh5fV6L7vxwL01-x2sB8fG1kP6OrsK5bA&oe=6A03D3C5",
+      "adUrl": "https://www.facebook.com/marketplace/item/2079905069610757/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-05-08 17:05:15",
+      "lastSeen": "2026-05-08T17:05:30.134Z"
+    },
     {
       "adID": "4501915923372047",
       "source": "MP",
@@ -36,7 +56,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-08 14:05:12",
-      "lastSeen": "2026-05-08T16:05:35.373Z"
+      "lastSeen": "2026-05-08T17:05:15.179Z"
     },
     {
       "adID": "1615671769704065",
@@ -56,7 +76,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-08 13:05:51",
-      "lastSeen": "2026-05-08T16:05:35.664Z"
+      "lastSeen": "2026-05-08T17:05:15.798Z"
     },
     {
       "adID": "994893306431688",
@@ -176,7 +196,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-07 17:04:29",
-      "lastSeen": "2026-05-08T16:04:28.545Z"
+      "lastSeen": "2026-05-08T17:04:30.462Z"
     },
     {
       "adID": "1681062223043765",
@@ -216,7 +236,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-07 16:16:50",
-      "lastSeen": "2026-05-08T16:04:28.646Z"
+      "lastSeen": "2026-05-08T17:04:30.563Z"
     },
     {
       "adID": "1678485696508147",
@@ -236,7 +256,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-07 16:16:50",
-      "lastSeen": "2026-05-08T16:04:28.678Z"
+      "lastSeen": "2026-05-08T17:04:30.596Z"
     },
     {
       "adID": "1467596391731544",
@@ -256,7 +276,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-07 16:16:50",
-      "lastSeen": "2026-05-08T16:04:28.712Z"
+      "lastSeen": "2026-05-08T17:04:30.629Z"
     },
     {
       "adID": "2217265739044863",
@@ -276,7 +296,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-07 16:16:50",
-      "lastSeen": "2026-05-08T16:04:28.779Z"
+      "lastSeen": "2026-05-08T17:04:30.696Z"
     },
     {
       "adID": "2205177603632567",
@@ -596,7 +616,7 @@
       "priceChangedAt": "2026-05-06 20:05:03",
       "hidden": 0,
       "created_at": "2026-04-20 20:05:35",
-      "lastSeen": "2026-05-08T16:06:23.403Z"
+      "lastSeen": "2026-05-08T17:06:07.013Z"
     },
     {
       "adID": "1631750341395675",
