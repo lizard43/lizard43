@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-09T19:06:44.231Z",
+  "generated_at": "2026-05-09T20:06:12.205Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,53 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 64,
-      "droppedPrice": 50,
+      "exported_ads": 66,
+      "droppedPrice": 57,
       "droppedMissingGeo": 0,
-      "droppedCircle": 76
+      "droppedCircle": 80
     }
   },
   "ads": [
+    {
+      "adID": "1136419488665860",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100009905619487/?product_id=1136419488665860",
+      "author": "Joseph Whorton",
+      "postedTime": "2026-05-09T19:46:17.000Z",
+      "title": "Arcade",
+      "description": "Video game emulator in a cabinet Works fine just not what I’m wanting Any question just ask",
+      "price": "$750",
+      "lat": 29.9559145,
+      "lon": -90.0730259,
+      "location": "New Orleans, LA",
+      "imageUrl": "https://scontent-atl3-2.xx.fbcdn.net/v/t15.5256-10/696337835_2575667289502395_995225079863340945_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=101&ccb=1-7&_nc_sid=d4195b&_nc_ohc=xwhJeHZ0Ta4Q7kNvwEvBs58&_nc_oc=AdpfHdj7A8m3C5j5r3igRudcHPZBZNqPt01x1Y2KzmP0fl1yVHZAQhM-74gGaTJllu8&_nc_zt=23&_nc_ht=scontent-atl3-2.xx&_nc_gid=wbN1-YT6jXWYAmzNZ_wNCw&_nc_ss=7b2a8&oh=00_Af5LQyjs2BERHlKImP4C828kTEAuhzmYyJpgq59TZQ437Q&oe=6A05645C",
+      "adUrl": "https://www.facebook.com/marketplace/item/1136419488665860/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-05-09 20:04:27",
+      "lastSeen": "2026-05-09T20:04:54.846Z"
+    },
+    {
+      "adID": "966346402756251",
+      "source": "FB",
+      "authorUrl": null,
+      "author": "Troy Cook",
+      "postedTime": "2026-05-09T19:22:40.404Z",
+      "title": "High speed pinball plastics",
+      "description": "I have a used ramp and plastics for a Williams High Speed pinball.",
+      "price": "$50",
+      "lat": 30.3946392,
+      "lon": -89.3639378,
+      "location": "DIAMONDHEAD, MS",
+      "imageUrl": "https://scontent-atl3-1.xx.fbcdn.net/v/t39.30808-6/691534253_10163434913343214_8336522479207662177_n.jpg?stp=dst-jpg_s590x590_tt6&_nc_cat=106&ccb=1-7&_nc_sid=e06c5d&_nc_ohc=RcrT24QJI5kQ7kNvwFWrPCB&_nc_oc=AdpAGaPA7ank6jpKnMBAt3tbnWXUh6G3egeSLaNHLyIw8KeGQRtjgjQucPPDO0hDILI&_nc_zt=23&_nc_ht=scontent-atl3-1.xx&_nc_gid=Gr8w7y-Qo-v1zWdUNDcT5g&_nc_ss=7b2a8&oh=00_Af6yUiU5vCQplgc8UoRKobSgkvvWB0gmG4aj546Aie49xg&oe=6A056D7D",
+      "adUrl": "https://www.facebook.com/commerce/listing/966346402756251/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-05-09 20:00:41",
+      "lastSeen": "2026-05-09T20:00:41.190Z"
+    },
     {
       "adID": "1282375650713913",
       "source": "MP",
@@ -36,7 +76,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-09 18:05:19",
-      "lastSeen": "2026-05-09T18:06:22.751Z"
+      "lastSeen": "2026-05-09T20:05:21.939Z"
     },
     {
       "adID": "1363275942315246",
@@ -56,27 +96,27 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-09 18:04:25",
-      "lastSeen": "2026-05-09T19:04:33.827Z"
+      "lastSeen": "2026-05-09T20:04:26.829Z"
     },
     {
       "adID": "4513330142322223",
       "source": "FB",
       "authorUrl": null,
       "author": "Connor Guy",
-      "postedTime": "2026-05-09T17:02:07.886Z",
+      "postedTime": "2026-05-09T17:02:04.869Z",
       "title": "Williams Dealer's Choice Pinball Machine",
       "description": "William's Dealer's Choice Pinball Machine",
       "price": "$950",
       "lat": 34.3683267,
       "lon": -84.9349057,
       "location": "ADAIRSVILLE, GA",
-      "imageUrl": "https://scontent-atl3-1.xx.fbcdn.net/v/t39.30808-6/689457195_2031747504422058_1563178919005005924_n.jpg?stp=dst-jpg_s590x590_tt6&_nc_cat=105&ccb=1-7&_nc_sid=e06c5d&_nc_ohc=32FvjHmpjP0Q7kNvwFk4mNJ&_nc_oc=AdoLhQqZbFdil6zF9oFIubhgwb_tdSR9zOBoB2FJ7isnYpOkkWqi0aHEaE3k4p0FoK8&_nc_zt=23&_nc_ht=scontent-atl3-1.xx&_nc_gid=BThywXkFYkdS4pM_vtlwyA&_nc_ss=7b2a8&oh=00_Af5SnpsCE6Ik7OLNyG2o_5JC0F-bMLr4lPJGUFNl_kiPsg&oe=6A056E2A",
+      "imageUrl": "https://scontent-atl3-1.xx.fbcdn.net/v/t39.30808-6/689457195_2031747504422058_1563178919005005924_n.jpg?stp=dst-jpg_s590x590_tt6&_nc_cat=105&ccb=1-7&_nc_sid=e06c5d&_nc_ohc=32FvjHmpjP0Q7kNvwFk4mNJ&_nc_oc=AdoLhQqZbFdil6zF9oFIubhgwb_tdSR9zOBoB2FJ7isnYpOkkWqi0aHEaE3k4p0FoK8&_nc_zt=23&_nc_ht=scontent-atl3-1.xx&_nc_gid=6giyph0uHbZlniwo3jHFKg&_nc_ss=7b2a8&oh=00_Af7_iX1SahugKfi08VaoHq6ZbT7LJTP5uCLJshYN6wctfQ&oe=6A056E2A",
       "adUrl": "https://www.facebook.com/commerce/listing/4513330142322223/",
       "priceChanged": 0,
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-09 18:02:03",
-      "lastSeen": "2026-05-09T19:02:08.350Z"
+      "lastSeen": "2026-05-09T20:02:05.887Z"
     },
     {
       "adID": "983672644110051",
@@ -96,7 +136,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-09 16:06:14",
-      "lastSeen": "2026-05-09T18:05:19.731Z"
+      "lastSeen": "2026-05-09T20:05:21.972Z"
     },
     {
       "adID": "1470977000872423",
@@ -156,7 +196,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-09 13:07:36",
-      "lastSeen": "2026-05-09T19:05:20.194Z"
+      "lastSeen": "2026-05-09T20:05:21.670Z"
     },
     {
       "adID": "1661172151590618",
@@ -276,7 +316,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-09 11:04:39",
-      "lastSeen": "2026-05-09T19:04:34.112Z"
+      "lastSeen": "2026-05-09T20:04:27.547Z"
     },
     {
       "adID": "1347680760548474",
@@ -296,7 +336,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-09 02:04:37",
-      "lastSeen": "2026-05-09T19:04:34.001Z"
+      "lastSeen": "2026-05-09T20:04:27.447Z"
     },
     {
       "adID": "1770180110629239",
@@ -356,7 +396,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-08 21:05:27",
-      "lastSeen": "2026-05-09T19:05:20.128Z"
+      "lastSeen": "2026-05-09T20:05:21.603Z"
     },
     {
       "adID": "1501670381665261",
@@ -376,7 +416,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-08 18:05:33",
-      "lastSeen": "2026-05-09T19:04:34.245Z"
+      "lastSeen": "2026-05-09T20:04:27.681Z"
     },
     {
       "adID": "2079905069610757",
@@ -396,7 +436,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-08 17:05:15",
-      "lastSeen": "2026-05-09T19:05:20.228Z"
+      "lastSeen": "2026-05-09T20:05:21.704Z"
     },
     {
       "adID": "4501915923372047",
@@ -416,7 +456,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-08 14:05:12",
-      "lastSeen": "2026-05-09T19:05:20.261Z"
+      "lastSeen": "2026-05-09T20:05:21.738Z"
     },
     {
       "adID": "1615671769704065",
@@ -896,7 +936,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-20 20:05:35",
-      "lastSeen": "2026-05-09T19:06:44.039Z"
+      "lastSeen": "2026-05-09T20:06:12.018Z"
     },
     {
       "adID": "1631750341395675",
