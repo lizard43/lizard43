@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-09T16:07:31.329Z",
+  "generated_at": "2026-05-09T17:06:38.643Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,33 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 65,
-      "droppedPrice": 123,
+      "exported_ads": 66,
+      "droppedPrice": 126,
       "droppedMissingGeo": 0,
       "droppedCircle": 137
     }
   },
   "ads": [
+    {
+      "adID": "1006191238636982",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/1009980019/?product_id=1006191238636982",
+      "author": "Paula Scott",
+      "postedTime": "2026-05-09T16:12:32.000Z",
+      "title": "Terminator 2 arcade game",
+      "description": "Only used a handful of times. Must pick up and load",
+      "price": "$250",
+      "lat": 33.4487989,
+      "lon": -86.7879492,
+      "location": "Vestavia Hills, AL",
+      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/691560868_875974635519859_135932391477077736_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=104&ccb=1-7&_nc_sid=92e707&_nc_ohc=QWQfUCKhlXAQ7kNvwHCAxTE&_nc_oc=AdpcVZ_hcHX-Jy5xQjSckFzhdF7KUFlU6IAY5bifU3gmaatLl2pIrPSyGNGF0xA_OEY&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=yxi0Zc16VRijjXrC1v6rcg&_nc_ss=7b2a8&oh=00_Af5JOuGn2-n1HIZ-ghS2ii9AnDPjn3CAi8pXB-CqoSEjJQ&oe=6A0543D2",
+      "adUrl": "https://www.facebook.com/marketplace/item/1006191238636982/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-05-09 17:04:38",
+      "lastSeen": "2026-05-09T17:05:16.812Z"
+    },
     {
       "adID": "983672644110051",
       "source": "MP",
@@ -56,7 +76,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-09 16:04:25",
-      "lastSeen": "2026-05-09T16:05:47.464Z"
+      "lastSeen": "2026-05-09T17:04:38.702Z"
     },
     {
       "adID": "946990698203886",
@@ -76,7 +96,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-09 14:05:13",
-      "lastSeen": "2026-05-09T16:06:13.329Z"
+      "lastSeen": "2026-05-09T17:05:39.587Z"
     },
     {
       "adID": "1470977000872423",
@@ -136,7 +156,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-09 13:07:36",
-      "lastSeen": "2026-05-09T16:06:13.686Z"
+      "lastSeen": "2026-05-09T17:05:39.888Z"
     },
     {
       "adID": "1661172151590618",
@@ -256,7 +276,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-09 11:04:39",
-      "lastSeen": "2026-05-09T16:04:25.380Z"
+      "lastSeen": "2026-05-09T17:04:38.935Z"
     },
     {
       "adID": "1347680760548474",
@@ -276,7 +296,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-09 02:04:37",
-      "lastSeen": "2026-05-09T16:04:25.280Z"
+      "lastSeen": "2026-05-09T17:04:38.835Z"
     },
     {
       "adID": "1770180110629239",
@@ -310,13 +330,13 @@
       "lat": 33.6131588,
       "lon": -86.1183061,
       "location": "Lincoln, AL",
-      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/690630645_1283538960534731_3897612563546314163_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=106&ccb=1-7&_nc_sid=92e707&_nc_eui2=AeG2k2TCA50M6QcEgNx6nZ7fv-Vq7x584PS_5WrvHnzg9AYdVbBwCbuqcU84Uit6ZDQ&_nc_ohc=Hhh3jAekDFsQ7kNvwHDlpNi&_nc_oc=AdpQGK0NBy6uh9iKdjJDUWh69pgTZS3MK1ulGW-Y67_oJlALDkfpM2LVUU5L5rRb-Yc&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=9m4eNXMZD2kjtt0wZezCBQ&_nc_ss=7b2a8&oh=00_Af6IL41oJS8wlloupjWIUMqlPoG-QLmf1tT33tT93TT4og&oe=6A0546E7",
+      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/690630645_1283538960534731_3897612563546314163_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=106&ccb=1-7&_nc_sid=92e707&_nc_ohc=Hhh3jAekDFsQ7kNvwHDlpNi&_nc_oc=AdpQGK0NBy6uh9iKdjJDUWh69pgTZS3MK1ulGW-Y67_oJlALDkfpM2LVUU5L5rRb-Yc&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=a19sHaI2m-J8SAOy7GAhgA&_nc_ss=7b2a8&oh=00_Af5p6j5n4D_rKaZ4UYtQMz28Z8Kna4MMRgRgZ2XcFY5Dog&oe=6A0546E7",
       "adUrl": "https://www.facebook.com/marketplace/item/985822324068979/",
       "priceChanged": 0,
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-09 00:04:25",
-      "lastSeen": "2026-05-09T16:05:47.531Z"
+      "lastSeen": "2026-05-09T17:05:16.846Z"
     },
     {
       "adID": "1629200885000985",
@@ -356,7 +376,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-08 21:05:27",
-      "lastSeen": "2026-05-09T16:06:13.574Z"
+      "lastSeen": "2026-05-09T17:05:39.788Z"
     },
     {
       "adID": "976186511620716",
@@ -376,7 +396,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-08 19:04:25",
-      "lastSeen": "2026-05-09T16:04:26.057Z"
+      "lastSeen": "2026-05-09T17:04:39.304Z"
     },
     {
       "adID": "1501670381665261",
@@ -396,7 +416,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-08 18:05:33",
-      "lastSeen": "2026-05-09T16:04:25.923Z"
+      "lastSeen": "2026-05-09T17:04:39.171Z"
     },
     {
       "adID": "2079905069610757",
@@ -416,7 +436,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-08 17:05:15",
-      "lastSeen": "2026-05-09T16:06:13.730Z"
+      "lastSeen": "2026-05-09T17:05:39.923Z"
     },
     {
       "adID": "4501915923372047",
@@ -436,7 +456,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-08 14:05:12",
-      "lastSeen": "2026-05-09T16:06:13.842Z"
+      "lastSeen": "2026-05-09T17:05:40.023Z"
     },
     {
       "adID": "1615671769704065",
@@ -916,7 +936,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-20 20:05:35",
-      "lastSeen": "2026-05-09T16:07:31.003Z"
+      "lastSeen": "2026-05-09T17:06:38.359Z"
     },
     {
       "adID": "1631750341395675",
