@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-10T13:23:21.385Z",
+  "generated_at": "2026-05-10T14:05:23.289Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,10 +11,10 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 65,
-      "droppedPrice": 51,
+      "exported_ads": 61,
+      "droppedPrice": 60,
       "droppedMissingGeo": 0,
-      "droppedCircle": 85
+      "droppedCircle": 90
     }
   },
   "ads": [
@@ -36,7 +36,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-10 11:06:08",
-      "lastSeen": "2026-05-10T13:04:55.302Z"
+      "lastSeen": "2026-05-10T14:04:37.529Z"
     },
     {
       "adID": "1022799340220813",
@@ -56,7 +56,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-10 11:04:35",
-      "lastSeen": "2026-05-10T13:04:43.418Z"
+      "lastSeen": "2026-05-10T14:04:25.922Z"
     },
     {
       "adID": "948951281293397",
@@ -76,27 +76,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-10 11:04:35",
-      "lastSeen": "2026-05-10T13:04:43.452Z"
-    },
-    {
-      "adID": "1282375650713913",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/100041120502017/?product_id=1282375650713913",
-      "author": "Jodie Duke's",
-      "postedTime": "2026-05-09T17:15:56.000Z",
-      "title": "Magnetic Games",
-      "description": "There are 10 unopened magnetic games. All 10 for 30 dollars or 4 dollars each. If you're traveling they are small and easy to store. Fun to play with. They are a hit with my children and have extras. Theses games include Backgammon ,Chinese checkers , Solitaire.",
-      "price": "$4",
-      "lat": 28.5552719,
-      "lon": -82.3878709,
-      "location": "Brooksville, FL",
-      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t15.5256-10/504585277_1387353225748624_7810056203370477216_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=111&ccb=1-7&_nc_sid=d4195b&_nc_ohc=yNCgB5z-5ncQ7kNvwGbRdIs&_nc_oc=AdrSmvJ3609LA61TRWtLuTRbLQSowwFkIarkiKrft5n7B5Q5QPDc6t1kS06AkYkIdJ0&_nc_zt=23&_nc_ht=scontent-dfw5-1.xx&_nc_gid=4QxmZj1cc3WKqGRDZ2lk2A&_nc_ss=7b2a8&oh=00_Af7k-chEW2CqWkvoBoQ0LXWHrVwbe0Skrm6j8t7Ka7O4Ug&oe=6A055612",
-      "adUrl": "https://www.facebook.com/marketplace/item/1282375650713913/",
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-05-09 18:05:19",
-      "lastSeen": "2026-05-10T02:05:15.843Z"
+      "lastSeen": "2026-05-10T14:04:25.955Z"
     },
     {
       "adID": "1363275942315246",
@@ -116,27 +96,27 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-09 18:04:25",
-      "lastSeen": "2026-05-10T13:04:43.385Z"
+      "lastSeen": "2026-05-10T14:04:25.889Z"
     },
     {
       "adID": "4513330142322223",
       "source": "FB",
       "authorUrl": null,
       "author": "Connor Guy",
-      "postedTime": "2026-05-09T17:02:18.087Z",
+      "postedTime": "2026-05-09T17:02:04.629Z",
       "title": "Williams Dealer's Choice Pinball Machine",
       "description": "William's Dealer's Choice Pinball Machine",
       "price": "$950",
       "lat": 34.3683267,
       "lon": -84.9349057,
       "location": "ADAIRSVILLE, GA",
-      "imageUrl": "https://scontent-atl3-1.xx.fbcdn.net/v/t39.30808-6/689457195_2031747504422058_1563178919005005924_n.jpg?stp=dst-jpg_s590x590_tt6&_nc_cat=105&ccb=1-7&_nc_sid=e06c5d&_nc_ohc=32FvjHmpjP0Q7kNvwFk4mNJ&_nc_oc=AdoLhQqZbFdil6zF9oFIubhgwb_tdSR9zOBoB2FJ7isnYpOkkWqi0aHEaE3k4p0FoK8&_nc_zt=23&_nc_ht=scontent-atl3-1.xx&_nc_gid=y4a4FVqaI6A5A6Mj_cRGEw&_nc_ss=7b2a8&oh=00_Af6n-4wwqtFX0Z5e63sepfmApuy0EJb6VqjR2CCSNkV9Hw&oe=6A064F2A",
+      "imageUrl": "https://scontent-atl3-1.xx.fbcdn.net/v/t39.30808-6/689457195_2031747504422058_1563178919005005924_n.jpg?stp=dst-jpg_s590x590_tt6&_nc_cat=105&ccb=1-7&_nc_sid=e06c5d&_nc_ohc=32FvjHmpjP0Q7kNvwFk4mNJ&_nc_oc=AdoLhQqZbFdil6zF9oFIubhgwb_tdSR9zOBoB2FJ7isnYpOkkWqi0aHEaE3k4p0FoK8&_nc_zt=23&_nc_ht=scontent-atl3-1.xx&_nc_gid=Yc1e0JhlnAXr8ZOrPt0oTQ&_nc_ss=7b2a8&oh=00_Af5ZEq-wVlMZiFfD93N5-mAJLVPr8W9En269896GJcgwqw&oe=6A064F2A",
       "adUrl": "https://www.facebook.com/commerce/listing/4513330142322223/",
       "priceChanged": 0,
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-09 18:02:03",
-      "lastSeen": "2026-05-10T13:02:19.886Z"
+      "lastSeen": "2026-05-10T14:02:05.539Z"
     },
     {
       "adID": "983672644110051",
@@ -157,26 +137,6 @@
       "hidden": 0,
       "created_at": "2026-05-09 16:06:14",
       "lastSeen": "2026-05-10T01:04:48.776Z"
-    },
-    {
-      "adID": "1470977000872423",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/61576502057069/?product_id=1470977000872423",
-      "author": "Buddy Lawson",
-      "postedTime": "2026-05-01T23:48:54.000Z",
-      "title": "Firelink arcade machine",
-      "description": "This is a fire link game machine ready to be put in location it's a good working machine everything works as it should",
-      "price": "$150",
-      "lat": 33.7544657,
-      "lon": -84.3898151,
-      "location": "Atlanta, GA",
-      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.30808-6/692713027_122110052858883401_5667965856700082267_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=103&ccb=1-7&_nc_sid=4f26a2&_nc_eui2=AeEesfeJPO7JUgu_DSxkh1d3ydN-QHEMzifJ035AcQzOJ-JJQe7aFH6I_2asIrtmn7Q&_nc_ohc=-7wbvL5xtvEQ7kNvwGHw8rH&_nc_oc=AdrST4-ftLDRrKvRxqchpevZY1aI-u-cVkv_fjCM2-JuN_FZzpcARSW3YXyuNhn4_Mg&_nc_zt=23&_nc_ht=scontent-dfw6-1.xx&_nc_gid=_8GdLdlgKzBDhfnUTx0TWA&_nc_ss=7b2a8&oh=00_Af7hHeZDAb6xfKJv4WsbkNvyJFd_9351ndMN8jxdK_PoCQ&oe=6A050DD5",
-      "adUrl": "https://www.facebook.com/marketplace/item/1470977000872423/",
-      "priceChanged": 1,
-      "priceChangedAt": "2026-05-09 14:04:52",
-      "hidden": 0,
-      "created_at": "2026-05-09 14:04:04",
-      "lastSeen": "2026-05-09T14:04:52.546Z"
     },
     {
       "adID": "3105628743130676",
@@ -237,26 +197,6 @@
       "hidden": 0,
       "created_at": "2026-05-09 13:07:36",
       "lastSeen": "2026-05-10T02:07:01.195Z"
-    },
-    {
-      "adID": "881774118260422",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/61579598947736/?product_id=881774118260422",
-      "author": "Jack D Hayes",
-      "postedTime": "2026-05-09T00:14:26.000Z",
-      "title": "I Buy all Gnomes and employee tokens Any Year!",
-      "description": "I offer quick and easy cash for masters gnomes. i know some people have theres up for $600 to $1000 but none of those ever actually sell. Im also interested in other merchandise. Current offers, $350 for 2026 and 2025 $450 for 2024 Have older? message me and i’ll quote you.",
-      "price": "$350",
-      "lat": 32.1613648,
-      "lon": -81.8980725,
-      "location": "Evans, GA",
-      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/690653828_26684679377868203_8553600518937150048_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=101&ccb=1-7&_nc_sid=92e707&_nc_eui2=AeHfXYm6n6ner0mVD8RaJa8lu-xwSzl6_ca77HBLOXr9xgPC3hJVcYxzQW-OXz0YQXQ&_nc_ohc=MLjAv786UNwQ7kNvwGg0Ry1&_nc_oc=AdoGQNnQqsvBvkrI1nQfqG5Qzxez1QEHy4-W7fsEP1OTF0aQZb0hfD2EGmXN2Xr-sYU&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=YZbEDvrA2pIGi7e3bhLnAw&_nc_ss=7b2a8&oh=00_Af4S3U3qMWRIAV3Y4y0KlcLHGdAgr49vErHf0G9fIeaMnw&oe=6A04EA31",
-      "adUrl": "https://www.facebook.com/marketplace/item/881774118260422/",
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-05-09 13:07:36",
-      "lastSeen": "2026-05-10T02:05:16.179Z"
     },
     {
       "adID": "883529341440311",
@@ -416,7 +356,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-08 21:05:27",
-      "lastSeen": "2026-05-10T13:04:54.752Z"
+      "lastSeen": "2026-05-10T14:04:37.294Z"
     },
     {
       "adID": "1501670381665261",
@@ -456,7 +396,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-08 17:05:15",
-      "lastSeen": "2026-05-10T13:04:54.824Z"
+      "lastSeen": "2026-05-10T14:04:37.361Z"
     },
     {
       "adID": "4501915923372047",
@@ -476,7 +416,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-08 14:05:12",
-      "lastSeen": "2026-05-10T13:04:54.858Z"
+      "lastSeen": "2026-05-10T14:04:37.394Z"
     },
     {
       "adID": "1615671769704065",
@@ -617,26 +557,6 @@
       "hidden": 0,
       "created_at": "2026-05-07 16:16:50",
       "lastSeen": "2026-05-10T07:29:25.964Z"
-    },
-    {
-      "adID": "1467596391731544",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/543013669/?product_id=1467596391731544",
-      "author": "Allen Robinson",
-      "postedTime": "2026-05-07T14:06:06.000Z",
-      "title": "Capcom Bowling, Upright Arcade, Capcom 1988 (Project Cab)",
-      "description": "Vintage Upright Arcade – Capcom Bowling (Capcom, 1988) This is a Capcom Bowling upright arcade cabinet in a Centipede Cabinet. Condition: - Cabinet is very old and needs a lot of love. - Monitor does not currently power on — likely needs new caps. - Nothing comes on at the moment; best to start troubleshooting with the power supply and work your way from there. - Sold as-is. Highlights: - Classic Capcom sports arcade with bowling gameplay. - Upright cabinet design from the golden age of arcades. - Great candidate for restoration or display in a retro collection. Important: - Price is $200, or best offer - Serious buyers only. Price Breakdown: Capcom Bowling PCS ($40) Control Panel and Trackball ($60) Cabinet ($100) CRT (dunno if its dead so $0?) Wiring, coin door, misc ($40)",
-      "price": "$150",
-      "lat": 33.8595492,
-      "lon": -84.683824,
-      "location": "Powder Springs, GA",
-      "imageUrl": "https://scontent-atl3-2.xx.fbcdn.net/v/t39.84726-6/687485418_933245613036761_5863348801603709553_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=104&ccb=1-7&_nc_sid=92e707&_nc_ohc=dEaLZbCh5-IQ7kNvwFkgTiH&_nc_oc=Adoz2sCiIn9UeeDldwCxzcTvsGpb8tmZ8y8dc4nbOGfbKh1Rjq8Zh8wD2zxevHPVAaw&_nc_zt=14&_nc_ht=scontent-atl3-2.xx&_nc_gid=R_AzKtxhp-1rahMfWuHpfA&_nc_ss=7b2a8&oh=00_Af6tqGPse5gbL1xlIckCB5y-S5im2HCcbv3om18hSdm0uQ&oe=6A061E87",
-      "adUrl": "https://www.facebook.com/marketplace/item/1467596391731544/",
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-05-07 16:16:50",
-      "lastSeen": "2026-05-10T07:29:25.997Z"
     },
     {
       "adID": "2217265739044863",
@@ -936,7 +856,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-20 20:05:35",
-      "lastSeen": "2026-05-10T13:05:15.672Z"
+      "lastSeen": "2026-05-10T14:05:23.072Z"
     },
     {
       "adID": "1631750341395675",
