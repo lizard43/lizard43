@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-10T15:24:17.126Z",
+  "generated_at": "2026-05-10T16:05:58.514Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,10 +11,10 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 60,
-      "droppedPrice": 68,
+      "exported_ads": 59,
+      "droppedPrice": 70,
       "droppedMissingGeo": 0,
-      "droppedCircle": 92
+      "droppedCircle": 95
     }
   },
   "ads": [
@@ -36,7 +36,27 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-10 11:06:08",
-      "lastSeen": "2026-05-10T14:04:37.529Z"
+      "lastSeen": "2026-05-10T16:04:39.506Z"
+    },
+    {
+      "adID": "1468648451942363",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100001505454117/?product_id=1468648451942363",
+      "author": "Scott Chandler",
+      "postedTime": "2026-05-10T03:27:31.000Z",
+      "title": "SUPERSONIC PINBALL - Bally 1979",
+      "description": "SUPERSONIC PINBALL - BALLY 1979 This pin was taken off location and placed in storage for the past 30 years. It is in good condition considering the fact it is 47 years old. Colors are still bright, back glass has some crazing in lower right corner. See pics for exact condition. Game powers up an lights up but doesn't play.",
+      "price": "$950",
+      "lat": 32.6070821,
+      "lon": -84.9371542,
+      "location": "Fortson, GA",
+      "imageUrl": "https://scontent-atl3-2.xx.fbcdn.net/v/t39.84726-6/696027276_1593199855086091_2178523176039037066_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=104&ccb=1-7&_nc_sid=92e707&_nc_ohc=7nL06qVdpjIQ7kNvwEczfM0&_nc_oc=AdpmUYss-TRpUS99t4VaJxIMgi2YaGDF9Q393wLZm2jj5xgSwrV7p9qUAeRPF3up-2g&_nc_zt=14&_nc_ht=scontent-atl3-2.xx&_nc_gid=JmCTaG44H4WParaTt_fyRg&_nc_ss=7b2a8&oh=00_Af6qf4Rho3hPEA7GRr0OyhpcmtbqvbOuZURbpSaSm44S8A&oe=6A066B27",
+      "adUrl": "https://www.facebook.com/marketplace/item/1468648451942363/",
+      "priceChanged": 1,
+      "priceChangedAt": "2026-05-10 16:04:39",
+      "hidden": 0,
+      "created_at": "2026-05-10 11:06:07",
+      "lastSeen": "2026-05-10T16:05:19.851Z"
     },
     {
       "adID": "1022799340220813",
@@ -57,26 +77,6 @@
       "hidden": 0,
       "created_at": "2026-05-10 11:04:35",
       "lastSeen": "2026-05-10T14:04:25.922Z"
-    },
-    {
-      "adID": "948951281293397",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/100005806604108/?product_id=948951281293397",
-      "author": "MarleyMark Bailey",
-      "postedTime": "2026-05-09T16:49:02.000Z",
-      "title": "Feeling nostalgic?",
-      "description": "Everything works just need an HDMI cable.",
-      "price": "$120",
-      "lat": 29.9559145,
-      "lon": -90.0730259,
-      "location": "New Orleans, LA",
-      "imageUrl": "https://scontent-atl3-3.xx.fbcdn.net/v/t39.84726-6/692702282_25906881912319013_5679111435518254974_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=109&ccb=1-7&_nc_sid=92e707&_nc_ohc=yqFcWtqV5QwQ7kNvwHe0MBU&_nc_oc=AdrNDOK7sxEU4DKi_2o-mOK5XgykS0sR8vTDvBVv81b0XBVCU0asVAvioRJeB89EuP8&_nc_zt=14&_nc_ht=scontent-atl3-3.xx&_nc_gid=VTsxX-OLizWqlt6pITpQZQ&_nc_ss=7b2a8&oh=00_Af5PJ-iOjpEspeXDKBFlW1bhMG_--0dUZau4nLSO5_peJg&oe=6A0636BC",
-      "adUrl": "https://www.facebook.com/marketplace/item/948951281293397/",
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-05-10 11:04:35",
-      "lastSeen": "2026-05-10T15:04:25.452Z"
     },
     {
       "adID": "1363275942315246",
@@ -103,20 +103,20 @@
       "source": "FB",
       "authorUrl": null,
       "author": "Connor Guy",
-      "postedTime": "2026-05-09T17:02:02.778Z",
+      "postedTime": "2026-05-09T17:02:06.604Z",
       "title": "Williams Dealer's Choice Pinball Machine",
       "description": "William's Dealer's Choice Pinball Machine",
       "price": "$950",
       "lat": 34.3683267,
       "lon": -84.9349057,
       "location": "ADAIRSVILLE, GA",
-      "imageUrl": "https://scontent-atl3-1.xx.fbcdn.net/v/t39.30808-6/689457195_2031747504422058_1563178919005005924_n.jpg?stp=dst-jpg_s590x590_tt6&_nc_cat=105&ccb=1-7&_nc_sid=e06c5d&_nc_ohc=32FvjHmpjP0Q7kNvwFk4mNJ&_nc_oc=AdoLhQqZbFdil6zF9oFIubhgwb_tdSR9zOBoB2FJ7isnYpOkkWqi0aHEaE3k4p0FoK8&_nc_zt=23&_nc_ht=scontent-atl3-1.xx&_nc_gid=j6T7g7tEI_-cuVV826gJ_A&_nc_ss=7b2a8&oh=00_Af436zvJSN4giLb-M5m6yJUCTY2FGp-4-9eS93Urmlt3cA&oe=6A06876A",
+      "imageUrl": "https://scontent-atl3-1.xx.fbcdn.net/v/t39.30808-6/689457195_2031747504422058_1563178919005005924_n.jpg?stp=dst-jpg_s590x590_tt6&_nc_cat=105&ccb=1-7&_nc_sid=e06c5d&_nc_ohc=32FvjHmpjP0Q7kNvwFk4mNJ&_nc_oc=AdoLhQqZbFdil6zF9oFIubhgwb_tdSR9zOBoB2FJ7isnYpOkkWqi0aHEaE3k4p0FoK8&_nc_zt=23&_nc_ht=scontent-atl3-1.xx&_nc_gid=f-lTrQJ_WF8MlnBnmdg2cA&_nc_ss=7b2a8&oh=00_Af50RexRIDvR4KTSYAKvvv7usJDH6NTfHps8rKqoryxBMA&oe=6A06876A",
       "adUrl": "https://www.facebook.com/commerce/listing/4513330142322223/",
       "priceChanged": 0,
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-09 18:02:03",
-      "lastSeen": "2026-05-10T15:02:03.941Z"
+      "lastSeen": "2026-05-10T16:02:06.896Z"
     },
     {
       "adID": "983672644110051",
@@ -336,7 +336,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-08 21:05:27",
-      "lastSeen": "2026-05-10T14:04:37.294Z"
+      "lastSeen": "2026-05-10T16:04:39.272Z"
     },
     {
       "adID": "1501670381665261",
@@ -396,27 +396,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-08 14:05:12",
-      "lastSeen": "2026-05-10T14:04:37.394Z"
-    },
-    {
-      "adID": "1615671769704065",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/100023676931810/?product_id=1615671769704065",
-      "author": "Cramone Love",
-      "postedTime": "2026-05-08T12:55:39.000Z",
-      "title": "DRAGONBALL Super license plate frame",
-      "description": "Dragonball Super license plate frame. $15 Located in Peachtree City, Fairburn, College Park.",
-      "price": "$15",
-      "lat": 33.3975472,
-      "lon": -84.5898256,
-      "location": "Peachtree City, GA",
-      "imageUrl": "https://scontent-atl3-3.xx.fbcdn.net/v/t39.84726-6/690815566_874389459008372_4967987616175920895_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=110&ccb=1-7&_nc_sid=92e707&_nc_ohc=HZd4q4Z3B9kQ7kNvwEOGHh4&_nc_oc=Ador6XPhLDgxhX9b1af-31ROlrngSBDKrrQfGISK09CNekjNVR7zB-b-X66Klmk1FHY&_nc_zt=14&_nc_ht=scontent-atl3-3.xx&_nc_gid=GAlbwUCRb0DrwvL3WV50sg&_nc_ss=7b2a8&oh=00_Af5hUF7KSgR78pQpjnILvl-yEh3Tt9K0V5wzn-Pt365ILQ&oe=6A05EEBA",
-      "adUrl": "https://www.facebook.com/marketplace/item/1615671769704065/",
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-05-08 13:05:51",
-      "lastSeen": "2026-05-10T07:25:52.183Z"
+      "lastSeen": "2026-05-10T16:04:39.338Z"
     },
     {
       "adID": "2024006948992583",
@@ -836,7 +816,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-20 20:05:35",
-      "lastSeen": "2026-05-10T15:05:28.000Z"
+      "lastSeen": "2026-05-10T16:05:58.310Z"
     },
     {
       "adID": "1631750341395675",
