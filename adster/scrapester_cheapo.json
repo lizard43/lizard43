@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-11T00:05:49.769Z",
+  "generated_at": "2026-05-11T01:05:28.207Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,33 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 60,
-      "droppedPrice": 84,
+      "exported_ads": 61,
+      "droppedPrice": 86,
       "droppedMissingGeo": 0,
-      "droppedCircle": 118
+      "droppedCircle": 119
     }
   },
   "ads": [
+    {
+      "adID": "991926389988258",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100045620917340/?product_id=991926389988258",
+      "author": "Carrie Croom",
+      "postedTime": "2026-05-11T00:11:09.000Z",
+      "title": "Target toy",
+      "description": "Bought this for Christmas. Child barely played with it.",
+      "price": "$100",
+      "lat": 31.2237285,
+      "lon": -85.3934375,
+      "location": "Dothan, AL",
+      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/693414482_1254017380262544_5138114298773156014_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=103&ccb=1-7&_nc_sid=92e707&_nc_ohc=qzGxmbfNzM4Q7kNvwG2HFPK&_nc_oc=AdrHpITbmBlFAa_FKl2l3UlFkMC44cRPJx_ApbIHQAfOADF6Jsej-5bU3kB2fLxBDpw&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=q-t_Fxu2XwR8SrFex24_jw&_nc_ss=7b2a8&oh=00_Af4SSfSGf6xKKh2V6fVcIcO5p7VfY7YXXNMfE4o4gibo4g&oe=6A06E3EF",
+      "adUrl": "https://www.facebook.com/marketplace/item/991926389988258/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-05-11 01:04:40",
+      "lastSeen": "2026-05-11T01:04:56.764Z"
+    },
     {
       "adID": "2922247931462383",
       "source": "MP",
@@ -36,7 +56,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-10 23:06:26",
-      "lastSeen": "2026-05-10T23:06:53.617Z"
+      "lastSeen": "2026-05-11T01:04:40.128Z"
     },
     {
       "adID": "1415367807025862",
@@ -56,7 +76,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-10 23:04:26",
-      "lastSeen": "2026-05-11T00:05:28.915Z"
+      "lastSeen": "2026-05-11T01:04:40.229Z"
     },
     {
       "adID": "786550321057516",
@@ -76,14 +96,14 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-10 21:05:32",
-      "lastSeen": "2026-05-11T00:05:28.345Z"
+      "lastSeen": "2026-05-11T01:04:39.493Z"
     },
     {
       "adID": "PI-206463",
       "source": "PS",
       "authorUrl": "https://pinside.com/pinball/community/pinsiders/mrtattooz/market",
       "author": "Mrtattooz",
-      "postedTime": "2026-05-10T18:05:33.321Z",
+      "postedTime": "2026-05-10T18:05:11.968Z",
       "title": "Space Jam used Playfield",
       "description": "Used, good condition - “I have for sale a Space Jam Playfield that is in pretty darn good shape. Still has mylar around pop bumpers. The only wear is minimal around the scoop and I've send way worse on ot...”",
       "price": "$275",
@@ -96,7 +116,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-10 20:13:56",
-      "lastSeen": "2026-05-11T00:05:33.604Z"
+      "lastSeen": "2026-05-11T01:05:12.229Z"
     },
     {
       "adID": "1493563348985634",
@@ -156,7 +176,7 @@
       "priceChangedAt": "2026-05-10 16:04:39",
       "hidden": 0,
       "created_at": "2026-05-10 11:06:07",
-      "lastSeen": "2026-05-11T00:05:28.513Z"
+      "lastSeen": "2026-05-11T01:04:39.659Z"
     },
     {
       "adID": "1022799340220813",
@@ -356,7 +376,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-08 21:05:27",
-      "lastSeen": "2026-05-11T00:05:28.848Z"
+      "lastSeen": "2026-05-11T01:04:39.996Z"
     },
     {
       "adID": "1501670381665261",
@@ -816,7 +836,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-20 20:05:35",
-      "lastSeen": "2026-05-11T00:05:49.576Z"
+      "lastSeen": "2026-05-11T01:05:28.026Z"
     },
     {
       "adID": "1631750341395675",
