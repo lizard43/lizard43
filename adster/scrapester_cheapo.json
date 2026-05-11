@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-11T14:06:06.437Z",
+  "generated_at": "2026-05-11T15:06:13.431Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,33 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 62,
-      "droppedPrice": 86,
+      "exported_ads": 63,
+      "droppedPrice": 87,
       "droppedMissingGeo": 0,
-      "droppedCircle": 126
+      "droppedCircle": 127
     }
   },
   "ads": [
+    {
+      "adID": "738886905981984",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100022884243093/?product_id=738886905981984",
+      "author": "Alexandra Castillo",
+      "postedTime": "2026-05-11T14:02:35.000Z",
+      "title": "Game",
+      "description": "New outdoor slingshot game from sharper image. Pick up in land o lakes 34638",
+      "price": "$20",
+      "lat": 28.2188992,
+      "lon": -82.4575938,
+      "location": "Land O Lakes, FL",
+      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/696661659_1651994782670184_7001473553790899333_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=108&ccb=1-7&_nc_sid=92e707&_nc_ohc=9F8cncb9LWYQ7kNvwEua3Kk&_nc_oc=AdrN2UH5KNzoh5TP9tQLjfOwxgNIZnrj3iZi-slJ55BYgKQLaew-EY29gRdv91aXiMk&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=5jDDcZ6rY0BB9ppR_xqzFA&_nc_ss=7b2a8&oh=00_Af6T6SV_yTHRhc7M3d6iYUPocNJR1TzS0nZsFx0x40H72Q&oe=6A07C6DA",
+      "adUrl": "https://www.facebook.com/marketplace/item/738886905981984/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-05-11 15:05:21",
+      "lastSeen": "2026-05-11T15:05:35.168Z"
+    },
     {
       "adID": "973383345336469",
       "source": "MP",
@@ -36,7 +56,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-11 13:05:28",
-      "lastSeen": "2026-05-11T14:05:15.242Z"
+      "lastSeen": "2026-05-11T15:05:21.571Z"
     },
     {
       "adID": "1477594770040153",
@@ -56,7 +76,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-11 13:04:23",
-      "lastSeen": "2026-05-11T14:05:15.276Z"
+      "lastSeen": "2026-05-11T15:05:21.605Z"
     },
     {
       "adID": "949439631329782",
@@ -96,7 +116,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-11 11:04:33",
-      "lastSeen": "2026-05-11T13:04:24.246Z"
+      "lastSeen": "2026-05-11T15:04:32.772Z"
     },
     {
       "adID": "2922247931462383",
@@ -116,7 +136,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-10 23:06:26",
-      "lastSeen": "2026-05-11T14:05:15.376Z"
+      "lastSeen": "2026-05-11T15:05:21.683Z"
     },
     {
       "adID": "786550321057516",
@@ -143,7 +163,7 @@
       "source": "PS",
       "authorUrl": "https://pinside.com/pinball/community/pinsiders/mrtattooz/market",
       "author": "Mrtattooz",
-      "postedTime": "2026-05-10T18:05:50.623Z",
+      "postedTime": "2026-05-10T18:05:57.312Z",
       "title": "Space Jam used Playfield",
       "description": "Used, good condition - “I have for sale a Space Jam Playfield that is in pretty darn good shape. Still has mylar around pop bumpers. The only wear is minimal around the scoop and I've send way worse on ot...”",
       "price": "$275",
@@ -156,7 +176,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-10 20:13:56",
-      "lastSeen": "2026-05-11T14:05:51.374Z"
+      "lastSeen": "2026-05-11T15:05:57.719Z"
     },
     {
       "adID": "1493563348985634",
@@ -176,7 +196,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-10 20:09:49",
-      "lastSeen": "2026-05-11T14:05:14.874Z"
+      "lastSeen": "2026-05-11T15:05:21.170Z"
     },
     {
       "adID": "3135148450020893",
@@ -216,7 +236,7 @@
       "priceChangedAt": "2026-05-10 16:04:39",
       "hidden": 0,
       "created_at": "2026-05-10 11:06:07",
-      "lastSeen": "2026-05-11T14:05:14.974Z"
+      "lastSeen": "2026-05-11T15:05:21.270Z"
     },
     {
       "adID": "1022799340220813",
@@ -856,7 +876,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-20 20:05:35",
-      "lastSeen": "2026-05-11T14:06:06.236Z"
+      "lastSeen": "2026-05-11T15:06:13.261Z"
     },
     {
       "adID": "1631750341395675",
