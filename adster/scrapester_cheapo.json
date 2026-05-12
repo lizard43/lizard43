@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-12T22:05:12.326Z",
+  "generated_at": "2026-05-12T23:05:47.285Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,52 +11,72 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 40,
-      "droppedPrice": 44,
+      "exported_ads": 41,
+      "droppedPrice": 52,
       "droppedMissingGeo": 0,
-      "droppedCircle": 20
+      "droppedCircle": 22
     }
   },
   "ads": [
+    {
+      "adID": "1427091722437753",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100076701803150/?product_id=1427091722437753",
+      "author": "Mike Brush",
+      "postedTime": "2026-05-12T22:31:30.000Z",
+      "title": "Bow shooting game",
+      "description": "Launches balls that stick to the target with a simple pull back action",
+      "price": "$2",
+      "lat": 34.0234337,
+      "lon": -84.6154897,
+      "location": "Kennesaw, GA",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/696777523_985823830457875_753987891621420561_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=109&ccb=1-7&_nc_sid=92e707&_nc_ohc=5ngl2GitEYIQ7kNvwFKp4cp&_nc_oc=AdplWiL7KXFYLMrXrXKTxDIDnDuR3JNKtrKpFXYr1IqRkIR6m9LegIO3C1XiHJJ6BPY&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=WP-W0MwHYQREm4GTJS9ZgA&_nc_ss=7b2a8&oh=00_Af613ieP8W7rZyA2BgVDqodOw8WW2cjO3cFJ9QCktrlBeg&oe=6A096EBD",
+      "adUrl": "https://www.facebook.com/marketplace/item/1427091722437753/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-05-12 23:05:06",
+      "lastSeen": "2026-05-12T23:05:14.684Z"
+    },
     {
       "adID": "982326297583225",
       "source": "FB",
       "authorUrl": null,
       "author": "Keith Brownlow",
-      "postedTime": "2026-05-12T21:04:32.210Z",
+      "postedTime": "2026-05-12T22:03:23.259Z",
       "title": "32\" 2 Player Arcade DIY Cabinet",
       "description": "This is a fully assembled arcade cabinet made from 3/4\" inch melamine. It fits up to a 32 inch screen and is setup for a 2 player layout. Want to build your own arcade? This is perfect for people who don't have the woodworking skills or, time & equipment. Below are the specs to the cabinet.",
       "price": "$599",
       "lat": 34.1652304,
       "lon": -84.7997613,
       "location": "CARTERSVILLE, GA",
-      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.30808-6/692174044_36512216688365468_7500368898341950313_n.jpg?stp=dst-jpg_s590x590_tt6&_nc_cat=109&ccb=1-7&_nc_sid=aa7b47&_nc_ohc=UpXYmh5MkBYQ7kNvwELDmNo&_nc_oc=AdpCvNfV19uEKmexzSOKSrs6OCyEvK2tlqV4_42eG12xHKXygocz4cTd4Bvelbsyv64&_nc_zt=23&_nc_ht=scontent-dfw5-1.xx&_nc_gid=rLFIyoOS7CbgERzz8dUaZQ&_nc_ss=7b2a8&oh=00_Af6_hA3E3yLrCGNWRCgqCVIP1EfkusZQAG6I32dzs8c2xg&oe=6A096BCB",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.30808-6/692174044_36512216688365468_7500368898341950313_n.jpg?stp=dst-jpg_s590x590_tt6&_nc_cat=109&ccb=1-7&_nc_sid=aa7b47&_nc_ohc=UpXYmh5MkBYQ7kNvwELDmNo&_nc_oc=AdpCvNfV19uEKmexzSOKSrs6OCyEvK2tlqV4_42eG12xHKXygocz4cTd4Bvelbsyv64&_nc_zt=23&_nc_ht=scontent-dfw5-1.xx&_nc_gid=fCf7nJCxCDcPwiRGa2EdWg&_nc_ss=7b2a8&oh=00_Af5x8g7AfCZvqEcW90SDcrpFngcGpeNsOjsP0z5fy-bQUQ&oe=6A096BCB",
       "adUrl": "https://www.facebook.com/commerce/listing/982326297583225/",
       "priceChanged": 0,
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-12 22:03:33",
-      "lastSeen": "2026-05-12T22:03:33.004Z"
+      "lastSeen": "2026-05-12T23:03:23.464Z"
     },
     {
       "adID": "1316666190362592",
       "source": "FB",
       "authorUrl": null,
       "author": "Keith Brownlow",
-      "postedTime": "2026-05-12T21:04:32.211Z",
+      "postedTime": "2026-05-12T22:03:23.261Z",
       "title": "4 Player 43\" Arcade DIY Cabinet",
       "description": "This is a fully assembled arcade cabinet made from 3/4\" inch melamine. It fits up to a 43 inch screen and is setup for a 4 player layout. Want to build your own arcade? This is perfect for people who don't have the woodworking skills or, time & equipment. Below are the specs to the cabinet.",
       "price": "$799",
       "lat": 34.1652304,
       "lon": -84.7997613,
       "location": "CARTERSVILLE, GA",
-      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.30808-6/689013294_36512351125018691_5037301652272635187_n.jpg?stp=dst-jpg_s590x590_tt6&_nc_cat=103&ccb=1-7&_nc_sid=aa7b47&_nc_ohc=UVwRpM8F-_UQ7kNvwEgcoqw&_nc_oc=AdoN-lQBTJ-OR1SLLLLqLouUeR0VvpwX85fpxBCRhkzJKnzkTS485PBHWJp-ZzTp2iU&_nc_zt=23&_nc_ht=scontent-dfw6-1.xx&_nc_gid=rLFIyoOS7CbgERzz8dUaZQ&_nc_ss=7b2a8&oh=00_Af5wAs9ELBmAzn5n10jXuvIYS4blQiUm7upXPXPEZrdYoQ&oe=6A097512",
+      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.30808-6/689013294_36512351125018691_5037301652272635187_n.jpg?stp=dst-jpg_s590x590_tt6&_nc_cat=103&ccb=1-7&_nc_sid=aa7b47&_nc_ohc=e5TbYaEw-noQ7kNvwEcwwEC&_nc_oc=AdpTHiAcY0rBkcsHld2MojVaa-vYeRchNJaXX1KL0BDjR7caQQ87V2uu9ElLMkkn5uc&_nc_zt=23&_nc_ht=scontent-dfw6-1.xx&_nc_gid=fCf7nJCxCDcPwiRGa2EdWg&_nc_ss=7b2a8&oh=00_Af7D5n4s66EsGPPAE6H3TV5iRrA0Yw_-zr8LR7_u8WAlLg&oe=6A097512",
       "adUrl": "https://www.facebook.com/commerce/listing/1316666190362592/",
       "priceChanged": 0,
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-12 22:03:33",
-      "lastSeen": "2026-05-12T22:03:33.038Z"
+      "lastSeen": "2026-05-12T23:03:23.497Z"
     },
     {
       "adID": "1445529016870262",
@@ -96,14 +116,14 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-11 13:04:23",
-      "lastSeen": "2026-05-12T22:04:40.384Z"
+      "lastSeen": "2026-05-12T23:04:20.183Z"
     },
     {
       "adID": "PI-206463",
       "source": "PS",
       "authorUrl": "https://pinside.com/pinball/community/pinsiders/mrtattooz/market",
       "author": "Mrtattooz",
-      "postedTime": "2026-05-10T22:04:58.771Z",
+      "postedTime": "2026-05-10T23:05:33.760Z",
       "title": "Space Jam used Playfield",
       "description": "Used, good condition - “I have for sale a Space Jam Playfield that is in pretty darn good shape. Still has mylar around pop bumpers. The only wear is minimal around the scoop and I've send way worse on ot...”",
       "price": "$275",
@@ -116,7 +136,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-10 20:13:56",
-      "lastSeen": "2026-05-12T22:04:58.819Z"
+      "lastSeen": "2026-05-12T23:05:33.807Z"
     },
     {
       "adID": "1493563348985634",
@@ -156,7 +176,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-10 11:06:07",
-      "lastSeen": "2026-05-12T22:04:52.581Z"
+      "lastSeen": "2026-05-12T23:05:06.707Z"
     },
     {
       "adID": "4513330142322223",
@@ -476,7 +496,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-20 20:05:35",
-      "lastSeen": "2026-05-12T22:05:12.190Z"
+      "lastSeen": "2026-05-12T23:05:47.110Z"
     },
     {
       "adID": "1631750341395675",
