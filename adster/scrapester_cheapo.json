@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-12T19:04:59.363Z",
+  "generated_at": "2026-05-12T20:06:58.579Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,33 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 66,
+      "exported_ads": 65,
       "droppedPrice": 144,
       "droppedMissingGeo": 0,
-      "droppedCircle": 174
+      "droppedCircle": 181
     }
   },
   "ads": [
+    {
+      "adID": "2454919224966557",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/1517015632/?product_id=2454919224966557",
+      "author": "Karen Howell",
+      "postedTime": "2026-05-12T19:20:54.000Z",
+      "title": "Arcade Machine",
+      "description": "60+ classic arcade games. Rarely used. Full size arcade machine.",
+      "price": "$400",
+      "lat": 33.5206824,
+      "lon": -86.8024326,
+      "location": "Birmingham, AL",
+      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/697221129_1348892490388211_9023840001742244194_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=107&ccb=1-7&_nc_sid=92e707&_nc_ohc=xEpV2lRU8xMQ7kNvwEMJ4ap&_nc_oc=AdqcIZZ_dY-EcpDPL86nLWjVNuL9EXbdm3PV9hjh2-fhR7DQJXpYap20tKWJWcGCK24&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=Vnu1izI9Jk239gVOARoO2Q&_nc_ss=7b2a8&oh=00_Af77rKCYsiY6hn850s675FU8qVwmDYt39w01bI472iOcDw&oe=6A094628",
+      "adUrl": "https://www.facebook.com/marketplace/item/2454919224966557/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-05-12 20:04:25",
+      "lastSeen": "2026-05-12T20:06:06.638Z"
+    },
     {
       "adID": "1382662983675862",
       "source": "MP",
@@ -36,27 +56,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-12 17:04:35",
-      "lastSeen": "2026-05-12T18:04:25.319Z"
-    },
-    {
-      "adID": "2014999246110934",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/1517015632/?product_id=2014999246110934",
-      "author": "Karen Howell",
-      "postedTime": "2026-05-12T16:20:43.000Z",
-      "title": "Classic Arcade Game",
-      "description": "60+ Classic Arcade Games. Rarely played. Cash, Venmo, money order only. Porch pick up.",
-      "price": "$400",
-      "lat": 33.350293,
-      "lon": -86.851123,
-      "location": "Hoover, AL",
-      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/695799829_1659658718514727_3404660775087589846_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=101&ccb=1-7&_nc_sid=92e707&_nc_ohc=ZgSBD7cQk1AQ7kNvwHgdldi&_nc_oc=Adql-5fhDedjCXqwXByO__J4DJV4uxSiD7cmPQbjwAwbL1HwLCoM2EHUfU4KYZ76hOQ&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=rCYHkfkAhDwcy4DJ2Av0Aw&_nc_ss=7b2a8&oh=00_Af6316YU40LgykuM8InWfJKyFTi8tYF24xbVk3648Jrl5A&oe=6A093700",
-      "adUrl": "https://www.facebook.com/marketplace/item/2014999246110934/",
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-05-12 17:04:35",
-      "lastSeen": "2026-05-12T19:04:36.860Z"
+      "lastSeen": "2026-05-12T20:04:25.400Z"
     },
     {
       "adID": "2723733048012025",
@@ -76,7 +76,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-12 14:05:10",
-      "lastSeen": "2026-05-12T19:04:37.094Z"
+      "lastSeen": "2026-05-12T20:06:36.374Z"
     },
     {
       "adID": "965663129708478",
@@ -96,7 +96,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-12 14:05:09",
-      "lastSeen": "2026-05-12T19:04:37.060Z"
+      "lastSeen": "2026-05-12T20:06:36.341Z"
     },
     {
       "adID": "2697527123981211",
@@ -156,7 +156,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-12 12:38:45",
-      "lastSeen": "2026-05-12T19:04:25.789Z"
+      "lastSeen": "2026-05-12T20:04:24.557Z"
     },
     {
       "adID": "899443916476119",
@@ -176,7 +176,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-11 23:05:15",
-      "lastSeen": "2026-05-12T19:04:36.994Z"
+      "lastSeen": "2026-05-12T20:06:36.273Z"
     },
     {
       "adID": "1501033071685649",
@@ -216,7 +216,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-11 20:04:23",
-      "lastSeen": "2026-05-12T18:04:25.151Z"
+      "lastSeen": "2026-05-12T20:04:25.066Z"
     },
     {
       "adID": "1663615408254771",
@@ -296,7 +296,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-11 13:04:23",
-      "lastSeen": "2026-05-12T18:04:25.252Z"
+      "lastSeen": "2026-05-12T20:04:25.166Z"
     },
     {
       "adID": "949439631329782",
@@ -343,7 +343,7 @@
       "source": "PS",
       "authorUrl": "https://pinside.com/pinball/community/pinsiders/mrtattooz/market",
       "author": "Mrtattooz",
-      "postedTime": "2026-05-10T19:04:43.935Z",
+      "postedTime": "2026-05-10T20:06:43.209Z",
       "title": "Space Jam used Playfield",
       "description": "Used, good condition - “I have for sale a Space Jam Playfield that is in pretty darn good shape. Still has mylar around pop bumpers. The only wear is minimal around the scoop and I've send way worse on ot...”",
       "price": "$275",
@@ -356,7 +356,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-10 20:13:56",
-      "lastSeen": "2026-05-12T19:04:44.191Z"
+      "lastSeen": "2026-05-12T20:06:44.088Z"
     },
     {
       "adID": "1493563348985634",
@@ -416,7 +416,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-10 11:06:07",
-      "lastSeen": "2026-05-12T19:04:36.726Z"
+      "lastSeen": "2026-05-12T20:06:36.072Z"
     },
     {
       "adID": "4513330142322223",
@@ -779,26 +779,6 @@
       "lastSeen": "2026-05-12T18:27:28.169Z"
     },
     {
-      "adID": "820143857829473",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/1065080449/?product_id=820143857829473",
-      "author": "Robert Kiedinger",
-      "postedTime": "2026-05-03T03:23:32.000Z",
-      "title": "New Lady Luck Pinball Machine Backglass",
-      "description": "New backglass for a Lucky Lady pinball machine. Dimensions- 24.75\"H x 26.\"W. Would be a replacement for a backglass except that the glasscutter mismeasured and it's 1/8\" too tall. So it's a great work of art and conversation piece as is.",
-      "price": "$70",
-      "lat": 33.3392842,
-      "lon": -84.6485417,
-      "location": "Sharpsburg, GA",
-      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/686248878_28185412921048500_992081970903647608_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=102&ccb=1-7&_nc_sid=92e707&_nc_ohc=w3l5tUlBhloQ7kNvwEJ8YCb&_nc_oc=AdqxzLf3QUS1kxorPa1Tt_byqsMTnPfacbA7kDb7rGzwA97OqON10d9PwUqt8cyj-yM&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=DZyzyvGpFhtOnLubcGSV1Q&_nc_ss=7b2a8&oh=00_Af5bzJTxHAUVX54iWa5aOitLpholb75jctqCFm3hvV0gdA&oe=6A0931C1",
-      "adUrl": "https://www.facebook.com/marketplace/item/820143857829473/",
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-05-03 19:36:34",
-      "lastSeen": "2026-05-12T18:30:14.054Z"
-    },
-    {
       "adID": "2839854709699910",
       "source": "MP",
       "authorUrl": "https://www.facebook.com/marketplace/profile/100013662791005/?product_id=2839854709699910",
@@ -936,7 +916,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-20 20:05:35",
-      "lastSeen": "2026-05-12T19:04:59.131Z"
+      "lastSeen": "2026-05-12T20:06:58.291Z"
     },
     {
       "adID": "1631750341395675",
