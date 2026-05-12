@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-12T16:05:04.207Z",
+  "generated_at": "2026-05-12T17:06:48.834Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,53 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 65,
-      "droppedPrice": 138,
+      "exported_ads": 67,
+      "droppedPrice": 141,
       "droppedMissingGeo": 0,
-      "droppedCircle": 171
+      "droppedCircle": 175
     }
   },
   "ads": [
+    {
+      "adID": "1382662983675862",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100077414287221/?product_id=1382662983675862",
+      "author": "Silvia Lpz",
+      "postedTime": "2026-05-12T16:25:11.000Z",
+      "title": "Classic ARCADE obo",
+      "description": "Perfect condition",
+      "price": "$360",
+      "lat": 34.203997,
+      "lon": -83.4571058,
+      "location": "Commerce, GA",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t15.5256-10/682365147_1783296822632382_6806217181203399843_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=110&ccb=1-7&_nc_sid=d4195b&_nc_ohc=BceR-VjLqTcQ7kNvwGPKZhu&_nc_oc=Adq93Dd1RlcqUYOWs7Shht3-j4GVcqf518kEdCoRNm1Vm5LJbRfmuvsSFjQx4ElqoNo&_nc_zt=23&_nc_ht=scontent-dfw5-1.xx&_nc_gid=CSP7xOgqplrOh7MB4JSDyQ&_nc_ss=7b2a8&oh=00_Af7MG8MNoRri8Ckm0R0ORfjusxxhGkfT3P1da8NRjc5SXA&oe=6A092F06",
+      "adUrl": "https://www.facebook.com/marketplace/item/1382662983675862/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-05-12 17:04:35",
+      "lastSeen": "2026-05-12T17:05:15.561Z"
+    },
+    {
+      "adID": "2014999246110934",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/1517015632/?product_id=2014999246110934",
+      "author": "Karen Howell",
+      "postedTime": "2026-05-12T16:20:43.000Z",
+      "title": "Classic Arcade Game",
+      "description": "60+ Classic Arcade Games. Rarely played. Cash, Venmo, money order only. Porch pick up.",
+      "price": "$400",
+      "lat": 33.350293,
+      "lon": -86.851123,
+      "location": "Hoover, AL",
+      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/695799829_1659658718514727_3404660775087589846_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=101&ccb=1-7&_nc_sid=92e707&_nc_ohc=ZgSBD7cQk1AQ7kNvwHgdldi&_nc_oc=Adql-5fhDedjCXqwXByO__J4DJV4uxSiD7cmPQbjwAwbL1HwLCoM2EHUfU4KYZ76hOQ&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=rCYHkfkAhDwcy4DJ2Av0Aw&_nc_ss=7b2a8&oh=00_Af6316YU40LgykuM8InWfJKyFTi8tYF24xbVk3648Jrl5A&oe=6A093700",
+      "adUrl": "https://www.facebook.com/marketplace/item/2014999246110934/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-05-12 17:04:35",
+      "lastSeen": "2026-05-12T17:05:15.598Z"
+    },
     {
       "adID": "2723733048012025",
       "source": "MP",
@@ -36,7 +76,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-12 14:05:10",
-      "lastSeen": "2026-05-12T15:05:29.066Z"
+      "lastSeen": "2026-05-12T17:05:36.458Z"
     },
     {
       "adID": "965663129708478",
@@ -56,7 +96,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-12 14:05:09",
-      "lastSeen": "2026-05-12T15:05:29.032Z"
+      "lastSeen": "2026-05-12T17:05:36.424Z"
     },
     {
       "adID": "2697527123981211",
@@ -76,7 +116,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-12 12:38:47",
-      "lastSeen": "2026-05-12T13:04:30.947Z"
+      "lastSeen": "2026-05-12T17:04:35.926Z"
     },
     {
       "adID": "1445529016870262",
@@ -116,7 +156,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-12 12:38:45",
-      "lastSeen": "2026-05-12T16:04:29.847Z"
+      "lastSeen": "2026-05-12T17:04:35.322Z"
     },
     {
       "adID": "899443916476119",
@@ -156,7 +196,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-11 20:04:23",
-      "lastSeen": "2026-05-12T16:04:30.047Z"
+      "lastSeen": "2026-05-12T17:04:35.524Z"
     },
     {
       "adID": "982387307485981",
@@ -176,7 +216,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-11 20:04:23",
-      "lastSeen": "2026-05-12T16:04:30.114Z"
+      "lastSeen": "2026-05-12T17:04:35.590Z"
     },
     {
       "adID": "1663615408254771",
@@ -256,7 +296,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-11 13:04:23",
-      "lastSeen": "2026-05-12T16:04:30.214Z"
+      "lastSeen": "2026-05-12T17:04:35.691Z"
     },
     {
       "adID": "949439631329782",
@@ -303,7 +343,7 @@
       "source": "PS",
       "authorUrl": "https://pinside.com/pinball/community/pinsiders/mrtattooz/market",
       "author": "Mrtattooz",
-      "postedTime": "2026-05-10T18:04:48.821Z",
+      "postedTime": "2026-05-10T18:06:33.884Z",
       "title": "Space Jam used Playfield",
       "description": "Used, good condition - “I have for sale a Space Jam Playfield that is in pretty darn good shape. Still has mylar around pop bumpers. The only wear is minimal around the scoop and I've send way worse on ot...”",
       "price": "$275",
@@ -316,7 +356,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-10 20:13:56",
-      "lastSeen": "2026-05-12T16:04:49.361Z"
+      "lastSeen": "2026-05-12T17:06:34.102Z"
     },
     {
       "adID": "1493563348985634",
@@ -376,7 +416,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-10 11:06:07",
-      "lastSeen": "2026-05-12T16:04:41.295Z"
+      "lastSeen": "2026-05-12T17:05:36.257Z"
     },
     {
       "adID": "4513330142322223",
@@ -916,7 +956,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-04-20 20:05:35",
-      "lastSeen": "2026-05-12T16:05:03.981Z"
+      "lastSeen": "2026-05-12T17:06:48.614Z"
     },
     {
       "adID": "1631750341395675",
