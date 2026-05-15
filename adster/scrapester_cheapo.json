@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-15T14:05:53.367Z",
+  "generated_at": "2026-05-15T15:07:11.576Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,53 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 38,
-      "droppedPrice": 45,
+      "exported_ads": 40,
+      "droppedPrice": 47,
       "droppedMissingGeo": 0,
-      "droppedCircle": 34
+      "droppedCircle": 37
     }
   },
   "ads": [
+    {
+      "adID": "1461400635156299",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100001503918143/?product_id=1461400635156299",
+      "author": "Camel Cohen",
+      "postedTime": "2026-05-15T12:15:15.000Z",
+      "title": "Grateful Dead lot pin(s)",
+      "description": "Super awesome GD pins. AND they glow in the dark! $20 each or 2 for $35.",
+      "price": "$20",
+      "lat": 33.9528472,
+      "lon": -84.5496148,
+      "location": "Marietta, GA",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/699454486_2151117052352220_7562343839277338876_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=111&ccb=1-7&_nc_sid=92e707&_nc_ohc=ZsZSZqHyecwQ7kNvwEAJeNM&_nc_oc=Adp0MAFXh0HUYDgu8gyCg0WO5n8G-uADEOkIs__JWdERr73Q7YEYuggL7JoNj7pJgXM&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=NgeJUo2sMfz5MaN1QnBFXQ&_nc_ss=7b2a8&oh=00_Af5qSlHoyUhKmzBGLnYnlj_oq3iOOWyQfaKA8QWyECxstA&oe=6A0CF865",
+      "adUrl": "https://www.facebook.com/marketplace/item/1461400635156299/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-05-15 15:06:12",
+      "lastSeen": "2026-05-15T15:06:36.321Z"
+    },
+    {
+      "adID": "1876567486285987",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/1603860870/?product_id=1876567486285987",
+      "author": "JoAnne Greenstone",
+      "postedTime": "2026-05-15T01:59:36.000Z",
+      "title": "PAC-MAN The Card Game A Whole New Level!",
+      "description": "New in box – sealed. Immerse yourself in the classic arcade excitement with \"Pac-Man the Card Game: A Whole New Level.\" Designed for 2 to 8 players, this game is perfect for family game nights or friendly gatherings. Suitable for ages 6 and up, it's a fantastic choice for kids and adults alike, offering a delightful blend of strategy and nostalgia. Whether you're a seasoned Pac-Man enthusiast or new to the universe, this card game brings the iconic dot-gobbling action to your table. With its engaging gameplay that's easy to learn, it promises hours of fun and competition as you aim to outscore your opponents and claim victory. I have 4 boxes available for purchase at $9 each. Pick up in Alachua by Irby Elementary or fast trackable shipping out of mainland USA from a smoke-free, clean-freak’s house.",
+      "price": "$9",
+      "lat": 29.675568,
+      "lon": -82.3640109,
+      "location": "Alachua, FL",
+      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/699926817_1524051082390063_8839677461730953819_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=102&ccb=1-7&_nc_sid=92e707&_nc_ohc=msihx5UOLzMQ7kNvwENlStb&_nc_oc=AdqSm8EsaJ-odUpG7c_0vMNtXclhpFB3o9AzmusO9ffUnD5yzkEqbqCWkh0H84l1wZ4&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=1tNP8YvRurFG-huWK3PEKQ&_nc_ss=7b2a8&oh=00_Af6hjywejzZWd7c4y45HwaVPtBsntRfNox1G6bcbJ7beKA&oe=6A0D1A3D",
+      "adUrl": "https://www.facebook.com/marketplace/item/1876567486285987/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-05-15 15:04:37",
+      "lastSeen": "2026-05-15T15:05:44.374Z"
+    },
     {
       "adID": "27398150119789057",
       "source": "MP",
@@ -36,7 +76,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-15 14:04:37",
-      "lastSeen": "2026-05-15T14:05:05.473Z"
+      "lastSeen": "2026-05-15T15:04:36.516Z"
     },
     {
       "adID": "1312229584206382",
@@ -143,20 +183,20 @@
       "source": "FB",
       "authorUrl": null,
       "author": "Nolan Jones",
-      "postedTime": "2026-05-14T14:03:34.781Z",
+      "postedTime": "2026-05-14T15:03:35.826Z",
       "title": "P&P police trainer arcade game",
       "description": "1997 police trainer game, works like new. Trying to get rid of it because I am moving. The screen and gun are in perfect condition.",
       "price": "$800",
       "lat": 30.421309,
       "lon": -87.2169149,
       "location": "PENSACOLA, FL",
-      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.30808-6/700208021_962532479887983_6125364458557197668_n.jpg?stp=dst-jpg_s590x590_tt6&_nc_cat=111&ccb=1-7&_nc_sid=aa7b47&_nc_ohc=OSpYNHxZ3ZgQ7kNvwEjR5S6&_nc_oc=AdqX3nHH-NxNbi8f8jCOYMMQQ48x5a7SiUMY9YmCELl0_7PEKX5tD9f9I0ySwZ4M6fs&_nc_zt=23&_nc_ht=scontent-dfw5-1.xx&_nc_gid=_Qz4BxrDx3jNfTToMSV6aQ&_nc_ss=7b2a8&oh=00_Af5h1i8ABiw4jkRrsA5bddcZeV-Zm1JgOd26lP57JRNgpA&oe=6A0CF3A0",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.30808-6/700208021_962532479887983_6125364458557197668_n.jpg?stp=dst-jpg_s590x590_tt6&_nc_cat=111&ccb=1-7&_nc_sid=aa7b47&_nc_ohc=OSpYNHxZ3ZgQ7kNvwEjR5S6&_nc_oc=AdqX3nHH-NxNbi8f8jCOYMMQQ48x5a7SiUMY9YmCELl0_7PEKX5tD9f9I0ySwZ4M6fs&_nc_zt=23&_nc_ht=scontent-dfw5-1.xx&_nc_gid=gUOJPzj1YhjR5ZGaTuJObg&_nc_ss=7b2a8&oh=00_Af731kd41McDi4qfGFgHYD_Wi9pL9WZOBCalAfFTH5Cu_A&oe=6A0CF3A0",
       "adUrl": "https://www.facebook.com/commerce/listing/928627323509626/",
       "priceChanged": 0,
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-13 23:03:37",
-      "lastSeen": "2026-05-15T14:03:34.802Z"
+      "lastSeen": "2026-05-15T15:03:35.848Z"
     },
     {
       "adID": "1680541466321304",
@@ -183,20 +223,20 @@
       "source": "FB",
       "authorUrl": null,
       "author": "Keith Brownlow",
-      "postedTime": "2026-05-13T02:03:34.969Z",
+      "postedTime": "2026-05-13T15:03:35.839Z",
       "title": "32\" 2 Player Arcade DIY Cabinet",
       "description": "This is a fully assembled arcade cabinet made from 3/4\" inch melamine. It fits up to a 32 inch screen and is setup for a 2 player layout. Want to build your own arcade? This is perfect for people who don't have the woodworking skills or, time & equipment. Below are the specs to the cabinet.",
       "price": "$599",
       "lat": 34.1652304,
       "lon": -84.7997613,
       "location": "CARTERSVILLE, GA",
-      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.30808-6/692174044_36512216688365468_7500368898341950313_n.jpg?stp=dst-jpg_s590x590_tt6&_nc_cat=109&ccb=1-7&_nc_sid=aa7b47&_nc_ohc=hvgOkMLIp5gQ7kNvwGF_qlT&_nc_oc=AdrxVB2QADfKDkVjm-s1FnnYyJJ8CttkCJAsH5PSE_HB1K2WFXgl3bLuhivkO7m5qIs&_nc_zt=23&_nc_ht=scontent-dfw5-1.xx&_nc_gid=oC6N798LwZXdkIz_xWneVA&_nc_ss=7b2a8&oh=00_Af65aHyG-xVOgg7d2FMQuO5ved8FLPj72Dmxwh9bSY6WCw&oe=6A0C470B",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.30808-6/692174044_36512216688365468_7500368898341950313_n.jpg?stp=dst-jpg_s590x590_tt6&_nc_cat=109&ccb=1-7&_nc_sid=aa7b47&_nc_ohc=hvgOkMLIp5gQ7kNvwGF_qlT&_nc_oc=AdrxVB2QADfKDkVjm-s1FnnYyJJ8CttkCJAsH5PSE_HB1K2WFXgl3bLuhivkO7m5qIs&_nc_zt=23&_nc_ht=scontent-dfw5-1.xx&_nc_gid=uROKBHAgitYyuCgs2O3-yQ&_nc_ss=7b2a8&oh=00_Af4vWJabv7U7r2HtLdQEDovtApQQYzs7SxKshh3ppiGjgA&oe=6A0CEFCB",
       "adUrl": "https://www.facebook.com/commerce/listing/982326297583225/",
       "priceChanged": 0,
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-12 22:03:33",
-      "lastSeen": "2026-05-15T02:03:35.043Z"
+      "lastSeen": "2026-05-15T15:03:35.894Z"
     },
     {
       "adID": "1316666190362592",
