@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-16T19:07:04.825Z",
+  "generated_at": "2026-05-16T20:06:06.718Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,53 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 38,
-      "droppedPrice": 35,
+      "exported_ads": 40,
+      "droppedPrice": 36,
       "droppedMissingGeo": 0,
-      "droppedCircle": 8
+      "droppedCircle": 13
     }
   },
   "ads": [
+    {
+      "adID": "26445972171751776",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/61561042868498/?product_id=26445972171751776",
+      "author": "Edna Harris",
+      "postedTime": "2026-05-16T19:54:24.000Z",
+      "title": "Ms. PAC-MAN Arcade Game",
+      "description": "Console has four different games on it. It works great!",
+      "price": "$100",
+      "lat": 30.6913462,
+      "lon": -88.0437509,
+      "location": "Mobile, AL",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t15.5256-10/700889814_831353902929889_6428371121623345129_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=d4195b&_nc_ohc=HesGHcWbFtYQ7kNvwFFP0uL&_nc_oc=AdpN8bLeumWMYhQvO-xUVwFl-pm4wbEZcT_ja23_BZiH_rNXFse423WyX0Nrw5Uf01Q&_nc_zt=23&_nc_ht=scontent-dfw5-1.xx&_nc_gid=fl7pqjXvGZ49ju1XndrFkQ&_nc_ss=7b2a8&oh=00_Af6KPSL9Nq4NTF-Ie7k1q5BKZQrd1IyUzvzn8m9fbB6y1A&oe=6A0E92EC",
+      "adUrl": "https://www.facebook.com/marketplace/item/26445972171751776/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-05-16 20:04:30",
+      "lastSeen": "2026-05-16T20:05:17.550Z"
+    },
+    {
+      "adID": "2423776078044573",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100004919110272/?product_id=2423776078044573",
+      "author": "Ashton Willingham",
+      "postedTime": "2026-05-16T19:12:02.000Z",
+      "title": "Arcade game",
+      "description": "90s arcade game called Copy Cat. Everything works as it should. Watch the video to see the game. Minor damage in the back right corner (see photo). Make an offer. Want it gone sooner than later.",
+      "price": "$100",
+      "lat": 27.7712264,
+      "lon": -82.6340259,
+      "location": "St Petersburg, FL",
+      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t15.5256-10/700378416_1225128462886139_1032509645971717999_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=106&ccb=1-7&_nc_sid=d4195b&_nc_ohc=sJ5WkfnKktEQ7kNvwF8bnQw&_nc_oc=AdqFrV38JcP27zqNFdAWsQNZHkp558q2_kejg81EvjFfm2J-7alP3c8hO8xVecyWqM8&_nc_zt=23&_nc_ht=scontent-dfw6-1.xx&_nc_gid=POjUnGPTR8G8lFkQ0czKnw&_nc_ss=7b2a8&oh=00_Af5Y9PGBNP0kfMOG3FeW83IZzZqWuFjI9JWAhi5Y6b36Cg&oe=6A0EA409",
+      "adUrl": "https://www.facebook.com/marketplace/item/2423776078044573/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-05-16 20:04:30",
+      "lastSeen": "2026-05-16T20:04:54.752Z"
+    },
     {
       "adID": "1299255179028604",
       "source": "MP",
@@ -36,7 +76,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-16 15:05:43",
-      "lastSeen": "2026-05-16T19:06:19.109Z"
+      "lastSeen": "2026-05-16T20:05:17.328Z"
     },
     {
       "adID": "928276223569227",
@@ -56,7 +96,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-16 12:05:51",
-      "lastSeen": "2026-05-16T19:06:19.166Z"
+      "lastSeen": "2026-05-16T20:05:17.371Z"
     },
     {
       "adID": "963854496261506",
@@ -76,7 +116,7 @@
       "priceChangedAt": "2026-05-16 16:04:27",
       "hidden": 0,
       "created_at": "2026-05-15 19:04:22",
-      "lastSeen": "2026-05-16T18:04:25.916Z"
+      "lastSeen": "2026-05-16T20:04:30.439Z"
     },
     {
       "adID": "1178411934358521",
@@ -96,7 +136,7 @@
       "priceChangedAt": "2026-05-16 16:04:27",
       "hidden": 0,
       "created_at": "2026-05-15 19:04:22",
-      "lastSeen": "2026-05-16T18:04:25.960Z"
+      "lastSeen": "2026-05-16T20:04:30.495Z"
     },
     {
       "adID": "2128334491159343",
@@ -136,7 +176,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-15 18:05:45",
-      "lastSeen": "2026-05-16T18:04:37.883Z"
+      "lastSeen": "2026-05-16T20:05:17.460Z"
     },
     {
       "adID": "27786393560963336",
@@ -156,27 +196,27 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-15 18:04:23",
-      "lastSeen": "2026-05-16T18:04:26.004Z"
+      "lastSeen": "2026-05-16T20:04:30.550Z"
     },
     {
       "adID": "928627323509626",
       "source": "FB",
       "authorUrl": null,
       "author": "Nolan Jones",
-      "postedTime": "2026-05-14T18:03:28.006Z",
+      "postedTime": "2026-05-14T20:03:31.893Z",
       "title": "P&P police trainer arcade game",
       "description": "1997 police trainer game, works like new. Trying to get rid of it because I am moving. The screen and gun are in perfect condition.",
       "price": "$800",
       "lat": 30.421309,
       "lon": -87.2169149,
       "location": "PENSACOLA, FL",
-      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.30808-6/700208021_962532479887983_6125364458557197668_n.jpg?stp=dst-jpg_s590x590_tt6&_nc_cat=111&ccb=1-7&_nc_sid=aa7b47&_nc_ohc=OSpYNHxZ3ZgQ7kNvwEjR5S6&_nc_oc=AdqX3nHH-NxNbi8f8jCOYMMQQ48x5a7SiUMY9YmCELl0_7PEKX5tD9f9I0ySwZ4M6fs&_nc_zt=23&_nc_ht=scontent-dfw5-1.xx&_nc_gid=baobNDNwrHsqglqIRmR1cA&_nc_ss=7b2a8&oh=00_Af7gV3Jq-woWPNAFJrYX6DI_dkmjTHMPzMzDD1GJJe9dwg&oe=6A0E7D60",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.30808-6/700208021_962532479887983_6125364458557197668_n.jpg?stp=dst-jpg_s590x590_tt6&_nc_cat=111&ccb=1-7&_nc_sid=aa7b47&_nc_ohc=OSpYNHxZ3ZgQ7kNvwEjR5S6&_nc_oc=AdqX3nHH-NxNbi8f8jCOYMMQQ48x5a7SiUMY9YmCELl0_7PEKX5tD9f9I0ySwZ4M6fs&_nc_zt=23&_nc_ht=scontent-dfw5-1.xx&_nc_gid=T2uSc69WWx-G9r84hbDBoA&_nc_ss=7b2a8&oh=00_Af6mO7b4brl2DOybF0Y8HMphOBBTJ6dVgni4uVL7v3GDFw&oe=6A0EB5A0",
       "adUrl": "https://www.facebook.com/commerce/listing/928627323509626/",
       "priceChanged": 0,
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-13 23:03:37",
-      "lastSeen": "2026-05-16T18:03:28.031Z"
+      "lastSeen": "2026-05-16T20:03:31.917Z"
     },
     {
       "adID": "1680541466321304",
@@ -203,20 +243,20 @@
       "source": "FB",
       "authorUrl": null,
       "author": "Keith Brownlow",
-      "postedTime": "2026-05-13T18:03:28.019Z",
+      "postedTime": "2026-05-13T20:03:31.906Z",
       "title": "32\" 2 Player Arcade DIY Cabinet",
       "description": "This is a fully assembled arcade cabinet made from 3/4\" inch melamine. It fits up to a 32 inch screen and is setup for a 2 player layout. Want to build your own arcade? This is perfect for people who don't have the woodworking skills or, time & equipment. Below are the specs to the cabinet.",
       "price": "$599",
       "lat": 34.1652304,
       "lon": -84.7997613,
       "location": "CARTERSVILLE, GA",
-      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.30808-6/692174044_36512216688365468_7500368898341950313_n.jpg?stp=dst-jpg_s590x590_tt6&_nc_cat=109&ccb=1-7&_nc_sid=aa7b47&_nc_ohc=5dy73uS-AUQQ7kNvwFRYJ8A&_nc_oc=Adpg6zBLQmLmDyRQlvBoqdzOBH1AbQVdequdwTcNz0XZwYBgYs5-2hJOQYPn_oDR6Zs&_nc_zt=23&_nc_ht=scontent-dfw5-1.xx&_nc_gid=1kNVfEa8YSG59yiStC8XNw&_nc_ss=7b2a8&oh=00_Af7YqLhZBQwKmfvBe_Pd6kE-TNbtj1YLownyIC9rdekf2Q&oe=6A0E798B",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.30808-6/692174044_36512216688365468_7500368898341950313_n.jpg?stp=dst-jpg_s590x590_tt6&_nc_cat=109&ccb=1-7&_nc_sid=aa7b47&_nc_ohc=5dy73uS-AUQQ7kNvwFRYJ8A&_nc_oc=Adpg6zBLQmLmDyRQlvBoqdzOBH1AbQVdequdwTcNz0XZwYBgYs5-2hJOQYPn_oDR6Zs&_nc_zt=23&_nc_ht=scontent-dfw5-1.xx&_nc_gid=4lsVgWr267EqlLYJGTFufA&_nc_ss=7b2a8&oh=00_Af5Bj3vAqahgmtQHsCw2uCjHbWNj5YV_qgR-ZMzUfTENmA&oe=6A0EB1CB",
       "adUrl": "https://www.facebook.com/commerce/listing/982326297583225/",
       "priceChanged": 0,
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-12 22:03:33",
-      "lastSeen": "2026-05-16T18:03:28.100Z"
+      "lastSeen": "2026-05-16T20:03:31.962Z"
     },
     {
       "adID": "PI-206463",
