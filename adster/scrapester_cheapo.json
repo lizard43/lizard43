@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-16T14:05:47.789Z",
+  "generated_at": "2026-05-16T15:06:38.319Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,33 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 45,
-      "droppedPrice": 24,
+      "exported_ads": 46,
+      "droppedPrice": 28,
       "droppedMissingGeo": 0,
-      "droppedCircle": 6
+      "droppedCircle": 7
     }
   },
   "ads": [
+    {
+      "adID": "1299255179028604",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/61552614394293/?product_id=1299255179028604",
+      "author": "Puppi Moma",
+      "postedTime": "2026-05-16T14:14:46.000Z",
+      "title": "Pinball machine",
+      "description": "6 million dollar pinball machine",
+      "price": "$600",
+      "lat": 30.9038252,
+      "lon": -84.5754768,
+      "location": "Bainbridge, GA",
+      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/700446365_24692492027114958_1275517799330214436_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=101&ccb=1-7&_nc_sid=92e707&_nc_ohc=GwsUvk-q3k8Q7kNvwEByZ4u&_nc_oc=Adqqw1j-xGkqmGEe03rl8Oait2GNM1GJT0YJaPeAwycUoKLbMdDk8kEfjgWqapr7MEU&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=WP_nvw-aLuFxO-Iuw7qY6w&_nc_ss=7b2a8&oh=00_Af5cOifXOKK42cR17_zUFvLVzoHNIYxL39EQ9BcurnNiDw&oe=6A0E3EE7",
+      "adUrl": "https://www.facebook.com/marketplace/item/1299255179028604/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-05-16 15:05:43",
+      "lastSeen": "2026-05-16T15:06:02.560Z"
+    },
     {
       "adID": "3418531554976971",
       "source": "MP",
@@ -36,7 +56,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-16 14:04:33",
-      "lastSeen": "2026-05-16T14:04:58.699Z"
+      "lastSeen": "2026-05-16T15:04:37.586Z"
     },
     {
       "adID": "1702525394075967",
@@ -96,7 +116,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-16 12:05:51",
-      "lastSeen": "2026-05-16T14:05:27.303Z"
+      "lastSeen": "2026-05-16T15:05:43.110Z"
     },
     {
       "adID": "2476880672783800",
@@ -136,7 +156,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-16 11:05:20",
-      "lastSeen": "2026-05-16T14:05:27.475Z"
+      "lastSeen": "2026-05-16T15:05:43.266Z"
     },
     {
       "adID": "2214381752429088",
@@ -156,7 +176,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-16 11:05:20",
-      "lastSeen": "2026-05-16T13:04:41.842Z"
+      "lastSeen": "2026-05-16T15:04:37.718Z"
     },
     {
       "adID": "4004582473172554",
@@ -176,7 +196,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-16 02:04:28",
-      "lastSeen": "2026-05-16T14:04:33.200Z"
+      "lastSeen": "2026-05-16T15:05:43.433Z"
     },
     {
       "adID": "963854496261506",
@@ -196,7 +216,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-15 19:04:22",
-      "lastSeen": "2026-05-16T14:04:32.915Z"
+      "lastSeen": "2026-05-16T15:04:37.319Z"
     },
     {
       "adID": "1178411934358521",
@@ -216,7 +236,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-15 19:04:22",
-      "lastSeen": "2026-05-16T14:04:32.965Z"
+      "lastSeen": "2026-05-16T15:04:37.364Z"
     },
     {
       "adID": "2128334491159343",
@@ -256,7 +276,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-15 18:05:45",
-      "lastSeen": "2026-05-16T14:05:27.420Z"
+      "lastSeen": "2026-05-16T15:05:43.211Z"
     },
     {
       "adID": "27786393560963336",
@@ -276,27 +296,27 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-15 18:04:23",
-      "lastSeen": "2026-05-16T14:04:33.009Z"
+      "lastSeen": "2026-05-16T15:04:37.408Z"
     },
     {
       "adID": "928627323509626",
       "source": "FB",
       "authorUrl": null,
       "author": "Nolan Jones",
-      "postedTime": "2026-05-14T14:03:31.950Z",
+      "postedTime": "2026-05-14T15:03:36.900Z",
       "title": "P&P police trainer arcade game",
       "description": "1997 police trainer game, works like new. Trying to get rid of it because I am moving. The screen and gun are in perfect condition.",
       "price": "$800",
       "lat": 30.421309,
       "lon": -87.2169149,
       "location": "PENSACOLA, FL",
-      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.30808-6/700208021_962532479887983_6125364458557197668_n.jpg?stp=dst-jpg_s590x590_tt6&_nc_cat=111&ccb=1-7&_nc_sid=aa7b47&_nc_ohc=OSpYNHxZ3ZgQ7kNvwEjR5S6&_nc_oc=AdqX3nHH-NxNbi8f8jCOYMMQQ48x5a7SiUMY9YmCELl0_7PEKX5tD9f9I0ySwZ4M6fs&_nc_zt=23&_nc_ht=scontent-dfw5-1.xx&_nc_gid=JGLE42l18UB6C4zQuEO_Rg&_nc_ss=7b2a8&oh=00_Af4iwgnF5ailu8XekP-0h0FYQo51L1pOq_gkLWtn1u0UBA&oe=6A0E4520",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.30808-6/700208021_962532479887983_6125364458557197668_n.jpg?stp=dst-jpg_s590x590_tt6&_nc_cat=111&ccb=1-7&_nc_sid=aa7b47&_nc_ohc=OSpYNHxZ3ZgQ7kNvwEjR5S6&_nc_oc=AdqX3nHH-NxNbi8f8jCOYMMQQ48x5a7SiUMY9YmCELl0_7PEKX5tD9f9I0ySwZ4M6fs&_nc_zt=23&_nc_ht=scontent-dfw5-1.xx&_nc_gid=hroklfghElHl--XI1jfDsQ&_nc_ss=7b2a8&oh=00_Af4xrvMN8WfOQKHUHIyNYYxN0nfK5W6Kd0fvmnLjNZxxFg&oe=6A0E4520",
       "adUrl": "https://www.facebook.com/commerce/listing/928627323509626/",
       "priceChanged": 0,
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-13 23:03:37",
-      "lastSeen": "2026-05-16T14:03:31.966Z"
+      "lastSeen": "2026-05-16T15:03:36.918Z"
     },
     {
       "adID": "1680541466321304",
