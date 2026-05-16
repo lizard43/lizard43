@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-16T20:06:06.718Z",
+  "generated_at": "2026-05-16T21:05:47.293Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,33 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 40,
-      "droppedPrice": 36,
+      "exported_ads": 41,
+      "droppedPrice": 38,
       "droppedMissingGeo": 0,
-      "droppedCircle": 13
+      "droppedCircle": 16
     }
   },
   "ads": [
+    {
+      "adID": "2036073397328417",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/61557171067212/?product_id=2036073397328417",
+      "author": "Royal Rottweilers",
+      "postedTime": "2026-05-16T20:54:24.000Z",
+      "title": "Arcade game",
+      "description": "NBA jam arcade game",
+      "price": "$50",
+      "lat": 34.1652304,
+      "lon": -84.7997613,
+      "location": "Cartersville, GA",
+      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/702091003_1481488037103471_5391653563120975548_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=102&ccb=1-7&_nc_sid=92e707&_nc_ohc=Uo-xH-qMt2IQ7kNvwHTc0nn&_nc_oc=AdpbmdXVhlu_HXwS0y0jWqjt2E2BWsh3d5ykW_osYtp5nLWpCGLWQ9_lwJwSUFZ-Aus&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=N-SLsPirewI5WZzvD5-AKQ&_nc_ss=7b2a8&oh=00_Af70PtZdfBhv9K1gkuZoERAWoigGPKvYBUnS07xTl6GVdw&oe=6A0E9E01",
+      "adUrl": "https://www.facebook.com/marketplace/item/2036073397328417/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-05-16 21:04:25",
+      "lastSeen": "2026-05-16T21:04:42.412Z"
+    },
     {
       "adID": "26445972171751776",
       "source": "MP",
@@ -36,7 +56,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-16 20:04:30",
-      "lastSeen": "2026-05-16T20:05:17.550Z"
+      "lastSeen": "2026-05-16T21:05:04.547Z"
     },
     {
       "adID": "2423776078044573",
@@ -56,7 +76,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-16 20:04:30",
-      "lastSeen": "2026-05-16T20:04:54.752Z"
+      "lastSeen": "2026-05-16T21:04:25.266Z"
     },
     {
       "adID": "1299255179028604",
@@ -76,7 +96,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-16 15:05:43",
-      "lastSeen": "2026-05-16T20:05:17.328Z"
+      "lastSeen": "2026-05-16T21:05:04.269Z"
     },
     {
       "adID": "928276223569227",
@@ -96,7 +116,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-16 12:05:51",
-      "lastSeen": "2026-05-16T20:05:17.371Z"
+      "lastSeen": "2026-05-16T21:05:04.325Z"
     },
     {
       "adID": "963854496261506",
@@ -116,7 +136,7 @@
       "priceChangedAt": "2026-05-16 16:04:27",
       "hidden": 0,
       "created_at": "2026-05-15 19:04:22",
-      "lastSeen": "2026-05-16T20:04:30.439Z"
+      "lastSeen": "2026-05-16T21:04:24.998Z"
     },
     {
       "adID": "1178411934358521",
@@ -136,7 +156,7 @@
       "priceChangedAt": "2026-05-16 16:04:27",
       "hidden": 0,
       "created_at": "2026-05-15 19:04:22",
-      "lastSeen": "2026-05-16T20:04:30.495Z"
+      "lastSeen": "2026-05-16T21:04:25.043Z"
     },
     {
       "adID": "2128334491159343",
@@ -176,7 +196,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-15 18:05:45",
-      "lastSeen": "2026-05-16T20:05:17.460Z"
+      "lastSeen": "2026-05-16T21:05:04.436Z"
     },
     {
       "adID": "27786393560963336",
@@ -196,27 +216,27 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-15 18:04:23",
-      "lastSeen": "2026-05-16T20:04:30.550Z"
+      "lastSeen": "2026-05-16T21:04:25.088Z"
     },
     {
       "adID": "928627323509626",
       "source": "FB",
       "authorUrl": null,
       "author": "Nolan Jones",
-      "postedTime": "2026-05-14T20:03:31.893Z",
+      "postedTime": "2026-05-14T21:03:26.746Z",
       "title": "P&P police trainer arcade game",
       "description": "1997 police trainer game, works like new. Trying to get rid of it because I am moving. The screen and gun are in perfect condition.",
       "price": "$800",
       "lat": 30.421309,
       "lon": -87.2169149,
       "location": "PENSACOLA, FL",
-      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.30808-6/700208021_962532479887983_6125364458557197668_n.jpg?stp=dst-jpg_s590x590_tt6&_nc_cat=111&ccb=1-7&_nc_sid=aa7b47&_nc_ohc=OSpYNHxZ3ZgQ7kNvwEjR5S6&_nc_oc=AdqX3nHH-NxNbi8f8jCOYMMQQ48x5a7SiUMY9YmCELl0_7PEKX5tD9f9I0ySwZ4M6fs&_nc_zt=23&_nc_ht=scontent-dfw5-1.xx&_nc_gid=T2uSc69WWx-G9r84hbDBoA&_nc_ss=7b2a8&oh=00_Af6mO7b4brl2DOybF0Y8HMphOBBTJ6dVgni4uVL7v3GDFw&oe=6A0EB5A0",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.30808-6/700208021_962532479887983_6125364458557197668_n.jpg?stp=dst-jpg_s590x590_tt6&_nc_cat=111&ccb=1-7&_nc_sid=aa7b47&_nc_ohc=OSpYNHxZ3ZgQ7kNvwEjR5S6&_nc_oc=AdqX3nHH-NxNbi8f8jCOYMMQQ48x5a7SiUMY9YmCELl0_7PEKX5tD9f9I0ySwZ4M6fs&_nc_zt=23&_nc_ht=scontent-dfw5-1.xx&_nc_gid=KSkEChO4DedoNVIEpvEwKw&_nc_ss=7b2a8&oh=00_Af7ZjqxSYXizl3Vq7hnfreH8nAsmKGZ7BUkofxw789zItQ&oe=6A0EB5A0",
       "adUrl": "https://www.facebook.com/commerce/listing/928627323509626/",
       "priceChanged": 0,
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-13 23:03:37",
-      "lastSeen": "2026-05-16T20:03:31.917Z"
+      "lastSeen": "2026-05-16T21:03:26.984Z"
     },
     {
       "adID": "1680541466321304",
