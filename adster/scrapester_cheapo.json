@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-18T22:07:04.720Z",
+  "generated_at": "2026-05-18T23:06:52.401Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,53 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 37,
-      "droppedPrice": 26,
+      "exported_ads": 39,
+      "droppedPrice": 25,
       "droppedMissingGeo": 0,
-      "droppedCircle": 3
+      "droppedCircle": 11
     }
   },
   "ads": [
+    {
+      "adID": "27322981887339461",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100004523018466/?product_id=27322981887339461",
+      "author": "Jeffrey Fordham",
+      "postedTime": "2026-05-18T22:09:09.000Z",
+      "title": "Paragon pinball machine",
+      "description": "Needs some light electrical work, all original ideal for a collector.",
+      "price": "$500",
+      "lat": 30.4868564,
+      "lon": -90.9562125,
+      "location": "Denham Springs, LA",
+      "imageUrl": "https://scontent-atl3-3.xx.fbcdn.net/v/t39.84726-6/701301904_1514031453443365_7947018541253746931_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=110&ccb=1-7&_nc_sid=92e707&_nc_eui2=AeEfAUfAmS5e6lmT31zEIzp0_wKCREJyFnv_AoJEQnIWez9XD449Y64rLW78Y98jHYA&_nc_ohc=J7yzKpm9yGgQ7kNvwE_57_v&_nc_oc=AdpS5aerMvfE093JRl05zNNSPKozSvqZs0RIwITsexcuYp8h3Bl_Pe-FsboZ1o0g4AM&_nc_zt=14&_nc_ht=scontent-atl3-3.xx&_nc_gid=2CQenQd4Uv5JV9UnaDDKag&_nc_ss=7b2a8&oh=00_Af4mNL9ey8FVjk2MZrvkn6gi72NjJkK9O5sNCGLS0aklIQ&oe=6A115414",
+      "adUrl": "https://www.facebook.com/marketplace/item/27322981887339461/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-05-18 23:05:46",
+      "lastSeen": "2026-05-18T23:06:20.927Z"
+    },
+    {
+      "adID": "2056542211925551",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100009946623372/?product_id=2056542211925551",
+      "author": "Memphis Red",
+      "postedTime": "2026-05-18T21:03:24.000Z",
+      "title": "Arcade game",
+      "description": "3 arcade games 150 each",
+      "price": "$150",
+      "lat": 34.0128323,
+      "lon": -86.0030251,
+      "location": "Gadsden, AL",
+      "imageUrl": "https://scontent-atl3-2.xx.fbcdn.net/v/t39.84726-6/701437146_1344721290895513_237373550625040118_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=102&ccb=1-7&_nc_sid=92e707&_nc_eui2=AeEIrD-ujL67hRYTRZ_fzH0TqucLWkCY4Nmq5wtaQJjg2SPXsN94vTWPcWLQnsnRCVE&_nc_ohc=6FzuJAFNfDAQ7kNvwH-VN5h&_nc_oc=AdphgIUwlBaDgY3DrBqFqLyx9LOaa2yk8iKG_EL5PBt3N8Ze_lEp2eR8IC2qTCsR-RQ&_nc_zt=14&_nc_ht=scontent-atl3-2.xx&_nc_gid=iU-kn0n2pEgEKSLOMGAKgw&_nc_ss=7b2a8&oh=00_Af6RPnZveP4C4VDtCZhYw3nk2QMfM8pwgvm-itiK25F4XA&oe=6A117582",
+      "adUrl": "https://www.facebook.com/marketplace/item/2056542211925551/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-05-18 23:04:40",
+      "lastSeen": "2026-05-18T23:05:17.820Z"
+    },
     {
       "adID": "1500695825125617",
       "source": "MP",
@@ -36,7 +76,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-18 21:05:30",
-      "lastSeen": "2026-05-18T22:05:32.123Z"
+      "lastSeen": "2026-05-18T23:04:40.290Z"
     },
     {
       "adID": "1493142495691118",
@@ -56,7 +96,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-18 14:04:27",
-      "lastSeen": "2026-05-18T22:05:32.157Z"
+      "lastSeen": "2026-05-18T23:05:47.083Z"
     },
     {
       "adID": "2135617383678580",
@@ -96,7 +136,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-17 19:44:02",
-      "lastSeen": "2026-05-18T20:04:26.108Z"
+      "lastSeen": "2026-05-18T23:04:40.358Z"
     },
     {
       "adID": "1647889626477659",
@@ -156,7 +196,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-16 12:05:51",
-      "lastSeen": "2026-05-18T20:04:37.173Z"
+      "lastSeen": "2026-05-18T23:05:46.123Z"
     },
     {
       "adID": "963854496261506",
