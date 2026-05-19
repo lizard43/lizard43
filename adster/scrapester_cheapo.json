@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-19T19:06:14.875Z",
+  "generated_at": "2026-05-19T20:06:16.342Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,33 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 41,
-      "droppedPrice": 34,
+      "exported_ads": 42,
+      "droppedPrice": 43,
       "droppedMissingGeo": 0,
-      "droppedCircle": 13
+      "droppedCircle": 14
     }
   },
   "ads": [
+    {
+      "adID": "1862468588045423",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/1243358617/?product_id=1862468588045423",
+      "author": "Michael Fletcher",
+      "postedTime": "2026-05-19T19:44:57.000Z",
+      "title": "Arcade One-Up Galaga",
+      "description": "Works great, but has a dim screen.",
+      "price": "$150",
+      "lat": 30.3935337,
+      "lon": -86.4957834,
+      "location": "Destin, FL",
+      "imageUrl": "https://scontent-atl3-3.xx.fbcdn.net/v/t39.84726-6/702176939_3585469368271132_5988252509792987892_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=108&ccb=1-7&_nc_sid=92e707&_nc_eui2=AeGUmH_W4o0LCSlK-kRDp9Leaxo1NgnQPAlrGjU2CdA8CWop6sruJpNU_LPwDN6LSU0&_nc_ohc=y8BemYC4z2IQ7kNvwFFTVc_&_nc_oc=Adp6x6ASNDH7jvDbqqtsA_7Q6kyA8TkdnOncDkKuaoYS6rPUxmO-gdCwFByY_EWDek8&_nc_zt=14&_nc_ht=scontent-atl3-3.xx&_nc_gid=bI81MTjqsxZ22S408f5Oaw&_nc_ss=7b2a8&oh=00_Af7GLIzpdvDtwS4d9KmSpP_1bCbVU4BoexHINHkrgT_ivg&oe=6A12AAD4",
+      "adUrl": "https://www.facebook.com/marketplace/item/1862468588045423/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-05-19 20:04:34",
+      "lastSeen": "2026-05-19T20:04:49.313Z"
+    },
     {
       "adID": "1560763259389695",
       "source": "MP",
@@ -56,7 +76,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-19 12:04:33",
-      "lastSeen": "2026-05-19T19:05:24.778Z"
+      "lastSeen": "2026-05-19T20:05:13.164Z"
     },
     {
       "adID": "1266476935700586",
@@ -76,7 +96,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-19 11:05:14",
-      "lastSeen": "2026-05-19T19:05:24.610Z"
+      "lastSeen": "2026-05-19T20:05:12.963Z"
     },
     {
       "adID": "27322981887339461",
@@ -116,7 +136,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-18 21:05:30",
-      "lastSeen": "2026-05-19T19:04:23.996Z"
+      "lastSeen": "2026-05-19T20:04:34.672Z"
     },
     {
       "adID": "1493142495691118",
@@ -136,7 +156,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-18 14:04:27",
-      "lastSeen": "2026-05-19T19:04:24.063Z"
+      "lastSeen": "2026-05-19T20:04:34.739Z"
     },
     {
       "adID": "2135617383678580",
@@ -156,7 +176,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-18 14:04:27",
-      "lastSeen": "2026-05-19T19:04:24.030Z"
+      "lastSeen": "2026-05-19T20:04:34.705Z"
     },
     {
       "adID": "2179063702858988",
