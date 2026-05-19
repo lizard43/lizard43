@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-19T08:22:39.029Z",
+  "generated_at": "2026-05-19T11:06:03.116Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,33 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 39,
-      "droppedPrice": 23,
+      "exported_ads": 40,
+      "droppedPrice": 30,
       "droppedMissingGeo": 0,
-      "droppedCircle": 7
+      "droppedCircle": 11
     }
   },
   "ads": [
+    {
+      "adID": "1266476935700586",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100035976143394/?product_id=1266476935700586",
+      "author": "Melissa Foster",
+      "postedTime": "2026-05-19T05:06:56.000Z",
+      "title": "Gridiron Football Pinball Machine",
+      "description": "GOTTLIEB GRIDIRON Gridiron is a pinball machine from December 1977, manufactured by D. Gottlieb &amp;amp; Co. It is a football themed game with a unique dual scoring system. It keeps standard pinball scores as well as football scores from various targets on the playfield. Machine lights turn on and will function, but needs work. Cosmetic repairs needed.",
+      "price": "$425",
+      "lat": 27.937801,
+      "lon": -82.2859247,
+      "location": "Brandon, FL",
+      "imageUrl": "https://scontent-atl3-3.xx.fbcdn.net/v/t39.84726-6/703844545_1309729121098720_1090712176564113158_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=108&ccb=1-7&_nc_sid=92e707&_nc_eui2=AeFCngtIWR-INY2PKNHJsB9oUXD1BqmDEiRRcPUGqYMSJAX19gkqCPFEGYr8zBu8BSQ&_nc_ohc=qL8TyippUfAQ7kNvwG3KzfP&_nc_oc=AdotMOsIEMFHugQy2ThCX6b9bFwJiADLnrhnB3xZYXOYLLD9m7mfo1SEyH4_sNW5mcI&_nc_zt=14&_nc_ht=scontent-atl3-3.xx&_nc_gid=vMDbEsHrINDuMbyJBx0hQg&_nc_ss=7b2a8&oh=00_Af4e_Jp3539xTE0ncuSv28GxGT5Qw2ZtQm-vdsBMOqGqQg&oe=6A120E74",
+      "adUrl": "https://www.facebook.com/marketplace/item/1266476935700586/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-05-19 11:05:14",
+      "lastSeen": "2026-05-19T11:05:27.323Z"
+    },
     {
       "adID": "27322981887339461",
       "source": "MP",
@@ -56,7 +76,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-18 23:04:40",
-      "lastSeen": "2026-05-19T02:04:33.376Z"
+      "lastSeen": "2026-05-19T11:04:36.414Z"
     },
     {
       "adID": "1500695825125617",
@@ -76,7 +96,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-18 21:05:30",
-      "lastSeen": "2026-05-19T02:04:33.235Z"
+      "lastSeen": "2026-05-19T11:04:36.314Z"
     },
     {
       "adID": "1493142495691118",
@@ -96,7 +116,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-18 14:04:27",
-      "lastSeen": "2026-05-19T02:05:09.357Z"
+      "lastSeen": "2026-05-19T11:04:36.347Z"
     },
     {
       "adID": "2135617383678580",
@@ -136,7 +156,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-17 19:44:02",
-      "lastSeen": "2026-05-19T02:04:33.311Z"
+      "lastSeen": "2026-05-19T11:04:36.381Z"
     },
     {
       "adID": "1647889626477659",
