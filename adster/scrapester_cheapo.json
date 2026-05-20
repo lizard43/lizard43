@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-20T13:21:56.177Z",
+  "generated_at": "2026-05-20T14:06:15.590Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,53 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 43,
-      "droppedPrice": 22,
+      "exported_ads": 45,
+      "droppedPrice": 25,
       "droppedMissingGeo": 0,
-      "droppedCircle": 3
+      "droppedCircle": 8
     }
   },
   "ads": [
+    {
+      "adID": "1291931059813323",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100016526172394/?product_id=1291931059813323",
+      "author": "Morgan Carrier",
+      "postedTime": "2026-05-20T13:36:21.000Z",
+      "title": "Set of FSU game day pins",
+      "description": "$2 each or $30 for all",
+      "price": "$25",
+      "lat": 30.6754503,
+      "lon": -87.9040269,
+      "location": "Spanish Fort, AL",
+      "imageUrl": "https://scontent-atl3-1.xx.fbcdn.net/v/t39.84726-6/703762946_1592559351804739_9034633473796653201_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=103&ccb=1-7&_nc_sid=92e707&_nc_eui2=AeEuZTX3Wvf21nT04NpXvaZNBiCbxuXUe_oGIJvG5dR7-kG4BsYUqYWheTEgxqqqMmw&_nc_ohc=7D_w8EArLD8Q7kNvwG2tq-Q&_nc_oc=AdoKraybcPlSr7SwN13_OsSCNs2QtJ82C2Oa_YLkiXAen-TBhwjKhDqogch5uG2qufY&_nc_zt=14&_nc_ht=scontent-atl3-1.xx&_nc_gid=0W-jlKSvobvaj68dil5tNw&_nc_ss=7b2a8&oh=00_Af658r2IL7DFjd5vjpFfFRyFLrqBYNcqEKRAVIFAyf8m4A&oe=6A13796F",
+      "adUrl": "https://www.facebook.com/marketplace/item/1291931059813323/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-05-20 14:05:17",
+      "lastSeen": "2026-05-20T14:05:43.445Z"
+    },
+    {
+      "adID": "1010166981362778",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/61567470305318/?product_id=1010166981362778",
+      "author": "Sean Sabell",
+      "postedTime": "2026-05-20T13:10:49.000Z",
+      "title": "Ball IDEAL, pint, no. 9, 1908, clear jar",
+      "description": "Ball IDEAL, pint, no. 9, 1908, clear jar",
+      "price": "$22",
+      "lat": 28.187755,
+      "lon": -82.7416081,
+      "location": "Holiday, FL",
+      "imageUrl": "https://scontent-atl3-3.xx.fbcdn.net/v/t39.84726-6/703692373_1006924425142312_3033312736869133786_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=108&ccb=1-7&_nc_sid=92e707&_nc_eui2=AeH5EoJg-zszjnLiVOt05xt-im4cODFuMU2Kbhw4MW4xTbAYT_Ml-PZge6IjhESl1BE&_nc_ohc=lOsROBK8ldQQ7kNvwE3X4nr&_nc_oc=Ado-wxNUXi9XkgtcgItFtlici_eLJqlKlcgoHjalJkcn6xUEaEWbEXDv0bPuFfZkoW8&_nc_zt=14&_nc_ht=scontent-atl3-3.xx&_nc_gid=Y9pd9TcuV5Z0dBQkXSO85g&_nc_ss=7b2a8&oh=00_Af71UMxwWzQI2KsyOGprhahpzwPR8NlL5D7bixFwS4IGiQ&oe=6A139F05",
+      "adUrl": "https://www.facebook.com/marketplace/item/1010166981362778/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-05-20 14:05:17",
+      "lastSeen": "2026-05-20T14:05:43.480Z"
+    },
     {
       "adID": "957435533680261",
       "source": "MP",
@@ -36,7 +76,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-20 11:06:17",
-      "lastSeen": "2026-05-20T13:05:55.838Z"
+      "lastSeen": "2026-05-20T14:05:16.971Z"
     },
     {
       "adID": "1698093284534654",
@@ -56,7 +96,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-20 11:06:17",
-      "lastSeen": "2026-05-20T13:05:55.947Z"
+      "lastSeen": "2026-05-20T14:05:17.110Z"
     },
     {
       "adID": "1015070311207473",
@@ -136,7 +176,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-19 22:04:22",
-      "lastSeen": "2026-05-20T13:04:29.245Z"
+      "lastSeen": "2026-05-20T14:04:24.631Z"
     },
     {
       "adID": "988251596992828",
