@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-20T21:33:06.825Z",
+  "generated_at": "2026-05-20T22:05:30.908Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,53 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 50,
-      "droppedPrice": 25,
+      "exported_ads": 52,
+      "droppedPrice": 31,
       "droppedMissingGeo": 0,
-      "droppedCircle": 8
+      "droppedCircle": 10
     }
   },
   "ads": [
+    {
+      "adID": "PI-214831",
+      "source": "PS",
+      "authorUrl": "https://pinside.com/pinball/community/pinsiders/mr_pinball/market",
+      "author": "Mr_Pinball",
+      "postedTime": "2026-05-20T21:10:16.296Z",
+      "title": "Dealer's Choice",
+      "description": "Used - shows wear, needs some work - “Project Williams Dealer's Choice Pinball Comes with replacement playfield. New rubber kit included. Cabinet and backglass in pretty decent condition. Comes with back door which i...”",
+      "price": "$500",
+      "lat": 34.3683267,
+      "lon": -84.9349057,
+      "location": "Adairsville, GA",
+      "imageUrl": "https://imgproxy.pinside.com/MFSDG2gO0hV8V1Im3Bdgly9239G1cIkIXXt3Zuo4c4Q/rs:fit:640:480/fn:pinside_63e8111b66cb/enc/CKREd12c4SJzactSSvSlpUrrCHua_YO4qwj83TXZ6XHpJYnUPn8jlngbQcyg7qUdaCCHMpVbDN-mz1wJtTtuai5a5WuO02_bYwInas_GZjtgejrJ0P1MkvtSRfYi8E33.jpg",
+      "adUrl": "https://pinside.com/pinball/market/classifieds/ad/214831",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-05-20 22:05:16",
+      "lastSeen": "2026-05-20T22:05:16.355Z"
+    },
+    {
+      "adID": "1003425408698210",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100053590531892/?product_id=1003425408698210",
+      "author": "Mike Newsom",
+      "postedTime": "2026-05-20T21:19:46.000Z",
+      "title": "Atari's 1978 Space Riders Pinball Machine (Backglass Only)",
+      "description": "Atari’s 1978 Space Riders pinball machine backglass display. Dimensions are approximately 29.25x1.5x25.",
+      "price": "$50",
+      "lat": 30.6324149,
+      "lon": -87.0396881,
+      "location": "Milton, FL",
+      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/702065009_938887395773271_7684221027282538151_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=106&ccb=1-7&_nc_sid=92e707&_nc_eui2=AeG70cGPpVw4yPtCCjAQ2OrIEx7KxgQuq8wTHsrGBC6rzKm0iE2z2WGcdAgYjN_BEPs&_nc_ohc=_igqvy7L4r0Q7kNvwF4AW0P&_nc_oc=AdrQ9X9LfJ9eNd_mESjWcgyDSDOCnSbTGLXeAFARMydg7P-cBk9HUZQBBQtOeVqPyHo&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=cQTNLmKh9m29BXGd5AF09Q&_nc_ss=7b2a8&oh=00_Af5prLubLWpNN45SDMUWBCQVatWxnFqkE_3J3ncdDZBzWQ&oe=6A141403",
+      "adUrl": "https://www.facebook.com/marketplace/item/1003425408698210/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-05-20 22:04:25",
+      "lastSeen": "2026-05-20T22:05:11.196Z"
+    },
     {
       "adID": "1024822366780106",
       "source": "MP",
@@ -36,7 +76,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-20 21:04:58",
-      "lastSeen": "2026-05-20T21:05:44.791Z"
+      "lastSeen": "2026-05-20T22:05:11.804Z"
     },
     {
       "adID": "1622430798872521",
@@ -56,7 +96,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-20 19:05:16",
-      "lastSeen": "2026-05-20T21:04:58.870Z"
+      "lastSeen": "2026-05-20T22:05:12.142Z"
     },
     {
       "adID": "1786422842336680",
@@ -176,27 +216,27 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-20 16:05:26",
-      "lastSeen": "2026-05-20T21:04:58.904Z"
+      "lastSeen": "2026-05-20T22:05:12.175Z"
     },
     {
       "adID": "1476783190576028",
       "source": "FB",
       "authorUrl": null,
       "author": "Michael Polley",
-      "postedTime": "2026-05-20T16:00:18.824Z",
-      "title": "Crusin World main board",
+      "postedTime": "2026-05-20T16:00:18.470Z",
+      "title": "(Pending) Crusin World main board",
       "description": "I have a very clean Crusin world main board in working condition. Comes with the cover housing as well. 200 shipped or 175 if picked up.",
       "price": "$200",
       "lat": 29.1871986,
       "lon": -82.1400923,
       "location": "OCALA, FL",
-      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.30808-6/703070026_10226137982996113_1427365806951275655_n.jpg?stp=dst-jpg_s590x590_tt6&_nc_cat=110&ccb=1-7&_nc_sid=aa7b47&_nc_eui2=AeFbtosM0GI3XnzdRVnDPb34gAtNcRcciIOAC01xFxyIgymVT-One50ItYxoUUb4jtY&_nc_ohc=vbOfiq59ei0Q7kNvwHLbN14&_nc_oc=AdpEsR22QaLMa2fR1jc_CdSgX_Dbt9PM6jJR3xyy2tNuRAJQ69gaoAkhAf4bv1_s-Ec&_nc_zt=23&_nc_ht=scontent-dfw5-1.xx&_nc_gid=F1zZyYtNJWFwHVXslIYVoQ&_nc_ss=7b2a8&oh=00_Af79x_DskNbxfiCzIMMP1whYbsLypd82DX2lNmzSfSHAUg&oe=6A140A96",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.30808-6/703070026_10226137982996113_1427365806951275655_n.jpg?stp=dst-jpg_s590x590_tt6&_nc_cat=110&ccb=1-7&_nc_sid=aa7b47&_nc_eui2=AeFbtosM0GI3XnzdRVnDPb34gAtNcRcciIOAC01xFxyIgymVT-One50ItYxoUUb4jtY&_nc_ohc=vbOfiq59ei0Q7kNvwHLbN14&_nc_oc=AdpEsR22QaLMa2fR1jc_CdSgX_Dbt9PM6jJR3xyy2tNuRAJQ69gaoAkhAf4bv1_s-Ec&_nc_zt=23&_nc_ht=scontent-dfw5-1.xx&_nc_gid=9wFMZfaqbjStIh-8C7KBkg&_nc_ss=7b2a8&oh=00_Af4kkHjMzIBNKj2xz8vAgXW8cQKTLZheubZQLymt12w_iw&oe=6A140A96",
       "adUrl": "https://www.facebook.com/commerce/listing/1476783190576028/",
       "priceChanged": 0,
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-20 16:00:19",
-      "lastSeen": "2026-05-20T21:00:19.262Z"
+      "lastSeen": "2026-05-20T22:00:18.569Z"
     },
     {
       "adID": "957435533680261",
@@ -216,7 +256,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-20 11:06:17",
-      "lastSeen": "2026-05-20T21:04:58.938Z"
+      "lastSeen": "2026-05-20T22:05:12.209Z"
     },
     {
       "adID": "1015070311207473",
@@ -296,7 +336,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-19 22:04:22",
-      "lastSeen": "2026-05-20T21:04:26.728Z"
+      "lastSeen": "2026-05-20T22:04:25.530Z"
     },
     {
       "adID": "988251596992828",
