@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-19T23:05:36.474Z",
+  "generated_at": "2026-05-20T00:06:40.852Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,73 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 42,
-      "droppedPrice": 28,
+      "exported_ads": 44,
+      "droppedPrice": 31,
       "droppedMissingGeo": 0,
-      "droppedCircle": 7
+      "droppedCircle": 12
     }
   },
   "ads": [
+    {
+      "adID": "1015070311207473",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100010997827018/?product_id=1015070311207473",
+      "author": "Jason Mosley",
+      "postedTime": "2026-05-19T22:21:14.000Z",
+      "title": "Arcade machine",
+      "description": "Multicade Measurements in photos",
+      "price": "$600",
+      "lat": 34.1206564,
+      "lon": -84.0043513,
+      "location": "Buford, GA",
+      "imageUrl": "https://scontent-atl3-3.xx.fbcdn.net/v/t15.5256-10/701459517_1326241006042870_2337371055282747756_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=111&ccb=1-7&_nc_sid=d4195b&_nc_eui2=AeGN3V-KK88RGmtKuMlERzPLKYB_R3pAFhgpgH9HekAWGJ8-zMMiSDlp4ICke9Ydv0A&_nc_ohc=AogNLzUNMWAQ7kNvwE95qI_&_nc_oc=Adq693gDliM3-CQ7dvUOZblGwy4OGaUUHlBS1V_QOsJLrla63lgL5zID-0yD91PCv0Y&_nc_zt=23&_nc_ht=scontent-atl3-3.xx&_nc_gid=k9wb2OpdI5WhNYThyGBExA&_nc_ss=7b2a8&oh=00_Af6Zu8hesnTK4Eee1DUqdIIG2rwG6kE8K6uGGGWDWlfAZA&oe=6A12BDEF",
+      "adUrl": "https://www.facebook.com/marketplace/item/1015070311207473/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-05-20 00:04:45",
+      "lastSeen": "2026-05-20T00:05:53.423Z"
+    },
+    {
+      "adID": "889019750867057",
+      "source": "FB",
+      "authorUrl": null,
+      "author": "John Roach",
+      "postedTime": "2026-05-19T23:10:19.650Z",
+      "title": "Original Gyruss PCB",
+      "description": "This is being offered as is because I have no way to test it. It was working 20 years ago.",
+      "price": "$100",
+      "lat": 33.3778914,
+      "lon": -84.2888119,
+      "location": "FORTSON, GA",
+      "imageUrl": "https://scontent-atl3-1.xx.fbcdn.net/v/t39.30808-6/701687159_26646709745022715_1475788921055925377_n.jpg?stp=dst-jpg_s590x590_tt6&_nc_cat=106&ccb=1-7&_nc_sid=aa7b47&_nc_eui2=AeFm2ssOnAeyVsjYWiLl-ODEmFYsDrNqqEmYViwOs2qoSTCMUNXMZi1BNqdd4wDAgj4&_nc_ohc=bbUdA0aerrQQ7kNvwGA-mql&_nc_oc=AdpH6nZIMXGeCcogAYWn74jAcaqYkKNWfMvLsXCc9Tprli3joOulIZBA5RqNJe3vMHA&_nc_zt=23&_nc_ht=scontent-atl3-1.xx&_nc_gid=R0JXev4AS3j9pENybl5c6Q&_nc_ss=7b2a8&oh=00_Af5GtG0rDJS69587MFd-EO632tQ7q3lQoL9rp0G0wN7f7w&oe=6A12CADF",
+      "adUrl": "https://www.facebook.com/commerce/listing/889019750867057/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-05-20 00:00:20",
+      "lastSeen": "2026-05-20T00:00:20.744Z"
+    },
+    {
+      "adID": "1528013918678461",
+      "source": "FB",
+      "authorUrl": null,
+      "author": "John Roach",
+      "postedTime": "2026-05-19T23:07:19.651Z",
+      "title": "Original Galaga PCB",
+      "description": "This is being sold as is because I have no way to test it. It was working 20 years ago.",
+      "price": "$100",
+      "lat": 33.3778914,
+      "lon": -84.2888119,
+      "location": "FORTSON, GA",
+      "imageUrl": "https://scontent-atl3-3.xx.fbcdn.net/v/t39.30808-6/703085398_26646686815025008_7452457464961672562_n.jpg?stp=dst-jpg_s590x590_tt6&_nc_cat=107&ccb=1-7&_nc_sid=aa7b47&_nc_eui2=AeEpePkHvPADxrVvrkt8_YOw5I3niNrOgznkjeeI2s6DObT44G_GkDl18TAYMcokAGE&_nc_ohc=qbFGW_L3ofMQ7kNvwGSXLpv&_nc_oc=AdrvWevcpPfu1_4mofNgkBuk_sWhCWq6k-hQ2dyCa_BRVnpXG8t25nep9jjcqK0DH2M&_nc_zt=23&_nc_ht=scontent-atl3-3.xx&_nc_gid=IZnhaqMnbwzc9PKz3kDhbQ&_nc_ss=7b2a8&oh=00_Af78OQlMLHIqG2lluIg5XSX65xuxb0AmmgNypH3Fmgktbw&oe=6A12E810",
+      "adUrl": "https://www.facebook.com/commerce/listing/1528013918678461/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-05-20 00:00:20",
+      "lastSeen": "2026-05-20T00:00:20.811Z"
+    },
     {
       "adID": "1640247797211236",
       "source": "MP",
@@ -36,27 +96,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-19 22:04:22",
-      "lastSeen": "2026-05-19T22:04:52.851Z"
-    },
-    {
-      "adID": "808935712300752",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/100016526172394/?product_id=808935712300752",
-      "author": "Morgan Carrier",
-      "postedTime": "2026-05-19T20:12:13.000Z",
-      "title": "Set of FSU game day pins",
-      "description": "$2 each or $30 for all",
-      "price": "$25",
-      "lat": 30.6754503,
-      "lon": -87.9040269,
-      "location": "Spanish Fort, AL",
-      "imageUrl": "https://scontent-atl3-2.xx.fbcdn.net/v/t39.84726-6/700658094_2384077258671124_6915159415649565921_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=101&ccb=1-7&_nc_sid=92e707&_nc_eui2=AeFpkZd6abKxDClPNVczX5yUEhYOHwMz-7ESFg4fAzP7scFKBopyhYT58wFj6jEAmUo&_nc_ohc=TbKNrhthMiIQ7kNvwEIv7Xc&_nc_oc=AdpSeFcwFMAHBrodkNG0T4ITQCjb8bzl0OlISOOKGt68_0n_XtKGqdEJIKqIzrFnopE&_nc_zt=14&_nc_ht=scontent-atl3-2.xx&_nc_gid=bWRewcYFD9lL0G-rhK76QA&_nc_ss=7b2a8&oh=00_Af6ivGXhnianZCUBwtSpye1TmM1PaBHOM63gDDFuMYgZvA&oe=6A12A30B",
-      "adUrl": "https://www.facebook.com/marketplace/item/808935712300752/",
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-05-19 21:05:24",
-      "lastSeen": "2026-05-19T22:05:16.372Z"
+      "lastSeen": "2026-05-20T00:04:45.458Z"
     },
     {
       "adID": "988251596992828",
@@ -136,7 +176,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-18 21:05:30",
-      "lastSeen": "2026-05-19T23:04:33.206Z"
+      "lastSeen": "2026-05-20T00:04:45.126Z"
     },
     {
       "adID": "1493142495691118",
@@ -156,7 +196,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-18 14:04:27",
-      "lastSeen": "2026-05-19T22:04:22.752Z"
+      "lastSeen": "2026-05-20T00:04:45.179Z"
     },
     {
       "adID": "2135617383678580",
@@ -176,7 +216,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-18 14:04:27",
-      "lastSeen": "2026-05-19T22:04:22.786Z"
+      "lastSeen": "2026-05-20T00:04:45.223Z"
     },
     {
       "adID": "2179063702858988",
