@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-21T00:05:47.770Z",
+  "generated_at": "2026-05-21T01:05:56.281Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,10 +11,10 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 52,
-      "droppedPrice": 43,
+      "exported_ads": 51,
+      "droppedPrice": 27,
       "droppedMissingGeo": 0,
-      "droppedCircle": 34
+      "droppedCircle": 4
     }
   },
   "ads": [
@@ -23,7 +23,7 @@
       "source": "PS",
       "authorUrl": "https://pinside.com/pinball/community/pinsiders/mr_pinball/market",
       "author": "Mr_Pinball",
-      "postedTime": "2026-05-20T22:05:32.287Z",
+      "postedTime": "2026-05-20T22:05:39.458Z",
       "title": "Dealer's Choice",
       "description": "Used - shows wear, needs some work - “Project Williams Dealer's Choice Pinball Comes with replacement playfield. New rubber kit included. Cabinet and backglass in pretty decent condition. Comes with back door which i...”",
       "price": "$500",
@@ -36,7 +36,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-20 22:05:16",
-      "lastSeen": "2026-05-21T00:05:32.864Z"
+      "lastSeen": "2026-05-21T01:05:41.955Z"
     },
     {
       "adID": "1003425408698210",
@@ -56,7 +56,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-20 22:04:25",
-      "lastSeen": "2026-05-21T00:05:27.325Z"
+      "lastSeen": "2026-05-21T01:05:34.233Z"
     },
     {
       "adID": "1024822366780106",
@@ -76,7 +76,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-20 21:04:58",
-      "lastSeen": "2026-05-21T00:05:27.718Z"
+      "lastSeen": "2026-05-21T01:05:34.269Z"
     },
     {
       "adID": "1622430798872521",
@@ -96,7 +96,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-20 19:05:16",
-      "lastSeen": "2026-05-21T00:05:27.784Z"
+      "lastSeen": "2026-05-21T01:05:34.336Z"
     },
     {
       "adID": "1786422842336680",
@@ -216,47 +216,27 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-20 16:05:26",
-      "lastSeen": "2026-05-21T00:05:27.817Z"
+      "lastSeen": "2026-05-21T01:05:34.370Z"
     },
     {
       "adID": "1476783190576028",
       "source": "FB",
       "authorUrl": null,
       "author": "Michael Polley",
-      "postedTime": "2026-05-20T16:00:19.076Z",
+      "postedTime": "2026-05-20T16:00:18.776Z",
       "title": "(Pending) Crusin World main board",
       "description": "I have a very clean Crusin world main board in working condition. Comes with the cover housing as well. 200 shipped or 175 if picked up.",
       "price": "$200",
       "lat": 29.1871986,
       "lon": -82.1400923,
       "location": "OCALA, FL",
-      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.30808-6/703070026_10226137982996113_1427365806951275655_n.jpg?stp=dst-jpg_s590x590_tt6&_nc_cat=110&ccb=1-7&_nc_sid=aa7b47&_nc_eui2=AeFbtosM0GI3XnzdRVnDPb34gAtNcRcciIOAC01xFxyIgymVT-One50ItYxoUUb4jtY&_nc_ohc=vbOfiq59ei0Q7kNvwHLbN14&_nc_oc=AdpEsR22QaLMa2fR1jc_CdSgX_Dbt9PM6jJR3xyy2tNuRAJQ69gaoAkhAf4bv1_s-Ec&_nc_zt=23&_nc_ht=scontent-dfw5-1.xx&_nc_gid=VadQpqH9F0f-bQQft3BMsg&_nc_ss=7b2a8&oh=00_Af6OuqqMUpGIMIojHq57WB9RV0x62j0haM8AMRnAC7wH-w&oe=6A140A96",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.30808-6/703070026_10226137982996113_1427365806951275655_n.jpg?stp=dst-jpg_s590x590_tt6&_nc_cat=110&ccb=1-7&_nc_sid=aa7b47&_nc_eui2=AeFbtosM0GI3XnzdRVnDPb34gAtNcRcciIOAC01xFxyIgymVT-One50ItYxoUUb4jtY&_nc_ohc=vbOfiq59ei0Q7kNvwHLbN14&_nc_oc=AdpEsR22QaLMa2fR1jc_CdSgX_Dbt9PM6jJR3xyy2tNuRAJQ69gaoAkhAf4bv1_s-Ec&_nc_zt=23&_nc_ht=scontent-dfw5-1.xx&_nc_gid=JBl1eWsGrMq-T4RsO9giJg&_nc_ss=7b2a8&oh=00_Af4gMlC50PAUY0TnpGXFvEzIwwpWHR3Jd83rCHGCvEInTA&oe=6A1442D6",
       "adUrl": "https://www.facebook.com/commerce/listing/1476783190576028/",
       "priceChanged": 0,
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-20 16:00:19",
-      "lastSeen": "2026-05-21T00:00:19.204Z"
-    },
-    {
-      "adID": "957435533680261",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/61561911028297/?product_id=957435533680261",
-      "author": "Bronson Babin",
-      "postedTime": "2026-05-19T21:02:31.000Z",
-      "title": "Party money machine NEED GONE",
-      "description": "NEED GONE send offers",
-      "price": "$135",
-      "lat": 30.2274645,
-      "lon": -81.3800824,
-      "location": "Ponte Vedra Beach, FL",
-      "imageUrl": "https://scontent-atl3-3.xx.fbcdn.net/v/t39.84726-6/703844528_968593402649208_6813262694087020895_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=107&ccb=1-7&_nc_sid=92e707&_nc_eui2=AeFKxmHeyy69qS-LDho93inShMiPGom74laEyI8aibviVk99cB197ski911uftDlZCI&_nc_ohc=2tdoncAz-5AQ7kNvwHEGtFM&_nc_oc=Adq6XQXSp702rhtaaNTPfkigQskHZ9MbWBdKNHae06WY-gWbmuowrcHhr2kE81oOiY4&_nc_zt=14&_nc_ht=scontent-atl3-3.xx&_nc_gid=bipafExgufU4y8fLcENtzQ&_nc_ss=7b2a8&oh=00_Af5w82S7oGyrJ_mfuKlngkxiHtNUJwKrLdWox9OLR_pZIA&oe=6A136F9E",
-      "adUrl": "https://www.facebook.com/marketplace/item/957435533680261/",
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-05-20 11:06:17",
-      "lastSeen": "2026-05-21T00:05:27.850Z"
+      "lastSeen": "2026-05-21T01:00:18.859Z"
     },
     {
       "adID": "1015070311207473",
@@ -336,7 +316,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-19 22:04:22",
-      "lastSeen": "2026-05-21T00:04:33.318Z"
+      "lastSeen": "2026-05-21T01:04:41.521Z"
     },
     {
       "adID": "988251596992828",
