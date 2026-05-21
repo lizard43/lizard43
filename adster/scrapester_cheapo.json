@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-21T11:07:20.684Z",
+  "generated_at": "2026-05-21T12:06:41.722Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,53 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 52,
+      "exported_ads": 54,
       "droppedPrice": 35,
       "droppedMissingGeo": 0,
-      "droppedCircle": 14
+      "droppedCircle": 19
     }
   },
   "ads": [
+    {
+      "adID": "975826141498613",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/61550961569752/?product_id=975826141498613",
+      "author": "Layla Henriquez",
+      "postedTime": "2026-05-20T22:27:26.000Z",
+      "title": "Snuggle me",
+      "description": "Pink snuggle me I also have pretty sheets for it",
+      "price": "$50",
+      "lat": 29.8946952,
+      "lon": -81.3145395,
+      "location": "St Augustine, FL",
+      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/704427188_2072991146953779_8674389552749433481_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=104&ccb=1-7&_nc_sid=92e707&_nc_eui2=AeHUt8BwjON_BRhOHAzWntgI6h9aZ5MGvLPqH1pnkwa8s3cn9q-Q4QzxilkxmhZxL3M&_nc_ohc=CxlM1ZzpAIsQ7kNvwFRSI3C&_nc_oc=Ado6fNbVjUC2AA0GJvZpIcJXn6SVhUYTz2F-CA-wSjvOmPBptYVTsRuuINgTw4v7zkI&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=hZFRrijpPN4BbU7HNXuLFQ&_nc_ss=7b2a8&oh=00_Af6EsTGN-vJFgwyIvsaPQ2ZfpLMld5mbDYPKCWxCwaS9JQ&oe=6A14D287",
+      "adUrl": "https://www.facebook.com/marketplace/item/975826141498613/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-05-21 12:05:18",
+      "lastSeen": "2026-05-21T12:06:07.733Z"
+    },
+    {
+      "adID": "983235397436438",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100004025878563/?product_id=983235397436438",
+      "author": "Brittany Lippett",
+      "postedTime": "2026-05-20T22:27:03.000Z",
+      "title": "We Are Covered Doormat",
+      "description": "DOORMATS: They are made of 100% natural coir and are great for preventing dirt and mud from tracking inside your home. Each mat is UV Printed & UV lamp sealed d to help protect the design from wear and fading. DOORMAT SIZE: 18 x 30: Made for single doors. 24 × 36: Made for larger entryways like a double door.",
+      "price": "$35",
+      "lat": 33.3806716,
+      "lon": -84.7996573,
+      "location": "Newnan, GA",
+      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/703222730_1921673108536062_7890484447468129190_n.jpg?stp=dst-jpg_p960x960_tt6&_nc_cat=102&ccb=1-7&_nc_sid=92e707&_nc_eui2=AeEMIOQeNyLkp67OctqGXomuriVQo_fWaW6uJVCj99ZpbrK6sIbwYh7Rw0bOhrG77WI&_nc_ohc=XMnE2PTlZaEQ7kNvwGgQszc&_nc_oc=Adrje9FnU3zPB0u2ZMPq-hFWVhgrwwRrLNektRulWl3sfw36JmRVHaKiFxiWQvvAEQU&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=m_ix_C5PMYhInOPDuEi-Dw&_nc_ss=7b2a8&oh=00_Af7oKzFzu1y6ZEJDYgKfk2ZKn6UaBsZgy2G7kSdcaITuJQ&oe=6A14E3B1",
+      "adUrl": "https://www.facebook.com/marketplace/item/983235397436438/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-05-21 12:05:18",
+      "lastSeen": "2026-05-21T12:06:07.835Z"
+    },
     {
       "adID": "1399496152015929",
       "source": "MP",
@@ -36,14 +76,14 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-21 11:04:43",
-      "lastSeen": "2026-05-21T11:05:51.471Z"
+      "lastSeen": "2026-05-21T12:04:32.253Z"
     },
     {
       "adID": "PI-214831",
       "source": "PS",
       "authorUrl": "https://pinside.com/pinball/community/pinsiders/mr_pinball/market",
       "author": "Mr_Pinball",
-      "postedTime": "2026-05-20T22:07:06.124Z",
+      "postedTime": "2026-05-20T22:06:27.233Z",
       "title": "Dealer's Choice",
       "description": "Used - shows wear, needs some work - “Project Williams Dealer's Choice Pinball Comes with replacement playfield. New rubber kit included. Cabinet and backglass in pretty decent condition. Comes with back door which i...”",
       "price": "$500",
@@ -56,7 +96,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-20 22:05:16",
-      "lastSeen": "2026-05-21T11:07:06.886Z"
+      "lastSeen": "2026-05-21T12:06:27.623Z"
     },
     {
       "adID": "1003425408698210",
@@ -76,7 +116,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-20 22:04:25",
-      "lastSeen": "2026-05-21T11:06:21.187Z"
+      "lastSeen": "2026-05-21T12:05:18.227Z"
     },
     {
       "adID": "1024822366780106",
@@ -96,7 +136,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-20 21:04:58",
-      "lastSeen": "2026-05-21T11:06:21.220Z"
+      "lastSeen": "2026-05-21T12:05:18.261Z"
     },
     {
       "adID": "1622430798872521",
@@ -116,7 +156,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-20 19:05:16",
-      "lastSeen": "2026-05-21T11:06:21.287Z"
+      "lastSeen": "2026-05-21T12:05:18.328Z"
     },
     {
       "adID": "1786422842336680",
@@ -236,27 +276,27 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-20 16:05:26",
-      "lastSeen": "2026-05-21T11:06:21.321Z"
+      "lastSeen": "2026-05-21T12:05:18.361Z"
     },
     {
       "adID": "1476783190576028",
       "source": "FB",
       "authorUrl": null,
       "author": "Michael Polley",
-      "postedTime": "2026-05-20T16:00:18.836Z",
+      "postedTime": "2026-05-20T16:00:18.778Z",
       "title": "(Pending) Crusin World main board",
       "description": "I have a very clean Crusin world main board in working condition. Comes with the cover housing as well. 200 shipped or 175 if picked up.",
       "price": "$200",
       "lat": 29.1871986,
       "lon": -82.1400923,
       "location": "OCALA, FL",
-      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.30808-6/703070026_10226137982996113_1427365806951275655_n.jpg?stp=dst-jpg_s590x590_tt6&_nc_cat=110&ccb=1-7&_nc_sid=aa7b47&_nc_eui2=AeFbtosM0GI3XnzdRVnDPb34gAtNcRcciIOAC01xFxyIgymVT-One50ItYxoUUb4jtY&_nc_ohc=vbOfiq59ei0Q7kNvwHLbN14&_nc_oc=AdpEsR22QaLMa2fR1jc_CdSgX_Dbt9PM6jJR3xyy2tNuRAJQ69gaoAkhAf4bv1_s-Ec&_nc_zt=23&_nc_ht=scontent-dfw5-1.xx&_nc_gid=532PE-ZSgemRxElnwY62wg&_nc_ss=7b2a8&oh=00_Af7pe9YkrtqT9jXK-knPwOiYG4ljwMHvnbSsJ7mynI0hHA&oe=6A14B356",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.30808-6/703070026_10226137982996113_1427365806951275655_n.jpg?stp=dst-jpg_s590x590_tt6&_nc_cat=110&ccb=1-7&_nc_sid=aa7b47&_nc_eui2=AeFbtosM0GI3XnzdRVnDPb34gAtNcRcciIOAC01xFxyIgymVT-One50ItYxoUUb4jtY&_nc_ohc=vbOfiq59ei0Q7kNvwHLbN14&_nc_oc=AdpEsR22QaLMa2fR1jc_CdSgX_Dbt9PM6jJR3xyy2tNuRAJQ69gaoAkhAf4bv1_s-Ec&_nc_zt=23&_nc_ht=scontent-dfw5-1.xx&_nc_gid=Efst_WEToxNK_NWFq5JJXg&_nc_ss=7b2a8&oh=00_Af6AUZVzd6o2VYJh50HQgfrk4ZAnmmOXoqzhJ5UBIs0HPw&oe=6A14B356",
       "adUrl": "https://www.facebook.com/commerce/listing/1476783190576028/",
       "priceChanged": 0,
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-20 16:00:19",
-      "lastSeen": "2026-05-21T11:00:19.043Z"
+      "lastSeen": "2026-05-21T12:00:18.878Z"
     },
     {
       "adID": "1015070311207473",
@@ -276,7 +316,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-20 00:04:45",
-      "lastSeen": "2026-05-21T11:06:21.421Z"
+      "lastSeen": "2026-05-21T12:05:18.462Z"
     },
     {
       "adID": "889019750867057",
