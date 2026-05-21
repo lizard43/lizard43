@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-21T08:22:16.826Z",
+  "generated_at": "2026-05-21T11:07:20.684Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,19 +11,39 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 51,
-      "droppedPrice": 30,
+      "exported_ads": 52,
+      "droppedPrice": 35,
       "droppedMissingGeo": 0,
-      "droppedCircle": 7
+      "droppedCircle": 14
     }
   },
   "ads": [
+    {
+      "adID": "1399496152015929",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/61575568735728/?product_id=1399496152015929",
+      "author": "Hayes Garbee",
+      "postedTime": "2026-05-20T22:26:00.000Z",
+      "title": "PXN V9 Racing set up. Comes with pedals, steering wheel, and a shifter.",
+      "description": "(NOTHING WRONG WITH IT/LIKE NEW) PXN V9 Steering Wheel for PC, PS4, Xbox, Switch - Universal Usb Sim Racing Wheel, 270/900° Adjustable, 3 Pedals & Shifter",
+      "price": "$100",
+      "lat": 31.3465627,
+      "lon": -89.2600605,
+      "location": "Petal, MS",
+      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/701742595_1037802158572132_1885252176316447681_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=107&ccb=1-7&_nc_sid=92e707&_nc_eui2=AeH41t5BsfwvbtQvTYAVia7E7ylXSAyXaJ_vKVdIDJdon7YgCldi-B40inTcQ2R2azg&_nc_ohc=khOTwxYt6_MQ7kNvwEtCd5W&_nc_oc=AdpuuRHC9QevumWtkPmijszrDl0Dwq7Aj6t3_fY5xT3eOOpsFDdJrO6Sa8ubMEgfKE8&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=sNmc8jUtEQEpQ2pxcvkrFg&_nc_ss=7b2a8&oh=00_Af4buTQfnCbEs61ip8X0t4ev_Ly9WqEVUNiqydlQ26tXIA&oe=6A14A32D",
+      "adUrl": "https://www.facebook.com/marketplace/item/1399496152015929/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-05-21 11:04:43",
+      "lastSeen": "2026-05-21T11:05:51.471Z"
+    },
     {
       "adID": "PI-214831",
       "source": "PS",
       "authorUrl": "https://pinside.com/pinball/community/pinsiders/mr_pinball/market",
       "author": "Mr_Pinball",
-      "postedTime": "2026-05-20T22:05:33.208Z",
+      "postedTime": "2026-05-20T22:07:06.124Z",
       "title": "Dealer's Choice",
       "description": "Used - shows wear, needs some work - “Project Williams Dealer's Choice Pinball Comes with replacement playfield. New rubber kit included. Cabinet and backglass in pretty decent condition. Comes with back door which i...”",
       "price": "$500",
@@ -36,7 +56,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-20 22:05:16",
-      "lastSeen": "2026-05-21T02:05:33.551Z"
+      "lastSeen": "2026-05-21T11:07:06.886Z"
     },
     {
       "adID": "1003425408698210",
@@ -56,7 +76,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-20 22:04:25",
-      "lastSeen": "2026-05-21T02:04:46.481Z"
+      "lastSeen": "2026-05-21T11:06:21.187Z"
     },
     {
       "adID": "1024822366780106",
@@ -76,7 +96,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-20 21:04:58",
-      "lastSeen": "2026-05-21T02:04:46.515Z"
+      "lastSeen": "2026-05-21T11:06:21.220Z"
     },
     {
       "adID": "1622430798872521",
@@ -96,7 +116,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-20 19:05:16",
-      "lastSeen": "2026-05-21T02:04:46.582Z"
+      "lastSeen": "2026-05-21T11:06:21.287Z"
     },
     {
       "adID": "1786422842336680",
@@ -216,27 +236,27 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-20 16:05:26",
-      "lastSeen": "2026-05-21T02:04:46.616Z"
+      "lastSeen": "2026-05-21T11:06:21.321Z"
     },
     {
       "adID": "1476783190576028",
       "source": "FB",
       "authorUrl": null,
       "author": "Michael Polley",
-      "postedTime": "2026-05-20T16:00:18.674Z",
+      "postedTime": "2026-05-20T16:00:18.836Z",
       "title": "(Pending) Crusin World main board",
       "description": "I have a very clean Crusin world main board in working condition. Comes with the cover housing as well. 200 shipped or 175 if picked up.",
       "price": "$200",
       "lat": 29.1871986,
       "lon": -82.1400923,
       "location": "OCALA, FL",
-      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.30808-6/703070026_10226137982996113_1427365806951275655_n.jpg?stp=dst-jpg_s590x590_tt6&_nc_cat=110&ccb=1-7&_nc_sid=aa7b47&_nc_eui2=AeFbtosM0GI3XnzdRVnDPb34gAtNcRcciIOAC01xFxyIgymVT-One50ItYxoUUb4jtY&_nc_ohc=vbOfiq59ei0Q7kNvwHLbN14&_nc_oc=AdpEsR22QaLMa2fR1jc_CdSgX_Dbt9PM6jJR3xyy2tNuRAJQ69gaoAkhAf4bv1_s-Ec&_nc_zt=23&_nc_ht=scontent-dfw5-1.xx&_nc_gid=byYR5mbKQuVjQBC8ri3-0A&_nc_ss=7b2a8&oh=00_Af7s1kRIt5CrBCAwIQGzjY9zyQRoWofA062yK77YoaIT8w&oe=6A1442D6",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.30808-6/703070026_10226137982996113_1427365806951275655_n.jpg?stp=dst-jpg_s590x590_tt6&_nc_cat=110&ccb=1-7&_nc_sid=aa7b47&_nc_eui2=AeFbtosM0GI3XnzdRVnDPb34gAtNcRcciIOAC01xFxyIgymVT-One50ItYxoUUb4jtY&_nc_ohc=vbOfiq59ei0Q7kNvwHLbN14&_nc_oc=AdpEsR22QaLMa2fR1jc_CdSgX_Dbt9PM6jJR3xyy2tNuRAJQ69gaoAkhAf4bv1_s-Ec&_nc_zt=23&_nc_ht=scontent-dfw5-1.xx&_nc_gid=532PE-ZSgemRxElnwY62wg&_nc_ss=7b2a8&oh=00_Af7pe9YkrtqT9jXK-knPwOiYG4ljwMHvnbSsJ7mynI0hHA&oe=6A14B356",
       "adUrl": "https://www.facebook.com/commerce/listing/1476783190576028/",
       "priceChanged": 0,
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-20 16:00:19",
-      "lastSeen": "2026-05-21T02:00:18.813Z"
+      "lastSeen": "2026-05-21T11:00:19.043Z"
     },
     {
       "adID": "1015070311207473",
@@ -256,7 +276,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-20 00:04:45",
-      "lastSeen": "2026-05-20T13:04:29.520Z"
+      "lastSeen": "2026-05-21T11:06:21.421Z"
     },
     {
       "adID": "889019750867057",
