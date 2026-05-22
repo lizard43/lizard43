@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-22T17:03:43.412Z",
+  "generated_at": "2026-05-22T18:02:46.500Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,33 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 13,
-      "droppedPrice": 129,
+      "exported_ads": 14,
+      "droppedPrice": 133,
       "droppedMissingGeo": 0,
-      "droppedCircle": 80
+      "droppedCircle": 83
     }
   },
   "ads": [
+    {
+      "adID": "1004267958637218",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100024710110222/?product_id=1004267958637218",
+      "author": "Mackenzie Ballard",
+      "postedTime": "2026-05-22T17:04:59.000Z",
+      "title": "Arcane blind box",
+      "description": "50 for both or 25 each. Will trade for Jayce or Viktor.",
+      "price": "$50",
+      "lat": 28.3581405,
+      "lon": -82.692005,
+      "location": "Hudson, FL",
+      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/705061588_1507403047843224_8795794370954291638_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=101&ccb=1-7&_nc_sid=92e707&_nc_eui2=AeF2cf3RTtwEFtOcO9pw6C3KvCuEGS8eU8S8K4QZLx5TxGUhx_3mxRsnKGMXAKX-C0Q&_nc_ohc=ofRdunGRjiUQ7kNvwH1vGpG&_nc_oc=AdoyB_jk61dcAo5xoKZSyQnuk7-mtkP39r03U8S_hoFafZU5CD-wupI3am6G7mK-V5c&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=qHKWA7RZF9vskf-wr78Ktw&_nc_ss=7b2a8&oh=00_Af4mgWhMibANVIpKA-uPn6rA0N5hu3uSskRRIa7qq6V4Eg&oe=6A165ACE",
+      "adUrl": "https://www.facebook.com/marketplace/item/1004267958637218/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-05-22 18:01:35",
+      "lastSeen": "2026-05-22T18:01:50.951Z"
+    },
     {
       "adID": "954392583892402",
       "source": "MP",
@@ -36,7 +56,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-22 17:02:37",
-      "lastSeen": "2026-05-22T17:03:12.407Z"
+      "lastSeen": "2026-05-22T18:02:12.661Z"
     },
     {
       "adID": "1644202516800157",
@@ -56,7 +76,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-22 17:01:31",
-      "lastSeen": "2026-05-22T17:02:09.758Z"
+      "lastSeen": "2026-05-22T18:01:34.021Z"
     },
     {
       "adID": "26951937357831377",
@@ -96,7 +116,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-22 00:01:40",
-      "lastSeen": "2026-05-22T17:01:31.323Z"
+      "lastSeen": "2026-05-22T18:01:34.227Z"
     },
     {
       "adID": "1004074902082738",
@@ -116,7 +136,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-21 23:17:49",
-      "lastSeen": "2026-05-22T17:02:36.536Z"
+      "lastSeen": "2026-05-22T18:02:12.013Z"
     },
     {
       "adID": "3588264021339878",
@@ -136,7 +156,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-21 23:17:49",
-      "lastSeen": "2026-05-22T17:02:36.570Z"
+      "lastSeen": "2026-05-22T18:02:12.047Z"
     },
     {
       "adID": "1643452530262452",
@@ -156,14 +176,14 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-21 23:16:06",
-      "lastSeen": "2026-05-22T17:01:31.223Z"
+      "lastSeen": "2026-05-22T18:01:34.125Z"
     },
     {
       "adID": "PI-214831",
       "source": "PS",
       "authorUrl": "https://pinside.com/pinball/community/pinsiders/mr_pinball/market",
       "author": "Mr_Pinball",
-      "postedTime": "2026-05-20T22:03:38.096Z",
+      "postedTime": "2026-05-20T22:02:43.070Z",
       "title": "Dealer's Choice",
       "description": "Used - shows wear, needs some work - “Project Williams Dealer's Choice Pinball Comes with replacement playfield. New rubber kit included. Cabinet and backglass in pretty decent condition. Comes with back door which i...”",
       "price": "$500",
@@ -176,7 +196,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-21 13:17:46",
-      "lastSeen": "2026-05-22T17:03:38.726Z"
+      "lastSeen": "2026-05-22T18:02:43.703Z"
     },
     {
       "adID": "2076565022923459",
@@ -216,7 +236,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-21 13:07:25",
-      "lastSeen": "2026-05-22T17:02:36.903Z"
+      "lastSeen": "2026-05-22T18:02:12.394Z"
     },
     {
       "adID": "1003425408698210",
@@ -236,7 +256,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-21 13:07:23",
-      "lastSeen": "2026-05-22T17:02:36.771Z"
+      "lastSeen": "2026-05-22T18:02:12.248Z"
     },
     {
       "adID": "1476783190576028",
