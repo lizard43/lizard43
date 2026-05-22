@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-22T11:08:48.427Z",
+  "generated_at": "2026-05-22T12:02:42.212Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,33 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 15,
-      "droppedPrice": 112,
+      "exported_ads": 16,
+      "droppedPrice": 114,
       "droppedMissingGeo": 0,
       "droppedCircle": 77
     }
   },
   "ads": [
+    {
+      "adID": "1819814512329068",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/529716357/?product_id=1819814512329068",
+      "author": "Alisha Brackett",
+      "postedTime": "2026-05-22T11:50:38.000Z",
+      "title": "Games",
+      "description": "1 pinball game, 2 board games, 3 card games and 2 puzzles. Selling all for $20. I don’t want to split them up and if you only want some, you can buy all and sell what you don’t want. Pick up at 9751 Crosshill Blvd.",
+      "price": "$20",
+      "lat": 30.3262247,
+      "lon": -81.6579179,
+      "location": "Jacksonville, FL",
+      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/706003034_940966265606468_1355961317190487532_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=103&ccb=1-7&_nc_sid=92e707&_nc_eui2=AeHoHxUcS85L8YskH8TO_FAdRSaBWOsv1DdFJoFY6y_UN8Lvg8dYFVZm5Sq0QlwDsGM&_nc_ohc=c9ob-JebOuMQ7kNvwGZJe0Q&_nc_oc=Adp2OqpkjQe_-M4J4LcoTx4mZpem1x_DaJMO_qfpIEXK6fyomxG3TiB0bxEpVdnNhuI&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=L5vg09K4VjdVSFYRChZDsA&_nc_ss=7b2a8&oh=00_Af5E6cip9dQFQsU3rFA5M-GsAB4XCQue80miZJ2fW2-KPg&oe=6A1603E8",
+      "adUrl": "https://www.facebook.com/marketplace/item/1819814512329068/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-05-22 12:01:51",
+      "lastSeen": "2026-05-22T12:02:15.059Z"
+    },
     {
       "adID": "1329698169031536",
       "source": "MP",
@@ -36,7 +56,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-22 11:04:01",
-      "lastSeen": "2026-05-22T11:07:42.908Z"
+      "lastSeen": "2026-05-22T12:01:52.614Z"
     },
     {
       "adID": "956912400524949",
@@ -56,7 +76,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-22 11:04:00",
-      "lastSeen": "2026-05-22T11:07:42.875Z"
+      "lastSeen": "2026-05-22T12:01:52.581Z"
     },
     {
       "adID": "1650916006177675",
@@ -76,7 +96,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-22 11:03:50",
-      "lastSeen": "2026-05-22T11:07:42.506Z"
+      "lastSeen": "2026-05-22T12:01:51.358Z"
     },
     {
       "adID": "26951937357831377",
@@ -116,7 +136,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-22 00:01:42",
-      "lastSeen": "2026-05-22T11:01:44.019Z"
+      "lastSeen": "2026-05-22T12:01:39.794Z"
     },
     {
       "adID": "993118939728358",
@@ -136,7 +156,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-22 00:01:40",
-      "lastSeen": "2026-05-22T11:01:43.985Z"
+      "lastSeen": "2026-05-22T12:01:39.761Z"
     },
     {
       "adID": "1004074902082738",
@@ -156,7 +176,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-21 23:17:49",
-      "lastSeen": "2026-05-22T11:03:49.162Z"
+      "lastSeen": "2026-05-22T12:01:51.190Z"
     },
     {
       "adID": "3588264021339878",
@@ -176,7 +196,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-21 23:17:49",
-      "lastSeen": "2026-05-22T11:03:49.558Z"
+      "lastSeen": "2026-05-22T12:01:51.224Z"
     },
     {
       "adID": "1643452530262452",
@@ -196,14 +216,14 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-21 23:16:06",
-      "lastSeen": "2026-05-22T11:01:43.885Z"
+      "lastSeen": "2026-05-22T12:01:39.661Z"
     },
     {
       "adID": "PI-214831",
       "source": "PS",
       "authorUrl": "https://pinside.com/pinball/community/pinsiders/mr_pinball/market",
       "author": "Mr_Pinball",
-      "postedTime": "2026-05-20T22:08:45.299Z",
+      "postedTime": "2026-05-20T22:02:39.295Z",
       "title": "Dealer's Choice",
       "description": "Used - shows wear, needs some work - “Project Williams Dealer's Choice Pinball Comes with replacement playfield. New rubber kit included. Cabinet and backglass in pretty decent condition. Comes with back door which i...”",
       "price": "$500",
@@ -216,7 +236,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-21 13:17:46",
-      "lastSeen": "2026-05-22T11:08:45.422Z"
+      "lastSeen": "2026-05-22T12:02:39.449Z"
     },
     {
       "adID": "2076565022923459",
@@ -256,7 +276,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-21 13:07:25",
-      "lastSeen": "2026-05-22T11:03:51.015Z"
+      "lastSeen": "2026-05-22T12:01:51.593Z"
     },
     {
       "adID": "1003425408698210",
@@ -276,7 +296,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-21 13:07:23",
-      "lastSeen": "2026-05-22T11:03:50.563Z"
+      "lastSeen": "2026-05-22T12:01:51.459Z"
     },
     {
       "adID": "1476783190576028",
