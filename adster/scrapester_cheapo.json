@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-22T16:02:36.473Z",
+  "generated_at": "2026-05-22T17:03:43.412Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,53 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 12,
+      "exported_ads": 13,
       "droppedPrice": 129,
       "droppedMissingGeo": 0,
-      "droppedCircle": 77
+      "droppedCircle": 80
     }
   },
   "ads": [
+    {
+      "adID": "954392583892402",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/61570351853696/?product_id=954392583892402",
+      "author": "Dave Hannan",
+      "postedTime": "2026-05-22T15:19:45.000Z",
+      "title": "Hattiesburg Country Club Ball Markers",
+      "description": "Hand-crafted custom ball markers made using real wood, actual golf balls & tees and epoxy resin. Sold separately for $20 each. For reference, numbered 1 to 7 beginning top with top left marker.",
+      "price": "$20",
+      "lat": 31.3271189,
+      "lon": -89.2903392,
+      "location": "Hattiesburg, MS",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/705481671_1500557911771622_5985322151084794195_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=110&ccb=1-7&_nc_sid=92e707&_nc_eui2=AeEBMH_Q98KaUXiZ_Qm0h_zgsJS8_UkgYJiwlLz9SSBgmLDhn6CjEszvMKDuFL_z5Bg&_nc_ohc=vQCGo-Ww5BEQ7kNvwFRNzyj&_nc_oc=AdpNb0SOeDR885Hk-q7gD0Sd6rwwk7VK-QeEMLoVsDoxoTrQ823dD2VBt0ctdox6p7M&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=xpt_P7D_znj8dpPvbOJF5g&_nc_ss=7b2a8&oh=00_Af7O_EEq4IWqCVpRmYsl9h21ZIJXuaXjJks874B-6kzqtA&oe=6A166447",
+      "adUrl": "https://www.facebook.com/marketplace/item/954392583892402/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-05-22 17:02:37",
+      "lastSeen": "2026-05-22T17:03:12.407Z"
+    },
+    {
+      "adID": "1644202516800157",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100066504577963/?product_id=1644202516800157",
+      "author": "Alicia Ramos",
+      "postedTime": "2026-05-22T16:46:50.000Z",
+      "title": "Capcom arcade machine",
+      "description": "Works perfect. Really good condition",
+      "price": "$250",
+      "lat": 27.871197,
+      "lon": -82.3269883,
+      "location": "Riverview, FL",
+      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/704558553_1865677120775181_4189557332435533268_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=103&ccb=1-7&_nc_sid=92e707&_nc_eui2=AeG4A3z6mc1FMkekahmcVW30DUaAlYU4_5INRoCVhTj_ktnrZ2I9ITKzCU8wRnwl0DE&_nc_ohc=rCSPGoNMOQEQ7kNvwE1Kh1z&_nc_oc=AdqaIkSmpup6BfshJH3XDk3SJ2KuUYrZc8BqAzS4irDveQS2tQftkjI6IOxoR9nb9Yo&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=YIM28-bG1hmgFpYw8Fevsw&_nc_ss=7b2a8&oh=00_Af78Yf8y8XPeIl1UcvWplnWWiN7DBzCqFXishNNcQNhdGw&oe=6A1675E8",
+      "adUrl": "https://www.facebook.com/marketplace/item/1644202516800157/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-05-22 17:01:31",
+      "lastSeen": "2026-05-22T17:02:09.758Z"
+    },
     {
       "adID": "26951937357831377",
       "source": "MP",
@@ -39,26 +79,6 @@
       "lastSeen": "2026-05-22T01:02:17.214Z"
     },
     {
-      "adID": "1537024121393401",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/100031850174898/?product_id=1537024121393401",
-      "author": "Joe Cado",
-      "postedTime": "2026-05-21T16:00:49.000Z",
-      "title": "Mrs Pac-Man 40th edition arcade",
-      "description": "...",
-      "price": "$250",
-      "lat": 30.0688512,
-      "lon": -81.8603778,
-      "location": "Middleburg, FL",
-      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/702963006_27204277115864077_8399084216409053532_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=101&ccb=1-7&_nc_sid=92e707&_nc_eui2=AeF73uz_DBe3VmvdtGxSML9Dz9G3aWPyy4_P0bdpY_LLj7NvaFR8ou-8l-sz26dLHrI&_nc_ohc=GwMRqv49QOEQ7kNvwGNu95Y&_nc_oc=AdpMisOiuwrDid5VpMD95qGrf8K5R3_twjh4ZoIAKTaKY73L7pnaMmK84nIZtmWtRZk&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=i4qx1TdCTkXMErpCsk9B7Q&_nc_ss=7b2a8&oh=00_Af7HQODgaocMfnZUrHwWf4PfQq23slR-y4nqCYOwV62ilg&oe=6A157B83",
-      "adUrl": "https://www.facebook.com/marketplace/item/1537024121393401/",
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-05-22 00:01:42",
-      "lastSeen": "2026-05-22T16:01:33.779Z"
-    },
-    {
       "adID": "993118939728358",
       "source": "MP",
       "authorUrl": "https://www.facebook.com/marketplace/profile/100000128641202/?product_id=993118939728358",
@@ -76,7 +96,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-22 00:01:40",
-      "lastSeen": "2026-05-22T16:01:33.437Z"
+      "lastSeen": "2026-05-22T17:01:31.323Z"
     },
     {
       "adID": "1004074902082738",
@@ -96,7 +116,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-21 23:17:49",
-      "lastSeen": "2026-05-22T16:02:21.813Z"
+      "lastSeen": "2026-05-22T17:02:36.536Z"
     },
     {
       "adID": "3588264021339878",
@@ -116,7 +136,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-21 23:17:49",
-      "lastSeen": "2026-05-22T16:02:21.846Z"
+      "lastSeen": "2026-05-22T17:02:36.570Z"
     },
     {
       "adID": "1643452530262452",
@@ -136,14 +156,14 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-21 23:16:06",
-      "lastSeen": "2026-05-22T16:01:33.337Z"
+      "lastSeen": "2026-05-22T17:01:31.223Z"
     },
     {
       "adID": "PI-214831",
       "source": "PS",
       "authorUrl": "https://pinside.com/pinball/community/pinsiders/mr_pinball/market",
       "author": "Mr_Pinball",
-      "postedTime": "2026-05-20T22:02:32.815Z",
+      "postedTime": "2026-05-20T22:03:38.096Z",
       "title": "Dealer's Choice",
       "description": "Used - shows wear, needs some work - “Project Williams Dealer's Choice Pinball Comes with replacement playfield. New rubber kit included. Cabinet and backglass in pretty decent condition. Comes with back door which i...”",
       "price": "$500",
@@ -156,7 +176,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-21 13:17:46",
-      "lastSeen": "2026-05-22T16:02:33.417Z"
+      "lastSeen": "2026-05-22T17:03:38.726Z"
     },
     {
       "adID": "2076565022923459",
@@ -196,7 +216,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-21 13:07:25",
-      "lastSeen": "2026-05-22T16:02:22.181Z"
+      "lastSeen": "2026-05-22T17:02:36.903Z"
     },
     {
       "adID": "1003425408698210",
@@ -216,7 +236,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-21 13:07:23",
-      "lastSeen": "2026-05-22T16:02:22.047Z"
+      "lastSeen": "2026-05-22T17:02:36.771Z"
     },
     {
       "adID": "1476783190576028",
@@ -243,20 +263,20 @@
       "source": "FB",
       "authorUrl": null,
       "author": "Justin Jotso",
-      "postedTime": "2026-05-21T16:00:11.283Z",
+      "postedTime": "2026-05-21T17:00:11.397Z",
       "title": "Off road chalangw stand up arcade",
       "description": "This is an all original game. It is fully workimg and does have a working tube but an lcd swap would make it lighter and easier to move around",
       "price": "$800",
       "lat": 30.1894252,
       "lon": -82.6394803,
       "location": "LAKE CITY, FL",
-      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.30808-6/703844504_10165276299373357_5612528903351432062_n.jpg?stp=cp6_dst-jpegr_s590x590_tt6&_nc_cat=101&ccb=1-7&_nc_sid=aa7b47&_nc_eui2=AeFsQ1QBqb_Y82TFPuDcMgLIx7YLC_-skJfHtgsL_6yQlwa0sIL5MNMNBskChk8xDmE&_nc_ohc=GQcpOFlMZwUQ7kNvwHU-2h5&_nc_oc=AdoyGUQvqA_7tGBHREb8dx2s1yDIoaYXH1HquxVyT7FCbwZsIMS2AXlEDDn9i0X6SK4&_nc_zt=23&se=-1&_nc_ht=scontent-dfw6-1.xx&_nc_gid=DLlUcEpvPHG75qIRmEsi7g&_nc_ss=7b2a8&oh=00_Af7XV-TctNR6BA98wtIodrtPA1Ee1U7rqY7WkUpmddnY3g&oe=6A165BF8",
+      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.30808-6/703844504_10165276299373357_5612528903351432062_n.jpg?stp=cp6_dst-jpegr_s590x590_tt6&_nc_cat=101&ccb=1-7&_nc_sid=aa7b47&_nc_eui2=AeFsQ1QBqb_Y82TFPuDcMgLIx7YLC_-skJfHtgsL_6yQlwa0sIL5MNMNBskChk8xDmE&_nc_ohc=GQcpOFlMZwUQ7kNvwHU-2h5&_nc_oc=AdoyGUQvqA_7tGBHREb8dx2s1yDIoaYXH1HquxVyT7FCbwZsIMS2AXlEDDn9i0X6SK4&_nc_zt=23&se=-1&_nc_ht=scontent-dfw6-1.xx&_nc_gid=b4H17aaV9zzcOPASDKMorw&_nc_ss=7b2a8&oh=00_Af73rpZhQMcrr84aj-t7WaHuA1wkmSzCTp-CXYIhE9rtkA&oe=6A165BF8",
       "adUrl": "https://www.facebook.com/commerce/listing/813762084901054/",
       "priceChanged": 0,
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-21 13:00:12",
-      "lastSeen": "2026-05-22T16:00:11.507Z"
+      "lastSeen": "2026-05-22T17:00:11.941Z"
     }
   ]
 }
