@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-22T00:05:19.292Z",
+  "generated_at": "2026-05-22T01:04:13.445Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,33 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 14,
-      "droppedPrice": 90,
+      "exported_ads": 15,
+      "droppedPrice": 97,
       "droppedMissingGeo": 0,
-      "droppedCircle": 67
+      "droppedCircle": 68
     }
   },
   "ads": [
+    {
+      "adID": "26951937357831377",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100070782786517/?product_id=26951937357831377",
+      "author": "Jordyn Devers",
+      "postedTime": "2026-05-22T00:54:14.000Z",
+      "title": "Sonic and the black knight",
+      "description": "Sonic and the black knight for the wii cib its in good condition and works great",
+      "price": "$25",
+      "lat": 33.5966005,
+      "lon": -83.8598742,
+      "location": "Covington, GA",
+      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/703399896_981775351106270_6926454313512145420_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=106&ccb=1-7&_nc_sid=92e707&_nc_eui2=AeEgYljGamhAsjAGUXM5D4-30owo7Pb1aonSjCjs9vVqiV2Bt3HWSA0LRue4AIkijgE&_nc_ohc=LIwYDIY08VEQ7kNvwHFtGrv&_nc_oc=AdpGKPlb_fjlFHjfjJlDd61uYKZUHOHi8m4W-LiOUugZt8sD0jGe0IcOi5MNfwEt8rE&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=-hSgQGz-Ahm7V_0bTyDv4Q&_nc_ss=7b2a8&oh=00_Af5JENIcpgJAK7JxVyhQUyERdNCvZwJzpM69ry8pj-mizQ&oe=6A1564CF",
+      "adUrl": "https://www.facebook.com/marketplace/item/26951937357831377/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-05-22 01:01:45",
+      "lastSeen": "2026-05-22T01:02:17.214Z"
+    },
     {
       "adID": "4523800147895989",
       "source": "MP",
@@ -36,7 +56,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-22 00:03:59",
-      "lastSeen": "2026-05-22T00:04:51.004Z"
+      "lastSeen": "2026-05-22T01:02:47.624Z"
     },
     {
       "adID": "1537024121393401",
@@ -96,7 +116,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-21 23:17:57",
-      "lastSeen": "2026-05-22T00:03:58.716Z"
+      "lastSeen": "2026-05-22T01:02:47.489Z"
     },
     {
       "adID": "1670597767514268",
@@ -116,7 +136,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-21 23:17:51",
-      "lastSeen": "2026-05-22T00:03:57.978Z"
+      "lastSeen": "2026-05-22T01:02:46.413Z"
     },
     {
       "adID": "1004074902082738",
@@ -136,7 +156,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-21 23:17:49",
-      "lastSeen": "2026-05-22T00:03:57.247Z"
+      "lastSeen": "2026-05-22T01:02:46.255Z"
     },
     {
       "adID": "3588264021339878",
@@ -156,7 +176,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-21 23:17:49",
-      "lastSeen": "2026-05-22T00:03:57.516Z"
+      "lastSeen": "2026-05-22T01:02:46.311Z"
     },
     {
       "adID": "1643452530262452",
@@ -176,14 +196,14 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-21 23:16:06",
-      "lastSeen": "2026-05-22T00:01:37.287Z"
+      "lastSeen": "2026-05-22T01:01:47.362Z"
     },
     {
       "adID": "PI-214831",
       "source": "PS",
       "authorUrl": "https://pinside.com/pinball/community/pinsiders/mr_pinball/market",
       "author": "Mr_Pinball",
-      "postedTime": "2026-05-20T22:05:16.038Z",
+      "postedTime": "2026-05-20T22:04:10.066Z",
       "title": "Dealer's Choice",
       "description": "Used - shows wear, needs some work - “Project Williams Dealer's Choice Pinball Comes with replacement playfield. New rubber kit included. Cabinet and backglass in pretty decent condition. Comes with back door which i...”",
       "price": "$500",
@@ -196,7 +216,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-21 13:17:46",
-      "lastSeen": "2026-05-22T00:05:16.146Z"
+      "lastSeen": "2026-05-22T01:04:10.198Z"
     },
     {
       "adID": "2076565022923459",
@@ -236,7 +256,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-21 13:07:25",
-      "lastSeen": "2026-05-22T00:03:58.280Z"
+      "lastSeen": "2026-05-22T01:02:46.713Z"
     },
     {
       "adID": "1003425408698210",
@@ -256,7 +276,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-21 13:07:23",
-      "lastSeen": "2026-05-22T00:03:58.146Z"
+      "lastSeen": "2026-05-22T01:02:46.580Z"
     },
     {
       "adID": "1476783190576028",
