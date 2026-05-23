@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-23T21:03:06.041Z",
+  "generated_at": "2026-05-23T22:03:34.686Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,33 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 21,
+      "exported_ads": 22,
       "droppedPrice": 202,
       "droppedMissingGeo": 0,
-      "droppedCircle": 108
+      "droppedCircle": 114
     }
   },
   "ads": [
+    {
+      "adID": "1504694054680955",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100069037713773/?product_id=1504694054680955",
+      "author": "Ariel Doolin",
+      "postedTime": "2026-05-23T21:42:23.000Z",
+      "title": "Retro Arcade",
+      "description": "Never opened. Was meant to be a gifts but was forgotten. 10 for 1 or 15 for both",
+      "price": "$10",
+      "lat": 33.3967079,
+      "lon": -86.1597137,
+      "location": "Talladega, AL",
+      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/705277394_1549250890177157_1965218927181844540_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=104&ccb=1-7&_nc_sid=92e707&_nc_ohc=yKN0yAfyCq0Q7kNvwFj0bUu&_nc_oc=AdqAsHny1If7aOjJL-VI7vDShR6wHWD73AeQjb9B3efDkVez_6UaC6Qlmv13-Bf1WlY&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=JpQTCKKLliIBh3LJIUeabg&_nc_ss=7b2a8&oh=00_Af4Zguqzn4BJV7Se2av68wM8_rjsvOum9RqxCl3dGxk6ig&oe=6A17F5FA",
+      "adUrl": "https://www.facebook.com/marketplace/item/1504694054680955/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-05-23 22:01:34",
+      "lastSeen": "2026-05-23T22:02:28.815Z"
+    },
     {
       "adID": "2440275803060514",
       "source": "MP",
@@ -36,7 +56,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-23 20:02:38",
-      "lastSeen": "2026-05-23T21:02:30.645Z"
+      "lastSeen": "2026-05-23T22:02:57.462Z"
     },
     {
       "adID": "1680030553201043",
@@ -56,7 +76,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-23 20:01:32",
-      "lastSeen": "2026-05-23T21:02:30.679Z"
+      "lastSeen": "2026-05-23T22:02:57.496Z"
     },
     {
       "adID": "1310064863854195",
@@ -76,7 +96,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-23 19:01:33",
-      "lastSeen": "2026-05-23T21:01:35.521Z"
+      "lastSeen": "2026-05-23T22:01:36.134Z"
     },
     {
       "adID": "1980350822842120",
@@ -96,7 +116,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-23 17:02:43",
-      "lastSeen": "2026-05-23T21:02:29.875Z"
+      "lastSeen": "2026-05-23T22:02:56.624Z"
     },
     {
       "adID": "1514271426742474",
@@ -116,7 +136,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-23 11:03:23",
-      "lastSeen": "2026-05-23T21:02:30.177Z"
+      "lastSeen": "2026-05-23T22:02:56.927Z"
     },
     {
       "adID": "2559878301081821",
@@ -136,7 +156,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-22 21:01:31",
-      "lastSeen": "2026-05-23T21:02:30.076Z"
+      "lastSeen": "2026-05-23T22:02:56.826Z"
     },
     {
       "adID": "1651419732643397",
@@ -216,7 +236,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-22 17:01:31",
-      "lastSeen": "2026-05-23T21:01:34.692Z"
+      "lastSeen": "2026-05-23T22:01:35.900Z"
     },
     {
       "adID": "26951937357831377",
@@ -276,7 +296,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-21 23:17:49",
-      "lastSeen": "2026-05-23T21:02:30.310Z"
+      "lastSeen": "2026-05-23T22:02:57.061Z"
     },
     {
       "adID": "3588264021339878",
@@ -296,7 +316,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-21 23:17:49",
-      "lastSeen": "2026-05-23T21:02:30.344Z"
+      "lastSeen": "2026-05-23T22:02:57.094Z"
     },
     {
       "adID": "1643452530262452",
@@ -323,7 +343,7 @@
       "source": "PS",
       "authorUrl": "https://pinside.com/pinball/community/pinsiders/mr_pinball/market",
       "author": "Mr_Pinball",
-      "postedTime": "2026-05-21T21:03:05.356Z",
+      "postedTime": "2026-05-20T22:03:33.961Z",
       "title": "Dealer's Choice",
       "description": "Used - shows wear, needs some work - “Project Williams Dealer's Choice Pinball Comes with replacement playfield. New rubber kit included. Cabinet and backglass in pretty decent condition. Comes with back door which i...”",
       "price": "$500",
@@ -336,7 +356,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-21 13:17:46",
-      "lastSeen": "2026-05-23T21:03:05.680Z"
+      "lastSeen": "2026-05-23T22:03:34.275Z"
     },
     {
       "adID": "2076565022923459",
@@ -376,7 +396,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-21 13:07:25",
-      "lastSeen": "2026-05-23T21:02:30.612Z"
+      "lastSeen": "2026-05-23T22:02:57.362Z"
     },
     {
       "adID": "1003425408698210",
