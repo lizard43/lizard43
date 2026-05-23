@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-23T19:02:33.449Z",
+  "generated_at": "2026-05-23T20:03:19.857Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,53 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 19,
-      "droppedPrice": 196,
+      "exported_ads": 21,
+      "droppedPrice": 201,
       "droppedMissingGeo": 0,
-      "droppedCircle": 102
+      "droppedCircle": 105
     }
   },
   "ads": [
+    {
+      "adID": "2440275803060514",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100065911963326/?product_id=2440275803060514",
+      "author": "Reseller Nana",
+      "postedTime": "2026-05-23T19:39:25.000Z",
+      "title": "Wounded Veterans Car Show Metals",
+      "description": "4 Americans Helping Wounded Veterans Annual Car Show Medals, 1st, 2nd, 3rd, and 4th, lot for $9.",
+      "price": "$9",
+      "lat": 32.6200973,
+      "lon": -83.606568,
+      "location": "Warner Robins, GA",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/705440900_999109425901418_3710913524699686315_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=111&ccb=1-7&_nc_sid=92e707&_nc_ohc=-CErSuAxwQwQ7kNvwEOYtoI&_nc_oc=AdoUrjoJ61swznuO8RfKQSDK7QMDU-bhX6G83rpePyyxWcXgtiH275li8TWPZyG5vs8&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=cXmzVvAxRPFAObwiW03HWw&_nc_ss=7b2a8&oh=00_Af5MToZdown04heEQZ03JHE92-16cxCWvSN0YmgItoGIjQ&oe=6A17ED9D",
+      "adUrl": "https://www.facebook.com/marketplace/item/2440275803060514/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-05-23 20:02:38",
+      "lastSeen": "2026-05-23T20:02:48.363Z"
+    },
+    {
+      "adID": "1680030553201043",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100039436681166/?product_id=1680030553201043",
+      "author": "Joey Haggard",
+      "postedTime": "2026-05-23T19:23:33.000Z",
+      "title": "Vintage arcade cards",
+      "description": "Vintage arcade cards. 130 total.",
+      "price": "$300",
+      "lat": 30.5045759,
+      "lon": -90.4759399,
+      "location": "Hammond, LA",
+      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/706464991_1026223113404932_1201513187283594414_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=104&ccb=1-7&_nc_sid=92e707&_nc_ohc=QOWzWAnty8YQ7kNvwH8_zjh&_nc_oc=AdqdCJyy_VeTOV4fYv_yh37HbX9ijEnabqKDlIXX8d_PXkxD4_38PDfBUne8TBH2LH0&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=9HZ1M-EW_4md22MxdzICKA&_nc_ss=7b2a8&oh=00_Af5wMaDG-fQP-5jRHkpSK1S0I4c2BZdMAyISyIk27pOOig&oe=6A17C3AA",
+      "adUrl": "https://www.facebook.com/marketplace/item/1680030553201043/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-05-23 20:01:32",
+      "lastSeen": "2026-05-23T20:02:38.418Z"
+    },
     {
       "adID": "1310064863854195",
       "source": "MP",
@@ -36,7 +76,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-23 19:01:33",
-      "lastSeen": "2026-05-23T19:01:43.958Z"
+      "lastSeen": "2026-05-23T20:01:33.825Z"
     },
     {
       "adID": "1980350822842120",
@@ -56,7 +96,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-23 17:02:43",
-      "lastSeen": "2026-05-23T19:02:06.545Z"
+      "lastSeen": "2026-05-23T20:02:36.515Z"
     },
     {
       "adID": "1514271426742474",
@@ -76,7 +116,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-23 11:03:23",
-      "lastSeen": "2026-05-23T19:02:06.880Z"
+      "lastSeen": "2026-05-23T20:02:36.849Z"
     },
     {
       "adID": "2559878301081821",
@@ -96,7 +136,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-22 21:01:31",
-      "lastSeen": "2026-05-23T19:02:06.780Z"
+      "lastSeen": "2026-05-23T20:02:36.749Z"
     },
     {
       "adID": "1651419732643397",
@@ -143,20 +183,20 @@
       "source": "FB",
       "authorUrl": null,
       "author": "William Wyman",
-      "postedTime": "2026-05-22T19:00:25.542Z",
+      "postedTime": "2026-05-22T20:00:24.664Z",
       "title": "Sinbad instruction manual",
       "description": "Instruction manual with schematics",
       "price": "$50",
       "lat": 29.844148,
       "lon": -90.0140042,
       "location": "BELLE CHASSE, LA",
-      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.30808-6/703110902_26259751490368805_5944570501851020137_n.jpg?stp=cp6_dst-jpegr_p526x296_tt6&_nc_cat=104&ccb=1-7&_nc_sid=aa7b47&_nc_ohc=bUk8kudAFcsQ7kNvwHnSjRG&_nc_oc=Adr6d7JWGlE8c-PLqllYf9zZB0xbz9NjhyUQFKW4psplDSkoyT3_M9IHVgFzcr32z9s&_nc_zt=23&se=-1&_nc_ht=scontent-dfw5-2.xx&_nc_gid=8cYIsVuFrJwZD25wU05AkA&_nc_ss=7b2a8&oh=00_Af6I2HlUuNjkBJjeT4jZFD6Zujvugn-VznHc4aAEtCgDUw&oe=6A17CB15",
+      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.30808-6/703110902_26259751490368805_5944570501851020137_n.jpg?stp=cp6_dst-jpegr_p526x296_tt6&_nc_cat=104&ccb=1-7&_nc_sid=aa7b47&_nc_ohc=bUk8kudAFcsQ7kNvwHnSjRG&_nc_oc=Adr6d7JWGlE8c-PLqllYf9zZB0xbz9NjhyUQFKW4psplDSkoyT3_M9IHVgFzcr32z9s&_nc_zt=23&se=-1&_nc_ht=scontent-dfw5-2.xx&_nc_gid=Hv6bRJOSmvQRTLYIv70Lig&_nc_ss=7b2a8&oh=00_Af5hiyL8Ymv0qa2HmvevPJhB8Kr-PPmS1TgttEkLMGT4jQ&oe=6A17CB15",
       "adUrl": "https://www.facebook.com/commerce/listing/1136039402926080/",
       "priceChanged": 0,
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-22 19:00:27",
-      "lastSeen": "2026-05-23T19:00:25.670Z"
+      "lastSeen": "2026-05-23T20:00:24.769Z"
     },
     {
       "adID": "1644202516800157",
@@ -176,7 +216,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-22 17:01:31",
-      "lastSeen": "2026-05-23T19:01:33.047Z"
+      "lastSeen": "2026-05-23T20:01:32.919Z"
     },
     {
       "adID": "26951937357831377",
@@ -236,7 +276,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-21 23:17:49",
-      "lastSeen": "2026-05-23T19:02:07.014Z"
+      "lastSeen": "2026-05-23T20:02:37.290Z"
     },
     {
       "adID": "3588264021339878",
@@ -256,7 +296,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-21 23:17:49",
-      "lastSeen": "2026-05-23T19:02:07.047Z"
+      "lastSeen": "2026-05-23T20:02:37.324Z"
     },
     {
       "adID": "1643452530262452",
@@ -283,7 +323,7 @@
       "source": "PS",
       "authorUrl": "https://pinside.com/pinball/community/pinsiders/mr_pinball/market",
       "author": "Mr_Pinball",
-      "postedTime": "2026-05-21T19:02:32.522Z",
+      "postedTime": "2026-05-21T20:03:19.195Z",
       "title": "Dealer's Choice",
       "description": "Used - shows wear, needs some work - “Project Williams Dealer's Choice Pinball Comes with replacement playfield. New rubber kit included. Cabinet and backglass in pretty decent condition. Comes with back door which i...”",
       "price": "$500",
@@ -296,7 +336,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-21 13:17:46",
-      "lastSeen": "2026-05-23T19:02:32.692Z"
+      "lastSeen": "2026-05-23T20:03:19.478Z"
     },
     {
       "adID": "2076565022923459",
