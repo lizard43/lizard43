@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-23T22:03:34.686Z",
+  "generated_at": "2026-05-23T23:03:48.648Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,53 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 22,
-      "droppedPrice": 202,
+      "exported_ads": 24,
+      "droppedPrice": 204,
       "droppedMissingGeo": 0,
-      "droppedCircle": 114
+      "droppedCircle": 120
     }
   },
   "ads": [
+    {
+      "adID": "PI-212662",
+      "source": "PS",
+      "authorUrl": "https://pinside.com/pinball/community/pinsiders/thepinballworks/market",
+      "author": "thepinballworks",
+      "postedTime": "2026-05-23T22:15:39.845Z",
+      "title": "Maverick main ramp NOS",
+      "description": "NOS (New Old Stock) - “NOS Maverick populated main ramp. It looks like the metal ramp entrance needs to be cleaned up. I sold my Maverick so I have a few parts I picked up over the years.”",
+      "price": "$450",
+      "lat": 34.02332,
+      "lon": -84.360022,
+      "location": "Roswell, GA",
+      "imageUrl": "https://imgproxy.pinside.com/V1fNTQFhM56JXDQs86xO7bTqA8BuUedIXk6d3a_JuQg/rs:fit:640:480/fn:pinside_26c3b1faf692/enc/cUYFE2yhgXpFq7pX1UsIHOZGwa4X_zUksEr7LgHQsFm_5CalI0RkAgE3II4puj5R3qWlJjv2sSDG_2HFnM9r2To96f7QU9ha-hcNbPWie5c0oEOQRES-AASm7Y40V7J_.jpeg",
+      "adUrl": "https://pinside.com/pinball/market/classifieds/ad/212662",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-05-23 23:03:41",
+      "lastSeen": "2026-05-23T23:03:41.514Z"
+    },
+    {
+      "adID": "1518463806354151",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/612279864/?product_id=1518463806354151",
+      "author": "Michelle Blakey Derryberry",
+      "postedTime": "2026-05-23T22:49:06.000Z",
+      "title": "Oh Snap Game!",
+      "description": "NIB Oh Snap Game! Open to ship as well!",
+      "price": "$20",
+      "lat": 34.0514898,
+      "lon": -84.0712997,
+      "location": "Suwanee, GA",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/706219805_988695810186901_846568326422346593_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=109&ccb=1-7&_nc_sid=92e707&_nc_ohc=EzdD9OxW94QQ7kNvwHU7NlO&_nc_oc=Adoybr7iq034GVYkHZqZyG3thhVpGScFpbSc5q-OynKvF4qvwLrhG5sWxt4KP1fzOKs&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=Ac-bs2Jto3z8skvwpPpBBg&_nc_ss=7b2a8&oh=00_Af6kQSHaG02YdVKN5uwHPkIHzuX9qldsmdTlawmjUvMlEg&oe=6A18104E",
+      "adUrl": "https://www.facebook.com/marketplace/item/1518463806354151/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-05-23 23:02:47",
+      "lastSeen": "2026-05-23T23:03:16.992Z"
+    },
     {
       "adID": "1504694054680955",
       "source": "MP",
@@ -36,7 +76,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-23 22:01:34",
-      "lastSeen": "2026-05-23T22:02:28.815Z"
+      "lastSeen": "2026-05-23T23:01:31.319Z"
     },
     {
       "adID": "2440275803060514",
@@ -56,7 +96,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-23 20:02:38",
-      "lastSeen": "2026-05-23T22:02:57.462Z"
+      "lastSeen": "2026-05-23T23:02:48.072Z"
     },
     {
       "adID": "1680030553201043",
@@ -76,7 +116,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-23 20:01:32",
-      "lastSeen": "2026-05-23T22:02:57.496Z"
+      "lastSeen": "2026-05-23T23:02:48.105Z"
     },
     {
       "adID": "1310064863854195",
@@ -96,7 +136,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-23 19:01:33",
-      "lastSeen": "2026-05-23T22:01:36.134Z"
+      "lastSeen": "2026-05-23T23:01:33.662Z"
     },
     {
       "adID": "1980350822842120",
@@ -116,7 +156,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-23 17:02:43",
-      "lastSeen": "2026-05-23T22:02:56.624Z"
+      "lastSeen": "2026-05-23T23:02:47.268Z"
     },
     {
       "adID": "1514271426742474",
@@ -136,7 +176,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-23 11:03:23",
-      "lastSeen": "2026-05-23T22:02:56.927Z"
+      "lastSeen": "2026-05-23T23:02:47.570Z"
     },
     {
       "adID": "2559878301081821",
@@ -156,7 +196,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-22 21:01:31",
-      "lastSeen": "2026-05-23T22:02:56.826Z"
+      "lastSeen": "2026-05-23T23:02:47.469Z"
     },
     {
       "adID": "1651419732643397",
@@ -236,7 +276,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-22 17:01:31",
-      "lastSeen": "2026-05-23T22:01:35.900Z"
+      "lastSeen": "2026-05-23T23:01:31.688Z"
     },
     {
       "adID": "26951937357831377",
@@ -296,7 +336,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-21 23:17:49",
-      "lastSeen": "2026-05-23T22:02:57.061Z"
+      "lastSeen": "2026-05-23T23:02:47.704Z"
     },
     {
       "adID": "3588264021339878",
@@ -316,7 +356,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-21 23:17:49",
-      "lastSeen": "2026-05-23T22:02:57.094Z"
+      "lastSeen": "2026-05-23T23:02:47.738Z"
     },
     {
       "adID": "1643452530262452",
@@ -343,7 +383,7 @@
       "source": "PS",
       "authorUrl": "https://pinside.com/pinball/community/pinsiders/mr_pinball/market",
       "author": "Mr_Pinball",
-      "postedTime": "2026-05-20T22:03:33.961Z",
+      "postedTime": "2026-05-20T23:03:47.856Z",
       "title": "Dealer's Choice",
       "description": "Used - shows wear, needs some work - “Project Williams Dealer's Choice Pinball Comes with replacement playfield. New rubber kit included. Cabinet and backglass in pretty decent condition. Comes with back door which i...”",
       "price": "$500",
@@ -356,7 +396,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-21 13:17:46",
-      "lastSeen": "2026-05-23T22:03:34.275Z"
+      "lastSeen": "2026-05-23T23:03:48.221Z"
     },
     {
       "adID": "2076565022923459",
