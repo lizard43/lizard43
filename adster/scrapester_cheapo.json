@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-23T16:02:39.977Z",
+  "generated_at": "2026-05-23T17:03:48.261Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,33 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 18,
-      "droppedPrice": 179,
+      "exported_ads": 19,
+      "droppedPrice": 189,
       "droppedMissingGeo": 0,
-      "droppedCircle": 94
+      "droppedCircle": 99
     }
   },
   "ads": [
+    {
+      "adID": "1980350822842120",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/1174486360/?product_id=1980350822842120",
+      "author": "James Burnett",
+      "postedTime": "2026-05-23T15:55:03.000Z",
+      "title": "Quick Draw Pinball machine",
+      "description": "Gottlieb Quick Draw Pinball Machine. Needs a lot of restoration. Listed at $300 but make me an offer. Pickup preferred but can meet if close. Just need it gone.",
+      "price": "$300",
+      "lat": 32.2731475,
+      "lon": -89.9868058,
+      "location": "Brandon, MS",
+      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/706377971_2245378049537218_4985190274687648879_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=103&ccb=1-7&_nc_sid=92e707&_nc_ohc=eRxaj42s_28Q7kNvwGmM7Tq&_nc_oc=AdoLsyjA2M7Gm_DStTWxhRYbNuzjjvGzH1k77gJgZ-q9jG7ULert_EaO6jcpftV8ccs&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=EAfMpOIDMINWk5INagLjkw&_nc_ss=7b2a8&oh=00_Af5BN6KKZ9fIHCyDvG0Wz13s2rx1lG9Jw4kR9-hmmQXl0Q&oe=6A17B8FF",
+      "adUrl": "https://www.facebook.com/marketplace/item/1980350822842120/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-05-23 17:02:43",
+      "lastSeen": "2026-05-23T17:03:18.013Z"
+    },
     {
       "adID": "1485846775879085",
       "source": "MP",
@@ -56,7 +76,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-23 11:03:23",
-      "lastSeen": "2026-05-23T16:02:27.411Z"
+      "lastSeen": "2026-05-23T17:02:43.864Z"
     },
     {
       "adID": "2559878301081821",
@@ -76,7 +96,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-22 21:01:31",
-      "lastSeen": "2026-05-23T16:02:27.311Z"
+      "lastSeen": "2026-05-23T17:02:43.763Z"
     },
     {
       "adID": "1651419732643397",
@@ -123,20 +143,20 @@
       "source": "FB",
       "authorUrl": null,
       "author": "William Wyman",
-      "postedTime": "2026-05-22T19:00:26.179Z",
+      "postedTime": "2026-05-22T19:00:26.675Z",
       "title": "Sinbad instruction manual",
       "description": "Instruction manual with schematics",
       "price": "$50",
       "lat": 29.844148,
       "lon": -90.0140042,
       "location": "BELLE CHASSE, LA",
-      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.30808-6/703110902_26259751490368805_5944570501851020137_n.jpg?stp=cp6_dst-jpegr_p526x296_tt6&_nc_cat=104&ccb=1-7&_nc_sid=aa7b47&_nc_eui2=AeGmleJkBO0Aqw9L5t1TvmKSP9J3qnqeMrw_0neqep4yvA9pFWr6dZZN-R2Km7Kqv3Q&_nc_ohc=bUk8kudAFcsQ7kNvwHnSjRG&_nc_oc=Adr6d7JWGlE8c-PLqllYf9zZB0xbz9NjhyUQFKW4psplDSkoyT3_M9IHVgFzcr32z9s&_nc_zt=23&se=-1&_nc_ht=scontent-dfw5-2.xx&_nc_gid=OHCv5O3wfdq_OSgdLuAbjA&_nc_ss=7b2a8&oh=00_Af47O1KwTbjwYchlt1_coFi1sQ42ww-rj7jV9TjJwyN-sg&oe=6A1792D5",
+      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.30808-6/703110902_26259751490368805_5944570501851020137_n.jpg?stp=cp6_dst-jpegr_p526x296_tt6&_nc_cat=104&ccb=1-7&_nc_sid=aa7b47&_nc_ohc=bUk8kudAFcsQ7kNvwHnSjRG&_nc_oc=Adr6d7JWGlE8c-PLqllYf9zZB0xbz9NjhyUQFKW4psplDSkoyT3_M9IHVgFzcr32z9s&_nc_zt=23&se=-1&_nc_ht=scontent-dfw5-2.xx&_nc_gid=Em8KUwbfYCfKdYj0f7Lw4A&_nc_ss=7b2a8&oh=00_Af6ITJbDVedVACzZAdIBV31_LsXP4CbrNUbgDOHr4HTk7g&oe=6A17CB15",
       "adUrl": "https://www.facebook.com/commerce/listing/1136039402926080/",
       "priceChanged": 0,
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-22 19:00:27",
-      "lastSeen": "2026-05-23T16:00:27.745Z"
+      "lastSeen": "2026-05-23T17:00:26.795Z"
     },
     {
       "adID": "1644202516800157",
@@ -156,7 +176,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-22 17:01:31",
-      "lastSeen": "2026-05-23T16:01:34.546Z"
+      "lastSeen": "2026-05-23T17:01:36.976Z"
     },
     {
       "adID": "26951937357831377",
@@ -216,7 +236,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-21 23:17:49",
-      "lastSeen": "2026-05-23T16:02:27.556Z"
+      "lastSeen": "2026-05-23T17:02:43.997Z"
     },
     {
       "adID": "3588264021339878",
@@ -236,7 +256,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-21 23:17:49",
-      "lastSeen": "2026-05-23T16:02:27.589Z"
+      "lastSeen": "2026-05-23T17:02:44.030Z"
     },
     {
       "adID": "1643452530262452",
@@ -263,7 +283,7 @@
       "source": "PS",
       "authorUrl": "https://pinside.com/pinball/community/pinsiders/mr_pinball/market",
       "author": "Mr_Pinball",
-      "postedTime": "2026-05-21T16:02:39.327Z",
+      "postedTime": "2026-05-21T17:03:47.626Z",
       "title": "Dealer's Choice",
       "description": "Used - shows wear, needs some work - “Project Williams Dealer's Choice Pinball Comes with replacement playfield. New rubber kit included. Cabinet and backglass in pretty decent condition. Comes with back door which i...”",
       "price": "$500",
@@ -276,7 +296,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-21 13:17:46",
-      "lastSeen": "2026-05-23T16:02:39.465Z"
+      "lastSeen": "2026-05-23T17:03:47.751Z"
     },
     {
       "adID": "2076565022923459",
@@ -316,7 +336,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-21 13:07:25",
-      "lastSeen": "2026-05-23T16:02:27.880Z"
+      "lastSeen": "2026-05-23T17:02:44.299Z"
     },
     {
       "adID": "1003425408698210",
