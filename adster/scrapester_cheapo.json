@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-24T12:03:31.900Z",
+  "generated_at": "2026-05-24T13:02:33.313Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,53 +11,13 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 17,
-      "droppedPrice": 227,
+      "exported_ads": 15,
+      "droppedPrice": 226,
       "droppedMissingGeo": 0,
       "droppedCircle": 154
     }
   },
   "ads": [
-    {
-      "adID": "1548983849979544",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/100000060670822/?product_id=1548983849979544",
-      "author": "Joanne Hancock",
-      "postedTime": "2026-05-24T02:23:14.000Z",
-      "title": "Lot of Vintage Volunteer Pins",
-      "description": "This looks like a lifetime of service! Red Cross, Lung Assoc, Mental Health. All for one price. Don't click on Facebook payment. I only accept cash.",
-      "price": "$8",
-      "lat": 31.1793436,
-      "lon": -83.788579,
-      "location": "Moultrie, GA",
-      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t15.5256-10/476347000_1291816072100448_2730945450835522279_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=105&ccb=1-7&_nc_sid=d4195b&_nc_ohc=wGQiP6OJGBQQ7kNvwFHqpC0&_nc_oc=AdqFRzpMGpwUJnY4GWNlexvL1MuWc45GuFHdAbimyRE2hMlVMejg9PMNImDvgSwLYTU&_nc_zt=23&_nc_ht=scontent-dfw5-1.xx&_nc_gid=22Zq_6rFO43klPDH-VHORQ&_nc_ss=7b2a8&oh=00_Af4PsKRKx4Y2MowCf49K5TZhMQopQ2J8M2rCeSfm9ZSB1Q&oe=6A18B809",
-      "adUrl": "https://www.facebook.com/marketplace/item/1548983849979544/",
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-05-24 11:06:17",
-      "lastSeen": "2026-05-24T12:02:34.302Z"
-    },
-    {
-      "adID": "763364350198078",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/100081890538418/?product_id=763364350198078",
-      "author": "Jaylen Townsend",
-      "postedTime": "2026-05-21T22:08:20.000Z",
-      "title": "Pac-man machine",
-      "description": "pm for more info",
-      "price": "$100",
-      "lat": 32.6098566,
-      "lon": -85.4807825,
-      "location": "Auburn, AL",
-      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/704147427_1523503482658329_6465941969221709163_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=102&ccb=1-7&_nc_sid=92e707&_nc_ohc=HZnlX9T-KzwQ7kNvwGvjAdx&_nc_oc=AdrM8ZpBGQmjt1_bTI78xzurhU85GNcz1lILMSUADWQJSvYBoo8SmM8gHEuTtsio3Mc&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=pI32qJlFhuj2zr44zP09nA&_nc_ss=7b2a8&oh=00_Af7tBcPX8gcBR4cWCnjT9yr7u0CWJpNUe88ksfvinbDAlQ&oe=6A18BB31",
-      "adUrl": "https://www.facebook.com/marketplace/item/763364350198078/",
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-05-24 11:06:16",
-      "lastSeen": "2026-05-24T12:02:33.880Z"
-    },
     {
       "adID": "1925955241417295",
       "source": "MP",
@@ -76,7 +36,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-24 11:01:47",
-      "lastSeen": "2026-05-24T12:02:34.490Z"
+      "lastSeen": "2026-05-24T13:01:43.433Z"
     },
     {
       "adID": "1614139103030422",
@@ -96,7 +56,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-24 11:01:47",
-      "lastSeen": "2026-05-24T12:02:34.523Z"
+      "lastSeen": "2026-05-24T13:01:43.466Z"
     },
     {
       "adID": "1680030553201043",
@@ -116,7 +76,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-23 20:01:32",
-      "lastSeen": "2026-05-24T12:01:38.462Z"
+      "lastSeen": "2026-05-24T13:01:31.430Z"
     },
     {
       "adID": "1980350822842120",
@@ -136,7 +96,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-23 17:02:43",
-      "lastSeen": "2026-05-24T12:02:33.445Z"
+      "lastSeen": "2026-05-24T13:01:42.764Z"
     },
     {
       "adID": "2559878301081821",
@@ -156,7 +116,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-22 21:01:31",
-      "lastSeen": "2026-05-24T12:02:33.680Z"
+      "lastSeen": "2026-05-24T13:01:42.998Z"
     },
     {
       "adID": "1136039402926080",
@@ -243,7 +203,7 @@
       "source": "PS",
       "authorUrl": "https://pinside.com/pinball/community/pinsiders/mr_pinball/market",
       "author": "Mr_Pinball",
-      "postedTime": "2026-05-21T12:03:30.987Z",
+      "postedTime": "2026-05-21T13:02:32.349Z",
       "title": "Dealer's Choice",
       "description": "Used - shows wear, needs some work - “Project Williams Dealer's Choice Pinball Comes with replacement playfield. New rubber kit included. Cabinet and backglass in pretty decent condition. Comes with back door which i...”",
       "price": "$500",
@@ -256,7 +216,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-21 13:17:46",
-      "lastSeen": "2026-05-24T12:03:31.552Z"
+      "lastSeen": "2026-05-24T13:02:32.934Z"
     },
     {
       "adID": "2076565022923459",
