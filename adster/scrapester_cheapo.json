@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-24T21:04:53.771Z",
+  "generated_at": "2026-05-24T22:03:55.050Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,33 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 21,
-      "droppedPrice": 244,
+      "exported_ads": 22,
+      "droppedPrice": 248,
       "droppedMissingGeo": 0,
-      "droppedCircle": 179
+      "droppedCircle": 181
     }
   },
   "ads": [
+    {
+      "adID": "995188963116063",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/61577316410821/?product_id=995188963116063",
+      "author": "James Konet",
+      "postedTime": "2026-05-24T21:01:25.000Z",
+      "title": "Cool cat pinball one inch",
+      "description": "Very decorative cat with amber tone eyes about 1 inch tall",
+      "price": "$10",
+      "lat": 28.01633,
+      "lon": -82.1234803,
+      "location": "Plant City, FL",
+      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/706698031_1650197139603351_1644730771538012137_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=104&ccb=1-7&_nc_sid=92e707&_nc_ohc=pQraBYm6J-QQ7kNvwELECz7&_nc_oc=AdoAxxs3lX0HReeWyZNhu7OVb2qPadwSHTIpek8aJYpeCdK9KJjF3eEn5sqrM66oVdg&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=Zp3HsXJZrVNJ5xfAWBt7Dg&_nc_ss=7b2a8&oh=00_Af4E6kJJLzRibjknIoF7vIDvd4tDhSkURyZOgdx_9N4JYA&oe=6A195329",
+      "adUrl": "https://www.facebook.com/marketplace/item/995188963116063/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-05-24 22:03:12",
+      "lastSeen": "2026-05-24T22:03:26.712Z"
+    },
     {
       "adID": "1013012927730261",
       "source": "MP",
@@ -36,7 +56,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-24 21:02:12",
-      "lastSeen": "2026-05-24T21:03:28.453Z"
+      "lastSeen": "2026-05-24T22:03:13.671Z"
     },
     {
       "adID": "4995724303987323",
@@ -76,7 +96,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-24 20:01:46",
-      "lastSeen": "2026-05-24T21:02:07.124Z"
+      "lastSeen": "2026-05-24T22:01:37.298Z"
     },
     {
       "adID": "26863781829958122",
@@ -96,7 +116,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-24 18:01:43",
-      "lastSeen": "2026-05-24T21:02:07.692Z"
+      "lastSeen": "2026-05-24T22:01:37.432Z"
     },
     {
       "adID": "1084763414413054",
@@ -110,13 +130,13 @@
       "lat": 30.6712285,
       "lon": -81.4630025,
       "location": "Fernandina Beach, FL",
-      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/705989008_1414696394008554_7642741664057282705_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=107&ccb=1-7&_nc_sid=92e707&_nc_ohc=a9vr6wsCJcIQ7kNvwGJDnGC&_nc_oc=AdqsoB872uTWV4rBU54SPIi8SBzpcCJTj-awFdCqXV6UCt4b8pvaQWhr_Bg8V2wmG2U&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=-ZbZe4lASFPPMq04Y2N_DQ&_nc_ss=7b2a8&oh=00_Af65IUggh-geUyCHYhZD9Nhd2sznaPfKG-mE5QYLbfYyGw&oe=6A193E9B",
+      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/705989008_1414696394008554_7642741664057282705_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=107&ccb=1-7&_nc_sid=92e707&_nc_ohc=a9vr6wsCJcIQ7kNvwGJDnGC&_nc_oc=AdqsoB872uTWV4rBU54SPIi8SBzpcCJTj-awFdCqXV6UCt4b8pvaQWhr_Bg8V2wmG2U&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=NFGrx4qz0_1SVW4n9rhPAg&_nc_ss=7b2a8&oh=00_Af4281LyFdYCU3GVZtCuALFG69Wi7t0FsntrQobIOzcwYA&oe=6A193E9B",
       "adUrl": "https://www.facebook.com/marketplace/item/1084763414413054/",
       "priceChanged": 0,
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-24 17:01:39",
-      "lastSeen": "2026-05-24T21:03:28.510Z"
+      "lastSeen": "2026-05-24T22:02:45.124Z"
     },
     {
       "adID": "1733197834780574",
@@ -136,7 +156,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-24 14:02:27",
-      "lastSeen": "2026-05-24T21:03:55.485Z"
+      "lastSeen": "2026-05-24T22:03:12.748Z"
     },
     {
       "adID": "1925955241417295",
@@ -196,7 +216,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-23 20:01:32",
-      "lastSeen": "2026-05-24T21:02:09.183Z"
+      "lastSeen": "2026-05-24T22:01:37.922Z"
     },
     {
       "adID": "1980350822842120",
@@ -216,7 +236,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-23 17:02:43",
-      "lastSeen": "2026-05-24T21:04:01.119Z"
+      "lastSeen": "2026-05-24T22:03:13.160Z"
     },
     {
       "adID": "2559878301081821",
@@ -236,7 +256,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-22 21:01:31",
-      "lastSeen": "2026-05-24T20:02:38.552Z"
+      "lastSeen": "2026-05-24T22:03:13.471Z"
     },
     {
       "adID": "1136039402926080",
