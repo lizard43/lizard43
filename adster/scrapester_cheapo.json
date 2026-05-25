@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-25T18:03:54.886Z",
+  "generated_at": "2026-05-25T19:03:19.091Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,33 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 23,
-      "droppedPrice": 286,
+      "exported_ads": 21,
+      "droppedPrice": 287,
       "droppedMissingGeo": 0,
-      "droppedCircle": 214
+      "droppedCircle": 215
     }
   },
   "ads": [
+    {
+      "adID": "1867442547280221",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100010339110064/?product_id=1867442547280221",
+      "author": "Chris Hammock",
+      "postedTime": "2026-05-25T18:37:12.000Z",
+      "title": "Arcade bad dudes",
+      "description": "Don't know anything about will trade",
+      "price": "$300",
+      "lat": 33.1522422,
+      "lon": -85.3748173,
+      "location": "Roanoke, AL",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/707399889_4461890717471496_2137471067505484747_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=110&ccb=1-7&_nc_sid=92e707&_nc_ohc=6szkCJD98wwQ7kNvwFcXTJj&_nc_oc=AdoxOHO61bQyIvw6kR0AX2L3AYQQiP-XxtS9UekczBPxIlIYI9wmdLHCr6oxDR1BFA0&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=tGWyX59SQHaghiIQ9HCSVA&_nc_ss=7b2a8&oh=00_Af7U6gPmR2Ngw6cEEj1nn5oZYsKZCbCFegzoqGuPOS4GbQ&oe=6A1A62EB",
+      "adUrl": "https://www.facebook.com/marketplace/item/1867442547280221/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-05-25 19:01:36",
+      "lastSeen": "2026-05-25T19:02:12.712Z"
+    },
     {
       "adID": "1900863934634608",
       "source": "MP",
@@ -36,47 +56,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-25 18:02:50",
-      "lastSeen": "2026-05-25T18:03:29.019Z"
-    },
-    {
-      "adID": "979905224674847",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/1175437231/?product_id=979905224674847",
-      "author": "Pat Shea",
-      "postedTime": "2026-05-25T16:14:02.000Z",
-      "title": "Slot / Pachis Machine -Marine Battle Made by Mizuho Corp. Model marking appears to be: M-03",
-      "description": "This a “Marine Battle” Made by Mizuho Corp. * M-03 * likely late 1990s to early 2000s era pachislot. (According to ChatGPT) The submarine theme and reel layout are classic Japanese “skill stop” design. It will only take tokens and there are a ton of them in the token catcher. I got it for my outdoor bar. Unfortunately the machine takes up too much Real Estate. It appears to be fully functioning and in good working order. There is a lock on the front that requires a key. I don’t have it. Dimensions 32 inches tall 19 inches wide about 13 1/2 inches deep. Weight - Not Sure but it’s heavy. Like two person heavy.",
-      "price": "$350",
-      "lat": 33.039291,
-      "lon": -85.0313269,
-      "location": "Lagrange, GA",
-      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t15.5256-10/706857248_998795205865322_917572389798881997_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=107&ccb=1-7&_nc_sid=d4195b&_nc_ohc=3z03FrU9dtwQ7kNvwFtkoBg&_nc_oc=AdosuPQVxaKyyo6JNeP5Rwz3vbnxS4h7KPU3eKN-J8vvdwUfSAKiyz-La7ycfbmTFnM&_nc_zt=23&_nc_ht=scontent-dfw5-2.xx&_nc_gid=lIKLx1xTT6RfDasmrAk4oA&_nc_ss=7b2a8&oh=00_Af7Pftc_El-ilJ_154Ioc5NvH43Dl3T1e3fZhYqh0dUCcg&oe=6A1A5B88",
-      "adUrl": "https://www.facebook.com/marketplace/item/979905224674847/",
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-05-25 17:04:09",
-      "lastSeen": "2026-05-25T18:02:51.605Z"
-    },
-    {
-      "adID": "788586850875011",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/100000147578238/?product_id=788586850875011",
-      "author": "Phil Linda Corbett",
-      "postedTime": "2026-05-25T14:01:06.000Z",
-      "title": "Selling my Vintage Cowboy Collection. Roy Rogers,Gene Autry, Tom Mix",
-      "description": "I am Selling my Vintage Cowboy Collection. Roy Rogers,Gene Autry, Tom Mix, Arcade Cards & more Roy Rogers Arcade Card, 5.00 Gene Autry Book with dusk cover 20.00 1941 The Lone Ranger Book 20.00 Tom Mix Arcade Card, 5.00",
-      "price": "$0",
-      "lat": 30.8327022,
-      "lon": -83.2784851,
-      "location": "Valdosta, GA",
-      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/707446966_2455114068327669_5255744443999602084_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=101&ccb=1-7&_nc_sid=92e707&_nc_ohc=5zYNc-X6uHgQ7kNvwFCIK6_&_nc_oc=Ado6SKsFSFLv_hXriUzJpGo75fH3pynC7oc94oYev33oZKEhkvIpjD8xXdVVTuDR4I8&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=XBd-WGPcX53l9a-OYNhsQg&_nc_ss=7b2a8&oh=00_Af6KezwC3Wp7GL8fYeYRc3qtBR8lwaNevY5sjanVk--SgQ&oe=6A1A43BC",
-      "adUrl": "https://www.facebook.com/marketplace/item/788586850875011/",
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-05-25 17:01:42",
-      "lastSeen": "2026-05-25T17:03:40.159Z"
+      "lastSeen": "2026-05-25T19:02:37.298Z"
     },
     {
       "adID": "947503728109056",
@@ -96,7 +76,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-25 17:01:42",
-      "lastSeen": "2026-05-25T17:03:40.192Z"
+      "lastSeen": "2026-05-25T19:01:36.502Z"
     },
     {
       "adID": "2068606804005748",
@@ -116,27 +96,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-25 12:03:20",
-      "lastSeen": "2026-05-25T18:02:52.080Z"
-    },
-    {
-      "adID": "2163329537762054",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/1036798944/?product_id=2163329537762054",
-      "author": "Stephanie Taylor",
-      "postedTime": "2026-05-24T23:54:51.000Z",
-      "title": "Magic Fly Paint Pouring Set 16 Acrylic Colors NWT",
-      "description": "Brand new paint pour set. All colors are unopened. Just one yellow one must have leaked a tiny bit. But the seal is still on it and it’s not currently leaking. Fun project kit! Make sure to check out my other listings! Receive 10% off 2+ listings same day purchase! Five star seller with over 280 five star ratings! I’m happy to answer your questions. Based in Marietta, GA off of Blackwell Road right by Transfiguration Catholic Church. Porch pick up available, if local. Shipping available upon request for most items. Thanks for looking!",
-      "price": "$10",
-      "lat": 33.9528472,
-      "lon": -84.5496148,
-      "location": "Marietta, GA",
-      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/706734383_1298554469095666_1207360094375113123_n.jpg?stp=dst-jpg_p960x960_tt6&_nc_cat=105&ccb=1-7&_nc_sid=92e707&_nc_ohc=-qFueWayDzUQ7kNvwF9EhuE&_nc_oc=AdphamaxXIJdrnZpr97S7oliNPMVyuXkMzj2PAQ4xzmFWvLwuUzZOqnhu3lhUfsEJl0&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=nPPRCDLIlFDM8JZBW7R8hw&_nc_ss=7b2a8&oh=00_Af6UXgK9mPzeqTu2LHiSbWmJ5nJAy2wKVzHkWBuiddy6Ag&oe=6A1A5987",
-      "adUrl": "https://www.facebook.com/marketplace/item/2163329537762054/",
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-05-25 12:03:20",
-      "lastSeen": "2026-05-25T18:03:29.094Z"
+      "lastSeen": "2026-05-25T19:02:38.437Z"
     },
     {
       "adID": "2296664997823958",
@@ -150,13 +110,13 @@
       "lat": 33.7544657,
       "lon": -84.3898151,
       "location": "Atlanta, GA",
-      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/704993535_993138456591420_2023085465544012394_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=102&ccb=1-7&_nc_sid=92e707&_nc_ohc=6tHOxJFXv4oQ7kNvwGbt6PH&_nc_oc=Adok9vZyA4WgcRv8b7kdNIJTbYcnjGUCDveUrpDQl7O2StvjOwHzMiTzyX9dtZ2KYvc&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=T9UVETTd_Cr0zmLaj4K_TA&_nc_ss=7b2a8&oh=00_Af6w7pYEf6EWD3mmvSJ8NuDZMMg-8GEZ5AyQ4gdYzmd1Sw&oe=6A1A6B8F",
+      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/704993535_993138456591420_2023085465544012394_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=102&ccb=1-7&_nc_sid=92e707&_nc_ohc=6tHOxJFXv4oQ7kNvwGbt6PH&_nc_oc=Adok9vZyA4WgcRv8b7kdNIJTbYcnjGUCDveUrpDQl7O2StvjOwHzMiTzyX9dtZ2KYvc&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=ic_qZ6uz6fOgFo5VulYDzw&_nc_ss=7b2a8&oh=00_Af5NxF5Vs6CMDKoRDw0Ldyf9Z697lB1By2AdMAwgOJg2Aw&oe=6A1A6B8F",
       "adUrl": "https://www.facebook.com/marketplace/item/2296664997823958/",
       "priceChanged": 0,
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-25 11:03:28",
-      "lastSeen": "2026-05-25T18:03:29.059Z"
+      "lastSeen": "2026-05-25T19:02:50.809Z"
     },
     {
       "adID": "2667388746995702",
@@ -176,7 +136,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-25 11:03:25",
-      "lastSeen": "2026-05-25T18:02:50.767Z"
+      "lastSeen": "2026-05-25T19:02:37.500Z"
     },
     {
       "adID": "1084763414413054",
@@ -190,13 +150,13 @@
       "lat": 30.6712285,
       "lon": -81.4630025,
       "location": "Fernandina Beach, FL",
-      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/705989008_1414696394008554_7642741664057282705_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=107&ccb=1-7&_nc_sid=92e707&_nc_ohc=a9vr6wsCJcIQ7kNvwGJDnGC&_nc_oc=AdqsoB872uTWV4rBU54SPIi8SBzpcCJTj-awFdCqXV6UCt4b8pvaQWhr_Bg8V2wmG2U&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=2LNXuXLA4der9X0QMMlyHw&_nc_ss=7b2a8&oh=00_Af7swqhCUPBG1QQWhmDSbqnfFLu_i2-1YvoWySZfaJ3DuQ&oe=6A1A57DB",
+      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/705989008_1414696394008554_7642741664057282705_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=107&ccb=1-7&_nc_sid=92e707&_nc_ohc=a9vr6wsCJcIQ7kNvwGJDnGC&_nc_oc=AdqsoB872uTWV4rBU54SPIi8SBzpcCJTj-awFdCqXV6UCt4b8pvaQWhr_Bg8V2wmG2U&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=oUvIkh9nUzdWYUKeN-aVmA&_nc_ss=7b2a8&oh=00_Af4F-pXxDrWalklFQSsoYBouhTItKLhQdtlJETiyAj-Cyg&oe=6A1A57DB",
       "adUrl": "https://www.facebook.com/marketplace/item/1084763414413054/",
       "priceChanged": 0,
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-24 17:01:39",
-      "lastSeen": "2026-05-25T18:02:28.339Z"
+      "lastSeen": "2026-05-25T19:02:12.625Z"
     },
     {
       "adID": "1733197834780574",
@@ -216,7 +176,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-24 14:02:27",
-      "lastSeen": "2026-05-25T18:02:51.035Z"
+      "lastSeen": "2026-05-25T19:02:37.768Z"
     },
     {
       "adID": "1614139103030422",
@@ -256,7 +216,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-23 17:02:43",
-      "lastSeen": "2026-05-25T18:02:51.438Z"
+      "lastSeen": "2026-05-25T19:02:38.169Z"
     },
     {
       "adID": "2559878301081821",
