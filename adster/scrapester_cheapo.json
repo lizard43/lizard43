@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-25T00:03:35.439Z",
+  "generated_at": "2026-05-25T01:04:33.458Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,33 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 17,
-      "droppedPrice": 253,
+      "exported_ads": 18,
+      "droppedPrice": 256,
       "droppedMissingGeo": 0,
-      "droppedCircle": 181
+      "droppedCircle": 186
     }
   },
   "ads": [
+    {
+      "adID": "1324757382920261",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100007682554564/?product_id=1324757382920261",
+      "author": "Savannah Gibson",
+      "postedTime": "2026-05-24T23:14:36.000Z",
+      "title": "Elvis Coins & Pins + FREE Car Tag!",
+      "description": "Elvis collectible coins & pins. Will throw in the decorative car tag for free",
+      "price": "$20",
+      "lat": 30.1127004,
+      "lon": -85.2004716,
+      "location": "Wewahitchka, FL",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/706971145_888195553680151_5753245720883394987_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=111&ccb=1-7&_nc_sid=92e707&_nc_ohc=T3BGRkkO09gQ7kNvwFDw_ZL&_nc_oc=AdqujiFlIYWV0zwlHFvQio4pEGcU4XaE9oKDgL2NA-yiVZDobJ-s9KbZUQRskLUFa9k&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=2KgpXwt8tz0_KQlEwuZVHQ&_nc_ss=7b2a8&oh=00_Af4wZk3AkcKp5tSpVjTJ-ITUR84Eu6bemL5QP_NT3A7ZPw&oe=6A1962A1",
+      "adUrl": "https://www.facebook.com/marketplace/item/1324757382920261/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-05-25 01:03:16",
+      "lastSeen": "2026-05-25T01:04:01.783Z"
+    },
     {
       "adID": "995188963116063",
       "source": "MP",
@@ -36,7 +56,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-24 22:03:12",
-      "lastSeen": "2026-05-25T00:03:20.260Z"
+      "lastSeen": "2026-05-25T01:03:14.989Z"
     },
     {
       "adID": "4995724303987323",
@@ -70,13 +90,13 @@
       "lat": 30.6712285,
       "lon": -81.4630025,
       "location": "Fernandina Beach, FL",
-      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/705989008_1414696394008554_7642741664057282705_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=107&ccb=1-7&_nc_sid=92e707&_nc_ohc=a9vr6wsCJcIQ7kNvwGJDnGC&_nc_oc=AdqsoB872uTWV4rBU54SPIi8SBzpcCJTj-awFdCqXV6UCt4b8pvaQWhr_Bg8V2wmG2U&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=eJFK4XhU44p9-l9C-RKiag&_nc_ss=7b2a8&oh=00_Af4Nts7Y6jllHXGFoXsBCInoAICP9yMQDkfjR-tdagccXA&oe=6A1976DB",
+      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/705989008_1414696394008554_7642741664057282705_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=107&ccb=1-7&_nc_sid=92e707&_nc_ohc=a9vr6wsCJcIQ7kNvwGJDnGC&_nc_oc=AdqsoB872uTWV4rBU54SPIi8SBzpcCJTj-awFdCqXV6UCt4b8pvaQWhr_Bg8V2wmG2U&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=CUAKcQloS96edxifjp5sNA&_nc_ss=7b2a8&oh=00_Af6GQhzMca15aUeeU6QmcdAllz1UG9xPT6C9lMgtV4KYTg&oe=6A1976DB",
       "adUrl": "https://www.facebook.com/marketplace/item/1084763414413054/",
       "priceChanged": 0,
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-24 17:01:39",
-      "lastSeen": "2026-05-25T00:02:50.691Z"
+      "lastSeen": "2026-05-25T01:02:46.341Z"
     },
     {
       "adID": "1733197834780574",
@@ -96,7 +116,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-24 14:02:27",
-      "lastSeen": "2026-05-25T00:03:20.428Z"
+      "lastSeen": "2026-05-25T01:03:15.212Z"
     },
     {
       "adID": "1614139103030422",
@@ -136,7 +156,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-23 17:02:43",
-      "lastSeen": "2026-05-25T00:03:20.850Z"
+      "lastSeen": "2026-05-25T01:03:15.636Z"
     },
     {
       "adID": "2559878301081821",
@@ -156,7 +176,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-22 21:01:31",
-      "lastSeen": "2026-05-25T00:03:21.107Z"
+      "lastSeen": "2026-05-25T01:03:15.836Z"
     },
     {
       "adID": "1136039402926080",
