@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-26T21:04:18.680Z",
+  "generated_at": "2026-05-26T22:04:17.866Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,53 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 28,
-      "droppedPrice": 343,
+      "exported_ads": 30,
+      "droppedPrice": 346,
       "droppedMissingGeo": 0,
-      "droppedCircle": 267
+      "droppedCircle": 269
     }
   },
   "ads": [
+    {
+      "adID": "2009265643315234",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100004497971021/?product_id=2009265643315234",
+      "author": "Atif Akbari",
+      "postedTime": "2026-05-26T21:11:00.000Z",
+      "title": "FLYING BALL",
+      "description": "FLYING BALL",
+      "price": "$10",
+      "lat": 33.8942729,
+      "lon": -83.95574,
+      "location": "Grayson, GA",
+      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/706770103_1169872411930333_5203594950380343701_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=106&ccb=1-7&_nc_sid=92e707&_nc_ohc=DPlUHlb2q90Q7kNvwEIZITt&_nc_oc=AdqvvkAsedObRmcJ7py-Z02aOUh3g1fbvHE64D-usiJAOaNFwMDxzjTb6k88IGMQmMc&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=-J3ZQ0ZTGJy8jZyrlwkR2Q&_nc_ss=7b2a8&oh=00_Af413ZlSf-FkaM6xuuoBOaNu3qijVLNrNHuazN6B0Os9kA&oe=6A1BD8A2",
+      "adUrl": "https://www.facebook.com/marketplace/item/2009265643315234/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-05-26 22:02:57",
+      "lastSeen": "2026-05-26T22:03:44.338Z"
+    },
+    {
+      "adID": "4382098342118651",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100049325280595/?product_id=4382098342118651",
+      "author": "Fid Ugi Fufdy",
+      "postedTime": "2026-05-26T21:19:57.000Z",
+      "title": "Pac-Man arcade machine",
+      "description": "This arcade machine has no power cable but they are very easy to find,I’m trying to get rid of it but I will negotiate pricec",
+      "price": "$150",
+      "lat": 34.2073196,
+      "lon": -84.1401926,
+      "location": "Cumming, GA",
+      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/708210842_988028987021114_9043071971861783877_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=100&ccb=1-7&_nc_sid=92e707&_nc_ohc=SudD9c_8tlcQ7kNvwGUvrqT&_nc_oc=Adof9S-E-EegtvQfIrw59FsPw1prHq6PhEEFfOhqJE1CZWi8ZwT7pNxwDpLkJIQrAno&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=jsgO5twXJkZZaazauXxnTg&_nc_ss=7b2a8&oh=00_Af66gwvTsnlCIngcejy9JCeIc2T5LlncK0wQNbGeLZqrRQ&oe=6A1BE6F1",
+      "adUrl": "https://www.facebook.com/marketplace/item/4382098342118651/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-05-26 22:01:40",
+      "lastSeen": "2026-05-26T22:02:30.748Z"
+    },
     {
       "adID": "1013620814567357",
       "source": "MP",
@@ -26,7 +66,7 @@
       "postedTime": "2026-05-26T20:48:32.000Z",
       "title": "Thankuvacations",
       "description": "44250 Thankuvacations.com We have 2 condos located in Panama City beach florida available Great rates available Contact us 470/902-7700 We have pickle ball court Golf tee Boardwalk Grills Heated pool Hot tubs Restaurants on 1st floor if building 810 bowling arcade We are the only resort in Panama City beach to have these many amenities plus restaurants Covered parking for your car Give us a call today to reserve your condo www.thankuvacations.com",
-      "price": "$0",
+      "price": "Free",
       "lat": 34.1206564,
       "lon": -84.0043513,
       "location": "Buford, GA",
@@ -36,7 +76,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-26 21:01:36",
-      "lastSeen": "2026-05-26T21:02:33.651Z"
+      "lastSeen": "2026-05-26T22:01:40.717Z"
     },
     {
       "adID": "2464728183968494",
@@ -56,7 +96,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-26 21:01:35",
-      "lastSeen": "2026-05-26T21:02:57.869Z"
+      "lastSeen": "2026-05-26T22:02:57.802Z"
     },
     {
       "adID": "1318566402985188",
@@ -76,7 +116,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-26 19:02:27",
-      "lastSeen": "2026-05-26T21:02:57.902Z"
+      "lastSeen": "2026-05-26T22:02:57.835Z"
     },
     {
       "adID": "2982933721909558",
@@ -96,7 +136,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-26 19:01:37",
-      "lastSeen": "2026-05-26T21:01:36.199Z"
+      "lastSeen": "2026-05-26T22:01:40.784Z"
     },
     {
       "adID": "4475414409395113",
@@ -116,7 +156,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-26 16:02:46",
-      "lastSeen": "2026-05-26T21:02:56.965Z"
+      "lastSeen": "2026-05-26T22:02:56.369Z"
     },
     {
       "adID": "994930706623417",
@@ -136,7 +176,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-26 11:03:45",
-      "lastSeen": "2026-05-26T21:02:58.069Z"
+      "lastSeen": "2026-05-26T22:02:57.969Z"
     },
     {
       "adID": "1629535801685358",
@@ -196,7 +236,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-25 19:01:36",
-      "lastSeen": "2026-05-26T21:01:35.613Z"
+      "lastSeen": "2026-05-26T22:01:40.516Z"
     },
     {
       "adID": "1900863934634608",
@@ -216,7 +256,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-25 18:02:50",
-      "lastSeen": "2026-05-26T21:02:57.400Z"
+      "lastSeen": "2026-05-26T22:02:56.804Z"
     },
     {
       "adID": "947503728109056",
@@ -296,7 +336,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-25 11:03:25",
-      "lastSeen": "2026-05-26T21:02:57.534Z"
+      "lastSeen": "2026-05-26T22:02:56.938Z"
     },
     {
       "adID": "1084763414413054",
