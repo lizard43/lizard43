@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-26T23:03:16.387Z",
+  "generated_at": "2026-05-27T00:04:12.830Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -12,12 +12,32 @@
     },
     "counts": {
       "exported_ads": 30,
-      "droppedPrice": 347,
+      "droppedPrice": 348,
       "droppedMissingGeo": 0,
-      "droppedCircle": 275
+      "droppedCircle": 277
     }
   },
   "ads": [
+    {
+      "adID": "2134168723979637",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100035091712113/?product_id=2134168723979637",
+      "author": "Zane King-Williamson",
+      "postedTime": "2026-05-26T23:20:12.000Z",
+      "title": "Classic Golden Tee",
+      "description": "Classic Golden Tee Arcade Game Wasn’t functioning the last time I turned in on. Needs work",
+      "price": "$50",
+      "lat": 30.3466423,
+      "lon": -86.2307992,
+      "location": "Santa Rosa Beach, FL",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/707964895_1020170410345146_5214105376303304407_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=109&ccb=1-7&_nc_sid=92e707&_nc_ohc=VHuuP5ueEcYQ7kNvwFdddCC&_nc_oc=Adrcfn__d-8gtsElh4JGcsWSjwGPV1OjkxFJC6m2mSsxN7t0jDQsP6ZQpP6Bek2B95s&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=Qvysj29bXDSP3sVxnuBijw&_nc_ss=7b2a8&oh=00_Af7zBstwuUZyvyv3zmXDDQ5XxQt7NmV0pYCjmIEHBfipcg&oe=6A1C1A24",
+      "adUrl": "https://www.facebook.com/marketplace/item/2134168723979637/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-05-27 00:01:47",
+      "lastSeen": "2026-05-27T00:02:27.065Z"
+    },
     {
       "adID": "2009265643315234",
       "source": "MP",
@@ -79,26 +99,6 @@
       "lastSeen": "2026-05-26T23:01:44.720Z"
     },
     {
-      "adID": "2464728183968494",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/61581960652742/?product_id=2464728183968494",
-      "author": "Mary Valdez",
-      "postedTime": "2026-05-26T20:08:33.000Z",
-      "title": "Pac-Man retro arcade",
-      "description": "",
-      "price": "$50",
-      "lat": 33.5206824,
-      "lon": -86.8024326,
-      "location": "Birmingham, AL",
-      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/708877466_1295156039444049_5318773939866253185_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=103&ccb=1-7&_nc_sid=92e707&_nc_ohc=BfOl9MADvAcQ7kNvwEmSSmp&_nc_oc=AdriiMzq25dlWfJOjbX0K6zCddKMkSBK1AZAFKoI0aJhmMFs_KXzhBfwwaT7KVvSa6Q&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=mektE7njWQ43wC4eyvFLgA&_nc_ss=7b2a8&oh=00_Af6KeFbzl7iF-XqUtxz5kqby42kpi58i7guOH-5noCMjkQ&oe=6A1BD586",
-      "adUrl": "https://www.facebook.com/marketplace/item/2464728183968494/",
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-05-26 21:01:35",
-      "lastSeen": "2026-05-26T23:02:22.231Z"
-    },
-    {
       "adID": "1318566402985188",
       "source": "MP",
       "authorUrl": "https://www.facebook.com/marketplace/profile/100001137556520/?product_id=1318566402985188",
@@ -156,7 +156,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-26 16:02:46",
-      "lastSeen": "2026-05-26T23:02:20.974Z"
+      "lastSeen": "2026-05-27T00:02:54.108Z"
     },
     {
       "adID": "994930706623417",
@@ -236,7 +236,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-25 19:01:36",
-      "lastSeen": "2026-05-26T23:01:44.585Z"
+      "lastSeen": "2026-05-27T00:01:47.504Z"
     },
     {
       "adID": "1900863934634608",
@@ -256,7 +256,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-25 18:02:50",
-      "lastSeen": "2026-05-26T23:02:21.717Z"
+      "lastSeen": "2026-05-27T00:02:54.544Z"
     },
     {
       "adID": "947503728109056",
@@ -336,7 +336,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-25 11:03:25",
-      "lastSeen": "2026-05-26T23:02:21.863Z"
+      "lastSeen": "2026-05-27T00:02:54.678Z"
     },
     {
       "adID": "1084763414413054",
