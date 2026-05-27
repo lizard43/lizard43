@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-27T16:59:57.833Z",
+  "generated_at": "2026-05-27T17:04:03.485Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,33 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 20,
-      "droppedPrice": 371,
+      "exported_ads": 21,
+      "droppedPrice": 375,
       "droppedMissingGeo": 0,
-      "droppedCircle": 311
+      "droppedCircle": 313
     }
   },
   "ads": [
+    {
+      "adID": "2413592889150059",
+      "source": "MP",
+      "authorUrl": null,
+      "author": "",
+      "postedTime": "2026-05-27T17:02:19.966Z",
+      "title": "INTERNATIONAL MAXXFORCE ECM FOR SALE",
+      "description": "",
+      "price": "$1",
+      "lat": 33.4487257,
+      "lon": -84.4549262,
+      "location": "Fayetteville, GA",
+      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/709486151_958479373631114_8842762492959480743_n.jpg?stp=c43.0.260.260a_dst-jpg_p261x260_tt6&_nc_cat=103&ccb=1-7&_nc_sid=92e707&_nc_ohc=E20o7ZwVmIEQ7kNvwFgplJo&_nc_oc=AdoHbrXTPR5_zVQfaQoQjJh-6-5hPiPrioEYu-FpAkw_C_UgyzcEHln63mLtv-j8acI&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=bisg9F-nCWgloUZhAhdxlw&_nc_ss=7b2a8&oh=00_Af44kIXOPqm3iq0UtkuJvutJjHwDFf9gXmvxohIXK1XUyA&oe=6A1CE154",
+      "adUrl": "https://www.facebook.com/marketplace/item/2413592889150059/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-05-27 17:02:19",
+      "lastSeen": "2026-05-27T17:03:32.616Z"
+    },
     {
       "adID": "1284200437256256",
       "source": "MP",
@@ -116,7 +136,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-25 19:01:36",
-      "lastSeen": "2026-05-27T16:02:18.337Z"
+      "lastSeen": "2026-05-27T17:02:19.654Z"
     },
     {
       "adID": "947503728109056",
