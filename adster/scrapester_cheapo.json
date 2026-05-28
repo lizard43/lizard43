@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-28T16:04:49.163Z",
+  "generated_at": "2026-05-28T17:03:47.249Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,33 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 34,
-      "droppedPrice": 415,
+      "exported_ads": 35,
+      "droppedPrice": 416,
       "droppedMissingGeo": 0,
-      "droppedCircle": 298
+      "droppedCircle": 299
     }
   },
   "ads": [
+    {
+      "adID": "969692499289965",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/61579086602667/?product_id=969692499289965",
+      "author": "Isaac Denmark",
+      "postedTime": "2026-05-28T16:22:26.000Z",
+      "title": "Gaming arcade",
+      "description": "Space invaders game in black and white, it is electrical will need to be plugged in.",
+      "price": "$800",
+      "lat": 27.9449854,
+      "lon": -82.4583107,
+      "location": "Tampa, FL",
+      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/707341239_26376190698727241_1264740996278291936_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=108&ccb=1-7&_nc_sid=92e707&_nc_ohc=BXE6cuUmONQQ7kNvwGwa-hl&_nc_oc=Adp-ebS0YU3gvQRLxItX1C83uaiCdPiBcP-gQylMjw6jptV3wKRoeLkIwybqBFtO42w&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=IOD3I3muGeZo1dH5LX1lMw&_nc_ss=7b2a8&oh=00_Af777SvOQZsBDDzCgnCszY-wKbRqzrYEPkgSngRtyeugWQ&oe=6A1E3B53",
+      "adUrl": "https://www.facebook.com/marketplace/item/969692499289965/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-05-28 17:01:34",
+      "lastSeen": "2026-05-28T17:02:29.707Z"
+    },
     {
       "adID": "1616770839400299",
       "source": "MP",
@@ -196,7 +216,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-28 12:01:38",
-      "lastSeen": "2026-05-28T16:03:47.720Z"
+      "lastSeen": "2026-05-28T17:01:35.831Z"
     },
     {
       "adID": "1525670162401237",
@@ -216,7 +236,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-28 12:01:37",
-      "lastSeen": "2026-05-28T16:01:57.939Z"
+      "lastSeen": "2026-05-28T17:01:35.028Z"
     },
     {
       "adID": "1682286826430277",
@@ -236,27 +256,27 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-28 00:02:25",
-      "lastSeen": "2026-05-28T16:03:46.649Z"
+      "lastSeen": "2026-05-28T17:02:56.956Z"
     },
     {
       "adID": "731710010024871",
       "source": "FB",
       "authorUrl": null,
       "author": "Justin Guy",
-      "postedTime": "2026-05-28T00:01:44.328Z",
+      "postedTime": "2026-05-28T00:01:21.225Z",
       "title": "Williams Dealer's Choice Pinball Project",
       "description": "Project Williams Dealer's Choice Pinball",
       "price": "$450",
       "lat": 34.3683267,
       "lon": -84.9349057,
       "location": "ADAIRSVILLE, GA",
-      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.30808-6/703708420_1719243629429931_1914823633864954133_n.jpg?stp=dst-jpg_s590x590_tt6&_nc_cat=103&ccb=1-7&_nc_sid=aa7b47&_nc_ohc=pCFJ-CCKupkQ7kNvwHXf2EO&_nc_oc=AdoIELXEgDwOEzaBa058gdk9Okh63Q9RxH-w0rBnwmnIW9KWq9EkR5WX2KNu_EYUdyo&_nc_zt=23&_nc_ht=scontent-dfw6-1.xx&_nc_gid=g-PsPTt2sbGUI0TnsNMMeA&_nc_ss=7b2a8&oh=00_Af4769ZqXOAkLrpHGYwE5uS-m_p2SYC08T2JJqAwPH2-mA&oe=6A1E2A39",
+      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.30808-6/703708420_1719243629429931_1914823633864954133_n.jpg?stp=dst-jpg_s590x590_tt6&_nc_cat=103&ccb=1-7&_nc_sid=aa7b47&_nc_ohc=pCFJ-CCKupkQ7kNvwHXf2EO&_nc_oc=AdoIELXEgDwOEzaBa058gdk9Okh63Q9RxH-w0rBnwmnIW9KWq9EkR5WX2KNu_EYUdyo&_nc_zt=23&_nc_ht=scontent-dfw6-1.xx&_nc_gid=_9bU5eCAQVki-05EB4eXZA&_nc_ss=7b2a8&oh=00_Af7yGW5EKupnero8eKSCUlZIXOFmRZFR2x7XJZjFX5pRvw&oe=6A1E6279",
       "adUrl": "https://www.facebook.com/commerce/listing/731710010024871/",
       "priceChanged": 0,
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-28 00:01:25",
-      "lastSeen": "2026-05-28T16:01:44.576Z"
+      "lastSeen": "2026-05-28T17:01:21.477Z"
     },
     {
       "adID": "4246920332285309",
@@ -276,7 +296,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-27 20:01:39",
-      "lastSeen": "2026-05-28T16:01:58.284Z"
+      "lastSeen": "2026-05-28T17:01:35.362Z"
     },
     {
       "adID": "1779980086675517",
@@ -296,7 +316,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-27 20:01:38",
-      "lastSeen": "2026-05-28T16:01:58.206Z"
+      "lastSeen": "2026-05-28T17:01:35.295Z"
     },
     {
       "adID": "1398559008960935",
