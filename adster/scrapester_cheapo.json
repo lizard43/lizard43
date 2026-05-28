@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-28T20:04:09.511Z",
+  "generated_at": "2026-05-28T21:03:38.205Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,33 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 29,
-      "droppedPrice": 422,
+      "exported_ads": 30,
+      "droppedPrice": 424,
       "droppedMissingGeo": 0,
-      "droppedCircle": 301
+      "droppedCircle": 302
     }
   },
   "ads": [
+    {
+      "adID": "984844227262994",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100090550101284/?product_id=984844227262994",
+      "author": "Lauren Flowers",
+      "postedTime": "2026-05-28T19:59:56.000Z",
+      "title": "Presidential pin",
+      "description": "Antique pin. Box says Ronald Reagan.",
+      "price": "$40",
+      "lat": 30.421309,
+      "lon": -87.2169149,
+      "location": "Pensacola, FL",
+      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/707844103_936886749395530_2285269318528910440_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=107&ccb=1-7&_nc_sid=92e707&_nc_ohc=U5vJ45JF7FAQ7kNvwEh3Ljt&_nc_oc=AdqW6R9GYssSDt3p6KGrQZgK3aXooDEFiIVvJRVYf0wHQqUMALknRX45E-L-4_gMlAM&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=G8WbWP7XVRU_u0Uwhe5n-Q&_nc_ss=7b2a8&oh=00_Af4bdHsCU26l49ByfSGaiTG1ndQgkVZ-63Cx0K9XkFp-5Q&oe=6A1E90A7",
+      "adUrl": "https://www.facebook.com/marketplace/item/984844227262994/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-05-28 21:02:23",
+      "lastSeen": "2026-05-28T21:03:10.673Z"
+    },
     {
       "adID": "843781222129320",
       "source": "MP",
@@ -36,14 +56,14 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-28 19:02:23",
-      "lastSeen": "2026-05-28T20:02:56.055Z"
+      "lastSeen": "2026-05-28T21:02:21.366Z"
     },
     {
       "adID": "PI-215282",
       "source": "PS",
       "authorUrl": "https://pinside.com/pinball/community/pinsiders/rebelb/market",
       "author": "RebelB",
-      "postedTime": "2026-05-28T18:03:55.482Z",
+      "postedTime": "2026-05-28T18:03:28.973Z",
       "title": "Super Score Vintage Pinball Machine Gottlieb 1967",
       "description": "Used - shows wear, needs some work - “Tested and Works. The 2nd player reels and ball count stick and will have to be manually reset to start a new game. Willing to ship at Buyers expense. Delivery within 50 miles of ...”",
       "price": "$700",
@@ -56,7 +76,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-28 18:02:53",
-      "lastSeen": "2026-05-28T20:03:56.268Z"
+      "lastSeen": "2026-05-28T21:03:30.906Z"
     },
     {
       "adID": "1616770839400299",
@@ -76,7 +96,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-28 14:06:45",
-      "lastSeen": "2026-05-28T20:02:57.060Z"
+      "lastSeen": "2026-05-28T21:02:23.493Z"
     },
     {
       "adID": "1481122810367654",
@@ -136,7 +156,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-28 12:01:38",
-      "lastSeen": "2026-05-28T20:02:57.295Z"
+      "lastSeen": "2026-05-28T21:02:23.727Z"
     },
     {
       "adID": "1682286826430277",
@@ -156,7 +176,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-28 00:02:25",
-      "lastSeen": "2026-05-28T20:02:56.257Z"
+      "lastSeen": "2026-05-28T21:02:21.567Z"
     },
     {
       "adID": "731710010024871",
@@ -196,7 +216,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-27 20:01:39",
-      "lastSeen": "2026-05-28T20:01:36.701Z"
+      "lastSeen": "2026-05-28T21:01:37.760Z"
     },
     {
       "adID": "1779980086675517",
@@ -216,7 +236,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-27 20:01:38",
-      "lastSeen": "2026-05-28T20:01:36.633Z"
+      "lastSeen": "2026-05-28T21:01:37.693Z"
     },
     {
       "adID": "1284200437256256",
