@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-29T17:34:03.040Z",
+  "generated_at": "2026-05-29T18:03:31.722Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,33 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 46,
-      "droppedPrice": 453,
+      "exported_ads": 47,
+      "droppedPrice": 457,
       "droppedMissingGeo": 0,
-      "droppedCircle": 322
+      "droppedCircle": 325
     }
   },
   "ads": [
+    {
+      "adID": "2190731958410644",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100011361607876/?product_id=2190731958410644",
+      "author": "Gerald Lee",
+      "postedTime": "2026-05-29T17:43:24.000Z",
+      "title": "National rifleman Association collectible medallions",
+      "description": "National rifleman Association medallion collectibles one has an elk on it. One has a moose on it. One has a mule deer on it. One has a brownie automatic rifle on it. One has a grizzly bear on it. One has an M 16 series rifle on it.",
+      "price": "$150",
+      "lat": 28.8021812,
+      "lon": -81.731332,
+      "location": "Tavares, FL",
+      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/709155734_1009870838105206_4515421985149759431_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=101&ccb=1-7&_nc_sid=92e707&_nc_ohc=aWzgMQqvSGEQ7kNvwGh2ZpX&_nc_oc=Adpz8Y2YE9MKf8DYunfVm1iC4zukPytkTkdsHcY93iZCfO7gBKQ6r78Cd_s0YPohQwc&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=ivEhQpqaAsBVgbv_dZUn7A&_nc_ss=7b2a8&oh=00_Af5TJSXN1PGcNj088AbQVlEF3OhSKNDQVqWIA5gHVLMizw&oe=6A1FBEC9",
+      "adUrl": "https://www.facebook.com/marketplace/item/2190731958410644/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-05-29 18:02:19",
+      "lastSeen": "2026-05-29T18:03:05.955Z"
+    },
     {
       "adID": "1041105841576519",
       "source": "MP",
@@ -36,7 +56,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-29 17:01:36",
-      "lastSeen": "2026-05-29T17:02:05.221Z"
+      "lastSeen": "2026-05-29T18:01:34.050Z"
     },
     {
       "adID": "1309803091333363",
@@ -56,7 +76,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-29 16:02:13",
-      "lastSeen": "2026-05-29T17:02:54.693Z"
+      "lastSeen": "2026-05-29T18:02:18.050Z"
     },
     {
       "adID": "2101810360379677",
@@ -76,7 +96,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-29 16:01:32",
-      "lastSeen": "2026-05-29T17:02:27.882Z"
+      "lastSeen": "2026-05-29T18:02:19.440Z"
     },
     {
       "adID": "1496812948551706",
@@ -96,7 +116,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-29 15:02:40",
-      "lastSeen": "2026-05-29T17:02:27.915Z"
+      "lastSeen": "2026-05-29T18:02:19.474Z"
     },
     {
       "adID": "2745500375824168",
@@ -116,7 +136,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-29 15:02:40",
-      "lastSeen": "2026-05-29T17:02:27.949Z"
+      "lastSeen": "2026-05-29T18:02:19.507Z"
     },
     {
       "adID": "969692499289965",
@@ -136,7 +156,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-29 15:01:32",
-      "lastSeen": "2026-05-29T17:01:36.604Z"
+      "lastSeen": "2026-05-29T18:01:34.355Z"
     },
     {
       "adID": "1525670162401237",
@@ -156,7 +176,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-29 15:01:32",
-      "lastSeen": "2026-05-29T17:01:36.805Z"
+      "lastSeen": "2026-05-29T18:01:34.622Z"
     },
     {
       "adID": "2578878922551354",
@@ -196,7 +216,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-29 14:03:05",
-      "lastSeen": "2026-05-29T16:01:32.582Z"
+      "lastSeen": "2026-05-29T18:01:35.681Z"
     },
     {
       "adID": "1273602261468981",
@@ -216,7 +236,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-29 14:03:05",
-      "lastSeen": "2026-05-29T16:01:32.615Z"
+      "lastSeen": "2026-05-29T18:01:35.715Z"
     },
     {
       "adID": "1322592746433827",
@@ -276,7 +296,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-29 13:38:13",
-      "lastSeen": "2026-05-29T17:02:27.001Z"
+      "lastSeen": "2026-05-29T18:02:18.084Z"
     },
     {
       "adID": "959555520221374",
@@ -376,7 +396,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-29 12:03:38",
-      "lastSeen": "2026-05-29T16:02:15.354Z"
+      "lastSeen": "2026-05-29T18:02:19.674Z"
     },
     {
       "adID": "2187257988726259",
@@ -396,7 +416,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-29 11:03:49",
-      "lastSeen": "2026-05-29T17:02:27.202Z"
+      "lastSeen": "2026-05-29T18:02:18.285Z"
     },
     {
       "adID": "843781222129320",
@@ -423,7 +443,7 @@
       "source": "PS",
       "authorUrl": "https://pinside.com/pinball/community/pinsiders/rebelb/market",
       "author": "RebelB",
-      "postedTime": "2026-05-28T18:03:22.274Z",
+      "postedTime": "2026-05-28T18:03:26.698Z",
       "title": "Super Score Vintage Pinball Machine Gottlieb 1967",
       "description": "Used - shows wear, needs some work - “Tested and Works. The 2nd player reels and ball count stick and will have to be manually reset to start a new game. Willing to ship at Buyers expense. Delivery within 50 miles of ...”",
       "price": "$700",
@@ -436,7 +456,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-28 18:02:53",
-      "lastSeen": "2026-05-29T17:03:22.295Z"
+      "lastSeen": "2026-05-29T18:03:26.855Z"
     },
     {
       "adID": "1616770839400299",
@@ -496,7 +516,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-28 00:02:25",
-      "lastSeen": "2026-05-29T17:02:27.380Z"
+      "lastSeen": "2026-05-29T18:02:18.463Z"
     },
     {
       "adID": "731710010024871",
