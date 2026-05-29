@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-29T15:34:48.533Z",
+  "generated_at": "2026-05-29T16:03:30.647Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,53 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 43,
-      "droppedPrice": 449,
+      "exported_ads": 45,
+      "droppedPrice": 453,
       "droppedMissingGeo": 0,
-      "droppedCircle": 320
+      "droppedCircle": 321
     }
   },
   "ads": [
+    {
+      "adID": "1309803091333363",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/33019288/?product_id=1309803091333363",
+      "author": "Kaye Neville Rothenbuhler",
+      "postedTime": "2026-05-29T15:20:58.000Z",
+      "title": "Digital pinball machine",
+      "description": "Great condition, played on maybe half a dozen times.",
+      "price": "$550",
+      "lat": 33.4473361,
+      "lon": -84.1468616,
+      "location": "McDonough, GA",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/710288607_1368657618503211_2449805776704804991_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=109&ccb=1-7&_nc_sid=92e707&_nc_ohc=4KMqzjj9dPgQ7kNvwHcsftF&_nc_oc=AdpnQpnNNvMC2ILpVmyRrCGV95XfGM5E0vT2brYm7fjQwAP735MwtvWShy5WTXMa258&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=GJa9t_UDyFVKhdJlZ7OYRw&_nc_ss=7b2a8&oh=00_Af4O2x80jzsYqn0JQwQsOG-eec0u8fIkNAvx0LhoRigfww&oe=6A1F806A",
+      "adUrl": "https://www.facebook.com/marketplace/item/1309803091333363/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-05-29 16:02:13",
+      "lastSeen": "2026-05-29T16:03:00.603Z"
+    },
+    {
+      "adID": "2101810360379677",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100019076510404/?product_id=2101810360379677",
+      "author": "Chandrika Williams",
+      "postedTime": "2026-05-29T15:49:16.000Z",
+      "title": "Street Fighter II Arcade",
+      "description": "Almost brand new. Only played a few times",
+      "price": "$400",
+      "lat": 29.9060388,
+      "lon": -90.1422962,
+      "location": "Westwego, LA",
+      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t15.5256-10/710288252_2094948067770017_3057908329654609307_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=102&ccb=1-7&_nc_sid=d4195b&_nc_ohc=sjQ0zSKfiy0Q7kNvwG9s3SO&_nc_oc=Ado4Be5peoYYKu2TmNE48G-NqpGp-iPOdLY08ecy8jL7Nfmn5M94Ca1xct2eagwUqmw&_nc_zt=23&_nc_ht=scontent-dfw6-1.xx&_nc_gid=EvxvGgekRmKsvl4z7GEyag&_nc_ss=7b2a8&oh=00_Af7DlhVTxRme7SRs7LXz3fw7caBX1UZQ_q15arf4PA24MA&oe=6A1F7E98",
+      "adUrl": "https://www.facebook.com/marketplace/item/2101810360379677/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-05-29 16:01:32",
+      "lastSeen": "2026-05-29T16:02:15.119Z"
+    },
     {
       "adID": "1496812948551706",
       "source": "MP",
@@ -36,7 +76,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-29 15:02:40",
-      "lastSeen": "2026-05-29T15:03:23.694Z"
+      "lastSeen": "2026-05-29T16:02:15.153Z"
     },
     {
       "adID": "2745500375824168",
@@ -56,7 +96,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-29 15:02:40",
-      "lastSeen": "2026-05-29T15:03:23.762Z"
+      "lastSeen": "2026-05-29T16:02:15.187Z"
     },
     {
       "adID": "969692499289965",
@@ -76,7 +116,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-29 15:01:32",
-      "lastSeen": "2026-05-29T15:02:11.473Z"
+      "lastSeen": "2026-05-29T16:01:32.180Z"
     },
     {
       "adID": "1525670162401237",
@@ -96,7 +136,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-29 15:01:32",
-      "lastSeen": "2026-05-29T15:02:11.506Z"
+      "lastSeen": "2026-05-29T16:01:32.381Z"
     },
     {
       "adID": "2578878922551354",
@@ -136,7 +176,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-29 14:03:05",
-      "lastSeen": "2026-05-29T15:01:33.076Z"
+      "lastSeen": "2026-05-29T16:01:32.582Z"
     },
     {
       "adID": "1273602261468981",
@@ -156,7 +196,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-29 14:03:05",
-      "lastSeen": "2026-05-29T15:01:33.109Z"
+      "lastSeen": "2026-05-29T16:01:32.615Z"
     },
     {
       "adID": "1322592746433827",
@@ -216,7 +256,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-29 13:38:13",
-      "lastSeen": "2026-05-29T15:02:39.403Z"
+      "lastSeen": "2026-05-29T16:02:13.941Z"
     },
     {
       "adID": "959555520221374",
@@ -316,7 +356,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-29 12:03:38",
-      "lastSeen": "2026-05-29T15:02:41.174Z"
+      "lastSeen": "2026-05-29T16:02:15.354Z"
     },
     {
       "adID": "2187257988726259",
@@ -336,7 +376,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-29 11:03:49",
-      "lastSeen": "2026-05-29T15:02:39.658Z"
+      "lastSeen": "2026-05-29T16:02:14.142Z"
     },
     {
       "adID": "843781222129320",
@@ -363,7 +403,7 @@
       "source": "PS",
       "authorUrl": "https://pinside.com/pinball/community/pinsiders/rebelb/market",
       "author": "RebelB",
-      "postedTime": "2026-05-28T18:03:44.430Z",
+      "postedTime": "2026-05-28T18:03:21.862Z",
       "title": "Super Score Vintage Pinball Machine Gottlieb 1967",
       "description": "Used - shows wear, needs some work - “Tested and Works. The 2nd player reels and ball count stick and will have to be manually reset to start a new game. Willing to ship at Buyers expense. Delivery within 50 miles of ...”",
       "price": "$700",
@@ -376,7 +416,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-28 18:02:53",
-      "lastSeen": "2026-05-29T15:03:46.187Z"
+      "lastSeen": "2026-05-29T16:03:23.853Z"
     },
     {
       "adID": "1616770839400299",
@@ -436,7 +476,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-28 00:02:25",
-      "lastSeen": "2026-05-29T15:02:39.825Z"
+      "lastSeen": "2026-05-29T16:02:14.616Z"
     },
     {
       "adID": "731710010024871",
