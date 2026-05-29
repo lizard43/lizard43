@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-29T12:06:21.056Z",
+  "generated_at": "2026-05-29T13:04:21.132Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,53 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 35,
-      "droppedPrice": 442,
+      "exported_ads": 37,
+      "droppedPrice": 445,
       "droppedMissingGeo": 0,
-      "droppedCircle": 331
+      "droppedCircle": 334
     }
   },
   "ads": [
+    {
+      "adID": "1570622321739790",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100086806050788/?product_id=1570622321739790",
+      "author": "Иван Гордиенко",
+      "postedTime": "2026-05-29T01:47:44.000Z",
+      "title": "VIDEO GAME",
+      "description": "NBA 2K17",
+      "price": "$10",
+      "lat": 28.183222,
+      "lon": -82.5540279,
+      "location": "Odessa, FL",
+      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/707866926_2209138886492126_3437355897893849101_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=100&ccb=1-7&_nc_sid=92e707&_nc_ohc=Y7rlbj9z9JkQ7kNvwFU7U6X&_nc_oc=AdrZnrRDR2IiKEOjIL21jpMaYSbqrcNoBhKTK6-ZgbwQUScy31Gf9cCkGtnYEgCzNp0&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=IrugWs3QOTzs7K1DMwUvfQ&_nc_ss=7b2a8&oh=00_Af5yukBF8jDQ6npsvGogLCWG3D0RSBhe-G_LX8o2wg4VaQ&oe=6A1F4A67",
+      "adUrl": "https://www.facebook.com/marketplace/item/1570622321739790/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-05-29 13:01:39",
+      "lastSeen": "2026-05-29T13:02:41.825Z"
+    },
+    {
+      "adID": "1785347525762684",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/5106165/?product_id=1785347525762684",
+      "author": "Felipe Buccianti",
+      "postedTime": "2026-05-29T01:47:18.000Z",
+      "title": "Game Builder Garage",
+      "description": "Nintendo Switch Game Builder Garage",
+      "price": "$18",
+      "lat": 33.9528472,
+      "lon": -84.5496148,
+      "location": "Marietta, GA",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/709186389_1150100790637652_1548284484241093147_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=109&ccb=1-7&_nc_sid=92e707&_nc_ohc=sK-QmZIJnLQQ7kNvwHl7Xhl&_nc_oc=AdqsrdEvUxRhQCtbg4ptpF3AN37HPae6WsgSv1xZqRqUqN0JogqF9VGqxHBimz9djY8&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=FjLeZPLfzuu70qQYJV7xOg&_nc_ss=7b2a8&oh=00_Af4U1aB2UNCjf9ArrIhxlMYbaAi-0ALJLwo4hWUFWeN0tQ&oe=6A1F589D",
+      "adUrl": "https://www.facebook.com/marketplace/item/1785347525762684/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-05-29 13:01:39",
+      "lastSeen": "2026-05-29T13:02:41.859Z"
+    },
     {
       "adID": "1402051201770851",
       "source": "MP",
@@ -36,7 +76,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-29 12:03:40",
-      "lastSeen": "2026-05-29T12:05:51.274Z"
+      "lastSeen": "2026-05-29T13:03:12.984Z"
     },
     {
       "adID": "2215901089226032",
@@ -56,7 +96,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-29 12:03:38",
-      "lastSeen": "2026-05-29T12:05:51.173Z"
+      "lastSeen": "2026-05-29T13:03:12.884Z"
     },
     {
       "adID": "1034813188874173",
@@ -76,7 +116,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-29 12:01:40",
-      "lastSeen": "2026-05-29T12:03:08.195Z"
+      "lastSeen": "2026-05-29T13:01:38.984Z"
     },
     {
       "adID": "2217254019046375",
@@ -96,7 +136,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-29 12:01:40",
-      "lastSeen": "2026-05-29T12:03:08.228Z"
+      "lastSeen": "2026-05-29T13:01:39.018Z"
     },
     {
       "adID": "986995894288881",
@@ -136,7 +176,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-29 11:03:49",
-      "lastSeen": "2026-05-29T12:03:34.237Z"
+      "lastSeen": "2026-05-29T13:03:11.958Z"
     },
     {
       "adID": "843781222129320",
@@ -156,14 +196,14 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-28 19:02:23",
-      "lastSeen": "2026-05-29T12:03:34.170Z"
+      "lastSeen": "2026-05-29T13:03:11.891Z"
     },
     {
       "adID": "PI-215282",
       "source": "PS",
       "authorUrl": "https://pinside.com/pinball/community/pinsiders/rebelb/market",
       "author": "RebelB",
-      "postedTime": "2026-05-28T18:06:12.547Z",
+      "postedTime": "2026-05-28T18:04:11.654Z",
       "title": "Super Score Vintage Pinball Machine Gottlieb 1967",
       "description": "Used - shows wear, needs some work - “Tested and Works. The 2nd player reels and ball count stick and will have to be manually reset to start a new game. Willing to ship at Buyers expense. Delivery within 50 miles of ...”",
       "price": "$700",
@@ -176,7 +216,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-28 18:02:53",
-      "lastSeen": "2026-05-29T12:06:13.398Z"
+      "lastSeen": "2026-05-29T13:04:14.247Z"
     },
     {
       "adID": "1616770839400299",
@@ -276,7 +316,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-28 00:02:25",
-      "lastSeen": "2026-05-29T12:03:36.571Z"
+      "lastSeen": "2026-05-29T13:03:12.158Z"
     },
     {
       "adID": "731710010024871",
