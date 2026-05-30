@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-30T15:35:26.677Z",
+  "generated_at": "2026-05-30T16:04:05.630Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,33 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 52,
-      "droppedPrice": 490,
+      "exported_ads": 53,
+      "droppedPrice": 494,
       "droppedMissingGeo": 0,
-      "droppedCircle": 362
+      "droppedCircle": 366
     }
   },
   "ads": [
+    {
+      "adID": "1000409735870133",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100001186647097/?product_id=1000409735870133",
+      "author": "Terri Anderson Grimsley-Story",
+      "postedTime": "2026-05-30T15:43:11.000Z",
+      "title": "Cracker Barrel peg game",
+      "description": "New never opened",
+      "price": "$5",
+      "lat": 32.6200973,
+      "lon": -83.606568,
+      "location": "Warner Robins, GA",
+      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/710475307_962236519936478_1285754364193764819_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=100&ccb=1-7&_nc_sid=92e707&_nc_ohc=AP-5vBux7yAQ7kNvwEqs1KJ&_nc_oc=Adp9e3z-fjFNZ7BHSIPj4FiZR0EThd2gjCk9RtGzwK6zGm1cozRZucc6ALBKP4AmQ6k&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=8HcrhSx-CAYeMsF4pFrYiA&_nc_ss=7b2a8&oh=00_Af6V1J-qNyU2KNyhmyNNhHPTo1pjxeV6kelz-2kX9j9ujw&oe=6A20C97B",
+      "adUrl": "https://www.facebook.com/marketplace/item/1000409735870133/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-05-30 16:02:49",
+      "lastSeen": "2026-05-30T16:03:37.051Z"
+    },
     {
       "adID": "1609994413433975",
       "source": "MP",
@@ -56,7 +76,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-30 14:03:04",
-      "lastSeen": "2026-05-30T15:02:29.665Z"
+      "lastSeen": "2026-05-30T16:02:49.531Z"
     },
     {
       "adID": "4337924603090343",
@@ -76,7 +96,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-30 14:03:03",
-      "lastSeen": "2026-05-30T15:02:29.398Z"
+      "lastSeen": "2026-05-30T16:02:49.263Z"
     },
     {
       "adID": "4559440990958630",
@@ -256,7 +276,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-30 13:01:39",
-      "lastSeen": "2026-05-30T15:01:36.619Z"
+      "lastSeen": "2026-05-30T16:01:36.374Z"
     },
     {
       "adID": "1675285470338734",
@@ -276,7 +296,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-30 13:01:39",
-      "lastSeen": "2026-05-30T15:01:36.820Z"
+      "lastSeen": "2026-05-30T16:01:36.575Z"
     },
     {
       "adID": "4265633760355704",
@@ -296,7 +316,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-30 13:01:37",
-      "lastSeen": "2026-05-30T15:01:36.473Z"
+      "lastSeen": "2026-05-30T16:01:36.106Z"
     },
     {
       "adID": "1582203070183596",
@@ -316,7 +336,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-30 13:01:37",
-      "lastSeen": "2026-05-30T15:01:36.541Z"
+      "lastSeen": "2026-05-30T16:01:36.273Z"
     },
     {
       "adID": "1613199939774943",
@@ -356,7 +376,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-30 12:01:38",
-      "lastSeen": "2026-05-30T15:01:36.005Z"
+      "lastSeen": "2026-05-30T16:01:35.638Z"
     },
     {
       "adID": "1283404777288199",
@@ -376,7 +396,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-29 23:01:34",
-      "lastSeen": "2026-05-30T15:01:36.508Z"
+      "lastSeen": "2026-05-30T16:01:36.140Z"
     },
     {
       "adID": "2190731958410644",
@@ -416,7 +436,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-29 16:02:13",
-      "lastSeen": "2026-05-30T15:02:29.765Z"
+      "lastSeen": "2026-05-30T16:02:49.631Z"
     },
     {
       "adID": "2745500375824168",
@@ -470,13 +490,13 @@
       "lat": 31.8087678,
       "lon": -85.969951,
       "location": "Troy, AL",
-      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t15.5256-10/685114292_1677904966733321_2697982776432829698_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=101&ccb=1-7&_nc_sid=d4195b&_nc_ohc=PJmK8Plv1isQ7kNvwFDftr6&_nc_oc=AdoxcLM2mPXLlbznDoPLm3gkrVEef4KBSBsCkuQmgkOk-lzZPa5BnBUmZDACS2SAVA0&_nc_zt=23&_nc_ht=scontent-dfw6-1.xx&_nc_gid=fyoHzk5Sodv0cHrnljZrZw&_nc_ss=7b2a8&oh=00_Af6axHyEIv0HBKrJPzi03v4oBss_DvEb1DfwrH7xnGYZPg&oe=6A20C780",
+      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t15.5256-10/685114292_1677904966733321_2697982776432829698_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=101&ccb=1-7&_nc_sid=d4195b&_nc_ohc=PJmK8Plv1isQ7kNvwFDftr6&_nc_oc=AdoxcLM2mPXLlbznDoPLm3gkrVEef4KBSBsCkuQmgkOk-lzZPa5BnBUmZDACS2SAVA0&_nc_zt=23&_nc_ht=scontent-dfw6-1.xx&_nc_gid=yXoT-cVRcJLebL0LXv6s5g&_nc_ss=7b2a8&oh=00_Af7wbIpXYvFv9oZ32qwdI6-Cutf6raX5fmAXas0E-0jx9w&oe=6A20C780",
       "adUrl": "https://www.facebook.com/marketplace/item/2578878922551354/",
       "priceChanged": 1,
-      "priceChangedAt": "2026-05-30 15:02:45",
+      "priceChangedAt": "2026-05-30 16:03:37",
       "hidden": 0,
       "created_at": "2026-05-29 14:28:52",
-      "lastSeen": "2026-05-30T15:02:45.067Z"
+      "lastSeen": "2026-05-30T16:03:37.117Z"
     },
     {
       "adID": "1021647794164147",
@@ -603,7 +623,7 @@
       "source": "PS",
       "authorUrl": "https://pinside.com/pinball/community/pinsiders/rebelb/market",
       "author": "RebelB",
-      "postedTime": "2026-05-28T18:03:05.925Z",
+      "postedTime": "2026-05-28T18:04:00.776Z",
       "title": "Super Score Vintage Pinball Machine Gottlieb 1967",
       "description": "Used - shows wear, needs some work - “Tested and Works. The 2nd player reels and ball count stick and will have to be manually reset to start a new game. Willing to ship at Buyers expense. Delivery within 50 miles of ...”",
       "price": "$700",
@@ -616,7 +636,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-28 18:02:53",
-      "lastSeen": "2026-05-30T15:03:06.711Z"
+      "lastSeen": "2026-05-30T16:04:01.960Z"
     },
     {
       "adID": "1481122810367654",
