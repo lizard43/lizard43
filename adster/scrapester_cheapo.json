@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-30T13:15:25.514Z",
+  "generated_at": "2026-05-30T14:04:32.463Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,53 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 49,
-      "droppedPrice": 485,
+      "exported_ads": 51,
+      "droppedPrice": 489,
       "droppedMissingGeo": 0,
-      "droppedCircle": 360
+      "droppedCircle": 364
     }
   },
   "ads": [
+    {
+      "adID": "1529854705479957",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100007731246662/?product_id=1529854705479957",
+      "author": "Cheyenne Rothell",
+      "postedTime": "2026-05-29T16:55:22.000Z",
+      "title": "pac man",
+      "description": "bought for Christmas and it was played maybe a month comes with stand! asking $300 obo",
+      "price": "$300",
+      "lat": 34.4442547,
+      "lon": -85.7196893,
+      "location": "Fort Payne, AL",
+      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/708277261_27255944320763141_3258631671428250323_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=102&ccb=1-7&_nc_sid=92e707&_nc_ohc=Qv4PQPCtSt4Q7kNvwHKtgPT&_nc_oc=AdovdEcQ80eUA7-XWv1l1a6H7XmOg26cuvSngKg7hXBrVYQP4XaeS0Mxx6HJVX1n1Uo&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=fvGwJv3RcIWCLRu4OmTKOA&_nc_ss=7b2a8&oh=00_Af58-UTSdqaLh8eZkj8JWart5_WUNjx8e7oz8aLNvQ4q9g&oe=6A20A58B",
+      "adUrl": "https://www.facebook.com/marketplace/item/1529854705479957/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-05-30 14:03:04",
+      "lastSeen": "2026-05-30T14:04:04.900Z"
+    },
+    {
+      "adID": "4337924603090343",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/684825287/?product_id=4337924603090343",
+      "author": "Toby Ray",
+      "postedTime": "2026-05-29T23:21:44.000Z",
+      "title": "Ms Pac-Man Machine",
+      "description": "Anniversary Ms Pac-Man machine. Everything works. Kids just outgrew it. This is a 40th-anniversary edition.",
+      "price": "$360",
+      "lat": 33.9237141,
+      "lon": -84.8407732,
+      "location": "Dallas, GA",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/709035633_1903751254346412_1153823148608791854_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=111&ccb=1-7&_nc_sid=92e707&_nc_ohc=KVSOJz-XOUcQ7kNvwGTNuiQ&_nc_oc=AdpeMytG7LQM4kiAb5oo0gnKvNE3vwdQmE1g7nwf2BL9IipDDYqnZ-XJL7vE6vivGtA&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=f9t15rL7BI4E7EiWnEgZ9w&_nc_ss=7b2a8&oh=00_Af527KoXJse71RS5F2YyjNwHTFEsnezksc8I88KlfXZS_A&oe=6A20CE76",
+      "adUrl": "https://www.facebook.com/marketplace/item/4337924603090343/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-05-30 14:03:03",
+      "lastSeen": "2026-05-30T14:04:04.802Z"
+    },
     {
       "adID": "4559440990958630",
       "source": "MP",
@@ -56,7 +96,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-30 13:07:02",
-      "lastSeen": "2026-05-30T13:14:12.124Z"
+      "lastSeen": "2026-05-30T14:03:05.730Z"
     },
     {
       "adID": "1308519401466777",
@@ -96,7 +136,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-30 13:07:01",
-      "lastSeen": "2026-05-30T13:14:11.989Z"
+      "lastSeen": "2026-05-30T14:03:05.596Z"
     },
     {
       "adID": "1630017904724734",
@@ -116,7 +156,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-30 13:07:00",
-      "lastSeen": "2026-05-30T13:14:11.956Z"
+      "lastSeen": "2026-05-30T14:03:05.563Z"
     },
     {
       "adID": "1464587939042139",
@@ -126,7 +166,7 @@
       "postedTime": "2026-05-30T01:40:44.000Z",
       "title": "Cuna para bebe",
       "description": "Gratis",
-      "price": "$0",
+      "price": "Free",
       "lat": 33.7544657,
       "lon": -84.3898151,
       "location": "Atlanta, GA",
@@ -136,7 +176,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-30 13:06:59",
-      "lastSeen": "2026-05-30T13:14:11.822Z"
+      "lastSeen": "2026-05-30T14:03:05.429Z"
     },
     {
       "adID": "4588560291380251",
@@ -156,7 +196,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-30 13:06:57",
-      "lastSeen": "2026-05-30T13:10:20.225Z"
+      "lastSeen": "2026-05-30T14:03:05.295Z"
     },
     {
       "adID": "1575010253825025",
@@ -196,7 +236,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-30 13:01:39",
-      "lastSeen": "2026-05-30T13:06:29.614Z"
+      "lastSeen": "2026-05-30T14:01:33.192Z"
     },
     {
       "adID": "1675285470338734",
@@ -236,7 +276,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-30 13:01:37",
-      "lastSeen": "2026-05-30T13:04:58.763Z"
+      "lastSeen": "2026-05-30T14:01:33.058Z"
     },
     {
       "adID": "1582203070183596",
@@ -256,7 +296,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-30 13:01:37",
-      "lastSeen": "2026-05-30T13:04:58.796Z"
+      "lastSeen": "2026-05-30T14:01:33.125Z"
     },
     {
       "adID": "1613199939774943",
@@ -296,7 +336,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-30 12:01:38",
-      "lastSeen": "2026-05-30T13:01:32.340Z"
+      "lastSeen": "2026-05-30T14:01:32.589Z"
     },
     {
       "adID": "1283404777288199",
@@ -316,7 +356,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-29 23:01:34",
-      "lastSeen": "2026-05-30T13:01:37.496Z"
+      "lastSeen": "2026-05-30T14:01:33.091Z"
     },
     {
       "adID": "2190731958410644",
@@ -356,7 +396,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-29 16:02:13",
-      "lastSeen": "2026-05-30T13:06:53.817Z"
+      "lastSeen": "2026-05-30T14:03:05.027Z"
     },
     {
       "adID": "2745500375824168",
@@ -543,7 +583,7 @@
       "source": "PS",
       "authorUrl": "https://pinside.com/pinball/community/pinsiders/rebelb/market",
       "author": "RebelB",
-      "postedTime": "2026-05-28T18:15:21.006Z",
+      "postedTime": "2026-05-28T18:04:27.993Z",
       "title": "Super Score Vintage Pinball Machine Gottlieb 1967",
       "description": "Used - shows wear, needs some work - “Tested and Works. The 2nd player reels and ball count stick and will have to be manually reset to start a new game. Willing to ship at Buyers expense. Delivery within 50 miles of ...”",
       "price": "$700",
@@ -556,7 +596,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-28 18:02:53",
-      "lastSeen": "2026-05-30T13:15:21.731Z"
+      "lastSeen": "2026-05-30T14:04:29.027Z"
     },
     {
       "adID": "1481122810367654",
