@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-30T19:34:10.486Z",
+  "generated_at": "2026-05-30T20:04:06.134Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,33 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 59,
-      "droppedPrice": 503,
+      "exported_ads": 60,
+      "droppedPrice": 505,
       "droppedMissingGeo": 0,
-      "droppedCircle": 370
+      "droppedCircle": 373
     }
   },
   "ads": [
+    {
+      "adID": "1335940778443956",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100059194536786/?product_id=1335940778443956",
+      "author": "Tyler Flint",
+      "postedTime": "2026-05-30T19:28:40.000Z",
+      "title": "Misc pins",
+      "description": "I have a few misc pins form different places and things some are alcohol others are bowling ones and I have a snoopy spoon and fork",
+      "price": "$15",
+      "lat": 30.6913462,
+      "lon": -88.0437509,
+      "location": "Mobile, AL",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/711655199_2095855537996117_5612525292912661023_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=105&ccb=1-7&_nc_sid=92e707&_nc_ohc=cJWDk8hmn88Q7kNvwHye5Nr&_nc_oc=Adr8Z5MBIH2HKj5ue67emYYe7P3L5L1R1KrBPe2iklBIEwoZ7h_wj3keJo2z3F-lZ7U&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=xxH-sCgQqx6iqEXg7FtWtw&_nc_ss=7b2a8&oh=00_Af6bIUuuSAIYt0ow6TVm_xmP0dhWMaw2o95aw3KpG8h4Og&oe=6A212779",
+      "adUrl": "https://www.facebook.com/marketplace/item/1335940778443956/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-05-30 20:02:39",
+      "lastSeen": "2026-05-30T20:03:34.660Z"
+    },
     {
       "adID": "1328467959433829",
       "source": "MP",
@@ -36,7 +56,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-30 19:01:35",
-      "lastSeen": "2026-05-30T19:02:30.351Z"
+      "lastSeen": "2026-05-30T20:01:35.442Z"
     },
     {
       "adID": "1542522507543258",
@@ -56,7 +76,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-30 19:01:33",
-      "lastSeen": "2026-05-30T19:02:30.252Z"
+      "lastSeen": "2026-05-30T20:01:33.510Z"
     },
     {
       "adID": "1651272176108475",
@@ -96,7 +116,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-30 18:02:53",
-      "lastSeen": "2026-05-30T18:03:43.881Z"
+      "lastSeen": "2026-05-30T20:02:39.624Z"
     },
     {
       "adID": "4407112749607117",
@@ -116,7 +136,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-30 18:01:36",
-      "lastSeen": "2026-05-30T19:01:35.423Z"
+      "lastSeen": "2026-05-30T20:01:35.475Z"
     },
     {
       "adID": "1690778685306700",
@@ -136,7 +156,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-30 18:01:34",
-      "lastSeen": "2026-05-30T19:01:33.815Z"
+      "lastSeen": "2026-05-30T20:01:33.567Z"
     },
     {
       "adID": "1000409735870133",
@@ -156,7 +176,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-30 16:02:49",
-      "lastSeen": "2026-05-30T19:03:00.693Z"
+      "lastSeen": "2026-05-30T20:02:39.445Z"
     },
     {
       "adID": "1609994413433975",
@@ -196,7 +216,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-30 14:03:04",
-      "lastSeen": "2026-05-30T19:03:00.324Z"
+      "lastSeen": "2026-05-30T20:02:39.042Z"
     },
     {
       "adID": "4337924603090343",
@@ -216,7 +236,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-30 14:03:03",
-      "lastSeen": "2026-05-30T19:03:00.123Z"
+      "lastSeen": "2026-05-30T20:02:38.843Z"
     },
     {
       "adID": "4559440990958630",
@@ -296,7 +316,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-30 13:07:01",
-      "lastSeen": "2026-05-30T18:02:53.827Z"
+      "lastSeen": "2026-05-30T20:02:39.758Z"
     },
     {
       "adID": "1630017904724734",
@@ -316,7 +336,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-30 13:07:00",
-      "lastSeen": "2026-05-30T18:02:53.793Z"
+      "lastSeen": "2026-05-30T20:02:39.724Z"
     },
     {
       "adID": "1464587939042139",
@@ -336,7 +356,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-30 13:06:59",
-      "lastSeen": "2026-05-30T18:02:53.625Z"
+      "lastSeen": "2026-05-30T20:02:39.556Z"
     },
     {
       "adID": "4588560291380251",
@@ -396,7 +416,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-30 13:01:39",
-      "lastSeen": "2026-05-30T19:01:34.462Z"
+      "lastSeen": "2026-05-30T20:01:34.754Z"
     },
     {
       "adID": "1675285470338734",
@@ -416,7 +436,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-30 13:01:39",
-      "lastSeen": "2026-05-30T19:01:34.662Z"
+      "lastSeen": "2026-05-30T20:01:35.257Z"
     },
     {
       "adID": "4265633760355704",
@@ -436,7 +456,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-30 13:01:37",
-      "lastSeen": "2026-05-30T19:01:34.294Z"
+      "lastSeen": "2026-05-30T20:01:34.586Z"
     },
     {
       "adID": "1582203070183596",
@@ -456,7 +476,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-30 13:01:37",
-      "lastSeen": "2026-05-30T19:01:34.395Z"
+      "lastSeen": "2026-05-30T20:01:34.687Z"
     },
     {
       "adID": "1613199939774943",
@@ -496,7 +516,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-30 12:01:38",
-      "lastSeen": "2026-05-30T19:01:33.881Z"
+      "lastSeen": "2026-05-30T20:01:33.634Z"
     },
     {
       "adID": "1283404777288199",
@@ -516,7 +536,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-29 23:01:34",
-      "lastSeen": "2026-05-30T19:01:34.328Z"
+      "lastSeen": "2026-05-30T20:01:34.620Z"
     },
     {
       "adID": "2190731958410644",
@@ -556,7 +576,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-29 16:02:13",
-      "lastSeen": "2026-05-30T19:03:00.425Z"
+      "lastSeen": "2026-05-30T20:02:39.143Z"
     },
     {
       "adID": "2745500375824168",
@@ -610,13 +630,13 @@
       "lat": 31.8087678,
       "lon": -85.969951,
       "location": "Troy, AL",
-      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t15.5256-10/685114292_1677904966733321_2697982776432829698_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=101&ccb=1-7&_nc_sid=d4195b&_nc_ohc=PJmK8Plv1isQ7kNvwFDftr6&_nc_oc=AdoxcLM2mPXLlbznDoPLm3gkrVEef4KBSBsCkuQmgkOk-lzZPa5BnBUmZDACS2SAVA0&_nc_zt=23&_nc_ht=scontent-dfw6-1.xx&_nc_gid=xyW0gMckYUU6ZKV2RNj51w&_nc_ss=7b2a8&oh=00_Af78BOpDmWnt0b5DKnZd6KVDUCqJC3UZp9aM9XHMS6MAZw&oe=6A20FFC0",
+      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t15.5256-10/685114292_1677904966733321_2697982776432829698_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=101&ccb=1-7&_nc_sid=d4195b&_nc_ohc=PJmK8Plv1isQ7kNvwFDftr6&_nc_oc=AdoxcLM2mPXLlbznDoPLm3gkrVEef4KBSBsCkuQmgkOk-lzZPa5BnBUmZDACS2SAVA0&_nc_zt=23&_nc_ht=scontent-dfw6-1.xx&_nc_gid=zC7IALhCPz7dHouaWXaTsQ&_nc_ss=7b2a8&oh=00_Af6YTRDGN8Ct1Ps0X-XrTOo7_N3t2s90SyiGbNtoTpfImQ&oe=6A20FFC0",
       "adUrl": "https://www.facebook.com/marketplace/item/2578878922551354/",
       "priceChanged": 1,
-      "priceChangedAt": "2026-05-30 19:03:43",
+      "priceChangedAt": "2026-05-30 20:03:34",
       "hidden": 0,
       "created_at": "2026-05-29 14:28:52",
-      "lastSeen": "2026-05-30T19:03:43.974Z"
+      "lastSeen": "2026-05-30T20:03:34.726Z"
     },
     {
       "adID": "1021647794164147",
@@ -743,7 +763,7 @@
       "source": "PS",
       "authorUrl": "https://pinside.com/pinball/community/pinsiders/rebelb/market",
       "author": "RebelB",
-      "postedTime": "2026-05-28T19:04:04.136Z",
+      "postedTime": "2026-05-28T20:04:01.823Z",
       "title": "Super Score Vintage Pinball Machine Gottlieb 1967",
       "description": "Used - shows wear, needs some work - “Tested and Works. The 2nd player reels and ball count stick and will have to be manually reset to start a new game. Willing to ship at Buyers expense. Delivery within 50 miles of ...”",
       "price": "$700",
@@ -756,7 +776,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-28 18:02:53",
-      "lastSeen": "2026-05-30T19:04:05.006Z"
+      "lastSeen": "2026-05-30T20:04:02.785Z"
     },
     {
       "adID": "1481122810367654",
