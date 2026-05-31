@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-31T06:12:46.223Z",
+  "generated_at": "2026-05-31T11:04:04.669Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,53 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 64,
-      "droppedPrice": 513,
+      "exported_ads": 66,
+      "droppedPrice": 519,
       "droppedMissingGeo": 0,
-      "droppedCircle": 380
+      "droppedCircle": 387
     }
   },
   "ads": [
+    {
+      "adID": "PI-212462",
+      "source": "PS",
+      "authorUrl": "https://pinside.com/pinball/community/pinsiders/atlpb/market",
+      "author": "ATLpb",
+      "postedTime": "2026-05-31T10:03:51.887Z",
+      "title": "TWD One of a kind blood armor upgrade kit + extras",
+      "description": "Used, good condition - “i paid $1,200+ who wants to pay 66% less than i did (and actually quite a more discount than that given inflation...) selling this awesome custom one of a kind max effort armor I ...”",
+      "price": "$499",
+      "lat": 33.7544657,
+      "lon": -84.3898151,
+      "location": "Atlanta, GA",
+      "imageUrl": "https://imgproxy.pinside.com/nqGfe991LqeE17bTQVEpakxC0Bw3e4qHWFzqHOcgpmw/rs:fit:640:480/fn:pinside_662c603fea50/enc/f4PF99wq7AO-xhwIya3ewRHoXB_uoZ7sLIF7F4ebaFGz0yRnWzo_PWkjnJucIvMn5vjYfuROFUNG_iNCGtB_FmckrCRGdRIj7AmvAs1Iq9DJKt3HwKEiMqnh9owpWeg1.jpeg",
+      "adUrl": "https://pinside.com/pinball/market/classifieds/ad/212462",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-05-31 11:03:51",
+      "lastSeen": "2026-05-31T11:03:51.940Z"
+    },
+    {
+      "adID": "1358254396422275",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100008227871639/?product_id=1358254396422275",
+      "author": "Julian Jackson",
+      "postedTime": "2026-05-31T03:48:12.000Z",
+      "title": "TMNT arcade",
+      "description": "Basically brand new no scratches or anything adult owned and collector kept has original box. Has the riser in the box never used it. Only thing it’s missing is the handles for the controllers but everything still works as should can test it out before purchase!",
+      "price": "$450",
+      "lat": 33.5801103,
+      "lon": -85.0766113,
+      "location": "Carrollton, GA",
+      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t15.5256-10/712339345_1308637481422855_5142688589097627156_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=101&ccb=1-7&_nc_sid=d4195b&_nc_ohc=vIFES3QZMcoQ7kNvwHnOct-&_nc_oc=AdpsK0XzDtnu8WclkweRRSfiSny5DR7Yb6aPJzS5tRLh6mspcWyF1rcO5-wOY9-jToQ&_nc_zt=23&_nc_ht=scontent-dfw6-1.xx&_nc_gid=Ny_pFiNeaYQfloSlQNEmZQ&_nc_ss=7b2a8&oh=00_Af-RiUy63Ruq02aeo7EcOdr0sEDHag9F8McYn2DsL_TKcQ&oe=6A21DAD1",
+      "adUrl": "https://www.facebook.com/marketplace/item/1358254396422275/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-05-31 11:01:36",
+      "lastSeen": "2026-05-31T11:01:59.743Z"
+    },
     {
       "adID": "1313807033518852",
       "source": "MP",
@@ -76,7 +116,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-31 00:01:49",
-      "lastSeen": "2026-05-31T01:02:26.779Z"
+      "lastSeen": "2026-05-31T11:02:26.453Z"
     },
     {
       "adID": "1494491388832843",
@@ -96,7 +136,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-30 21:01:35",
-      "lastSeen": "2026-05-31T01:01:32.347Z"
+      "lastSeen": "2026-05-31T11:01:38.070Z"
     },
     {
       "adID": "3508602482611491",
@@ -116,7 +156,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-30 21:01:34",
-      "lastSeen": "2026-05-31T01:01:32.313Z"
+      "lastSeen": "2026-05-31T11:01:38.036Z"
     },
     {
       "adID": "1335940778443956",
@@ -176,7 +216,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-30 19:01:33",
-      "lastSeen": "2026-05-31T01:01:32.381Z"
+      "lastSeen": "2026-05-31T11:01:38.103Z"
     },
     {
       "adID": "1651272176108475",
@@ -316,7 +356,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-30 14:03:04",
-      "lastSeen": "2026-05-31T01:02:27.549Z"
+      "lastSeen": "2026-05-31T11:02:27.531Z"
     },
     {
       "adID": "4337924603090343",
@@ -336,7 +376,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-30 14:03:03",
-      "lastSeen": "2026-05-31T01:02:27.349Z"
+      "lastSeen": "2026-05-31T11:02:27.329Z"
     },
     {
       "adID": "4559440990958630",
@@ -516,7 +556,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-30 13:01:39",
-      "lastSeen": "2026-05-31T01:01:33.402Z"
+      "lastSeen": "2026-05-31T11:01:38.739Z"
     },
     {
       "adID": "1675285470338734",
@@ -556,7 +596,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-30 13:01:37",
-      "lastSeen": "2026-05-31T01:01:32.916Z"
+      "lastSeen": "2026-05-31T11:01:38.572Z"
     },
     {
       "adID": "1582203070183596",
@@ -576,7 +616,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-30 13:01:37",
-      "lastSeen": "2026-05-31T01:01:33.336Z"
+      "lastSeen": "2026-05-31T11:01:38.672Z"
     },
     {
       "adID": "1613199939774943",
@@ -616,7 +656,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-30 12:01:38",
-      "lastSeen": "2026-05-31T01:01:32.448Z"
+      "lastSeen": "2026-05-31T11:01:38.170Z"
     },
     {
       "adID": "1283404777288199",
@@ -636,7 +676,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-29 23:01:34",
-      "lastSeen": "2026-05-31T01:01:32.950Z"
+      "lastSeen": "2026-05-31T11:01:38.605Z"
     },
     {
       "adID": "2190731958410644",
@@ -676,7 +716,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-29 16:02:13",
-      "lastSeen": "2026-05-31T01:02:27.650Z"
+      "lastSeen": "2026-05-31T11:02:27.631Z"
     },
     {
       "adID": "2745500375824168",
@@ -843,7 +883,7 @@
       "source": "PS",
       "authorUrl": "https://pinside.com/pinball/community/pinsiders/rebelb/market",
       "author": "RebelB",
-      "postedTime": "2026-05-29T01:02:38.765Z",
+      "postedTime": "2026-05-29T11:04:01.409Z",
       "title": "Super Score Vintage Pinball Machine Gottlieb 1967",
       "description": "Used - shows wear, needs some work - “Tested and Works. The 2nd player reels and ball count stick and will have to be manually reset to start a new game. Willing to ship at Buyers expense. Delivery within 50 miles of ...”",
       "price": "$700",
@@ -856,7 +896,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-28 18:02:53",
-      "lastSeen": "2026-05-31T01:02:38.929Z"
+      "lastSeen": "2026-05-31T11:04:03.532Z"
     },
     {
       "adID": "1481122810367654",
