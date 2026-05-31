@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-31T00:02:51.049Z",
+  "generated_at": "2026-05-31T01:02:40.112Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,53 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 63,
+      "exported_ads": 64,
       "droppedPrice": 522,
       "droppedMissingGeo": 0,
-      "droppedCircle": 383
+      "droppedCircle": 384
     }
   },
   "ads": [
+    {
+      "adID": "1313807033518852",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100000854359211/?product_id=1313807033518852",
+      "author": "John Jackson",
+      "postedTime": "2026-05-30T23:30:52.000Z",
+      "title": "NECA brand TMNT 4-pack. Original Arcade edition un-opened. No trades, sorry.",
+      "description": "Great condition with a slight dent in the corner of the box. Parting with some of my collectables to pay bills while waiting for partial unemployment to hit and I return to my job. Looking to part with this and have a few others I'll list later.",
+      "price": "$85",
+      "lat": 34.2978794,
+      "lon": -83.8240663,
+      "location": "Gainesville, GA",
+      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t15.5256-10/638853758_1235721042055516_2070575864411697346_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=108&ccb=1-7&_nc_sid=d4195b&_nc_ohc=BvEs_Q-oGY4Q7kNvwHbjdOI&_nc_oc=AdqVzxJkwqvDFf8qUpCqWIYUmlseUNaGFa3ioy36Yud9gcip_00EE0CaGDD-EXzzK2w&_nc_zt=23&_nc_ht=scontent-dfw5-2.xx&_nc_gid=tq5TD2SPS16Wsh048s8BEg&_nc_ss=7b2a8&oh=00_Af-zoUtzdKHHF6KYzUSmoH3z5ymmoiopDeDwM_Qcsd7vXQ&oe=6A215265",
+      "adUrl": "https://www.facebook.com/marketplace/item/1313807033518852/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-05-31 01:01:33",
+      "lastSeen": "2026-05-31T01:02:05.581Z"
+    },
+    {
+      "adID": "4512510302359971",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/61565190981866/?product_id=4512510302359971",
+      "author": "Julian Nygren",
+      "postedTime": "2026-05-30T23:24:02.000Z",
+      "title": "Empty Lode Runner arcade cabinet",
+      "description": "Empty Irem Lode Runner arcade cabinet with a Matsushita 19\" monitor and Jamma harness. Monitor is untested, but I can guarantee that it doesn't work. Some of the bottom corners are busted, but it is in otherwise decent shape with little to no water damage. This is a pretty rare cab, but not a game that I am really interested it. Willing to trade for arcade parts. Will consider many things, but particularly parts from Ladybug, Sinistar, TMNT, and Jr. Pac-man. Nothing else in the photos is for sale, but I will be listing some other things soon.",
+      "price": "$140",
+      "lat": 33.5228885,
+      "lon": -85.3446728,
+      "location": "Ranburne, AL",
+      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/711209783_1513463326810087_8124292771406820509_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=107&ccb=1-7&_nc_sid=92e707&_nc_ohc=vPzSbyaJsRoQ7kNvwFePv5X&_nc_oc=AdooUv4Hk3ihLor2oqgkZtcoJsjK3HKq70myhApQhg6kWbzEQEFaCSVCAk4pLYcjQmo&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=3GT6ok2mk5mC-KAymHzIUg&_nc_ss=7b2a8&oh=00_Af9LIvU8eJnSc_ApRHfGIvN-YTmjWagty_FqkYV9fBuYkA&oe=6A21432D",
+      "adUrl": "https://www.facebook.com/marketplace/item/4512510302359971/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-05-31 01:01:33",
+      "lastSeen": "2026-05-31T01:02:05.616Z"
+    },
     {
       "adID": "1720920739062906",
       "source": "MP",
@@ -36,27 +76,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-31 00:01:49",
-      "lastSeen": "2026-05-31T00:02:24.601Z"
-    },
-    {
-      "adID": "1303457211961897",
-      "source": "FB",
-      "authorUrl": null,
-      "author": "Julian Nygren",
-      "postedTime": "2026-05-30T23:25:12.613Z",
-      "title": "Empty Lode Runner arcade cabinet",
-      "description": "Empty Irem Lode Runner arcade cabinet with a Matsushita 19\" monitor and Jamma harness. Monitor is untested, but I can guarantee that it doesn't work. Some of the bottom corners are busted, but it is in otherwise decent shape with little to no water damage. This is a pretty rare cab, but not a game that I am really interested it.",
-      "price": "$140",
-      "lat": 33.5228885,
-      "lon": -85.3446728,
-      "location": "RANBURNE, AL",
-      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.30808-6/713087139_122204319506506366_8000844166712958279_n.jpg?stp=dst-jpg_s590x590_tt6&_nc_cat=102&ccb=1-7&_nc_sid=aa7b47&_nc_ohc=FCGqa461l64Q7kNvwFq-NLo&_nc_oc=Adqji36RZjUOSTJ1nfv-XHvKV9M_eVKlax3slODBZO4hcyyVK1ZU95yqOPEsSv5K6ew&_nc_zt=23&_nc_ht=scontent-dfw6-1.xx&_nc_gid=UvzAC8uwlDkQ3z0Htz8VLA&_nc_ss=7b2a8&oh=00_Af_rr45ELIsTX1zwa8O5kLFU5DjzEST_p1tQ9sGkSdbQdg&oe=6A2156F7",
-      "adUrl": "https://www.facebook.com/commerce/listing/1303457211961897/",
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-05-31 00:00:14",
-      "lastSeen": "2026-05-31T00:00:14.331Z"
+      "lastSeen": "2026-05-31T01:02:26.779Z"
     },
     {
       "adID": "1494491388832843",
@@ -76,7 +96,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-30 21:01:35",
-      "lastSeen": "2026-05-31T00:01:38.203Z"
+      "lastSeen": "2026-05-31T01:01:32.347Z"
     },
     {
       "adID": "3508602482611491",
@@ -96,7 +116,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-30 21:01:34",
-      "lastSeen": "2026-05-31T00:01:38.170Z"
+      "lastSeen": "2026-05-31T01:01:32.313Z"
     },
     {
       "adID": "1335940778443956",
@@ -116,7 +136,7 @@
       "priceChangedAt": "2026-05-30 22:02:51",
       "hidden": 0,
       "created_at": "2026-05-30 20:02:39",
-      "lastSeen": "2026-05-31T00:01:50.977Z"
+      "lastSeen": "2026-05-31T01:02:27.884Z"
     },
     {
       "adID": "1328467959433829",
@@ -156,7 +176,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-30 19:01:33",
-      "lastSeen": "2026-05-31T00:01:38.237Z"
+      "lastSeen": "2026-05-31T01:01:32.381Z"
     },
     {
       "adID": "1651272176108475",
@@ -256,7 +276,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-30 16:02:49",
-      "lastSeen": "2026-05-31T00:01:51.044Z"
+      "lastSeen": "2026-05-31T01:02:27.963Z"
     },
     {
       "adID": "1609994413433975",
@@ -296,7 +316,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-30 14:03:04",
-      "lastSeen": "2026-05-31T00:01:50.642Z"
+      "lastSeen": "2026-05-31T01:02:27.549Z"
     },
     {
       "adID": "4337924603090343",
@@ -316,7 +336,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-30 14:03:03",
-      "lastSeen": "2026-05-31T00:01:50.442Z"
+      "lastSeen": "2026-05-31T01:02:27.349Z"
     },
     {
       "adID": "4559440990958630",
@@ -436,7 +456,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-30 13:06:59",
-      "lastSeen": "2026-05-31T00:01:51.145Z"
+      "lastSeen": "2026-05-31T01:02:28.063Z"
     },
     {
       "adID": "4588560291380251",
@@ -496,7 +516,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-30 13:01:39",
-      "lastSeen": "2026-05-31T00:01:38.873Z"
+      "lastSeen": "2026-05-31T01:01:33.402Z"
     },
     {
       "adID": "1675285470338734",
@@ -516,7 +536,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-30 13:01:39",
-      "lastSeen": "2026-05-31T00:01:39.085Z"
+      "lastSeen": "2026-05-31T01:01:33.603Z"
     },
     {
       "adID": "4265633760355704",
@@ -536,7 +556,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-30 13:01:37",
-      "lastSeen": "2026-05-31T00:01:38.706Z"
+      "lastSeen": "2026-05-31T01:01:32.916Z"
     },
     {
       "adID": "1582203070183596",
@@ -556,7 +576,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-30 13:01:37",
-      "lastSeen": "2026-05-31T00:01:38.805Z"
+      "lastSeen": "2026-05-31T01:01:33.336Z"
     },
     {
       "adID": "1613199939774943",
@@ -596,7 +616,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-30 12:01:38",
-      "lastSeen": "2026-05-31T00:01:38.304Z"
+      "lastSeen": "2026-05-31T01:01:32.448Z"
     },
     {
       "adID": "1283404777288199",
@@ -616,7 +636,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-29 23:01:34",
-      "lastSeen": "2026-05-31T00:01:38.739Z"
+      "lastSeen": "2026-05-31T01:01:32.950Z"
     },
     {
       "adID": "2190731958410644",
@@ -656,7 +676,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-29 16:02:13",
-      "lastSeen": "2026-05-31T00:01:50.742Z"
+      "lastSeen": "2026-05-31T01:02:27.650Z"
     },
     {
       "adID": "2745500375824168",
@@ -823,7 +843,7 @@
       "source": "PS",
       "authorUrl": "https://pinside.com/pinball/community/pinsiders/rebelb/market",
       "author": "RebelB",
-      "postedTime": "2026-05-29T00:02:49.699Z",
+      "postedTime": "2026-05-29T01:02:38.765Z",
       "title": "Super Score Vintage Pinball Machine Gottlieb 1967",
       "description": "Used - shows wear, needs some work - “Tested and Works. The 2nd player reels and ball count stick and will have to be manually reset to start a new game. Willing to ship at Buyers expense. Delivery within 50 miles of ...”",
       "price": "$700",
@@ -836,7 +856,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-28 18:02:53",
-      "lastSeen": "2026-05-31T00:02:49.876Z"
+      "lastSeen": "2026-05-31T01:02:38.929Z"
     },
     {
       "adID": "1481122810367654",
