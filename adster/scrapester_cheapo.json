@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-01T06:08:44.485Z",
+  "generated_at": "2026-06-01T11:02:57.052Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,33 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 25,
-      "droppedPrice": 562,
+      "exported_ads": 26,
+      "droppedPrice": 571,
       "droppedMissingGeo": 0,
-      "droppedCircle": 377
+      "droppedCircle": 381
     }
   },
   "ads": [
+    {
+      "adID": "2842883426074977",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/1243969790/?product_id=2842883426074977",
+      "author": "Randy Weiss",
+      "postedTime": "2026-06-01T02:44:08.000Z",
+      "title": "Floating Ball Target Shooting Game",
+      "description": "Fun target game. It has a white and orange base. Multiple targets are present, including a large center target and smaller targets on top. Several white foam balls are included. Works great, missing one ball.",
+      "price": "$5",
+      "lat": 34.2367621,
+      "lon": -84.4907621,
+      "location": "Canton, GA",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/714284211_1722826158891403_5748035134190806008_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=105&ccb=1-7&_nc_sid=92e707&_nc_eui2=AeFXCcxe4wzFgD6qeRucSYTzYLjkBNy2TTpguOQE3LZNOgibICSKgZkiDxOgMx1kcW0&_nc_ohc=77ctsMdEYaUQ7kNvwGFKyMf&_nc_oc=AdpGNMgaUWVymMURHDf2LvRNxk-UsDp0aovQdJp5WdDIT1CV4cG5_p-lADrZHyWN7Bs&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=M7hPRo7H2EZyR_GOwMWSPQ&_nc_ss=7b2a8&oh=00_Af8osvlcXnu5eJ1YnnHNlF6bGs2qL6g0I0goux7O2FmEwg&oe=6A2335DA",
+      "adUrl": "https://www.facebook.com/marketplace/item/2842883426074977/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-06-01 11:02:00",
+      "lastSeen": "2026-06-01T11:02:22.570Z"
+    },
     {
       "adID": "1530090258849280",
       "source": "MP",
@@ -96,7 +116,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-31 12:01:38",
-      "lastSeen": "2026-06-01T01:01:40.170Z"
+      "lastSeen": "2026-06-01T11:01:48.266Z"
     },
     {
       "adID": "1358254396422275",
@@ -116,7 +136,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-31 11:01:36",
-      "lastSeen": "2026-06-01T01:01:40.004Z"
+      "lastSeen": "2026-06-01T11:01:48.098Z"
     },
     {
       "adID": "1313807033518852",
@@ -136,7 +156,7 @@
       "priceChangedAt": "2026-05-31 14:01:32",
       "hidden": 0,
       "created_at": "2026-05-31 01:01:33",
-      "lastSeen": "2026-06-01T01:01:40.204Z"
+      "lastSeen": "2026-06-01T11:01:48.298Z"
     },
     {
       "adID": "4512510302359971",
@@ -156,7 +176,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-31 01:01:33",
-      "lastSeen": "2026-06-01T01:02:32.916Z"
+      "lastSeen": "2026-06-01T11:02:00.798Z"
     },
     {
       "adID": "3508602482611491",
@@ -176,7 +196,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-30 21:01:34",
-      "lastSeen": "2026-06-01T01:01:40.372Z"
+      "lastSeen": "2026-06-01T11:01:48.432Z"
     },
     {
       "adID": "1490823109209289",
