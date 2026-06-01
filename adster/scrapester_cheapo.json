@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-01T20:03:54.419Z",
+  "generated_at": "2026-06-01T20:32:32.185Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,33 +11,13 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 29,
+      "exported_ads": 28,
       "droppedPrice": 591,
       "droppedMissingGeo": 0,
-      "droppedCircle": 408
+      "droppedCircle": 407
     }
   },
   "ads": [
-    {
-      "adID": "1696195578476240",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/100006645301739/?product_id=1696195578476240",
-      "author": "Lea Valentine",
-      "postedTime": "2026-06-01T19:01:19.000Z",
-      "title": "Ms. PAC-Man 2 person Arcade",
-      "description": "Ms. Pac-Man, Galahad, Galaxian, Super PAC-Man, DigDug, DigDugII, PAC-Mania, Pac-Land",
-      "price": "$200",
-      "lat": 30.3935337,
-      "lon": -86.4957834,
-      "location": "Destin, FL",
-      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/710755460_3651578861651426_3137858112963149333_n.jpg?stp=c0.43.261.261a_dst-jpg_p261x260_tt6&_nc_cat=111&ccb=1-7&_nc_sid=92e707&_nc_eui2=AeHy0mhOeY13y591VWP9iljB6FTw6mg0ziPoVPDqaDTOI2L1enc2wFr6m_3GTl75_oY&_nc_ohc=5KtRRtdCaZEQ7kNvwEuUI6u&_nc_oc=AdorQi20Lp8-lh7opqPy9LJZgzTze75m6-v1M1Qj5ePaigFFGNseramZhG4El90_QUQ&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=hnRlVxErCxm9g_9C9FhdqA&_nc_ss=7b2a8&oh=00_Af87AMGuODP_bTvNzbSJmNwG3jMBrr7HRfppXy-d_wkzNg&oe=6A23AB67",
-      "adUrl": "https://www.facebook.com/marketplace/item/1696195578476240/",
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-06-01 20:01:34",
-      "lastSeen": "2026-06-01T20:03:53.101Z"
-    },
     {
       "adID": "1506434611183616",
       "source": "MP",
