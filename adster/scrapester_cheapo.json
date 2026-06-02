@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-02T14:05:25.654Z",
+  "generated_at": "2026-06-02T15:03:23.555Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,33 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 43,
-      "droppedPrice": 632,
+      "exported_ads": 44,
+      "droppedPrice": 634,
       "droppedMissingGeo": 0,
-      "droppedCircle": 411
+      "droppedCircle": 414
     }
   },
   "ads": [
+    {
+      "adID": "27626517013620237",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100000020242585/?product_id=27626517013620237",
+      "author": "James Santos",
+      "postedTime": "2026-06-02T13:53:28.000Z",
+      "title": "Namco Ms. Pac-Man Plug & Play Arcade Game Joystick",
+      "description": "Classic arcade game joystick. Blue unit has yellow joystick and red buttons. Connects to TV with yellow and white RCA cables. Plays Ms. Pac-Man game.",
+      "price": "$140",
+      "lat": 28.7813722,
+      "lon": -82.6151001,
+      "location": "Homosassa, FL",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/710756118_1421145143373260_667232058099799858_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=110&ccb=1-7&_nc_sid=92e707&_nc_eui2=AeFFiEtsiUWeeu0Wu0_ZMixDRVnIPXRDM1pFWcg9dEMzWkmx5h__ccRZIG6IUhEuALQ&_nc_ohc=aBUujuAM5LwQ7kNvwHTvzm1&_nc_oc=AdpkpBERe2CBnMmbAWQG-uQp0CK_-5YH7vn12Gx1zceW78vC-hFjKLMRqZOxzj_3IsU&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=767coCw11hPD_KAF3A07Sg&_nc_ss=7b2a8&oh=00_Af9z8dwcztaX0brhU7Qb30I6Ls0J_dc7HU58Zn9MGGxADg&oe=6A24B6E4",
+      "adUrl": "https://www.facebook.com/marketplace/item/27626517013620237/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-06-02 15:01:35",
+      "lastSeen": "2026-06-02T15:02:15.885Z"
+    },
     {
       "adID": "1019691311012941",
       "source": "MP",
@@ -36,7 +56,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-02 14:03:26",
-      "lastSeen": "2026-06-02T14:04:53.405Z"
+      "lastSeen": "2026-06-02T15:02:39.161Z"
     },
     {
       "adID": "1355351469802018",
@@ -56,7 +76,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-02 14:03:26",
-      "lastSeen": "2026-06-02T14:04:53.438Z"
+      "lastSeen": "2026-06-02T15:02:39.194Z"
     },
     {
       "adID": "1039104688492347",
@@ -76,7 +96,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-02 14:03:25",
-      "lastSeen": "2026-06-02T14:04:53.260Z"
+      "lastSeen": "2026-06-02T15:02:38.927Z"
     },
     {
       "adID": "1315538437185763",
@@ -96,7 +116,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-02 14:03:24",
-      "lastSeen": "2026-06-02T14:04:53.207Z"
+      "lastSeen": "2026-06-02T15:02:37.855Z"
     },
     {
       "adID": "1303409358065938",
@@ -116,7 +136,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-02 14:01:35",
-      "lastSeen": "2026-06-02T14:03:25.511Z"
+      "lastSeen": "2026-06-02T15:02:39.061Z"
     },
     {
       "adID": "1678144979799726",
@@ -136,7 +156,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-02 14:01:35",
-      "lastSeen": "2026-06-02T14:03:25.549Z"
+      "lastSeen": "2026-06-02T15:02:39.093Z"
     },
     {
       "adID": "1543950983812569",
@@ -156,7 +176,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-02 14:01:34",
-      "lastSeen": "2026-06-02T14:03:25.477Z"
+      "lastSeen": "2026-06-02T15:02:39.027Z"
     },
     {
       "adID": "1300194245572987",
@@ -176,7 +196,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-02 13:03:00",
-      "lastSeen": "2026-06-02T14:03:25.065Z"
+      "lastSeen": "2026-06-02T15:02:38.659Z"
     },
     {
       "adID": "1519828723172074",
@@ -196,7 +216,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-02 13:02:59",
-      "lastSeen": "2026-06-02T14:03:24.662Z"
+      "lastSeen": "2026-06-02T15:02:38.256Z"
     },
     {
       "adID": "2023559151864776",
@@ -296,7 +316,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-02 01:01:49",
-      "lastSeen": "2026-06-02T14:03:24.495Z"
+      "lastSeen": "2026-06-02T15:02:38.089Z"
     },
     {
       "adID": "2229105690958298",
@@ -356,7 +376,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-02 00:01:34",
-      "lastSeen": "2026-06-02T14:01:33.645Z"
+      "lastSeen": "2026-06-02T15:01:34.841Z"
     },
     {
       "adID": "1475810093731439",
@@ -376,7 +396,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-01 18:02:13",
-      "lastSeen": "2026-06-02T14:03:24.829Z"
+      "lastSeen": "2026-06-02T15:02:38.424Z"
     },
     {
       "adID": "2422675011549326",
