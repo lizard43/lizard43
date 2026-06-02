@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-02T12:02:02.100Z",
+  "generated_at": "2026-06-02T13:04:19.834Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,53 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 34,
-      "droppedPrice": 626,
+      "exported_ads": 36,
+      "droppedPrice": 629,
       "droppedMissingGeo": 0,
-      "droppedCircle": 398
+      "droppedCircle": 404
     }
   },
   "ads": [
+    {
+      "adID": "1300194245572987",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100001135084366/?product_id=1300194245572987",
+      "author": "Myers Darrell",
+      "postedTime": "2026-06-01T11:53:31.000Z",
+      "title": "Pinball for Nintendo NES *Complete in Box",
+      "description": "Pinball for Nintendo NES *Complete in Box Tampa Bay Pawn 2007 Gulf to Bay Blvd Clearwater, FL 33765 [hidden information] Open Tue-Fri 9AM-6PM Open Sat 9AM-4PM Closed Sunday & Monday",
+      "price": "$30",
+      "lat": 27.9658533,
+      "lon": -82.8001026,
+      "location": "Clearwater, FL",
+      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/710461235_1520930789656618_8865519185304667539_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=102&ccb=1-7&_nc_sid=92e707&_nc_eui2=AeGos6jdfjL3JKF-9oNMgrhYs5Y7auCJo0azljtq4ImjRsxpiXhuGG921Bnp-jvpOH0&_nc_ohc=POU1-xPD4rMQ7kNvwETmzMt&_nc_oc=AdppPJ2dE_V09ReGNa_N_9YGaRjn2r4Uo5TZ4Ei2thVrImBVzSbOAk2NhN5eIuwy7U4&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=JjM18kN64OCgoh2xJ4ZLaw&_nc_ss=7b2a8&oh=00_Af_jGqzMyN1lLFd0gEuKKRs_X2-E2nWIFbu8Pi6QkGZf9w&oe=6A24BF2A",
+      "adUrl": "https://www.facebook.com/marketplace/item/1300194245572987/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-06-02 13:03:00",
+      "lastSeen": "2026-06-02T13:03:50.485Z"
+    },
+    {
+      "adID": "1519828723172074",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/810155342/?product_id=1519828723172074",
+      "author": "Dina Patel",
+      "postedTime": "2026-06-01T19:25:09.000Z",
+      "title": "Bitcoin machine",
+      "description": "No keys. Bitcoin machine",
+      "price": "$100",
+      "lat": 33.883887,
+      "lon": -84.5147454,
+      "location": "Smyrna, GA",
+      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/710756109_2337006703459492_4413573022063105196_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=104&ccb=1-7&_nc_sid=92e707&_nc_eui2=AeFbZymQf7icYk5g72pbNIoa9PrnQ5fCvDv0-udDl8K8O-rZv3RIwSen4gr1_ug_Rmk&_nc_ohc=pklztMOtHq4Q7kNvwF62ZDT&_nc_oc=Adp1zGP_h1jpFEP9OEDdM8ku7RnDO4xH8jj-crixTLU5LQYJfN882a0pyl976DDvlwQ&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=vZALb0bIStaVTCurPTXw_w&_nc_ss=7b2a8&oh=00_Af9Thcr679U48tjYiFtm8iUgOgMUoJQUS4MQOOhsYMuo5g&oe=6A24C054",
+      "adUrl": "https://www.facebook.com/marketplace/item/1519828723172074/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-06-02 13:02:59",
+      "lastSeen": "2026-06-02T13:03:50.403Z"
+    },
     {
       "adID": "2023559151864776",
       "source": "MP",
@@ -56,7 +96,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-02 11:01:38",
-      "lastSeen": "2026-06-02T12:01:35.808Z"
+      "lastSeen": "2026-06-02T13:01:34.947Z"
     },
     {
       "adID": "1559544692459669",
@@ -96,7 +136,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-02 11:01:37",
-      "lastSeen": "2026-06-02T12:01:35.708Z"
+      "lastSeen": "2026-06-02T13:01:34.396Z"
     },
     {
       "adID": "1003202402073583",
@@ -116,7 +156,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-02 01:01:49",
-      "lastSeen": "2026-06-02T12:01:46.665Z"
+      "lastSeen": "2026-06-02T13:02:57.112Z"
     },
     {
       "adID": "2229105690958298",
@@ -196,7 +236,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-01 18:02:13",
-      "lastSeen": "2026-06-02T12:01:47.274Z"
+      "lastSeen": "2026-06-02T13:03:00.185Z"
     },
     {
       "adID": "2422675011549326",
