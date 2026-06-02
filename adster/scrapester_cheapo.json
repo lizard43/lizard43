@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-02T17:33:11.025Z",
+  "generated_at": "2026-06-02T18:03:41.982Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,33 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 42,
-      "droppedPrice": 631,
+      "exported_ads": 43,
+      "droppedPrice": 639,
       "droppedMissingGeo": 0,
-      "droppedCircle": 416
+      "droppedCircle": 420
     }
   },
   "ads": [
+    {
+      "adID": "1007416981822717",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/61560036226143/?product_id=1007416981822717",
+      "author": "Sam BA",
+      "postedTime": "2026-06-02T17:37:04.000Z",
+      "title": "Arcade games",
+      "description": "Arcades games gotta go as a bundle",
+      "price": "$1",
+      "lat": 33.350293,
+      "lon": -86.851123,
+      "location": "Hoover, AL",
+      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/714738609_1915500832405825_9174672798133520555_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=104&ccb=1-7&_nc_sid=92e707&_nc_eui2=AeF4JxIZ-ORREmoyolIRP4qWtHzG4aX53ji0fMbhpfneOEYYBl6UPdpk0KXJzhkwRu0&_nc_ohc=6d9G5dq1eAAQ7kNvwFIF7bt&_nc_oc=Adp8MD_EKlmkqPVgP-ve1by4iWRGx9dDxAbvUEg48RoSIC7r-I19T7gmTzgFd7mvfIY&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=sfBNNDcmyt6A4eS3D33HUA&_nc_ss=7b2a8&oh=00_Af8n6Iw4ClUcHXJpG925oXgtK-S0sa3WzndRL0ZiqbpbnQ&oe=6A2508B5",
+      "adUrl": "https://www.facebook.com/marketplace/item/1007416981822717/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-06-02 18:01:39",
+      "lastSeen": "2026-06-02T18:02:05.308Z"
+    },
     {
       "adID": "2519298251858599",
       "source": "MP",
@@ -36,7 +56,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-02 17:02:34",
-      "lastSeen": "2026-06-02T17:03:17.026Z"
+      "lastSeen": "2026-06-02T18:02:33.065Z"
     },
     {
       "adID": "1976779713209306",
@@ -50,13 +70,13 @@
       "lat": 27.7712264,
       "lon": -82.6340259,
       "location": "St Petersburg, FL",
-      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t15.5256-10/712783356_1686857465789087_6864766846032002838_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=100&ccb=1-7&_nc_sid=d4195b&_nc_eui2=AeEMtnntGkMd7noWDyYcoZ7eBOhUNqeB8A0E6FQ2p4HwDbcIjVoXF9xGdC6FmYDRyvA&_nc_ohc=NqVGIONxfBwQ7kNvwGfabWM&_nc_oc=AdrQam1su0WkA2Xc2NEE6xFxuCgeNDTQh1pUtRrFZIKBfaQb-GQ5UEv5Y3OnBuku_OY&_nc_zt=23&_nc_ht=scontent-dfw5-2.xx&_nc_gid=lAN4xF6yIjhQS1r9g-bDjQ&_nc_ss=7b2a8&oh=00_Af96AMdaBXWw810Yf1SOGyZkyt9OA4UqV4XZEEG-Of9uAg&oe=6A24E229",
+      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t15.5256-10/712783356_1686857465789087_6864766846032002838_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=100&ccb=1-7&_nc_sid=d4195b&_nc_eui2=AeEMtnntGkMd7noWDyYcoZ7eBOhUNqeB8A0E6FQ2p4HwDbcIjVoXF9xGdC6FmYDRyvA&_nc_ohc=NqVGIONxfBwQ7kNvwGfabWM&_nc_oc=AdrQam1su0WkA2Xc2NEE6xFxuCgeNDTQh1pUtRrFZIKBfaQb-GQ5UEv5Y3OnBuku_OY&_nc_zt=23&_nc_ht=scontent-dfw5-2.xx&_nc_gid=6Sy8mUiIExA65GC7fzcfBw&_nc_ss=7b2a8&oh=00_Af_fJz30LE0QHS0V_Um20FXdMdNcVro2kvERBM-mfC17ew&oe=6A24E229",
       "adUrl": "https://www.facebook.com/marketplace/item/1976779713209306/",
       "priceChanged": 0,
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-02 17:02:34",
-      "lastSeen": "2026-06-02T17:03:17.061Z"
+      "lastSeen": "2026-06-02T18:03:17.333Z"
     },
     {
       "adID": "1019691311012941",
@@ -76,7 +96,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-02 14:03:26",
-      "lastSeen": "2026-06-02T17:02:36.173Z"
+      "lastSeen": "2026-06-02T18:02:34.574Z"
     },
     {
       "adID": "1355351469802018",
@@ -116,7 +136,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-02 14:03:25",
-      "lastSeen": "2026-06-02T17:02:35.934Z"
+      "lastSeen": "2026-06-02T18:02:34.335Z"
     },
     {
       "adID": "1303409358065938",
@@ -136,7 +156,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-02 14:01:35",
-      "lastSeen": "2026-06-02T17:02:36.068Z"
+      "lastSeen": "2026-06-02T18:02:34.469Z"
     },
     {
       "adID": "1678144979799726",
@@ -156,7 +176,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-02 14:01:35",
-      "lastSeen": "2026-06-02T17:02:36.101Z"
+      "lastSeen": "2026-06-02T18:02:34.502Z"
     },
     {
       "adID": "1543950983812569",
@@ -176,7 +196,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-02 14:01:34",
-      "lastSeen": "2026-06-02T17:02:36.034Z"
+      "lastSeen": "2026-06-02T18:02:34.435Z"
     },
     {
       "adID": "1300194245572987",
@@ -196,7 +216,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-02 13:03:00",
-      "lastSeen": "2026-06-02T17:02:35.665Z"
+      "lastSeen": "2026-06-02T18:02:34.066Z"
     },
     {
       "adID": "1519828723172074",
@@ -216,7 +236,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-02 13:02:59",
-      "lastSeen": "2026-06-02T17:02:35.263Z"
+      "lastSeen": "2026-06-02T18:02:33.665Z"
     },
     {
       "adID": "2694304917620706",
@@ -336,7 +356,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-02 00:01:34",
-      "lastSeen": "2026-06-02T17:01:35.744Z"
+      "lastSeen": "2026-06-02T18:01:38.606Z"
     },
     {
       "adID": "1475810093731439",
@@ -356,7 +376,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-01 18:02:13",
-      "lastSeen": "2026-06-02T17:02:35.430Z"
+      "lastSeen": "2026-06-02T18:02:33.833Z"
     },
     {
       "adID": "2422675011549326",
@@ -812,8 +832,8 @@
       "location": "Adairsville, GA",
       "imageUrl": "https://imgproxy.pinside.com/MFSDG2gO0hV8V1Im3Bdgly9239G1cIkIXXt3Zuo4c4Q/rs:fit:640:480/fn:pinside_63e8111b66cb/enc/CKREd12c4SJzactSSvSlpUrrCHua_YO4qwj83TXZ6XHpJYnUPn8jlngbQcyg7qUdaCCHMpVbDN-mz1wJtTtuai5a5WuO02_bYwInas_GZjtgejrJ0P1MkvtSRfYi8E33.jpg",
       "adUrl": "https://pinside.com/pinball/market/classifieds/ad/214831",
-      "priceChanged": 1,
-      "priceChangedAt": "2026-05-31 17:35:45",
+      "priceChanged": 0,
+      "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-05-21 13:17:46",
       "lastSeen": "2026-06-01T02:29:25.282Z"
