@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-03T19:03:14.361Z",
+  "generated_at": "2026-06-03T19:32:59.555Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,10 +11,10 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 68,
+      "exported_ads": 67,
       "droppedPrice": 701,
       "droppedMissingGeo": 0,
-      "droppedCircle": 549
+      "droppedCircle": 548
     }
   },
   "ads": [
@@ -77,26 +77,6 @@
       "hidden": 0,
       "created_at": "2026-06-03 17:03:06",
       "lastSeen": "2026-06-03T19:02:25.875Z"
-    },
-    {
-      "adID": "2378529185965600",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/595314609/?product_id=2378529185965600",
-      "author": "Chris Dampier",
-      "postedTime": "2026-06-03T02:50:19.000Z",
-      "title": "Firefly Lane by Kristin Hannah",
-      "description": "Firefly Lane by Kristin Hannah Paperback",
-      "price": "$7",
-      "lat": 29.6519684,
-      "lon": -82.3249846,
-      "location": "Gainesville, FL",
-      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/711679849_4438930449661626_9187414312761193935_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=104&ccb=1-7&_nc_sid=92e707&_nc_eui2=AeEkxrLXt7wjXSNVPYUzaplZKnFoB9b-Q2cqcWgH1v5DZ4A8O6fZWDcYNfhKPlZJzOs&_nc_ohc=0Kzw6UGmzrMQ7kNvwEegqVc&_nc_oc=Adr7dtCXYY7sSBqcGoJYoXf6AIBUGQ8VI2nSF9DUfEgc7N5UNYSKwW4xXV44nBYZxU8&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=W8lqSHhBuQ5oiCcVs44Quw&_nc_ss=7b2a8&oh=00_Af9IOQidzuduJVpV-j0kmfF3xst7F0qVKzrc9hGERtP1IQ&oe=6A25FC38",
-      "adUrl": "https://www.facebook.com/marketplace/item/2378529185965600/",
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-06-03 15:03:00",
-      "lastSeen": "2026-06-03T18:04:03.391Z"
     },
     {
       "adID": "1406459424775108",
