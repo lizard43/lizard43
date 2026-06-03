@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-03T19:32:59.555Z",
+  "generated_at": "2026-06-03T20:03:56.661Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -12,12 +12,32 @@
     },
     "counts": {
       "exported_ads": 67,
-      "droppedPrice": 701,
+      "droppedPrice": 703,
       "droppedMissingGeo": 0,
-      "droppedCircle": 548
+      "droppedCircle": 554
     }
   },
   "ads": [
+    {
+      "adID": "1289750053279866",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100040368480006/?product_id=1289750053279866",
+      "author": "Chelsea Dupre Allen",
+      "postedTime": "2026-06-03T19:16:48.000Z",
+      "title": "Pinball machine",
+      "description": "Pinball machine our kids don’t really play with it",
+      "price": "$200",
+      "lat": 29.5957696,
+      "lon": -90.7195348,
+      "location": "Houma, LA",
+      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/715455782_4427589480902502_2044395960575734365_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=103&ccb=1-7&_nc_sid=92e707&_nc_eui2=AeGawWViLhVLTGN6wqyazeaEJ_KDf15WwWUn8oN_XlbBZWCQL0yef-Eh28LkVN7WcdE&_nc_ohc=wM9Xlv1_6doQ7kNvwEpkBwt&_nc_oc=AdrQOeVx7XEirJJcUeFxm4UpBHDBserdYrBlBafHboJuvGsSPFqJ9h4ulR7UTUZRKwQ&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=_xqKvDiX4-idgyBqasVLug&_nc_ss=7b2a8&oh=00_Af-0aXoexpM9kc0JrYWs7xbTY_070OxfUKoTHYWrEofT_Q&oe=6A2672A2",
+      "adUrl": "https://www.facebook.com/marketplace/item/1289750053279866/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-06-03 20:02:19",
+      "lastSeen": "2026-06-03T20:02:49.873Z"
+    },
     {
       "adID": "991361956638428",
       "source": "MP",
@@ -56,7 +76,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-03 17:03:08",
-      "lastSeen": "2026-06-03T19:02:27.562Z"
+      "lastSeen": "2026-06-03T20:02:21.073Z"
     },
     {
       "adID": "1665255684706778",
@@ -76,7 +96,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-03 17:03:06",
-      "lastSeen": "2026-06-03T19:02:25.875Z"
+      "lastSeen": "2026-06-03T20:02:19.205Z"
     },
     {
       "adID": "1406459424775108",
@@ -96,7 +116,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-03 15:01:38",
-      "lastSeen": "2026-06-03T19:01:42.127Z"
+      "lastSeen": "2026-06-03T20:01:40.103Z"
     },
     {
       "adID": "2230457374445200",
@@ -116,27 +136,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-03 14:01:48",
-      "lastSeen": "2026-06-03T19:02:26.803Z"
-    },
-    {
-      "adID": "KLOV-563902",
-      "source": "KLOV",
-      "authorUrl": "https://forums.arcade-museum.com/members/caughdrops.68425/",
-      "author": "caughdrops",
-      "postedTime": "2026-06-03T04:04:40.000Z",
-      "title": "Bally Hi-Deal Working Project",
-      "description": "This is a working project that I do not have the time or energy to properly restore. The game plays in both 3 and 5 ball configuration, depending on your preference. Every target, rollover, switch, saucer etc register and score as they should. The backglass is near perfect. The lamps in the backbox...",
-      "price": "$815",
-      "lat": 34.1014112,
-      "lon": -84.5192192,
-      "location": "Woodstock, Georgia",
-      "imageUrl": "https://forums.arcade-museum.com/favicon.ico",
-      "adUrl": "https://forums.arcade-museum.com/threads/563902/",
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-06-03 13:35:48",
-      "lastSeen": "2026-06-03T19:03:12.371Z"
+      "lastSeen": "2026-06-03T20:02:19.774Z"
     },
     {
       "adID": "KLOV-563647",
@@ -156,7 +156,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-03 13:35:44",
-      "lastSeen": "2026-06-03T19:03:12.091Z"
+      "lastSeen": "2026-06-03T20:03:54.378Z"
     },
     {
       "adID": "KLOV-563901",
@@ -176,7 +176,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-03 13:35:25",
-      "lastSeen": "2026-06-03T19:03:11.079Z"
+      "lastSeen": "2026-06-03T20:03:53.068Z"
     },
     {
       "adID": "KLOV-408814",
@@ -216,7 +216,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-03 13:35:19",
-      "lastSeen": "2026-06-03T19:03:11.045Z"
+      "lastSeen": "2026-06-03T20:03:52.967Z"
     },
     {
       "adID": "KLOV-562522",
@@ -236,7 +236,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-03 13:35:13",
-      "lastSeen": "2026-06-03T19:03:10.433Z"
+      "lastSeen": "2026-06-03T20:03:52.665Z"
     },
     {
       "adID": "KLOV-531272",
@@ -256,7 +256,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-03 13:35:13",
-      "lastSeen": "2026-06-03T19:03:10.467Z"
+      "lastSeen": "2026-06-03T20:03:52.699Z"
     },
     {
       "adID": "KLOV-563795",
@@ -276,7 +276,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-03 13:35:10",
-      "lastSeen": "2026-06-03T19:03:10.367Z"
+      "lastSeen": "2026-06-03T20:03:52.599Z"
     },
     {
       "adID": "KLOV-513187",
@@ -296,7 +296,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-03 13:35:09",
-      "lastSeen": "2026-06-03T19:03:10.331Z"
+      "lastSeen": "2026-06-03T20:03:52.569Z"
     },
     {
       "adID": "1655116238863421",
@@ -396,7 +396,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-03 11:01:43",
-      "lastSeen": "2026-06-03T19:01:42.495Z"
+      "lastSeen": "2026-06-03T20:01:40.471Z"
     },
     {
       "adID": "981249228033740",
@@ -436,7 +436,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-03 11:01:39",
-      "lastSeen": "2026-06-03T19:01:42.261Z"
+      "lastSeen": "2026-06-03T20:01:40.170Z"
     },
     {
       "adID": "1681093616419597",
@@ -456,7 +456,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-03 11:01:39",
-      "lastSeen": "2026-06-03T19:01:42.227Z"
+      "lastSeen": "2026-06-03T20:01:40.237Z"
     },
     {
       "adID": "1025080240080919",
@@ -476,7 +476,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-03 11:01:39",
-      "lastSeen": "2026-06-03T19:01:42.194Z"
+      "lastSeen": "2026-06-03T20:01:40.203Z"
     },
     {
       "adID": "4352880508307095",
@@ -496,7 +496,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-03 11:01:39",
-      "lastSeen": "2026-06-03T19:01:42.294Z"
+      "lastSeen": "2026-06-03T20:01:40.270Z"
     },
     {
       "adID": "1559562455686385",
@@ -516,7 +516,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-02 22:02:51",
-      "lastSeen": "2026-06-03T19:02:26.570Z"
+      "lastSeen": "2026-06-03T20:02:19.539Z"
     },
     {
       "adID": "1525199582341872",
@@ -576,7 +576,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-02 17:02:34",
-      "lastSeen": "2026-06-03T19:02:26.938Z"
+      "lastSeen": "2026-06-03T20:02:19.907Z"
     },
     {
       "adID": "1976779713209306",
