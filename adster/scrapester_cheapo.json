@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-03T14:04:02.595Z",
+  "generated_at": "2026-06-03T15:05:51.257Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,53 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 63,
-      "droppedPrice": 690,
+      "exported_ads": 65,
+      "droppedPrice": 693,
       "droppedMissingGeo": 0,
-      "droppedCircle": 517
+      "droppedCircle": 525
     }
   },
   "ads": [
+    {
+      "adID": "2378529185965600",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/595314609/?product_id=2378529185965600",
+      "author": "Chris Dampier",
+      "postedTime": "2026-06-03T02:50:19.000Z",
+      "title": "Firefly Lane by Kristin Hannah",
+      "description": "Firefly Lane by Kristin Hannah Paperback",
+      "price": "$7",
+      "lat": 29.6519684,
+      "lon": -82.3249846,
+      "location": "Gainesville, FL",
+      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/711679849_4438930449661626_9187414312761193935_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=104&ccb=1-7&_nc_sid=92e707&_nc_eui2=AeEkxrLXt7wjXSNVPYUzaplZKnFoB9b-Q2cqcWgH1v5DZ4A8O6fZWDcYNfhKPlZJzOs&_nc_ohc=0Kzw6UGmzrMQ7kNvwEegqVc&_nc_oc=Adr7dtCXYY7sSBqcGoJYoXf6AIBUGQ8VI2nSF9DUfEgc7N5UNYSKwW4xXV44nBYZxU8&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=W8lqSHhBuQ5oiCcVs44Quw&_nc_ss=7b2a8&oh=00_Af9IOQidzuduJVpV-j0kmfF3xst7F0qVKzrc9hGERtP1IQ&oe=6A25FC38",
+      "adUrl": "https://www.facebook.com/marketplace/item/2378529185965600/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-06-03 15:03:00",
+      "lastSeen": "2026-06-03T15:04:41.637Z"
+    },
+    {
+      "adID": "1406459424775108",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100026126347461/?product_id=1406459424775108",
+      "author": "Danyel Nicole",
+      "postedTime": "2026-06-03T14:22:17.000Z",
+      "title": "Pac-Man",
+      "description": "Works perfectly in great condition comes with two matching Pac-Man seats",
+      "price": "$400",
+      "lat": 27.9449854,
+      "lon": -82.4583107,
+      "location": "Tampa, FL",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t15.5256-10/714721420_2095245074727442_5164158556454916956_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=109&ccb=1-7&_nc_sid=d4195b&_nc_eui2=AeEzKxuo2Y3oCOkJqiJNatUwUqog2OFY7kVSqiDY4VjuRUk8feQLQD88xkm8O_g0bcs&_nc_ohc=gEGZ4f2HnI8Q7kNvwGfaKG5&_nc_oc=Adpt8wiXM_ZHwcPJLGPWIyoOjRE5gfqhZRxkcHiOv1h5nHL63W_7iNq69OabuqM92_A&_nc_zt=23&_nc_ht=scontent-dfw5-1.xx&_nc_gid=FFqFwhkJIcDjn8FQ9obyWQ&_nc_ss=7b2a8&oh=00_Af_noIJ6SNnFus1RAkW_rlLteHGdCtqqj52ZXdfK4Lmcvg&oe=6A261618",
+      "adUrl": "https://www.facebook.com/marketplace/item/1406459424775108/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-06-03 15:01:38",
+      "lastSeen": "2026-06-03T15:02:32.671Z"
+    },
     {
       "adID": "2230457374445200",
       "source": "MP",
@@ -36,7 +76,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-03 14:01:48",
-      "lastSeen": "2026-06-03T14:03:00.399Z"
+      "lastSeen": "2026-06-03T15:02:59.335Z"
     },
     {
       "adID": "KLOV-563902",
@@ -56,7 +96,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-03 13:35:48",
-      "lastSeen": "2026-06-03T14:04:00.684Z"
+      "lastSeen": "2026-06-03T15:05:49.107Z"
     },
     {
       "adID": "KLOV-563647",
@@ -76,7 +116,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-03 13:35:44",
-      "lastSeen": "2026-06-03T14:04:00.381Z"
+      "lastSeen": "2026-06-03T15:05:48.791Z"
     },
     {
       "adID": "KLOV-563901",
@@ -96,7 +136,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-03 13:35:25",
-      "lastSeen": "2026-06-03T14:03:59.591Z"
+      "lastSeen": "2026-06-03T15:05:48.048Z"
     },
     {
       "adID": "KLOV-408814",
@@ -116,7 +156,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-03 13:35:20",
-      "lastSeen": "2026-06-03T14:03:59.457Z"
+      "lastSeen": "2026-06-03T15:05:47.913Z"
     },
     {
       "adID": "KLOV-552819",
@@ -136,7 +176,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-03 13:35:19",
-      "lastSeen": "2026-06-03T14:03:59.356Z"
+      "lastSeen": "2026-06-03T15:05:47.813Z"
     },
     {
       "adID": "KLOV-562522",
@@ -156,7 +196,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-03 13:35:13",
-      "lastSeen": "2026-06-03T14:03:58.746Z"
+      "lastSeen": "2026-06-03T15:05:47.511Z"
     },
     {
       "adID": "KLOV-531272",
@@ -176,7 +216,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-03 13:35:13",
-      "lastSeen": "2026-06-03T14:03:58.780Z"
+      "lastSeen": "2026-06-03T15:05:47.545Z"
     },
     {
       "adID": "KLOV-563795",
@@ -196,7 +236,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-03 13:35:10",
-      "lastSeen": "2026-06-03T14:03:58.680Z"
+      "lastSeen": "2026-06-03T15:05:47.445Z"
     },
     {
       "adID": "KLOV-513187",
@@ -216,7 +256,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-03 13:35:09",
-      "lastSeen": "2026-06-03T14:03:58.646Z"
+      "lastSeen": "2026-06-03T15:05:47.411Z"
     },
     {
       "adID": "1655116238863421",
@@ -243,7 +283,7 @@
       "source": "PS",
       "authorUrl": "https://pinside.com/pinball/community/pinsiders/caughdrops/market",
       "author": "caughdrops",
-      "postedTime": "2026-06-03T04:03:20.718Z",
+      "postedTime": "2026-06-03T04:05:05.935Z",
       "title": "Hi-Deal",
       "description": "Functional - needs minor work - “This is a working project that I do not have the time or energy to properly restore. The game plays in both 3 and 5 ball configuration, depending on your preference. Every target, ...”",
       "price": "$815",
@@ -256,7 +296,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-03 11:06:10",
-      "lastSeen": "2026-06-03T14:03:21.046Z"
+      "lastSeen": "2026-06-03T15:05:06.394Z"
     },
     {
       "adID": "1527994805443478",
@@ -296,7 +336,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-03 11:04:43",
-      "lastSeen": "2026-06-03T14:01:47.135Z"
+      "lastSeen": "2026-06-03T15:02:58.933Z"
     },
     {
       "adID": "1320688406089774",
@@ -316,7 +356,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-03 11:01:43",
-      "lastSeen": "2026-06-03T11:04:12.977Z"
+      "lastSeen": "2026-06-03T15:01:38.435Z"
     },
     {
       "adID": "981249228033740",
@@ -356,7 +396,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-03 11:01:39",
-      "lastSeen": "2026-06-03T14:01:35.686Z"
+      "lastSeen": "2026-06-03T15:01:38.167Z"
     },
     {
       "adID": "1681093616419597",
@@ -376,7 +416,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-03 11:01:39",
-      "lastSeen": "2026-06-03T14:01:35.652Z"
+      "lastSeen": "2026-06-03T15:01:38.101Z"
     },
     {
       "adID": "1025080240080919",
@@ -396,7 +436,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-03 11:01:39",
-      "lastSeen": "2026-06-03T14:01:35.719Z"
+      "lastSeen": "2026-06-03T15:01:38.134Z"
     },
     {
       "adID": "4352880508307095",
@@ -416,7 +456,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-03 11:01:39",
-      "lastSeen": "2026-06-03T14:01:35.753Z"
+      "lastSeen": "2026-06-03T15:01:38.200Z"
     },
     {
       "adID": "1559562455686385",
@@ -436,7 +476,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-02 22:02:51",
-      "lastSeen": "2026-06-03T14:01:47.831Z"
+      "lastSeen": "2026-06-03T15:02:59.067Z"
     },
     {
       "adID": "1525199582341872",
@@ -496,27 +536,27 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-02 17:02:34",
-      "lastSeen": "2026-06-03T14:01:49.277Z"
+      "lastSeen": "2026-06-03T15:02:59.469Z"
     },
     {
       "adID": "1976779713209306",
       "source": "MP",
       "authorUrl": "https://www.facebook.com/marketplace/profile/100027997415354/?product_id=1976779713209306",
       "author": "Ava Bender",
-      "postedTime": "2026-06-02T16:11:51.000Z",
+      "postedTime": "2026-05-28T15:45:51.000Z",
       "title": "Sportcraft Light-Up Chuck-A-Ball Game",
       "description": "Fun Sportcraft Light-Up Chuck-A-Ball game. It includes two quick set-up Chuck-A-Ball targets. It has LED lit targets and two sets of LED lit bolas (3 yellow, 3 red). Target dimensions are 38 inches by 233⁄4 inches. It has built-in scoring. It includes eight steel ground stakes for stability. Batteries for bolas are included. AAA batteries for targets are not included. It is designed for day and night play.",
       "price": "$28",
       "lat": 27.7712264,
       "lon": -82.6340259,
       "location": "St Petersburg, FL",
-      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t15.5256-10/712783356_1686857465789087_6864766846032002838_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=100&ccb=1-7&_nc_sid=d4195b&_nc_eui2=AeEMtnntGkMd7noWDyYcoZ7eBOhUNqeB8A0E6FQ2p4HwDbcIjVoXF9xGdC6FmYDRyvA&_nc_ohc=qtaZAka0sVgQ7kNvwG2CeYt&_nc_oc=AdqPLGjTWUvQTrBGBZa-9iudQ736C3bDzSr5XrdWhN7XMebSQYep_E6WAa865TB-_Qc&_nc_zt=23&_nc_ht=scontent-dfw5-2.xx&_nc_gid=ZCpM6woy7hQ0CMbLV2Z6zQ&_nc_ss=7b2a8&oh=00_Af_ZiZpYibRxa6DUE3JCv9jKeApec9Sr7wZZU3EIOLnGIQ&oe=6A25FB69",
+      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t15.5256-10/712783356_1686857465789087_6864766846032002838_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=100&ccb=1-7&_nc_sid=d4195b&_nc_eui2=AeEMtnntGkMd7noWDyYcoZ7eBOhUNqeB8A0E6FQ2p4HwDbcIjVoXF9xGdC6FmYDRyvA&_nc_ohc=qtaZAka0sVgQ7kNvwG2CeYt&_nc_oc=AdqPLGjTWUvQTrBGBZa-9iudQ736C3bDzSr5XrdWhN7XMebSQYep_E6WAa865TB-_Qc&_nc_zt=23&_nc_ht=scontent-dfw5-2.xx&_nc_gid=zsv33NMh8Ly5moPNJ8ryRg&_nc_ss=7b2a8&oh=00_Af86XqeJdv7zp1e9UDWk2tuJ-uv_3MxleMfedDc0Rl9kDg&oe=6A25FB69",
       "adUrl": "https://www.facebook.com/marketplace/item/1976779713209306/",
       "priceChanged": 0,
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-02 17:02:34",
-      "lastSeen": "2026-06-03T14:03:00.432Z"
+      "lastSeen": "2026-06-03T15:04:41.568Z"
     },
     {
       "adID": "1019691311012941",
