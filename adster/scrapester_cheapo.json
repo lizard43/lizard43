@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-03T11:06:21.029Z",
+  "generated_at": "2026-06-03T12:03:13.810Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,19 +11,39 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 52,
-      "droppedPrice": 663,
+      "exported_ads": 53,
+      "droppedPrice": 664,
       "droppedMissingGeo": 0,
       "droppedCircle": 447
     }
   },
   "ads": [
     {
+      "adID": "1655116238863421",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100050217680815/?product_id=1655116238863421",
+      "author": "Dan R Umezawa",
+      "postedTime": "2026-06-02T03:26:48.000Z",
+      "title": "Fantastic four 4k ultra HD and blu ray",
+      "description": "Brand new",
+      "price": "$25",
+      "lat": 29.1871986,
+      "lon": -82.1400923,
+      "location": "Ocala, FL",
+      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/710461211_985617957719463_1178714027201624529_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=106&ccb=1-7&_nc_sid=92e707&_nc_eui2=AeGXBNY7isyCIGy-fjIBRDftxBJ0d5e6Hf3EEnR3l7od_XD40LIfDhgthBWgknzVTzM&_nc_ohc=F18UjfyITbsQ7kNvwGDWG2G&_nc_oc=Ado-lZFkd5vfs-kcE1QjPB52mAx0VinJR17S3-meGB8J_2OLiR-UZDkuvKnzTaxWfdA&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=iOQdR_Pui4ET72-HujwfsA&_nc_ss=7b2a8&oh=00_Af_lV1M1maVCqO5O2n3X0LV5pU8pLvV4fLWkHK4Nutuj3w&oe=6A260213",
+      "adUrl": "https://www.facebook.com/marketplace/item/1655116238863421/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-06-03 12:01:39",
+      "lastSeen": "2026-06-03T12:01:57.523Z"
+    },
+    {
       "adID": "PI-215608",
       "source": "PS",
       "authorUrl": "https://pinside.com/pinball/community/pinsiders/caughdrops/market",
       "author": "caughdrops",
-      "postedTime": "2026-06-03T03:06:06.156Z",
+      "postedTime": "2026-06-03T04:03:00.006Z",
       "title": "Hi-Deal",
       "description": "Functional - needs minor work - “This is a working project that I do not have the time or energy to properly restore. The game plays in both 3 and 5 ball configuration, depending on your preference. Every target, ...”",
       "price": "$815",
@@ -36,7 +56,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-03 11:06:10",
-      "lastSeen": "2026-06-03T11:06:10.639Z"
+      "lastSeen": "2026-06-03T12:03:00.233Z"
     },
     {
       "adID": "1527994805443478",
@@ -56,7 +76,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-03 11:04:45",
-      "lastSeen": "2026-06-03T11:05:48.149Z"
+      "lastSeen": "2026-06-03T12:02:29.300Z"
     },
     {
       "adID": "900938135764616",
@@ -76,7 +96,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-03 11:04:43",
-      "lastSeen": "2026-06-03T11:05:48.049Z"
+      "lastSeen": "2026-06-03T12:02:27.971Z"
     },
     {
       "adID": "1320688406089774",
@@ -116,7 +136,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-03 11:01:42",
-      "lastSeen": "2026-06-03T11:04:12.877Z"
+      "lastSeen": "2026-06-03T12:01:39.369Z"
     },
     {
       "adID": "1531733742008299",
@@ -136,7 +156,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-03 11:01:39",
-      "lastSeen": "2026-06-03T11:04:12.253Z"
+      "lastSeen": "2026-06-03T12:01:38.699Z"
     },
     {
       "adID": "1681093616419597",
@@ -156,7 +176,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-03 11:01:39",
-      "lastSeen": "2026-06-03T11:04:12.300Z"
+      "lastSeen": "2026-06-03T12:01:38.670Z"
     },
     {
       "adID": "1025080240080919",
@@ -176,7 +196,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-03 11:01:39",
-      "lastSeen": "2026-06-03T11:04:12.334Z"
+      "lastSeen": "2026-06-03T12:01:38.733Z"
     },
     {
       "adID": "4352880508307095",
@@ -196,7 +216,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-03 11:01:39",
-      "lastSeen": "2026-06-03T11:04:12.367Z"
+      "lastSeen": "2026-06-03T12:01:38.767Z"
     },
     {
       "adID": "1559562455686385",
@@ -216,7 +236,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-02 22:02:51",
-      "lastSeen": "2026-06-03T11:04:43.238Z"
+      "lastSeen": "2026-06-03T12:02:28.072Z"
     },
     {
       "adID": "1525199582341872",
@@ -236,7 +256,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-02 19:01:33",
-      "lastSeen": "2026-06-03T11:01:41.169Z"
+      "lastSeen": "2026-06-03T12:01:39.102Z"
     },
     {
       "adID": "1007416981822717",
@@ -256,7 +276,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-02 18:01:39",
-      "lastSeen": "2026-06-03T11:04:45.279Z"
+      "lastSeen": "2026-06-03T12:02:29.552Z"
     },
     {
       "adID": "2519298251858599",
@@ -276,7 +296,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-02 17:02:34",
-      "lastSeen": "2026-06-03T11:04:43.538Z"
+      "lastSeen": "2026-06-03T12:02:28.384Z"
     },
     {
       "adID": "1976779713209306",
@@ -290,13 +310,13 @@
       "lat": 27.7712264,
       "lon": -82.6340259,
       "location": "St Petersburg, FL",
-      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t15.5256-10/712783356_1686857465789087_6864766846032002838_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=100&ccb=1-7&_nc_sid=d4195b&_nc_eui2=AeEMtnntGkMd7noWDyYcoZ7eBOhUNqeB8A0E6FQ2p4HwDbcIjVoXF9xGdC6FmYDRyvA&_nc_ohc=qtaZAka0sVgQ7kNvwG2CeYt&_nc_oc=AdqPLGjTWUvQTrBGBZa-9iudQ736C3bDzSr5XrdWhN7XMebSQYep_E6WAa865TB-_Qc&_nc_zt=23&_nc_ht=scontent-dfw5-2.xx&_nc_gid=dukQFHWPH11S2bU30rAQUA&_nc_ss=7b2a8&oh=00_Af-pfDKFnvqzp6P3wBkbw_HTG2B1_V2Bp_buzrDcGrXV2w&oe=6A25C329",
+      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t15.5256-10/712783356_1686857465789087_6864766846032002838_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=100&ccb=1-7&_nc_sid=d4195b&_nc_eui2=AeEMtnntGkMd7noWDyYcoZ7eBOhUNqeB8A0E6FQ2p4HwDbcIjVoXF9xGdC6FmYDRyvA&_nc_ohc=qtaZAka0sVgQ7kNvwG2CeYt&_nc_oc=AdqPLGjTWUvQTrBGBZa-9iudQ736C3bDzSr5XrdWhN7XMebSQYep_E6WAa865TB-_Qc&_nc_zt=23&_nc_ht=scontent-dfw5-2.xx&_nc_gid=_SGQQOUtN2DQf_yV9zi4Qg&_nc_ss=7b2a8&oh=00_Af8c5OVPzuZdUYvYBQaTQujbWcHpL0x5In9oCZB15pfyxA&oe=6A25FB69",
       "adUrl": "https://www.facebook.com/marketplace/item/1976779713209306/",
       "priceChanged": 0,
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-02 17:02:34",
-      "lastSeen": "2026-06-03T11:05:48.084Z"
+      "lastSeen": "2026-06-03T12:02:44.754Z"
     },
     {
       "adID": "1019691311012941",
@@ -316,7 +336,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-02 14:03:26",
-      "lastSeen": "2026-06-02T18:02:34.574Z"
+      "lastSeen": "2026-06-03T12:01:39.235Z"
     },
     {
       "adID": "1355351469802018",
@@ -336,7 +356,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-02 14:03:26",
-      "lastSeen": "2026-06-02T16:02:18.427Z"
+      "lastSeen": "2026-06-03T12:01:39.268Z"
     },
     {
       "adID": "1039104688492347",
@@ -396,7 +416,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-02 14:01:35",
-      "lastSeen": "2026-06-02T20:02:17.594Z"
+      "lastSeen": "2026-06-03T12:01:39.169Z"
     },
     {
       "adID": "1543950983812569",
@@ -436,7 +456,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-02 13:03:00",
-      "lastSeen": "2026-06-03T11:04:44.375Z"
+      "lastSeen": "2026-06-03T12:02:29.233Z"
     },
     {
       "adID": "2694304917620706",
@@ -556,7 +576,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-02 00:01:34",
-      "lastSeen": "2026-06-03T11:01:41.303Z"
+      "lastSeen": "2026-06-03T12:01:39.136Z"
     },
     {
       "adID": "1475810093731439",
@@ -576,7 +596,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-01 18:02:13",
-      "lastSeen": "2026-06-03T11:04:44.141Z"
+      "lastSeen": "2026-06-03T12:02:28.987Z"
     },
     {
       "adID": "2422675011549326",
