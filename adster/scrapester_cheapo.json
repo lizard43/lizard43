@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-04T19:32:33.469Z",
+  "generated_at": "2026-06-04T20:04:36.934Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,93 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 82,
-      "droppedPrice": 744,
+      "exported_ads": 86,
+      "droppedPrice": 747,
       "droppedMissingGeo": 0,
-      "droppedCircle": 611
+      "droppedCircle": 614
     }
   },
   "ads": [
+    {
+      "adID": "4281087122142900",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100006747642934/?product_id=4281087122142900",
+      "author": "Angie Reiss",
+      "postedTime": "2026-06-04T19:34:38.000Z",
+      "title": "Pinball (Loose)",
+      "description": "Loose Condition works well",
+      "price": "$6",
+      "lat": 28.2336196,
+      "lon": -82.1811947,
+      "location": "Zephyrhills, FL",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t15.5256-10/694885303_1397477702136863_6199986332584274863_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=109&ccb=1-7&_nc_sid=d4195b&_nc_eui2=AeFLQPbWs6IwZCNFrxmBIUGlA7gOvyOVJu8DuA6_I5Um784GQupvbtBq_NZ8ZRJuRqI&_nc_ohc=arHSrgfIWIEQ7kNvwEBqKfs&_nc_oc=AdpidawQt4R5hk4_hrJGWY6Tn521_4iWZhqa_reDtisbqN7kClhcsZUmUdT7soRvHrQ&_nc_zt=23&_nc_ht=scontent-dfw5-1.xx&_nc_gid=N3rg4CZ7sYilk5Dz2dkiiQ&_nc_ss=7b2a8&oh=00_Af8ZYDmgRiKWnLmrM7-8r7orzpqqaxfqDEQtPBO3t93NcA&oe=6A27BF4B",
+      "adUrl": "https://www.facebook.com/marketplace/item/4281087122142900/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-06-04 20:03:21",
+      "lastSeen": "2026-06-04T20:03:36.859Z"
+    },
+    {
+      "adID": "2297053280827533",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/1117733208/?product_id=2297053280827533",
+      "author": "Tabitha Decker",
+      "postedTime": "2026-06-04T18:41:45.000Z",
+      "title": "Ms pac man arcade machine",
+      "description": "Works great. Barely had it a year, just no room for it. If it's showing on here it's available. Please serious inquiries only.",
+      "price": "$375",
+      "lat": 30.3674198,
+      "lon": -89.0928155,
+      "location": "Gulfport, MS",
+      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/710827660_1571837944341949_8128461034904604523_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=100&ccb=1-7&_nc_sid=92e707&_nc_eui2=AeG57TwTfiJHl29cC0f9XUovRvOTVP9s43pG85NU_2zjevFFZHS0i2J39f1eE9rrrvc&_nc_ohc=wIXOsYdknr8Q7kNvwELQs3W&_nc_oc=AdrKTyJ3QUhLXNPKZPMPk8JBP8qTzJD2-4PeNZgsvjNOAs7_ft3hn19q0pyeY1CHjkM&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=YpR2SCtU14UtJpYEsLoWug&_nc_ss=7b2a8&oh=00_Af9QOqbzm23u6sYuryBRI2FzfLDDIzMo_iSeM0VlLVBP8g&oe=6A279E7D",
+      "adUrl": "https://www.facebook.com/marketplace/item/2297053280827533/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-06-04 20:01:52",
+      "lastSeen": "2026-06-04T20:02:50.123Z"
+    },
+    {
+      "adID": "1343777591009818",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100007002877837/?product_id=1343777591009818",
+      "author": "Kellie Lashae",
+      "postedTime": "2026-06-04T17:57:40.000Z",
+      "title": "PGA Tour Game",
+      "description": "A PGA Tour game. It has an old monitor and computer but does start up. A great project for a family game room or a business venture to make a few extra bucks! Sold by Ivey Promotions 9305 Industrial Trace Alpharetta, GA 30004 Monday-Friday 9-5pm but can offer after hours pickup!",
+      "price": "$200",
+      "lat": 33.7544657,
+      "lon": -84.3898151,
+      "location": "Atlanta, GA",
+      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/715050704_2178026099683741_2156451908786304420_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=108&ccb=1-7&_nc_sid=92e707&_nc_eui2=AeExE-3We19qpdv7cXIvX4iogBL7fIks79OAEvt8iSzv05KOIJrCgN8SJGHnGLLFkdo&_nc_ohc=XzFdeyCq4VUQ7kNvwGEQ73O&_nc_oc=Ado_e9hA2ny919V8Z0eIagANwbgbNfa9pn97tQelGukoDqErCLJn8UwHDIW7PcHVohQ&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=P_A-yOvO6l-htbe7F-ua2w&_nc_ss=7b2a8&oh=00_Af_OTCKePMD2EjFbunyYMuv0sUVMEX-f91z1zzhEEY18Aw&oe=6A279EF1",
+      "adUrl": "https://www.facebook.com/marketplace/item/1343777591009818/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-06-04 20:01:52",
+      "lastSeen": "2026-06-04T20:02:50.191Z"
+    },
+    {
+      "adID": "1795092534548311",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/61558801097399/?product_id=1795092534548311",
+      "author": "Dylan M Aksamit",
+      "postedTime": "2026-06-04T19:41:46.000Z",
+      "title": "Video game kiosk",
+      "description": "Store display from toys r us. Works great and touch screen still works. I have tons of video games I dont have listed i may be willing to sale. Im looking for best offer or trade To grab attention-Nintendo, Sega, Xbox, Playstation. Mario, Zelda, pokemon.",
+      "price": "$600",
+      "lat": 33.3011663,
+      "lon": -84.5540046,
+      "location": "Senoia, GA",
+      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/716450837_1699477961378584_4022219469428182281_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=108&ccb=1-7&_nc_sid=92e707&_nc_eui2=AeEdpWYAZj6oCLQykLj3UDlsUz2Gs5vaoPhTPYazm9qg-PuBBj38c-YUdSVf-uI_h0o&_nc_ohc=326stUv5pawQ7kNvwHGxeQ2&_nc_oc=AdpwZXAAcEVgFq8F7KnzLc4aWdN-PkXwBiqYbF-6yJh7RhKfXGkkN_CU21nSBdJ4_NA&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=_kmR6oKLMcYYrzlAhal4Pw&_nc_ss=7b2a8&oh=00_Af9y8XFznr-iQw45WEGg15MuaNiCbHs22cVvvwWu9T4NOQ&oe=6A27937D",
+      "adUrl": "https://www.facebook.com/marketplace/item/1795092534548311/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-06-04 20:01:51",
+      "lastSeen": "2026-06-04T20:02:50.070Z"
+    },
     {
       "adID": "27557324163875911",
       "source": "MP",
@@ -76,7 +156,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-04 16:01:36",
-      "lastSeen": "2026-06-04T18:01:37.152Z"
+      "lastSeen": "2026-06-04T20:01:52.211Z"
     },
     {
       "adID": "KLOV-549051",
@@ -96,7 +176,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-04 15:04:20",
-      "lastSeen": "2026-06-04T19:03:04.581Z"
+      "lastSeen": "2026-06-04T20:04:32.334Z"
     },
     {
       "adID": "1317096257061839",
@@ -116,7 +196,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-04 15:01:51",
-      "lastSeen": "2026-06-04T19:01:53.267Z"
+      "lastSeen": "2026-06-04T20:03:21.401Z"
     },
     {
       "adID": "1309731930677132",
@@ -136,7 +216,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-04 14:03:49",
-      "lastSeen": "2026-06-04T19:01:53.568Z"
+      "lastSeen": "2026-06-04T20:03:21.701Z"
     },
     {
       "adID": "3564822143677951",
@@ -203,7 +283,7 @@
       "source": "PS",
       "authorUrl": "https://pinside.com/pinball/community/pinsiders/blessed/market",
       "author": "Blessed",
-      "postedTime": "2026-06-04T02:02:28.216Z",
+      "postedTime": "2026-06-04T02:03:54.043Z",
       "title": "Freedom EM 2nd Version",
       "description": "Used - shows wear but 100% working and clean - “Machine plays well. In the past year and half or so, the following work was done: 1) Score reels have been cleaned and switches adjusted. 2) Stepper unit and all other relay switc...”",
       "price": "$750",
@@ -216,7 +296,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-04 11:05:35",
-      "lastSeen": "2026-06-04T19:02:29.017Z"
+      "lastSeen": "2026-06-04T20:03:54.680Z"
     },
     {
       "adID": "2282640742144053",
@@ -316,7 +396,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-03 22:02:24",
-      "lastSeen": "2026-06-04T19:01:53.535Z"
+      "lastSeen": "2026-06-04T20:03:21.667Z"
     },
     {
       "adID": "1926070568209844",
@@ -336,7 +416,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-03 22:01:36",
-      "lastSeen": "2026-06-04T19:01:40.724Z"
+      "lastSeen": "2026-06-04T20:01:52.646Z"
     },
     {
       "adID": "1289750053279866",
@@ -476,7 +556,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-03 13:35:44",
-      "lastSeen": "2026-06-04T19:03:05.751Z"
+      "lastSeen": "2026-06-04T20:04:33.822Z"
     },
     {
       "adID": "KLOV-408814",
@@ -576,7 +656,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-03 13:35:10",
-      "lastSeen": "2026-06-04T19:03:05.651Z"
+      "lastSeen": "2026-06-04T20:04:33.722Z"
     },
     {
       "adID": "KLOV-513187",
@@ -596,7 +676,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-03 13:35:09",
-      "lastSeen": "2026-06-04T19:03:05.617Z"
+      "lastSeen": "2026-06-04T20:04:33.688Z"
     },
     {
       "adID": "1655116238863421",
@@ -816,7 +896,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-02 22:02:51",
-      "lastSeen": "2026-06-04T18:02:51.412Z"
+      "lastSeen": "2026-06-04T20:03:21.936Z"
     },
     {
       "adID": "1525199582341872",
