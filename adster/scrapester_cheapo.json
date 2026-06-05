@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-05T16:03:49.599Z",
+  "generated_at": "2026-06-05T17:04:40.625Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,33 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 95,
-      "droppedPrice": 786,
+      "exported_ads": 96,
+      "droppedPrice": 790,
       "droppedMissingGeo": 0,
-      "droppedCircle": 641
+      "droppedCircle": 642
     }
   },
   "ads": [
+    {
+      "adID": "1478405590239947",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/61554453040022/?product_id=1478405590239947",
+      "author": "Rachel Keehn",
+      "postedTime": "2026-06-05T16:01:55.000Z",
+      "title": "Nintendo Virtual Boy Games Lot - Mario's Tennis, Wario Land, Red Alarm & More",
+      "description": "Classic lot of eight Nintendo Virtual Boy game cartridges. Mario's Tennis-$25 Galactic Pinball-$50 Golf-$50 Wario Land-$85 Vertical Force-$50 Panic Bomber-$70 Red Alarm-$25 Mario clash-$50 Whole lot $350 Cartridges are gray with black bases. Mario. Clash cartridge has a damaged label.",
+      "price": "$50",
+      "lat": 33.7514966,
+      "lon": -84.7477136,
+      "location": "Douglasville, GA",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/715389725_1508482803794784_7823030954677090137_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=109&ccb=1-7&_nc_sid=92e707&_nc_eui2=AeH01N1TAEyEP_M73DNN12PhQv9bg2EAE4pC_1uDYQATiuNyR96mB46GV1cyE9bUjWA&_nc_ohc=CU0f9MzsXMwQ7kNvwGUkTJt&_nc_oc=Adqv8Xg8XJQcXk0rjxYql_Z1EQ9vEHeB-dHBm8FiWPCLmvZBBRVaeImtZLb1tflk5aM&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=Oo1TnIaS0JWbPuuYfwvJjg&_nc_ss=7b2a8&oh=00_Af8_yeDyLcsQ4hlqXALf5ka2Dq6Xl3gaZJXrJz7R_F0sFw&oe=6A28DD60",
+      "adUrl": "https://www.facebook.com/marketplace/item/1478405590239947/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-06-05 17:02:34",
+      "lastSeen": "2026-06-05T17:03:42.529Z"
+    },
     {
       "adID": "2536898340086274",
       "source": "MP",
@@ -76,7 +96,7 @@
       "priceChangedAt": "2026-06-05 16:01:39",
       "hidden": 0,
       "created_at": "2026-06-05 13:01:34",
-      "lastSeen": "2026-06-05T16:02:27.061Z"
+      "lastSeen": "2026-06-05T17:02:34.937Z"
     },
     {
       "adID": "KLOV-563353",
@@ -96,7 +116,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-05 11:04:09",
-      "lastSeen": "2026-06-05T16:03:45.499Z"
+      "lastSeen": "2026-06-05T17:04:36.612Z"
     },
     {
       "adID": "KLOV-562723",
@@ -116,7 +136,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-05 11:04:09",
-      "lastSeen": "2026-06-05T16:03:45.532Z"
+      "lastSeen": "2026-06-05T17:04:36.646Z"
     },
     {
       "adID": "KLOV-563949",
@@ -136,7 +156,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-05 11:04:09",
-      "lastSeen": "2026-06-05T16:03:45.566Z"
+      "lastSeen": "2026-06-05T17:04:36.679Z"
     },
     {
       "adID": "1540154170783569",
@@ -176,7 +196,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-05 11:01:45",
-      "lastSeen": "2026-06-05T16:01:38.671Z"
+      "lastSeen": "2026-06-05T17:01:35.778Z"
     },
     {
       "adID": "KLOV-563320",
@@ -196,7 +216,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-05 01:03:06",
-      "lastSeen": "2026-06-05T16:03:45.700Z"
+      "lastSeen": "2026-06-05T17:04:36.814Z"
     },
     {
       "adID": "KLOV-563838",
@@ -216,7 +236,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-05 00:03:30",
-      "lastSeen": "2026-06-05T16:03:45.399Z"
+      "lastSeen": "2026-06-05T17:04:36.512Z"
     },
     {
       "adID": "994218793090970",
@@ -276,7 +296,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-04 23:03:31",
-      "lastSeen": "2026-06-05T16:02:27.127Z"
+      "lastSeen": "2026-06-05T17:02:35.004Z"
     },
     {
       "adID": "1787402562272781",
@@ -316,7 +336,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-04 21:01:36",
-      "lastSeen": "2026-06-05T16:01:39.346Z"
+      "lastSeen": "2026-06-05T17:01:36.146Z"
     },
     {
       "adID": "4281087122142900",
@@ -336,7 +356,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-04 20:03:21",
-      "lastSeen": "2026-06-05T16:02:27.194Z"
+      "lastSeen": "2026-06-05T17:02:35.071Z"
     },
     {
       "adID": "1343777591009818",
@@ -416,7 +436,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-04 15:04:20",
-      "lastSeen": "2026-06-05T16:03:45.801Z"
+      "lastSeen": "2026-06-05T17:04:36.915Z"
     },
     {
       "adID": "1317096257061839",
@@ -436,7 +456,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-04 15:01:51",
-      "lastSeen": "2026-06-05T16:02:27.429Z"
+      "lastSeen": "2026-06-05T17:02:35.306Z"
     },
     {
       "adID": "1309731930677132",
@@ -503,7 +523,7 @@
       "source": "PS",
       "authorUrl": "https://pinside.com/pinball/community/pinsiders/blessed/market",
       "author": "Blessed",
-      "postedTime": "2026-06-04T02:03:11.756Z",
+      "postedTime": "2026-06-04T02:04:00.677Z",
       "title": "Freedom EM 2nd Version",
       "description": "Used - shows wear but 100% working and clean - “Machine plays well. In the past year and half or so, the following work was done: 1) Score reels have been cleaned and switches adjusted. 2) Stepper unit and all other relay switc...”",
       "price": "$750",
@@ -516,7 +536,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-04 11:05:35",
-      "lastSeen": "2026-06-05T16:03:12.030Z"
+      "lastSeen": "2026-06-05T17:04:00.966Z"
     },
     {
       "adID": "2282640742144053",
@@ -756,7 +776,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-03 13:35:44",
-      "lastSeen": "2026-06-05T16:03:46.471Z"
+      "lastSeen": "2026-06-05T17:04:37.685Z"
     },
     {
       "adID": "KLOV-408814",
