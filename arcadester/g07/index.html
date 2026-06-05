@@ -1,0 +1,484 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Electrohome G07 Guide</title>
+
+  <!-- GitHub-ish Markdown styling -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@5.8.1/github-markdown.min.css">
+
+  <!-- Code highlighting theme -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.11.1/styles/github.min.css">
+
+  <style>
+    :root {
+      --page-bg: #f6f8fa;
+      --panel-bg: #ffffff;
+      --border: #d0d7de;
+      --text-muted: #57606a;
+      --link: #0969da;
+      --toc-width: 280px;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--page-bg);
+      color: #24292f;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: #24292f;
+      color: #fff;
+      border-bottom: 1px solid #000;
+    }
+
+    .topbar-inner {
+      max-width: 1500px;
+      margin: 0 auto;
+      padding: 12px 20px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      justify-content: space-between;
+    }
+
+    .title {
+      font-weight: 700;
+      font-size: 17px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .actions {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .actions a,
+    .actions button {
+      appearance: none;
+      border: 1px solid rgba(255,255,255,.3);
+      background: rgba(255,255,255,.08);
+      color: #fff;
+      border-radius: 6px;
+      padding: 6px 10px;
+      font-size: 13px;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .actions a:hover,
+    .actions button:hover {
+      background: rgba(255,255,255,.16);
+    }
+
+    .layout {
+      max-width: 1500px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: var(--toc-width) minmax(0, 980px);
+      gap: 24px;
+      padding: 24px 20px 60px;
+      justify-content: center;
+    }
+
+    .toc-wrap {
+      min-width: 0;
+    }
+
+    .toc {
+      position: sticky;
+      top: 66px;
+      max-height: calc(100vh - 90px);
+      overflow: auto;
+      background: var(--panel-bg);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 14px;
+      font-size: 14px;
+    }
+
+    .toc h2 {
+      font-size: 14px;
+      margin: 0 0 10px;
+      color: #24292f;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 8px;
+    }
+
+    .toc ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .toc li {
+      margin: 4px 0;
+      line-height: 1.25;
+    }
+
+    .toc a {
+      color: var(--link);
+      text-decoration: none;
+      display: block;
+      padding: 3px 4px;
+      border-radius: 4px;
+    }
+
+    .toc a:hover {
+      background: #ddf4ff;
+      text-decoration: none;
+    }
+
+    .toc .level-2 { padding-left: 12px; }
+    .toc .level-3 { padding-left: 24px; }
+    .toc .level-4 { padding-left: 36px; }
+    .toc .level-5 { padding-left: 48px; }
+    .toc .level-6 { padding-left: 60px; }
+
+    .content-wrap {
+      min-width: 0;
+    }
+
+    .markdown-body {
+      box-sizing: border-box;
+      min-width: 200px;
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 45px;
+      background: var(--panel-bg);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+    }
+
+    .markdown-body img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 6px;
+      cursor: zoom-in;
+    }
+
+    .markdown-body table {
+      display: table;
+      width: max-content;
+      max-width: 100%;
+      overflow: auto;
+    }
+
+    .status {
+      background: #fff8c5;
+      border: 1px solid #d4a72c;
+      border-radius: 8px;
+      padding: 12px 14px;
+      margin-bottom: 16px;
+      color: #3b2300;
+    }
+
+    .error {
+      background: #ffebe9;
+      border-color: #cf222e;
+      color: #82071e;
+    }
+
+    .image-lightbox {
+      position: fixed;
+      inset: 0;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      background: rgba(0,0,0,.86);
+      z-index: 1000;
+      padding: 20px;
+    }
+
+    .image-lightbox.open {
+      display: flex;
+    }
+
+    .image-lightbox img {
+      max-width: 96vw;
+      max-height: 94vh;
+      object-fit: contain;
+      cursor: zoom-out;
+      background: #fff;
+      border-radius: 6px;
+    }
+
+    @media (max-width: 1000px) {
+      .layout {
+        grid-template-columns: 1fr;
+        padding: 16px;
+      }
+
+      .toc {
+        position: static;
+        max-height: 300px;
+      }
+
+      .markdown-body {
+        padding: 28px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .topbar-inner {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      .actions {
+        justify-content: flex-start;
+      }
+
+      .markdown-body {
+        padding: 18px;
+      }
+    }
+
+    @media print {
+      .topbar, .toc-wrap {
+        display: none;
+      }
+
+      .layout {
+        display: block;
+        padding: 0;
+      }
+
+      .markdown-body {
+        max-width: none;
+        border: none;
+        border-radius: 0;
+        padding: 0;
+      }
+
+      body {
+        background: #fff;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="title" id="pageTitle">Electrohome G07 Guide</div>
+      <div class="actions">
+        <a href="g07.md" id="rawLink">View raw markdown</a>
+        <button type="button" id="printBtn">Print / Save PDF</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="layout">
+    <aside class="toc-wrap">
+      <nav class="toc" aria-label="Table of contents">
+        <h2>Contents</h2>
+        <div id="toc"><em>Loading…</em></div>
+      </nav>
+    </aside>
+
+    <section class="content-wrap">
+      <article id="content" class="markdown-body">
+        <div class="status">Loading <code>g07.md</code>…</div>
+      </article>
+    </section>
+  </main>
+
+  <div class="image-lightbox" id="lightbox" aria-hidden="true">
+    <img id="lightboxImg" alt="">
+  </div>
+
+  <!-- Markdown parser -->
+  <script src="https://cdn.jsdelivr.net/npm/marked@15.0.12/marked.min.js"></script>
+
+  <!-- Sanitizer so fetched markdown cannot inject unsafe HTML -->
+  <script src="https://cdn.jsdelivr.net/npm/dompurify@3.2.5/dist/purify.min.js"></script>
+
+  <!-- Syntax highlighting -->
+  <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.11.1/lib/common.min.js"></script>
+
+  <script>
+    const MARKDOWN_FILE = 'g07.md';
+
+    const content = document.getElementById('content');
+    const toc = document.getElementById('toc');
+    const pageTitle = document.getElementById('pageTitle');
+    const rawLink = document.getElementById('rawLink');
+
+    rawLink.href = MARKDOWN_FILE;
+
+    document.getElementById('printBtn').addEventListener('click', () => window.print());
+
+    marked.setOptions({
+      gfm: true,
+      breaks: false,
+      headerIds: false,
+      mangle: false,
+      highlight: function(code, lang) {
+        if (lang && hljs.getLanguage(lang)) {
+          return hljs.highlight(code, { language: lang }).value;
+        }
+        return hljs.highlightAuto(code).value;
+      }
+    });
+
+    function slugify(text) {
+      return text
+        .toLowerCase()
+        .trim()
+        .replace(/<[^>]+>/g, '')
+        .replace(/[^\w\s-]/g, '')
+        .replace(/\s+/g, '-')
+        .replace(/-+/g, '-');
+    }
+
+    function uniqueSlug(base, used) {
+      let slug = base || 'section';
+      let candidate = slug;
+      let i = 2;
+      while (used.has(candidate)) {
+        candidate = `${slug}-${i++}`;
+      }
+      used.add(candidate);
+      return candidate;
+    }
+
+    function fixRelativeUrls() {
+      const base = new URL(MARKDOWN_FILE, window.location.href);
+
+      content.querySelectorAll('img[src]').forEach(img => {
+        const src = img.getAttribute('src');
+        if (!src || /^(https?:|data:|mailto:|#)/i.test(src)) return;
+        img.src = new URL(src, base).href;
+      });
+
+      content.querySelectorAll('a[href]').forEach(a => {
+        const href = a.getAttribute('href');
+        if (!href || /^(https?:|mailto:|tel:|#)/i.test(href)) return;
+        a.href = new URL(href, base).href;
+      });
+    }
+
+    function buildToc() {
+      const headings = Array.from(content.querySelectorAll('h1, h2, h3, h4, h5, h6'));
+      const used = new Set();
+
+      headings.forEach(h => {
+        h.id = uniqueSlug(slugify(h.textContent), used);
+      });
+
+      const firstH1 = headings.find(h => h.tagName.toLowerCase() === 'h1');
+      if (firstH1) {
+        pageTitle.textContent = firstH1.textContent.trim();
+        document.title = firstH1.textContent.trim();
+      }
+
+      if (!headings.length) {
+        toc.innerHTML = '<em>No headings found</em>';
+        return;
+      }
+
+      const ul = document.createElement('ul');
+
+      headings.forEach(h => {
+        const level = Number(h.tagName.substring(1));
+        const li = document.createElement('li');
+        li.className = `level-${level}`;
+
+        const a = document.createElement('a');
+        a.href = `#${h.id}`;
+        a.textContent = h.textContent.trim();
+
+        li.appendChild(a);
+        ul.appendChild(li);
+      });
+
+      toc.innerHTML = '';
+      toc.appendChild(ul);
+    }
+
+    function setupImageZoom() {
+      const lightbox = document.getElementById('lightbox');
+      const lightboxImg = document.getElementById('lightboxImg');
+
+      content.querySelectorAll('img').forEach(img => {
+        img.addEventListener('click', () => {
+          lightboxImg.src = img.src;
+          lightboxImg.alt = img.alt || '';
+          lightbox.classList.add('open');
+          lightbox.setAttribute('aria-hidden', 'false');
+        });
+      });
+
+      lightbox.addEventListener('click', () => {
+        lightbox.classList.remove('open');
+        lightbox.setAttribute('aria-hidden', 'true');
+        lightboxImg.src = '';
+      });
+
+      document.addEventListener('keydown', e => {
+        if (e.key === 'Escape') {
+          lightbox.classList.remove('open');
+          lightbox.setAttribute('aria-hidden', 'true');
+          lightboxImg.src = '';
+        }
+      });
+    }
+
+    async function loadMarkdown() {
+      try {
+        const response = await fetch(MARKDOWN_FILE, { cache: 'no-store' });
+
+        if (!response.ok) {
+          throw new Error(`HTTP ${response.status} while loading ${MARKDOWN_FILE}`);
+        }
+
+        const markdown = await response.text();
+        const unsafeHtml = marked.parse(markdown);
+        const safeHtml = DOMPurify.sanitize(unsafeHtml, {
+          USE_PROFILES: { html: true },
+          ADD_ATTR: ['target']
+        });
+
+        content.innerHTML = safeHtml;
+
+        fixRelativeUrls();
+        buildToc();
+        setupImageZoom();
+
+        content.querySelectorAll('pre code').forEach(block => hljs.highlightElement(block));
+      } catch (err) {
+        content.innerHTML = `
+          <div class="status error">
+            <strong>Could not load <code>${MARKDOWN_FILE}</code>.</strong><br>
+            ${String(err.message || err)}
+            <p>
+              Make sure this <code>index.html</code> file is uploaded in the same folder as
+              <code>${MARKDOWN_FILE}</code>, and that you open it through your web server,
+              not directly as a local <code>file://</code> path.
+            </p>
+          </div>
+        `;
+        toc.innerHTML = '<em>Unavailable</em>';
+      }
+    }
+
+    loadMarkdown();
+  </script>
+</body>
+</html>
