@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-05T15:03:46.129Z",
+  "generated_at": "2026-06-05T15:36:23.242Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,10 +11,10 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 96,
+      "exported_ads": 95,
       "droppedPrice": 784,
       "droppedMissingGeo": 0,
-      "droppedCircle": 641
+      "droppedCircle": 639
     }
   },
   "ads": [
@@ -1677,26 +1677,6 @@
       "hidden": 0,
       "created_at": "2026-05-29 13:59:12",
       "lastSeen": "2026-06-04T13:42:16.006Z"
-    },
-    {
-      "adID": "843781222129320",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/640554251/?product_id=843781222129320",
-      "author": "Ryan Desmond",
-      "postedTime": "2026-05-28T18:54:32.000Z",
-      "title": "Gotten 1975 in300 in Pinball Game",
-      "description": "All artwork looks great, new bumpers as well. The mechanical and electrical has water damage and will not work. This would be a good restoration project and would sell for $3000 fully restored.",
-      "price": "$500",
-      "lat": 27.7691937,
-      "lon": -82.7689906,
-      "location": "Treasure Island, FL",
-      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/709287260_2003899917184646_6595951241609983445_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=110&ccb=1-7&_nc_sid=92e707&_nc_ohc=WsJHqnnwJGwQ7kNvwFmmVP0&_nc_oc=AdrQ-Wmrz3bTjHBhIIPXh-6NYfh63NErUrhi9G5rhN19D9A1yAG5_Z7Rjpf8zgbfHk0&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=WqbJKj4v0PRxUDOkl9d9DQ&_nc_ss=7b2a8&oh=00_Af7d_RBvaFjCQvq8CwWriBz0cWgFFDAhvaXLJ4pYXra7vA&oe=6A1E48E5",
-      "adUrl": "https://www.facebook.com/marketplace/item/843781222129320/",
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-05-28 19:02:23",
-      "lastSeen": "2026-05-29T15:02:39.591Z"
     },
     {
       "adID": "PI-215282",
