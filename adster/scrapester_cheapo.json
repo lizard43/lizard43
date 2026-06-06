@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-06T12:02:38.955Z",
+  "generated_at": "2026-06-06T12:46:56.754Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,33 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 99,
-      "droppedPrice": 825,
+      "exported_ads": 100,
+      "droppedPrice": 828,
       "droppedMissingGeo": 0,
-      "droppedCircle": 672
+      "droppedCircle": 678
     }
   },
   "ads": [
+    {
+      "adID": "1486251343250708",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/1419608186/?product_id=1486251343250708",
+      "author": "Kathy Messano Leone",
+      "postedTime": "2026-06-06T12:27:03.000Z",
+      "title": "Rays game",
+      "description": "Tampa Bay Rays pinball game plus alarm clock and pencil bag. $7 or best offer for all three. Pick up in Palm Harbor.",
+      "price": "$7",
+      "lat": 28.0856815,
+      "lon": -82.756907,
+      "location": "Palm Harbor, FL",
+      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/716330448_1646267783343764_3475136410534884717_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=100&ccb=1-7&_nc_sid=92e707&_nc_eui2=AeFs8LvLH5-UaoKP0f-MtjK0b2VAYc3HRvZvZUBhzcdG9rCqPnQgmC804fMMIcJN6_8&_nc_ohc=LLP56I5DJBEQ7kNvwH3trHq&_nc_oc=AdqAHl8A8wu8_yziSMtHcaJNcc6Pi6EFmx_FIZHdrvPJ7oG2fjj0KfCcYNWdFrfFhzo&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=zI3aAWwLofQd0O_5ubtG0w&_nc_ss=7b2a8&oh=00_Af_EByWpY9Qqv0kBy1l_iOqE_NSKBeKBSNjRzuixgPNAPA&oe=6A29EC5B",
+      "adUrl": "https://www.facebook.com/marketplace/item/1486251343250708/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-06-06 12:45:31",
+      "lastSeen": "2026-06-06T12:45:59.379Z"
+    },
     {
       "adID": "942302692174094",
       "source": "MP",
@@ -56,7 +76,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-06 11:01:45",
-      "lastSeen": "2026-06-06T12:01:40.800Z"
+      "lastSeen": "2026-06-06T12:44:44.467Z"
     },
     {
       "adID": "1964420844960550",
@@ -96,7 +116,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-05 21:01:36",
-      "lastSeen": "2026-06-06T12:01:40.868Z"
+      "lastSeen": "2026-06-06T12:44:44.534Z"
     },
     {
       "adID": "1526309108847252",
@@ -156,7 +176,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-05 18:03:38",
-      "lastSeen": "2026-06-06T12:02:35.340Z"
+      "lastSeen": "2026-06-06T12:46:53.091Z"
     },
     {
       "adID": "2536898340086274",
@@ -216,7 +236,7 @@
       "priceChangedAt": "2026-06-05 16:01:39",
       "hidden": 0,
       "created_at": "2026-06-05 13:01:34",
-      "lastSeen": "2026-06-06T12:01:52.585Z"
+      "lastSeen": "2026-06-06T12:45:31.485Z"
     },
     {
       "adID": "KLOV-563353",
@@ -236,7 +256,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-05 11:04:09",
-      "lastSeen": "2026-06-06T12:02:35.508Z"
+      "lastSeen": "2026-06-06T12:46:53.259Z"
     },
     {
       "adID": "KLOV-562723",
@@ -256,7 +276,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-05 11:04:09",
-      "lastSeen": "2026-06-06T12:02:35.541Z"
+      "lastSeen": "2026-06-06T12:46:53.292Z"
     },
     {
       "adID": "KLOV-563949",
@@ -276,7 +296,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-05 11:04:09",
-      "lastSeen": "2026-06-06T12:02:35.574Z"
+      "lastSeen": "2026-06-06T12:46:53.326Z"
     },
     {
       "adID": "1540154170783569",
@@ -316,7 +336,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-05 01:03:06",
-      "lastSeen": "2026-06-06T12:02:34.765Z"
+      "lastSeen": "2026-06-06T12:46:52.515Z"
     },
     {
       "adID": "KLOV-563838",
@@ -336,7 +356,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-05 00:03:30",
-      "lastSeen": "2026-06-06T12:02:35.407Z"
+      "lastSeen": "2026-06-06T12:46:53.158Z"
     },
     {
       "adID": "994218793090970",
@@ -396,7 +416,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-04 23:03:31",
-      "lastSeen": "2026-06-06T12:01:52.652Z"
+      "lastSeen": "2026-06-06T12:45:31.552Z"
     },
     {
       "adID": "1787402562272781",
@@ -436,7 +456,7 @@
       "priceChangedAt": "2026-06-06 11:01:47",
       "hidden": 0,
       "created_at": "2026-06-04 21:01:36",
-      "lastSeen": "2026-06-06T12:01:41.504Z"
+      "lastSeen": "2026-06-06T12:44:45.171Z"
     },
     {
       "adID": "4281087122142900",
@@ -456,7 +476,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-04 20:03:21",
-      "lastSeen": "2026-06-06T12:01:52.719Z"
+      "lastSeen": "2026-06-06T12:45:31.618Z"
     },
     {
       "adID": "1343777591009818",
@@ -536,7 +556,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-04 15:04:20",
-      "lastSeen": "2026-06-06T12:02:35.742Z"
+      "lastSeen": "2026-06-06T12:46:53.494Z"
     },
     {
       "adID": "1317096257061839",
@@ -556,7 +576,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-04 15:01:51",
-      "lastSeen": "2026-06-06T12:01:52.920Z"
+      "lastSeen": "2026-06-06T12:45:31.820Z"
     },
     {
       "adID": "1309731930677132",
@@ -623,7 +643,7 @@
       "source": "PS",
       "authorUrl": "https://pinside.com/pinball/community/pinsiders/blessed/market",
       "author": "Blessed",
-      "postedTime": "2026-06-04T12:02:01.161Z",
+      "postedTime": "2026-06-04T12:46:17.750Z",
       "title": "Freedom EM 2nd Version",
       "description": "Used - shows wear but 100% working and clean - “Machine plays well. In the past year and half or so, the following work was done: 1) Score reels have been cleaned and switches adjusted. 2) Stepper unit and all other relay switc...”",
       "price": "$750",
@@ -636,7 +656,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-04 11:05:35",
-      "lastSeen": "2026-06-06T12:02:02.188Z"
+      "lastSeen": "2026-06-06T12:46:18.817Z"
     },
     {
       "adID": "2282640742144053",
@@ -876,7 +896,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-03 13:35:44",
-      "lastSeen": "2026-06-06T12:02:36.244Z"
+      "lastSeen": "2026-06-06T12:46:53.996Z"
     },
     {
       "adID": "KLOV-408814",
