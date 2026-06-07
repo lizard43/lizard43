@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-06T23:03:48.660Z",
+  "generated_at": "2026-06-07T00:05:36.882Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,53 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 93,
-      "droppedPrice": 823,
+      "exported_ads": 95,
+      "droppedPrice": 826,
       "droppedMissingGeo": 0,
-      "droppedCircle": 645
+      "droppedCircle": 650
     }
   },
   "ads": [
+    {
+      "adID": "PI-215821",
+      "source": "PS",
+      "authorUrl": "https://pinside.com/pinball/community/pinsiders/skipnatty/market",
+      "author": "Skipnatty",
+      "postedTime": "2026-06-06T23:39:54.031Z",
+      "title": "Dialed In - Playfield Protector (New)",
+      "description": "NOS (New Old Stock) - “Brand new never opened from factory. 50 bucks obo + shipping if shipping needed.”",
+      "price": "$50",
+      "lat": 32.612602,
+      "lon": -90.0367512,
+      "location": "Canton, MI",
+      "imageUrl": "https://imgproxy.pinside.com/SCDRvLRdiQdkCdqNJ4tUUE4-IWD_f3AL_2yEp04jakM/rs:fit:640:480/fn:pinside_8b88e374ca2b/enc/J-jfErsbP6yq3Ty-N-m6X_W3uxXJaiIitVVASMQJyP0h7X24SKFgal6wCjBOMeImmHEPJlr-2KYbDR2kiVi5Ih0yDAxB2H2blUPNks6s16PpAw6KzEiBo12x0qgoRg9Y.jpg",
+      "adUrl": "https://pinside.com/pinball/market/classifieds/ad/215821",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-06-07 00:04:54",
+      "lastSeen": "2026-06-07T00:04:54.841Z"
+    },
+    {
+      "adID": "1355178399825503",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100084999009658/?product_id=1355178399825503",
+      "author": "John Harvey",
+      "postedTime": "2026-06-06T21:39:22.000Z",
+      "title": "Fackelmann Arcadalina servicing spoon",
+      "description": "Fackelmann Arcadalina servicing spoon $5.00 obo - Shipping is available for an additional $10.00 - Also will do bundles to make it cheaper and you pay shipping only 1 time!",
+      "price": "$5",
+      "lat": 30.6168569,
+      "lon": -89.6525648,
+      "location": "Carriere, MS",
+      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/718854723_2426179584529321_289187362989008526_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=107&ccb=1-7&_nc_sid=92e707&_nc_eui2=AeG4XusL4ISKRO1Xf-Ip_uWxMegHfEPoFBEx6Ad8Q-gUEamH2isKh3dAsHqw19-nue0&_nc_ohc=HX6ZrHSirssQ7kNvwEKym_r&_nc_oc=Adr49sIzYLz5t-Q3gwBYQmtnAEhZYGvzvnQbwdJIRb6EIytkwJXpV26AlkVUICXCoYw&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=Xa6oNEJCsFf3Bs4WshyyAg&_nc_ss=7b2a8&oh=00_Af8I75jjsaGDXd5bT7MdeG6cDwQUK-aw6PBng1xmrmXfWw&oe=6A2AA287",
+      "adUrl": "https://www.facebook.com/marketplace/item/1355178399825503/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-06-07 00:03:56",
+      "lastSeen": "2026-06-07T00:04:33.268Z"
+    },
     {
       "adID": "KLOV-564000",
       "source": "KLOV",
@@ -36,7 +76,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-06 22:05:48",
-      "lastSeen": "2026-06-06T23:03:44.520Z"
+      "lastSeen": "2026-06-07T00:05:32.772Z"
     },
     {
       "adID": "1757337978563847",
@@ -116,7 +156,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-06 21:04:37",
-      "lastSeen": "2026-06-06T23:03:44.587Z"
+      "lastSeen": "2026-06-07T00:05:32.838Z"
     },
     {
       "adID": "1016114390951253",
@@ -136,7 +176,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-06 21:02:55",
-      "lastSeen": "2026-06-06T21:03:37.089Z"
+      "lastSeen": "2026-06-07T00:03:56.319Z"
     },
     {
       "adID": "1634931420939709",
@@ -156,7 +196,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-06 21:02:05",
-      "lastSeen": "2026-06-06T23:02:19.333Z"
+      "lastSeen": "2026-06-07T00:03:54.182Z"
     },
     {
       "adID": "KLOV-563989",
@@ -176,7 +216,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-06 16:05:46",
-      "lastSeen": "2026-06-06T23:03:44.854Z"
+      "lastSeen": "2026-06-07T00:05:33.107Z"
     },
     {
       "adID": "KLOV-557962",
@@ -196,7 +236,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-06 16:05:46",
-      "lastSeen": "2026-06-06T23:03:44.898Z"
+      "lastSeen": "2026-06-07T00:05:33.140Z"
     },
     {
       "adID": "KLOV-558878",
@@ -216,7 +256,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-06 16:05:46",
-      "lastSeen": "2026-06-06T23:03:44.932Z"
+      "lastSeen": "2026-06-07T00:05:33.175Z"
     },
     {
       "adID": "KLOV-552568",
@@ -236,7 +276,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-06 15:04:52",
-      "lastSeen": "2026-06-06T23:03:44.965Z"
+      "lastSeen": "2026-06-07T00:05:33.208Z"
     },
     {
       "adID": "1035076748940503",
@@ -256,7 +296,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-06 15:02:55",
-      "lastSeen": "2026-06-06T23:02:22.043Z"
+      "lastSeen": "2026-06-07T00:03:54.757Z"
     },
     {
       "adID": "984443411231469",
@@ -296,7 +336,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-06 14:04:57",
-      "lastSeen": "2026-06-06T23:02:21.216Z"
+      "lastSeen": "2026-06-07T00:03:54.657Z"
     },
     {
       "adID": "977892135117086",
@@ -316,7 +356,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-06 14:02:04",
-      "lastSeen": "2026-06-06T22:03:57.674Z"
+      "lastSeen": "2026-06-07T00:03:56.386Z"
     },
     {
       "adID": "1783955162843569",
@@ -336,7 +376,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-06 14:02:03",
-      "lastSeen": "2026-06-06T23:02:08.025Z"
+      "lastSeen": "2026-06-07T00:02:03.499Z"
     },
     {
       "adID": "1529709608875954",
@@ -356,7 +396,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-06 11:01:45",
-      "lastSeen": "2026-06-06T23:02:07.958Z"
+      "lastSeen": "2026-06-07T00:02:03.432Z"
     },
     {
       "adID": "1964420844960550",
@@ -376,7 +416,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-06 01:01:35",
-      "lastSeen": "2026-06-06T23:02:08.058Z"
+      "lastSeen": "2026-06-07T00:02:03.532Z"
     },
     {
       "adID": "1526309108847252",
@@ -396,7 +436,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-05 19:22:59",
-      "lastSeen": "2026-06-06T21:02:53.345Z"
+      "lastSeen": "2026-06-07T00:03:55.160Z"
     },
     {
       "adID": "1521010192941869",
@@ -416,7 +456,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-05 19:20:09",
-      "lastSeen": "2026-06-06T23:02:22.914Z"
+      "lastSeen": "2026-06-07T00:03:54.992Z"
     },
     {
       "adID": "2536898340086274",
@@ -496,7 +536,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-05 11:04:09",
-      "lastSeen": "2026-06-06T23:03:45.612Z"
+      "lastSeen": "2026-06-07T00:05:33.810Z"
     },
     {
       "adID": "KLOV-562723",
@@ -516,7 +556,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-05 11:04:09",
-      "lastSeen": "2026-06-06T23:03:45.646Z"
+      "lastSeen": "2026-06-07T00:05:33.843Z"
     },
     {
       "adID": "KLOV-563949",
@@ -576,7 +616,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-05 01:03:06",
-      "lastSeen": "2026-06-06T23:03:45.245Z"
+      "lastSeen": "2026-06-07T00:05:33.475Z"
     },
     {
       "adID": "KLOV-563838",
@@ -596,7 +636,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-05 00:03:30",
-      "lastSeen": "2026-06-06T23:03:45.511Z"
+      "lastSeen": "2026-06-07T00:05:33.709Z"
     },
     {
       "adID": "994218793090970",
@@ -783,7 +823,7 @@
       "source": "PS",
       "authorUrl": "https://pinside.com/pinball/community/pinsiders/blessed/market",
       "author": "Blessed",
-      "postedTime": "2026-06-04T23:03:12.952Z",
+      "postedTime": "2026-06-05T00:05:01.640Z",
       "title": "Freedom EM 2nd Version",
       "description": "Used - shows wear but 100% working and clean - “Machine plays well. In the past year and half or so, the following work was done: 1) Score reels have been cleaned and switches adjusted. 2) Stepper unit and all other relay switc...”",
       "price": "$750",
@@ -796,7 +836,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-04 11:05:35",
-      "lastSeen": "2026-06-06T23:03:13.392Z"
+      "lastSeen": "2026-06-07T00:05:02.115Z"
     },
     {
       "adID": "1513128623799210",
@@ -956,7 +996,7 @@
       "priceChangedAt": "2026-06-06 22:05:49",
       "hidden": 0,
       "created_at": "2026-06-03 13:35:44",
-      "lastSeen": "2026-06-06T23:03:45.746Z"
+      "lastSeen": "2026-06-07T00:05:33.877Z"
     },
     {
       "adID": "KLOV-408814",
