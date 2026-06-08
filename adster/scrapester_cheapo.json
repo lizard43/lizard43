@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-08T22:04:15.098Z",
+  "generated_at": "2026-06-08T23:04:18.519Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,53 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 136,
-      "droppedPrice": 925,
+      "exported_ads": 138,
+      "droppedPrice": 930,
       "droppedMissingGeo": 0,
-      "droppedCircle": 749
+      "droppedCircle": 754
     }
   },
   "ads": [
+    {
+      "adID": "1320121642891920",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100005353067070/?product_id=1320121642891920",
+      "author": "Malachi McCullers",
+      "postedTime": "2026-06-08T22:24:20.000Z",
+      "title": "Ball pin",
+      "description": "Never used ball pin with all the balls",
+      "price": "$20",
+      "lat": 32.6537561,
+      "lon": -83.7596294,
+      "location": "Byron, GA",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/720443727_1948130912503202_5219848190870980957_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=110&ccb=1-7&_nc_sid=92e707&_nc_ohc=P0oWcoKYPQAQ7kNvwFaq_KF&_nc_oc=AdoxaDNFulvuFqYxIxOW5bM9IzKTXu0kchy8J6VQbB4CejBmzUrIIDaz13Z90LdzLMk&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=2kJP96WX3vT3Wws3VPXD6Q&_nc_ss=7b2a8&oh=00_Af8a3Bzqx9xaGuz_tAwQIZMf7HOVUVQ0i0W6bxJqNuhlKQ&oe=6A2D2A32",
+      "adUrl": "https://www.facebook.com/marketplace/item/1320121642891920/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-06-08 23:02:20",
+      "lastSeen": "2026-06-08T23:03:14.909Z"
+    },
+    {
+      "adID": "1334206121827037",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100002335643038/?product_id=1334206121827037",
+      "author": "Tracy Wilson",
+      "postedTime": "2026-06-08T22:20:42.000Z",
+      "title": "Batman Forever pinball translite",
+      "description": "Batman Forever translite",
+      "price": "$20",
+      "lat": 31.5311784,
+      "lon": -84.614328,
+      "location": "Calhoun, GA",
+      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/720011064_991157343622339_6422960223046582898_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=107&ccb=1-7&_nc_sid=92e707&_nc_ohc=zQP_fsMOSccQ7kNvwHWppYO&_nc_oc=AdoC0kwF2Xhc9k14RMvYSlxeZF5Ca2GrfQJfloRqza69_fe9cBzCpk-K352KFtv3sWQ&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=H27INvhKwjXuj07noVvvmA&_nc_ss=7b2a8&oh=00_Af_k3BtmVquPbDlv3Neu6ApUaeIZ-orZlZlpjfm-eAe85g&oe=6A2D1A2F",
+      "adUrl": "https://www.facebook.com/marketplace/item/1334206121827037/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-06-08 23:02:18",
+      "lastSeen": "2026-06-08T23:03:14.861Z"
+    },
     {
       "adID": "834292222793115",
       "source": "MP",
@@ -76,7 +116,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-08 21:02:08",
-      "lastSeen": "2026-06-08T22:02:08.299Z"
+      "lastSeen": "2026-06-08T23:02:20.124Z"
     },
     {
       "adID": "2158518364718217",
@@ -96,7 +136,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-08 21:02:08",
-      "lastSeen": "2026-06-08T21:04:12.427Z"
+      "lastSeen": "2026-06-08T23:02:20.191Z"
     },
     {
       "adID": "2059828581548803",
@@ -116,7 +156,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-08 18:02:54",
-      "lastSeen": "2026-06-08T22:03:26.557Z"
+      "lastSeen": "2026-06-08T23:02:18.439Z"
     },
     {
       "adID": "780328501736710",
@@ -136,7 +176,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-08 17:04:49",
-      "lastSeen": "2026-06-08T21:04:15.688Z"
+      "lastSeen": "2026-06-08T23:02:20.525Z"
     },
     {
       "adID": "4357800491100392",
@@ -156,7 +196,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-08 17:04:47",
-      "lastSeen": "2026-06-08T21:04:15.521Z"
+      "lastSeen": "2026-06-08T23:02:20.358Z"
     },
     {
       "adID": "1483204966352147",
@@ -176,7 +216,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-08 17:04:46",
-      "lastSeen": "2026-06-08T22:03:26.591Z"
+      "lastSeen": "2026-06-08T23:02:18.472Z"
     },
     {
       "adID": "1017508810808663",
@@ -196,7 +236,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-08 17:02:14",
-      "lastSeen": "2026-06-08T22:02:07.488Z"
+      "lastSeen": "2026-06-08T23:02:06.664Z"
     },
     {
       "adID": "1731335881647868",
@@ -216,7 +256,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-08 17:02:12",
-      "lastSeen": "2026-06-08T22:02:07.388Z"
+      "lastSeen": "2026-06-08T23:02:06.564Z"
     },
     {
       "adID": "992304187064084",
@@ -236,14 +276,14 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-08 17:02:11",
-      "lastSeen": "2026-06-08T22:02:07.054Z"
+      "lastSeen": "2026-06-08T23:02:06.228Z"
     },
     {
       "adID": "PI-215891",
       "source": "PS",
       "authorUrl": "https://pinside.com/pinball/community/pinsiders/mr_pinball/market",
       "author": "Mr_Pinball",
-      "postedTime": "2026-06-08T16:03:31.712Z",
+      "postedTime": "2026-06-08T16:03:37.671Z",
       "title": "Solar Ride",
       "description": "Used - shows wear, needs some work - “Up for sale is a 1979 Gottlieb Solar Ride pinball project. This is a semi working game that boots up and ejects the ball. It seems like the switches are working and scoring with so...”",
       "price": "$850",
@@ -256,7 +296,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-08 16:03:41",
-      "lastSeen": "2026-06-08T22:03:32.106Z"
+      "lastSeen": "2026-06-08T23:03:38.901Z"
     },
     {
       "adID": "28161700420085203",
@@ -276,7 +316,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-08 16:02:41",
-      "lastSeen": "2026-06-08T22:03:26.692Z"
+      "lastSeen": "2026-06-08T23:02:18.572Z"
     },
     {
       "adID": "2424398608041869",
@@ -296,7 +336,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-08 16:02:06",
-      "lastSeen": "2026-06-08T22:02:07.087Z"
+      "lastSeen": "2026-06-08T23:02:06.262Z"
     },
     {
       "adID": "KLOV-540336",
@@ -316,7 +356,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-08 12:07:47",
-      "lastSeen": "2026-06-08T22:04:11.475Z"
+      "lastSeen": "2026-06-08T23:04:14.874Z"
     },
     {
       "adID": "KLOV-512184",
@@ -336,7 +376,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-08 12:07:47",
-      "lastSeen": "2026-06-08T22:04:11.508Z"
+      "lastSeen": "2026-06-08T23:04:14.907Z"
     },
     {
       "adID": "2196763871057990",
@@ -356,7 +396,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-08 12:02:04",
-      "lastSeen": "2026-06-08T22:02:07.998Z"
+      "lastSeen": "2026-06-08T23:02:06.865Z"
     },
     {
       "adID": "1642262603548934",
@@ -376,7 +416,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-08 11:04:36",
-      "lastSeen": "2026-06-08T22:03:26.825Z"
+      "lastSeen": "2026-06-08T23:02:18.706Z"
     },
     {
       "adID": "1218933813564472",
@@ -396,7 +436,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-08 11:02:15",
-      "lastSeen": "2026-06-08T22:02:07.187Z"
+      "lastSeen": "2026-06-08T23:02:06.363Z"
     },
     {
       "adID": "1206230058213518",
@@ -416,7 +456,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-08 11:02:15",
-      "lastSeen": "2026-06-08T22:02:07.220Z"
+      "lastSeen": "2026-06-08T23:02:06.396Z"
     },
     {
       "adID": "1011799284690650",
@@ -436,7 +476,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-08 11:02:15",
-      "lastSeen": "2026-06-08T22:02:07.254Z"
+      "lastSeen": "2026-06-08T23:02:06.430Z"
     },
     {
       "adID": "26975801768728352",
@@ -456,7 +496,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-08 00:03:07",
-      "lastSeen": "2026-06-08T22:03:26.960Z"
+      "lastSeen": "2026-06-08T23:02:18.840Z"
     },
     {
       "adID": "1811358439827240",
@@ -516,7 +556,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-07 22:02:05",
-      "lastSeen": "2026-06-08T22:02:08.064Z"
+      "lastSeen": "2026-06-08T23:02:06.934Z"
     },
     {
       "adID": "KLOV-556508",
@@ -536,7 +576,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-07 21:04:39",
-      "lastSeen": "2026-06-08T22:04:11.241Z"
+      "lastSeen": "2026-06-08T23:04:14.627Z"
     },
     {
       "adID": "27635497972723763",
@@ -576,7 +616,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-07 20:02:10",
-      "lastSeen": "2026-06-08T22:02:08.165Z"
+      "lastSeen": "2026-06-08T23:02:07.031Z"
     },
     {
       "adID": "2259755671463859",
@@ -636,7 +676,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-07 16:04:08",
-      "lastSeen": "2026-06-08T22:04:11.910Z"
+      "lastSeen": "2026-06-08T23:04:15.241Z"
     },
     {
       "adID": "2380575819133854",
@@ -676,7 +716,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-07 15:06:12",
-      "lastSeen": "2026-06-08T22:04:11.944Z"
+      "lastSeen": "2026-06-08T23:04:15.275Z"
     },
     {
       "adID": "1723126782014536",
@@ -883,7 +923,7 @@
       "source": "PS",
       "authorUrl": "https://pinside.com/pinball/community/pinsiders/skipnatty/market",
       "author": "Skipnatty",
-      "postedTime": "2026-06-07T00:03:34.765Z",
+      "postedTime": "2026-06-07T00:03:41.365Z",
       "title": "Dialed In - Playfield Protector (New)",
       "description": "NOS (New Old Stock) - “Brand new never opened from factory. 50 bucks obo + shipping if shipping needed.”",
       "price": "$50",
@@ -896,7 +936,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-07 00:04:54",
-      "lastSeen": "2026-06-08T22:03:35.611Z"
+      "lastSeen": "2026-06-08T23:03:42.022Z"
     },
     {
       "adID": "1355178399825503",
@@ -1296,7 +1336,7 @@
       "priceChangedAt": "2026-06-08 16:59:10",
       "hidden": 0,
       "created_at": "2026-06-05 19:22:59",
-      "lastSeen": "2026-06-08T21:04:12.326Z"
+      "lastSeen": "2026-06-08T23:02:19.517Z"
     },
     {
       "adID": "1521010192941869",
@@ -1832,11 +1872,11 @@
       "location": "Adel, Georgia",
       "imageUrl": "https://forums.arcade-museum.com/favicon.ico",
       "adUrl": "https://forums.arcade-museum.com/threads/563647/",
-      "priceChanged": 1,
-      "priceChangedAt": "2026-06-06 22:05:49",
+      "priceChanged": 0,
+      "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-03 13:35:44",
-      "lastSeen": "2026-06-08T22:04:12.112Z"
+      "lastSeen": "2026-06-08T23:04:15.442Z"
     },
     {
       "adID": "KLOV-408814",
@@ -1936,7 +1976,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-03 13:35:10",
-      "lastSeen": "2026-06-08T22:04:11.207Z"
+      "lastSeen": "2026-06-08T23:04:14.594Z"
     },
     {
       "adID": "KLOV-513187",
