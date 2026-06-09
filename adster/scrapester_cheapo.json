@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-09T08:05:20.916Z",
+  "generated_at": "2026-06-09T11:05:38.513Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,53 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 134,
-      "droppedPrice": 936,
+      "exported_ads": 136,
+      "droppedPrice": 944,
       "droppedMissingGeo": 0,
-      "droppedCircle": 758
+      "droppedCircle": 768
     }
   },
   "ads": [
+    {
+      "adID": "3929166360712478",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100054187327473/?product_id=3929166360712478",
+      "author": "Brayden Johnson",
+      "postedTime": "2026-06-08T23:43:11.000Z",
+      "title": "Ms Pac-Man",
+      "description": "Ms pac-man machine with 4 different game selections, everything works no issues. Pickup in adairsville ga",
+      "price": "$200",
+      "lat": 34.1652304,
+      "lon": -84.7997613,
+      "location": "Cartersville, GA",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/719565734_2268818030316791_3174929209940521319_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=110&ccb=1-7&_nc_sid=92e707&_nc_ohc=RTwU5gw_qagQ7kNvwEd13k4&_nc_oc=AdpNPq5b8A-IvfI7i2DU9E7Rno_QJ1km7p9jOz2XRFtJQCTGvbWhH8IdqJ46kTcr7Rc&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=9aNIlkzYstSjwaLDNbXqSA&_nc_ss=7b2a8&oh=00_Af_afHopLRX5kEB4fj4m4UewgqRtk7etDBoPxzZ_M8Yxew&oe=6A2DD6E7",
+      "adUrl": "https://www.facebook.com/marketplace/item/3929166360712478/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-06-09 11:03:36",
+      "lastSeen": "2026-06-09T11:04:33.962Z"
+    },
+    {
+      "adID": "1572983281126672",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/1383619604/?product_id=1572983281126672",
+      "author": "Steven Chase-hill",
+      "postedTime": "2026-06-09T04:15:55.000Z",
+      "title": "PAC Man arcade game",
+      "description": "",
+      "price": "$75",
+      "lat": 30.3262247,
+      "lon": -81.6579179,
+      "location": "Jacksonville, FL",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/718751583_2260340031467943_7605246515457352326_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=105&ccb=1-7&_nc_sid=92e707&_nc_ohc=pR0sh6fU3icQ7kNvwFsdR8i&_nc_oc=Adp2_ooS1LoXAJiyb0nKcnyNZfieKvVvWcp5ZxsGP52TzeAJd0PDfjrnTO90rmMRO2I&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=5Ds2_7YZZRytFMAejSuYlw&_nc_ss=7b2a8&oh=00_Af8mpqFP6luViLOVSzxcm7sURHDer1OOy0sB8e_JYGljHQ&oe=6A2DCE26",
+      "adUrl": "https://www.facebook.com/marketplace/item/1572983281126672/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-06-09 11:02:11",
+      "lastSeen": "2026-06-09T11:03:06.651Z"
+    },
     {
       "adID": "1320121642891920",
       "source": "MP",
@@ -36,7 +76,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-08 23:02:20",
-      "lastSeen": "2026-06-08T23:03:14.909Z"
+      "lastSeen": "2026-06-09T11:03:36.514Z"
     },
     {
       "adID": "1334206121827037",
@@ -56,7 +96,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-08 23:02:18",
-      "lastSeen": "2026-06-09T01:04:18.835Z"
+      "lastSeen": "2026-06-09T11:03:34.787Z"
     },
     {
       "adID": "3655400247950229",
@@ -116,7 +156,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-08 18:02:54",
-      "lastSeen": "2026-06-09T01:04:20.641Z"
+      "lastSeen": "2026-06-09T11:03:34.989Z"
     },
     {
       "adID": "780328501736710",
@@ -176,7 +216,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-08 17:04:46",
-      "lastSeen": "2026-06-09T01:04:20.675Z"
+      "lastSeen": "2026-06-09T11:03:35.022Z"
     },
     {
       "adID": "1017508810808663",
@@ -196,7 +236,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-08 17:02:14",
-      "lastSeen": "2026-06-09T01:02:02.429Z"
+      "lastSeen": "2026-06-09T11:02:12.919Z"
     },
     {
       "adID": "1731335881647868",
@@ -216,7 +256,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-08 17:02:12",
-      "lastSeen": "2026-06-09T01:02:02.329Z"
+      "lastSeen": "2026-06-09T11:02:12.818Z"
     },
     {
       "adID": "992304187064084",
@@ -236,14 +276,14 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-08 17:02:11",
-      "lastSeen": "2026-06-09T01:02:01.995Z"
+      "lastSeen": "2026-06-09T11:02:12.517Z"
     },
     {
       "adID": "PI-215891",
       "source": "PS",
       "authorUrl": "https://pinside.com/pinball/community/pinsiders/mr_pinball/market",
       "author": "Mr_Pinball",
-      "postedTime": "2026-06-08T16:05:03.309Z",
+      "postedTime": "2026-06-08T16:04:49.266Z",
       "title": "Solar Ride",
       "description": "Used - shows wear, needs some work - “Up for sale is a 1979 Gottlieb Solar Ride pinball project. This is a semi working game that boots up and ejects the ball. It seems like the switches are working and scoring with so...”",
       "price": "$850",
@@ -256,7 +296,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-08 16:03:41",
-      "lastSeen": "2026-06-09T01:05:04.701Z"
+      "lastSeen": "2026-06-09T11:04:53.451Z"
     },
     {
       "adID": "28161700420085203",
@@ -276,7 +316,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-08 16:02:41",
-      "lastSeen": "2026-06-09T01:04:20.774Z"
+      "lastSeen": "2026-06-09T11:03:35.122Z"
     },
     {
       "adID": "KLOV-540336",
@@ -296,7 +336,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-08 12:07:47",
-      "lastSeen": "2026-06-09T01:05:41.761Z"
+      "lastSeen": "2026-06-09T11:05:34.272Z"
     },
     {
       "adID": "KLOV-512184",
@@ -316,7 +356,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-08 12:07:47",
-      "lastSeen": "2026-06-09T01:05:41.794Z"
+      "lastSeen": "2026-06-09T11:05:34.305Z"
     },
     {
       "adID": "2196763871057990",
@@ -336,7 +376,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-08 12:02:04",
-      "lastSeen": "2026-06-09T01:02:02.629Z"
+      "lastSeen": "2026-06-09T11:02:13.120Z"
     },
     {
       "adID": "1642262603548934",
@@ -356,7 +396,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-08 11:04:36",
-      "lastSeen": "2026-06-09T01:04:20.908Z"
+      "lastSeen": "2026-06-09T11:03:35.255Z"
     },
     {
       "adID": "1218933813564472",
@@ -376,7 +416,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-08 11:02:15",
-      "lastSeen": "2026-06-09T01:02:02.128Z"
+      "lastSeen": "2026-06-09T11:02:12.618Z"
     },
     {
       "adID": "1206230058213518",
@@ -396,7 +436,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-08 11:02:15",
-      "lastSeen": "2026-06-09T01:02:02.161Z"
+      "lastSeen": "2026-06-09T11:02:12.652Z"
     },
     {
       "adID": "1011799284690650",
@@ -416,7 +456,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-08 11:02:15",
-      "lastSeen": "2026-06-09T01:02:02.195Z"
+      "lastSeen": "2026-06-09T11:02:12.684Z"
     },
     {
       "adID": "26975801768728352",
@@ -436,7 +476,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-08 00:03:07",
-      "lastSeen": "2026-06-09T01:04:21.041Z"
+      "lastSeen": "2026-06-09T11:03:35.390Z"
     },
     {
       "adID": "1811358439827240",
@@ -496,7 +536,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-07 22:02:05",
-      "lastSeen": "2026-06-09T01:02:02.696Z"
+      "lastSeen": "2026-06-09T11:02:13.187Z"
     },
     {
       "adID": "KLOV-556508",
@@ -516,7 +556,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-07 21:04:39",
-      "lastSeen": "2026-06-09T01:05:41.527Z"
+      "lastSeen": "2026-06-09T11:05:34.104Z"
     },
     {
       "adID": "27635497972723763",
@@ -616,7 +656,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-07 16:04:08",
-      "lastSeen": "2026-06-09T01:05:42.096Z"
+      "lastSeen": "2026-06-09T11:05:34.608Z"
     },
     {
       "adID": "2380575819133854",
@@ -656,7 +696,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-07 15:06:12",
-      "lastSeen": "2026-06-09T01:05:42.129Z"
+      "lastSeen": "2026-06-09T11:05:34.641Z"
     },
     {
       "adID": "1723126782014536",
@@ -843,7 +883,7 @@
       "source": "PS",
       "authorUrl": "https://pinside.com/pinball/community/pinsiders/skipnatty/market",
       "author": "Skipnatty",
-      "postedTime": "2026-06-07T01:05:07.111Z",
+      "postedTime": "2026-06-07T11:04:55.572Z",
       "title": "Dialed In - Playfield Protector (New)",
       "description": "NOS (New Old Stock) - “Brand new never opened from factory. 50 bucks obo + shipping if shipping needed.”",
       "price": "$50",
@@ -856,7 +896,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-07 00:04:54",
-      "lastSeen": "2026-06-09T01:05:07.921Z"
+      "lastSeen": "2026-06-09T11:05:00.200Z"
     },
     {
       "adID": "1355178399825503",
@@ -1256,7 +1296,7 @@
       "priceChangedAt": "2026-06-08 16:59:10",
       "hidden": 0,
       "created_at": "2026-06-05 19:22:59",
-      "lastSeen": "2026-06-08T23:02:19.517Z"
+      "lastSeen": "2026-06-09T11:03:35.658Z"
     },
     {
       "adID": "1521010192941869",
@@ -1796,7 +1836,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-03 13:35:44",
-      "lastSeen": "2026-06-09T01:05:42.298Z"
+      "lastSeen": "2026-06-09T11:05:35.501Z"
     },
     {
       "adID": "KLOV-408814",
@@ -1896,7 +1936,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-03 13:35:10",
-      "lastSeen": "2026-06-09T01:05:41.493Z"
+      "lastSeen": "2026-06-09T11:05:34.071Z"
     },
     {
       "adID": "KLOV-513187",
