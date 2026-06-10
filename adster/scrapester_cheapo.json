@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-09T23:05:46.555Z",
+  "generated_at": "2026-06-10T00:04:18.108Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -12,12 +12,32 @@
     },
     "counts": {
       "exported_ads": 148,
-      "droppedPrice": 993,
+      "droppedPrice": 997,
       "droppedMissingGeo": 0,
-      "droppedCircle": 816
+      "droppedCircle": 815
     }
   },
   "ads": [
+    {
+      "adID": "1576772440535420",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100000658297204/?product_id=1576772440535420",
+      "author": "Karen Buckley",
+      "postedTime": "2026-06-09T23:30:21.000Z",
+      "title": "Original Nintendo Games",
+      "description": "All games have been tested and do work. Prices are listed below $$ These come with black sleeve Mario Brothers 2 - $15 Teenage Mutant Ninja Turtles - $20 Teenage Mutant Ninja Turtles 2: The Arcade Game - $20 Teenage Mutant Ninja Turtles 3: The Manhattan Project - $25 Tiny Toons Adventures: Cartoon Workshop - $30 These are just the game/no case Marble Madness - $12 1988 Major League Baseball Game - $10 This one has a clear hard case Chip n Dale Rescue Rangers - $25",
+      "price": "$1",
+      "lat": 33.7514966,
+      "lon": -84.7477136,
+      "location": "Douglasville, GA",
+      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/720971913_2073539243192525_3377466460578484396_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=106&ccb=1-7&_nc_sid=92e707&_nc_ohc=0J1ZkMoaf5IQ7kNvwF8iC2Q&_nc_oc=AdpMStROn7-qBI2bw-IJBRe8idpvrRrKxPYEktFpXN4l3DfgkZkwowrDnsOD3TinvBM&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=tKlkrmmf9Xv790AY4oPkgw&_nc_ss=7b2a8&oh=00_Af9-LOLhyXh0YcP2oPiYzGz5XdUZb7PXe6gls4_ZBP06xQ&oe=6A2E9753",
+      "adUrl": "https://www.facebook.com/marketplace/item/1576772440535420/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-06-10 00:02:04",
+      "lastSeen": "2026-06-10T00:02:38.233Z"
+    },
     {
       "adID": "1644727180153156",
       "source": "MP",
@@ -36,7 +56,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-09 23:03:54",
-      "lastSeen": "2026-06-09T23:04:48.282Z"
+      "lastSeen": "2026-06-10T00:03:03.805Z"
     },
     {
       "adID": "1333818942180918",
@@ -56,27 +76,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-09 23:03:48",
-      "lastSeen": "2026-06-09T23:04:48.209Z"
-    },
-    {
-      "adID": "1342790594583048",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/100000649735250/?product_id=1342790594583048",
-      "author": "Chip Turner",
-      "postedTime": "2026-06-09T21:43:22.000Z",
-      "title": "Arcade Machine",
-      "description": "Ms Pacman themed 60 game arcade machine featuring all the classics including Pacman, Galaga, Frogger, Donkey Kong, Ms Pacman, Centipede and many more. Has both a joystick and trackball. Fully functional and I have the keys.",
-      "price": "$950",
-      "lat": 27.871197,
-      "lon": -82.3269883,
-      "location": "Riverview, FL",
-      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t15.5256-10/721466148_2530078734129234_8217201937368093354_n.jpg?stp=dst-jpg_tt6&cstp=mx1080x1920&ctp=s960x960&_nc_cat=103&ccb=1-7&_nc_sid=d4195b&_nc_ohc=8NIkiGLPqWEQ7kNvwGYFTJa&_nc_oc=AdpZbcFflR7j9ii5XbnssKNeQdlWAPiWEz40jLgZyaGsgE6PwzQVX5eYK7pdqi4NxBk&_nc_zt=23&_nc_ht=scontent-dfw6-1.xx&_nc_gid=fGVkC5upNhTSCtSLWXaBGg&_nc_ss=7b2a8&oh=00_Af9g8TjvxF3zUGmyLEYIGgXsNZFp_GK5NYuZYKldP3cBTQ&oe=6A2E55D8",
-      "adUrl": "https://www.facebook.com/marketplace/item/1342790594583048/",
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-06-09 23:02:02",
-      "lastSeen": "2026-06-09T23:03:53.991Z"
+      "lastSeen": "2026-06-10T00:03:02.329Z"
     },
     {
       "adID": "1390192566279434",
@@ -90,13 +90,13 @@
       "lat": 27.9449854,
       "lon": -82.4583107,
       "location": "Tampa, FL",
-      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/721403375_1491620648753717_5340085986554990525_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=108&ccb=1-7&_nc_sid=92e707&_nc_ohc=A6qgf0UhZwEQ7kNvwEGQJBl&_nc_oc=AdpmMz8EK43_zwj2AlA6apwf2RXo9IbICTrxE7z84Ai5qZX1mbnyTbpICpiOTK-1fiE&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=7C1shWqKGOr6LKfnhbdXRw&_nc_ss=7b2a8&oh=00_Af8IA2LR9AbOx5O0XW9_oS44WIsD59ry1icHCavM2LFqGA&oe=6A2E5EE3",
+      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/721403375_1491620648753717_5340085986554990525_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=108&ccb=1-7&_nc_sid=92e707&_nc_ohc=A6qgf0UhZwEQ7kNvwEGQJBl&_nc_oc=AdpmMz8EK43_zwj2AlA6apwf2RXo9IbICTrxE7z84Ai5qZX1mbnyTbpICpiOTK-1fiE&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=8vU9rPghzxdb-JMadF2Y5A&_nc_ss=7b2a8&oh=00_Af_jF5sv6pky42tYe0ES9ank1q16tfPQ0KMyomVMAlwj0g&oe=6A2E9723",
       "adUrl": "https://www.facebook.com/marketplace/item/1390192566279434/",
       "priceChanged": 0,
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-09 21:04:48",
-      "lastSeen": "2026-06-09T23:04:48.249Z"
+      "lastSeen": "2026-06-10T00:03:17.051Z"
     },
     {
       "adID": "1728157508178485",
@@ -116,7 +116,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-09 18:03:09",
-      "lastSeen": "2026-06-09T23:03:56.193Z"
+      "lastSeen": "2026-06-10T00:03:03.872Z"
     },
     {
       "adID": "2091220964799998",
@@ -196,7 +196,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-09 15:02:04",
-      "lastSeen": "2026-06-09T23:03:56.360Z"
+      "lastSeen": "2026-06-10T00:03:04.039Z"
     },
     {
       "adID": "1506455260919283",
@@ -210,13 +210,13 @@
       "lat": 33.9887165,
       "lon": -83.8979573,
       "location": "Dacula, GA",
-      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/719969376_976471238560337_5602559532420182286_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=101&ccb=1-7&_nc_sid=92e707&_nc_ohc=vKKYktwiBi4Q7kNvwF5-6uH&_nc_oc=Adpph7qPyasEuNqmZBFi7p0IqScwuEK5sMAPOlts6kYrkQvB9Nfk0x3tILLIpmG48YE&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=m86SfGHTGk1N1rEj376F3g&_nc_ss=7b2a8&oh=00_Af-BJgOt5Pfkk3VYmVoMHY3z3RMVBN8R8iq0XMCIFQ5aIA&oe=6A2E6226",
+      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/719969376_976471238560337_5602559532420182286_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=101&ccb=1-7&_nc_sid=92e707&_nc_ohc=7tKj3QbgqawQ7kNvwFJngGc&_nc_oc=AdqluYCsJhoQ9eK4ydcNA_y4T7Tu2cR0XN2J7sRhxt5O7iwUpYAFaQ1_8pGWSGH1Coc&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=eoqp3VO-o6YXInQcLipi1Q&_nc_ss=7b2a8&oh=00_Af-hOikxT5pmJ0NrJAKZ5kBWbO_84yi6w0YL_Hc2knXg4g&oe=6A2E6226",
       "adUrl": "https://www.facebook.com/marketplace/item/1506455260919283/",
       "priceChanged": 0,
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-09 15:02:00",
-      "lastSeen": "2026-06-09T23:03:24.480Z"
+      "lastSeen": "2026-06-10T00:02:38.196Z"
     },
     {
       "adID": "1014255884496825",
@@ -256,7 +256,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-09 13:02:01",
-      "lastSeen": "2026-06-09T23:02:01.384Z"
+      "lastSeen": "2026-06-10T00:02:03.354Z"
     },
     {
       "adID": "3929166360712478",
@@ -276,7 +276,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-09 11:03:36",
-      "lastSeen": "2026-06-09T23:03:53.048Z"
+      "lastSeen": "2026-06-10T00:03:02.895Z"
     },
     {
       "adID": "1572983281126672",
@@ -296,7 +296,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-09 11:02:11",
-      "lastSeen": "2026-06-09T23:02:01.418Z"
+      "lastSeen": "2026-06-10T00:02:03.387Z"
     },
     {
       "adID": "1320121642891920",
@@ -336,7 +336,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-08 23:02:18",
-      "lastSeen": "2026-06-09T23:03:53.081Z"
+      "lastSeen": "2026-06-10T00:03:02.928Z"
     },
     {
       "adID": "3655400247950229",
@@ -356,7 +356,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-08 21:02:08",
-      "lastSeen": "2026-06-09T23:02:01.954Z"
+      "lastSeen": "2026-06-10T00:02:03.924Z"
     },
     {
       "adID": "2158518364718217",
@@ -396,7 +396,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-08 18:02:54",
-      "lastSeen": "2026-06-09T23:03:53.555Z"
+      "lastSeen": "2026-06-10T00:03:03.384Z"
     },
     {
       "adID": "780328501736710",
@@ -456,7 +456,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-08 17:04:46",
-      "lastSeen": "2026-06-09T23:03:53.613Z"
+      "lastSeen": "2026-06-10T00:03:03.437Z"
     },
     {
       "adID": "1017508810808663",
@@ -523,7 +523,7 @@
       "source": "PS",
       "authorUrl": "https://pinside.com/pinball/community/pinsiders/mr_pinball/market",
       "author": "Mr_Pinball",
-      "postedTime": "2026-06-08T16:05:08.503Z",
+      "postedTime": "2026-06-08T16:03:39.860Z",
       "title": "Solar Ride",
       "description": "Used - shows wear, needs some work - “Up for sale is a 1979 Gottlieb Solar Ride pinball project. This is a semi working game that boots up and ejects the ball. It seems like the switches are working and scoring with so...”",
       "price": "$850",
@@ -536,7 +536,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-08 16:03:41",
-      "lastSeen": "2026-06-09T23:05:08.829Z"
+      "lastSeen": "2026-06-10T00:03:40.221Z"
     },
     {
       "adID": "28161700420085203",
@@ -556,7 +556,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-08 16:02:41",
-      "lastSeen": "2026-06-09T23:03:53.712Z"
+      "lastSeen": "2026-06-10T00:03:03.537Z"
     },
     {
       "adID": "KLOV-540336",
@@ -576,7 +576,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-08 12:07:47",
-      "lastSeen": "2026-06-09T23:05:43.392Z"
+      "lastSeen": "2026-06-10T00:04:15.000Z"
     },
     {
       "adID": "KLOV-512184",
@@ -596,7 +596,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-08 12:07:47",
-      "lastSeen": "2026-06-09T23:05:43.425Z"
+      "lastSeen": "2026-06-10T00:04:15.033Z"
     },
     {
       "adID": "2196763871057990",
@@ -636,7 +636,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-08 11:04:36",
-      "lastSeen": "2026-06-09T23:03:53.879Z"
+      "lastSeen": "2026-06-10T00:03:03.705Z"
     },
     {
       "adID": "1218933813564472",
@@ -796,7 +796,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-07 21:04:39",
-      "lastSeen": "2026-06-09T23:05:42.372Z"
+      "lastSeen": "2026-06-10T00:04:13.987Z"
     },
     {
       "adID": "27635497972723763",
@@ -1123,7 +1123,7 @@
       "source": "PS",
       "authorUrl": "https://pinside.com/pinball/community/pinsiders/skipnatty/market",
       "author": "Skipnatty",
-      "postedTime": "2026-06-07T23:05:11.745Z",
+      "postedTime": "2026-06-07T00:03:42.963Z",
       "title": "Dialed In - Playfield Protector (New)",
       "description": "NOS (New Old Stock) - “Brand new never opened from factory. 50 bucks obo + shipping if shipping needed.”",
       "price": "$50",
@@ -1136,7 +1136,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-07 00:04:54",
-      "lastSeen": "2026-06-09T23:05:12.156Z"
+      "lastSeen": "2026-06-10T00:03:43.439Z"
     },
     {
       "adID": "1355178399825503",
@@ -1316,7 +1316,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-06 16:05:46",
-      "lastSeen": "2026-06-09T23:05:42.811Z"
+      "lastSeen": "2026-06-10T00:04:14.431Z"
     },
     {
       "adID": "KLOV-557962",
@@ -1536,7 +1536,7 @@
       "priceChangedAt": "2026-06-09 16:03:08",
       "hidden": 0,
       "created_at": "2026-06-05 19:22:59",
-      "lastSeen": "2026-06-09T23:03:53.924Z"
+      "lastSeen": "2026-06-10T00:03:03.737Z"
     },
     {
       "adID": "1521010192941869",
@@ -1716,7 +1716,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-05 01:03:06",
-      "lastSeen": "2026-06-09T23:05:42.509Z"
+      "lastSeen": "2026-06-10T00:04:14.130Z"
     },
     {
       "adID": "KLOV-563838",
@@ -2076,7 +2076,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-03 13:35:44",
-      "lastSeen": "2026-06-09T23:05:43.492Z"
+      "lastSeen": "2026-06-10T00:04:15.101Z"
     },
     {
       "adID": "KLOV-408814",
@@ -2176,7 +2176,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-03 13:35:10",
-      "lastSeen": "2026-06-09T23:05:43.227Z"
+      "lastSeen": "2026-06-10T00:04:14.832Z"
     },
     {
       "adID": "KLOV-513187",
