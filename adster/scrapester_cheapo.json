@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-11T01:03:59.176Z",
+  "generated_at": "2026-06-11T06:08:08.378Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,10 +11,10 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 144,
-      "droppedPrice": 1022,
+      "exported_ads": 140,
+      "droppedPrice": 1019,
       "droppedMissingGeo": 0,
-      "droppedCircle": 831
+      "droppedCircle": 829
     }
   },
   "ads": [
@@ -1859,26 +1859,6 @@
       "lastSeen": "2026-06-08T00:03:58.567Z"
     },
     {
-      "adID": "1513128623799210",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/61580654391508/?product_id=1513128623799210",
-      "author": "Gabe Vega",
-      "postedTime": "2026-06-04T00:00:18.000Z",
-      "title": "rampage game",
-      "description": "it has multiple games and works perfectly",
-      "price": "$150",
-      "lat": 27.9449854,
-      "lon": -82.4583107,
-      "location": "Tampa, FL",
-      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/713584439_1350727686919238_5791795414641532896_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=111&ccb=1-7&_nc_sid=92e707&_nc_eui2=AeHL1TaBzGoYBrEkdX6snxiTcelUWcLsPPRx6VRZwuw89DT15qFS0HNXdzeo-AeLkgg&_nc_ohc=VMqsYVTIKawQ7kNvwE6ZZ6c&_nc_oc=AdoMnFLSz4N_irKsspZlMoO2pBm7z9t2w7sw2JyXYgeRDnLvyDH9xG0M3MCZOpD7rGo&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=wKo0xfXgajFvRznCLy8U9A&_nc_ss=7b2a8&oh=00_Af8U3aOL1bcFNVnqltl67GeG6i4OrLTCtrswhH7K8is4eA&oe=6A26A4A4",
-      "adUrl": "https://www.facebook.com/marketplace/item/1513128623799210/",
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-06-04 01:01:36",
-      "lastSeen": "2026-06-04T01:02:32.959Z"
-    },
-    {
       "adID": "1511008577234691",
       "source": "FB",
       "authorUrl": null,
@@ -1937,26 +1917,6 @@
       "hidden": 0,
       "created_at": "2026-06-03 22:01:36",
       "lastSeen": "2026-06-09T12:29:50.605Z"
-    },
-    {
-      "adID": "1289750053279866",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/100040368480006/?product_id=1289750053279866",
-      "author": "Chelsea Dupre Allen",
-      "postedTime": "2026-06-03T19:16:48.000Z",
-      "title": "Pinball machine",
-      "description": "Pinball machine our kids don’t really play with it",
-      "price": "$200",
-      "lat": 29.5957696,
-      "lon": -90.7195348,
-      "location": "Houma, LA",
-      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/715455782_4427589480902502_2044395960575734365_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=103&ccb=1-7&_nc_sid=92e707&_nc_eui2=AeGawWViLhVLTGN6wqyazeaEJ_KDf15WwWUn8oN_XlbBZWCQL0yef-Eh28LkVN7WcdE&_nc_ohc=wM9Xlv1_6doQ7kNvwEpkBwt&_nc_oc=AdrQOeVx7XEirJJcUeFxm4UpBHDBserdYrBlBafHboJuvGsSPFqJ9h4ulR7UTUZRKwQ&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=_xqKvDiX4-idgyBqasVLug&_nc_ss=7b2a8&oh=00_Af-0aXoexpM9kc0JrYWs7xbTY_070OxfUKoTHYWrEofT_Q&oe=6A2672A2",
-      "adUrl": "https://www.facebook.com/marketplace/item/1289750053279866/",
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-06-03 20:02:19",
-      "lastSeen": "2026-06-04T01:02:58.406Z"
     },
     {
       "adID": "1665255684706778",
@@ -2137,46 +2097,6 @@
       "hidden": 0,
       "created_at": "2026-06-03 12:01:39",
       "lastSeen": "2026-06-03T12:01:57.523Z"
-    },
-    {
-      "adID": "PI-215608",
-      "source": "PS",
-      "authorUrl": "https://pinside.com/pinball/community/pinsiders/caughdrops/market",
-      "author": "caughdrops",
-      "postedTime": "2026-06-03T04:02:32.235Z",
-      "title": "Hi-Deal",
-      "description": "Functional - needs minor work - “This is a working project that I do not have the time or energy to properly restore. The game plays in both 3 and 5 ball configuration, depending on your preference. Every target, ...”",
-      "price": "$815",
-      "lat": 34.1014112,
-      "lon": -84.5192192,
-      "location": "Woodstock, GA",
-      "imageUrl": "https://imgproxy.pinside.com/xLFaVhvDMBanj9PR3uupoMmiNzQj0eLIRjgH9my_Ehs/rs:fit:640:480/fn:pinside_e709676af291/enc/_h4o67TMO59QqbKUzuwEOpXTG6bdD8yyOSVtlABPh_2dyOvhf8X95ktMh4DjaGFYPS78A-e5qgI4kROgl--f3a_zFqftIvPmM1YHUIqrEy3zQdi41qlh_Mb_1qMwIYwz.jpeg",
-      "adUrl": "https://pinside.com/pinball/market/classifieds/ad/215608",
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-06-03 11:06:10",
-      "lastSeen": "2026-06-03T19:02:33.065Z"
-    },
-    {
-      "adID": "900938135764616",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/100007693363702/?product_id=900938135764616",
-      "author": "Alex Caughman",
-      "postedTime": "2026-06-03T02:54:31.000Z",
-      "title": "Bally Hi-Deal EM Pinball Machine",
-      "description": "This is a working project that I do not have the time or energy to properly restore. The game plays in both 3 and 5 ball configuration, depending on your preference. Every target, rollover, switch, saucer etc register and score as they should. The backglass is near perfect. The lamps in the backbox and on the coin door work, however the lamps on the playfield do not. The reels are dirty and will need to be cleaned, as the 10,000 point reel will start skipping once you get to 79k. They will advance during the reset sequence. The game is generally dirty and needs to be shopped. Game is located in Woodstock, GA. I will work with your shipper if necessary.",
-      "price": "$800",
-      "lat": 34.1014112,
-      "lon": -84.5192192,
-      "location": "Woodstock, GA",
-      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/714809326_1251565560189285_5936185037227146733_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=111&ccb=1-7&_nc_sid=92e707&_nc_eui2=AeF6RBl2DEPG_XSdN-5Mo0TTBZMHicC9B-MFkweJwL0H4w4NlURRVnBF7V3Ztl2eCr0&_nc_ohc=WDdnEvvR5C4Q7kNvwGu1Wbu&_nc_oc=AdpycKOqUXY-QAoYJP2Sd0uE33S96u4IUyp7fOp73c0XWrC6ePwL64KS-iEv3WXwKLQ&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=Moh1EKbtVCezNs2-M4Nkzw&_nc_ss=7b2a8&oh=00_Af9VLMejXR4WuBsADESlafCFUI6JAnWmLuRRvnu1cPNfDA&oe=6A25CB86",
-      "adUrl": "https://www.facebook.com/marketplace/item/900938135764616/",
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-06-03 11:04:43",
-      "lastSeen": "2026-06-03T19:02:26.436Z"
     },
     {
       "adID": "1320688406089774",
