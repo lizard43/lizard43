@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-11T18:03:00.732Z",
+  "generated_at": "2026-06-11T19:04:07.620Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,33 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 114,
-      "droppedPrice": 1036,
+      "exported_ads": 115,
+      "droppedPrice": 1039,
       "droppedMissingGeo": 0,
-      "droppedCircle": 795
+      "droppedCircle": 797
     }
   },
   "ads": [
+    {
+      "adID": "26815578431474804",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/1329630822/?product_id=26815578431474804",
+      "author": "Tamela Potter Colon",
+      "postedTime": "2026-06-11T18:15:45.000Z",
+      "title": "Pinball diy game",
+      "description": "Have 3",
+      "price": "$5",
+      "lat": 28.4635266,
+      "lon": -82.5363557,
+      "location": "Spring Hill, FL",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/720552858_1270970271500231_1718430483585208331_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=105&ccb=1-7&_nc_sid=92e707&_nc_ohc=eLSd8k48_rQQ7kNvwEbEtoE&_nc_oc=Adqm45esPqhTYlwaP6idookVhZkB9LCuxuER67ibZt1g2fXp4zFvtyZBGUwhlSBuTEw&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=jlmAlqiVcMwwnmIb2l5H0g&_nc_ss=7b2a8&oh=00_Af8kgxtvPoSa3m7_nhvEsxLyXJkwaq6jsdWL40TG08DspQ&oe=6A30DA1F",
+      "adUrl": "https://www.facebook.com/marketplace/item/26815578431474804/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-06-11 19:02:16",
+      "lastSeen": "2026-06-11T19:03:03.003Z"
+    },
     {
       "adID": "1021073840780894",
       "source": "MP",
@@ -76,7 +96,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-11 12:03:53",
-      "lastSeen": "2026-06-11T18:02:55.978Z"
+      "lastSeen": "2026-06-11T19:04:03.410Z"
     },
     {
       "adID": "KLOV-561265",
@@ -96,7 +116,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-11 11:06:51",
-      "lastSeen": "2026-06-11T18:02:56.044Z"
+      "lastSeen": "2026-06-11T19:04:03.479Z"
     },
     {
       "adID": "951454541256190",
@@ -136,7 +156,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-11 11:02:06",
-      "lastSeen": "2026-06-11T18:02:00.046Z"
+      "lastSeen": "2026-06-11T19:02:05.033Z"
     },
     {
       "adID": "967740542918819",
@@ -236,7 +256,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-10 19:03:07",
-      "lastSeen": "2026-06-11T18:02:11.170Z"
+      "lastSeen": "2026-06-11T19:02:17.026Z"
     },
     {
       "adID": "1039985798700572",
@@ -276,7 +296,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-10 16:04:14",
-      "lastSeen": "2026-06-11T18:02:57.083Z"
+      "lastSeen": "2026-06-11T19:04:03.777Z"
     },
     {
       "adID": "KLOV-562564",
@@ -296,7 +316,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-10 15:04:34",
-      "lastSeen": "2026-06-11T18:02:57.920Z"
+      "lastSeen": "2026-06-11T19:04:04.865Z"
     },
     {
       "adID": "KLOV-375974",
@@ -316,7 +336,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-10 13:03:29",
-      "lastSeen": "2026-06-11T18:02:57.150Z"
+      "lastSeen": "2026-06-11T19:04:03.843Z"
     },
     {
       "adID": "1576772440535420",
@@ -356,7 +376,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-09 23:03:48",
-      "lastSeen": "2026-06-11T18:02:11.237Z"
+      "lastSeen": "2026-06-11T19:02:17.094Z"
     },
     {
       "adID": "1600535951668253",
@@ -503,7 +523,7 @@
       "source": "PS",
       "authorUrl": "https://pinside.com/pinball/community/pinsiders/mr_pinball/market",
       "author": "Mr_Pinball",
-      "postedTime": "2026-06-08T18:02:24.318Z",
+      "postedTime": "2026-06-08T19:03:28.355Z",
       "title": "Solar Ride",
       "description": "Used - shows wear, needs some work - “Up for sale is a 1979 Gottlieb Solar Ride pinball project. This is a semi working game that boots up and ejects the ball. It seems like the switches are working and scoring with so...”",
       "price": "$850",
@@ -516,7 +536,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-08 16:03:41",
-      "lastSeen": "2026-06-11T18:02:24.788Z"
+      "lastSeen": "2026-06-11T19:03:28.822Z"
     },
     {
       "adID": "28161700420085203",
@@ -1243,7 +1263,7 @@
       "source": "KLOV",
       "authorUrl": "https://forums.arcade-museum.com/members/jjhudgins.80749/",
       "author": "jjhudgins",
-      "postedTime": "2026-06-05T09:20:47.000Z",
+      "postedTime": "2026-06-11T18:27:40.000Z",
       "title": "Neotec 2515c,2500, nT-35c, NT-29c MRCFT-216 Flyback",
       "description": "Customer wanted caps and a new flyback although this one works. Neotec 2515c,2500, nT-35c, NT-29c MRCFT-216, Free plus shipping Probably $15-$20 depending on location",
       "price": "$15",
@@ -1256,7 +1276,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-05 11:04:09",
-      "lastSeen": "2026-06-07T01:04:01.891Z"
+      "lastSeen": "2026-06-11T19:04:03.207Z"
     },
     {
       "adID": "KLOV-562723",
@@ -1576,7 +1596,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-03 13:35:44",
-      "lastSeen": "2026-06-11T18:02:57.753Z"
+      "lastSeen": "2026-06-11T19:04:04.699Z"
     },
     {
       "adID": "KLOV-408814",
@@ -1623,7 +1643,7 @@
       "source": "KLOV",
       "authorUrl": "https://forums.arcade-museum.com/members/jjhudgins.80749/",
       "author": "jjhudgins",
-      "postedTime": "2026-06-02T06:29:44.000Z",
+      "postedTime": "2026-06-11T18:28:10.000Z",
       "title": "Wells Gardner k4600 Horizontal Frame, Shield & Coil",
       "description": "Removed from a necked tube $125 shipped CONUS",
       "price": "$125",
@@ -1636,7 +1656,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-03 13:35:13",
-      "lastSeen": "2026-06-04T16:06:13.138Z"
+      "lastSeen": "2026-06-11T19:04:03.175Z"
     },
     {
       "adID": "KLOV-531272",
