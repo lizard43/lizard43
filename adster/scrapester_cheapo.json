@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-12T01:03:33.084Z",
+  "generated_at": "2026-06-12T06:07:07.165Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,33 +11,13 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 125,
-      "droppedPrice": 1064,
+      "exported_ads": 124,
+      "droppedPrice": 1062,
       "droppedMissingGeo": 0,
-      "droppedCircle": 818
+      "droppedCircle": 817
     }
   },
   "ads": [
-    {
-      "adID": "2488129791654987",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/1411437811/?product_id=2488129791654987",
-      "author": "Tim Mueller",
-      "postedTime": "2026-06-12T00:34:21.000Z",
-      "title": "video game",
-      "description": "Galaga Video game",
-      "price": "$225",
-      "lat": 30.421309,
-      "lon": -87.2169149,
-      "location": "Pensacola, FL",
-      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/720444666_1344256904517520_110630937246608390_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=105&ccb=1-7&_nc_sid=92e707&_nc_ohc=bTvhyqfTEJYQ7kNvwExaklJ&_nc_oc=AdqsiKobn5EG3wWclG3MY1uuLIIeW_EQTkH2II5vg-wAfxeiPUH-n7wzweuq_Mavt_4&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=tdKdYA6kCMLfUHkiKIIubw&_nc_ss=7b2a8&oh=00_Af-4WssHgCuE5tXuFYFjRJMvaM4rJfgnLWDwkVwCtKUM-A&oe=6A312451",
-      "adUrl": "https://www.facebook.com/marketplace/item/2488129791654987/",
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-06-12 01:02:09",
-      "lastSeen": "2026-06-12T01:02:23.719Z"
-    },
     {
       "adID": "1485672153240712",
       "source": "MP",
