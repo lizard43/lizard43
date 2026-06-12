@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-12T00:05:50.553Z",
+  "generated_at": "2026-06-12T01:03:33.084Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,33 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 124,
-      "droppedPrice": 1062,
+      "exported_ads": 125,
+      "droppedPrice": 1064,
       "droppedMissingGeo": 0,
-      "droppedCircle": 817
+      "droppedCircle": 818
     }
   },
   "ads": [
+    {
+      "adID": "2488129791654987",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/1411437811/?product_id=2488129791654987",
+      "author": "Tim Mueller",
+      "postedTime": "2026-06-12T00:34:21.000Z",
+      "title": "video game",
+      "description": "Galaga Video game",
+      "price": "$225",
+      "lat": 30.421309,
+      "lon": -87.2169149,
+      "location": "Pensacola, FL",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/720444666_1344256904517520_110630937246608390_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=105&ccb=1-7&_nc_sid=92e707&_nc_ohc=bTvhyqfTEJYQ7kNvwExaklJ&_nc_oc=AdqsiKobn5EG3wWclG3MY1uuLIIeW_EQTkH2II5vg-wAfxeiPUH-n7wzweuq_Mavt_4&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=tdKdYA6kCMLfUHkiKIIubw&_nc_ss=7b2a8&oh=00_Af-4WssHgCuE5tXuFYFjRJMvaM4rJfgnLWDwkVwCtKUM-A&oe=6A312451",
+      "adUrl": "https://www.facebook.com/marketplace/item/2488129791654987/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-06-12 01:02:09",
+      "lastSeen": "2026-06-12T01:02:23.719Z"
+    },
     {
       "adID": "1485672153240712",
       "source": "MP",
@@ -116,7 +136,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-11 23:02:49",
-      "lastSeen": "2026-06-12T00:04:09.868Z"
+      "lastSeen": "2026-06-12T01:02:47.326Z"
     },
     {
       "adID": "1982584949027648",
@@ -216,7 +236,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-11 19:02:16",
-      "lastSeen": "2026-06-12T00:04:10.069Z"
+      "lastSeen": "2026-06-12T01:02:47.527Z"
     },
     {
       "adID": "1021073840780894",
@@ -276,7 +296,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-11 12:03:53",
-      "lastSeen": "2026-06-12T00:05:46.943Z"
+      "lastSeen": "2026-06-12T01:03:29.520Z"
     },
     {
       "adID": "KLOV-561265",
@@ -296,7 +316,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-11 11:06:51",
-      "lastSeen": "2026-06-12T00:05:47.010Z"
+      "lastSeen": "2026-06-12T01:03:29.587Z"
     },
     {
       "adID": "951454541256190",
@@ -336,7 +356,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-11 11:02:06",
-      "lastSeen": "2026-06-12T00:01:59.886Z"
+      "lastSeen": "2026-06-12T01:02:09.825Z"
     },
     {
       "adID": "967740542918819",
@@ -356,7 +376,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-11 00:02:03",
-      "lastSeen": "2026-06-12T00:02:00.020Z"
+      "lastSeen": "2026-06-12T01:02:09.959Z"
     },
     {
       "adID": "1577908533980549",
@@ -376,7 +396,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-11 00:02:03",
-      "lastSeen": "2026-06-12T00:02:00.053Z"
+      "lastSeen": "2026-06-12T01:02:09.993Z"
     },
     {
       "adID": "882046517559933",
@@ -396,7 +416,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-10 22:01:55",
-      "lastSeen": "2026-06-12T00:02:00.086Z"
+      "lastSeen": "2026-06-12T01:02:10.026Z"
     },
     {
       "adID": "1660530718520004",
@@ -436,7 +456,7 @@
       "priceChangedAt": "2026-06-12 00:04:11",
       "hidden": 0,
       "created_at": "2026-06-10 19:03:07",
-      "lastSeen": "2026-06-12T00:04:39.999Z"
+      "lastSeen": "2026-06-12T01:02:47.895Z"
     },
     {
       "adID": "1039985798700572",
@@ -476,7 +496,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-10 16:04:14",
-      "lastSeen": "2026-06-12T00:05:47.279Z"
+      "lastSeen": "2026-06-12T01:03:29.854Z"
     },
     {
       "adID": "KLOV-562564",
@@ -496,7 +516,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-10 15:04:34",
-      "lastSeen": "2026-06-12T00:05:47.894Z"
+      "lastSeen": "2026-06-12T01:03:30.457Z"
     },
     {
       "adID": "KLOV-375974",
@@ -516,7 +536,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-10 13:03:29",
-      "lastSeen": "2026-06-12T00:05:47.312Z"
+      "lastSeen": "2026-06-12T01:03:29.887Z"
     },
     {
       "adID": "1576772440535420",
@@ -703,7 +723,7 @@
       "source": "PS",
       "authorUrl": "https://pinside.com/pinball/community/pinsiders/mr_pinball/market",
       "author": "Mr_Pinball",
-      "postedTime": "2026-06-09T00:05:17.361Z",
+      "postedTime": "2026-06-09T01:03:00.213Z",
       "title": "Solar Ride",
       "description": "Used - shows wear, needs some work - “Up for sale is a 1979 Gottlieb Solar Ride pinball project. This is a semi working game that boots up and ejects the ball. It seems like the switches are working and scoring with so...”",
       "price": "$850",
@@ -716,7 +736,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-08 16:03:41",
-      "lastSeen": "2026-06-12T00:05:18.412Z"
+      "lastSeen": "2026-06-12T01:03:01.272Z"
     },
     {
       "adID": "28161700420085203",
@@ -1456,7 +1476,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-05 11:04:09",
-      "lastSeen": "2026-06-12T00:05:46.776Z"
+      "lastSeen": "2026-06-12T01:03:29.386Z"
     },
     {
       "adID": "KLOV-562723",
@@ -1776,7 +1796,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-03 13:35:44",
-      "lastSeen": "2026-06-12T00:05:47.727Z"
+      "lastSeen": "2026-06-12T01:03:30.290Z"
     },
     {
       "adID": "KLOV-408814",
@@ -1836,7 +1856,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-03 13:35:13",
-      "lastSeen": "2026-06-12T00:05:46.743Z"
+      "lastSeen": "2026-06-12T01:03:29.353Z"
     },
     {
       "adID": "KLOV-531272",
