@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-12T15:04:55.929Z",
+  "generated_at": "2026-06-12T15:39:43.305Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,10 +11,10 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 131,
+      "exported_ads": 130,
       "droppedPrice": 1077,
       "droppedMissingGeo": 0,
-      "droppedCircle": 842
+      "droppedCircle": 838
     }
   },
   "ads": [
@@ -1519,26 +1519,6 @@
       "lastSeen": "2026-06-11T15:52:08.725Z"
     },
     {
-      "adID": "1526309108847252",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/1353189086/?product_id=1526309108847252",
-      "author": "Jon Sutcliffe",
-      "postedTime": "2026-06-05T18:16:06.000Z",
-      "title": "Bally Midway Ms. Pac-Man : Project",
-      "description": "OBO - Original Bally Midway Ms. Pac-Man from ~1981. All original PCBs, components, control panel, harness with G07 CRT. Non working, as-is. It does power-on but no video. I did not attempt to coin-up or start. Look at pictures, ask for more. If you're local, come look it over. I prefer local pickup so you can see. I will help load. Can deliver ~locally to your door for a fee. No stairs or other adventures. Will ship if you make all shipper arrangements and pay in full prior to shipment.",
-      "price": "$300",
-      "lat": 30.4982516,
-      "lon": -86.1360517,
-      "location": "Freeport, FL",
-      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.30808-6/716210309_10235344641700785_2821667228973381543_n.jpg?stp=dst-jpg_tt6&cstp=mx1536x2048&ctp=s960x960&_nc_cat=105&ccb=1-7&_nc_sid=ca4098&_nc_ohc=B5ZjOATPQtwQ7kNvwEfOKQH&_nc_oc=AdrK-g5UdSZop3510xro-cMfyEGoOTNQ-tLlsSO_Ce8AXHBh4f0IJIvnBOLd3-s4iSs&_nc_zt=23&_nc_ht=scontent-dfw5-1.xx&_nc_gid=wRNVnDFfiR7KBEASGXoy9g&_nc_ss=7b2a8&oh=00_Af_SD4fn_0HZUrvAzHftPn8Lg7WXyMGoGqSXYRRaPqgtNw&oe=6A3064A5",
-      "adUrl": "https://www.facebook.com/marketplace/item/1526309108847252/",
-      "priceChanged": 1,
-      "priceChangedAt": "2026-06-11 10:49:25",
-      "hidden": 0,
-      "created_at": "2026-06-05 19:22:59",
-      "lastSeen": "2026-06-12T00:04:10.661Z"
-    },
-    {
       "adID": "890837020720644",
       "source": "MP",
       "authorUrl": "https://www.facebook.com/marketplace/profile/100077526124207/?product_id=890837020720644",
@@ -1670,13 +1650,13 @@
       "lat": 32.612602,
       "lon": -90.0367512,
       "location": "Canton, MS",
-      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/713143332_1692184268472615_1412441844200468550_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=103&ccb=1-7&_nc_sid=92e707&_nc_eui2=AeEd9Jfz6N_gw8nIdXADtW7ffZjSdubrZbV9mNJ25utlteyc0Ara51f3J7ETO5V04D4&_nc_ohc=GKRNKKbEvlAQ7kNvwG4Elo2&_nc_oc=Adpc6i3V6YNKPN4306MIFvlPci3sjWBK2udvP-ICb3fb7S8cyaGKFTeee3oqhWsDMSA&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=7xJQS8Z_PG1v1cdvWK0J_A&_nc_ss=7b2a8&oh=00_Af9fF-cMCI9wnkcf6vKEaE_9Bx1SCpZiUhh6nVymFhc4AA&oe=6A27EC93",
+      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/713143332_1692184268472615_1412441844200468550_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=103&ccb=1-7&_nc_sid=92e707&_nc_ohc=AP3wj8LepFIQ7kNvwGEB6O4&_nc_oc=Ado3_cVAvX1KVwwh7qQ3an17-TZWbt1J1mf0-tmmjNCVcFcyKbs8Bg4DlMP8759A2ic&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=fe_61cpAQ5166WQwjYFNwQ&_nc_ss=7b2a8&oh=00_Af_AGwyJa0Y6GuhrAxOqa3YZvuKhM73X5tXeI1F8owVQVA&oe=6A320813",
       "adUrl": "https://www.facebook.com/marketplace/item/994218793090970/",
       "priceChanged": 0,
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-04 23:03:36",
-      "lastSeen": "2026-06-05T12:03:33.694Z"
+      "lastSeen": "2026-06-12T15:37:02.044Z"
     },
     {
       "adID": "1227309079352028",
@@ -2092,8 +2072,8 @@
       "location": "Gonzales, LA",
       "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/713186085_882915438164696_369995162057795444_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=110&ccb=1-7&_nc_sid=92e707&_nc_ohc=CEnJxOXrqN4Q7kNvwFYPiCx&_nc_oc=AdpWntnnJDwI2Bgdjkz-EBNx6ANYOIkgj8fybKvehQC-H2_dqKjEDzDHJu2d4OREvHc&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=psELizgtlI-nMGLdXPiUWg&_nc_ss=7b2a8&oh=00_Af8-0I2r30LGV7AyO9_vEWyb7RoshoqDm6Wh8qsOzVwOJQ&oe=6A2F7141",
       "adUrl": "https://www.facebook.com/marketplace/item/981249228033740/",
-      "priceChanged": 1,
-      "priceChangedAt": "2026-06-10 15:34:39",
+      "priceChanged": 0,
+      "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-03 11:01:42",
       "lastSeen": "2026-06-10T15:34:39.876Z"
