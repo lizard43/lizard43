@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-13T06:04:42.700Z",
+  "generated_at": "2026-06-13T11:05:58.583Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,33 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 139,
-      "droppedPrice": 1108,
+      "exported_ads": 140,
+      "droppedPrice": 1118,
       "droppedMissingGeo": 0,
-      "droppedCircle": 869
+      "droppedCircle": 878
     }
   },
   "ads": [
+    {
+      "adID": "KLOV-545491",
+      "source": "KLOV",
+      "authorUrl": "https://forums.arcade-museum.com/members/jjhudgins.80749/",
+      "author": "jjhudgins",
+      "postedTime": "2026-06-13T02:06:32.000Z",
+      "title": "Let's make a DEAL! BUY 2 or more Shipping is FREE Buy 3 or more get a $10 Manual FREE *Parts & Operating Manuals Schematics Diagrams * See Below",
+      "description": "All manuals are $5 to ship BUY 2 or more Shipping is FREE Buy 3 or more get a $10 Manual FREE + FREE Shipping Altered Beast$25.00avengers$10.00Captain America$10.00Centipede$20.00Chexx$10.00Cinemat system$10.00Congo Bongo$15.00Cruis'n USA$20.00Deluxe to Elevator Action$10.00Donkey Kong 2 board$15.0...",
+      "price": "$10",
+      "lat": 33.2588817,
+      "lon": -86.8295337,
+      "location": "Alabama",
+      "imageUrl": "https://forums.arcade-museum.com/favicon.ico",
+      "adUrl": "https://forums.arcade-museum.com/threads/545491/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-06-13 11:05:53",
+      "lastSeen": "2026-06-13T11:05:53.557Z"
+    },
     {
       "adID": "813561608355279",
       "source": "MP",
@@ -56,7 +76,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-13 00:03:30",
-      "lastSeen": "2026-06-13T01:03:51.906Z"
+      "lastSeen": "2026-06-13T11:04:23.924Z"
     },
     {
       "adID": "1393627912575164",
@@ -96,7 +116,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-12 23:02:00",
-      "lastSeen": "2026-06-13T01:03:52.909Z"
+      "lastSeen": "2026-06-13T11:02:12.545Z"
     },
     {
       "adID": "992217773421310",
@@ -176,7 +196,7 @@
       "priceChangedAt": "2026-06-12 22:02:01",
       "hidden": 0,
       "created_at": "2026-06-12 20:41:24",
-      "lastSeen": "2026-06-13T01:02:17.753Z"
+      "lastSeen": "2026-06-13T11:02:10.849Z"
     },
     {
       "adID": "1623669288694458",
@@ -190,13 +210,13 @@
       "lat": 34.257038,
       "lon": -85.1646726,
       "location": "Rome, GA",
-      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/718032515_1790555322121837_6684041530218579747_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=102&ccb=1-7&_nc_sid=92e707&_nc_ohc=TsegSfJ4OoIQ7kNvwHIOa3K&_nc_oc=Adri31hJah9yPTqGfMIYFqGSqKe5WQ2K7E21hG68Mls6EP2bNzX28Wer41uBfL0vZr4&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=mPWlS3XvkEb-5o4bZDEHCw&_nc_ss=7b2a8&oh=00_Af_zwEr03wtjoGL9mn_IW-qd5ScZ8EkCDZiPYwn2cDuDFQ&oe=6A3286B8",
+      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/718032515_1790555322121837_6684041530218579747_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=102&ccb=1-7&_nc_sid=92e707&_nc_ohc=TsegSfJ4OoIQ7kNvwHIOa3K&_nc_oc=Adri31hJah9yPTqGfMIYFqGSqKe5WQ2K7E21hG68Mls6EP2bNzX28Wer41uBfL0vZr4&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=Bt26w_wiD7PpD_UTU5NzFA&_nc_ss=7b2a8&oh=00_Af-uuY82v0bm64FIx_BmcJSne8L-JZcOXZvjBHfAnN_uHA&oe=6A32F738",
       "adUrl": "https://www.facebook.com/marketplace/item/1623669288694458/",
       "priceChanged": 0,
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-12 19:04:06",
-      "lastSeen": "2026-06-13T01:04:38.567Z"
+      "lastSeen": "2026-06-13T11:04:53.813Z"
     },
     {
       "adID": "1008795541545557",
@@ -216,7 +236,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-12 19:02:00",
-      "lastSeen": "2026-06-13T01:02:18.121Z"
+      "lastSeen": "2026-06-13T11:02:11.150Z"
     },
     {
       "adID": "2228444857958282",
@@ -276,7 +296,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-12 12:02:03",
-      "lastSeen": "2026-06-13T01:02:17.988Z"
+      "lastSeen": "2026-06-13T11:02:11.017Z"
     },
     {
       "adID": "1027282563169861",
@@ -296,7 +316,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-12 12:02:03",
-      "lastSeen": "2026-06-13T01:02:18.021Z"
+      "lastSeen": "2026-06-13T11:02:11.051Z"
     },
     {
       "adID": "1393598689271663",
@@ -316,7 +336,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-12 12:02:03",
-      "lastSeen": "2026-06-13T01:02:18.055Z"
+      "lastSeen": "2026-06-13T11:02:11.084Z"
     },
     {
       "adID": "1802167384102776",
@@ -336,7 +356,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-12 11:02:10",
-      "lastSeen": "2026-06-13T01:02:17.854Z"
+      "lastSeen": "2026-06-13T11:02:10.950Z"
     },
     {
       "adID": "1485672153240712",
@@ -436,7 +456,7 @@
       "priceChangedAt": "2026-06-13 01:03:53",
       "hidden": 0,
       "created_at": "2026-06-11 23:02:49",
-      "lastSeen": "2026-06-13T01:04:38.602Z"
+      "lastSeen": "2026-06-13T11:04:24.701Z"
     },
     {
       "adID": "1982584949027648",
@@ -496,7 +516,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-11 20:02:02",
-      "lastSeen": "2026-06-13T01:02:18.434Z"
+      "lastSeen": "2026-06-13T11:02:11.452Z"
     },
     {
       "adID": "834219186148443",
@@ -516,7 +536,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-11 20:02:01",
-      "lastSeen": "2026-06-13T01:02:18.322Z"
+      "lastSeen": "2026-06-13T11:02:11.351Z"
     },
     {
       "adID": "26815578431474804",
@@ -536,7 +556,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-11 19:02:16",
-      "lastSeen": "2026-06-13T01:03:52.574Z"
+      "lastSeen": "2026-06-13T11:04:24.902Z"
     },
     {
       "adID": "1021073840780894",
@@ -596,7 +616,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-11 12:03:53",
-      "lastSeen": "2026-06-13T01:05:37.631Z"
+      "lastSeen": "2026-06-13T11:05:54.450Z"
     },
     {
       "adID": "KLOV-561265",
@@ -616,7 +636,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-11 11:06:51",
-      "lastSeen": "2026-06-13T01:05:37.698Z"
+      "lastSeen": "2026-06-13T11:05:54.516Z"
     },
     {
       "adID": "951454541256190",
@@ -783,7 +803,7 @@
       "source": "KLOV",
       "authorUrl": "https://forums.arcade-museum.com/members/digindug82.83438/",
       "author": "Digindug82",
-      "postedTime": "2026-06-12T14:13:46.000Z",
+      "postedTime": "2026-06-13T05:50:13.000Z",
       "title": "Williams Defender boards",
       "description": "Here are 2 Williams defender main boards and a rom board, both boards need some work and are untested as I don't have a way to test them, 1 is missing the ram, the other has a broken test switch see pictures of the boards you will get $125.00 shipped in the USA for all 3 boards",
       "price": "$125",
@@ -796,7 +816,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-10 16:04:14",
-      "lastSeen": "2026-06-13T01:05:36.993Z"
+      "lastSeen": "2026-06-13T11:05:53.424Z"
     },
     {
       "adID": "KLOV-562564",
@@ -816,7 +836,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-10 15:04:34",
-      "lastSeen": "2026-06-13T01:05:38.233Z"
+      "lastSeen": "2026-06-13T11:05:55.853Z"
     },
     {
       "adID": "KLOV-375974",
@@ -1756,7 +1776,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-05 11:04:09",
-      "lastSeen": "2026-06-13T01:05:37.496Z"
+      "lastSeen": "2026-06-13T11:05:54.305Z"
     },
     {
       "adID": "KLOV-562723",
@@ -2076,7 +2096,7 @@
       "priceChangedAt": "2026-06-12 20:04:12",
       "hidden": 0,
       "created_at": "2026-06-03 13:35:44",
-      "lastSeen": "2026-06-13T01:05:37.798Z"
+      "lastSeen": "2026-06-13T11:05:55.410Z"
     },
     {
       "adID": "KLOV-408814",
@@ -2136,7 +2156,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-03 13:35:13",
-      "lastSeen": "2026-06-13T01:05:37.463Z"
+      "lastSeen": "2026-06-13T11:05:54.271Z"
     },
     {
       "adID": "KLOV-531272",
