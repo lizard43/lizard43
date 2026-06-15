@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-15T14:06:16.444Z",
+  "generated_at": "2026-06-15T15:06:32.413Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,33 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 157,
-      "droppedPrice": 1147,
+      "exported_ads": 158,
+      "droppedPrice": 1151,
       "droppedMissingGeo": 0,
-      "droppedCircle": 894
+      "droppedCircle": 897
     }
   },
   "ads": [
+    {
+      "adID": "1408908517729191",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100086902634400/?product_id=1408908517729191",
+      "author": "Bailey Park",
+      "postedTime": "2026-06-15T14:53:34.000Z",
+      "title": "MD Sports Arcade Game with Electronic",
+      "description": "- In its original packaging - Does not come assembled - Dimensions are shown in the photos.",
+      "price": "$200",
+      "lat": 34.0028569,
+      "lon": -84.1441046,
+      "location": "Duluth, GA",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/723104551_1866984848025884_3491373391167598686_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=92e707&_nc_ohc=jchr8BCU0xUQ7kNvwHOWuVb&_nc_oc=AdqjOgwO13GoFY1WK7GXR5rB_WBkCbdOpQp3I5BwZpQtPvjKLOhBHZkAxnvDeLUNRCI&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=P9zwujjnmeZ74Pe0gxVc5A&_nc_ss=7b2a8&oh=00_Af-HJltVP7BxX6puASagS8lzYRnbdhpEpiDz112AzguSug&oe=6A35EFCC",
+      "adUrl": "https://www.facebook.com/marketplace/item/1408908517729191/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-06-15 15:02:25",
+      "lastSeen": "2026-06-15T15:03:52.581Z"
+    },
     {
       "adID": "1300248122223351",
       "source": "MP",
@@ -56,7 +76,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-15 13:52:19",
-      "lastSeen": "2026-06-15T14:04:16.836Z"
+      "lastSeen": "2026-06-15T15:03:51.710Z"
     },
     {
       "adID": "1533159334866384",
@@ -76,7 +96,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-14 22:02:17",
-      "lastSeen": "2026-06-15T14:02:16.975Z"
+      "lastSeen": "2026-06-15T15:03:53.576Z"
     },
     {
       "adID": "1546562980483780",
@@ -130,13 +150,13 @@
       "lat": 33.2588817,
       "lon": -86.8295337,
       "location": "Alabama",
-      "imageUrl": "https://forums.arcade-museum.com/favicon.ico",
+      "imageUrl": "https://forums.arcade-museum.com/attachments/img_7662-jpeg.906395/",
       "adUrl": "https://forums.arcade-museum.com/threads/564236/",
       "priceChanged": 0,
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-14 20:05:24",
-      "lastSeen": "2026-06-15T14:06:13.300Z"
+      "lastSeen": "2026-06-15T15:06:29.143Z"
     },
     {
       "adID": "1653742042578827",
@@ -176,7 +196,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-14 19:03:23",
-      "lastSeen": "2026-06-15T00:02:59.754Z"
+      "lastSeen": "2026-06-15T15:03:53.655Z"
     },
     {
       "adID": "1517924673452105",
@@ -196,7 +216,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-14 19:03:23",
-      "lastSeen": "2026-06-15T00:02:59.788Z"
+      "lastSeen": "2026-06-15T15:03:53.693Z"
     },
     {
       "adID": "1987395935225500",
@@ -236,7 +256,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-14 17:03:20",
-      "lastSeen": "2026-06-15T14:04:17.070Z"
+      "lastSeen": "2026-06-15T15:03:51.945Z"
     },
     {
       "adID": "1534671258113245",
@@ -296,7 +316,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-14 16:03:45",
-      "lastSeen": "2026-06-15T14:04:17.137Z"
+      "lastSeen": "2026-06-15T15:03:52.012Z"
     },
     {
       "adID": "990270117182955",
@@ -330,13 +350,13 @@
       "lat": 29.1871986,
       "lon": -82.1400923,
       "location": "Ocala, Florida",
-      "imageUrl": "https://forums.arcade-museum.com/favicon.ico",
+      "imageUrl": "",
       "adUrl": "https://forums.arcade-museum.com/threads/559598/",
       "priceChanged": 0,
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-14 15:05:19",
-      "lastSeen": "2026-06-15T14:06:12.586Z"
+      "lastSeen": "2026-06-15T15:06:28.473Z"
     },
     {
       "adID": "1777863376989065",
@@ -376,7 +396,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-14 01:04:41",
-      "lastSeen": "2026-06-15T14:04:17.372Z"
+      "lastSeen": "2026-06-15T15:03:52.245Z"
     },
     {
       "adID": "1049158827777471",
@@ -410,13 +430,13 @@
       "lat": 33.8901036,
       "lon": -84.1429719,
       "location": "Lilburn, GA",
-      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/724093731_1515043090300426_8903717786348454471_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=108&ccb=1-7&_nc_sid=92e707&_nc_ohc=sGzZsS2mw90Q7kNvwFd7Qt2&_nc_oc=Adohf_bYTudciWc3JSJt-qkOX3FFeqCh637wZUB9Re0cTOP0jf4rumXkd5Tfr2MfzLk&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=xAUquAlCEtR-N5OZQZm4IA&_nc_ss=7b2a8&oh=00_Af_bLilRKPHytAuxner-TYz8N0SZ1ZB_CcU6NSa_omQ39A&oe=6A35BE30",
+      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/724093731_1515043090300426_8903717786348454471_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=108&ccb=1-7&_nc_sid=92e707&_nc_ohc=sGzZsS2mw90Q7kNvwFd7Qt2&_nc_oc=Adohf_bYTudciWc3JSJt-qkOX3FFeqCh637wZUB9Re0cTOP0jf4rumXkd5Tfr2MfzLk&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=oGpq-PePPyWnrslhDuVO2w&_nc_ss=7b2a8&oh=00_Af-8Ip8S6bNnNq08sGbxbHVUpd0lDaFwFbKVQsPAaDk-hA&oe=6A35F670",
       "adUrl": "https://www.facebook.com/marketplace/item/2871663343198700/",
       "priceChanged": 0,
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-13 23:04:25",
-      "lastSeen": "2026-06-15T14:05:01.343Z"
+      "lastSeen": "2026-06-15T15:05:32.133Z"
     },
     {
       "adID": "870397068861667",
@@ -456,7 +476,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-13 23:02:01",
-      "lastSeen": "2026-06-15T14:02:17.478Z"
+      "lastSeen": "2026-06-15T15:02:26.039Z"
     },
     {
       "adID": "1301266141997517",
@@ -536,7 +556,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-13 19:02:04",
-      "lastSeen": "2026-06-15T14:04:17.623Z"
+      "lastSeen": "2026-06-15T15:03:52.480Z"
     },
     {
       "adID": "3075221829535591",
@@ -570,13 +590,13 @@
       "lat": 29.1871986,
       "lon": -82.1400923,
       "location": "Ocala, Florida",
-      "imageUrl": "https://forums.arcade-museum.com/favicon.ico",
+      "imageUrl": "",
       "adUrl": "https://forums.arcade-museum.com/threads/557840/",
       "priceChanged": 0,
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-13 16:05:10",
-      "lastSeen": "2026-06-15T14:06:12.965Z"
+      "lastSeen": "2026-06-15T15:06:28.808Z"
     },
     {
       "adID": "3169980609876854",
@@ -610,13 +630,13 @@
       "lat": 33.2588817,
       "lon": -86.8295337,
       "location": "Alabama",
-      "imageUrl": "https://forums.arcade-museum.com/favicon.ico",
+      "imageUrl": "https://forums.arcade-museum.com/attachments/img_5188-jpeg.822911/",
       "adUrl": "https://forums.arcade-museum.com/threads/545491/",
       "priceChanged": 0,
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-13 11:05:53",
-      "lastSeen": "2026-06-15T14:06:13.133Z"
+      "lastSeen": "2026-06-15T15:06:28.976Z"
     },
     {
       "adID": "27348690248080684",
@@ -1090,7 +1110,7 @@
       "lat": 29.1871986,
       "lon": -82.1400923,
       "location": "Ocala, Florida",
-      "imageUrl": "https://forums.arcade-museum.com/favicon.ico",
+      "imageUrl": "",
       "adUrl": "https://forums.arcade-museum.com/threads/495279/",
       "priceChanged": 0,
       "priceChangedAt": null,
@@ -1110,7 +1130,7 @@
       "lat": 29.1871986,
       "lon": -82.1400923,
       "location": "Ocala, Florida",
-      "imageUrl": "https://forums.arcade-museum.com/favicon.ico",
+      "imageUrl": "",
       "adUrl": "https://forums.arcade-museum.com/threads/561265/",
       "priceChanged": 0,
       "priceChangedAt": null,
@@ -1290,13 +1310,13 @@
       "lat": 33.6624824,
       "lon": -85.8283224,
       "location": "Anniston, Alabama",
-      "imageUrl": "https://forums.arcade-museum.com/favicon.ico",
+      "imageUrl": "",
       "adUrl": "https://forums.arcade-museum.com/threads/562564/",
       "priceChanged": 0,
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-10 15:04:34",
-      "lastSeen": "2026-06-15T14:06:14.290Z"
+      "lastSeen": "2026-06-15T15:06:29.815Z"
     },
     {
       "adID": "KLOV-375974",
@@ -1310,7 +1330,7 @@
       "lat": 29.1871986,
       "lon": -82.1400923,
       "location": "Ocala, Florida",
-      "imageUrl": "https://forums.arcade-museum.com/favicon.ico",
+      "imageUrl": "",
       "adUrl": "https://forums.arcade-museum.com/threads/375974/",
       "priceChanged": 0,
       "priceChangedAt": null,
@@ -1490,7 +1510,7 @@
       "lat": 29.1871986,
       "lon": -82.1400923,
       "location": "Ocala, Florida",
-      "imageUrl": "https://forums.arcade-museum.com/favicon.ico",
+      "imageUrl": "",
       "adUrl": "https://forums.arcade-museum.com/threads/540336/",
       "priceChanged": 0,
       "priceChangedAt": null,
@@ -1510,7 +1530,7 @@
       "lat": 29.1871986,
       "lon": -82.1400923,
       "location": "Ocala, Florida",
-      "imageUrl": "https://forums.arcade-museum.com/favicon.ico",
+      "imageUrl": "",
       "adUrl": "https://forums.arcade-museum.com/threads/512184/",
       "priceChanged": 0,
       "priceChangedAt": null,
@@ -1730,7 +1750,7 @@
       "lat": 33.2588817,
       "lon": -86.8295337,
       "location": "Alabama",
-      "imageUrl": "https://forums.arcade-museum.com/favicon.ico",
+      "imageUrl": "",
       "adUrl": "https://forums.arcade-museum.com/threads/543081/",
       "priceChanged": 0,
       "priceChangedAt": null,
@@ -1770,7 +1790,7 @@
       "lat": 29.1871986,
       "lon": -82.1400923,
       "location": "Ocala, Florida",
-      "imageUrl": "https://forums.arcade-museum.com/favicon.ico",
+      "imageUrl": "",
       "adUrl": "https://forums.arcade-museum.com/threads/518803/",
       "priceChanged": 0,
       "priceChangedAt": null,
@@ -1850,7 +1870,7 @@
       "lat": 34.1623292,
       "lon": -83.6779474,
       "location": "Pendergrass, Georgia",
-      "imageUrl": "https://forums.arcade-museum.com/favicon.ico",
+      "imageUrl": "",
       "adUrl": "https://forums.arcade-museum.com/threads/564000/",
       "priceChanged": 0,
       "priceChangedAt": null,
@@ -1930,7 +1950,7 @@
       "lat": 34.1623292,
       "lon": -83.6779474,
       "location": "Pendergrass, Georgia",
-      "imageUrl": "https://forums.arcade-museum.com/favicon.ico",
+      "imageUrl": "",
       "adUrl": "https://forums.arcade-museum.com/threads/563994/",
       "priceChanged": 0,
       "priceChangedAt": null,
@@ -1970,13 +1990,13 @@
       "lat": 28.5551912,
       "lon": -81.7669488,
       "location": "Clermont, Florida",
-      "imageUrl": "https://forums.arcade-museum.com/favicon.ico",
+      "imageUrl": "",
       "adUrl": "https://forums.arcade-museum.com/threads/563989/",
       "priceChanged": 0,
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-06 16:05:46",
-      "lastSeen": "2026-06-15T14:06:12.474Z"
+      "lastSeen": "2026-06-15T15:06:28.373Z"
     },
     {
       "adID": "KLOV-557962",
@@ -1990,13 +2010,13 @@
       "lat": 33.2588817,
       "lon": -86.8295337,
       "location": "Alabama",
-      "imageUrl": "https://forums.arcade-museum.com/favicon.ico",
+      "imageUrl": "https://forums.arcade-museum.com/attachments/img_6420-jpeg.864646/",
       "adUrl": "https://forums.arcade-museum.com/threads/557962/",
       "priceChanged": 0,
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-06 16:05:46",
-      "lastSeen": "2026-06-15T14:06:12.798Z"
+      "lastSeen": "2026-06-15T15:06:28.642Z"
     },
     {
       "adID": "KLOV-558878",
@@ -2010,7 +2030,7 @@
       "lat": 33.2588817,
       "lon": -86.8295337,
       "location": "Alabama",
-      "imageUrl": "https://forums.arcade-museum.com/favicon.ico",
+      "imageUrl": "",
       "adUrl": "https://forums.arcade-museum.com/threads/558878/",
       "priceChanged": 0,
       "priceChangedAt": null,
@@ -2030,7 +2050,7 @@
       "lat": 29.1871986,
       "lon": -82.1400923,
       "location": "Ocala, Florida",
-      "imageUrl": "https://forums.arcade-museum.com/favicon.ico",
+      "imageUrl": "",
       "adUrl": "https://forums.arcade-museum.com/threads/552568/",
       "priceChanged": 0,
       "priceChangedAt": null,
@@ -2170,7 +2190,7 @@
       "lat": 33.2588817,
       "lon": -86.8295337,
       "location": "Alabama",
-      "imageUrl": "https://forums.arcade-museum.com/favicon.ico",
+      "imageUrl": "",
       "adUrl": "https://forums.arcade-museum.com/threads/563353/",
       "priceChanged": 0,
       "priceChangedAt": null,
@@ -2190,7 +2210,7 @@
       "lat": 33.2588817,
       "lon": -86.8295337,
       "location": "Alabama",
-      "imageUrl": "https://forums.arcade-museum.com/favicon.ico",
+      "imageUrl": "",
       "adUrl": "https://forums.arcade-museum.com/threads/562723/",
       "priceChanged": 0,
       "priceChangedAt": null,
@@ -2210,7 +2230,7 @@
       "lat": 33.2588817,
       "lon": -86.8295337,
       "location": "Alabama",
-      "imageUrl": "https://forums.arcade-museum.com/favicon.ico",
+      "imageUrl": "",
       "adUrl": "https://forums.arcade-museum.com/threads/563949/",
       "priceChanged": 0,
       "priceChangedAt": null,
@@ -2230,7 +2250,7 @@
       "lat": 30.3262247,
       "lon": -81.6579179,
       "location": "Jacksonville, Florida",
-      "imageUrl": "https://forums.arcade-museum.com/favicon.ico",
+      "imageUrl": "",
       "adUrl": "https://forums.arcade-museum.com/threads/563838/",
       "priceChanged": 0,
       "priceChangedAt": null,
@@ -2350,7 +2370,7 @@
       "lat": 29.1871986,
       "lon": -82.1400923,
       "location": "Ocala, Florida",
-      "imageUrl": "https://forums.arcade-museum.com/favicon.ico",
+      "imageUrl": "",
       "adUrl": "https://forums.arcade-museum.com/threads/549051/",
       "priceChanged": 0,
       "priceChangedAt": null,
@@ -2490,13 +2510,13 @@
       "lat": 31.1371358,
       "lon": -83.4234936,
       "location": "Adel, Georgia",
-      "imageUrl": "https://forums.arcade-museum.com/favicon.ico",
+      "imageUrl": "https://forums.arcade-museum.com/attachments/1000011574-jpg.902478/",
       "adUrl": "https://forums.arcade-museum.com/threads/563647/",
       "priceChanged": 0,
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-03 13:35:44",
-      "lastSeen": "2026-06-15T14:06:13.774Z"
+      "lastSeen": "2026-06-15T15:06:29.619Z"
     },
     {
       "adID": "KLOV-408814",
@@ -2510,7 +2530,7 @@
       "lat": 29.1871986,
       "lon": -82.1400923,
       "location": "Ocala, Florida",
-      "imageUrl": "https://forums.arcade-museum.com/favicon.ico",
+      "imageUrl": "",
       "adUrl": "https://forums.arcade-museum.com/threads/408814/",
       "priceChanged": 0,
       "priceChangedAt": null,
@@ -2530,7 +2550,7 @@
       "lat": 33.2588817,
       "lon": -86.8295337,
       "location": "Alabama",
-      "imageUrl": "https://forums.arcade-museum.com/favicon.ico",
+      "imageUrl": "",
       "adUrl": "https://forums.arcade-museum.com/threads/552819/",
       "priceChanged": 0,
       "priceChangedAt": null,
@@ -2550,7 +2570,7 @@
       "lat": 33.2588817,
       "lon": -86.8295337,
       "location": "Alabama",
-      "imageUrl": "https://forums.arcade-museum.com/favicon.ico",
+      "imageUrl": "",
       "adUrl": "https://forums.arcade-museum.com/threads/562522/",
       "priceChanged": 0,
       "priceChangedAt": null,
@@ -2570,7 +2590,7 @@
       "lat": 33.2588817,
       "lon": -86.8295337,
       "location": "Alabama",
-      "imageUrl": "https://forums.arcade-museum.com/favicon.ico",
+      "imageUrl": "",
       "adUrl": "https://forums.arcade-museum.com/threads/531272/",
       "priceChanged": 0,
       "priceChangedAt": null,
@@ -2590,13 +2610,13 @@
       "lat": 28.5551912,
       "lon": -81.7669488,
       "location": "Clermont, Florida",
-      "imageUrl": "https://forums.arcade-museum.com/favicon.ico",
+      "imageUrl": "",
       "adUrl": "https://forums.arcade-museum.com/threads/563795/",
       "priceChanged": 0,
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-03 13:35:10",
-      "lastSeen": "2026-06-15T14:06:12.507Z"
+      "lastSeen": "2026-06-15T15:06:28.407Z"
     },
     {
       "adID": "KLOV-513187",
@@ -2610,7 +2630,7 @@
       "lat": 29.1871986,
       "lon": -82.1400923,
       "location": "Ocala, Florida",
-      "imageUrl": "https://forums.arcade-museum.com/favicon.ico",
+      "imageUrl": "",
       "adUrl": "https://forums.arcade-museum.com/threads/513187/",
       "priceChanged": 0,
       "priceChangedAt": null,
