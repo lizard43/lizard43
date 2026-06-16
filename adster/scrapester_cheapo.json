@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-16T11:53:27.394Z",
+  "generated_at": "2026-06-16T12:05:34.356Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,53 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 150,
-      "droppedPrice": 1166,
+      "exported_ads": 152,
+      "droppedPrice": 1174,
       "droppedMissingGeo": 0,
-      "droppedCircle": 859
+      "droppedCircle": 867
     }
   },
   "ads": [
+    {
+      "adID": "1352223436974591",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100016039266608/?product_id=1352223436974591",
+      "author": "Dee Djlildarrell Thomas",
+      "postedTime": "2026-06-16T01:55:35.000Z",
+      "title": "Arcade game",
+      "description": "Works good but missing power cord.",
+      "price": "$120",
+      "lat": 33.5206824,
+      "lon": -86.8024326,
+      "location": "Birmingham, AL",
+      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/723904302_1397475649102787_8787668102440865664_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=106&ccb=1-7&_nc_sid=92e707&_nc_ohc=mk3BsrKK8qkQ7kNvwEo8x88&_nc_oc=Adpxa8__eITnjXtUhE_llo4e37OOA3b5o0g7JEGFRNrwoVCKn9sX_hy35PqOafB5_So&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=Rqnn4g98NEBtNw36yPkzOQ&_nc_ss=7b2a8&oh=00_Af_pkbsvnvVvT6-QGS5RgvuM8gWEvGiPeuVsEqoyMaEFwg&oe=6A36FBED",
+      "adUrl": "https://www.facebook.com/marketplace/item/1352223436974591/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-06-16 12:02:43",
+      "lastSeen": "2026-06-16T12:03:28.035Z"
+    },
+    {
+      "adID": "990192850664486",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/640644881/?product_id=990192850664486",
+      "author": "Cathy Ann Glover Reister",
+      "postedTime": "2026-06-16T00:20:09.000Z",
+      "title": "Mip arcade",
+      "description": "Has all parts and instructions. New 60.00",
+      "price": "$10",
+      "lat": 30.3262247,
+      "lon": -81.6579179,
+      "location": "Jacksonville, FL",
+      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/720860744_2375951446215935_209540393887958493_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=108&ccb=1-7&_nc_sid=92e707&_nc_ohc=0dG1iQ3cW5wQ7kNvwH9LhjE&_nc_oc=Adq_Yyx5wg_t5U7LK4fwi2MN15n5bKFyupiiWIvCLLKYpuTKZ0V5T4D8UiB6ARpmnpQ&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=89tz02iph4C0LharH1iqAA&_nc_ss=7b2a8&oh=00_Af-c_S4GYbRk5d1t9hGNwqJN-3e2kKcqzglRFbE2Oig5cQ&oe=6A36FAD0",
+      "adUrl": "https://www.facebook.com/marketplace/item/990192850664486/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-06-16 12:02:43",
+      "lastSeen": "2026-06-16T12:03:28.071Z"
+    },
     {
       "adID": "1546946917104714",
       "source": "MP",
@@ -123,7 +163,7 @@
       "source": "KLOV",
       "authorUrl": "https://forums.arcade-museum.com/members/random_billybob.90752/",
       "author": "Random_Billybob",
-      "postedTime": "2026-06-15T21:30:36.000Z",
+      "postedTime": "2026-06-15T22:49:51.000Z",
       "title": "Empty Irem Lode Runner cab - $120",
       "description": "Empty Irem Lode Runner arcade cabinet with a Matsushita 19\" monitor and Jamma harness. Monitor is untested, but I can guarantee that it doesn't work. Some of the bottom corners are busted, but it is in otherwise decent shape with little to no water damage. This is a pretty rare cab, but not a game ...",
       "price": "$120",
@@ -136,7 +176,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-15 22:04:30",
-      "lastSeen": "2026-06-15T22:04:30.441Z"
+      "lastSeen": "2026-06-16T12:05:30.246Z"
     },
     {
       "adID": "1987214945215534",
@@ -256,7 +296,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-15 19:02:24",
-      "lastSeen": "2026-06-15T23:23:00.937Z"
+      "lastSeen": "2026-06-16T12:02:43.761Z"
     },
     {
       "adID": "2100109484268937",
@@ -296,7 +336,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-15 15:02:25",
-      "lastSeen": "2026-06-15T23:23:01.213Z"
+      "lastSeen": "2026-06-16T12:02:43.794Z"
     },
     {
       "adID": "1533159334866384",
@@ -323,7 +363,7 @@
       "source": "KLOV",
       "authorUrl": "https://forums.arcade-museum.com/members/jjhudgins.80749/",
       "author": "jjhudgins",
-      "postedTime": "2026-06-15T20:47:20.000Z",
+      "postedTime": "2026-06-16T05:04:31.000Z",
       "title": "Atari Vindicators Arcade Game 2 Player Tank Game Fresh Restore Birmingham Al.",
       "description": "Up for sale is a beautiful, highly restored Atari Vindicators dedicated arcade cabinet. 2-player tactical tank shooter is famous for its unique dual-joystick \"tank controls\" and intense cooperative gameplay. Monitor Chassis Rebuilt: The original CRT monitor chassis has been fully pulled, cleaned, a...",
       "price": "$0",
@@ -336,7 +376,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-14 20:05:24",
-      "lastSeen": "2026-06-15T22:04:30.476Z"
+      "lastSeen": "2026-06-16T12:05:29.959Z"
     },
     {
       "adID": "1653742042578827",
@@ -476,7 +516,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-14 15:05:19",
-      "lastSeen": "2026-06-15T22:04:29.466Z"
+      "lastSeen": "2026-06-16T12:05:29.347Z"
     },
     {
       "adID": "1777863376989065",
@@ -1216,7 +1256,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-10 15:04:34",
-      "lastSeen": "2026-06-15T22:04:31.627Z"
+      "lastSeen": "2026-06-16T12:05:31.346Z"
     },
     {
       "adID": "KLOV-375974",
@@ -1856,7 +1896,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-06 16:05:46",
-      "lastSeen": "2026-06-15T22:04:29.367Z"
+      "lastSeen": "2026-06-16T12:05:29.229Z"
     },
     {
       "adID": "KLOV-557962",
@@ -1876,7 +1916,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-06 16:05:46",
-      "lastSeen": "2026-06-15T22:04:29.634Z"
+      "lastSeen": "2026-06-16T12:05:29.599Z"
     },
     {
       "adID": "KLOV-558878",
@@ -2343,7 +2383,7 @@
       "source": "KLOV",
       "authorUrl": "https://forums.arcade-museum.com/members/orangepeel.73874/",
       "author": "OrangePeel",
-      "postedTime": "2026-06-12T19:47:52.000Z",
+      "postedTime": "2026-06-16T11:49:43.000Z",
       "title": "Asteroids Cocktail Light Project - $300 in South GA",
       "description": "Up for sale is a nice asteroids cocktail that needs just a bit of work to be 100%. Cosmetics are all very nice, but the monitor and pcb need minor repair. Top half of the monitor is collapsed, I believe it's something up with the pin headers. The PCB has three issues: 1) Some Objects jump around on...",
       "price": "$300",
@@ -2356,7 +2396,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-03 13:35:44",
-      "lastSeen": "2026-06-15T22:04:31.419Z"
+      "lastSeen": "2026-06-16T12:05:29.823Z"
     },
     {
       "adID": "KLOV-408814",
@@ -2423,20 +2463,20 @@
       "source": "KLOV",
       "authorUrl": "https://forums.arcade-museum.com/members/jjhudgins.80749/",
       "author": "jjhudgins",
-      "postedTime": "2026-06-02T06:29:11.000Z",
+      "postedTime": "2026-06-16T05:16:32.000Z",
       "title": "Wells Gardner 4 Pin Pole Plug Housing YOKE connector 2.36mm / .093 with pins Sets of 10 or 100 Pins",
       "description": "Over the years I have bought too many of these plugs and pins so I'm going to unload a few. These are NEW 4-Pin Pole Plug Housing connector 2.36mm / .093 for almost all yokes, Wells Gardner Etc.... I will sell sets of 10 plugs with 40 pins $22 Shipped And Sets of 100 pins for $22 each",
       "price": "$22",
       "lat": 33.2588817,
       "lon": -86.8295337,
       "location": "Alabama",
-      "imageUrl": "",
+      "imageUrl": "https://forums.arcade-museum.com/attachments/img_2228-jpeg.708887/",
       "adUrl": "https://forums.arcade-museum.com/threads/531272/",
       "priceChanged": 0,
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-03 13:35:13",
-      "lastSeen": "2026-06-04T14:04:59.066Z"
+      "lastSeen": "2026-06-16T12:05:28.492Z"
     },
     {
       "adID": "KLOV-563795",
@@ -2456,7 +2496,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-03 13:35:10",
-      "lastSeen": "2026-06-15T22:04:29.401Z"
+      "lastSeen": "2026-06-16T12:05:29.268Z"
     },
     {
       "adID": "KLOV-513187",
