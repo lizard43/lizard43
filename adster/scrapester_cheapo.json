@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-20T13:04:39.294Z",
+  "generated_at": "2026-06-20T14:04:47.912Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,53 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 164,
+      "exported_ads": 166,
       "droppedPrice": 1341,
       "droppedMissingGeo": 0,
-      "droppedCircle": 1033
+      "droppedCircle": 1036
     }
   },
   "ads": [
+    {
+      "adID": "816462078070258",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100003527934147/?product_id=816462078070258",
+      "author": "Lynn Tiyana",
+      "postedTime": "2026-06-20T13:09:40.000Z",
+      "title": "Ball pin & activity mat",
+      "description": "Green ball pin and play mat with one stain surely can try to get out and no balls included for pin just the pit.",
+      "price": "$30",
+      "lat": 27.9449854,
+      "lon": -82.4583107,
+      "location": "Tampa, FL",
+      "imageUrl": "https://scontent-atl3-3.xx.fbcdn.net/v/t39.84726-6/727602612_2197399697776428_7099387526944159356_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=110&ccb=1-7&_nc_sid=92e707&_nc_ohc=6b9_7yCac1EQ7kNvwGjogDd&_nc_oc=Adp0kKuLHeCtlQinYV8cR1YcklIx4c-KYUdCIMpImVN-5GwAU0QLew87wd0V0OzLiLw&_nc_zt=14&_nc_ht=scontent-atl3-3.xx&_nc_gid=e1SBnmlEPh2OWwGILK1F1g&_nc_ss=7b2a8&oh=00_Af9THTYQOeA4WCzUtt_oRFx8bR-mHkP5VqwL1JwXIAAtwQ&oe=6A3C8A5A",
+      "adUrl": "https://www.facebook.com/marketplace/item/816462078070258/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-06-20 14:02:55",
+      "lastSeen": "2026-06-20T14:03:46.820Z"
+    },
+    {
+      "adID": "1575213104394696",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100006448266013/?product_id=1575213104394696",
+      "author": "Jimmy Rovolis",
+      "postedTime": "2026-06-20T13:08:21.000Z",
+      "title": "Vintage pinball game",
+      "description": "Used vintage pinball game still works perfect for the man cave asking $30",
+      "price": "$30",
+      "lat": 31.805769,
+      "lon": -81.4306642,
+      "location": "Midway, GA",
+      "imageUrl": "https://scontent-atl3-3.xx.fbcdn.net/v/t39.84726-6/726269990_1386008066913647_3809456569687111862_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=111&ccb=1-7&_nc_sid=92e707&_nc_ohc=dUoKlv7wvdUQ7kNvwG_HKfK&_nc_oc=AdrV80unI5lJlYX1HeAo-vT8yjnoBKAAL1TjFOTmJw1m80bMASNwuWHxoEg_t7gkg_o&_nc_zt=14&_nc_ht=scontent-atl3-3.xx&_nc_gid=5jahQEfUnxwZfLhbt2vyOg&_nc_ss=7b2a8&oh=00_Af88FhCj2DoU5ExTDDrlm1GjADvWoDllsQEmbEZaPvUmiw&oe=6A3C8371",
+      "adUrl": "https://www.facebook.com/marketplace/item/1575213104394696/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-06-20 14:02:53",
+      "lastSeen": "2026-06-20T14:03:46.706Z"
+    },
     {
       "adID": "1039291725323651",
       "source": "MP",
@@ -36,7 +76,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-20 12:04:49",
-      "lastSeen": "2026-06-20T13:03:00.533Z"
+      "lastSeen": "2026-06-20T14:02:55.440Z"
     },
     {
       "adID": "27686596047645286",
@@ -56,7 +96,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-20 12:02:19",
-      "lastSeen": "2026-06-20T13:02:15.394Z"
+      "lastSeen": "2026-06-20T14:02:16.876Z"
     },
     {
       "adID": "1412860370876180",
@@ -76,7 +116,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-20 00:02:21",
-      "lastSeen": "2026-06-20T13:03:00.633Z"
+      "lastSeen": "2026-06-20T14:02:55.563Z"
     },
     {
       "adID": "1301733408784614",
@@ -136,7 +176,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-19 21:02:14",
-      "lastSeen": "2026-06-20T13:02:15.835Z"
+      "lastSeen": "2026-06-20T14:02:16.976Z"
     },
     {
       "adID": "1624840438581392",
@@ -216,7 +256,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-19 16:02:26",
-      "lastSeen": "2026-06-20T13:02:16.538Z"
+      "lastSeen": "2026-06-20T14:02:17.647Z"
     },
     {
       "adID": "1324347495876878",
@@ -276,7 +316,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-19 16:02:25",
-      "lastSeen": "2026-06-20T13:02:15.936Z"
+      "lastSeen": "2026-06-20T14:02:17.043Z"
     },
     {
       "adID": "KLOV-345408",
@@ -376,7 +416,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-19 13:17:09",
-      "lastSeen": "2026-06-20T13:04:35.069Z"
+      "lastSeen": "2026-06-20T14:04:43.307Z"
     },
     {
       "adID": "847826774714613",
@@ -516,7 +556,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-19 13:01:27",
-      "lastSeen": "2026-06-20T13:03:00.232Z"
+      "lastSeen": "2026-06-20T14:02:55.105Z"
     },
     {
       "adID": "2016822615623064",
@@ -536,7 +576,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-19 13:01:27",
-      "lastSeen": "2026-06-20T13:03:00.265Z"
+      "lastSeen": "2026-06-20T14:02:55.138Z"
     },
     {
       "adID": "1717324332600139",
@@ -896,7 +936,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-15 22:04:30",
-      "lastSeen": "2026-06-20T13:04:36.494Z"
+      "lastSeen": "2026-06-20T14:04:45.124Z"
     },
     {
       "adID": "1987214945215534",
@@ -1056,7 +1096,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-14 20:05:24",
-      "lastSeen": "2026-06-20T13:04:36.416Z"
+      "lastSeen": "2026-06-20T14:04:45.034Z"
     },
     {
       "adID": "1653742042578827",
@@ -2796,7 +2836,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-03 13:35:44",
-      "lastSeen": "2026-06-20T13:04:36.376Z"
+      "lastSeen": "2026-06-20T14:04:44.990Z"
     },
     {
       "adID": "KLOV-408814",
