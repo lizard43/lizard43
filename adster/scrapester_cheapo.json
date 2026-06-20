@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-19T23:05:29.576Z",
+  "generated_at": "2026-06-20T00:06:27.428Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,53 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 164,
-      "droppedPrice": 1323,
+      "exported_ads": 166,
+      "droppedPrice": 1327,
       "droppedMissingGeo": 0,
-      "droppedCircle": 1005
+      "droppedCircle": 1012
     }
   },
   "ads": [
+    {
+      "adID": "2398907657186322",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100033819669340/?product_id=2398907657186322",
+      "author": "Hannah Grace Thompson",
+      "postedTime": "2026-06-19T23:22:27.000Z",
+      "title": "35th Anniversary Street Fighter Arcade Game",
+      "description": "Barely used, like new arcade game.",
+      "price": "$250",
+      "lat": 30.4876954,
+      "lon": -87.6997094,
+      "location": "Summerdale, AL",
+      "imageUrl": "https://scontent-atl3-1.xx.fbcdn.net/v/t39.84726-6/726315592_995628730019944_3003149745507212108_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=103&ccb=1-7&_nc_sid=92e707&_nc_ohc=UCkEYjgP2IQQ7kNvwEtrTwF&_nc_oc=AdoAPbXv1kR3Jnc8Kgy1uP_A3MenOd5rR-b0ZB4Xy7S3cx5NILgcsOS85QAQ_43Hakw&_nc_zt=14&_nc_ht=scontent-atl3-1.xx&_nc_gid=1fbxuCIWM05SyMPWY1Kg7w&_nc_ss=7b2a8&oh=00_Af9EjP_1n5ZKnlRYneJGGz_nFabNqpJBju1h6xw0amXFFw&oe=6A3B9373",
+      "adUrl": "https://www.facebook.com/marketplace/item/2398907657186322/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-06-20 00:02:25",
+      "lastSeen": "2026-06-20T00:03:57.183Z"
+    },
+    {
+      "adID": "1412860370876180",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/1043839126/?product_id=1412860370876180",
+      "author": "Quiana D Wilson",
+      "postedTime": "2026-06-19T23:53:07.000Z",
+      "title": "Mortal combat arcade",
+      "description": "",
+      "price": "$100",
+      "lat": 32.184469,
+      "lon": -90.2764625,
+      "location": "Byram, MS",
+      "imageUrl": "https://scontent-atl3-2.xx.fbcdn.net/v/t39.84726-6/725904994_1558152466029436_3573249136142040265_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=102&ccb=1-7&_nc_sid=92e707&_nc_ohc=06zG6WhGUGIQ7kNvwFNkBFS&_nc_oc=AdqCXFcmXfaU1ujtVV73yc1nKjapyNHAaw05MykvYa5iGNx6UZ1DEfEE0pnN6jFpHNE&_nc_zt=14&_nc_ht=scontent-atl3-2.xx&_nc_gid=wmx5AOsRzBsgINNmvfNKUQ&_nc_ss=7b2a8&oh=00_Af_pYCv1MphJzyKUaDHxu4VxvNlmXj-8hfqLdDKfzYrouA&oe=6A3BBB1F",
+      "adUrl": "https://www.facebook.com/marketplace/item/1412860370876180/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-06-20 00:02:21",
+      "lastSeen": "2026-06-20T00:03:57.012Z"
+    },
     {
       "adID": "1813147889650423",
       "source": "MP",
@@ -36,7 +76,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-19 23:02:25",
-      "lastSeen": "2026-06-19T23:02:39.965Z"
+      "lastSeen": "2026-06-20T00:02:22.016Z"
     },
     {
       "adID": "1301733408784614",
@@ -96,7 +136,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-19 21:02:14",
-      "lastSeen": "2026-06-19T23:02:25.188Z"
+      "lastSeen": "2026-06-20T00:02:22.083Z"
     },
     {
       "adID": "1624840438581392",
@@ -176,7 +216,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-19 16:02:26",
-      "lastSeen": "2026-06-19T23:02:26.233Z"
+      "lastSeen": "2026-06-20T00:02:22.853Z"
     },
     {
       "adID": "1324347495876878",
@@ -236,7 +276,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-19 16:02:25",
-      "lastSeen": "2026-06-19T23:02:25.321Z"
+      "lastSeen": "2026-06-20T00:02:22.183Z"
     },
     {
       "adID": "KLOV-345408",
@@ -296,7 +336,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-19 13:17:13",
-      "lastSeen": "2026-06-19T23:05:25.694Z"
+      "lastSeen": "2026-06-20T00:06:23.486Z"
     },
     {
       "adID": "KLOV-533258",
@@ -316,7 +356,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-19 13:17:12",
-      "lastSeen": "2026-06-19T23:05:25.361Z"
+      "lastSeen": "2026-06-20T00:06:23.452Z"
     },
     {
       "adID": "KLOV-554468",
@@ -336,7 +376,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-19 13:17:09",
-      "lastSeen": "2026-06-19T23:05:24.826Z"
+      "lastSeen": "2026-06-20T00:06:22.951Z"
     },
     {
       "adID": "847826774714613",
@@ -476,7 +516,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-19 13:01:27",
-      "lastSeen": "2026-06-19T23:03:04.384Z"
+      "lastSeen": "2026-06-20T00:04:26.314Z"
     },
     {
       "adID": "2016822615623064",
@@ -496,7 +536,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-19 13:01:27",
-      "lastSeen": "2026-06-19T23:03:04.418Z"
+      "lastSeen": "2026-06-20T00:04:26.348Z"
     },
     {
       "adID": "1717324332600139",
@@ -516,7 +556,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-19 13:01:24",
-      "lastSeen": "2026-06-19T23:03:04.049Z"
+      "lastSeen": "2026-06-20T00:04:25.978Z"
     },
     {
       "adID": "1285108873439049",
@@ -616,7 +656,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-19 12:48:49",
-      "lastSeen": "2026-06-19T23:02:26.466Z"
+      "lastSeen": "2026-06-20T00:02:23.087Z"
     },
     {
       "adID": "992182663780088",
@@ -636,7 +676,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-19 12:48:49",
-      "lastSeen": "2026-06-19T23:02:26.500Z"
+      "lastSeen": "2026-06-20T00:02:23.121Z"
     },
     {
       "adID": "1279830290661500",
@@ -676,27 +716,27 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-19 12:48:46",
-      "lastSeen": "2026-06-19T20:02:19.865Z"
+      "lastSeen": "2026-06-20T00:02:22.551Z"
     },
     {
       "adID": "25583111884610787",
       "source": "FB",
       "authorUrl": null,
       "author": "Nicholas Mccauley",
-      "postedTime": "2026-06-19T01:00:12.955Z",
+      "postedTime": "2026-06-19T01:00:15.459Z",
       "title": "Killer Instinct 2 arcade PCB",
       "description": "Killer Instinct 2 arcade PCB",
       "price": "$650",
       "lat": 30.1586518,
       "lon": -85.6602936,
       "location": "PANAMA CITY, FL",
-      "imageUrl": "https://scontent-atl3-1.xx.fbcdn.net/v/t39.84726-6/568640491_1478005316765575_3704785479414960884_n.jpg?stp=c3.101.584.584a_dst-jpg_p590x590_tt6&_nc_cat=100&ccb=1-7&_nc_sid=2ad8e8&_nc_ohc=mW-POp-dA_UQ7kNvwFDDjA0&_nc_oc=AdoIfmQk0LcCESpRYvyMjfW_36K95abV2seFK-DHLYbKgwFNBVZQKnmVkiqs8FmNSO8&_nc_zt=14&_nc_ht=scontent-atl3-1.xx&_nc_gid=ZOmc9JX_B-4Epr-JJ9VMAw&_nc_ss=7b2a8&oh=00_Af8ZX3xShVpalp5SK85gecz0wfk1Cx8STZEa-qlfHC_ASg&oe=6A3BA02B",
+      "imageUrl": "https://scontent-atl3-1.xx.fbcdn.net/v/t39.84726-6/568640491_1478005316765575_3704785479414960884_n.jpg?stp=c3.101.584.584a_dst-jpg_p590x590_tt6&_nc_cat=100&ccb=1-7&_nc_sid=2ad8e8&_nc_ohc=mW-POp-dA_UQ7kNvwFDDjA0&_nc_oc=AdoIfmQk0LcCESpRYvyMjfW_36K95abV2seFK-DHLYbKgwFNBVZQKnmVkiqs8FmNSO8&_nc_zt=14&_nc_ht=scontent-atl3-1.xx&_nc_gid=AUfFPjpbp7xemV1fw0KjTw&_nc_ss=7b2a8&oh=00_Af-CGcepRt82Nhx9-PKIixib07uE2NEN24CW1z0UmdA1Hg&oe=6A3BA02B",
       "adUrl": "https://www.facebook.com/commerce/listing/25583111884610787/",
       "priceChanged": 0,
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-19 12:46:25",
-      "lastSeen": "2026-06-19T23:00:14.906Z"
+      "lastSeen": "2026-06-20T00:00:15.797Z"
     },
     {
       "adID": "KLOV-552259",
@@ -856,7 +896,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-15 22:04:30",
-      "lastSeen": "2026-06-19T23:05:26.748Z"
+      "lastSeen": "2026-06-20T00:06:24.475Z"
     },
     {
       "adID": "1987214945215534",
@@ -1016,7 +1056,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-14 20:05:24",
-      "lastSeen": "2026-06-19T23:05:26.670Z"
+      "lastSeen": "2026-06-20T00:06:24.400Z"
     },
     {
       "adID": "1653742042578827",
@@ -1736,7 +1776,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-10 15:04:34",
-      "lastSeen": "2026-06-19T23:05:27.298Z"
+      "lastSeen": "2026-06-20T00:06:25.329Z"
     },
     {
       "adID": "KLOV-375974",
@@ -2516,7 +2556,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-05 11:04:09",
-      "lastSeen": "2026-06-19T23:05:25.747Z"
+      "lastSeen": "2026-06-20T00:06:23.521Z"
     },
     {
       "adID": "KLOV-562723",
@@ -2796,7 +2836,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-03 13:35:44",
-      "lastSeen": "2026-06-19T23:05:26.630Z"
+      "lastSeen": "2026-06-20T00:06:24.358Z"
     },
     {
       "adID": "KLOV-408814",
