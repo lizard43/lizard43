@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-20T21:41:56.992Z",
+  "generated_at": "2026-06-20T22:09:34.737Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,33 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 167,
-      "droppedPrice": 1382,
+      "exported_ads": 168,
+      "droppedPrice": 1386,
       "droppedMissingGeo": 0,
-      "droppedCircle": 1087
+      "droppedCircle": 1090
     }
   },
   "ads": [
+    {
+      "adID": "1518645559754867",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/644816555/?product_id=1518645559754867",
+      "author": "Benjamin Lamborn",
+      "postedTime": "2026-06-20T21:43:57.000Z",
+      "title": "Pinstadium Lights for pinball machine. Stern, spooky, jersey jack",
+      "description": "I have an extra pinstadium light. It helped with the darkness of my godzilla, I let it change colors but you can leave it on white.",
+      "price": "$150",
+      "lat": 28.2441768,
+      "lon": -82.7192671,
+      "location": "New Port Richey, FL",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t15.5256-10/726908301_1509112700949397_2086651038810598003_n.jpg?stp=dst-jpg_tt6&cstp=mx720x1280&ctp=s960x960&_nc_cat=105&ccb=1-7&_nc_sid=d4195b&_nc_ohc=kLB2A2Y4BD8Q7kNvwE9H2Pw&_nc_oc=AdpUwthtdXsBxucQiWiLS-yremDfcWps1q97AhqbPMT6C41iTbpwrwXDpvAiphq_RXc&_nc_zt=23&_nc_ht=scontent-dfw5-1.xx&_nc_gid=3Pvzmt51kcug50j3e9o1qQ&_nc_ss=7b2a8&oh=00_Af_CSteDRLDUrk4yxlgJ-AaCfNM1yKLx533m3ENH5MLtfg&oe=6A3CFD0C",
+      "adUrl": "https://www.facebook.com/marketplace/item/1518645559754867/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-06-20 22:06:36",
+      "lastSeen": "2026-06-20T22:08:35.926Z"
+    },
     {
       "adID": "1279270134413351",
       "source": "MP",
@@ -26,17 +46,17 @@
       "postedTime": "2026-06-20T20:01:55.000Z",
       "title": "Gottlieb Big Indian Pinball Machine",
       "description": "Vintage electro-mechanical pinball machine has a four-player capacity. This Gottlieb Big Indian model features a multi-colored backglass and playfield with Native American themed artwork. The cabinet is wood with painted graphics and metal trim. It includes a coin-operated front panel (not working but can be fixed) and a glass-covered playfield with flippers, bumpers, and targets.",
-      "price": "$400",
+      "price": "$300",
       "lat": 33.9481537,
       "lon": -86.472764,
       "location": "Oneonta, AL",
-      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/726988860_1634941330925144_4605601059218221701_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=107&ccb=1-7&_nc_sid=92e707&_nc_ohc=gASPTncF0HkQ7kNvwHT_PVh&_nc_oc=Adom-UGpFZxYLpdv0uaPcz8IJDckQKImgoaew0v7qdK2K2g1FM1-RloA1wfZnFN_FM8&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=HWKNbnC9WjVGPaezIESG_w&_nc_ss=7b2a8&oh=00_Af_NFSeq91Ble1XoU7FVQE8kAcJEcKrLh9uaK5Rash3zqQ&oe=6A3CDD37",
+      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/726988860_1634941330925144_4605601059218221701_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=107&ccb=1-7&_nc_sid=92e707&_nc_ohc=gASPTncF0HkQ7kNvwHT_PVh&_nc_oc=Adom-UGpFZxYLpdv0uaPcz8IJDckQKImgoaew0v7qdK2K2g1FM1-RloA1wfZnFN_FM8&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=LSpdgSgk-DViaUattrLkVQ&_nc_ss=7b2a8&oh=00_Af8SO7VZs7BqqdoD2tnXyHQsgnGOrtUMnQTJo7z_mYnyeg&oe=6A3CDD37",
       "adUrl": "https://www.facebook.com/marketplace/item/1279270134413351/",
-      "priceChanged": 0,
-      "priceChangedAt": null,
+      "priceChanged": 1,
+      "priceChangedAt": "2026-06-20 22:06:43",
       "hidden": 0,
       "created_at": "2026-06-20 21:06:44",
-      "lastSeen": "2026-06-20T21:08:13.687Z"
+      "lastSeen": "2026-06-20T22:08:36.078Z"
     },
     {
       "adID": "1533520868180443",
@@ -56,7 +76,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-20 21:04:53",
-      "lastSeen": "2026-06-20T21:06:06.756Z"
+      "lastSeen": "2026-06-20T22:05:00.945Z"
     },
     {
       "adID": "4439124829655361",
@@ -76,7 +96,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-20 20:06:13",
-      "lastSeen": "2026-06-20T21:06:46.165Z"
+      "lastSeen": "2026-06-20T22:06:40.049Z"
     },
     {
       "adID": "1888945335085824",
@@ -96,7 +116,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-20 19:09:21",
-      "lastSeen": "2026-06-20T21:06:49.595Z"
+      "lastSeen": "2026-06-20T22:06:43.113Z"
     },
     {
       "adID": "838892802343921",
@@ -116,7 +136,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-20 19:09:21",
-      "lastSeen": "2026-06-20T21:06:49.646Z"
+      "lastSeen": "2026-06-20T22:06:43.157Z"
     },
     {
       "adID": "1023350137329746",
@@ -136,7 +156,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-20 19:09:19",
-      "lastSeen": "2026-06-20T21:06:49.393Z"
+      "lastSeen": "2026-06-20T22:06:42.934Z"
     },
     {
       "adID": "1317337553305847",
@@ -156,7 +176,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-20 19:09:18",
-      "lastSeen": "2026-06-20T21:06:48.460Z"
+      "lastSeen": "2026-06-20T22:06:42.364Z"
     },
     {
       "adID": "1371584394829321",
@@ -270,13 +290,13 @@
       "lat": 30.3262247,
       "lon": -81.6579179,
       "location": "Jacksonville, FL",
-      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/725838618_985996924419830_4566693852820065758_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=104&ccb=1-7&_nc_sid=92e707&_nc_ohc=52vIvg_biHAQ7kNvwGxB7PS&_nc_oc=AdrL80l1CkUXaLxe7NXLZBG20zG_Hvp_Xrm2RYM_SzHjHY3V9HMZyTDfcyNDS296_x0&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=Gw0Kb_cqqbeWRjjXAWu8kg&_nc_ss=7b2a8&oh=00_Af_mcdgirS4-iup_yXbdCXOAXY_1ucjHjrEu77hKHpVEdg&oe=6A3CC607",
+      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/725838618_985996924419830_4566693852820065758_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=104&ccb=1-7&_nc_sid=92e707&_nc_ohc=52vIvg_biHAQ7kNvwGxB7PS&_nc_oc=AdrL80l1CkUXaLxe7NXLZBG20zG_Hvp_Xrm2RYM_SzHjHY3V9HMZyTDfcyNDS296_x0&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=tC1gKplSID-P6Y77v-n_FQ&_nc_ss=7b2a8&oh=00_Af8zNE_zZU1kYiJtJZMarIz6u3kY0ljzLQcjVWnAIa0d_Q&oe=6A3CC607",
       "adUrl": "https://www.facebook.com/marketplace/item/3401026270071727/",
       "priceChanged": 0,
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-20 18:09:37",
-      "lastSeen": "2026-06-20T21:08:13.839Z"
+      "lastSeen": "2026-06-20T22:08:36.176Z"
     },
     {
       "adID": "1538954664630861",
@@ -296,7 +316,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-20 18:05:05",
-      "lastSeen": "2026-06-20T21:06:48.883Z"
+      "lastSeen": "2026-06-20T22:06:42.753Z"
     },
     {
       "adID": "1341083941324080",
@@ -316,7 +336,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-20 18:05:05",
-      "lastSeen": "2026-06-20T21:06:48.933Z"
+      "lastSeen": "2026-06-20T22:06:42.799Z"
     },
     {
       "adID": "1526295285837256",
@@ -336,7 +356,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-20 18:04:58",
-      "lastSeen": "2026-06-20T21:04:51.998Z"
+      "lastSeen": "2026-06-20T22:04:59.796Z"
     },
     {
       "adID": "KLOV-562070",
@@ -356,7 +376,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-20 17:33:47",
-      "lastSeen": "2026-06-20T21:09:12.578Z"
+      "lastSeen": "2026-06-20T22:09:29.361Z"
     },
     {
       "adID": "KLOV-557627",
@@ -376,7 +396,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-20 17:33:47",
-      "lastSeen": "2026-06-20T21:09:12.644Z"
+      "lastSeen": "2026-06-20T22:09:29.428Z"
     },
     {
       "adID": "969733975886526",
@@ -396,7 +416,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-20 15:11:08",
-      "lastSeen": "2026-06-20T21:04:55.754Z"
+      "lastSeen": "2026-06-20T22:05:03.233Z"
     },
     {
       "adID": "1257284999650802",
@@ -416,7 +436,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-20 15:11:08",
-      "lastSeen": "2026-06-20T19:05:07.597Z"
+      "lastSeen": "2026-06-20T22:05:03.278Z"
     },
     {
       "adID": "1503803970653760",
@@ -436,7 +456,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-20 15:11:05",
-      "lastSeen": "2026-06-20T21:04:54.987Z"
+      "lastSeen": "2026-06-20T22:05:02.766Z"
     },
     {
       "adID": "1316875160659124",
@@ -456,7 +476,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-20 15:11:05",
-      "lastSeen": "2026-06-20T21:06:48.280Z"
+      "lastSeen": "2026-06-20T22:06:41.889Z"
     },
     {
       "adID": "3640966862721449",
@@ -476,7 +496,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-20 15:11:05",
-      "lastSeen": "2026-06-20T21:06:48.325Z"
+      "lastSeen": "2026-06-20T22:06:41.934Z"
     },
     {
       "adID": "1333626785613382",
@@ -496,7 +516,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-20 15:11:05",
-      "lastSeen": "2026-06-20T21:04:55.575Z"
+      "lastSeen": "2026-06-20T22:05:03.036Z"
     },
     {
       "adID": "1047676507796151",
@@ -576,7 +596,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-20 14:02:53",
-      "lastSeen": "2026-06-20T21:06:45.059Z"
+      "lastSeen": "2026-06-20T22:06:38.659Z"
     },
     {
       "adID": "1039291725323651",
@@ -596,7 +616,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-20 12:04:49",
-      "lastSeen": "2026-06-20T21:06:46.322Z"
+      "lastSeen": "2026-06-20T22:06:40.189Z"
     },
     {
       "adID": "1412860370876180",
@@ -636,7 +656,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-19 21:03:54",
-      "lastSeen": "2026-06-20T21:06:46.518Z"
+      "lastSeen": "2026-06-20T22:06:40.429Z"
     },
     {
       "adID": "1624840438581392",
@@ -656,7 +676,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-19 17:02:37",
-      "lastSeen": "2026-06-20T19:05:06.656Z"
+      "lastSeen": "2026-06-20T22:05:03.580Z"
     },
     {
       "adID": "1333902584784410",
@@ -676,7 +696,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-19 16:04:27",
-      "lastSeen": "2026-06-20T21:06:47.078Z"
+      "lastSeen": "2026-06-20T22:06:40.664Z"
     },
     {
       "adID": "980489731483301",
@@ -716,7 +736,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-19 16:02:26",
-      "lastSeen": "2026-06-20T21:06:48.100Z"
+      "lastSeen": "2026-06-20T22:06:41.710Z"
     },
     {
       "adID": "1324347495876878",
@@ -730,13 +750,13 @@
       "lat": 33.9566391,
       "lon": -83.9890066,
       "location": "Lawrenceville, GA",
-      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/727989353_1004793382138385_2499654107709126871_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=105&ccb=1-7&_nc_sid=92e707&_nc_ohc=WieV3Vfw1a4Q7kNvwEIssqG&_nc_oc=AdqyJTA90CPkjKZc1nCSdz5qnphYHBdP0YNNkv1fqYJeLNOUVPNuPnJaQRNtZEwORKc&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=DetyGFt17Da4UbdXndmfVg&_nc_ss=7b2a8&oh=00_Af8QZ9rGcljjND0n3wlE8i380hKCNEu-XjO5OAeyl28UFA&oe=6A3CB86C",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/727989353_1004793382138385_2499654107709126871_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=105&ccb=1-7&_nc_sid=92e707&_nc_ohc=WieV3Vfw1a4Q7kNvwEIssqG&_nc_oc=AdqyJTA90CPkjKZc1nCSdz5qnphYHBdP0YNNkv1fqYJeLNOUVPNuPnJaQRNtZEwORKc&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=TjuT9htq9iL2MFSwHeMejQ&_nc_ss=7b2a8&oh=00_Af-MUO4R6Z5oINkB8h9IjJ7XnEkvItgQEIEptklXdoONdA&oe=6A3CF0AC",
       "adUrl": "https://www.facebook.com/marketplace/item/1324347495876878/",
       "priceChanged": 0,
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-19 16:02:26",
-      "lastSeen": "2026-06-20T19:08:07.456Z"
+      "lastSeen": "2026-06-20T22:05:51.647Z"
     },
     {
       "adID": "928787286887002",
@@ -756,7 +776,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-19 16:02:25",
-      "lastSeen": "2026-06-20T21:04:52.607Z"
+      "lastSeen": "2026-06-20T22:05:00.098Z"
     },
     {
       "adID": "KLOV-345408",
@@ -816,7 +836,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-19 13:17:13",
-      "lastSeen": "2026-06-20T21:09:12.678Z"
+      "lastSeen": "2026-06-20T22:09:29.461Z"
     },
     {
       "adID": "KLOV-533258",
@@ -856,7 +876,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-19 13:17:09",
-      "lastSeen": "2026-06-20T21:09:13.648Z"
+      "lastSeen": "2026-06-20T22:09:30.707Z"
     },
     {
       "adID": "847826774714613",
@@ -876,7 +896,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-19 13:01:31",
-      "lastSeen": "2026-06-20T21:06:47.594Z"
+      "lastSeen": "2026-06-20T22:06:41.169Z"
     },
     {
       "adID": "1361557172502273",
@@ -896,7 +916,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-19 13:01:29",
-      "lastSeen": "2026-06-20T21:06:47.280Z"
+      "lastSeen": "2026-06-20T22:06:40.855Z"
     },
     {
       "adID": "1019259364377722",
@@ -916,7 +936,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-19 13:01:29",
-      "lastSeen": "2026-06-20T21:06:47.504Z"
+      "lastSeen": "2026-06-20T22:06:41.079Z"
     },
     {
       "adID": "1040886221713043",
@@ -936,7 +956,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-19 13:01:28",
-      "lastSeen": "2026-06-20T21:06:48.629Z"
+      "lastSeen": "2026-06-20T22:06:42.528Z"
     },
     {
       "adID": "2266178694200774",
@@ -956,7 +976,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-19 13:01:27",
-      "lastSeen": "2026-06-20T21:06:46.008Z"
+      "lastSeen": "2026-06-20T22:06:39.937Z"
     },
     {
       "adID": "2016822615623064",
@@ -976,7 +996,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-19 13:01:27",
-      "lastSeen": "2026-06-20T21:06:46.047Z"
+      "lastSeen": "2026-06-20T22:06:39.971Z"
     },
     {
       "adID": "1717324332600139",
@@ -996,7 +1016,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-19 13:01:24",
-      "lastSeen": "2026-06-20T21:06:47.118Z"
+      "lastSeen": "2026-06-20T22:06:40.704Z"
     },
     {
       "adID": "1285108873439049",
@@ -1016,7 +1036,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-19 12:48:52",
-      "lastSeen": "2026-06-20T21:06:47.195Z"
+      "lastSeen": "2026-06-20T22:06:40.782Z"
     },
     {
       "adID": "2492682454536351",
@@ -1056,7 +1076,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-19 12:48:49",
-      "lastSeen": "2026-06-20T20:04:57.756Z"
+      "lastSeen": "2026-06-20T22:05:00.810Z"
     },
     {
       "adID": "992182663780088",
@@ -1076,7 +1096,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-19 12:48:49",
-      "lastSeen": "2026-06-20T20:04:57.789Z"
+      "lastSeen": "2026-06-20T22:05:00.844Z"
     },
     {
       "adID": "1354812836530587",
@@ -1336,7 +1356,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-14 20:05:24",
-      "lastSeen": "2026-06-20T21:09:14.369Z"
+      "lastSeen": "2026-06-20T22:09:31.008Z"
     },
     {
       "adID": "1653742042578827",
@@ -2896,7 +2916,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-03 13:35:44",
-      "lastSeen": "2026-06-20T21:09:15.422Z"
+      "lastSeen": "2026-06-20T22:09:32.018Z"
     },
     {
       "adID": "KLOV-408814",
@@ -2956,7 +2976,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-03 13:35:10",
-      "lastSeen": "2026-06-20T21:09:12.409Z"
+      "lastSeen": "2026-06-20T22:09:29.227Z"
     },
     {
       "adID": "KLOV-513187",
