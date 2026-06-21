@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-21T17:43:28.526Z",
+  "generated_at": "2026-06-21T18:10:44.131Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,33 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 186,
-      "droppedPrice": 1414,
+      "exported_ads": 187,
+      "droppedPrice": 1415,
       "droppedMissingGeo": 0,
-      "droppedCircle": 1205
+      "droppedCircle": 1210
     }
   },
   "ads": [
+    {
+      "adID": "4006895486111028",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/1766970367/?product_id=4006895486111028",
+      "author": "Phong Nguyen",
+      "postedTime": "2026-06-21T17:44:30.000Z",
+      "title": "Arca Swiss monoball Z ball head",
+      "description": "Don’t use enough to keep. Thin out collection.",
+      "price": "$100",
+      "lat": 33.8532701,
+      "lon": -84.2200729,
+      "location": "Tucker, GA",
+      "imageUrl": "https://scontent-atl3-2.xx.fbcdn.net/v/t39.84726-6/727558376_1481614257101353_6228495899276697315_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=101&ccb=1-7&_nc_sid=92e707&_nc_ohc=d80a7cG7Dn8Q7kNvwH87p3v&_nc_oc=Ado-NQO5WvsybIIRyRIFz5rGb7tAx_cdCLbmPr2V_-2CCk1vpGIoDZdK2cmOO7N-zxE&_nc_zt=14&_nc_ht=scontent-atl3-2.xx&_nc_gid=pTqW1pc6pTDtGVToZgtIlg&_nc_ss=7b2a8&oh=00_Af8uYvNsRvrBQHdxghAtxxVIep8cyFPuefROp858g5v_mw&oe=6A3E0653",
+      "adUrl": "https://www.facebook.com/marketplace/item/4006895486111028/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-06-21 18:06:44",
+      "lastSeen": "2026-06-21T18:09:36.132Z"
+    },
     {
       "adID": "KLOV-534592",
       "source": "KLOV",
@@ -36,7 +56,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-21 16:10:07",
-      "lastSeen": "2026-06-21T17:11:16.884Z"
+      "lastSeen": "2026-06-21T18:10:39.325Z"
     },
     {
       "adID": "KLOV-552810",
@@ -56,7 +76,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-21 16:10:07",
-      "lastSeen": "2026-06-21T17:11:16.914Z"
+      "lastSeen": "2026-06-21T18:10:39.358Z"
     },
     {
       "adID": "2075804316699405",
@@ -76,7 +96,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-21 15:06:57",
-      "lastSeen": "2026-06-21T17:07:42.279Z"
+      "lastSeen": "2026-06-21T18:06:43.395Z"
     },
     {
       "adID": "1357035759616900",
@@ -156,7 +176,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-21 14:05:02",
-      "lastSeen": "2026-06-21T17:07:42.414Z"
+      "lastSeen": "2026-06-21T18:06:43.528Z"
     },
     {
       "adID": "905582565908896",
@@ -176,7 +196,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-21 12:30:35",
-      "lastSeen": "2026-06-21T17:07:43.050Z"
+      "lastSeen": "2026-06-21T18:06:44.131Z"
     },
     {
       "adID": "1672744407284338",
@@ -296,7 +316,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-21 12:05:07",
-      "lastSeen": "2026-06-21T17:07:45.308Z"
+      "lastSeen": "2026-06-21T18:06:46.439Z"
     },
     {
       "adID": "2250402702379327",
@@ -316,7 +336,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-21 12:05:05",
-      "lastSeen": "2026-06-21T17:07:44.112Z"
+      "lastSeen": "2026-06-21T18:06:45.186Z"
     },
     {
       "adID": "1479909856765974",
@@ -336,7 +356,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-21 12:05:05",
-      "lastSeen": "2026-06-21T17:07:44.460Z"
+      "lastSeen": "2026-06-21T18:06:45.220Z"
     },
     {
       "adID": "26936623266033885",
@@ -356,7 +376,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-21 12:05:05",
-      "lastSeen": "2026-06-21T17:07:44.655Z"
+      "lastSeen": "2026-06-21T18:06:45.456Z"
     },
     {
       "adID": "1047720047680527",
@@ -376,7 +396,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-21 12:05:05",
-      "lastSeen": "2026-06-21T17:07:44.695Z"
+      "lastSeen": "2026-06-21T18:06:45.501Z"
     },
     {
       "adID": "2447657779079893",
@@ -396,7 +416,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-21 12:05:05",
-      "lastSeen": "2026-06-21T17:07:44.734Z"
+      "lastSeen": "2026-06-21T18:06:45.546Z"
     },
     {
       "adID": "1303627234791111",
@@ -416,7 +436,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-21 12:05:05",
-      "lastSeen": "2026-06-21T17:07:44.993Z"
+      "lastSeen": "2026-06-21T18:06:45.815Z"
     },
     {
       "adID": "1546196043724352",
@@ -436,7 +456,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-21 12:05:05",
-      "lastSeen": "2026-06-21T17:07:45.083Z"
+      "lastSeen": "2026-06-21T18:06:45.950Z"
     },
     {
       "adID": "1973673043272105",
@@ -456,7 +476,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-21 12:05:04",
-      "lastSeen": "2026-06-21T17:07:43.798Z"
+      "lastSeen": "2026-06-21T18:06:44.918Z"
     },
     {
       "adID": "1050251204025566",
@@ -476,7 +496,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-21 11:09:09",
-      "lastSeen": "2026-06-21T17:07:42.447Z"
+      "lastSeen": "2026-06-21T18:06:43.561Z"
     },
     {
       "adID": "1030079842880671",
@@ -616,7 +636,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-20 22:06:36",
-      "lastSeen": "2026-06-21T17:07:42.547Z"
+      "lastSeen": "2026-06-21T18:06:43.662Z"
     },
     {
       "adID": "1279270134413351",
@@ -636,7 +656,7 @@
       "priceChangedAt": "2026-06-21 11:09:13",
       "hidden": 0,
       "created_at": "2026-06-20 21:06:44",
-      "lastSeen": "2026-06-21T17:07:42.682Z"
+      "lastSeen": "2026-06-21T18:06:43.796Z"
     },
     {
       "adID": "1533520868180443",
@@ -656,7 +676,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-20 21:04:53",
-      "lastSeen": "2026-06-21T17:07:42.649Z"
+      "lastSeen": "2026-06-21T18:06:43.763Z"
     },
     {
       "adID": "4439124829655361",
@@ -876,7 +896,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-20 18:04:58",
-      "lastSeen": "2026-06-21T17:04:58.380Z"
+      "lastSeen": "2026-06-21T18:04:57.364Z"
     },
     {
       "adID": "KLOV-562070",
@@ -896,7 +916,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-20 17:33:47",
-      "lastSeen": "2026-06-21T17:11:17.551Z"
+      "lastSeen": "2026-06-21T18:10:39.995Z"
     },
     {
       "adID": "KLOV-557627",
@@ -916,7 +936,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-20 17:33:47",
-      "lastSeen": "2026-06-21T17:11:17.618Z"
+      "lastSeen": "2026-06-21T18:10:40.062Z"
     },
     {
       "adID": "969733975886526",
@@ -1116,7 +1136,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-20 14:02:53",
-      "lastSeen": "2026-06-21T17:07:43.083Z"
+      "lastSeen": "2026-06-21T18:06:44.165Z"
     },
     {
       "adID": "1039291725323651",
@@ -1356,7 +1376,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-19 13:17:13",
-      "lastSeen": "2026-06-21T17:11:17.651Z"
+      "lastSeen": "2026-06-21T18:10:40.095Z"
     },
     {
       "adID": "KLOV-533258",
@@ -1876,7 +1896,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-14 20:05:24",
-      "lastSeen": "2026-06-21T17:11:18.328Z"
+      "lastSeen": "2026-06-21T18:10:40.799Z"
     },
     {
       "adID": "1653742042578827",
@@ -3316,7 +3336,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-03 13:35:44",
-      "lastSeen": "2026-06-21T17:11:19.239Z"
+      "lastSeen": "2026-06-21T18:10:42.024Z"
     },
     {
       "adID": "KLOV-408814",
@@ -3376,7 +3396,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-03 13:35:10",
-      "lastSeen": "2026-06-21T17:11:17.451Z"
+      "lastSeen": "2026-06-21T18:10:39.894Z"
     },
     {
       "adID": "KLOV-513187",
