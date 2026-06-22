@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-22T20:09:29.384Z",
+  "generated_at": "2026-06-22T21:08:40.579Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,33 +11,13 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 220,
-      "droppedPrice": 1467,
+      "exported_ads": 203,
+      "droppedPrice": 1469,
       "droppedMissingGeo": 0,
-      "droppedCircle": 1306
+      "droppedCircle": 1304
     }
   },
   "ads": [
-    {
-      "adID": "1678751456751261",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/61590244777969/?product_id=1678751456751261",
-      "author": "Savannah Lowe",
-      "postedTime": "2026-06-22T19:04:15.000Z",
-      "title": "Moonball.",
-      "description": "Because I need the money.",
-      "price": "$5",
-      "lat": 27.9094665,
-      "lon": -82.7873244,
-      "location": "Largo, FL",
-      "imageUrl": "https://scontent-atl3-3.xx.fbcdn.net/v/t39.84726-6/727366249_2804140259960138_4083303015125206306_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=107&ccb=1-7&_nc_sid=92e707&_nc_ohc=XkWP1gmfiwgQ7kNvwGp4PmC&_nc_oc=AdoybQ_bTEAC1fwAJSm2Ole4_s-yvzbm7-TeGTVjCWjRSl9lF7a-bypTqkpmAxP7elM&_nc_zt=14&_nc_ht=scontent-atl3-3.xx&_nc_gid=0v31VS0ueLp4ZjaH3GKFmA&_nc_ss=7b2a8&oh=00_Af9PRUB9EtZy3VqOdOcJF5OB0IIYRRZDsbIr65mYT_tsww&oe=6A3F50A1",
-      "adUrl": "https://www.facebook.com/marketplace/item/1678751456751261/",
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-06-22 20:06:42",
-      "lastSeen": "2026-06-22T20:08:26.348Z"
-    },
     {
       "adID": "1897768980902314",
       "source": "MP",
@@ -136,7 +116,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-22 19:07:24",
-      "lastSeen": "2026-06-22T19:15:33.892Z"
+      "lastSeen": "2026-06-22T21:06:07.149Z"
     },
     {
       "adID": "4546874678921535",
@@ -176,27 +156,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-22 19:04:57",
-      "lastSeen": "2026-06-22T20:05:03.043Z"
-    },
-    {
-      "adID": "1016621974685794",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/1453254469/?product_id=1016621974685794",
-      "author": "Mahari Griswold",
-      "postedTime": "2026-06-22T17:53:55.000Z",
-      "title": "Arcade game",
-      "description": "Works great",
-      "price": "$450",
-      "lat": 33.5966005,
-      "lon": -83.8598742,
-      "location": "Covington, GA",
-      "imageUrl": "https://scontent-atl3-1.xx.fbcdn.net/v/t39.84726-6/727380939_1509864340609845_790479680773442792_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=103&ccb=1-7&_nc_sid=92e707&_nc_ohc=nsE4ey1l54YQ7kNvwGLSoM0&_nc_oc=AdoBe3yIkxholBAdjR5Hl3wEd07uX1r0LczzD1BWE7rytRaAdrDEO_P4xVv-NBCm4dk&_nc_zt=14&_nc_ht=scontent-atl3-1.xx&_nc_gid=pKPTgNPgVmb73fph0dwH4g&_nc_ss=7b2a8&oh=00_Af-6jSafuh6wIXNkH9lUPMN48UB9kJyInvfmYd-6At9rmQ&oe=6A3F5AF8",
-      "adUrl": "https://www.facebook.com/marketplace/item/1016621974685794/",
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-06-22 19:04:57",
-      "lastSeen": "2026-06-22T20:05:03.081Z"
+      "lastSeen": "2026-06-22T21:04:54.007Z"
     },
     {
       "adID": "2479667739113627",
@@ -216,7 +176,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-22 19:04:57",
-      "lastSeen": "2026-06-22T20:05:03.612Z"
+      "lastSeen": "2026-06-22T21:04:54.542Z"
     },
     {
       "adID": "KLOV-551143",
@@ -236,7 +196,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-22 18:20:27",
-      "lastSeen": "2026-06-22T20:09:24.003Z"
+      "lastSeen": "2026-06-22T21:08:34.124Z"
     },
     {
       "adID": "KLOV-560474",
@@ -256,7 +216,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-22 18:20:27",
-      "lastSeen": "2026-06-22T20:09:24.036Z"
+      "lastSeen": "2026-06-22T21:08:34.464Z"
     },
     {
       "adID": "KLOV-559512",
@@ -276,7 +236,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-22 18:20:27",
-      "lastSeen": "2026-06-22T20:09:24.580Z"
+      "lastSeen": "2026-06-22T21:08:34.699Z"
     },
     {
       "adID": "KLOV-564279",
@@ -296,7 +256,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-22 18:20:26",
-      "lastSeen": "2026-06-22T20:09:23.736Z"
+      "lastSeen": "2026-06-22T21:08:33.856Z"
     },
     {
       "adID": "KLOV-563524",
@@ -316,27 +276,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-22 18:20:26",
-      "lastSeen": "2026-06-22T20:09:23.870Z"
-    },
-    {
-      "adID": "1740380287132290",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/100022455082675/?product_id=1740380287132290",
-      "author": "Terri Riley Woolven",
-      "postedTime": "2026-06-22T18:02:32.000Z",
-      "title": "Toy Pots and Pans",
-      "description": "",
-      "price": "$10",
-      "lat": 34.2576067,
-      "lon": -88.7033859,
-      "location": "Tupelo, MS",
-      "imageUrl": "https://scontent-atl3-3.xx.fbcdn.net/v/t39.84726-6/727124999_994256720150160_5439205225252400630_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=107&ccb=1-7&_nc_sid=92e707&_nc_ohc=ULlazeuQNw0Q7kNvwFKGbFK&_nc_oc=AdohciO269xcgLriya4eoGGqCeSxHazjwXEVRlHJXQ54MDYZxObFQRgNEpqu3FKIPaA&_nc_zt=14&_nc_ht=scontent-atl3-3.xx&_nc_gid=-42V9nWb9-_kFdu-8KtFug&_nc_ss=7b2a8&oh=00_Af9C3FGW6uMDI8ZOjw5LzlO1nMOnK0Q1epczvU6w0PipIA&oe=6A3F69C7",
-      "adUrl": "https://www.facebook.com/marketplace/item/1740380287132290/",
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-06-22 18:11:48",
-      "lastSeen": "2026-06-22T18:19:13.431Z"
+      "lastSeen": "2026-06-22T21:08:33.990Z"
     },
     {
       "adID": "1153964676942146",
@@ -356,27 +296,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-22 18:11:46",
-      "lastSeen": "2026-06-22T20:06:45.083Z"
-    },
-    {
-      "adID": "846189778257221",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/100000558124189/?product_id=846189778257221",
-      "author": "Nick Soto",
-      "postedTime": "2026-06-22T17:33:54.000Z",
-      "title": "1997 Pinnacle Mint QB Club bronze coin Troy Aikman",
-      "description": "1997 Pinnacle Mint QB Club bronze coin Troy Aikman",
-      "price": "$5",
-      "lat": 28.2441768,
-      "lon": -82.7192671,
-      "location": "New Port Richey, FL",
-      "imageUrl": "https://scontent-atl3-3.xx.fbcdn.net/v/t39.84726-6/729644821_1292467836290447_5565776980171854520_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=111&ccb=1-7&_nc_sid=92e707&_nc_ohc=foI_p3b4JcMQ7kNvwGLEs9J&_nc_oc=AdoeR110xBKoYa5n-cjVOjGGfJcLmD9Py_OwRqwDlXZqv6sHpaV0VeCZcs8x7eQavZM&_nc_zt=14&_nc_ht=scontent-atl3-3.xx&_nc_gid=XrWSKsJ87ra5vvOeiMSPvA&_nc_ss=7b2a8&oh=00_Af9EPXNrMIGNvfQ7kzNeeNenjL17M1CGmtzWnb5lbpNBJA&oe=6A3F6408",
-      "adUrl": "https://www.facebook.com/marketplace/item/846189778257221/",
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-06-22 18:11:45",
-      "lastSeen": "2026-06-22T20:06:42.826Z"
+      "lastSeen": "2026-06-22T21:06:04.564Z"
     },
     {
       "adID": "1063688095986910",
@@ -396,47 +316,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-22 18:11:45",
-      "lastSeen": "2026-06-22T20:06:43.763Z"
-    },
-    {
-      "adID": "2849987532021892",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/100001602956555/?product_id=2849987532021892",
-      "author": "Tori Sing",
-      "postedTime": "2026-06-22T07:38:35.000Z",
-      "title": "Anime pins",
-      "description": "All pins are different prices but if you all it will be $8 and free shipping",
-      "price": "$5",
-      "lat": 30.3262247,
-      "lon": -81.6579179,
-      "location": "Jacksonville, FL",
-      "imageUrl": "https://scontent-atl3-3.xx.fbcdn.net/v/t39.84726-6/729705847_1921804315201789_8003023963103730613_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=111&ccb=1-7&_nc_sid=92e707&_nc_ohc=mQ1kYue3YsgQ7kNvwGwzRja&_nc_oc=AdrfDmZyL74Jrc76KlcQ6r9u_836OFyts2pC63AH14ZnJNrol_K0dJ_xbh8ba3wjjQE&_nc_zt=14&_nc_ht=scontent-atl3-3.xx&_nc_gid=64RKyVeYwNYfIlbyY7N5aQ&_nc_ss=7b2a8&oh=00_Af-sL8WJjxMfHxtj4qCX-h9IQwhv1cK0NbTD0UZcCpJh7Q&oe=6A3F628F",
-      "adUrl": "https://www.facebook.com/marketplace/item/2849987532021892/",
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-06-22 18:11:45",
-      "lastSeen": "2026-06-22T20:06:44.732Z"
-    },
-    {
-      "adID": "1340583747401702",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/529716357/?product_id=1340583747401702",
-      "author": "Alisha Brackett",
-      "postedTime": "2026-06-22T11:35:41.000Z",
-      "title": "Games",
-      "description": "1 pinball game, 2 board games, 3 card games and 2 puzzles. Selling all for $20. I don’t want to split them up and if you only want some, you can buy all and sell what you don’t want. Pick up at 9751 Crosshill Blvd.",
-      "price": "$20",
-      "lat": 30.3262247,
-      "lon": -81.6579179,
-      "location": "Jacksonville, FL",
-      "imageUrl": "https://scontent-atl3-3.xx.fbcdn.net/v/t39.84726-6/727680624_1658072785496716_3938962008415784116_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=108&ccb=1-7&_nc_sid=92e707&_nc_ohc=L9Icm-wD-K8Q7kNvwFGbVln&_nc_oc=AdqwyIgjU1a4g6W2gdvAfnRrgKLLZhPI1gL61m5RnOtC9qUP6pOELScnn9Hht8Mthpg&_nc_zt=14&_nc_ht=scontent-atl3-3.xx&_nc_gid=IVTy2Ie0RsK-6SB20UM98g&_nc_ss=7b2a8&oh=00_Af9ojavyBX_1S1Xgp58VXjgk9G4abrQxQedBGpnlTNbpLA&oe=6A3F35F1",
-      "adUrl": "https://www.facebook.com/marketplace/item/1340583747401702/",
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-06-22 18:11:43",
-      "lastSeen": "2026-06-22T20:06:41.505Z"
+      "lastSeen": "2026-06-22T21:06:04.464Z"
     },
     {
       "adID": "1382949293672965",
@@ -456,7 +336,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-22 17:48:28",
-      "lastSeen": "2026-06-22T20:06:51.838Z"
+      "lastSeen": "2026-06-22T21:06:06.553Z"
     },
     {
       "adID": "3688643631299832",
@@ -476,7 +356,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-22 17:48:28",
-      "lastSeen": "2026-06-22T20:06:51.798Z"
+      "lastSeen": "2026-06-22T21:06:06.508Z"
     },
     {
       "adID": "1006531362074613",
@@ -496,7 +376,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-22 17:48:28",
-      "lastSeen": "2026-06-22T20:06:51.877Z"
+      "lastSeen": "2026-06-22T21:06:06.598Z"
     },
     {
       "adID": "1697598884858981",
@@ -516,7 +396,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-22 17:48:27",
-      "lastSeen": "2026-06-22T20:06:51.346Z"
+      "lastSeen": "2026-06-22T21:06:06.138Z"
     },
     {
       "adID": "963541430052981",
@@ -536,7 +416,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-22 17:48:27",
-      "lastSeen": "2026-06-22T20:06:51.480Z"
+      "lastSeen": "2026-06-22T21:06:06.177Z"
     },
     {
       "adID": "2267569290720275",
@@ -616,7 +496,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-22 17:48:27",
-      "lastSeen": "2026-06-22T20:06:51.659Z"
+      "lastSeen": "2026-06-22T21:06:06.448Z"
     },
     {
       "adID": "4550870031902395",
@@ -656,7 +536,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-22 17:48:26",
-      "lastSeen": "2026-06-22T20:06:51.379Z"
+      "lastSeen": "2026-06-22T21:06:06.098Z"
     },
     {
       "adID": "1673678477229376",
@@ -676,7 +556,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-22 17:48:22",
-      "lastSeen": "2026-06-22T20:06:51.726Z"
+      "lastSeen": "2026-06-22T21:06:05.319Z"
     },
     {
       "adID": "1682787936260275",
@@ -696,7 +576,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-22 17:48:15",
-      "lastSeen": "2026-06-22T20:06:45.810Z"
+      "lastSeen": "2026-06-22T21:06:04.665Z"
     },
     {
       "adID": "1339093764997861",
@@ -716,7 +596,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-22 17:48:15",
-      "lastSeen": "2026-06-22T20:06:46.669Z"
+      "lastSeen": "2026-06-22T21:06:04.732Z"
     },
     {
       "adID": "862431976590090",
@@ -736,7 +616,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-22 17:48:14",
-      "lastSeen": "2026-06-22T20:05:03.679Z"
+      "lastSeen": "2026-06-22T21:04:54.609Z"
     },
     {
       "adID": "954804537606976",
@@ -756,7 +636,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-22 17:48:12",
-      "lastSeen": "2026-06-22T20:05:03.243Z"
+      "lastSeen": "2026-06-22T21:04:54.174Z"
     },
     {
       "adID": "1668733674419213",
@@ -776,7 +656,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-22 17:48:12",
-      "lastSeen": "2026-06-22T20:05:03.277Z"
+      "lastSeen": "2026-06-22T21:04:54.208Z"
     },
     {
       "adID": "897216069416735",
@@ -796,7 +676,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-22 17:48:11",
-      "lastSeen": "2026-06-22T20:06:45.435Z"
+      "lastSeen": "2026-06-22T21:06:04.599Z"
     },
     {
       "adID": "1684303572612183",
@@ -836,7 +716,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-21 21:10:05",
-      "lastSeen": "2026-06-22T20:06:41.773Z"
+      "lastSeen": "2026-06-22T21:06:03.247Z"
     },
     {
       "adID": "4306714552911601",
@@ -856,7 +736,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-21 21:10:04",
-      "lastSeen": "2026-06-22T20:06:41.739Z"
+      "lastSeen": "2026-06-22T21:06:03.214Z"
     },
     {
       "adID": "1555113282658883",
@@ -956,7 +836,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-21 16:10:07",
-      "lastSeen": "2026-06-22T20:09:24.645Z"
+      "lastSeen": "2026-06-22T21:08:34.768Z"
     },
     {
       "adID": "KLOV-552810",
@@ -976,7 +856,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-21 16:10:07",
-      "lastSeen": "2026-06-22T20:09:24.780Z"
+      "lastSeen": "2026-06-22T21:08:34.913Z"
     },
     {
       "adID": "1357035759616900",
@@ -1119,46 +999,6 @@
       "lastSeen": "2026-06-21T21:10:17.853Z"
     },
     {
-      "adID": "1887566221917382",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/100050607743986/?product_id=1887566221917382",
-      "author": "Leandro M Reyes",
-      "postedTime": "2026-06-21T01:41:36.000Z",
-      "title": "Drywall -Texture - level 5 Etc ( for sale )",
-      "description": "",
-      "price": "$222",
-      "lat": 30.3262247,
-      "lon": -81.6579179,
-      "location": "Jacksonville, FL",
-      "imageUrl": "https://scontent-dfw6-2.xx.fbcdn.net/v/t39.84726-6/727845680_2172748810125985_3505337350971581563_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=108&ccb=1-7&_nc_sid=92e707&_nc_ohc=pYmJcmUqhD0Q7kNvwE3QfIc&_nc_oc=AdpN4cBhucr996HEEO25MMXJorLqc7QP8ccITW81QF8cTRbCSxcwECuvVlPbtfhbceE&_nc_zt=14&_nc_ht=scontent-dfw6-2.xx&_nc_gid=rJq-ovXpGjY_OtNNnIqkBQ&_nc_ss=7b2a8&oh=00_Af_AlXE1N1ihnkelWrcTyneiyS9lDFMzY5o3jT-WwP3AjA&oe=6A3D91A8",
-      "adUrl": "https://www.facebook.com/marketplace/item/1887566221917382/",
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-06-21 12:05:07",
-      "lastSeen": "2026-06-21T21:10:16.086Z"
-    },
-    {
-      "adID": "2250402702379327",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/100019367931602/?product_id=2250402702379327",
-      "author": "Okafor Vincent",
-      "postedTime": "2026-06-21T01:42:41.000Z",
-      "title": "Rheem 42k Grain water softener 2 pieces",
-      "description": "Rheem 42k Grain water softener 2 pieces, used like new working and great condition. Kits not included",
-      "price": "$400",
-      "lat": 30.3262247,
-      "lon": -81.6579179,
-      "location": "Jacksonville, FL",
-      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/725518609_975114058899586_5433703249414530113_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=106&ccb=1-7&_nc_sid=92e707&_nc_ohc=FbGY4czdT5UQ7kNvwFdwXR4&_nc_oc=AdoT2cBymvZ4C-tZcMIess7KRxNOSx4AVK3cxtRoDsEYwWtWqzVAIRVs4m-cBLEkbJI&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=I3218FaiyjjVnOb_9Tul0g&_nc_ss=7b2a8&oh=00_Af_Qxf4ICy825BB0IIcsZoafSTEx3MwYBZSdv7pvwOR6zQ&oe=6A3D9C01",
-      "adUrl": "https://www.facebook.com/marketplace/item/2250402702379327/",
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-06-21 12:05:05",
-      "lastSeen": "2026-06-21T21:10:13.759Z"
-    },
-    {
       "adID": "2447657779079893",
       "source": "MP",
       "authorUrl": "https://www.facebook.com/marketplace/profile/10114728/?product_id=2447657779079893",
@@ -1236,7 +1076,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-21 11:09:09",
-      "lastSeen": "2026-06-22T20:06:42.142Z"
+      "lastSeen": "2026-06-22T21:06:03.615Z"
     },
     {
       "adID": "1030079842880671",
@@ -1279,26 +1119,6 @@
       "lastSeen": "2026-06-21T01:08:30.720Z"
     },
     {
-      "adID": "1911335086221280",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/1271053934/?product_id=1911335086221280",
-      "author": "Tasha Melvin",
-      "postedTime": "2026-06-20T02:47:04.000Z",
-      "title": "Scout Coupon Card",
-      "description": "Dave & Buster’s – Buy $30 Get $30 FREE in Game Play! Main Event – Buy $20 Get $20 FREE in Game Play! That’s literally DOUBLE your money in games You make your money right back on just ONE visit... and the coupons are reusable until 12/31/26! If your family already goes to: Dave & Buster’s Main Event Arcade nights This card pays for itself immediately.",
-      "price": "$10",
-      "lat": 30.3262247,
-      "lon": -81.6579179,
-      "location": "Jacksonville, FL",
-      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/727220596_2040831329848993_2745004910237907266_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=100&ccb=1-7&_nc_sid=92e707&_nc_ohc=NHBKAfKNfE8Q7kNvwE6Xynh&_nc_oc=AdoKd6Slk_pu0c4CORU_dD0w8rE6wSJ6OXws1Z7K0-FGg2kPoYZKJOMZLKOsnF6jpxY&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=QV-Y5rK1NxY_eDTY9uLWiw&_nc_ss=7b2a8&oh=00_Af8sTG4IBlHCmgtNRGO9d8XfkAVGiMlvIdsOX9sJzM_Jsg&oe=6A3D1577",
-      "adUrl": "https://www.facebook.com/marketplace/item/1911335086221280/",
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-06-21 01:05:05",
-      "lastSeen": "2026-06-21T01:08:30.785Z"
-    },
-    {
       "adID": "991023413847353",
       "source": "MP",
       "authorUrl": "https://www.facebook.com/marketplace/profile/100024372680887/?product_id=991023413847353",
@@ -1317,26 +1137,6 @@
       "hidden": 0,
       "created_at": "2026-06-21 01:05:02",
       "lastSeen": "2026-06-21T01:08:30.406Z"
-    },
-    {
-      "adID": "867314423088748",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/100018544626091/?product_id=867314423088748",
-      "author": "Diane Bond",
-      "postedTime": "2026-06-21T00:56:56.000Z",
-      "title": "Vintage Art Glass Collection ($5 each)",
-      "description": "$5 for each piece. You can make your own decorative art glass collection. If you want them all, please feel free to make an offer. They are available for pickup at 1909 Parental Home Road suite 3, M-F from 10 30 to 4 30",
-      "price": "$5",
-      "lat": 30.3262247,
-      "lon": -81.6579179,
-      "location": "Jacksonville, FL",
-      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t15.5256-10/689837526_1562803855186928_4478301755100869503_n.jpg?stp=dst-jpg_tt6&cstp=mx1080x1920&ctp=s960x960&_nc_cat=102&ccb=1-7&_nc_sid=d4195b&_nc_ohc=1qg9U--2TLgQ7kNvwHNwxaF&_nc_oc=AdoQNZxZQYfDM--AKUEqCAzbpfd0aWfA8iA8CnO5Jk_Def52TlnxjyttJpJUHA94640&_nc_zt=23&_nc_ht=scontent-dfw6-1.xx&_nc_gid=LT3KtMUOpzXIh1kjGg65iA&_nc_ss=7b2a8&oh=00_Af-MBiG9J1XgldRztHgN2rMOQDChD-xpmA9WhKUiv1MFWg&oe=6A3D235C",
-      "adUrl": "https://www.facebook.com/marketplace/item/867314423088748/",
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-06-21 01:05:02",
-      "lastSeen": "2026-06-21T01:08:30.506Z"
     },
     {
       "adID": "1025825643298024",
@@ -1579,26 +1379,6 @@
       "lastSeen": "2026-06-20T19:08:07.153Z"
     },
     {
-      "adID": "3401026270071727",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/100048305321404/?product_id=3401026270071727",
-      "author": "Lauren Flint",
-      "postedTime": "2026-06-18T13:32:09.000Z",
-      "title": "God bless America pin",
-      "description": "Great condition! Pitney bowes “god bless America”",
-      "price": "$4",
-      "lat": 30.3262247,
-      "lon": -81.6579179,
-      "location": "Jacksonville, FL",
-      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/725838618_985996924419830_4566693852820065758_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=104&ccb=1-7&_nc_sid=92e707&_nc_ohc=52vIvg_biHAQ7kNvwGxB7PS&_nc_oc=AdrL80l1CkUXaLxe7NXLZBG20zG_Hvp_Xrm2RYM_SzHjHY3V9HMZyTDfcyNDS296_x0&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=CcHDkGagZvyziMWkt_K0qA&_nc_ss=7b2a8&oh=00_Af_DdHkLF-fcIrncXi5ivpnG7Sr32fghoESyzaUawfMZNw&oe=6A3DA707",
-      "adUrl": "https://www.facebook.com/marketplace/item/3401026270071727/",
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-06-20 18:09:37",
-      "lastSeen": "2026-06-21T11:11:33.407Z"
-    },
-    {
       "adID": "1538954664630861",
       "source": "MP",
       "authorUrl": "https://www.facebook.com/marketplace/profile/100042564232442/?product_id=1538954664630861",
@@ -1617,26 +1397,6 @@
       "hidden": 0,
       "created_at": "2026-06-20 18:05:05",
       "lastSeen": "2026-06-21T01:09:13.034Z"
-    },
-    {
-      "adID": "1526295285837256",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/61576723658735/?product_id=1526295285837256",
-      "author": "Junko Treasures",
-      "postedTime": "2026-06-20T17:30:59.000Z",
-      "title": "Adventure Landing Arcade Coin",
-      "description": "Adventure Landing at Jax Beach closed in October 2025 after more than 30 years of family fun.",
-      "price": "$50",
-      "lat": 30.2946859,
-      "lon": -81.3931396,
-      "location": "Jacksonville Beach, FL",
-      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/726900512_1339215575049972_3334963138502421180_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=105&ccb=1-7&_nc_sid=92e707&_nc_ohc=zdEj8Etuny0Q7kNvwEQ1Ljl&_nc_oc=Adr4iF0VcZU1v_FuJJZbLX-unJiPCep8_u-tiV9iXbFcuOO38z4kEBsrDxBmlgl1CiY&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=IqK2l6qN_cDiFL9Guu5jDA&_nc_ss=7b2a8&oh=00_Af__I_Op-1nQy1V3oH7SU7_HlMEU2Or6-phKFZ-vEpYr7Q&oe=6A3C9B6D",
-      "adUrl": "https://www.facebook.com/marketplace/item/1526295285837256/",
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-06-20 18:04:58",
-      "lastSeen": "2026-06-21T21:05:54.771Z"
     },
     {
       "adID": "KLOV-562070",
@@ -1717,26 +1477,6 @@
       "hidden": 0,
       "created_at": "2026-06-20 15:11:08",
       "lastSeen": "2026-06-20T23:05:01.550Z"
-    },
-    {
-      "adID": "1503803970653760",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/100001760666107/?product_id=1503803970653760",
-      "author": "Jacquie Aslinger",
-      "postedTime": "2026-06-17T20:10:43.000Z",
-      "title": "Arcade Courtside Pro Shootout",
-      "description": "Fun inside dual basketball arcade. Keeps score and folds for easy storage.",
-      "price": "$80",
-      "lat": 30.2946859,
-      "lon": -81.3931396,
-      "location": "Jacksonville Beach, FL",
-      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/725641026_792709373928004_1595268671188717615_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=106&ccb=1-7&_nc_sid=92e707&_nc_ohc=3WytPazFDUIQ7kNvwGXQzqJ&_nc_oc=AdpUkSTLrwAbJRhbSL_p9XLjEkDf7xW4TPwsOhF2fRYkyP1_ObFsCdberxrV1pvWZKI&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=zACEx3Q5nwzRjMSXQThPQQ&_nc_ss=7b2a8&oh=00_Af9M58SlJOqpvbciqBNFPIOwQVPp2alhikFEaOpOCvDnVw&oe=6A3C6895",
-      "adUrl": "https://www.facebook.com/marketplace/item/1503803970653760/",
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-06-20 15:11:05",
-      "lastSeen": "2026-06-21T01:05:06.089Z"
     },
     {
       "adID": "1316875160659124",
@@ -2419,26 +2159,6 @@
       "lastSeen": "2026-06-16T13:03:35.620Z"
     },
     {
-      "adID": "990192850664486",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/640644881/?product_id=990192850664486",
-      "author": "Cathy Ann Glover Reister",
-      "postedTime": "2026-06-16T00:20:09.000Z",
-      "title": "Mip arcade",
-      "description": "Has all parts and instructions. New 60.00",
-      "price": "$10",
-      "lat": 30.3262247,
-      "lon": -81.6579179,
-      "location": "Jacksonville, FL",
-      "imageUrl": "https://scontent-atl3-3.xx.fbcdn.net/v/t39.84726-6/720860744_2375951446215935_209540393887958493_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=108&ccb=1-7&_nc_sid=92e707&_nc_ohc=w6mWLZKTh6cQ7kNvwFvBDka&_nc_oc=AdoxZYnPH3E6F7hSQ_8Fx4buYIIyhJFwy4BCrrfCZBNZWPWO8fkrVPnIpy8jQHjxdjY&_nc_zt=14&_nc_ht=scontent-atl3-3.xx&_nc_gid=tpLNe9H3UKjJK6O5sgaBKg&_nc_ss=7b2a8&oh=00_Af-ormElKhMG1YsRjN5K0iscoSQqQ0b6v4BgExs8EHxqoQ&oe=6A3E02D0",
-      "adUrl": "https://www.facebook.com/marketplace/item/990192850664486/",
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-06-16 12:02:43",
-      "lastSeen": "2026-06-21T17:43:07.588Z"
-    },
-    {
       "adID": "2574970539603097",
       "source": "MP",
       "authorUrl": "https://www.facebook.com/marketplace/profile/100004005608845/?product_id=2574970539603097",
@@ -2596,7 +2316,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-14 20:05:24",
-      "lastSeen": "2026-06-22T20:09:26.187Z"
+      "lastSeen": "2026-06-22T21:08:35.614Z"
     },
     {
       "adID": "1653742042578827",
@@ -2697,26 +2417,6 @@
       "hidden": 0,
       "created_at": "2026-06-14 15:02:00",
       "lastSeen": "2026-06-20T15:19:58.284Z"
-    },
-    {
-      "adID": "1049158827777471",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/100050482431036/?product_id=1049158827777471",
-      "author": "Sara N Martinez",
-      "postedTime": "2026-06-13T23:59:26.000Z",
-      "title": "Nex playground",
-      "description": "GET MOVING WITH ACTIVE FAMILY FUN. Nex Playground is a new kind of video game console that gets your family moving. It easily connects to your TV, transforming your living room into an active play space. Within minutes, your family will be playing Fruit Ninja, Whac-a-Mole and more. Using a built-in camera to track motion and natural body movements, anyone in the family can jump right in. JUST USE YOUR BODY TO PLAY. Play naturally just by moving your body. Playground uses the magic of AI to follow your movements using the built-in wide-angle camera. No controllers or clunky trackers! Up to 4 players can play at the same time, so everyone can get moving together. GAMES YOU'LL LOVE MOVING TO. Playground is packed with interactive motion games, turning your living room into an arcade, theme park, gym, and more. There is something for everyone. It is perfect for indoor family game night, after school activities, or a playdate with friends. EASY SET UP. Playground connects to your TV or projector with a simple HDMI connection and gets everyone in on the fun. It's small and sits elegantly on any console or mantle, and can easily fit in a backpack for playdates and more. From ages 5 and up—Playground is the life of every party. SAFE FOR KIDS AND FAMILIES. Playground content is safe and appropriate for all ages. No ads. No in-app purchases. No mature content. Playground is also kidSAFE+ COPPA certified and motion tracking data is never stored or processed in the cloud.",
-      "price": "$100",
-      "lat": 30.3262247,
-      "lon": -81.6579179,
-      "location": "Jacksonville, FL",
-      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/723230258_1570040961398173_6755516203150611887_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=107&ccb=1-7&_nc_sid=92e707&_nc_ohc=_eFKAkcb4RoQ7kNvwGoB3Ta&_nc_oc=Ado4h0XCZ0p5RILpzNe-tR01u717r4DYCMm7ywQVLT2jVx7d1iMJZvWZsJeJAF1o4Bg&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=BpnpZ_SZchQO09uZkOmhqQ&_nc_ss=7b2a8&oh=00_Af_hdj2Zpe3QCErhF5PBCgg3nsoYqAb3SLfaGlyPb-MdWA&oe=6A3C9D21",
-      "adUrl": "https://www.facebook.com/marketplace/item/1049158827777471/",
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-06-14 01:01:57",
-      "lastSeen": "2026-06-20T16:40:23.603Z"
     },
     {
       "adID": "2871663343198700",
@@ -3479,26 +3179,6 @@
       "lastSeen": "2026-06-09T16:05:05.681Z"
     },
     {
-      "adID": "929300960146459",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/100000011176259/?product_id=929300960146459",
-      "author": "Allie Biess Benso",
-      "postedTime": "2026-06-07T12:31:14.000Z",
-      "title": "Classic Pinball Machine",
-      "description": "Williams Darling (1973) is a classic two-player, electromechanical (EM) pinball machine designed by Steve Kordek, with retro art by Christian Marche. It is highly notable for its central looping \"captive ball\" mechanism, robust DC-powered pop bumpers, and unique lower playfield slingshot shooters. NOTE- Buyer must move from 2nd story home.",
-      "price": "$850",
-      "lat": 30.3262247,
-      "lon": -81.6579179,
-      "location": "Jacksonville, FL",
-      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t15.5256-10/717637479_1558217728972010_4907140963068419707_n.jpg?stp=dst-jpg_tt6&cstp=mx720x1280&ctp=s960x960&_nc_cat=106&ccb=1-7&_nc_sid=d4195b&_nc_ohc=DDf7MhFtUCcQ7kNvwGmZNwF&_nc_oc=AdpXMi2XlFW1m3M664x_b3-tGV3H1jGs-9s4scLolmdrHyt5IPRxdRyvEONtFJ3ruDI&_nc_zt=23&_nc_ht=scontent-dfw5-1.xx&_nc_gid=5e6xDoWToNEq-VkagtuSqA&_nc_ss=7b2a8&oh=00_Af_l3xSHoP8WbbsWPbAVp3rdH1qtabznvTGi0l3lP0re7Q&oe=6A3CAEBF",
-      "adUrl": "https://www.facebook.com/marketplace/item/929300960146459/",
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-06-07 13:02:11",
-      "lastSeen": "2026-06-20T17:00:02.688Z"
-    },
-    {
       "adID": "2415160015562110",
       "source": "MP",
       "authorUrl": "https://www.facebook.com/marketplace/profile/100000292580621/?product_id=2415160015562110",
@@ -3596,7 +3276,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-06 16:05:46",
-      "lastSeen": "2026-06-22T20:09:23.768Z"
+      "lastSeen": "2026-06-22T21:08:33.893Z"
     },
     {
       "adID": "KLOV-557962",
@@ -3996,7 +3676,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-03 13:35:44",
-      "lastSeen": "2026-06-22T20:09:25.965Z"
+      "lastSeen": "2026-06-22T21:08:35.414Z"
     },
     {
       "adID": "KLOV-408814",
@@ -4197,26 +3877,6 @@
       "hidden": 0,
       "created_at": "2026-05-31 12:07:16",
       "lastSeen": "2026-06-19T15:23:27.621Z"
-    },
-    {
-      "adID": "1313807033518852",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/100000854359211/?product_id=1313807033518852",
-      "author": "John Jackson",
-      "postedTime": "2026-05-30T23:30:52.000Z",
-      "title": "NECA brand TMNT 4-pack. Original Arcade edition un-opened. No trades, sorry.",
-      "description": "Great condition with a slight dent in the corner of the box. Parting with some of my collectables to pay bills while waiting for partial unemployment to hit and I return to my job. Looking to part with this and have a few others I'll list later.",
-      "price": "$90",
-      "lat": 34.2978794,
-      "lon": -83.8240663,
-      "location": "Gainesville, GA",
-      "imageUrl": "https://scontent-dfw6-2.xx.fbcdn.net/v/t15.5256-10/638853758_1235721042055516_2070575864411697346_n.jpg?stp=dst-jpg_tt6&cstp=mx720x1472&ctp=s960x960&_nc_cat=108&ccb=1-7&_nc_sid=d4195b&_nc_ohc=Ke4l6qGKQ4QQ7kNvwEp__05&_nc_oc=AdrWGUJjoE0jxtzn10nJmDqUkq1vK3tuUL7FWszgtMWEfZp4SKBDr88khO3x9DPs93k&_nc_zt=23&_nc_ht=scontent-dfw6-2.xx&_nc_gid=LYmsSGuFy97tLrF_QUJWBw&_nc_ss=7b2a8&oh=00_Af-ehvcH9fl1qEMoRT_nxifgLeCQPK8OGfv-zf5AeOk5Ig&oe=6A3C9165",
-      "adUrl": "https://www.facebook.com/marketplace/item/1313807033518852/",
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-05-31 01:01:33",
-      "lastSeen": "2026-06-20T17:19:54.742Z"
     },
     {
       "adID": "4512510302359971",
