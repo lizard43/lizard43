@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-23T00:09:39.594Z",
+  "generated_at": "2026-06-23T01:08:35.405Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,53 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 182,
-      "droppedPrice": 1478,
+      "exported_ads": 184,
+      "droppedPrice": 1481,
       "droppedMissingGeo": 0,
-      "droppedCircle": 1311
+      "droppedCircle": 1315
     }
   },
   "ads": [
+    {
+      "adID": "2556629261424387",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100002070433118/?product_id=2556629261424387",
+      "author": "Melissa Couch",
+      "postedTime": "2026-06-23T00:50:21.000Z",
+      "title": "Bling O Matic Arcade Game",
+      "description": "Bling O Matic Arcade Game. Currently is not working, can either be fixed or used for parts. Worked before it went into storage. Pickup would be from our home in Jay. Very heavy. $250 obo.",
+      "price": "$250",
+      "lat": 30.9526044,
+      "lon": -87.1510047,
+      "location": "Jay, FL",
+      "imageUrl": "https://scontent-atl3-1.xx.fbcdn.net/v/t39.84726-6/727864796_4494116197468844_6361430554477120832_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=103&ccb=1-7&_nc_sid=92e707&_nc_ohc=OMMGNUUqQOUQ7kNvwEK6e3v&_nc_oc=Ado1dpcRjz1woIOvOiU5KCgQViX9KW83UeymRIw6UNxa1AW0YrJS1dlmDgkQVJBshGQ&_nc_zt=14&_nc_ht=scontent-atl3-1.xx&_nc_gid=3BwfgPagSpe_gxjUrzGNaA&_nc_ss=7b2a8&oh=00_Af8wapZpuJdmwehxobbHrdX0soXPxikXwZBKy_V5X6FPFg&oe=6A3FAE61",
+      "adUrl": "https://www.facebook.com/marketplace/item/2556629261424387/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-06-23 01:04:46",
+      "lastSeen": "2026-06-23T01:06:11.240Z"
+    },
+    {
+      "adID": "2259123981291870",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100002070433118/?product_id=2259123981291870",
+      "author": "Melissa Couch",
+      "postedTime": "2026-06-23T00:44:02.000Z",
+      "title": "Bar Ber Cut Lite Arcade Game",
+      "description": "Bar Ber Cut Lite Arcade Game. Works. No issues. Pickup will be from our home in Jay. Very heavy. 75 inches tall 33 inches wide 37 inches length",
+      "price": "$500",
+      "lat": 30.9526044,
+      "lon": -87.1510047,
+      "location": "Jay, FL",
+      "imageUrl": "https://scontent-atl3-2.xx.fbcdn.net/v/t39.84726-6/730473933_3121062294731057_1866465543106057917_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=102&ccb=1-7&_nc_sid=92e707&_nc_ohc=bQZrQX0uajIQ7kNvwGmGNKa&_nc_oc=AdqdNk7ACtynA7_hSZaAlWMnWX2SM24jydGJKS1HKf2tziQmG6j_dft8fpIKGN0CTuA&_nc_zt=14&_nc_ht=scontent-atl3-2.xx&_nc_gid=H06_wOXZYAvOsjW-wWkMsA&_nc_ss=7b2a8&oh=00_Af_RswkMtTydeoYg-SCCuDJXSVVBQDtyvvXrLJFmH-Vr-g&oe=6A3FAD37",
+      "adUrl": "https://www.facebook.com/marketplace/item/2259123981291870/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-06-23 01:04:46",
+      "lastSeen": "2026-06-23T01:05:31.205Z"
+    },
     {
       "adID": "2297797477626669",
       "source": "MP",
@@ -36,7 +76,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-23 00:07:15",
-      "lastSeen": "2026-06-23T00:08:26.643Z"
+      "lastSeen": "2026-06-23T01:06:11.274Z"
     },
     {
       "adID": "1621101298995230",
@@ -76,7 +116,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-23 00:04:49",
-      "lastSeen": "2026-06-23T00:07:15.118Z"
+      "lastSeen": "2026-06-23T01:06:11.307Z"
     },
     {
       "adID": "2444230789418788",
@@ -96,7 +136,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-22 22:07:27",
-      "lastSeen": "2026-06-23T00:07:15.152Z"
+      "lastSeen": "2026-06-23T01:06:11.341Z"
     },
     {
       "adID": "1503483838141781",
@@ -216,7 +256,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-22 19:04:57",
-      "lastSeen": "2026-06-23T00:04:49.023Z"
+      "lastSeen": "2026-06-23T01:04:46.416Z"
     },
     {
       "adID": "2479667739113627",
@@ -236,7 +276,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-22 19:04:57",
-      "lastSeen": "2026-06-23T00:04:49.928Z"
+      "lastSeen": "2026-06-23T01:04:47.219Z"
     },
     {
       "adID": "KLOV-551143",
@@ -256,7 +296,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-22 18:20:27",
-      "lastSeen": "2026-06-23T00:09:35.178Z"
+      "lastSeen": "2026-06-23T01:08:31.188Z"
     },
     {
       "adID": "KLOV-560474",
@@ -276,7 +316,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-22 18:20:27",
-      "lastSeen": "2026-06-23T00:09:35.211Z"
+      "lastSeen": "2026-06-23T01:08:31.221Z"
     },
     {
       "adID": "KLOV-559512",
@@ -296,7 +336,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-22 18:20:27",
-      "lastSeen": "2026-06-23T00:09:35.456Z"
+      "lastSeen": "2026-06-23T01:08:31.457Z"
     },
     {
       "adID": "KLOV-564279",
@@ -316,7 +356,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-22 18:20:26",
-      "lastSeen": "2026-06-23T00:09:34.977Z"
+      "lastSeen": "2026-06-23T01:08:30.953Z"
     },
     {
       "adID": "KLOV-563524",
@@ -336,7 +376,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-22 18:20:26",
-      "lastSeen": "2026-06-23T00:09:34.843Z"
+      "lastSeen": "2026-06-23T01:08:30.820Z"
     },
     {
       "adID": "1153964676942146",
@@ -356,7 +396,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-22 18:11:46",
-      "lastSeen": "2026-06-23T00:07:15.387Z"
+      "lastSeen": "2026-06-23T01:06:11.575Z"
     },
     {
       "adID": "1063688095986910",
@@ -376,7 +416,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-22 18:11:45",
-      "lastSeen": "2026-06-23T00:07:15.286Z"
+      "lastSeen": "2026-06-23T01:06:11.475Z"
     },
     {
       "adID": "1382949293672965",
@@ -496,7 +536,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-22 17:48:22",
-      "lastSeen": "2026-06-23T00:07:16.041Z"
+      "lastSeen": "2026-06-23T01:06:12.169Z"
     },
     {
       "adID": "1339093764997861",
@@ -516,7 +556,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-22 17:48:15",
-      "lastSeen": "2026-06-23T00:07:15.487Z"
+      "lastSeen": "2026-06-23T01:06:11.676Z"
     },
     {
       "adID": "862431976590090",
@@ -536,7 +576,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-22 17:48:14",
-      "lastSeen": "2026-06-23T00:04:49.994Z"
+      "lastSeen": "2026-06-23T01:04:47.286Z"
     },
     {
       "adID": "1668733674419213",
@@ -556,7 +596,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-22 17:48:12",
-      "lastSeen": "2026-06-23T00:04:49.157Z"
+      "lastSeen": "2026-06-23T01:04:46.550Z"
     },
     {
       "adID": "1684303572612183",
@@ -596,7 +636,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-21 21:10:05",
-      "lastSeen": "2026-06-23T00:07:14.697Z"
+      "lastSeen": "2026-06-23T01:06:10.619Z"
     },
     {
       "adID": "4306714552911601",
@@ -616,7 +656,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-21 21:10:04",
-      "lastSeen": "2026-06-23T00:07:14.376Z"
+      "lastSeen": "2026-06-23T01:06:10.586Z"
     },
     {
       "adID": "1555113282658883",
@@ -716,7 +756,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-21 16:10:07",
-      "lastSeen": "2026-06-23T00:09:35.524Z"
+      "lastSeen": "2026-06-23T01:08:31.524Z"
     },
     {
       "adID": "KLOV-552810",
@@ -736,7 +776,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-21 16:10:07",
-      "lastSeen": "2026-06-23T00:09:35.658Z"
+      "lastSeen": "2026-06-23T01:08:31.658Z"
     },
     {
       "adID": "1357035759616900",
@@ -1676,7 +1716,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-19 13:01:27",
-      "lastSeen": "2026-06-21T11:09:12.320Z"
+      "lastSeen": "2026-06-23T01:06:13.026Z"
     },
     {
       "adID": "2016822615623064",
@@ -1696,7 +1736,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-19 13:01:27",
-      "lastSeen": "2026-06-21T11:09:12.455Z"
+      "lastSeen": "2026-06-23T01:06:13.071Z"
     },
     {
       "adID": "1285108873439049",
@@ -1976,7 +2016,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-14 20:05:24",
-      "lastSeen": "2026-06-23T00:09:36.324Z"
+      "lastSeen": "2026-06-23T01:08:32.233Z"
     },
     {
       "adID": "1653742042578827",
@@ -2916,7 +2956,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-06 16:05:46",
-      "lastSeen": "2026-06-23T00:09:35.010Z"
+      "lastSeen": "2026-06-23T01:08:30.987Z"
     },
     {
       "adID": "KLOV-557962",
@@ -3276,7 +3316,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-03 13:35:44",
-      "lastSeen": "2026-06-23T00:09:36.094Z"
+      "lastSeen": "2026-06-23T01:08:32.026Z"
     },
     {
       "adID": "KLOV-408814",
