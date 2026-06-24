@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-24T18:09:44.611Z",
+  "generated_at": "2026-06-24T19:10:27.962Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,53 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 280,
-      "droppedPrice": 1590,
+      "exported_ads": 282,
+      "droppedPrice": 1596,
       "droppedMissingGeo": 0,
-      "droppedCircle": 1470
+      "droppedCircle": 1477
     }
   },
   "ads": [
+    {
+      "adID": "27675175362172722",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/719895012/?product_id=27675175362172722",
+      "author": "JD Kennedy",
+      "postedTime": "2026-06-24T18:09:10.000Z",
+      "title": "Indoor Game",
+      "description": "Hungry T-Rex is a foam ball shooting game where the T-Rex sounds off when you make it in the goal (his mouth). The t-rex and shooter are there, but you’ll need to get the balls from amazon! (more fun than playing with just the 8 if you ask me!)",
+      "price": "$0",
+      "lat": 33.857328,
+      "lon": -84.0199108,
+      "location": "Snellville, GA",
+      "imageUrl": "https://scontent-atl3-3.xx.fbcdn.net/v/t39.84726-6/730266846_857620880337988_4991493461772003704_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=107&ccb=1-7&_nc_sid=92e707&_nc_ohc=dbQG-7uqosEQ7kNvwHbxWt8&_nc_oc=Adros7dvB-GvTt0AU_l57cs5-OttP4tLwT90ZXNOscodafkIiYkOGeqqUJAtFy1vFOU&_nc_zt=14&_nc_ht=scontent-atl3-3.xx&_nc_gid=sr_VxMrcUvztjEPDL_huew&_nc_ss=7b2a8&oh=00_Af-TA0IXXGS08nBwoYi5kpdVF0EEuT4a6tTlcz8s5SORpA&oe=6A41EEE2",
+      "adUrl": "https://www.facebook.com/marketplace/item/27675175362172722/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-06-24 19:07:24",
+      "lastSeen": "2026-06-24T19:09:22.819Z"
+    },
+    {
+      "adID": "1926531998006285",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100045830318645/?product_id=1926531998006285",
+      "author": "Mark Rotolo",
+      "postedTime": "2026-06-24T16:43:24.000Z",
+      "title": "Vintage Arcade Machine (40 classic games!!)",
+      "description": "Obo All the classic arcade games including: Galaga, pac-man, dig dug, Tetris, and many more. Can change to free play or quarters. Great for a local bar, college house, or any hangout spot.",
+      "price": "$350",
+      "lat": 33.9597677,
+      "lon": -83.376398,
+      "location": "Athens, GA",
+      "imageUrl": "https://scontent-atl3-3.xx.fbcdn.net/v/t39.84726-6/730109497_4467986310114309_4067288177125080834_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=108&ccb=1-7&_nc_sid=92e707&_nc_ohc=aHM8EvAzSVMQ7kNvwF6Q6nS&_nc_oc=AdqvUwDHj05U_HhemFDFc2nj2LW2lXmZDU2LnlrvMov_rlD1Mj4DE1s0T25qZTnwaLY&_nc_zt=14&_nc_ht=scontent-atl3-3.xx&_nc_gid=CTIMnDu9PqlfJCaaXZPDIQ&_nc_ss=7b2a8&oh=00_Af-bLSTYf5IRhZvoHqw9-4Ol0ci32tsBAWKXmyFKCcva0w&oe=6A420691",
+      "adUrl": "https://www.facebook.com/marketplace/item/1926531998006285/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-06-24 19:04:59",
+      "lastSeen": "2026-06-24T19:07:24.517Z"
+    },
     {
       "adID": "1543425073994186",
       "source": "MP",
@@ -36,7 +76,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-24 17:04:57",
-      "lastSeen": "2026-06-24T18:05:09.394Z"
+      "lastSeen": "2026-06-24T19:04:59.872Z"
     },
     {
       "adID": "27920018347594347",
@@ -56,7 +96,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-24 16:06:39",
-      "lastSeen": "2026-06-24T18:07:32.121Z"
+      "lastSeen": "2026-06-24T19:07:24.550Z"
     },
     {
       "adID": "1681087713167910",
@@ -76,7 +116,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-24 16:06:39",
-      "lastSeen": "2026-06-24T18:07:32.154Z"
+      "lastSeen": "2026-06-24T19:07:24.584Z"
     },
     {
       "adID": "983348281191611",
@@ -96,7 +136,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-24 16:04:44",
-      "lastSeen": "2026-06-24T18:05:08.551Z"
+      "lastSeen": "2026-06-24T19:04:58.937Z"
     },
     {
       "adID": "KLOV-554639",
@@ -116,7 +156,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-24 15:13:30",
-      "lastSeen": "2026-06-24T18:09:40.132Z"
+      "lastSeen": "2026-06-24T19:10:18.997Z"
     },
     {
       "adID": "2220022395487034",
@@ -156,7 +196,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-24 15:04:52",
-      "lastSeen": "2026-06-24T18:07:32.187Z"
+      "lastSeen": "2026-06-24T19:07:24.617Z"
     },
     {
       "adID": "2757477071274433",
@@ -176,7 +216,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-24 15:04:52",
-      "lastSeen": "2026-06-24T18:05:09.495Z"
+      "lastSeen": "2026-06-24T19:05:00.007Z"
     },
     {
       "adID": "1675364633809596",
@@ -196,7 +236,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-24 14:07:29",
-      "lastSeen": "2026-06-24T18:07:32.221Z"
+      "lastSeen": "2026-06-24T19:07:24.662Z"
     },
     {
       "adID": "1533848331559933",
@@ -216,7 +256,7 @@
       "priceChangedAt": "2026-06-24 15:04:55",
       "hidden": 0,
       "created_at": "2026-06-24 14:04:51",
-      "lastSeen": "2026-06-24T18:05:09.562Z"
+      "lastSeen": "2026-06-24T19:05:00.073Z"
     },
     {
       "adID": "1627874958306904",
@@ -376,7 +416,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-24 12:05:20",
-      "lastSeen": "2026-06-24T17:06:48.930Z"
+      "lastSeen": "2026-06-24T19:07:27.207Z"
     },
     {
       "adID": "1050947447501565",
@@ -416,7 +456,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-24 12:05:20",
-      "lastSeen": "2026-06-24T17:06:49.138Z"
+      "lastSeen": "2026-06-24T19:07:27.297Z"
     },
     {
       "adID": "936061899452755",
@@ -476,7 +516,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-24 12:05:18",
-      "lastSeen": "2026-06-24T17:06:48.684Z"
+      "lastSeen": "2026-06-24T19:07:26.747Z"
     },
     {
       "adID": "1621565102282087",
@@ -496,7 +536,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-24 12:05:18",
-      "lastSeen": "2026-06-24T17:06:48.724Z"
+      "lastSeen": "2026-06-24T19:07:26.836Z"
     },
     {
       "adID": "1278861384062914",
@@ -516,7 +556,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-24 12:05:18",
-      "lastSeen": "2026-06-24T17:06:48.763Z"
+      "lastSeen": "2026-06-24T19:07:26.881Z"
     },
     {
       "adID": "2815324642170317",
@@ -536,7 +576,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-24 12:05:18",
-      "lastSeen": "2026-06-24T17:04:59.833Z"
+      "lastSeen": "2026-06-24T19:07:26.971Z"
     },
     {
       "adID": "1009597091855923",
@@ -556,7 +596,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-24 12:05:18",
-      "lastSeen": "2026-06-24T17:04:59.733Z"
+      "lastSeen": "2026-06-24T19:07:26.926Z"
     },
     {
       "adID": "1931891097528994",
@@ -576,7 +616,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-24 12:05:18",
-      "lastSeen": "2026-06-24T17:04:59.879Z"
+      "lastSeen": "2026-06-24T19:07:27.117Z"
     },
     {
       "adID": "1489861572452476",
@@ -596,7 +636,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-24 12:05:18",
-      "lastSeen": "2026-06-24T17:06:48.802Z"
+      "lastSeen": "2026-06-24T19:07:27.016Z"
     },
     {
       "adID": "3307852279399392",
@@ -616,7 +656,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-24 12:05:17",
-      "lastSeen": "2026-06-24T18:07:33.671Z"
+      "lastSeen": "2026-06-24T19:07:26.521Z"
     },
     {
       "adID": "2538384786616280",
@@ -636,7 +676,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-24 12:05:13",
-      "lastSeen": "2026-06-24T18:07:33.229Z"
+      "lastSeen": "2026-06-24T19:07:25.703Z"
     },
     {
       "adID": "2310026499851334",
@@ -656,7 +696,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-24 12:05:13",
-      "lastSeen": "2026-06-24T18:07:33.268Z"
+      "lastSeen": "2026-06-24T19:07:25.741Z"
     },
     {
       "adID": "1009633381616438",
@@ -676,7 +716,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-24 12:05:13",
-      "lastSeen": "2026-06-24T18:07:33.347Z"
+      "lastSeen": "2026-06-24T19:07:25.820Z"
     },
     {
       "adID": "1512889683046695",
@@ -696,7 +736,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-24 12:05:13",
-      "lastSeen": "2026-06-24T18:07:33.386Z"
+      "lastSeen": "2026-06-24T19:07:25.860Z"
     },
     {
       "adID": "1755952248871239",
@@ -736,7 +776,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-24 12:05:08",
-      "lastSeen": "2026-06-24T18:07:32.562Z"
+      "lastSeen": "2026-06-24T19:07:25.024Z"
     },
     {
       "adID": "1281861860457110",
@@ -756,7 +796,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-24 12:05:05",
-      "lastSeen": "2026-06-24T18:07:32.355Z"
+      "lastSeen": "2026-06-24T19:07:24.794Z"
     },
     {
       "adID": "966184376473865",
@@ -776,7 +816,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-24 12:05:04",
-      "lastSeen": "2026-06-24T18:05:08.658Z"
+      "lastSeen": "2026-06-24T19:04:59.036Z"
     },
     {
       "adID": "2013039569580237",
@@ -796,7 +836,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-24 12:05:04",
-      "lastSeen": "2026-06-24T18:05:08.759Z"
+      "lastSeen": "2026-06-24T19:04:59.137Z"
     },
     {
       "adID": "1557796539341171",
@@ -816,7 +856,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-24 12:05:02",
-      "lastSeen": "2026-06-24T18:07:32.254Z"
+      "lastSeen": "2026-06-24T19:07:24.694Z"
     },
     {
       "adID": "1726507495200196",
@@ -836,7 +876,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-24 11:05:02",
-      "lastSeen": "2026-06-24T18:05:10.130Z"
+      "lastSeen": "2026-06-24T19:05:00.756Z"
     },
     {
       "adID": "1681924132857881",
@@ -856,7 +896,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-24 11:05:02",
-      "lastSeen": "2026-06-24T18:05:08.858Z"
+      "lastSeen": "2026-06-24T19:04:59.237Z"
     },
     {
       "adID": "999875322846840",
@@ -883,20 +923,20 @@
       "source": "FB",
       "authorUrl": null,
       "author": "Richard Thompson",
-      "postedTime": "2026-06-24T01:03:29.722Z",
+      "postedTime": "2026-06-24T01:03:27.736Z",
       "title": "PAC MAN MONITOR GLASS BEZEL ONLY $50 OBO!",
       "description": "This PAC MAN MONITOR GLASS BEZEL is a collectible replacement part for an arcade gaming machine, specifically designed for the game Pac-Man. Produced by Bally Midway, this bezel adds a sleek and authentic touch to the monitor of a vintage arcade game, enhancing the overall gaming experience for enthusiasts. Perfect for restoring or customizing a classic arcade machine, this PAC MAN MONITOR GLASS BEZEL is a must-have for collectors and gamers looking to preserve the nostalgia ... See more",
       "price": "$50",
       "lat": 32.2998686,
       "lon": -90.1830408,
       "location": "JACKSON, MS",
-      "imageUrl": "https://scontent-atl3-1.xx.fbcdn.net/v/t39.30808-6/689495336_2457459551439313_1413917428850761011_n.jpg?stp=dst-jpg_tt6&cstp=mx640x480&ctp=s590x590&_nc_cat=103&ccb=1-7&_nc_sid=aa7b47&_nc_ohc=MgSoAoife2gQ7kNvwEK1cos&_nc_oc=AdqK5BPtXq5bYVKDe9VDX0R-PZAwIDlC_VI6thzTJKNB5o95YBU00uxIVO-g_LeLOR8&_nc_zt=23&_nc_ht=scontent-atl3-1.xx&_nc_gid=t1XHeasIx20PeQXbOnfxkQ&_nc_ss=7b2a8&oh=00_Af-l_dU7H58XoxRsiENKMMPk56FFGQHDYdkwUrjKCETD6g&oe=6A41F006",
+      "imageUrl": "https://scontent-atl3-1.xx.fbcdn.net/v/t39.30808-6/689495336_2457459551439313_1413917428850761011_n.jpg?stp=dst-jpg_tt6&cstp=mx640x480&ctp=s590x590&_nc_cat=103&ccb=1-7&_nc_sid=aa7b47&_nc_ohc=MgSoAoife2gQ7kNvwEK1cos&_nc_oc=AdqK5BPtXq5bYVKDe9VDX0R-PZAwIDlC_VI6thzTJKNB5o95YBU00uxIVO-g_LeLOR8&_nc_zt=23&_nc_ht=scontent-atl3-1.xx&_nc_gid=rpgEtmWqBZEb8NVfsIqcyw&_nc_ss=7b2a8&oh=00_Af8odybVTXdtg1v7aoOSZKBZPMKKigPNWSGU4e30K6Ct5Q&oe=6A41F006",
       "adUrl": "https://www.facebook.com/commerce/listing/1639860653870129/",
       "priceChanged": 0,
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-24 01:03:26",
-      "lastSeen": "2026-06-24T18:03:29.839Z"
+      "lastSeen": "2026-06-24T19:03:27.818Z"
     },
     {
       "adID": "989841787372267",
@@ -936,7 +976,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-23 22:04:59",
-      "lastSeen": "2026-06-24T18:05:09.160Z"
+      "lastSeen": "2026-06-24T19:04:59.562Z"
     },
     {
       "adID": "1683110759634069",
@@ -1096,7 +1136,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-23 15:11:53",
-      "lastSeen": "2026-06-24T18:09:40.735Z"
+      "lastSeen": "2026-06-24T19:10:19.599Z"
     },
     {
       "adID": "1815328999877343",
@@ -1936,7 +1976,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-23 11:11:53",
-      "lastSeen": "2026-06-24T18:09:40.847Z"
+      "lastSeen": "2026-06-24T19:10:19.700Z"
     },
     {
       "adID": "1784958512483977",
@@ -2336,7 +2376,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-22 18:20:26",
-      "lastSeen": "2026-06-24T18:09:41.014Z"
+      "lastSeen": "2026-06-24T19:10:20.186Z"
     },
     {
       "adID": "1153964676942146",
@@ -5236,7 +5276,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-03 13:35:44",
-      "lastSeen": "2026-06-24T18:09:41.483Z"
+      "lastSeen": "2026-06-24T19:10:21.256Z"
     },
     {
       "adID": "KLOV-408814",
@@ -5276,7 +5316,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-03 13:35:19",
-      "lastSeen": "2026-06-24T18:09:40.401Z"
+      "lastSeen": "2026-06-24T19:10:19.264Z"
     },
     {
       "adID": "KLOV-563795",
