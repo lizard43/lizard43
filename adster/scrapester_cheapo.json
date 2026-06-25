@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-25T15:07:19.393Z",
+  "generated_at": "2026-06-25T16:08:44.558Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,19 +11,39 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 36,
-      "droppedPrice": 247,
+      "exported_ads": 37,
+      "droppedPrice": 255,
       "droppedMissingGeo": 0,
-      "droppedCircle": 207
+      "droppedCircle": 214
     }
   },
   "ads": [
+    {
+      "adID": "1028604542991748",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100000568317235/?product_id=1028604542991748",
+      "author": "Anabel Amador",
+      "postedTime": "2026-06-25T03:03:47.000Z",
+      "title": "Led drawing board",
+      "description": "New",
+      "price": "$15",
+      "lat": 27.9449854,
+      "lon": -82.4583107,
+      "location": "Tampa, FL",
+      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/730104251_1537113424629761_1544821865340083275_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=101&ccb=1-7&_nc_sid=92e707&_nc_ohc=x5LX5KAHJ-wQ7kNvwGCKTW5&_nc_oc=AdohNAmhw7pGxZB7BWUWCDiTE87vF7AAU-hslnm07vrV49TmfrZwIU1jkOxzJoKGwqk&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=N_jYnm2ahd81L9jexCsSAA&_nc_ss=7b2a8&oh=00_Af9TljHml4fvZOzpEEmNtP-61mb7ve2EMH4HroRArPB_nw&oe=6A4324B2",
+      "adUrl": "https://www.facebook.com/marketplace/item/1028604542991748/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-06-25 16:06:24",
+      "lastSeen": "2026-06-25T16:07:37.232Z"
+    },
     {
       "adID": "PI-216824",
       "source": "PS",
       "authorUrl": "https://pinside.com/pinball/community/pinsiders/blessed/market",
       "author": "Blessed",
-      "postedTime": "2026-06-25T12:06:37.746Z",
+      "postedTime": "2026-06-25T12:08:00.804Z",
       "title": "Freedom EM 2nd Version",
       "description": "Used - shows wear but 100% working and clean - “Plays well. Everything in Backbox, including score reels cleaned within the last year and a half. All switches under playfield and inside cabinet cleaned as well. Flippers, pop bu...”",
       "price": "$500",
@@ -36,7 +56,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-25 14:11:16",
-      "lastSeen": "2026-06-25T15:06:38.030Z"
+      "lastSeen": "2026-06-25T16:08:02.739Z"
     },
     {
       "adID": "1360907525951890",
@@ -56,7 +76,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-25 14:07:45",
-      "lastSeen": "2026-06-25T14:10:51.916Z"
+      "lastSeen": "2026-06-25T16:06:24.703Z"
     },
     {
       "adID": "1737628940765337",
@@ -76,7 +96,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-25 14:07:45",
-      "lastSeen": "2026-06-25T14:10:51.950Z"
+      "lastSeen": "2026-06-25T16:06:24.754Z"
     },
     {
       "adID": "2926268101050246",
@@ -96,7 +116,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-25 14:07:44",
-      "lastSeen": "2026-06-25T14:10:51.816Z"
+      "lastSeen": "2026-06-25T16:06:24.500Z"
     },
     {
       "adID": "1025496826605523",
@@ -116,7 +136,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-25 14:07:43",
-      "lastSeen": "2026-06-25T14:10:51.748Z"
+      "lastSeen": "2026-06-25T16:06:24.350Z"
     },
     {
       "adID": "862033693197912",
@@ -136,7 +156,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-25 14:05:02",
-      "lastSeen": "2026-06-25T14:06:58.196Z"
+      "lastSeen": "2026-06-25T16:06:23.960Z"
     },
     {
       "adID": "1858390015565562",
@@ -156,7 +176,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-25 14:05:02",
-      "lastSeen": "2026-06-25T14:07:43.539Z"
+      "lastSeen": "2026-06-25T16:06:24.292Z"
     },
     {
       "adID": "1670156544092648",
@@ -170,13 +190,13 @@
       "lat": 33.8137919,
       "lon": -85.7612872,
       "location": "Jacksonville, AL",
-      "imageUrl": "https://scontent-atl3-1.xx.fbcdn.net/v/t39.84726-6/731788125_888412377001141_4679785981496808959_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=100&ccb=1-7&_nc_sid=92e707&_nc_ohc=wWCajiI82DYQ7kNvwG3r1VG&_nc_oc=AdoGH9p80gqldPOmBC1EE_1vMa7W9lXOGf8R0Ovd-64WZ0ahBF7IDbBT4Gf5Ki2L3WY&_nc_zt=14&_nc_ht=scontent-atl3-1.xx&_nc_gid=cyEXPj-aG3rAAElqNgp8cQ&_nc_ss=7b2a8&oh=00_Af8mMUx44-l931ig-D1OKrpMGRVvex3vd99RjUjpwcxa1Q&oe=6A42EFFE",
+      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/731788125_888412377001141_4679785981496808959_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=100&ccb=1-7&_nc_sid=92e707&_nc_ohc=wWCajiI82DYQ7kNvwG3r1VG&_nc_oc=AdoGH9p80gqldPOmBC1EE_1vMa7W9lXOGf8R0Ovd-64WZ0ahBF7IDbBT4Gf5Ki2L3WY&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=9He7VdsvylSMQ6GtwjHwLw&_nc_ss=7b2a8&oh=00_Af-tImLDxRuaN78GgXjfizMVRgcoCG6KeOjtorCXLdNu1Q&oe=6A43283E",
       "adUrl": "https://www.facebook.com/marketplace/item/1670156544092648/",
       "priceChanged": 0,
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-25 13:21:12",
-      "lastSeen": "2026-06-25T14:10:51.715Z"
+      "lastSeen": "2026-06-25T16:07:37.200Z"
     },
     {
       "adID": "1033997495757007",
@@ -196,7 +216,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-25 13:21:12",
-      "lastSeen": "2026-06-25T14:07:43.269Z"
+      "lastSeen": "2026-06-25T16:06:24.005Z"
     },
     {
       "adID": "909594302218278",
@@ -256,7 +276,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-25 13:21:07",
-      "lastSeen": "2026-06-25T15:06:07.723Z"
+      "lastSeen": "2026-06-25T16:06:20.901Z"
     },
     {
       "adID": "988975803739004",
@@ -276,7 +296,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-25 13:05:10",
-      "lastSeen": "2026-06-25T15:06:08.895Z"
+      "lastSeen": "2026-06-25T16:06:22.102Z"
     },
     {
       "adID": "5389147607976237",
@@ -296,7 +316,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-25 13:05:10",
-      "lastSeen": "2026-06-25T15:06:09.579Z"
+      "lastSeen": "2026-06-25T16:06:22.786Z"
     },
     {
       "adID": "1346576997407081",
@@ -316,7 +336,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-25 13:05:10",
-      "lastSeen": "2026-06-25T15:06:09.714Z"
+      "lastSeen": "2026-06-25T16:06:23.285Z"
     },
     {
       "adID": "1786512502717097",
@@ -336,7 +356,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-25 13:05:09",
-      "lastSeen": "2026-06-25T14:07:41.893Z"
+      "lastSeen": "2026-06-25T16:06:22.652Z"
     },
     {
       "adID": "861159277063306",
@@ -356,7 +376,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-25 13:05:09",
-      "lastSeen": "2026-06-25T15:06:09.489Z"
+      "lastSeen": "2026-06-25T16:06:22.697Z"
     },
     {
       "adID": "2030254727880388",
@@ -376,7 +396,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-25 13:05:07",
-      "lastSeen": "2026-06-25T15:06:09.125Z"
+      "lastSeen": "2026-06-25T16:06:22.338Z"
     },
     {
       "adID": "2161289817746896",
@@ -396,7 +416,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-25 13:05:05",
-      "lastSeen": "2026-06-25T15:06:08.493Z"
+      "lastSeen": "2026-06-25T16:06:21.638Z"
     },
     {
       "adID": "1014424194294578",
@@ -416,7 +436,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-25 13:05:05",
-      "lastSeen": "2026-06-25T15:06:08.560Z"
+      "lastSeen": "2026-06-25T16:06:21.710Z"
     },
     {
       "adID": "2170096607107310",
@@ -436,7 +456,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-25 13:05:05",
-      "lastSeen": "2026-06-25T15:06:08.360Z"
+      "lastSeen": "2026-06-25T16:06:21.504Z"
     },
     {
       "adID": "1300877942245433",
@@ -456,7 +476,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-25 13:05:04",
-      "lastSeen": "2026-06-25T15:06:08.193Z"
+      "lastSeen": "2026-06-25T16:06:21.336Z"
     },
     {
       "adID": "1543425073994186",
@@ -516,7 +536,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-25 11:58:21",
-      "lastSeen": "2026-06-25T15:07:17.061Z"
+      "lastSeen": "2026-06-25T16:08:41.752Z"
     },
     {
       "adID": "KLOV-371195",
@@ -536,7 +556,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-25 11:58:20",
-      "lastSeen": "2026-06-25T15:07:16.445Z"
+      "lastSeen": "2026-06-25T16:08:41.042Z"
     },
     {
       "adID": "KLOV-556509",
@@ -576,7 +596,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-25 11:58:19",
-      "lastSeen": "2026-06-25T15:07:15.877Z"
+      "lastSeen": "2026-06-25T16:08:40.472Z"
     },
     {
       "adID": "KLOV-552819",
@@ -596,7 +616,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-25 11:58:19",
-      "lastSeen": "2026-06-25T15:07:16.110Z"
+      "lastSeen": "2026-06-25T16:08:40.707Z"
     },
     {
       "adID": "KLOV-564536",
@@ -616,7 +636,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-25 11:58:18",
-      "lastSeen": "2026-06-25T15:07:15.496Z"
+      "lastSeen": "2026-06-25T16:08:40.081Z"
     },
     {
       "adID": "1681087713167910",
@@ -656,7 +676,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-25 11:21:22",
-      "lastSeen": "2026-06-25T15:06:07.891Z"
+      "lastSeen": "2026-06-25T16:06:21.068Z"
     },
     {
       "adID": "1681924132857881",
@@ -703,40 +723,40 @@
       "source": "FB",
       "authorUrl": null,
       "author": "Richard Thompson",
-      "postedTime": "2026-06-24T15:03:30.847Z",
+      "postedTime": "2026-06-24T16:03:26.721Z",
       "title": "PAC MAN MONITOR GLASS BEZEL ONLY $50 OBO!",
       "description": "This PAC MAN MONITOR GLASS BEZEL is a collectible replacement part for an arcade gaming machine, specifically designed for the game Pac-Man. Produced by Bally Midway, this bezel adds a sleek and authentic touch to the monitor of a vintage arcade game, enhancing the overall gaming experience for enthusiasts. Perfect for restoring or customizing a classic arcade machine, this PAC MAN MONITOR GLASS BEZEL is a must-have for collectors and gamers looking to preserve the nostalgia ... See more",
       "price": "$50",
       "lat": 32.2998686,
       "lon": -90.1830408,
       "location": "JACKSON, MS",
-      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.30808-6/689495336_2457459551439313_1413917428850761011_n.jpg?stp=dst-jpg_tt6&cstp=mx640x480&ctp=s590x590&_nc_cat=103&ccb=1-7&_nc_sid=aa7b47&_nc_ohc=cmE_8IhyP3sQ7kNvwEgYAnq&_nc_oc=AdpB8GOZ-QjtfGZagj_OtkBcEfNLVupkRn6A9ErYS4ygfYyaNrJUXOZrVxTYMl653K8&_nc_zt=23&_nc_ht=scontent-dfw6-1.xx&_nc_gid=oRm2-pZLSiobLee6v47ifw&_nc_ss=7b2a8&oh=00_Af_0IJN7vnJUNys_jM956FhNn2g50T7qJExMWiE2UEkRww&oe=6A430946",
+      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.30808-6/689495336_2457459551439313_1413917428850761011_n.jpg?stp=dst-jpg_tt6&cstp=mx640x480&ctp=s590x590&_nc_cat=103&ccb=1-7&_nc_sid=aa7b47&_nc_ohc=cmE_8IhyP3sQ7kNvwEgYAnq&_nc_oc=AdpB8GOZ-QjtfGZagj_OtkBcEfNLVupkRn6A9ErYS4ygfYyaNrJUXOZrVxTYMl653K8&_nc_zt=23&_nc_ht=scontent-dfw6-1.xx&_nc_gid=j5Yqw6h4575UG4bmSACE7w&_nc_ss=7b2a8&oh=00_Af81XSjYqXvDFb8T5OClJTR-Cr_ryQZoctmdF8lQGZsjLQ&oe=6A430946",
       "adUrl": "https://www.facebook.com/commerce/listing/1639860653870129/",
       "priceChanged": 0,
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-25 11:19:45",
-      "lastSeen": "2026-06-25T15:03:30.979Z"
+      "lastSeen": "2026-06-25T16:03:26.819Z"
     },
     {
       "adID": "1288483403087344",
       "source": "FB",
       "authorUrl": null,
       "author": "Clayton Lacey",
-      "postedTime": "2026-06-25T01:01:57.506Z",
+      "postedTime": "2026-06-25T01:01:56.956Z",
       "title": "Atari Hard Drivin upright project working needs cabinet repair no trades",
       "description": "This is a project I am willing to pass on to anyone who wants to restore it. Monitor chassis recapped the tube is original with burn in on screen text and gauges only the text is noticeable during gameplay. The bad the base of the seat and cabinet need repaired or replacing so listing as a project that works and plays the switch on third gear is flaky so currently disabled in settings. No back door or monitor door on the top. No trades.",
       "price": "$500",
       "lat": 33.2442813,
       "lon": -86.8163773,
       "location": "ALABASTER, AL",
-      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.30808-6/729964610_27722897317303315_769344303372621387_n.jpg?stp=dst-jpg_tt6&cstp=mx1537x2048&ctp=s590x590&_nc_cat=102&ccb=1-7&_nc_sid=aa7b47&_nc_ohc=Y70QiWRm0GcQ7kNvwHds1ND&_nc_oc=AdrkqVRAik2i5tBDYJcxYlO7SpoYM5UfwHhyF5xPb5xj2z6_zX7ozxUWVMz3KUJR-FM&_nc_zt=23&_nc_ht=scontent-dfw6-1.xx&_nc_gid=e9-4pAdmvreqNvyF6Zqs0w&_nc_ss=7b2a8&oh=00_Af8PMW2Bm-B_6Vywigx_m1HhCZ7__3Kq-PUem1khIKr8ZA&oe=6A432901",
+      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.30808-6/729964610_27722897317303315_769344303372621387_n.jpg?stp=dst-jpg_tt6&cstp=mx1537x2048&ctp=s590x590&_nc_cat=102&ccb=1-7&_nc_sid=aa7b47&_nc_ohc=Y70QiWRm0GcQ7kNvwHds1ND&_nc_oc=AdrkqVRAik2i5tBDYJcxYlO7SpoYM5UfwHhyF5xPb5xj2z6_zX7ozxUWVMz3KUJR-FM&_nc_zt=23&_nc_ht=scontent-dfw6-1.xx&_nc_gid=-4FXFbQ1kaAyMj_GfN-4WA&_nc_ss=7b2a8&oh=00_Af-ZSjwej41DrFxI8r5CzaqLZEGrFo_l0PxlRM5RiNW6BA&oe=6A432901",
       "adUrl": "https://www.facebook.com/commerce/listing/1288483403087344/",
       "priceChanged": 0,
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-25 11:18:09",
-      "lastSeen": "2026-06-25T15:01:57.546Z"
+      "lastSeen": "2026-06-25T16:01:57.007Z"
     }
   ]
 }
