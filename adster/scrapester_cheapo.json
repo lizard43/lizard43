@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-25T16:08:44.558Z",
+  "generated_at": "2026-06-25T17:07:58.675Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,53 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 37,
-      "droppedPrice": 255,
+      "exported_ads": 39,
+      "droppedPrice": 257,
       "droppedMissingGeo": 0,
-      "droppedCircle": 214
+      "droppedCircle": 215
     }
   },
   "ads": [
+    {
+      "adID": "1370466454935133",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/1065080449/?product_id=1370466454935133",
+      "author": "Robert Kiedinger",
+      "postedTime": "2026-06-25T16:46:19.000Z",
+      "title": "Pinball Scoring LEDS and Interconnect Board",
+      "description": "There is 1 seven-digit display, 1 display for credits and random number, and the interconnect board for the displays. They are original from a Williams system 7 machine, functioning 100%, no frizzing or missing numbers. $20 each. or $50 for all 3. Will ship for cost.",
+      "price": "$1",
+      "lat": 33.3392842,
+      "lon": -84.6485417,
+      "location": "Sharpsburg, GA",
+      "imageUrl": "https://scontent-dfw6-2.xx.fbcdn.net/v/t39.84726-6/731736038_2014383632499565_8301082935377919126_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=108&ccb=1-7&_nc_sid=92e707&_nc_ohc=r9wkgVbZ6y8Q7kNvwGFghjh&_nc_oc=AdqkDW16SQ9DwkGvW43hQPou0VudB1M_zkq-CKPFT5LXwKWsYveCP9afWuTS6w8o3mA&_nc_zt=14&_nc_ht=scontent-dfw6-2.xx&_nc_gid=voE3AXuQMmBpCXODwwJrRQ&_nc_ss=7b2a8&oh=00_Af_lv_k9lZSs-CsKcDo63v4tTXDMCnD38gmSO68mQ9MK7w&oe=6A431C48",
+      "adUrl": "https://www.facebook.com/marketplace/item/1370466454935133/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-06-25 17:06:06",
+      "lastSeen": "2026-06-25T17:07:01.218Z"
+    },
+    {
+      "adID": "1595430692013898",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/1065080449/?product_id=1595430692013898",
+      "author": "Robert Kiedinger",
+      "postedTime": "2026-06-25T16:46:09.000Z",
+      "title": "New Lady Luck Pinball Machine Backglass",
+      "description": "New backglass for a Lucky Lady pinball machine. Dimensions- 24.75\"H x 26.\"W. Would be a replacement for a backglass except that the glasscutter mismeasured and it's 1/8\" too tall. So it's a great work of art and conversation piece as is.",
+      "price": "$60",
+      "lat": 33.3392842,
+      "lon": -84.6485417,
+      "location": "Sharpsburg, GA",
+      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/731357503_1053490800684939_6626246038794732238_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=101&ccb=1-7&_nc_sid=92e707&_nc_ohc=DRrua0-1NsIQ7kNvwHNRZyi&_nc_oc=AdrUPKXpiE_aAxW9yfpdPR4JTGWFbH-Qkp0jilxGiz5gWDaouTFh0cFiefl6gFVkr4w&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=pz2BYRSXj-G-eKTRh_7bNg&_nc_ss=7b2a8&oh=00_Af9tRNfCjqX9SqTavJCsWFk0p52pS3c8LyWfBw4Ku5juqw&oe=6A432298",
+      "adUrl": "https://www.facebook.com/marketplace/item/1595430692013898/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-06-25 17:06:06",
+      "lastSeen": "2026-06-25T17:07:01.249Z"
+    },
     {
       "adID": "1028604542991748",
       "source": "MP",
@@ -43,7 +83,7 @@
       "source": "PS",
       "authorUrl": "https://pinside.com/pinball/community/pinsiders/blessed/market",
       "author": "Blessed",
-      "postedTime": "2026-06-25T12:08:00.804Z",
+      "postedTime": "2026-06-25T12:07:17.287Z",
       "title": "Freedom EM 2nd Version",
       "description": "Used - shows wear but 100% working and clean - “Plays well. Everything in Backbox, including score reels cleaned within the last year and a half. All switches under playfield and inside cabinet cleaned as well. Flippers, pop bu...”",
       "price": "$500",
@@ -56,7 +96,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-25 14:11:16",
-      "lastSeen": "2026-06-25T16:08:02.739Z"
+      "lastSeen": "2026-06-25T17:07:18.369Z"
     },
     {
       "adID": "1360907525951890",
@@ -156,7 +196,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-25 14:05:02",
-      "lastSeen": "2026-06-25T16:06:23.960Z"
+      "lastSeen": "2026-06-25T17:06:10.434Z"
     },
     {
       "adID": "1858390015565562",
@@ -190,13 +230,13 @@
       "lat": 33.8137919,
       "lon": -85.7612872,
       "location": "Jacksonville, AL",
-      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/731788125_888412377001141_4679785981496808959_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=100&ccb=1-7&_nc_sid=92e707&_nc_ohc=wWCajiI82DYQ7kNvwG3r1VG&_nc_oc=AdoGH9p80gqldPOmBC1EE_1vMa7W9lXOGf8R0Ovd-64WZ0ahBF7IDbBT4Gf5Ki2L3WY&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=9He7VdsvylSMQ6GtwjHwLw&_nc_ss=7b2a8&oh=00_Af-tImLDxRuaN78GgXjfizMVRgcoCG6KeOjtorCXLdNu1Q&oe=6A43283E",
+      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/731788125_888412377001141_4679785981496808959_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=100&ccb=1-7&_nc_sid=92e707&_nc_ohc=wWCajiI82DYQ7kNvwG3r1VG&_nc_oc=AdoGH9p80gqldPOmBC1EE_1vMa7W9lXOGf8R0Ovd-64WZ0ahBF7IDbBT4Gf5Ki2L3WY&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=AzHjeKb4S54tJoqd1n3uFg&_nc_ss=7b2a8&oh=00_Af8h5Qr_TMu2ukfHehh4_4iKo2CC5xWeOPMb5brslz1HfQ&oe=6A43283E",
       "adUrl": "https://www.facebook.com/marketplace/item/1670156544092648/",
       "priceChanged": 0,
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-25 13:21:12",
-      "lastSeen": "2026-06-25T16:07:37.200Z"
+      "lastSeen": "2026-06-25T17:07:01.316Z"
     },
     {
       "adID": "1033997495757007",
@@ -216,7 +256,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-25 13:21:12",
-      "lastSeen": "2026-06-25T16:06:24.005Z"
+      "lastSeen": "2026-06-25T17:06:10.525Z"
     },
     {
       "adID": "909594302218278",
@@ -276,7 +316,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-25 13:21:07",
-      "lastSeen": "2026-06-25T16:06:20.901Z"
+      "lastSeen": "2026-06-25T17:06:07.417Z"
     },
     {
       "adID": "988975803739004",
@@ -296,7 +336,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-25 13:05:10",
-      "lastSeen": "2026-06-25T16:06:22.102Z"
+      "lastSeen": "2026-06-25T17:06:08.915Z"
     },
     {
       "adID": "5389147607976237",
@@ -316,7 +356,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-25 13:05:10",
-      "lastSeen": "2026-06-25T16:06:22.786Z"
+      "lastSeen": "2026-06-25T17:06:09.592Z"
     },
     {
       "adID": "1346576997407081",
@@ -336,7 +376,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-25 13:05:10",
-      "lastSeen": "2026-06-25T16:06:23.285Z"
+      "lastSeen": "2026-06-25T17:06:09.804Z"
     },
     {
       "adID": "1786512502717097",
@@ -356,7 +396,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-25 13:05:09",
-      "lastSeen": "2026-06-25T16:06:22.652Z"
+      "lastSeen": "2026-06-25T17:06:09.447Z"
     },
     {
       "adID": "861159277063306",
@@ -376,7 +416,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-25 13:05:09",
-      "lastSeen": "2026-06-25T16:06:22.697Z"
+      "lastSeen": "2026-06-25T17:06:09.491Z"
     },
     {
       "adID": "2030254727880388",
@@ -396,7 +436,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-25 13:05:07",
-      "lastSeen": "2026-06-25T16:06:22.338Z"
+      "lastSeen": "2026-06-25T17:06:09.153Z"
     },
     {
       "adID": "2161289817746896",
@@ -416,7 +456,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-25 13:05:05",
-      "lastSeen": "2026-06-25T16:06:21.638Z"
+      "lastSeen": "2026-06-25T17:06:08.187Z"
     },
     {
       "adID": "1014424194294578",
@@ -436,7 +476,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-25 13:05:05",
-      "lastSeen": "2026-06-25T16:06:21.710Z"
+      "lastSeen": "2026-06-25T17:06:08.254Z"
     },
     {
       "adID": "2170096607107310",
@@ -456,7 +496,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-25 13:05:05",
-      "lastSeen": "2026-06-25T16:06:21.504Z"
+      "lastSeen": "2026-06-25T17:06:08.053Z"
     },
     {
       "adID": "1300877942245433",
@@ -476,7 +516,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-25 13:05:04",
-      "lastSeen": "2026-06-25T16:06:21.336Z"
+      "lastSeen": "2026-06-25T17:06:07.886Z"
     },
     {
       "adID": "1543425073994186",
@@ -536,7 +576,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-25 11:58:21",
-      "lastSeen": "2026-06-25T16:08:41.752Z"
+      "lastSeen": "2026-06-25T17:07:56.429Z"
     },
     {
       "adID": "KLOV-371195",
@@ -556,7 +596,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-25 11:58:20",
-      "lastSeen": "2026-06-25T16:08:41.042Z"
+      "lastSeen": "2026-06-25T17:07:55.647Z"
     },
     {
       "adID": "KLOV-556509",
@@ -596,7 +636,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-25 11:58:19",
-      "lastSeen": "2026-06-25T16:08:40.472Z"
+      "lastSeen": "2026-06-25T17:07:55.078Z"
     },
     {
       "adID": "KLOV-552819",
@@ -616,7 +656,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-25 11:58:19",
-      "lastSeen": "2026-06-25T16:08:40.707Z"
+      "lastSeen": "2026-06-25T17:07:55.312Z"
     },
     {
       "adID": "KLOV-564536",
@@ -636,7 +676,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-25 11:58:18",
-      "lastSeen": "2026-06-25T16:08:40.081Z"
+      "lastSeen": "2026-06-25T17:07:54.401Z"
     },
     {
       "adID": "1681087713167910",
@@ -676,7 +716,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-25 11:21:22",
-      "lastSeen": "2026-06-25T16:06:21.068Z"
+      "lastSeen": "2026-06-25T17:06:07.584Z"
     },
     {
       "adID": "1681924132857881",
@@ -723,40 +763,40 @@
       "source": "FB",
       "authorUrl": null,
       "author": "Richard Thompson",
-      "postedTime": "2026-06-24T16:03:26.721Z",
+      "postedTime": "2026-06-24T17:03:29.729Z",
       "title": "PAC MAN MONITOR GLASS BEZEL ONLY $50 OBO!",
       "description": "This PAC MAN MONITOR GLASS BEZEL is a collectible replacement part for an arcade gaming machine, specifically designed for the game Pac-Man. Produced by Bally Midway, this bezel adds a sleek and authentic touch to the monitor of a vintage arcade game, enhancing the overall gaming experience for enthusiasts. Perfect for restoring or customizing a classic arcade machine, this PAC MAN MONITOR GLASS BEZEL is a must-have for collectors and gamers looking to preserve the nostalgia ... See more",
       "price": "$50",
       "lat": 32.2998686,
       "lon": -90.1830408,
       "location": "JACKSON, MS",
-      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.30808-6/689495336_2457459551439313_1413917428850761011_n.jpg?stp=dst-jpg_tt6&cstp=mx640x480&ctp=s590x590&_nc_cat=103&ccb=1-7&_nc_sid=aa7b47&_nc_ohc=cmE_8IhyP3sQ7kNvwEgYAnq&_nc_oc=AdpB8GOZ-QjtfGZagj_OtkBcEfNLVupkRn6A9ErYS4ygfYyaNrJUXOZrVxTYMl653K8&_nc_zt=23&_nc_ht=scontent-dfw6-1.xx&_nc_gid=j5Yqw6h4575UG4bmSACE7w&_nc_ss=7b2a8&oh=00_Af81XSjYqXvDFb8T5OClJTR-Cr_ryQZoctmdF8lQGZsjLQ&oe=6A430946",
+      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.30808-6/689495336_2457459551439313_1413917428850761011_n.jpg?stp=dst-jpg_tt6&cstp=mx640x480&ctp=s590x590&_nc_cat=103&ccb=1-7&_nc_sid=aa7b47&_nc_ohc=cmE_8IhyP3sQ7kNvwEgYAnq&_nc_oc=AdpB8GOZ-QjtfGZagj_OtkBcEfNLVupkRn6A9ErYS4ygfYyaNrJUXOZrVxTYMl653K8&_nc_zt=23&_nc_ht=scontent-dfw6-1.xx&_nc_gid=R5IpU30a2_8vTxZNcV4INA&_nc_ss=7b2a8&oh=00_Af8w13_F95emQbWAC8GhiUEjO5QKVI6fRcmxDKoMgdH28A&oe=6A434186",
       "adUrl": "https://www.facebook.com/commerce/listing/1639860653870129/",
       "priceChanged": 0,
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-25 11:19:45",
-      "lastSeen": "2026-06-25T16:03:26.819Z"
+      "lastSeen": "2026-06-25T17:03:29.863Z"
     },
     {
       "adID": "1288483403087344",
       "source": "FB",
       "authorUrl": null,
       "author": "Clayton Lacey",
-      "postedTime": "2026-06-25T01:01:56.956Z",
+      "postedTime": "2026-06-25T01:01:59.489Z",
       "title": "Atari Hard Drivin upright project working needs cabinet repair no trades",
       "description": "This is a project I am willing to pass on to anyone who wants to restore it. Monitor chassis recapped the tube is original with burn in on screen text and gauges only the text is noticeable during gameplay. The bad the base of the seat and cabinet need repaired or replacing so listing as a project that works and plays the switch on third gear is flaky so currently disabled in settings. No back door or monitor door on the top. No trades.",
       "price": "$500",
       "lat": 33.2442813,
       "lon": -86.8163773,
       "location": "ALABASTER, AL",
-      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.30808-6/729964610_27722897317303315_769344303372621387_n.jpg?stp=dst-jpg_tt6&cstp=mx1537x2048&ctp=s590x590&_nc_cat=102&ccb=1-7&_nc_sid=aa7b47&_nc_ohc=Y70QiWRm0GcQ7kNvwHds1ND&_nc_oc=AdrkqVRAik2i5tBDYJcxYlO7SpoYM5UfwHhyF5xPb5xj2z6_zX7ozxUWVMz3KUJR-FM&_nc_zt=23&_nc_ht=scontent-dfw6-1.xx&_nc_gid=-4FXFbQ1kaAyMj_GfN-4WA&_nc_ss=7b2a8&oh=00_Af-ZSjwej41DrFxI8r5CzaqLZEGrFo_l0PxlRM5RiNW6BA&oe=6A432901",
+      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.30808-6/729964610_27722897317303315_769344303372621387_n.jpg?stp=dst-jpg_tt6&cstp=mx1537x2048&ctp=s590x590&_nc_cat=102&ccb=1-7&_nc_sid=aa7b47&_nc_ohc=Y70QiWRm0GcQ7kNvwHds1ND&_nc_oc=AdrkqVRAik2i5tBDYJcxYlO7SpoYM5UfwHhyF5xPb5xj2z6_zX7ozxUWVMz3KUJR-FM&_nc_zt=23&_nc_ht=scontent-dfw6-1.xx&_nc_gid=Jr1n140bShzuvj3pw3a0Lw&_nc_ss=7b2a8&oh=00_Af9Fw3qTZGGFfixFLNTKRMB15zFz7Pa_5myU9x4EfjwUIg&oe=6A432901",
       "adUrl": "https://www.facebook.com/commerce/listing/1288483403087344/",
       "priceChanged": 0,
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-25 11:18:09",
-      "lastSeen": "2026-06-25T16:01:57.007Z"
+      "lastSeen": "2026-06-25T17:01:59.528Z"
     }
   ]
 }
