@@ -1,0 +1,317 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Astrocade Arcade Field Guide</title>
+  <link rel="stylesheet" href="field-guide.css" />
+</head>
+<body class="guide-home">
+  <div class="wrap">
+    <header class="hero">
+      <div class="eyebrow"><span class="lamp"></span> Bally / Midway Astrocade Arcade Hardware</div>
+      <h1>Astrocade Arcade Field Guide</h1>
+      <p class="subtitle">
+        A working map for writing new Z80 software on the arcade Astrocade platform: Wizard of Wor,
+        Gorf, Robby Roto, Space Zap, Seawolf II, Extra Bases, Professor Pac-Man, and their strange card-rack cousins.
+      </p>
+
+      <div class="hero-grid" aria-label="project summary">
+        <div class="stat"><b>Z80</b><span>main CPU target</span></div>
+        <div class="stat"><b>$4000-$7FFF</b><span>hi-res video RAM window</span></div>
+        <div class="stat"><b>Magic</b><span>custom blitter / function generator</span></div>
+        <div class="stat"><b>Field Notes</b><span>MAME + manuals + disassembly + real tests</span></div>
+      </div>
+    </header>
+
+    <main>
+      <nav class="toc" aria-label="Table of contents">
+        <h2>Field Guide TOC</h2>
+        <a href="machine-model.html">Chapter 01: Machine Model <small>separate chapter page</small></a>
+        <a href="io-map.html">Chapter 02: I/O Map <small>separate chapter page</small></a>
+        <a href="video-system.html">Chapter 03: Video System <small>separate chapter page</small></a>
+        <a href="inputs-dip-switches.html">Chapter 04: Inputs and DIP Switches <small>separate chapter page</small></a>
+        <a href="sound.html">Chapter 05: Sound <small>separate chapter page</small></a>
+        <a href="pattern-board.html">Chapter 06: Pattern Board <small>separate chapter page</small></a>
+        <a href="#why">Why this guide exists <small>the missing programmer manual</small></a>
+        <a href="#journey">The journey <small>from service docs to running code</small></a>
+        <a href="#source-map">Source map <small>what each source is good for</small></a>
+        <a href="#hardware-family">Hardware family <small>the arcade Astrocade machines</small></a>
+        <a href="#working-model">Working model <small>memory, ports, video, sound</small></a>
+        <a href="#chapters">Planned chapters <small>future markdown/html files</small></a>
+        <a href="#method">Research method <small>how claims will be tagged</small></a>
+        <a href="#repo-notes">Repo notes <small>how to organize the files</small></a>
+      </nav>
+
+      <div class="content">
+        <section id="why" class="card">
+          <h2>Why this guide exists</h2>
+          <p>
+            Bally Alley is invaluable, and the console Astrocade material is rich, but the arcade side has a hole right
+            where a developer wants the most help. There are service manuals. There is MAME. There are schematics,
+            patents, disassemblies, and reverse-engineering notes. What does not seem to exist is a friendly field manual
+            that says: <em>here is how you write a new arcade ROM for this hardware.</em>
+          </p>
+          <div class="callout">
+            <strong>Goal:</strong> build the missing middle layer between technician documentation and working software:
+            a practical, tested, source-backed guide for new Astrocade arcade development.
+          </div>
+          <p>
+            This first page is the front door. It names the terrain, sets the rules, and points to the deeper weeds:
+            memory maps, I/O ports, Magic writes, color maps, pattern board registers, sound, interrupts, inputs, and the
+            many places where console Astrocade knowledge helps but cannot be copied blindly.
+          </p>
+        </section>
+
+        <section id="journey" class="card">
+          <h2>The journey</h2>
+          <p>
+            The path starts with the obvious question: <strong>why is this so hard?</strong> The Astrocade arcade platform was
+            not a consumer development target. Bally/Midway and Dave Nutting Associates built commercial embedded games,
+            shipped ROMs, and documented the machines mainly so operators could keep them running.
+          </p>
+          <p>
+            The result is a weird archaeological dig. The service manual tells you what the board is. MAME tells you how
+            the emulator sees it. The console manuals tell you what the custom chips were meant to do. Robby Roto and
+            Wizard of Wor disassemblies tell you how commercial games actually used them. Real hardware tells you which
+            assumptions survived contact with the cabinet.
+          </p>
+          <div class="grid2">
+            <div class="mini">
+              <h3>Not just console Astrocade</h3>
+              <p>
+                The home system knowledge matters, especially Magic, palette, and sound concepts. But arcade machines add
+                card racks, different input routing, pattern boards, protected RAM behavior, speech hardware, and hi-res
+                video assumptions.
+              </p>
+            </div>
+            <div class="mini">
+              <h3>Not just MAME either</h3>
+              <p>
+                MAME is the best executable specification we have, but this guide should distinguish emulator-confirmed
+                behavior from schematic-confirmed behavior and from real-hardware-confirmed behavior.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section id="source-map" class="card">
+          <h2>Source map</h2>
+          <p>
+            No single source is enough. This guide treats each source as a different lens on the same machine.
+          </p>
+          <table>
+            <thead>
+              <tr><th>Source</th><th>Best use</th><th>Danger</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Bally Alley</td>
+                <td>Master index, scans, historical notes, console and arcade cross-links.</td>
+                <td>Not a single coherent arcade programming manual.</td>
+              </tr>
+              <tr>
+                <td>MAME arcade driver</td>
+                <td>Memory maps, I/O maps, input definitions, emulated behavior.</td>
+                <td>Can hide analog/electrical quirks and real-board timing surprises.</td>
+              </tr>
+              <tr>
+                <td>MAME Astrocade sound device</td>
+                <td>Sound register behavior and arcade SI/SO caveats.</td>
+                <td>Sound output recipes still need practical arcade examples.</td>
+              </tr>
+              <tr>
+                <td>Service manuals</td>
+                <td>Schematics, wiring, card racks, DIP switches, edge connectors, board layouts.</td>
+                <td>Written for repair, not new software development.</td>
+              </tr>
+              <tr>
+                <td>Robby Roto paper and disassembly</td>
+                <td>Commercial software architecture on related hardware.</td>
+                <td>Game-specific engine choices can look like hardware rules.</td>
+              </tr>
+              <tr>
+                <td>Console Astrocade docs</td>
+                <td>Magic, palette, sound, Z80 conventions, original chip concepts.</td>
+                <td>Home-system assumptions can be wrong on arcade card-rack hardware.</td>
+              </tr>
+              <tr>
+                <td>Our tests</td>
+                <td>Minimal examples, MAME debugger traces, real WoW hardware behavior.</td>
+                <td>Must be labeled clearly until reproduced and verified.</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+        <section id="hardware-family" class="card">
+          <h2>The arcade Astrocade family</h2>
+          <p>
+            The family is broader than Wizard of Wor and Gorf. The same design lineage appears across multiple
+            Bally/Midway titles, with variations in ROM layout, RAM, input routing, speech, and pattern-board usage.
+          </p>
+          <div class="tagrow" aria-label="Astrocade arcade games">
+            <span class="tag">Seawolf II</span>
+            <span class="tag">Extra Bases</span>
+            <span class="tag">Space Zap</span>
+            <span class="tag">Wizard of Wor</span>
+            <span class="tag">Gorf</span>
+            <span class="tag">Robby Roto</span>
+            <span class="tag">Demons and Dragons</span>
+            <span class="tag">Professor Pac-Man</span>
+            <span class="tag">10 Pin Deluxe</span>
+            <span class="tag">10 Pin Champ / Strikes and Spares</span>
+          </div>
+          <p style="margin-top:16px">
+            This guide will begin with the Wizard of Wor / Gorf / Robby Roto neighborhood because that is where the
+            available evidence is strongest and where new development work is currently happening.
+          </p>
+        </section>
+
+        <section id="working-model" class="card">
+          <h2>Initial working model</h2>
+          <p>
+            These are not final claims for every Astrocade arcade game. They are the starting model for our Wizard of Wor
+            class target and will be refined in the deeper chapters.
+          </p>
+
+          <h3>Memory shape</h3>
+          <pre><code>0000-3FFF  Program ROM, also Magic write window
+4000-7FFF  Video RAM
+8000-CFFF  Additional program ROM on larger games
+D000-D03F  Protected RAM region
+D040-DFFF  Work RAM / scratch RAM</code></pre>
+
+          <h3>Core I/O shape</h3>
+          <pre><code>00-0F  Video registers
+10-1F  Sound / input reads
+10-18  Sound writes
+19     Expand register
+78-7E  Pattern board writes
+A55B   Protected RAM enable latch</code></pre>
+
+          <div class="callout">
+            <strong>Important:</strong> the same low address range can mean different things depending on whether the CPU is
+            reading instructions or writing data. That is the heart of the Astrocade Magic system and one reason normal
+            Z80 assumptions can mislead you.
+          </div>
+        </section>
+
+        <section id="chapters" class="card">
+          <h2>Planned chapters</h2>
+          <p>
+            Each chapter should become its own markdown/html file. The links below are placeholders for the file names we
+            can build next.
+          </p>
+          <div class="chapters">
+            <a class="chapter" href="machine-model.html">
+              <span class="num">01</span>
+              <span><b>Machine Model</b><span>CPU, clocks, reset, ROM/RAM layout, stack, interrupts.</span></span>
+              <span class="status">available</span>
+            </a>
+            <a class="chapter" href="io-map.html">
+              <span class="num">02</span>
+              <span><b>I/O Map</b><span>Video registers, sound ports, input muxes, latches, pattern-board ports.</span></span>
+              <span class="status">available</span>
+            </a>
+            <a class="chapter" href="video-system.html">
+              <span class="num">03</span>
+              <span><b>Video System</b><span>Arcade hi-res framebuffer, color latches, palette split, Magic writes, interlace, pattern board context.</span></span>
+              <span class="status">available</span>
+            </a>
+            <a class="chapter" href="inputs-dip-switches.html">
+              <span class="num">04</span>
+              <span><b>Inputs and DIP Switches</b><span>Coin, start, joysticks, service, tilt, DIP banks, MAME vs cabinet wiring.</span></span>
+              <span class="status">available</span>
+            </a>
+            <a class="chapter" href="sound.html">
+              <span class="num">05</span>
+              <span><b>Sound</b><span>Astrocade sound registers, SO/SI caveats, tones, noise, vibrato, and arcade-safe recipes.</span></span>
+              <span class="status">available</span>
+            </a>
+            <a class="chapter" href="pattern-board.html">
+              <span class="num">06</span>
+              <span><b>Pattern Board</b><span>Wizard/Gorf pattern transfer board, ports $78-$7F, source/destination counters, bus takeover, masks, modes, and safe calling patterns.</span></span>
+              <span class="status">available</span>
+            </a>
+            <a class="chapter" href="07-memory-map.html">
+              <span class="num">07</span>
+              <span><b>Memory Map</b><span>ROM windows, protected RAM, scratch RAM, per-game variants, and address-space traps.</span></span>
+              <span class="status">planned</span>
+            </a>
+            <a class="chapter" href="08-magic-system.html">
+              <span class="num">08</span>
+              <span><b>Magic System</b><span>Function generator, OR/XOR, expand, rotate, masks, direct vs Magic writes.</span></span>
+              <span class="status">planned</span>
+            </a>
+            <a class="chapter" href="09-minimal-rom.html">
+              <span class="num">09</span>
+              <span><b>Minimal ROM</b><span>Smallest useful boot shell for MAME and, eventually, real card-rack hardware.</span></span>
+              <span class="status">planned</span>
+            </a>
+            <a class="chapter" href="10-debugging.html">
+              <span class="num">10</span>
+              <span><b>Debugging and Tools</b><span>MAME debugger, traces, breakpoints, LST files, zmac, SDCC experiments.</span></span>
+              <span class="status">planned</span>
+            </a>
+          </div>
+        </section>
+
+        <section id="method" class="card">
+          <h2>How this guide will mark truth</h2>
+          <p>
+            Every low-level claim should carry a confidence tag. This keeps the guide honest and makes it easier to spot
+            where we need another test, another trace, or a scope on real hardware.
+          </p>
+          <table>
+            <thead>
+              <tr><th>Tag</th><th>Meaning</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><code>MAME-confirmed</code></td><td>Observed in current MAME source or behavior.</td></tr>
+              <tr><td><code>Schematic-confirmed</code></td><td>Backed by service manual schematic or board drawing.</td></tr>
+              <tr><td><code>ROM-observed</code></td><td>Seen in original game disassembly or debugger trace.</td></tr>
+              <tr><td><code>Real-hardware-confirmed</code></td><td>Tested on an actual Astrocade arcade board/cabinet.</td></tr>
+              <tr><td><code>Working hypothesis</code></td><td>Likely, useful, but not yet proven enough to teach as fact.</td></tr>
+            </tbody>
+          </table>
+        </section>
+
+        <section id="repo-notes" class="card">
+          <h2>Suggested repo layout</h2>
+          <p>
+            Keep the guide readable in a browser, but simple enough to edit like notes. One page per topic, with the index
+            acting as the front panel.
+          </p>
+          <pre><code>docs/
+  astrocade-field-guide/
+    index.html
+    machine-model.html
+    io-map.html
+    video-system.html
+    inputs-dip-switches.html
+    sound.html
+    pattern-board.html
+    07-memory-map.html
+    08-magic-system.html
+    09-minimal-rom.html
+    10-debugging.html
+    assets/
+      screenshots/
+      schematics/
+      css/
+      js/</code></pre>
+          <p style="margin-top:14px">
+            The shared presentation now lives in <code>field-guide.css</code>. Keep each chapter as plain HTML that links to
+            the same stylesheet, so the guide stays easy to edit and easy to browse locally.
+          </p>
+        </section>
+      </div>
+    </main>
+
+    <footer>
+      Astrocade Arcade Field Guide — a practical notebook for building new software on old Bally/Midway hardware.
+    </footer>
+  </div>
+</body>
+</html>

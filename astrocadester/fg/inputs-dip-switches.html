@@ -1,0 +1,678 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Astrocade Arcade Field Guide — Inputs and DIP Switches</title>
+  <link rel="stylesheet" href="field-guide.css" />
+</head>
+<body class="guide-chapter">
+  <div class="wrap">
+    <header class="hero">
+      <div class="eyebrow"><span class="lamp"></span>Astrocade Arcade Field Guide · Chapter 04</div>
+      <h1>Inputs and DIP Switches</h1>
+      <p class="subtitle">
+        The Wizard of Wor input map is not a neat “player 1 port / player 2 port” design. Coin switches, start buttons,
+        joystick leaves, service, tilt, screen flip, Votrax status, and cabinet DIP settings are distributed across the
+        Astrocade input handles and read through the arcade board’s wiring and MAME’s input multiplexer model.
+      </p>
+
+      <div class="toplinks">
+        <a class="pill-link" href="index.html">← Field Guide Index</a>
+        <a class="pill-link" href="video-system.html">← Previous: Video System</a>
+        <span class="tag ok">MAME-confirmed</span>
+        <span class="tag warn">active-low traps</span>
+        <span class="tag info">HVGLIB-aware</span>
+      </div>
+
+      <div class="hero-grid">
+        <div class="stat"><b>$10</b><span>P1HANDLE · coin/start/service</span></div>
+        <div class="stat"><b>$11</b><span>P2HANDLE · player 2 controls</span></div>
+        <div class="stat"><b>$12</b><span>P3HANDLE · player 1 controls</span></div>
+        <div class="stat"><b>$13</b><span>P4HANDLE · DIP switch bank</span></div>
+        <div class="stat"><b>mixed</b><span>active-low and active-high bits</span></div>
+      </div>
+    </header>
+
+    <main>
+      <nav class="toc" aria-label="Chapter navigation">
+        <h2>Chapter map</h2>
+        <a href="index.html">← Back to index <small>all chapters</small></a>
+        <a href="#why">Why this chapter matters <small>distributed ports, not tidy players</small></a>
+        <a href="#mame-view">MAME's WoW view <small>P1HANDLE through P4HANDLE</small></a>
+        <a href="#hvglib">HVGLIB names <small>arcade aliases and compatibility traps</small></a>
+        <a href="#p1handle">P1HANDLE / $10 <small>coins, service, tilt, start, flip</small></a>
+        <a href="#p2handle">P2HANDLE / $11 <small>player 2 joystick and buttons</small></a>
+        <a href="#p3handle">P3HANDLE / $12 <small>player 1 joystick, buttons, Votrax</small></a>
+        <a href="#p4handle">P4HANDLE / $13 <small>coinage, language, lives, bonus, demo sound</small></a>
+        <a href="#active">Active states <small>why raw bits lie</small></a>
+        <a href="#polling">Polling pattern <small>safe snapshots and edge detection</small></a>
+        <a href="#service">Service-mode reality checks <small>joystick leaves and MAME quirks</small></a>
+        <a href="#rules">Practical rules <small>how to write robust code</small></a>
+        <a href="#sources">Source notes <small>MAME, HVGLIB, cabinet tests</small></a>
+        <a href="#next">Next / previous <small>chapter navigation</small></a>
+      </nav>
+
+      <div class="content">
+        <section class="card" id="why">
+          <h2>Why this chapter matters</h2>
+          <p>
+            The arcade Astrocade input system is easy to misread if you bring normal console assumptions to it. The
+            console idea of “controller 1” and “controller 2” is not enough. On Wizard of Wor-class arcade hardware, the
+            input bytes are a board-level collection of cabinet switches, joystick leaves, service controls, DIP settings,
+            and status bits.
+          </p>
+          <p>
+            For Wizard of Wor, MAME names the four main readable input handles <code>P1HANDLE</code>, <code>P2HANDLE</code>,
+            <code>P3HANDLE</code>, and <code>P4HANDLE</code>. Those names are useful, but slightly deceptive. <code>P1HANDLE</code>
+            is not “player 1 joystick.” It is the coin/start/service/tilt/flip byte. Player 2 controls are on
+            <code>P2HANDLE</code>. Player 1 controls are on <code>P3HANDLE</code>. DIP switches live on <code>P4HANDLE</code>.
+          </p>
+          <div class="callout">
+            <b>The big idea</b>
+            Treat the input ports as cabinet signal groups, not player objects. Poll raw ports once, decode them into
+            your own clean runtime structure, and only then let game code ask questions like “P1 pressed fire” or
+            “coin edge detected.”
+          </div>
+          <p class="return-link"><a href="index.html">← Return to the Field Guide index</a></p>
+        </section>
+
+        <section class="card" id="mame-view">
+          <h2>MAME's Wizard of Wor input view</h2>
+          <p>
+            MAME’s WoW input block gives the best compact map for new software work. It shows the ports as four read
+            handles:
+          </p>
+          <pre><code>$10  P1HANDLE  coin/start/service/tilt/flip
+$11  P2HANDLE  player 2 joystick and buttons
+$12  P3HANDLE  player 1 joystick, buttons, unknown bit, Votrax status
+$13  P4HANDLE  DIP switch bank S1: coinage, language, lives, bonus, free play, demo sounds</code></pre>
+
+          <table>
+            <thead>
+              <tr><th>MAME handle</th><th>Arcade port</th><th>What it really contains</th><th>Why the name is dangerous</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>P1HANDLE</code></td>
+                <td class="addr">$10</td>
+                <td>Coin 1/2/3, service, tilt, start 1, start 2, flip-screen jumper/DIP.</td>
+                <td>It is not the player 1 joystick.</td>
+              </tr>
+              <tr>
+                <td><code>P2HANDLE</code></td>
+                <td class="addr">$11</td>
+                <td>Player 2 joystick directions and two button-style inputs.</td>
+                <td>Mostly player 2, but still contains mixed polarity bits.</td>
+              </tr>
+              <tr>
+                <td><code>P3HANDLE</code></td>
+                <td class="addr">$12</td>
+                <td>Player 1 joystick directions, two button-style inputs, unknown bit, Votrax speech status.</td>
+                <td>Player 1 controls are here, not on <code>P1HANDLE</code>.</td>
+              </tr>
+              <tr>
+                <td><code>P4HANDLE</code></td>
+                <td class="addr">$13</td>
+                <td>DIP bank S1: coinage, language, lives, bonus life, free play, demo sound.</td>
+                <td>It is configuration, not live player input.</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div class="callout cyan">
+            <b>Developer translation</b>
+            Build a decode layer. Never spread raw <code>in a,($10)</code>, <code>in a,($11)</code>, <code>in a,($12)</code>,
+            and <code>in a,($13)</code> tests throughout game logic. Centralize the weirdness once.
+          </div>
+        </section>
+
+        <section class="card" id="hvglib">
+          <h2>How the arcade HVGLIB include names this</h2>
+          <p>
+            The arcade <code>HW-HVGLIB.H.h</code> include intentionally avoids the misleading console assumption that
+            <code>SW0</code> is always simply “player 1 hand control.” It gives the WoW-style ports more descriptive names:
+          </p>
+          <pre><code>PORT_COIN_DOOR   equ $10
+PORT_INPUT10     equ PORT_COIN_DOOR
+PORT_PLAYER2     equ $11
+PORT_PLAYER1     equ $12
+PORT_INPUT13     equ $13
+
+SW0              equ PORT_COIN_DOOR
+SW1              equ PORT_PLAYER2
+SW2              equ PORT_PLAYER1
+SW3              equ PORT_INPUT13</code></pre>
+
+          <p>
+            This is the right direction: use <code>PORT_COIN_DOOR</code>, <code>PORT_PLAYER2</code>, and
+            <code>PORT_PLAYER1</code> when writing new arcade code. The old <code>SW0</code> through <code>SW3</code> aliases
+            are useful for source compatibility, but they hide meaning.
+          </p>
+
+          <h3>Generic bit names are useful, but not universal</h3>
+          <pre><code>BIT_UP       equ 0
+BIT_DOWN     equ 1
+BIT_LEFT     equ 2
+BIT_RIGHT    equ 3
+BIT_TRIGGER  equ 4
+BIT_START1   equ 5
+BIT_START2   equ 5</code></pre>
+
+          <p>
+            These generic bit positions are handy for a normalized joystick byte, but Wizard of Wor’s raw MAME input block
+            is more complicated. In MAME’s WoW mapping, player direction bits are 0-3, but the primary button-style input
+            is at bit 5, while bit 4 is a separate active-high button-style input. Start 1 and Start 2 are both on
+            <code>P1HANDLE</code> at bits 5 and 6. So do not blindly use the generic masks against raw ports unless your
+            decode layer intentionally made the raw data look like that.
+          </p>
+
+          <div class="callout gold">
+            <b>Recommended pattern</b>
+            Use HVGLIB port aliases for hardware access, then decode into your own <code>P1_INPUT</code>,
+            <code>P2_INPUT</code>, <code>COIN_INPUT</code>, and <code>DIP_INPUT</code> workspace bytes. After decoding, the
+            generic <code>BIT_UP</code>/<code>BIT_TRIGGER</code> style names become safe and useful.
+          </div>
+        </section>
+
+        <section class="card" id="p1handle">
+          <h2>P1HANDLE / port $10: coin door, service, tilt, start, flip</h2>
+          <p>
+            This byte is the one that most quickly proves the port names are not player names. On Wizard of Wor, MAME maps
+            <code>P1HANDLE</code> as the cabinet/front-panel/status byte:
+          </p>
+
+          <table>
+            <thead>
+              <tr><th>Bit</th><th>Mask</th><th>MAME meaning</th><th>Active state</th><th>Developer note</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>0</td><td class="addr">$01</td><td>Coin 1</td><td>Low</td><td>Main coin chute / coin-up source.</td></tr>
+              <tr><td>1</td><td class="addr">$02</td><td>Coin 2</td><td>Low</td><td>Second coin chute.</td></tr>
+              <tr><td>2</td><td class="addr">$04</td><td>Coin 3</td><td>Low</td><td>Third coin / auxiliary coin input.</td></tr>
+              <tr><td>3</td><td class="addr">$08</td><td>Service</td><td>Low</td><td>Service credit / service switch.</td></tr>
+              <tr><td>4</td><td class="addr">$10</td><td>Tilt</td><td>Low</td><td>Cabinet tilt signal.</td></tr>
+              <tr><td>5</td><td class="addr">$20</td><td>Start 1</td><td>Low</td><td>One-player start.</td></tr>
+              <tr><td>6</td><td class="addr">$40</td><td>Start 2</td><td>Low</td><td>Two-player start.</td></tr>
+              <tr><td>7</td><td class="addr">$80</td><td>Flip Screen jumper / DIP</td><td><code>$00</code> = On</td><td>MAME notes this as undocumented / jumper-like.</td></tr>
+            </tbody>
+          </table>
+
+          <h3>Coin and start edge detection</h3>
+          <p>
+            Coin and start are switch events. You usually want edges, not level. A held coin switch should not add credits
+            every frame. A held start button should not keep restarting the game.
+          </p>
+          <pre><code>; Read raw WoW $10.
+; Most live switches here are active-low, so invert before edge tests.
+
+ReadCoinStart:
+    in   a,(PORT_COIN_DOOR)     ; raw $10 / P1HANDLE
+    ld   b,a                    ; keep raw if you need flip/jumper logic
+    cpl                         ; now active-low switches become active-high
+    ld   c,a                    ; C = normalized active-high cabinet events
+
+    ; Coin 1 edge example:
+    ld   a,c
+    and  $01                    ; coin 1 active now?
+    ; compare against previous normalized coin bit before incrementing credits
+
+    ; Start 1:
+    ld   a,c
+    and  $20                    ; start 1 active now?
+
+    ; Start 2:
+    ld   a,c
+    and  $40                    ; start 2 active now?</code></pre>
+
+          <div class="callout">
+            <b>Important mismatch</b>
+            The generic HVGLIB <code>BIT_START2</code> value is useful for some normalized/project input layouts, but
+            Wizard of Wor’s raw <code>P1HANDLE</code> start-2 bit is <code>$40</code>, not <code>$20</code>. Decode first.
+          </div>
+        </section>
+
+        <section class="card" id="p2handle">
+          <h2>P2HANDLE / port $11: player 2 controls</h2>
+          <p>
+            <code>P2HANDLE</code> is much closer to what its name sounds like. MAME maps it as player 2 joystick directions
+            and two button-style inputs:
+          </p>
+
+          <table>
+            <thead>
+              <tr><th>Bit</th><th>Mask</th><th>MAME meaning</th><th>Active state</th><th>Developer note</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>0</td><td class="addr">$01</td><td>P2 joystick up</td><td>Low</td><td>Direction leaf.</td></tr>
+              <tr><td>1</td><td class="addr">$02</td><td>P2 joystick down</td><td>Low</td><td>Direction leaf.</td></tr>
+              <tr><td>2</td><td class="addr">$04</td><td>P2 joystick left</td><td>Low</td><td>Direction leaf.</td></tr>
+              <tr><td>3</td><td class="addr">$08</td><td>P2 joystick right</td><td>Low</td><td>Direction leaf.</td></tr>
+              <tr><td>4</td><td class="addr">$10</td><td>P2 button 2</td><td>High</td><td>Different polarity; likely tied to WoW’s special joystick/move behavior in MAME.</td></tr>
+              <tr><td>5</td><td class="addr">$20</td><td>P2 button 1</td><td>Low</td><td>Primary action-style button in MAME’s map.</td></tr>
+              <tr><td>6-7</td><td class="addr">$C0</td><td>Unused</td><td>Low in MAME definition</td><td>Do not build game logic on these.</td></tr>
+            </tbody>
+          </table>
+
+          <h3>Normalize P2 directions</h3>
+          <pre><code>; Decode P2 direction bits into active-high low nibble.
+; Result bits: 0=up, 1=down, 2=left, 3=right.
+
+ReadP2Directions:
+    in   a,(PORT_PLAYER2)       ; raw $11 / P2HANDLE
+    cpl                         ; active-low directions become active-high
+    and  $0F
+    ld   (P2_DIRS),a</code></pre>
+
+          <p>
+            Button handling needs extra care because bit 4 is active-high while bit 5 is active-low. Do not just
+            <code>cpl</code> the whole byte and assume both buttons are now correct.
+          </p>
+        </section>
+
+        <section class="card" id="p3handle">
+          <h2>P3HANDLE / port $12: player 1 controls and Votrax status</h2>
+          <p>
+            On Wizard of Wor, player 1 joystick input is on <code>P3HANDLE</code>, which maps to the arcade include’s
+            <code>PORT_PLAYER1</code> alias at <code>$12</code>.
+          </p>
+
+          <table>
+            <thead>
+              <tr><th>Bit</th><th>Mask</th><th>MAME meaning</th><th>Active state</th><th>Developer note</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>0</td><td class="addr">$01</td><td>P1 joystick up</td><td>Low</td><td>Direction leaf.</td></tr>
+              <tr><td>1</td><td class="addr">$02</td><td>P1 joystick down</td><td>Low</td><td>Direction leaf.</td></tr>
+              <tr><td>2</td><td class="addr">$04</td><td>P1 joystick left</td><td>Low</td><td>Direction leaf.</td></tr>
+              <tr><td>3</td><td class="addr">$08</td><td>P1 joystick right</td><td>Low</td><td>Direction leaf.</td></tr>
+              <tr><td>4</td><td class="addr">$10</td><td>P1 button 2</td><td>High</td><td>Mixed polarity; do not invert blindly with fire.</td></tr>
+              <tr><td>5</td><td class="addr">$20</td><td>P1 button 1</td><td>Low</td><td>Primary action-style button in MAME’s map.</td></tr>
+              <tr><td>6</td><td class="addr">$40</td><td>Unknown</td><td>Low in MAME definition</td><td>Leave alone unless a board trace proves its purpose.</td></tr>
+              <tr><td>7</td><td class="addr">$80</td><td>Votrax speech status</td><td>High custom</td><td>Status line from speech hardware/emulation, not a player switch.</td></tr>
+            </tbody>
+          </table>
+
+          <h3>Normalize P1 controls safely</h3>
+          <pre><code>; Decode P1 directions and two button-style inputs separately.
+; Avoid one big CPL-and-mask for the whole byte because bit 4 and bit 5
+; have opposite active states in MAME's WoW input block.
+
+ReadP1:
+    in   a,(PORT_PLAYER1)       ; raw $12 / P3HANDLE
+    ld   b,a                    ; B = raw
+
+    ; Directions are active-low.
+    cpl
+    and  $0F
+    ld   (P1_DIRS),a
+
+    ; Button 1 is active-low raw bit 5.
+    ld   a,b
+    cpl
+    and  $20
+    ld   (P1_BUTTON1),a
+
+    ; Button 2 is active-high raw bit 4.
+    ld   a,b
+    and  $10
+    ld   (P1_BUTTON2),a
+
+    ; Votrax status is active-high raw bit 7.
+    ld   a,b
+    and  $80
+    ld   (VOTRAX_STATUS),a</code></pre>
+
+          <div class="callout cyan">
+            <b>Why this mattered in our tests</b>
+            “Fire stuck on” or “fire never detected” bugs are easy to create if bit 4 and bit 5 are treated as the same
+            polarity, or if the generic console trigger mask is applied directly to WoW’s raw player port.
+          </div>
+        </section>
+
+        <section class="card" id="p4handle">
+          <h2>P4HANDLE / port $13: DIP switch bank S1</h2>
+          <p>
+            <code>P4HANDLE</code> is the main DIP/configuration byte for Wizard of Wor in MAME. This is where coinage,
+            language, lives, bonus life, free play, and demo-sound behavior are read.
+          </p>
+
+          <table>
+            <thead>
+              <tr><th>Bit(s)</th><th>Mask</th><th>DIP location</th><th>Function</th><th>MAME values</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>0</td><td class="addr">$01</td><td>S1:1</td><td>Coin A</td>
+                <td><code>$00</code> = 2 coins / 1 credit; <code>$01</code> = 1 coin / 1 credit.</td>
+              </tr>
+              <tr>
+                <td>1-2</td><td class="addr">$06</td><td>S1:2,3</td><td>Coin B</td>
+                <td><code>$04</code> = 2C/1C; <code>$06</code> = 1C/1C; <code>$02</code> = 1C/3C; <code>$00</code> = 1C/5C.</td>
+              </tr>
+              <tr>
+                <td>3</td><td class="addr">$08</td><td>S1:4</td><td>Language</td>
+                <td><code>$08</code> = English; <code>$00</code> = foreign ROM required.</td>
+              </tr>
+              <tr>
+                <td>4</td><td class="addr">$10</td><td>S1:5</td><td>Lives</td>
+                <td><code>$10</code> = 2 for 1 credit / 5 for 2 credits; <code>$00</code> = 3 for 1 credit / 7 for 2 credits.</td>
+              </tr>
+              <tr>
+                <td>5</td><td class="addr">$20</td><td>S1:6</td><td>Bonus life</td>
+                <td><code>$20</code> = after 3rd level; <code>$00</code> = after 4th level.</td>
+              </tr>
+              <tr>
+                <td>6</td><td class="addr">$40</td><td>S1:7</td><td>Free play</td>
+                <td><code>$40</code> = off; <code>$00</code> = on.</td>
+              </tr>
+              <tr>
+                <td>7</td><td class="addr">$80</td><td>S1:8</td><td>Demo sounds</td>
+                <td><code>$00</code> = on only when controls are touched; <code>$80</code> = always on.</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div class="callout gold">
+            <b>Coinage footnote</b>
+            MAME includes a note that if S1:1, S1:2, and S1:3 are all ON or all OFF, only coin meter number 1 will count.
+            That is the sort of operator/cabinet behavior a new game may ignore at first, but a faithful field guide
+            should preserve.
+          </div>
+
+          <h3>Read DIP settings once, then cache</h3>
+          <pre><code>; DIP switches generally do not need to be polled every frame.
+; Read at boot, service menu entry, or attract-mode refresh.
+
+ReadDips:
+    in   a,(PORT_INPUT13)       ; raw $13 / P4HANDLE
+    ld   (DIP_RAW),a
+
+    ; Example: free play active?
+    ld   b,a
+    ld   a,b
+    and  $40
+    jr   z,FreePlayOn           ; MAME WoW: $00 means On
+FreePlayOff:
+    ; normal credit logic
+    ret
+FreePlayOn:
+    ; bypass credit requirement
+    ret</code></pre>
+        </section>
+
+        <section class="card" id="active">
+          <h2>Active states: why raw bits lie</h2>
+          <p>
+            Many cabinet switches are active-low: the idle state reads as 1, and a pressed/closed switch reads as 0.
+            That is why code often does <code>cpl</code> after reading joystick or coin ports. But Wizard of Wor also has
+            active-high bits mixed into the player-control bytes.
+          </p>
+
+          <table>
+            <thead>
+              <tr><th>Signal group</th><th>Common active state</th><th>Exception / trap</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Coin, service, tilt, start</td><td>Active-low</td><td>Flip-screen/DIP style bit should be treated as configuration, not a momentary switch.</td></tr>
+              <tr><td>Joystick direction bits 0-3</td><td>Active-low</td><td>Safe to invert and mask <code>$0F</code> for directions.</td></tr>
+              <tr><td>Button 1 on WoW player ports</td><td>Active-low bit 5</td><td>Invert before testing <code>$20</code>.</td></tr>
+              <tr><td>Button 2 on WoW player ports</td><td>Active-high bit 4</td><td>Do not invert before testing <code>$10</code>.</td></tr>
+              <tr><td>Votrax status</td><td>Active-high bit 7</td><td>Status from speech hardware, not a button.</td></tr>
+              <tr><td>DIP switches</td><td>Value-coded</td><td>Do not globally invert; compare masks to documented values.</td></tr>
+            </tbody>
+          </table>
+
+          <div class="callout">
+            <b>Rule of thumb</b>
+            Invert only the fields that are known active-low. Do not invert whole bytes and then use every bit as if it
+            became a clean active-high logical input.
+          </div>
+        </section>
+
+        <section class="card" id="polling">
+          <h2>A safe polling pattern</h2>
+          <p>
+            The most robust pattern is to read all hardware input bytes once per frame, store the raw values, decode
+            normalized values, then compute edges. This prevents game code from seeing half-old/half-new input states and
+            makes it much easier to debug.
+          </p>
+
+          <pre><code>; Suggested workspace bytes
+RAW_PORT10        equ RAM_SCRATCH_START + 0
+RAW_PORT11        equ RAM_SCRATCH_START + 1
+RAW_PORT12        equ RAM_SCRATCH_START + 2
+RAW_PORT13        equ RAM_SCRATCH_START + 3
+
+P1_DIRS           equ RAM_SCRATCH_START + 4
+P1_BUTTON1        equ RAM_SCRATCH_START + 5
+P1_BUTTON2        equ RAM_SCRATCH_START + 6
+P2_DIRS           equ RAM_SCRATCH_START + 7
+P2_BUTTON1        equ RAM_SCRATCH_START + 8
+P2_BUTTON2        equ RAM_SCRATCH_START + 9
+
+COIN_NOW          equ RAM_SCRATCH_START + 10
+COIN_PREV         equ RAM_SCRATCH_START + 11
+COIN_EDGE         equ RAM_SCRATCH_START + 12</code></pre>
+
+          <pre><code>PollArcadeInputs:
+    ; --- Snapshot raw hardware ---
+    in   a,(PORT_COIN_DOOR)
+    ld   (RAW_PORT10),a
+
+    in   a,(PORT_PLAYER2)
+    ld   (RAW_PORT11),a
+
+    in   a,(PORT_PLAYER1)
+    ld   (RAW_PORT12),a
+
+    in   a,(PORT_INPUT13)
+    ld   (RAW_PORT13),a
+
+    ; --- Decode coin/start byte ---
+    ld   a,(RAW_PORT10)
+    cpl
+    and  $7F                 ; coin/service/tilt/start bits as active-high
+    ld   (COIN_NOW),a
+
+    ; edge = now &amp; ~prev
+    ld   b,a                 ; B = now
+    ld   a,(COIN_PREV)
+    cpl
+    and  b
+    ld   (COIN_EDGE),a
+    ld   a,b
+    ld   (COIN_PREV),a
+
+    ; --- Decode P1 directions ---
+    ld   a,(RAW_PORT12)
+    cpl
+    and  $0F
+    ld   (P1_DIRS),a
+
+    ; --- Decode P1 buttons separately ---
+    ld   a,(RAW_PORT12)
+    cpl
+    and  $20
+    ld   (P1_BUTTON1),a
+
+    ld   a,(RAW_PORT12)
+    and  $10
+    ld   (P1_BUTTON2),a
+
+    ; --- Decode P2 directions/buttons similarly ---
+    ld   a,(RAW_PORT11)
+    cpl
+    and  $0F
+    ld   (P2_DIRS),a
+
+    ld   a,(RAW_PORT11)
+    cpl
+    and  $20
+    ld   (P2_BUTTON1),a
+
+    ld   a,(RAW_PORT11)
+    and  $10
+    ld   (P2_BUTTON2),a
+
+    ret</code></pre>
+
+          <p>
+            After this, higher-level code can use <code>COIN_EDGE</code>, <code>P1_DIRS</code>, and <code>P1_BUTTON1</code>
+            without caring which MAME handle or cabinet wire they came from.
+          </p>
+        </section>
+
+        <section class="card" id="service">
+          <h2>Service-mode reality checks and WoW joystick weirdness</h2>
+          <p>
+            Wizard of Wor has a famously unusual joystick arrangement. The real control is not merely a normal 4-way or
+            8-way stick. The control has directional sensing and an additional “move/full press” behavior. MAME’s current
+            mapping exposes this awkwardly through the second button-style input, and there is a MAME Testers issue noting
+            that WoW joystick behavior may not be represented perfectly.
+          </p>
+
+          <div class="two-col">
+            <div class="mini">
+              <h3>What service mode is good for</h3>
+              <p>
+                Service mode can reveal whether the original game thinks a direction, fire, move, coin, or DIP state is
+                active. It is a strong sanity check when MAME behavior and cabinet behavior do not feel the same.
+              </p>
+            </div>
+            <div class="mini">
+              <h3>What not to assume</h3>
+              <p>
+                Do not assume a MAME keyboard binding equals the exact physical switch stack under the original joystick.
+                For a new game, you may choose a simpler normalized model, but the field guide should preserve the
+                hardware distinction.
+              </p>
+            </div>
+          </div>
+
+          <div class="callout cyan">
+            <b>For I, Wizard</b>
+            We can write a clean new-game input layer using directions plus fire, while still documenting the original
+            WoW multi-leaf behavior as a compatibility/hardware note. The important part is not to let MAME’s convenience
+            mapping leak into hardware documentation as if it were the original physical mechanism.
+          </div>
+        </section>
+
+        <section class="card" id="rules">
+          <h2>Practical rules for writing robust input code</h2>
+          <div class="two-col">
+            <div class="mini">
+              <h3>Do this</h3>
+              <table>
+                <tbody>
+                  <tr><td>Read <code>$10-$13</code> once per frame and store raw snapshots.</td></tr>
+                  <tr><td>Decode raw ports into clean logical workspace bytes.</td></tr>
+                  <tr><td>Use edge detection for coins and start buttons.</td></tr>
+                  <tr><td>Invert only active-low fields, not whole ports blindly.</td></tr>
+                  <tr><td>Read DIP settings at boot or service-menu refresh.</td></tr>
+                  <tr><td>Keep MAME mapping, service manual wiring, and real cabinet tests separately tagged.</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="mini">
+              <h3>Do not do this</h3>
+              <table>
+                <tbody>
+                  <tr><td>Do not assume <code>P1HANDLE</code> means player 1 joystick.</td></tr>
+                  <tr><td>Do not use console <code>SW0</code>/<code>SW1</code> assumptions on arcade ports.</td></tr>
+                  <tr><td>Do not globally <code>cpl</code> a player port and then trust every bit.</td></tr>
+                  <tr><td>Do not increment credits from a held coin level every frame.</td></tr>
+                  <tr><td>Do not use raw DIP values without comparing to documented mask/value pairs.</td></tr>
+                  <tr><td>Do not assume Gorf, Robby Roto, Space Zap, and WoW have identical input maps.</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <h3>Suggested WoW-specific symbols</h3>
+          <pre><code>; Raw ports from HW-HVGLIB.H.h
+PORT_COIN_DOOR      equ $10
+PORT_PLAYER2        equ $11
+PORT_PLAYER1        equ $12
+PORT_INPUT13        equ $13
+
+; WoW P1HANDLE / $10
+WOW_COIN1_MASK      equ $01
+WOW_COIN2_MASK      equ $02
+WOW_COIN3_MASK      equ $04
+WOW_SERVICE_MASK    equ $08
+WOW_TILT_MASK       equ $10
+WOW_START1_MASK     equ $20
+WOW_START2_MASK     equ $40
+WOW_FLIP_MASK       equ $80
+
+; WoW P2HANDLE / $11 and P3HANDLE / $12
+WOW_JOY_UP_MASK     equ $01
+WOW_JOY_DOWN_MASK   equ $02
+WOW_JOY_LEFT_MASK   equ $04
+WOW_JOY_RIGHT_MASK  equ $08
+WOW_BUTTON2_MASK    equ $10    ; active-high in MAME WoW
+WOW_BUTTON1_MASK    equ $20    ; active-low in MAME WoW
+WOW_VOTRAX_MASK     equ $80    ; P3HANDLE only, active-high status
+
+; WoW P4HANDLE / $13 DIP bank
+WOW_DIP_COIN_A      equ $01
+WOW_DIP_COIN_B      equ $06
+WOW_DIP_LANGUAGE    equ $08
+WOW_DIP_LIVES       equ $10
+WOW_DIP_BONUS       equ $20
+WOW_DIP_FREEPLAY    equ $40
+WOW_DIP_DEMOSOUND   equ $80</code></pre>
+        </section>
+
+        <section class="card" id="sources">
+          <h2>Source notes</h2>
+          <p>
+            This chapter is a working developer model. Keep the layers separate:
+          </p>
+          <div class="source-list">
+            <div class="source">
+              <b>MAME <code>src/mame/midway/astrocde.cpp</code></b>
+              <span>Primary source for the Wizard of Wor <code>P1HANDLE</code>, <code>P2HANDLE</code>, <code>P3HANDLE</code>, and <code>P4HANDLE</code> bit assignments, active-low/active-high annotations, DIP settings, and Votrax status bit.</span>
+              <span><a href="https://github.com/mamedev/mame/blob/master/src/mame/midway/astrocde.cpp">Open source file</a></span>
+            </div>
+            <div class="source">
+              <b>Arcade <code>HW-HVGLIB.H.h</code></b>
+              <span>Source for project-facing port aliases: <code>PORT_COIN_DOOR</code>, <code>PORT_PLAYER2</code>, <code>PORT_PLAYER1</code>, <code>PORT_INPUT13</code>, and the warning that console-style <code>SW0</code> naming can be misleading on arcade hardware.</span>
+            </div>
+            <div class="source">
+              <b>MAME Testers issue 08432</b>
+              <span>Useful caution that Wizard of Wor’s physical joystick behavior is more subtle than a simple MAME button/direction mapping.</span>
+              <span><a href="https://mametesters.org/view.php?id=8432">Open issue</a></span>
+            </div>
+            <div class="source">
+              <b>Service manuals, schematics, and cabinet tests</b>
+              <span>Needed to distinguish emulator convenience mappings from the exact original cabinet wiring and special joystick mechanics.</span>
+            </div>
+          </div>
+        </section>
+
+        <section class="card" id="next">
+          <h2>Next / previous</h2>
+          <div class="page-nav">
+            <a class="nav-card" href="video-system.html">
+              <span class="nav-kicker">Previous chapter</span>
+              <b>Video System</b>
+              <small>Arcade hi-res framebuffer, color latches, Magic writes, interlace, pattern-board context.</small>
+            </a>
+            <a class="nav-card" href="index.html">
+              <span class="nav-kicker">Guide index</span>
+              <b>Back to all chapters</b>
+              <small>Return to the field guide front page and chapter list.</small>
+            </a>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <footer>
+      <a href="index.html">Astrocade Arcade Field Guide</a> · Inputs and DIP Switches · draft chapter for new arcade-targeted Z80 software
+    </footer>
+  </div>
+</body>
+</html>

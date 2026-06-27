@@ -1,0 +1,548 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Astrocade Arcade Field Guide — I/O Map</title>
+  <link rel="stylesheet" href="field-guide.css" />
+</head>
+<body class="guide-chapter">
+  <div class="wrap">
+    <header class="hero">
+      <div class="eyebrow"><span class="lamp"></span>Astrocade Arcade Field Guide · Chapter 02</div>
+      <h1>I/O Map</h1>
+      <p class="subtitle">
+        The port-level control panel for Bally/Midway Astrocade arcade software: video registers, sound/I/O direction traps,
+        cabinet inputs, Magic expansion, protected RAM enable, and the Wizard/Gorf pattern-board port block.
+      </p>
+
+      <div class="toplinks">
+        <a class="pill-link" href="index.html">← Field Guide Index</a>
+        <a class="pill-link" href="machine-model.html">← Machine Model</a>
+        <a class="pill-link" href="index.html#chapters">All Chapters</a>
+        <span class="tag ok">MAME backbone</span>
+        <span class="tag info">HW-HVGLIB annotated</span>
+        <span class="tag warn">direction-sensitive</span>
+      </div>
+
+      <div class="hero-grid">
+        <div class="stat"><b>$00-$0F</b><span>video registers</span></div>
+        <div class="stat"><b>$10-$1F</b><span>sound / I/O reads</span></div>
+        <div class="stat"><b>$10-$18</b><span>sound writes</span></div>
+        <div class="stat"><b>$19</b><span>expand register</span></div>
+        <div class="stat"><b>$78-$7E</b><span>pattern board</span></div>
+      </div>
+    </header>
+
+    <main>
+      <nav class="toc" aria-label="Chapter navigation">
+        <h2>Chapter map</h2>
+        <a href="index.html">← Back to Field Guide Index <small>front page</small></a>
+        <a href="#why">Why ports matter <small>same number, different direction</small></a>
+        <a href="#backbone">MAME backbone <small>the core map</small></a>
+        <a href="#direction">IN vs OUT <small>the biggest naming trap</small></a>
+        <a href="#video">Video ports $00-$0F <small>colors, mode, Magic, interrupts</small></a>
+        <a href="#sound">Sound writes $10-$18 <small>Astrocade I/O chip registers</small></a>
+        <a href="#inputs">Input reads $10-$1F <small>coin, start, player ports, pots</small></a>
+        <a href="#expand">Expand register $19 <small>XPAND and Magic data expansion</small></a>
+        <a href="#pattern">Pattern board $78-$7E/$7F <small>Wizard/Gorf drawing helper</small></a>
+        <a href="#protect">Protected RAM enable $A55B <small>why OUT $5B is not the whole story</small></a>
+        <a href="#hvg">HW-HVGLIB naming <small>recommended symbols</small></a>
+        <a href="#examples">Code patterns <small>safe snippets</small></a>
+        <a href="#sources">Source notes <small>MAME, include, tests</small></a>
+      </nav>
+
+      <div class="content">
+        <section class="card" id="why">
+          <h2>Why this chapter matters</h2>
+          <p>
+            The Astrocade arcade I/O map is compact, but it is easy to misread because the Z80 has a separate I/O address
+            space, MAME models some ports with high-address-bit selection, and several numeric port values have different
+            meanings depending on whether the CPU is reading or writing.
+          </p>
+          <p>
+            A good arcade include file must therefore avoid one flat list of names like <code>PORT_10</code>. The safer model is
+            <strong>direction-aware naming</strong>: <code>PORT_TONMO</code> when you write sound register 0, but
+            <code>PORT_COIN_DOOR</code> or <code>PORT_INPUT10</code> when you read the same numeric port on WoW-style wiring.
+          </p>
+          <div class="callout">
+            <b>The big idea</b>
+            The I/O map is not just “addresses.” It is a set of hardware conversations. <code>OUT ($10),A</code> talks to the
+            sound chip. <code>IN A,($10)</code> asks the sound/I/O hardware and board muxes for input state. Same low number,
+            different bus direction, different meaning.
+          </div>
+          <p class="return-link"><a href="index.html">← Return to the Field Guide index</a></p>
+        </section>
+
+        <section class="card" id="backbone">
+          <h2>MAME backbone</h2>
+          <p>
+            This chapter uses MAME as the backbone, then overlays the arcade-oriented <code>HW-HVGLIB.H.h</code> names so code
+            and documentation stay in sync. For the Wizard of Wor / Gorf class with the mono pattern-board extension, the
+            practical high-level map is:
+          </p>
+
+          <pre><code>00-0F  video registers
+10-1F  sound/I/O reads
+10-18  sound writes
+19     expand register
+78-7E  pattern board writes
+A55B   protected RAM enable</code></pre>
+
+          <table>
+            <thead>
+              <tr><th>Range</th><th>MAME model</th><th>Field-guide meaning</th><th>Primary include names</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="addr">$00-$0F</td>
+                <td>Video register read/write block.</td>
+                <td>Palette, video mode, blanking/split, Magic mode, interrupt feedback/mode/scanline.</td>
+                <td class="codeish">PORT_COL0R..PORT_SCANLINE</td>
+              </tr>
+              <tr>
+                <td class="addr">$10-$1F</td>
+                <td>Astrocade sound/I/O reads.</td>
+                <td>Input reads through the custom I/O chip and arcade board muxes.</td>
+                <td class="codeish">PORT_INPUT10, PORT_PLAYER2, PORT_PLAYER1, PORT_INPUT13, PORT_POT0..3</td>
+              </tr>
+              <tr>
+                <td class="addr">$10-$18</td>
+                <td>Astrocade sound writes.</td>
+                <td>Master oscillator, tone generators, vibrato, volumes/noise, sound block writes.</td>
+                <td class="codeish">PORT_TONMO..PORT_SNDBX</td>
+              </tr>
+              <tr>
+                <td class="addr">$19</td>
+                <td>Expand register write.</td>
+                <td>Magic expander source value; affects Magic write expansion/bit manipulation.</td>
+                <td class="codeish">PORT_XPAND / XPAND</td>
+              </tr>
+              <tr>
+                <td class="addr">$78-$7E</td>
+                <td>Mono pattern-board write block.</td>
+                <td>External pattern-board command/address/register block used by WoW/Gorf-style hardware.</td>
+                <td class="codeish">PORT_PBLINADRL..PORT_PBXR</td>
+              </tr>
+              <tr>
+                <td class="addr">$A55B</td>
+                <td>Protected-RAM enable write.</td>
+                <td>Unlocks the next protected RAM access. On Z80 I/O, high address bits can participate in decode.</td>
+                <td class="codeish">PORT_PROTECT=$5B, PROTECT_KEY_UNLOCK=$A5</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div class="callout gold">
+            <b>Port-address warning</b>
+            MAME shows <code>$A55B</code> for the protected-RAM enable because its I/O map can decode more than the low 8 bits.
+            Z80 source often writes <code>OUT ($5B),A</code> with <code>A=$A5</code>. That is not a contradiction; it is a decode
+            detail you should document every time it appears.
+          </div>
+        </section>
+
+        <section class="card" id="direction">
+          <h2>Direction matters: read names and write names are not interchangeable</h2>
+          <p>
+            The arcade include intentionally says that several port numbers have different meanings for <code>IN</code> versus
+            <code>OUT</code>. This is especially important in the <code>$10-$1F</code> range, where writes are sound registers
+            but reads return I/O-chip or muxed cabinet/input data.
+          </p>
+
+          <div class="two-col">
+            <div class="mini">
+              <h3>Write-side meaning</h3>
+              <pre><code>ld   a,$80
+out  (PORT_TONMO),a    ; $10 = sound master oscillator write
+
+ld   a,$0F
+out  (PORT_VOLAB),a    ; $16 = tone A/B volume write</code></pre>
+              <p>When writing, <code>$10-$18</code> are sound-control registers on the Astrocade custom I/O chip.</p>
+            </div>
+            <div class="mini">
+              <h3>Read-side meaning</h3>
+              <pre><code>in   a,(PORT_INPUT10)  ; $10 = WoW coin/start/input-side read
+in   a,(PORT_PLAYER1)  ; $12 = WoW player 1 input-side read</code></pre>
+              <p>When reading, the arcade board routes input data through the sound/I/O chip and external muxing.</p>
+            </div>
+          </div>
+
+          <div class="callout cyan">
+            <b>Best practice</b>
+            Use names that describe the intended bus direction. Do not write new code that says <code>out ($10),a</code> unless
+            you are doing a tiny one-off experiment. In real source, prefer <code>out (PORT_TONMO),a</code> or
+            <code>in a,(PORT_INPUT10)</code>.
+          </div>
+        </section>
+
+        <section class="card" id="video">
+          <h2>Video register block: $00-$0F</h2>
+          <p>
+            The low sixteen ports are the Astrocade video register window. In the arcade field guide, treat these as the
+            first part of every startup sequence: color latches, video mode, palette split, height/blanking, Magic mode,
+            and interrupt controls.
+          </p>
+
+          <h3>Color latches: $00-$07</h3>
+          <p>
+            <code>HW-HVGLIB.H.h</code> keeps the classic HVGLIB color names but makes the direction explicit with
+            <code>PORT_</code> names. The include describes eight hardware color latches: <code>$00-$03</code> for right-side
+            palette colors 0-3 and <code>$04-$07</code> for left-side palette colors 0-3.
+          </p>
+          <table>
+            <thead>
+              <tr><th>Port</th><th>Preferred name</th><th>Legacy alias</th><th>Use</th></tr>
+            </thead>
+            <tbody>
+              <tr><td class="addr">$00</td><td class="codeish">PORT_COL0R</td><td class="codeish">COL0R</td><td>Right-side color register 0.</td></tr>
+              <tr><td class="addr">$01</td><td class="codeish">PORT_COL1R</td><td class="codeish">COL1R</td><td>Right-side color register 1.</td></tr>
+              <tr><td class="addr">$02</td><td class="codeish">PORT_COL2R</td><td class="codeish">COL2R</td><td>Right-side color register 2.</td></tr>
+              <tr><td class="addr">$03</td><td class="codeish">PORT_COL3R</td><td class="codeish">COL3R</td><td>Right-side color register 3.</td></tr>
+              <tr><td class="addr">$04</td><td class="codeish">PORT_COL0L</td><td class="codeish">COL0L</td><td>Left-side color register 0.</td></tr>
+              <tr><td class="addr">$05</td><td class="codeish">PORT_COL1L</td><td class="codeish">COL1L</td><td>Left-side color register 1.</td></tr>
+              <tr><td class="addr">$06</td><td class="codeish">PORT_COL2L</td><td class="codeish">COL2L</td><td>Left-side color register 2.</td></tr>
+              <tr><td class="addr">$07</td><td class="codeish">PORT_COL3L</td><td class="codeish">COL3L</td><td>Left-side color register 3.</td></tr>
+            </tbody>
+          </table>
+
+          <h3>Video, Magic, and interrupt control: $08-$0F</h3>
+          <table>
+            <thead>
+              <tr><th>Port</th><th>Preferred name</th><th>Legacy alias</th><th>Field-guide interpretation</th></tr>
+            </thead>
+            <tbody>
+              <tr><td class="addr">$08</td><td class="codeish">PORT_VIDEO_MODE</td><td class="codeish">CONCM</td><td>Commercial/video mode control. Also has read-side status alias <code>PORT_INT_STATUS</code>/<code>INTST</code>.</td></tr>
+              <tr><td class="addr">$09</td><td class="codeish">PORT_PAL_SPLIT</td><td class="codeish">HORCB</td><td>Horizontal color boundary / palette split control.</td></tr>
+              <tr><td class="addr">$0A</td><td class="codeish">PORT_HEIGHT</td><td class="codeish">VERBL</td><td>Vertical blanking / visible height style control.</td></tr>
+              <tr><td class="addr">$0B</td><td class="codeish">PORT_COLORMAP</td><td class="codeish">COLBX</td><td>Color block multi-port helper / compatibility alias.</td></tr>
+              <tr><td class="addr">$0C</td><td class="codeish">PORT_MAGIC</td><td class="codeish">MAGIC</td><td>Magic register: shift, rotate, expand, OR/XOR/flop mode bits.</td></tr>
+              <tr><td class="addr">$0D</td><td class="codeish">PORT_INT_VECTOR</td><td class="codeish">INFBK</td><td>Interrupt feedback/vector register in the inherited HVGLIB naming scheme.</td></tr>
+              <tr><td class="addr">$0E</td><td class="codeish">PORT_INT_ENABLE</td><td class="codeish">INMOD</td><td>Interrupt mode/enable write. Read-side alias: <code>PORT_VERT_FEEDBACK</code>/<code>VERAF</code>.</td></tr>
+              <tr><td class="addr">$0F</td><td class="codeish">PORT_SCANLINE</td><td class="codeish">INLIN</td><td>Interrupt scanline write. Read-side alias: <code>PORT_HORIZ_FEEDBACK</code>/<code>HORAF</code>.</td></tr>
+            </tbody>
+          </table>
+
+          <div class="callout">
+            <b>Startup implication</b>
+            A minimal arcade ROM should set palette latches, video mode, height/blanking, Magic mode, and interrupt state before enabling interrupts or drawing anything that depends on stable video behavior.
+          </div>
+        </section>
+
+        <section class="card" id="sound">
+          <h2>Sound writes: $10-$18</h2>
+          <p>
+            The Astrocade custom I/O chip is also the sound chip. MAME documents eight sound registers, and the arcade include
+            maps those write-side names onto ports <code>$10-$18</code>. Register <code>$18</code> is kept as a sound-block
+            multi-port compatibility name, while the core eight chip registers are <code>$10-$17</code>.
+          </p>
+
+          <table>
+            <thead>
+              <tr><th>Port</th><th>Preferred name</th><th>Legacy alias</th><th>Sound register role</th></tr>
+            </thead>
+            <tbody>
+              <tr><td class="addr">$10</td><td class="codeish">PORT_TONMO</td><td class="codeish">TONMO</td><td>Register 0: master oscillator frequency.</td></tr>
+              <tr><td class="addr">$11</td><td class="codeish">PORT_TONEA</td><td class="codeish">TONEA</td><td>Register 1: tone generator A frequency.</td></tr>
+              <tr><td class="addr">$12</td><td class="codeish">PORT_TONEB</td><td class="codeish">TONEB</td><td>Register 2: tone generator B frequency.</td></tr>
+              <tr><td class="addr">$13</td><td class="codeish">PORT_TONEC</td><td class="codeish">TONEC</td><td>Register 3: tone generator C frequency.</td></tr>
+              <tr><td class="addr">$14</td><td class="codeish">PORT_VIBRA</td><td class="codeish">VIBRA</td><td>Register 4: vibrato speed/depth.</td></tr>
+              <tr><td class="addr">$15</td><td class="codeish">PORT_VOLC</td><td class="codeish">VOLC</td><td>Register 5: noise AM/mux and tone C volume.</td></tr>
+              <tr><td class="addr">$16</td><td class="codeish">PORT_VOLAB</td><td class="codeish">VOLAB</td><td>Register 6: tone B volume in high nibble, tone A volume in low nibble.</td></tr>
+              <tr><td class="addr">$17</td><td class="codeish">PORT_VOLN</td><td class="codeish">VOLN</td><td>Register 7: noise volume.</td></tr>
+              <tr><td class="addr">$18</td><td class="codeish">PORT_SNDBX</td><td class="codeish">SNDBX</td><td>Sound block / multi-port compatibility symbol.</td></tr>
+            </tbody>
+          </table>
+
+          <div class="callout gold">
+            <b>The $15 collision</b>
+            The include deliberately documents a collision: console HVGLIB names <code>OUT $15</code> as <code>VOLC</code>, but
+            WoW-style arcade code also uses <code>PORT_LATCH=$15</code> for cabinet/latch behavior. That is not something to
+            “fix” with one universal name. It is exactly why direction and board context belong in the symbol name.
+          </div>
+        </section>
+
+        <section class="card" id="inputs">
+          <h2>Input reads: $10-$1F</h2>
+          <p>
+            The read side of the <code>$10-$1F</code> range is where console assumptions are most dangerous. MAME’s sound/I/O
+            device comments explain that home Astrocade systems logically tie SO/SI to the same input matrix, while arcade
+            games route SI lines through external multiplexers and use SO strobes for unrelated outputs. In plain terms:
+            the arcade cabinet does not behave like four simple console hand controllers.
+          </p>
+
+          <table>
+            <thead>
+              <tr><th>Port</th><th>Preferred include name</th><th>Generic alias</th><th>WoW-style interpretation</th></tr>
+            </thead>
+            <tbody>
+              <tr><td class="addr">$10</td><td class="codeish">PORT_COIN_DOOR / PORT_INPUT10</td><td class="codeish">SW0</td><td>Coin/start/service style input group on current WoW experiments.</td></tr>
+              <tr><td class="addr">$11</td><td class="codeish">PORT_PLAYER2</td><td class="codeish">SW1</td><td>Player 2 input-side group.</td></tr>
+              <tr><td class="addr">$12</td><td class="codeish">PORT_PLAYER1</td><td class="codeish">SW2</td><td>Player 1 input-side group.</td></tr>
+              <tr><td class="addr">$13</td><td class="codeish">PORT_INPUT13</td><td class="codeish">SW3</td><td>Additional input/DIP/status group; verify per board.</td></tr>
+              <tr><td class="addr">$1C-$1F</td><td class="codeish">PORT_POT0..PORT_POT3</td><td class="codeish">POT0..POT3</td><td>Console-style pot aliases kept for source compatibility; verify availability on the arcade board.</td></tr>
+            </tbody>
+          </table>
+
+          <h3>Input bit conventions used by our include</h3>
+          <p>
+            The include keeps both HVGLIB-style control bit names and project-style aliases. It also documents the active-low
+            convention for matrix-style inputs: <code>0 = pressed/closed</code>, <code>1 = open</code>. That matches the way our
+            polling code generally sanitizes joystick state before handing it to game logic.
+          </p>
+          <pre><code>BIT_UP       equ 0
+BIT_DOWN     equ 1
+BIT_LEFT     equ 2
+BIT_RIGHT    equ 3
+BIT_TRIGGER  equ 4
+BIT_START1   equ 5    ; normally on port $10
+BIT_START2   equ 5    ; normally on port $11</code></pre>
+
+          <div class="callout cyan">
+            <b>Debugger habit</b>
+            When an input seems stuck, trace reads from <code>$10-$13</code> and look at both the raw port value and your sanitized
+            version. A bug can be in MAME mapping, board assumptions, active-low inversion, bit masks, or simply reading the
+            wrong player port.
+          </div>
+        </section>
+
+        <section class="card" id="expand">
+          <h2>Expand register: $19</h2>
+          <p>
+            Port <code>$19</code> is the Magic expander register, named <code>PORT_XPAND</code> or <code>XPAND</code>. It works with
+            the Magic register and Magic write window. Conceptually, it is part of the graphics data path rather than the
+            ordinary video-control block.
+          </p>
+          <p>
+            When Magic expansion is enabled, writes into Magic memory can expand compact source data into wider pixel
+            patterns. This is one of the places where the Astrocade hardware stops looking like a plain framebuffer and starts
+            acting like a small, odd blitter.
+          </p>
+
+          <pre><code>; Conceptual use: exact mode/data depends on the Magic chapter.
+ld   a,%11110000
+out  (PORT_XPAND),a
+
+ld   a,MAGIC_EXPAND | MAGIC_OR
+out  (PORT_MAGIC),a
+
+; Later writes into the Magic window use the current expand/magic state.</code></pre>
+
+          <div class="callout">
+            <b>Chapter boundary</b>
+            This page identifies <code>$19</code> and how to name it. The deep rules for expand tables, shifts, rotate, OR/XOR,
+            and Magic-memory writes belong in the Magic System chapter.
+          </div>
+        </section>
+
+        <section class="card" id="pattern">
+          <h2>Pattern board: $78-$7E, plus project alias $7F</h2>
+          <p>
+            The Wizard/Gorf neighborhood adds a pattern-board port block. MAME’s mono pattern-board map writes
+            <code>$78-$7E</code> to the pattern-board handler and uses <code>$A55B</code> for protected RAM enable. Our include
+            also names <code>$7F</code> as <code>PORT_PBOR</code>/<code>PBOR</code> because current project notes and older
+            experimental code treat the cleaner pattern-board block as <code>$78-$7F</code>.
+          </p>
+
+          <table>
+            <thead>
+              <tr><th>Port</th><th>Preferred name</th><th>Short alias</th><th>Field-guide role</th></tr>
+            </thead>
+            <tbody>
+              <tr><td class="addr">$78</td><td class="codeish">PORT_PBLINADRL</td><td class="codeish">PBLINADRL</td><td>Pattern-board line/address low.</td></tr>
+              <tr><td class="addr">$79</td><td class="codeish">PORT_PBLINADRH</td><td class="codeish">PBLINADRH</td><td>Pattern-board line/address high.</td></tr>
+              <tr><td class="addr">$7A</td><td class="codeish">PORT_PBCTL</td><td class="codeish">PBCTL</td><td>Pattern-board control.</td></tr>
+              <tr><td class="addr">$7B</td><td class="codeish">PORT_PBROT</td><td class="codeish">PBROT</td><td>Pattern-board rotate / area low compatibility alias.</td></tr>
+              <tr><td class="addr">$7C</td><td class="codeish">PORT_PBMASK</td><td class="codeish">PBMASK</td><td>Pattern-board mask / area high compatibility alias.</td></tr>
+              <tr><td class="addr">$7D</td><td class="codeish">PORT_PBMR</td><td class="codeish">PBMR</td><td>Pattern-board Magic-register style control / width compatibility alias.</td></tr>
+              <tr><td class="addr">$7E</td><td class="codeish">PORT_PBXR</td><td class="codeish">PBXR</td><td>Pattern-board X register / height compatibility alias.</td></tr>
+              <tr><td class="addr">$7F</td><td class="codeish">PORT_PBOR</td><td class="codeish">PBOR</td><td>Project alias for OR/output behavior; verify against schematic/original routines before treating as MAME-backed.</td></tr>
+            </tbody>
+          </table>
+
+          <div class="callout gold">
+            <b>Evidence tag</b>
+            Treat <code>$78-$7E</code> as MAME-backed for the mono pattern-board handler. Treat <code>$7F/PBOR</code> as
+            project/schematic/ROM-observed territory until this guide pins it down with a specific schematic page or ROM trace.
+          </div>
+        </section>
+
+        <section class="card" id="protect">
+          <h2>Protected RAM enable: $A55B / PORT_PROTECT</h2>
+          <p>
+            Protected RAM is not enabled by writing data directly into protected RAM. First, software hits the protection
+            enable path, then performs the protected RAM access. MAME models the enable write at <code>$A55B</code> for the
+            mono pattern-board map. The include provides <code>PORT_PROTECT=$5B</code> and <code>PROTECT_KEY_UNLOCK=$A5</code>
+            because this is how the operation appears naturally in Z80 source.
+          </p>
+
+          <pre><code>PORT_PROTECT       equ $5B
+PROTECT_KEY_UNLOCK equ $A5
+
+; Conceptual protected write:
+ld   a,PROTECT_KEY_UNLOCK
+out  (PORT_PROTECT),a
+ld   a,new_value
+ld   (RAM_PROTECTED_START),a</code></pre>
+
+          <p>
+            The important software habit is to keep protected writes tight and intentional. Do not leave the unlock separated
+            from the write by a long call chain. Do not use protected RAM for ordinary object state. Do not hide this behind
+            misleading names like <code>SafeWrite</code> unless the routine is tiny and obviously writes exactly one byte.
+          </p>
+        </section>
+
+        <section class="card" id="hvg">
+          <h2>HW-HVGLIB naming recommendations</h2>
+          <p>
+            The arcade include is doing two jobs at once: preserving useful HVGLIB compatibility names and preventing console
+            assumptions from leaking into arcade code. The safest convention is:
+          </p>
+
+          <table>
+            <thead>
+              <tr><th>When writing new code</th><th>Use this style</th><th>Reason</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Hardware ports</td><td class="codeish">PORT_*</td><td>Makes it obvious the symbol is an I/O port, not RAM or ROM.</td></tr>
+              <tr><td>Legacy-compatible code</td><td class="codeish">CONCM, MAGIC, XPAND, TONMO</td><td>Useful when adapting code derived from HVGLIB or console examples.</td></tr>
+              <tr><td>Inputs</td><td class="codeish">PORT_PLAYER1, PORT_PLAYER2, PORT_INPUT10</td><td>Avoids pretending WoW wiring is the same as console controller order.</td></tr>
+              <tr><td>Pattern board</td><td class="codeish">PORT_PB* or PB*</td><td>Keeps external pattern hardware distinct from core Astrocade Magic.</td></tr>
+              <tr><td>Magic modes</td><td class="codeish">MAGIC_OR, MAGIC_XOR, MRXOR_MASK</td><td>Self-documents bit meanings instead of scattering hex constants.</td></tr>
+            </tbody>
+          </table>
+
+          <h3>Recommended minimal include slice</h3>
+          <pre><code>; Video
+PORT_VIDEO_MODE   equ $08
+PORT_PAL_SPLIT    equ $09
+PORT_HEIGHT       equ $0A
+PORT_MAGIC        equ $0C
+PORT_INT_VECTOR   equ $0D
+PORT_INT_ENABLE   equ $0E
+PORT_SCANLINE     equ $0F
+
+; Sound writes
+PORT_TONMO        equ $10
+PORT_TONEA        equ $11
+PORT_TONEB        equ $12
+PORT_TONEC        equ $13
+PORT_VIBRA        equ $14
+PORT_VOLC         equ $15
+PORT_VOLAB        equ $16
+PORT_VOLN         equ $17
+PORT_SNDBX        equ $18
+
+; Input reads / arcade wiring
+PORT_INPUT10      equ $10
+PORT_PLAYER2      equ $11
+PORT_PLAYER1      equ $12
+PORT_INPUT13      equ $13
+
+; Magic / protection / pattern board
+PORT_XPAND        equ $19
+PORT_PROTECT      equ $5B
+PORT_PBLINADRL    equ $78
+PORT_PBLINADRH    equ $79
+PORT_PBCTL        equ $7A
+PORT_PBROT        equ $7B
+PORT_PBMASK       equ $7C
+PORT_PBMR         equ $7D
+PORT_PBXR         equ $7E</code></pre>
+        </section>
+
+        <section class="card" id="examples">
+          <h2>Code patterns</h2>
+          <h3>Clear direction-aware examples</h3>
+          <pre><code>; Read cabinet/input-side port $10.
+; This is NOT a sound write.
+in   a,(PORT_INPUT10)
+ld   (COIN_INPUT),a
+
+; Write sound register 0 at numeric port $10.
+; This is NOT an input read.
+ld   a,$80
+out  (PORT_TONMO),a</code></pre>
+
+          <h3>Palette setup shape</h3>
+          <pre><code>; Example only: values depend on the chosen Astrocade color map.
+ld   a,$00
+out  (PORT_COL0R),a
+out  (PORT_COL0L),a
+
+ld   a,$63
+out  (PORT_COL3R),a
+out  (PORT_COL3L),a</code></pre>
+
+          <h3>Input polling shape</h3>
+          <pre><code>PollArcadeInputs:
+    in   a,(PORT_PLAYER1)
+    ld   (P1_INPUT),a
+
+    in   a,(PORT_PLAYER2)
+    ld   (P2_INPUT),a
+
+    in   a,(PORT_INPUT10)
+    ld   (COIN_INPUT),a
+    ret</code></pre>
+
+          <h3>Pattern-board write shape</h3>
+          <pre><code>; Conceptual only. Exact sequencing belongs in the pattern-board chapter.
+ld   a,low pattern_addr
+out  (PORT_PBLINADRL),a
+
+ld   a,high pattern_addr
+out  (PORT_PBLINADRH),a
+
+ld   a,control_bits
+out  (PORT_PBCTL),a</code></pre>
+        </section>
+
+        <section class="card" id="sources">
+          <h2>Source notes</h2>
+          <div class="source-list">
+            <div class="source">
+              <b>MAME <code>src/mame/midway/astrocde.cpp</code></b>
+              <span>The backbone for the common port map: video registers at <code>$00-$0F</code>, sound/I/O reads at <code>$10-$1F</code>, sound writes at <code>$10-$18</code>, expand register at <code>$19</code>, mono pattern-board writes at <code>$78-$7E</code>, and protected-RAM enable at <code>$A55B</code>.</span>
+              <span><a href="https://github.com/mamedev/mame/blob/master/src/mame/midway/astrocde.cpp">Open source file</a></span>
+            </div>
+            <div class="source">
+              <b>MAME <code>src/devices/sound/astrocde.cpp</code></b>
+              <span>Primary source for the Astrocade custom I/O sound-register roles and the home-vs-arcade SI/SO warning.</span>
+              <span><a href="https://github.com/mamedev/mame/blob/master/src/devices/sound/astrocde.cpp">Open source file</a></span>
+            </div>
+            <div class="source">
+              <b><code>HW-HVGLIB.H.h</code></b>
+              <span>Project include used to turn MAME-style ranges into developer-facing symbols. It intentionally keeps legacy HVGLIB aliases while adding clearer arcade names.</span>
+            </div>
+            <div class="source">
+              <b>Original ROM traces and real hardware tests</b>
+              <span>Needed to promote pattern-board sequencing, latch behavior, and edge-case input behavior from working hypothesis to ROM-observed or real-hardware-confirmed.</span>
+            </div>
+          </div>
+        </section>
+
+        <section class="card">
+          <h2>Chapter navigation</h2>
+          <div class="page-nav">
+            <a class="nav-card" href="machine-model.html">
+              <span class="nav-kicker">Previous</span>
+              <b>Machine Model</b>
+              <small>CPU, ROM/RAM layout, stack, interrupts, and the Magic write window.</small>
+            </a>
+            <a class="nav-card disabled" href="#">
+              <span class="nav-kicker">Next</span>
+              <b>Video and Color</b>
+              <small>Planned: framebuffer, palette bytes, split, sparkle, scanline, interlace.</small>
+            </a>
+          </div>
+          <p class="return-link"><a href="index.html">← Back to the Field Guide index</a></p>
+        </section>
+      </div>
+    </main>
+
+    <footer>
+      <a href="index.html">Astrocade Arcade Field Guide</a> · I/O Map · draft chapter for new arcade-targeted Z80 software
+    </footer>
+  </div>
+</body>
+</html>
