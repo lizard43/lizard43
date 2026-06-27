@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-27T21:12:52.784Z",
+  "generated_at": "2026-06-27T22:13:21.947Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,53 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 33,
-      "droppedPrice": 385,
+      "exported_ads": 35,
+      "droppedPrice": 390,
       "droppedMissingGeo": 0,
-      "droppedCircle": 370
+      "droppedCircle": 376
     }
   },
   "ads": [
+    {
+      "adID": "1337098347855547",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100003783735941/?product_id=1337098347855547",
+      "author": "Marion Zachary Allen",
+      "postedTime": "2026-06-27T21:54:48.000Z",
+      "title": "Hokus Pokus Pinball Machine",
+      "description": "Up for sale is a Bally Hokus Pokus pinball machine in great display condition. This is a genuine electromechanical (EM) machine from the early 1970s featuring the original backglass artwork, playfield, and cabinet. Great addition to a game room, man cave, bar, or any vintage arcade collector’s setup. These old Bally machines have a charm that modern games just can’t match. Original backglass intact Playfield present and complete Coin-op cabinet with original coin doors Classic EM gameplay – no circuit boards to worry about",
+      "price": "$350",
+      "lat": 33.3267128,
+      "lon": -83.388485,
+      "location": "Eatonton, GA",
+      "imageUrl": "https://scontent-dfw6-2.xx.fbcdn.net/v/t15.5256-10/733414893_950484011371873_5448930599878203630_n.jpg?stp=dst-jpg_tt6&cstp=mx720x1280&ctp=s960x960&_nc_cat=110&ccb=1-7&_nc_sid=d4195b&_nc_ohc=DvfWkWHUpikQ7kNvwE0gHEx&_nc_oc=AdoYwiRxtB-Rn7tOgnRf_gm31qc38tgAVYWOOrceznpqALiyN0TPp7raeyvay97VFxk&_nc_zt=23&_nc_ht=scontent-dfw6-2.xx&_nc_gid=Wox8DCz3koJm_nwW7s-Huw&_nc_ss=7b2a8&oh=00_Af-k4E8Wtxwk3novMzaRl0UFLTCOA0y2v4Sp8ZC2Ka8EQA&oe=6A462BC9",
+      "adUrl": "https://www.facebook.com/marketplace/item/1337098347855547/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-06-27 22:04:51",
+      "lastSeen": "2026-06-27T22:08:28.548Z"
+    },
+    {
+      "adID": "1024802193259285",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100004409684844/?product_id=1024802193259285",
+      "author": "Ian Radley",
+      "postedTime": "2026-06-27T21:25:01.000Z",
+      "title": "Vintage Illuminated Theater Movie Poster Light Box Display Stand",
+      "description": "Vintage illuminated theater-style movie poster display with oak cabinet and ornate metal pedestal. Includes the Bela Lugosi Voodoo Man and Dracula posters shown. Hinged front allows posters to be changed. Internal fluorescent lighting. Dimensions: • Overall height: 40” • Cabinet: 18” W × 21” H × 6” D Great for a home theater, horror collection, arcade, man cave, or Halloween décor. Shows normal vintage wear consistent with age. Pickup only.",
+      "price": "$300",
+      "lat": 34.0755962,
+      "lon": -84.2945964,
+      "location": "Alpharetta, GA",
+      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/732720984_1026638669856956_7123151539219138367_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=101&ccb=1-7&_nc_sid=92e707&_nc_ohc=04gf9aEoC9cQ7kNvwG0Mn1O&_nc_oc=Adosxp3jZ8LYfRqOwX_VBiaNvHWenUy2Qgsz-uNf3117ATbVm5-2knPOKOB7dUHNjU0&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=FkPU4TtUx3jxBxoBlOtA8Q&_nc_ss=7b2a8&oh=00_Af-0PQbckyUlVTDYxHwkMWULvPt-cvLxy57NDLJC6dljeA&oe=6A461503",
+      "adUrl": "https://www.facebook.com/marketplace/item/1024802193259285/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-06-27 22:04:49",
+      "lastSeen": "2026-06-27T22:07:43.399Z"
+    },
     {
       "adID": "KLOV-563795",
       "source": "KLOV",
@@ -36,7 +76,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-27 21:12:47",
-      "lastSeen": "2026-06-27T21:12:47.916Z"
+      "lastSeen": "2026-06-27T22:13:17.489Z"
     },
     {
       "adID": "2540399799724712",
@@ -56,7 +96,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-27 21:08:29",
-      "lastSeen": "2026-06-27T21:11:49.212Z"
+      "lastSeen": "2026-06-27T22:08:28.653Z"
     },
     {
       "adID": "1009930805235586",
@@ -76,7 +116,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-27 21:04:55",
-      "lastSeen": "2026-06-27T21:07:48.933Z"
+      "lastSeen": "2026-06-27T22:04:49.997Z"
     },
     {
       "adID": "1545550687011235",
@@ -96,7 +136,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-27 20:04:49",
-      "lastSeen": "2026-06-27T21:04:54.653Z"
+      "lastSeen": "2026-06-27T22:04:48.275Z"
     },
     {
       "adID": "1191577733108646",
@@ -116,7 +156,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-27 17:05:14",
-      "lastSeen": "2026-06-27T21:04:55.460Z"
+      "lastSeen": "2026-06-27T22:04:50.098Z"
     },
     {
       "adID": "2162489384531734",
@@ -136,7 +176,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-27 16:09:42",
-      "lastSeen": "2026-06-27T21:08:29.391Z"
+      "lastSeen": "2026-06-27T22:08:28.854Z"
     },
     {
       "adID": "1345384861111670",
@@ -156,7 +196,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-27 16:04:54",
-      "lastSeen": "2026-06-27T21:08:30.619Z"
+      "lastSeen": "2026-06-27T22:08:30.139Z"
     },
     {
       "adID": "KLOV-498705",
@@ -176,7 +216,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-27 15:15:30",
-      "lastSeen": "2026-06-27T21:12:48.249Z"
+      "lastSeen": "2026-06-27T22:13:17.790Z"
     },
     {
       "adID": "1315931776868665",
@@ -196,7 +236,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-27 15:09:41",
-      "lastSeen": "2026-06-27T21:08:29.458Z"
+      "lastSeen": "2026-06-27T22:08:28.922Z"
     },
     {
       "adID": "27571360512458324",
@@ -216,7 +256,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-27 15:04:56",
-      "lastSeen": "2026-06-27T21:08:30.686Z"
+      "lastSeen": "2026-06-27T22:08:30.218Z"
     },
     {
       "adID": "2195828457883240",
@@ -236,27 +276,27 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-27 14:22:47",
-      "lastSeen": "2026-06-27T21:08:29.525Z"
+      "lastSeen": "2026-06-27T22:08:28.988Z"
     },
     {
       "adID": "4455572051388037",
       "source": "FB",
       "authorUrl": null,
       "author": "Marc Richter",
-      "postedTime": "2026-06-27T13:00:56.425Z",
+      "postedTime": "2026-06-27T13:00:56.031Z",
       "title": "Tekken 3 arcade machine in excellent condition, 100% working.",
       "description": "Tekken 3 in great condition 100% working. Set to free play. Comes with beautiful LCD monitor for years of problem free fun play. Can deliver locally.",
       "price": "$875",
       "lat": 28.1866014,
       "lon": -82.366121,
       "location": "WESLEY CHAPEL, FL",
-      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.30808-6/731444146_10242948334588270_319462232030511107_n.jpg?stp=dst-jpg_tt6&cstp=mx1536x2048&ctp=s590x590&_nc_cat=111&ccb=1-7&_nc_sid=aa7b47&_nc_ohc=Iz_fOFobpkwQ7kNvwEXBEiN&_nc_oc=AdoXk3Q3wbQLCjtrjDMyYaajilE0hwRe9AYlvlvLAZ6Ja9zvJKTNLGcKrR1s89dUiyI&_nc_zt=23&_nc_ht=scontent-dfw5-1.xx&_nc_gid=indjOHaNwjAbWrqi-58nUw&_nc_ss=7b2a8&oh=00_Af_F3aY9aKMOzndBIfLFRig51MciSu4QqfTv-yUUqdvrKw&oe=6A460714",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.30808-6/731444146_10242948334588270_319462232030511107_n.jpg?stp=dst-jpg_tt6&cstp=mx1536x2048&ctp=s590x590&_nc_cat=111&ccb=1-7&_nc_sid=aa7b47&_nc_ohc=Iz_fOFobpkwQ7kNvwEXBEiN&_nc_oc=AdoXk3Q3wbQLCjtrjDMyYaajilE0hwRe9AYlvlvLAZ6Ja9zvJKTNLGcKrR1s89dUiyI&_nc_zt=23&_nc_ht=scontent-dfw5-1.xx&_nc_gid=xv3R52YrFP76PpSwWD7T-A&_nc_ss=7b2a8&oh=00_Af-Xd3xc09WdroKthiGBrtjdMkTVq4o0DyTo0amW1yc1Fw&oe=6A460714",
       "adUrl": "https://www.facebook.com/commerce/listing/4455572051388037/",
       "priceChanged": 0,
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-27 13:00:55",
-      "lastSeen": "2026-06-27T21:00:56.498Z"
+      "lastSeen": "2026-06-27T22:00:56.108Z"
     },
     {
       "adID": "1714705549553494",
@@ -276,27 +316,27 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-27 12:33:26",
-      "lastSeen": "2026-06-27T21:04:55.192Z"
+      "lastSeen": "2026-06-27T22:04:48.805Z"
     },
     {
       "adID": "1024766013340116",
       "source": "FB",
       "authorUrl": null,
       "author": "Anthony Ward",
-      "postedTime": "2026-06-27T07:03:28.637Z",
+      "postedTime": "2026-06-27T07:03:22.048Z",
       "title": "Big Event Golf",
       "description": "I have a Big Event Golf arcade machine. Own a piece of nostalgic history. Before Golden Tee. Do not expect it to be in perfect condition as it is from 1986, but everyth... See more",
       "price": "$350",
       "lat": 27.9449854,
       "lon": -82.4583107,
       "location": "TAMPA, FL",
-      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.30808-6/731253032_3541431712671266_1665902000841851541_n.jpg?stp=cp6_dst-jpg_tt6&cstp=mx1536x2048&ctp=s590x590&_nc_cat=105&ccb=1-7&_nc_sid=aa7b47&_nc_ohc=BGcHOBQEtXIQ7kNvwGNUa1_&_nc_oc=AdqrjZKtDFXmfbGGfFHei0qrdp0H78-I73HDDPorcZ7rD0nVB8WIZuKn7TwRAfJdqYE&_nc_zt=23&_nc_ht=scontent-dfw5-1.xx&_nc_gid=zRVXobV25ziy9XGnWYiCjw&_nc_ss=7b2a8&oh=00_Af_HsCg56iRX2Le8Fa0iWI3XWdB_lzhbtxpZROEsULlmzQ&oe=6A461DE2",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.30808-6/731253032_3541431712671266_1665902000841851541_n.jpg?stp=cp6_dst-jpg_tt6&cstp=mx1536x2048&ctp=s590x590&_nc_cat=105&ccb=1-7&_nc_sid=aa7b47&_nc_ohc=BGcHOBQEtXIQ7kNvwGNUa1_&_nc_oc=AdqrjZKtDFXmfbGGfFHei0qrdp0H78-I73HDDPorcZ7rD0nVB8WIZuKn7TwRAfJdqYE&_nc_zt=23&_nc_ht=scontent-dfw5-1.xx&_nc_gid=txH7JthXb2w5PFIY0ES4Ww&_nc_ss=7b2a8&oh=00_Af_Dw_aSC-HSPphH4zjPmvbOrkSqP_Bn7Xjh5bVe6wok9w&oe=6A461DE2",
       "adUrl": "https://www.facebook.com/commerce/listing/1024766013340116/",
       "priceChanged": 1,
       "priceChangedAt": "2026-06-27 15:03:29",
       "hidden": 0,
       "created_at": "2026-06-27 12:31:56",
-      "lastSeen": "2026-06-27T21:03:29.298Z"
+      "lastSeen": "2026-06-27T22:03:22.204Z"
     },
     {
       "adID": "KLOV-545491",
@@ -316,7 +356,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-26 19:10:55",
-      "lastSeen": "2026-06-27T21:12:49.060Z"
+      "lastSeen": "2026-06-27T22:13:18.293Z"
     },
     {
       "adID": "1539813317758579",
@@ -356,7 +396,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-26 19:04:59",
-      "lastSeen": "2026-06-27T21:08:29.827Z"
+      "lastSeen": "2026-06-27T22:08:29.290Z"
     },
     {
       "adID": "1011260518217039",
@@ -503,7 +543,7 @@
       "source": "PS",
       "authorUrl": "https://pinside.com/pinball/community/pinsiders/blessed/market",
       "author": "Blessed",
-      "postedTime": "2026-06-25T21:12:19.185Z",
+      "postedTime": "2026-06-25T22:12:45.077Z",
       "title": "Freedom EM 2nd Version",
       "description": "Used - shows wear but 100% working and clean - “Plays well. Everything in Backbox, including score reels cleaned within the last year and a half. All switches under playfield and inside cabinet cleaned as well. Flippers, pop bu...”",
       "price": "$500",
@@ -516,7 +556,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-25 14:11:16",
-      "lastSeen": "2026-06-27T21:12:19.221Z"
+      "lastSeen": "2026-06-27T22:12:45.157Z"
     },
     {
       "adID": "KLOV-556509",
@@ -596,7 +636,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-25 11:58:18",
-      "lastSeen": "2026-06-27T21:12:49.226Z"
+      "lastSeen": "2026-06-27T22:13:18.470Z"
     },
     {
       "adID": "1533848331559933",
@@ -643,40 +683,40 @@
       "source": "FB",
       "authorUrl": null,
       "author": "Richard Thompson",
-      "postedTime": "2026-06-24T21:03:28.668Z",
+      "postedTime": "2026-06-24T22:03:22.079Z",
       "title": "PAC MAN MONITOR GLASS BEZEL ONLY $50 OBO!",
       "description": "This PAC MAN MONITOR GLASS BEZEL is a collectible replacement part for an arcade gaming machine, specifically designed for the game Pac-Man. Produced by Bally Midway, this bezel adds a sleek and authentic touch to the monitor of a vintage arcade game, enhancing the overall gaming experience for enthusiasts. Perfect for restoring or customizing a classic arcade machine, this PAC MAN MONITOR GLASS BEZEL is a must-have for collectors and gamers looking to preserve the nostalgia ... See more",
       "price": "$50",
       "lat": 32.2998686,
       "lon": -90.1830408,
       "location": "JACKSON, MS",
-      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.30808-6/689495336_2457459551439313_1413917428850761011_n.jpg?stp=dst-jpg_tt6&cstp=mx640x480&ctp=s590x590&_nc_cat=103&ccb=1-7&_nc_sid=aa7b47&_nc_ohc=cmE_8IhyP3sQ7kNvwEgYAnq&_nc_oc=AdpB8GOZ-QjtfGZagj_OtkBcEfNLVupkRn6A9ErYS4ygfYyaNrJUXOZrVxTYMl653K8&_nc_zt=23&_nc_ht=scontent-dfw6-1.xx&_nc_gid=zB00-JQ9-xXYkeAxs3_H8w&_nc_ss=7b2a8&oh=00_Af_YPBCwec5r6nOhFNoVkKJD2ejenXFH6aBUmV81pQOoLA&oe=6A461CC6",
+      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.30808-6/689495336_2457459551439313_1413917428850761011_n.jpg?stp=dst-jpg_tt6&cstp=mx640x480&ctp=s590x590&_nc_cat=103&ccb=1-7&_nc_sid=aa7b47&_nc_ohc=cmE_8IhyP3sQ7kNvwEgYAnq&_nc_oc=AdpB8GOZ-QjtfGZagj_OtkBcEfNLVupkRn6A9ErYS4ygfYyaNrJUXOZrVxTYMl653K8&_nc_zt=23&_nc_ht=scontent-dfw6-1.xx&_nc_gid=kbY7vFBXMweFJQk5Pfg8zA&_nc_ss=7b2a8&oh=00_Af-5MMr5bgozBZZfjCDrmNFyBGx9WqyNdumlP9IbXWN7YQ&oe=6A461CC6",
       "adUrl": "https://www.facebook.com/commerce/listing/1639860653870129/",
       "priceChanged": 0,
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-25 11:19:45",
-      "lastSeen": "2026-06-27T21:03:29.565Z"
+      "lastSeen": "2026-06-27T22:03:22.473Z"
     },
     {
       "adID": "1288483403087344",
       "source": "FB",
       "authorUrl": null,
       "author": "Clayton Lacey",
-      "postedTime": "2026-06-25T21:01:53.728Z",
+      "postedTime": "2026-06-25T22:01:54.089Z",
       "title": "Atari Hard Drivin upright project working needs cabinet repair no trades",
       "description": "This is a project I am willing to pass on to anyone who wants to restore it. Monitor chassis recapped the tube is original with burn in on screen text and gauges only the text is noticeable during gameplay. The bad the base of the seat and cabinet need repaired or replacing so listing as a project that works and plays the switch on third gear is flaky so currently disabled in settings. No back door or monitor door on the top. No trades.",
       "price": "$500",
       "lat": 33.2442813,
       "lon": -86.8163773,
       "location": "ALABASTER, AL",
-      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.30808-6/729964610_27722897317303315_769344303372621387_n.jpg?stp=dst-jpg_tt6&cstp=mx1537x2048&ctp=s590x590&_nc_cat=102&ccb=1-7&_nc_sid=aa7b47&_nc_ohc=B3kc9Lr33FYQ7kNvwHxxT5M&_nc_oc=AdogxFRKgN3Gtb5Y5FavbQqFcwZgh_tRlTmFOPJ03JIxy61h8788XAeOl6Rh_PRePT8&_nc_zt=23&_nc_ht=scontent-dfw6-1.xx&_nc_gid=4OVRohcPY86uRM3W6phkNw&_nc_ss=7b2a8&oh=00_Af_q2--qc9Qt2aa4oQa8b2q5FU7WM3y5NsTH-Q4srTzsOQ&oe=6A460441",
+      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.30808-6/729964610_27722897317303315_769344303372621387_n.jpg?stp=dst-jpg_tt6&cstp=mx1537x2048&ctp=s590x590&_nc_cat=102&ccb=1-7&_nc_sid=aa7b47&_nc_ohc=B3kc9Lr33FYQ7kNvwHxxT5M&_nc_oc=AdogxFRKgN3Gtb5Y5FavbQqFcwZgh_tRlTmFOPJ03JIxy61h8788XAeOl6Rh_PRePT8&_nc_zt=23&_nc_ht=scontent-dfw6-1.xx&_nc_gid=isw-q3uEQil_nMB6tMMrYw&_nc_ss=7b2a8&oh=00_Af-feouvaVgxOKYjiC1OVacGLR82c0sawntNWw3yYSea5Q&oe=6A460441",
       "adUrl": "https://www.facebook.com/commerce/listing/1288483403087344/",
       "priceChanged": 0,
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-25 11:18:09",
-      "lastSeen": "2026-06-27T21:01:53.962Z"
+      "lastSeen": "2026-06-27T22:01:54.603Z"
     }
   ]
 }
