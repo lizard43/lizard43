@@ -1287,3 +1287,295 @@ body.guide-home .toc-toggle~.wrap main {
 .chapter-strip a:hover .home-icon {
   color: var(--cyan);
 }
+
+/* Desktop presentation cleanup: full-width cards, no orphan half-cards. */
+header.hero h1,
+header.hero > h2 {
+  margin: 0 0 10px;
+  font-size: clamp(2.0rem, 3.2vw, 3.8rem);
+  line-height: 1;
+  letter-spacing: -.045em;
+  color: var(--ink);
+}
+
+.wrap,
+.guide-home .wrap {
+  width: min(100% - 48px, 1760px);
+}
+
+/* Hamburger removes the sidebar, so the content should become the page. */
+.toc-toggle ~ .wrap main,
+body.guide-home .toc-toggle ~ .wrap main {
+  grid-template-columns: minmax(0, 1fr) !important;
+}
+
+.content,
+.guide-home .content,
+.toc-toggle ~ .wrap .content,
+.toc-toggle ~ .wrap .guide-home .content {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) !important;
+  gap: 16px;
+  align-items: stretch;
+}
+
+.content > section.card,
+.guide-home .content > section.card {
+  grid-column: 1 / -1 !important;
+  width: 100%;
+}
+
+/* Keep long prose readable without shrinking the whole card/table. */
+.card > p,
+.card > ul,
+.card > ol,
+.card > .callout {
+  max-width: 100ch;
+}
+
+/* The intro card reads better as text on the left and notes on the right. */
+@media (min-width: 1150px) {
+  .guide-home #journey {
+    display: grid;
+    grid-template-columns: minmax(0, 1.05fr) minmax(360px, .95fr);
+    column-gap: 28px;
+    row-gap: 10px;
+    align-items: start;
+  }
+
+  .guide-home #journey > h2,
+  .guide-home #journey > p {
+    grid-column: 1;
+    max-width: 72ch;
+  }
+
+  .guide-home #journey .grid2 {
+    grid-column: 2;
+    grid-row: 1 / span 5;
+    grid-template-columns: 1fr;
+    gap: 12px;
+    margin-top: 0;
+  }
+}
+
+/* Tables should use card width and not inherit prose line limits. */
+.card table,
+.card .table-wrap,
+#source-map table {
+  max-width: none;
+}
+
+/* A bottom chapter strip is not a content card. */
+.chapter-strip-card {
+  min-width: 0;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: linear-gradient(180deg, rgba(255,255,255,.035), rgba(255,255,255,.012)), rgba(17,20,28,.82);
+  box-shadow: 0 10px 26px rgba(0,0,0,.30);
+  padding: 10px 18px;
+}
+
+.chapter-strip-card .chapter-strip {
+  margin-top: 0;
+  padding-top: 0;
+  border-top: 0;
+}
+
+/* If an older page still wraps the strip in section.card, make it slim. */
+section.card:has(> .chapter-strip) {
+  padding: 10px 18px;
+  box-shadow: 0 10px 26px rgba(0,0,0,.30);
+}
+
+section.card:has(> .chapter-strip) > .chapter-strip {
+  margin-top: 0;
+  padding-top: 0;
+  border-top: 0;
+}
+
+/* Better strip icons. */
+.chapter-strip .nav-arrow {
+  color: var(--dim);
+  font-size: 1.35rem;
+  line-height: 1;
+}
+
+.chapter-strip .home-icon {
+  font-size: 1.35rem;
+}
+
+.chapter-strip .index {
+  color: var(--muted);
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+/* Phone and small tablet keep the clean stack. */
+@media (max-width: 900px) {
+  .wrap,
+  .guide-home .wrap {
+    width: min(100% - 16px, 1760px);
+  }
+
+  .card > p,
+  .card > ul,
+  .card > ol,
+  .card > .callout {
+    max-width: none;
+  }
+}
+
+@media (max-width: 620px) {
+  .wrap,
+  .guide-home .wrap {
+    width: min(100% - 10px, 1760px);
+  }
+
+  .chapter-strip-card {
+    padding: 10px 12px;
+  }
+}
+
+/* Mobile chapter strip fix: keep prev/home/next on one compact row. */
+@media (max-width: 700px) {
+  .chapter-strip {
+    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+    align-items: center;
+    gap: 6px;
+    margin-top: 10px;
+    padding-top: 8px;
+    font-size: .74rem;
+  }
+
+  .chapter-strip .prev {
+    justify-content: flex-start;
+    text-align: left;
+  }
+
+  .chapter-strip .index {
+    order: initial;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .chapter-strip .next {
+    justify-content: flex-end;
+    text-align: right;
+  }
+
+  .chapter-strip a {
+    gap: 5px;
+    padding: 4px 0;
+    align-items: center;
+  }
+
+  .chapter-strip .nav-title {
+    display: block;
+    min-width: 0;
+    max-width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+
+  .chapter-strip .nav-arrow {
+    font-size: 1rem;
+  }
+
+  .chapter-strip .home-icon {
+    width: 1.35rem;
+    height: 1.35rem;
+    font-size: 1rem;
+  }
+
+  section.card:has(> .chapter-strip),
+  .chapter-strip-card {
+    padding: 8px 12px;
+  }
+}
+
+@media (max-width: 430px) {
+  .chapter-strip {
+    font-size: .68rem;
+    gap: 4px;
+  }
+
+  .chapter-strip .nav-arrow {
+    font-size: .95rem;
+  }
+
+  .chapter-strip .home-icon {
+    width: 1.2rem;
+    height: 1.2rem;
+    font-size: .95rem;
+  }
+}
+
+
+/* Intro hero cleanup: keep the hero short and make the subtitle intentional. */
+.guide-home header.hero {
+  padding: 20px 24px 15px;
+}
+
+.guide-home header.hero h1,
+header.hero .hero-title {
+  margin: 0;
+  max-width: 13ch;
+  font-size: clamp(2.2rem, 5.6vw, 5.0rem);
+  line-height: .92;
+  letter-spacing: -.055em;
+}
+
+.hero-subtitle {
+  position: relative;
+  z-index: 2;
+  margin: 6px 0 0;
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: clamp(.86rem, 1.2vw, 1.12rem);
+  line-height: 1.25;
+  letter-spacing: .04em;
+}
+
+.lead-card .lede {
+  color: var(--ink);
+  font-size: clamp(1.05rem, 1.35vw, 1.35rem);
+  line-height: 1.45;
+}
+
+.lead-card p {
+  max-width: 86ch;
+}
+
+@media (min-width: 1150px) {
+  .guide-home #overview.lead-card {
+    padding: 22px 24px;
+  }
+}
+
+@media (max-width: 620px) {
+  .guide-home header.hero {
+    padding: 14px 12px 10px;
+  }
+
+  .guide-home header.hero h1,
+  header.hero .hero-title {
+    max-width: 9.5ch;
+    font-size: clamp(2.25rem, 12vw, 3.35rem);
+    line-height: .92;
+  }
+
+  .hero-subtitle {
+    margin-top: 7px;
+    font-size: .82rem;
+  }
+
+  .lead-card .lede {
+    font-size: 1.04rem;
+  }
+}
+
+.chapter-strip .nav-placeholder {
+  min-width: 0;
+  display: block;
+}
