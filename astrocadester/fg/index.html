@@ -1,46 +1,73 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Astrocade Arcade Field Guide</title>
   <link rel="stylesheet" href="field-guide.css" />
 </head>
+
 <body class="guide-home">
+  <input class="toc-toggle" id="toc-toggle" type="checkbox" aria-hidden="true" />
+  <label class="toc-button" for="toc-toggle" aria-label="Open or close chapter map">
+    <span class="toc-button-icon">☰</span>
+    <span class="toc-button-text">Chapter Map</span>
+  </label>
+  <label class="toc-backdrop" for="toc-toggle" aria-label="Close chapter map"></label>
   <div class="wrap">
     <header class="hero">
-      <div class="eyebrow"><span class="lamp"></span> Astrocade Arcade Field Guide</div>
+      <div class="eyebrow"><span class="lamp"></span> Astrocade Arcade Field Guide · Intro</div>
+      <h2>Arcade Software</h2>
       <p class="subtitle">
-        Writing Z80 software for the arcade Astrocade platform (<b>not the console</b>): Wizard of Wor,
+        Notes and thoughts on writing Z80 software for the <b>arcade (not the console)</b> Astrocade platform : Wizard of Wor,
         Gorf, Robby Roto, Space Zap, and their similar 5-6 card-rack cousins.
       </p>
+
+      <nav class="chapter-strip" aria-label="Chapter navigation">
+        <a class="prev" href="pattern-board.html" aria-label="Previous chapter: Pattern Board">
+          <span class="nav-arrow">⟵</span>
+          <span class="nav-title">Pattern Board</span>
+        </a>
+
+        <a class="index" href="index.html" aria-label="Home">
+          <span class="home-icon">⌂</span>
+        </a>
+
+        <a class="next" href="machine-model.html" aria-label="Next chapter: Machine Model">
+          <span class="nav-title">Machine Model</span>
+          <span class="nav-arrow">⟶</span>
+        </a>
+      </nav>
 
     </header>
 
     <main>
       <nav class="toc" aria-label="Table of contents">
         <h2>Field Guide TOC</h2>
-        <a href="machine-model.html">Chapter 01: Machine Model <small>separate chapter page</small></a>
-        <a href="io-map.html">Chapter 02: I/O Map <small>separate chapter page</small></a>
-        <a href="video-system.html">Chapter 03: Video System <small>separate chapter page</small></a>
-        <a href="inputs-dip-switches.html">Chapter 04: Inputs and DIP Switches <small>separate chapter page</small></a>
-        <a href="sound.html">Chapter 05: Sound <small>separate chapter page</small></a>
-        <a href="pattern-board.html">Chapter 06: Pattern Board <small>separate chapter page</small></a>
+        <a href="index.html">Intro</a>
+        <a href="machine-model.html">Chapter 01: Machine Model</a>
+        <a href="io-map.html">Chapter 02: I/O Map</a>
+        <a href="video-system.html">Chapter 03: Video System</a>
+        <a href="inputs-dip-switches.html">Chapter 04: Inputs and DIP Switches</a>
+        <a href="sound.html">Chapter 05: Sound</a>
+        <a href="pattern-board.html">Chapter 06: Pattern Board</a>
       </nav>
 
       <div class="content">
         <section id="journey" class="card">
-          <div class="callout">
-            <strong>Goal:</strong> build up the missing middle layer between technician documentation and working software:
-            a practical, tested, source-backed guide for Astrocade arcade development and understanding.
-          </div>
+          <h2>why is this hard?</h2>
           <p>
-            <strong>why is this hard?</strong> The Astrocade arcade platform was
-            not a consumer development target. Bally/Midway and Dave Nutting Associates built commercial embedded games,
+            The Astrocade arcade platform was
+            not a consumer development target. Bally/Midway and Dave Nutting Associates (DNA) built commercial embedded games,
             shipped ROMs, and documented the machines mainly so operators could keep them running.
           </p>
           <p>
-            The result is an archaeological dig. BallyAlley has *tons* of great info but most is targeted to the console. The service manual tells you what the board is. MAME tells you how
+            The result is an archaeological dig. Resources like <a href="https://ballyally.com" >BallyAlley</a> have *tons* of great info but most is targeted to the
+            Astrocade console and not the Astrocade Arcade Harware platform. 
+          </p>
+          <p>            
+            Service manuals tells us what the board is. MAME tells you how
             the emulator sees it. The console manuals tell you what the custom chips were meant to do. Robby Roto and
             Wizard of Wor disassemblies tell you how commercial games actually used them. Real hardware tells you which
             assumptions survived contact with the cabinet.
@@ -49,7 +76,8 @@
             <div class="mini">
               <h3>Not console Astrocade</h3>
               <p>
-                The home system knowledge matters, especially Magic, palette, and sound concepts. But arcade machines add
+                The home system knowledge matters, especially Magic, palette, and sound concepts. But arcade machines
+                add
                 card racks, different input routing, pattern boards, protected RAM behavior, speech hardware, and hi-res
                 video assumptions.
               </p>
@@ -68,32 +96,44 @@
           <h2>Source map</h2>
           <table>
             <thead>
-              <tr><th>Source</th><th></th></tr>
+              <tr>
+                <th>Source</th>
+                <th></th>
+              </tr>
             </thead>
             <tbody>
               <tr>
-                <td>Bally Alley</td>
+                <td><a href="https://ballyally.com" >BallyAlley</a></td>
                 <td>Master index, scans, historical notes, console and arcade cross-links.</td>
               </tr>
               <tr>
+                <td><a href="https://8bitworkshop.com/" >8bitworkshop</a></td>
+                <td>Learn how classic game hardware worked. Write code and see it run instantly.</td>
+              </tr>
+              <tr>
                 <td>MAME arcade driver</td>
-                <td>Memory maps, I/O maps, input definitions, emulated behavior. Can hide analog/electrical quirks and real-board timing surprises.</td>
+                <td>Memory maps, I/O maps, input definitions, emulated behavior. Can hide analog/electrical quirks and
+                  real-board timing surprises.</td>
               </tr>
               <tr>
                 <td>MAME Astrocade sound device</td>
-                <td>Sound register behavior and arcade SI/SO caveats. Sound output recipes still need practical arcade examples.</td>
+                <td>Sound register behavior and arcade SI/SO caveats. Sound output recipes still need practical arcade
+                  examples.</td>
               </tr>
               <tr>
-                <td>Service manuals</td>
-                <td>Schematics, wiring, card racks, DIP switches, edge connectors, board layouts. Written for repair, not new software development.</td>
+                <td><a href="https://arcarc.xmission.com/PDF_Arcade_Manuals_and_Schematics/" >Service manuals</a></td>
+                <td>Schematics, wiring, card racks, DIP switches, edge connectors, board layouts. Written for repair,
+                  not new software development.</td>
               </tr>
               <tr>
                 <td>Robby Roto paper and disassembly</td>
-                <td>Commercial software architecture on related hardware. Game-specific engine choices can look like hardware rules.</td>
+                <td>Commercial software architecture on related hardware. Game-specific engine choices can look like
+                  hardware rules.</td>
               </tr>
               <tr>
                 <td>Console Astrocade docs</td>
-                <td>Magic, palette, sound, Z80 conventions, original chip concepts. Home-system assumptions can be wrong on arcade card-rack hardware.</td>
+                <td>Magic, palette, sound, Z80 conventions, original chip concepts. Home-system assumptions can be wrong
+                  on arcade card-rack hardware.</td>
               </tr>
             </tbody>
           </table>
@@ -106,12 +146,12 @@
             Bally/Midway titles, with variations in ROM layout, RAM, input routing, speech, and pattern-board usage.
           </p>
           <div class="tagrow" aria-label="Astrocade arcade games">
-            <span class="tag">Seawolf II</span>
-            <span class="tag">Extra Bases</span>
-            <span class="tag">Space Zap</span>
             <span class="tag">Wizard of Wor</span>
             <span class="tag">Gorf</span>
             <span class="tag">Robby Roto</span>
+            <span class="tag">Seawolf II</span>
+            <span class="tag">Extra Bases</span>
+            <span class="tag">Space Zap</span>
             <span class="tag">Demons and Dragons</span>
             <span class="tag">Professor Pac-Man</span>
             <span class="tag">10 Pin Deluxe</span>
@@ -122,6 +162,25 @@
           </p>
         </section>
 
+        <section class="card">
+          <nav class="chapter-strip" aria-label="Chapter navigation">
+            <a class="prev" href="pattern-board.html" aria-label="Previous chapter: Pattern Board">
+              <span class="nav-arrow">⟵</span>
+              <span class="nav-title">Pattern Board</span>
+            </a>
+
+            <a class="index" href="index.html" aria-label="Home">
+              <span class="home-icon">⌂</span>
+            </a>
+
+            <a class="next" href="machine-model.html" aria-label="Next chapter: Machine Model">
+              <span class="nav-title">Machine Model</span>
+              <span class="nav-arrow">⟶</span>
+            </a>
+          </nav>
+        </section>
+
+
       </div>
     </main>
 
@@ -130,4 +189,5 @@
     </footer>
   </div>
 </body>
+
 </html>

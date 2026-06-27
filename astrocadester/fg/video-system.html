@@ -1,123 +1,256 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Astrocade Arcade Field Guide — Video System</title>
   <link rel="stylesheet" href="field-guide.css" />
 </head>
+
 <body class="guide-chapter">
+  <input class="toc-toggle" id="toc-toggle" type="checkbox" aria-hidden="true" />
+  <label class="toc-button" for="toc-toggle" aria-label="Open or close chapter map">
+    <span class="toc-button-icon">☰</span>
+    <span class="toc-button-text">Chapter Map</span>
+  </label>
+  <label class="toc-backdrop" for="toc-toggle" aria-label="Close chapter map"></label>
+
   <div class="wrap">
     <header class="hero">
       <div class="eyebrow"><span class="lamp"></span>Astrocade Arcade Field Guide · Chapter 03</div>
-      <h1>Video System</h1>
-      <p class="subtitle">The arcade Astrocade video model from a developer’s point of view: color latches, palette split, commercial hi-res mode, the $4000 framebuffer, Magic writes, interlace field mirroring, and why the arcade screen is not just the console screen with a bigger hat.</p>
+      <h2>Video System</h2>
+      <p class="subtitle">The arcade Astrocade video model from a developer’s point of view: color latches, palette
+        split, commercial hi-res mode, the $4000 framebuffer, Magic writes, interlace field mirroring, and why the
+        arcade screen is not just the console screen with a bigger hat.</p>
 
-      <div class="toplinks">
-        <a class="pill-link" href="index.html">← Field Guide Index</a>
-        <a class="pill-link" href="io-map.html">← Previous: I/O Map</a>
-        <a class="pill-link" href="#quick-map">Video register map</a>
-        <span class="tag ok">MAME-confirmed</span>
-        <span class="tag warn">HVGLIB-backed</span>
-        <span class="tag info">arcade-hi-res-first</span>
-      </div>
+      <nav class="chapter-strip" aria-label="Chapter navigation">
+        <a class="prev" href="io-map.html" aria-label="Prev Chapter: I/O Map">
+          <span class="nav-arrow">⟵</span>
+          <span class="nav-title">I/O Map</span>
+        </a>
 
-      <div class="hero-grid">
-        <div class="stat"><b>$4000</b><span>framebuffer base</span></div>
-        <div class="stat"><b>320×204</b><span>hi-res working model</span></div>
-        <div class="stat"><b>80 bytes</b><span>per scanline</span></div>
-        <div class="stat"><b>$00-$0F</b><span>video/control ports</span></div>
-        <div class="stat"><b>Magic</b><span>draw path via low writes</span></div>
-      </div>
+        <a class="index" href="index.html" aria-label="Home">
+          <span class="home-icon">⌂</span>
+        </a>
+
+        <a class="next" href="inputs-dip-switches.html" aria-label="Next chapter: Inputs and DIPs">
+          <span class="nav-title">Inputs and DIPs</span>
+          <span class="nav-arrow">⟶</span>
+        </a>
+      </nav>
+
     </header>
 
     <main>
-      <nav class="toc" aria-label="Chapter navigation">
-        <h2>Chapter map</h2>
-        <a href="index.html">← Field Guide Index <small>return to overview and full TOC</small></a>
-        <a href="inputs-dip-switches.html">Next Chapter → Inputs and DIPs</a>
-        <a href="io-map.html">Prev Chapter → I/O Map</a>
-        <a href="#center">Center of gravity <small>arcade hi-res first</small></a>
-        <a href="#source-split">Source split <small>which source teaches what</small></a>
-        <a href="#quick-map">Video register map <small>HVGLIB names and ports</small></a>
-        <a href="#color-latches">Color latches <small>$00-$07, left/right palettes</small></a>
-        <a href="#mode-height-split">Mode, height, split <small>CONCM, VERBL, HORCB</small></a>
-        <a href="#framebuffer">Framebuffer layout <small>$4000, 80-byte stride</small></a>
-        <a href="#addressing">Addressing pixels <small>x/y to VRAM byte</small></a>
-        <a href="#magic-writes">Magic writes <small>ROM reads vs drawing writes</small></a>
-        <a href="#direct-vs-magic">Direct vs Magic <small>when to use each path</small></a>
-        <a href="#interlace">Interlace and mirroring <small>the real-hardware trap</small></a>
-        <a href="#pattern-board">Pattern board context <small>when $78-$7E enters the story</small></a>
-        <a href="#init-sequence">Init sequence <small>practical startup order</small></a>
-        <a href="#rules">Rules of thumb <small>what to do and avoid</small></a>
-        <a href="#sources">Source notes <small>where the claims come from</small></a>
+      <nav class="toc" aria-label="Table of contents">
+        <h2>Field Guide TOC</h2>
+        <a href="index.html">Intro</a>
+        <a href="machine-model.html">Chapter 01: Machine Model</a>
+        <a href="io-map.html">Chapter 02: I/O Map</a>
+        <a href="video-system.html">Chapter 03: Video System</a>
+        <a href="inputs-dip-switches.html">Chapter 04: Inputs and DIP Switches</a>
+        <a href="sound.html">Chapter 05: Sound</a>
+        <a href="pattern-board.html">Chapter 06: Pattern Board</a>
       </nav>
 
       <div class="content">
         <section class="card" id="center">
           <h2>The center of gravity is the arcade hi-res framebuffer</h2>
-          <p>The most dangerous mistake is to approach Wizard of Wor / Gorf-class hardware as if it were mainly the home Bally Astrocade console video system. The shared custom-chip DNA matters, but the arcade target is dominated by a large, directly addressable, high-resolution framebuffer.</p>
+          <p>The most dangerous mistake is to approach Wizard of Wor / Gorf-class hardware as if it were mainly the home
+            Bally Astrocade console video system. The shared custom-chip DNA matters, but the arcade target is dominated
+            by a large, directly addressable, high-resolution framebuffer.</p>
           <div class="callout">
             <b>Main field-guide rule</b>
-            For arcade development, start with <code>VRAM_SCREEN_START = $4000</code>, <code>SCREEN_STRIDE = $0050</code>, <code>SCREEN_WIDTH_PIXELS = 320</code>, and <code>SCREEN_HEIGHT_LINES = 204</code>. Console low-res habits are supporting background knowledge, not the default programming model.
+            For arcade development, start with <code>VRAM_SCREEN_START = $4000</code>,
+            <code>SCREEN_STRIDE = $0050</code>, <code>SCREEN_WIDTH_PIXELS = 320</code>, and
+            <code>SCREEN_HEIGHT_LINES = 204</code>. Console low-res habits are supporting background knowledge, not the
+            default programming model.
           </div>
-          <p>The current arcade include makes that bias explicit. It names <code>VRAM_SCREEN_START</code> / <code>SCREEN_RAM</code> as <code>$4000</code>, the screen end as <code>$7FBF</code>, and the high-resolution stride as <code>$0050</code>, which is 80 bytes per line. At 2 bits per pixel, 80 bytes gives 320 pixels per scanline.</p>
+          <p>The current arcade include makes that bias explicit. It names <code>VRAM_SCREEN_START</code> /
+            <code>SCREEN_RAM</code> as <code>$4000</code>, the screen end as <code>$7FBF</code>, and the high-resolution
+            stride as <code>$0050</code>, which is 80 bytes per line. At 2 bits per pixel, 80 bytes gives 320 pixels per
+            scanline.
+          </p>
           <p class="return-link"><a href="index.html">← Return to the Field Guide index</a></p>
         </section>
 
         <section class="card" id="source-split">
           <h2>Separate the video topic by source</h2>
-          <p>No single source explains the whole video system. Each source type tells a different part of the story, and mixing them without labels is how console assumptions leak into arcade code.</p>
+          <p>No single source explains the whole video system. Each source type tells a different part of the story, and
+            mixing them without labels is how console assumptions leak into arcade code.</p>
           <table>
             <thead>
-              <tr><th>Topic</th><th>Best source</th><th>How to use it</th></tr>
+              <tr>
+                <th>Topic</th>
+                <th>Best source</th>
+                <th>How to use it</th>
+              </tr>
             </thead>
             <tbody>
-              <tr><td>Color map / palette registers</td><td>Nutting Manual, Better Bally Book, MAME, HVGLIB names</td><td>Understand color byte format and output-port behavior, then verify the arcade latch order.</td></tr>
-              <tr><td>Low-res vs hi-res</td><td>8bitworkshop, MAME, service manuals</td><td>Use console docs for concepts, but arcade service/MAME behavior for actual screen size and register setup.</td></tr>
-              <tr><td>Magic memory writes</td><td>Better Bally Book + MAME</td><td>Use the console explanation for the idea, then use MAME/arcade tests for address ranges and draw effects.</td></tr>
-              <tr><td>Direct framebuffer layout</td><td>Our experiments + MAME</td><td>Use <code>$4000 + y*$50 + xByte</code> as the practical model and confirm on real hardware.</td></tr>
-              <tr><td>Interlace / field mirroring</td><td>Real hardware tests + schematics</td><td>Treat as a physical display problem, not merely an emulator problem.</td></tr>
-              <tr><td>Pattern board</td><td>WoW/Gorf manuals + MAME <code>$78-$7E</code> map</td><td>Keep separate from the basic framebuffer chapter until you need hardware-assisted pattern drawing.</td></tr>
+              <tr>
+                <td>Color map / palette registers</td>
+                <td>Nutting Manual, Better Bally Book, MAME, HVGLIB names</td>
+                <td>Understand color byte format and output-port behavior, then verify the arcade latch order.</td>
+              </tr>
+              <tr>
+                <td>Low-res vs hi-res</td>
+                <td>8bitworkshop, MAME, service manuals</td>
+                <td>Use console docs for concepts, but arcade service/MAME behavior for actual screen size and register
+                  setup.</td>
+              </tr>
+              <tr>
+                <td>Magic memory writes</td>
+                <td>Better Bally Book + MAME</td>
+                <td>Use the console explanation for the idea, then use MAME/arcade tests for address ranges and draw
+                  effects.</td>
+              </tr>
+              <tr>
+                <td>Direct framebuffer layout</td>
+                <td>Our experiments + MAME</td>
+                <td>Use <code>$4000 + y*$50 + xByte</code> as the practical model and confirm on real hardware.</td>
+              </tr>
+              <tr>
+                <td>Interlace / field mirroring</td>
+                <td>Real hardware tests + schematics</td>
+                <td>Treat as a physical display problem, not merely an emulator problem.</td>
+              </tr>
+              <tr>
+                <td>Pattern board</td>
+                <td>WoW/Gorf manuals + MAME <code>$78-$7E</code> map</td>
+                <td>Keep separate from the basic framebuffer chapter until you need hardware-assisted pattern drawing.
+                </td>
+              </tr>
             </tbody>
           </table>
         </section>
 
         <section class="card" id="quick-map">
           <h2>Video register map: the low I/O block</h2>
-          <p>The arcade include keeps the classic HVGLIB-style names, but also gives direction-aware names that are safer for arcade code. For video, the important output range is <code>$00-$0F</code>.</p>
+          <p>The arcade include keeps the classic HVGLIB-style names, but also gives direction-aware names that are
+            safer for arcade code. For video, the important output range is <code>$00-$0F</code>.</p>
           <table>
             <thead>
-              <tr><th>Port</th><th>Arcade include name</th><th>Legacy HVGLIB alias</th><th>Meaning</th></tr>
+              <tr>
+                <th>Port</th>
+                <th>Arcade include name</th>
+                <th>Legacy HVGLIB alias</th>
+                <th>Meaning</th>
+              </tr>
             </thead>
             <tbody>
-              <tr><td class="addr">$00</td><td class="codeish">PORT_COL0R</td><td class="codeish">COL0R</td><td>Right-side palette color 0 latch.</td></tr>
-              <tr><td class="addr">$01</td><td class="codeish">PORT_COL1R</td><td class="codeish">COL1R</td><td>Right-side palette color 1 latch.</td></tr>
-              <tr><td class="addr">$02</td><td class="codeish">PORT_COL2R</td><td class="codeish">COL2R</td><td>Right-side palette color 2 latch.</td></tr>
-              <tr><td class="addr">$03</td><td class="codeish">PORT_COL3R</td><td class="codeish">COL3R</td><td>Right-side palette color 3 latch.</td></tr>
-              <tr><td class="addr">$04</td><td class="codeish">PORT_COL0L</td><td class="codeish">COL0L</td><td>Left-side palette color 0 latch.</td></tr>
-              <tr><td class="addr">$05</td><td class="codeish">PORT_COL1L</td><td class="codeish">COL1L</td><td>Left-side palette color 1 latch.</td></tr>
-              <tr><td class="addr">$06</td><td class="codeish">PORT_COL2L</td><td class="codeish">COL2L</td><td>Left-side palette color 2 latch.</td></tr>
-              <tr><td class="addr">$07</td><td class="codeish">PORT_COL3L</td><td class="codeish">COL3L</td><td>Left-side palette color 3 latch.</td></tr>
-              <tr><td class="addr">$08</td><td class="codeish">PORT_VIDEO_MODE</td><td class="codeish">CONCM</td><td>Commercial/video mode control.</td></tr>
-              <tr><td class="addr">$09</td><td class="codeish">PORT_PAL_SPLIT</td><td class="codeish">HORCB</td><td>Horizontal color-boundary / palette split control.</td></tr>
-              <tr><td class="addr">$0A</td><td class="codeish">PORT_HEIGHT</td><td class="codeish">VERBL</td><td>Vertical blanking / active height style control.</td></tr>
-              <tr><td class="addr">$0B</td><td class="codeish">PORT_COLORMAP</td><td class="codeish">COLBX</td><td>Color-block multi-port / color map support.</td></tr>
-              <tr><td class="addr">$0C</td><td class="codeish">PORT_MAGIC</td><td class="codeish">MAGIC</td><td>Magic register: shift, rotate, expand, OR, XOR, flop.</td></tr>
-              <tr><td class="addr">$0D</td><td class="codeish">PORT_INT_VECTOR</td><td class="codeish">INFBK</td><td>Interrupt feedback/vector related register.</td></tr>
-              <tr><td class="addr">$0E</td><td class="codeish">PORT_INT_ENABLE</td><td class="codeish">INMOD</td><td>Interrupt mode/enable register.</td></tr>
-              <tr><td class="addr">$0F</td><td class="codeish">PORT_SCANLINE</td><td class="codeish">INLIN</td><td>Interrupt scanline register.</td></tr>
+              <tr>
+                <td class="addr">$00</td>
+                <td class="codeish">PORT_COL0R</td>
+                <td class="codeish">COL0R</td>
+                <td>Right-side palette color 0 latch.</td>
+              </tr>
+              <tr>
+                <td class="addr">$01</td>
+                <td class="codeish">PORT_COL1R</td>
+                <td class="codeish">COL1R</td>
+                <td>Right-side palette color 1 latch.</td>
+              </tr>
+              <tr>
+                <td class="addr">$02</td>
+                <td class="codeish">PORT_COL2R</td>
+                <td class="codeish">COL2R</td>
+                <td>Right-side palette color 2 latch.</td>
+              </tr>
+              <tr>
+                <td class="addr">$03</td>
+                <td class="codeish">PORT_COL3R</td>
+                <td class="codeish">COL3R</td>
+                <td>Right-side palette color 3 latch.</td>
+              </tr>
+              <tr>
+                <td class="addr">$04</td>
+                <td class="codeish">PORT_COL0L</td>
+                <td class="codeish">COL0L</td>
+                <td>Left-side palette color 0 latch.</td>
+              </tr>
+              <tr>
+                <td class="addr">$05</td>
+                <td class="codeish">PORT_COL1L</td>
+                <td class="codeish">COL1L</td>
+                <td>Left-side palette color 1 latch.</td>
+              </tr>
+              <tr>
+                <td class="addr">$06</td>
+                <td class="codeish">PORT_COL2L</td>
+                <td class="codeish">COL2L</td>
+                <td>Left-side palette color 2 latch.</td>
+              </tr>
+              <tr>
+                <td class="addr">$07</td>
+                <td class="codeish">PORT_COL3L</td>
+                <td class="codeish">COL3L</td>
+                <td>Left-side palette color 3 latch.</td>
+              </tr>
+              <tr>
+                <td class="addr">$08</td>
+                <td class="codeish">PORT_VIDEO_MODE</td>
+                <td class="codeish">CONCM</td>
+                <td>Commercial/video mode control.</td>
+              </tr>
+              <tr>
+                <td class="addr">$09</td>
+                <td class="codeish">PORT_PAL_SPLIT</td>
+                <td class="codeish">HORCB</td>
+                <td>Horizontal color-boundary / palette split control.</td>
+              </tr>
+              <tr>
+                <td class="addr">$0A</td>
+                <td class="codeish">PORT_HEIGHT</td>
+                <td class="codeish">VERBL</td>
+                <td>Vertical blanking / active height style control.</td>
+              </tr>
+              <tr>
+                <td class="addr">$0B</td>
+                <td class="codeish">PORT_COLORMAP</td>
+                <td class="codeish">COLBX</td>
+                <td>Color-block multi-port / color map support.</td>
+              </tr>
+              <tr>
+                <td class="addr">$0C</td>
+                <td class="codeish">PORT_MAGIC</td>
+                <td class="codeish">MAGIC</td>
+                <td>Magic register: shift, rotate, expand, OR, XOR, flop.</td>
+              </tr>
+              <tr>
+                <td class="addr">$0D</td>
+                <td class="codeish">PORT_INT_VECTOR</td>
+                <td class="codeish">INFBK</td>
+                <td>Interrupt feedback/vector related register.</td>
+              </tr>
+              <tr>
+                <td class="addr">$0E</td>
+                <td class="codeish">PORT_INT_ENABLE</td>
+                <td class="codeish">INMOD</td>
+                <td>Interrupt mode/enable register.</td>
+              </tr>
+              <tr>
+                <td class="addr">$0F</td>
+                <td class="codeish">PORT_SCANLINE</td>
+                <td class="codeish">INLIN</td>
+                <td>Interrupt scanline register.</td>
+              </tr>
             </tbody>
           </table>
           <div class="callout cyan">
             <b>Direction still matters</b>
-            Some low ports have read-side aliases too, such as <code>PORT_INT_STATUS</code> at <code>$08</code>, <code>PORT_VERT_FEEDBACK</code> at <code>$0E</code>, and <code>PORT_HORIZ_FEEDBACK</code> at <code>$0F</code>. Do not assume an <code>IN</code> from a port has the same meaning as an <code>OUT</code> to that port.
+            Some low ports have read-side aliases too, such as <code>PORT_INT_STATUS</code> at <code>$08</code>,
+            <code>PORT_VERT_FEEDBACK</code> at <code>$0E</code>, and <code>PORT_HORIZ_FEEDBACK</code> at
+            <code>$0F</code>. Do not assume an <code>IN</code> from a port has the same meaning as an <code>OUT</code>
+            to that port.
           </div>
         </section>
 
         <section class="card" id="color-latches">
           <h2>Color latches and split palettes</h2>
-          <p>The Astrocade video path is 2 bits per pixel, so each pixel selects one of four color indexes: 0, 1, 2, or 3. The arcade hardware exposes eight color latches: four for the right side and four for the left side. That is why the include names ports <code>COL0R-COL3R</code> and <code>COL0L-COL3L</code>.</p>
+          <p>The Astrocade video path is 2 bits per pixel, so each pixel selects one of four color indexes: 0, 1, 2, or
+            3. The arcade hardware exposes eight color latches: four for the right side and four for the left side. That
+            is why the include names ports <code>COL0R-COL3R</code> and <code>COL0L-COL3L</code>.</p>
           <pre><code>; Example: program matching left/right palettes from a table
 ; A real project can choose different left/right values for split-screen effects.
 
@@ -132,25 +265,55 @@ LoadPalette8:
 .next:  outi                            ; write ports $00 through $07
         jr      nz,.next
         ret</code></pre>
-          <p>For most new code, use a symmetric left/right palette first. Once the display is stable, then experiment with different left/right palettes and <code>PORT_PAL_SPLIT</code>. Keeping the two halves identical removes one moving part while debugging drawing code.</p>
+          <p>For most new code, use a symmetric left/right palette first. Once the display is stable, then experiment
+            with different left/right palettes and <code>PORT_PAL_SPLIT</code>. Keeping the two halves identical removes
+            one moving part while debugging drawing code.</p>
           <div class="callout gold">
             <b>Color byte caution</b>
-            Console documentation is useful for understanding the color-byte format and hue/brightness idea, but the arcade field guide should document exact values from real WoW/Gorf/Robby code and real-screen observations. A value that looks correct in an emulator can still deserve a <code>MAME-confirmed</code> tag until checked on hardware.
+            Console documentation is useful for understanding the color-byte format and hue/brightness idea, but the
+            arcade field guide should document exact values from real WoW/Gorf/Robby code and real-screen observations.
+            A value that looks correct in an emulator can still deserve a <code>MAME-confirmed</code> tag until checked
+            on hardware.
           </div>
         </section>
 
         <section class="card" id="mode-height-split">
           <h2>Mode, height, and split controls</h2>
-          <p>The next group after the color latches sets the video mode and timing-related behavior. In the include, <code>PORT_VIDEO_MODE</code> has the legacy alias <code>CONCM</code>, with constants <code>VIDEO_MODE_CONSUMER = 0</code> and <code>VIDEO_MODE_COMMERCIAL = 1</code>. For arcade work, the commercial path is the important one.</p>
+          <p>The next group after the color latches sets the video mode and timing-related behavior. In the include,
+            <code>PORT_VIDEO_MODE</code> has the legacy alias <code>CONCM</code>, with constants
+            <code>VIDEO_MODE_CONSUMER = 0</code> and <code>VIDEO_MODE_COMMERCIAL = 1</code>. For arcade work, the
+            commercial path is the important one.
+          </p>
           <table>
             <thead>
-              <tr><th>Control</th><th>Developer meaning</th><th>Practical guidance</th></tr>
+              <tr>
+                <th>Control</th>
+                <th>Developer meaning</th>
+                <th>Practical guidance</th>
+              </tr>
             </thead>
             <tbody>
-              <tr><td class="codeish">PORT_VIDEO_MODE / CONCM</td><td>Selects commercial-style video behavior.</td><td>Initialize early before drawing assumptions depend on hi-res layout.</td></tr>
-              <tr><td class="codeish">PORT_PAL_SPLIT / HORCB</td><td>Controls where the left/right palette boundary is applied.</td><td>Use a safe/default value first; test split effects later.</td></tr>
-              <tr><td class="codeish">PORT_HEIGHT / VERBL</td><td>Vertical blanking / active screen height control.</td><td>Use known WoW-style values until the chapter has schematic-confirmed details.</td></tr>
-              <tr><td class="codeish">PORT_COLORMAP / COLBX</td><td>Color-block multi-port behavior.</td><td>Useful for compatibility with Astrocade-style color code, but explicit $00-$07 color latch writes are easier to reason about.</td></tr>
+              <tr>
+                <td class="codeish">PORT_VIDEO_MODE / CONCM</td>
+                <td>Selects commercial-style video behavior.</td>
+                <td>Initialize early before drawing assumptions depend on hi-res layout.</td>
+              </tr>
+              <tr>
+                <td class="codeish">PORT_PAL_SPLIT / HORCB</td>
+                <td>Controls where the left/right palette boundary is applied.</td>
+                <td>Use a safe/default value first; test split effects later.</td>
+              </tr>
+              <tr>
+                <td class="codeish">PORT_HEIGHT / VERBL</td>
+                <td>Vertical blanking / active screen height control.</td>
+                <td>Use known WoW-style values until the chapter has schematic-confirmed details.</td>
+              </tr>
+              <tr>
+                <td class="codeish">PORT_COLORMAP / COLBX</td>
+                <td>Color-block multi-port behavior.</td>
+                <td>Useful for compatibility with Astrocade-style color code, but explicit $00-$07 color latch writes
+                  are easier to reason about.</td>
+              </tr>
             </tbody>
           </table>
           <pre><code>; Conceptual video init shape.
@@ -170,7 +333,9 @@ InitVideoCore:
 
         <section class="card" id="framebuffer">
           <h2>Direct framebuffer layout</h2>
-          <p>The working arcade model is simple and powerful: video RAM begins at <code>$4000</code>. Each byte holds four 2-bpp pixels. Each high-resolution line is 80 bytes. The observed active screen area is 204 lines, for 16,320 bytes. The include captures this as:</p>
+          <p>The working arcade model is simple and powerful: video RAM begins at <code>$4000</code>. Each byte holds
+            four 2-bpp pixels. Each high-resolution line is 80 bytes. The observed active screen area is 204 lines, for
+            16,320 bytes. The include captures this as:</p>
           <pre><code>VRAM_SCREEN_START       equ $4000
 VRAM_SCREEN_END         equ $7FBF
 VRAM_SCREEN_SIZE        equ $3FC0
@@ -180,18 +345,25 @@ SCREEN_BYTES            equ VRAM_SCREEN_SIZE
 SCREEN_STRIDE           equ $0050     ; 80 bytes per scanline
 SCREEN_WIDTH_PIXELS     equ 320
 SCREEN_HEIGHT_LINES     equ 204</code></pre>
-          <p>The reserved tail from <code>$7FC0-$7FFF</code> is intentionally named conservatively in the include. It is not treated as palette RAM in this arcade guide; color values are programmed through I/O ports instead.</p>
+          <p>The reserved tail from <code>$7FC0-$7FFF</code> is intentionally named conservatively in the include. It is
+            not treated as palette RAM in this arcade guide; color values are programmed through I/O ports instead.</p>
           <div class="map-grid" aria-label="Arcade video RAM shape">
-            <div class="map-row"><b>$4000-$7FBF</b><div class="bar video"></div><small>active hi-res framebuffer, 320×204 working model</small></div>
-            <div class="map-row"><b>$7FC0-$7FFF</b><div class="bar protect"></div><small>reserved tail, verify before using</small></div>
+            <div class="map-row"><b>$4000-$7FBF</b>
+              <div class="bar video"></div><small>active hi-res framebuffer, 320×204 working model</small>
+            </div>
+            <div class="map-row"><b>$7FC0-$7FFF</b>
+              <div class="bar protect"></div><small>reserved tail, verify before using</small>
+            </div>
           </div>
         </section>
 
         <section class="card" id="addressing">
           <h2>Addressing pixels: X/Y to byte address</h2>
-          <p>In hi-res mode, use byte X, not pixel X, when calculating the framebuffer address. Since each byte contains four pixels, <code>xByte = xPixel / 4</code>. The base address is:</p>
+          <p>In hi-res mode, use byte X, not pixel X, when calculating the framebuffer address. Since each byte contains
+            four pixels, <code>xByte = xPixel / 4</code>. The base address is:</p>
           <pre><code>address = SCREEN_RAM + (y * SCREEN_STRIDE) + (xPixel / 4)</code></pre>
-          <p>For example, pixel coordinate <code>x=200</code>, <code>y=20</code> lands at byte X <code>50</code>, so the byte address is <code>$4000 + 20*$50 + 50</code>.</p>
+          <p>For example, pixel coordinate <code>x=200</code>, <code>y=20</code> lands at byte X <code>50</code>, so the
+            byte address is <code>$4000 + 20*$50 + 50</code>.</p>
           <pre><code>; zmac-style conceptual helper for an already byte-aligned X
 ; Input: D = y, E = xByte is possible, but this example keeps it readable.
 
@@ -200,24 +372,63 @@ SCREEN_HEIGHT_LINES     equ 204</code></pre>
         ld      hl,SCREEN_RAM + (20 * SCREEN_STRIDE) + 50</code></pre>
           <div class="callout">
             <b>Nibble/bit-plane caution</b>
-            The address gets you to the byte containing four pixels. Changing one pixel inside that byte means masking and replacing only its two-bit field. For quick solid boxes, byte-aligned drawing is much simpler and is the right first test.
+            The address gets you to the byte containing four pixels. Changing one pixel inside that byte means masking
+            and replacing only its two-bit field. For quick solid boxes, byte-aligned drawing is much simpler and is the
+            right first test.
           </div>
         </section>
 
         <section class="card" id="magic-writes">
           <h2>Magic memory writes</h2>
-          <p>Magic is the video accelerator path. In the machine model chapter, the key rule was that reads from low ROM fetch program bytes, while writes into the same low range feed the Magic hardware. The video chapter cares because Magic is how many fast draw operations become practical.</p>
+          <p>Magic is the video accelerator path. In the machine model chapter, the key rule was that reads from low ROM
+            fetch program bytes, while writes into the same low range feed the Magic hardware. The video chapter cares
+            because Magic is how many fast draw operations become practical.</p>
           <table>
             <thead>
-              <tr><th>Register bit</th><th>Include symbol</th><th>Mask</th><th>Meaning</th></tr>
+              <tr>
+                <th>Register bit</th>
+                <th>Include symbol</th>
+                <th>Mask</th>
+                <th>Meaning</th>
+              </tr>
             </thead>
             <tbody>
-              <tr><td>0-1</td><td class="codeish">MRSHFT</td><td class="codeish">$03</td><td>Shift amount field.</td></tr>
-              <tr><td>2</td><td class="codeish">MRROT / MRROT_MASK</td><td class="codeish">$04</td><td>Rotate behavior.</td></tr>
-              <tr><td>3</td><td class="codeish">MRXPND / MRXPND_MASK</td><td class="codeish">$08</td><td>Expand behavior, often paired with <code>PORT_XPAND</code>.</td></tr>
-              <tr><td>4</td><td class="codeish">MROR / MROR_MASK</td><td class="codeish">$10</td><td>OR draw mode.</td></tr>
-              <tr><td>5</td><td class="codeish">MRXOR / MRXOR_MASK</td><td class="codeish">$20</td><td>XOR draw/erase mode.</td></tr>
-              <tr><td>6</td><td class="codeish">MRFLOP / MRFLOP_MASK</td><td class="codeish">$40</td><td>Flop/mirror behavior.</td></tr>
+              <tr>
+                <td>0-1</td>
+                <td class="codeish">MRSHFT</td>
+                <td class="codeish">$03</td>
+                <td>Shift amount field.</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td class="codeish">MRROT / MRROT_MASK</td>
+                <td class="codeish">$04</td>
+                <td>Rotate behavior.</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td class="codeish">MRXPND / MRXPND_MASK</td>
+                <td class="codeish">$08</td>
+                <td>Expand behavior, often paired with <code>PORT_XPAND</code>.</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td class="codeish">MROR / MROR_MASK</td>
+                <td class="codeish">$10</td>
+                <td>OR draw mode.</td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td class="codeish">MRXOR / MRXOR_MASK</td>
+                <td class="codeish">$20</td>
+                <td>XOR draw/erase mode.</td>
+              </tr>
+              <tr>
+                <td>6</td>
+                <td class="codeish">MRFLOP / MRFLOP_MASK</td>
+                <td class="codeish">$40</td>
+                <td>Flop/mirror behavior.</td>
+              </tr>
             </tbody>
           </table>
           <pre><code>; Example: set Magic to XOR mode before a Magic write path
@@ -227,7 +438,9 @@ SCREEN_HEIGHT_LINES     equ 204</code></pre>
 ; Optional expander state, if using expanded source data
         ld      a,XPAND_VALUE
         out     (PORT_XPAND),a</code></pre>
-          <p>Magic deserves its own chapter because the behavior depends on current Magic register state, expander state, alignment, source bytes, and destination interaction. This video chapter only establishes where Magic lives in the video model.</p>
+          <p>Magic deserves its own chapter because the behavior depends on current Magic register state, expander
+            state, alignment, source bytes, and destination interaction. This video chapter only establishes where Magic
+            lives in the video model.</p>
         </section>
 
         <section class="card" id="direct-vs-magic">
@@ -235,23 +448,47 @@ SCREEN_HEIGHT_LINES     equ 204</code></pre>
           <p>Both paths are useful, but they solve different problems.</p>
           <table>
             <thead>
-              <tr><th>Path</th><th>Use for</th><th>Why</th><th>Risk</th></tr>
+              <tr>
+                <th>Path</th>
+                <th>Use for</th>
+                <th>Why</th>
+                <th>Risk</th>
+              </tr>
             </thead>
             <tbody>
-              <tr><td><strong>Direct VRAM</strong></td><td>Clears, byte-aligned boxes, debug text, known pixel buffers.</td><td>Easy to reason about: address plus byte value.</td><td>Can be slower for shaped sprites and requires careful per-pixel masking.</td></tr>
-              <tr><td><strong>Magic writes</strong></td><td>Sprites, masked/OR/XOR operations, shifted/flopped/expanded graphics.</td><td>Hardware assists with common graphics transforms.</td><td>Bad Magic state can corrupt unexpected screen regions.</td></tr>
-              <tr><td><strong>Pattern board</strong></td><td>WoW/Gorf hardware pattern operations.</td><td>Extra arcade-specific graphics hardware.</td><td>Needs separate register discipline and schematic/ROM confirmation.</td></tr>
+              <tr>
+                <td><strong>Direct VRAM</strong></td>
+                <td>Clears, byte-aligned boxes, debug text, known pixel buffers.</td>
+                <td>Easy to reason about: address plus byte value.</td>
+                <td>Can be slower for shaped sprites and requires careful per-pixel masking.</td>
+              </tr>
+              <tr>
+                <td><strong>Magic writes</strong></td>
+                <td>Sprites, masked/OR/XOR operations, shifted/flopped/expanded graphics.</td>
+                <td>Hardware assists with common graphics transforms.</td>
+                <td>Bad Magic state can corrupt unexpected screen regions.</td>
+              </tr>
+              <tr>
+                <td><strong>Pattern board</strong></td>
+                <td>WoW/Gorf hardware pattern operations.</td>
+                <td>Extra arcade-specific graphics hardware.</td>
+                <td>Needs separate register discipline and schematic/ROM confirmation.</td>
+              </tr>
             </tbody>
           </table>
           <div class="callout green">
             <b>Debugging strategy</b>
-            Bring the screen up with direct VRAM first. Once palette, mode, stride, and field behavior are proven, then add Magic. Once Magic is stable, then bring in pattern-board acceleration.
+            Bring the screen up with direct VRAM first. Once palette, mode, stride, and field behavior are proven, then
+            add Magic. Once Magic is stable, then bring in pattern-board acceleration.
           </div>
         </section>
 
         <section class="card" id="interlace">
           <h2>Interlace and field mirroring</h2>
-          <p>Our real-hardware notes point to a practical arcade issue: in high-resolution interlaced display, writing only one apparent framebuffer location may not update both visible fields the way you expect. The working rule has been to mirror certain screen writes at an offset of <code>+$0800</code> when the real board needs both fields represented.</p>
+          <p>Our real-hardware notes point to a practical arcade issue: in high-resolution interlaced display, writing
+            only one apparent framebuffer location may not update both visible fields the way you expect. The working
+            rule has been to mirror certain screen writes at an offset of <code>+$0800</code> when the real board needs
+            both fields represented.</p>
           <pre><code>; Working-hypothesis pattern from real hardware experiments.
 ; Use only where the specific draw path requires field mirroring.
 
@@ -263,14 +500,18 @@ SCREEN_HEIGHT_LINES     equ 204</code></pre>
         ld      (hl),a</code></pre>
           <div class="callout gold">
             <b>Tag this carefully</b>
-            Field mirroring should be tagged <code>real-hardware-observed</code> or <code>working hypothesis</code> until each draw path is tested. MAME may not make the same artifact obvious, and schematics/service docs are needed to explain why the offset behaves the way it does.
+            Field mirroring should be tagged <code>real-hardware-observed</code> or <code>working hypothesis</code>
+            until each draw path is tested. MAME may not make the same artifact obvious, and schematics/service docs are
+            needed to explain why the offset behaves the way it does.
           </div>
-          <p>This is another reason the field guide should not simply teach console Astrocade drawing. The arcade monitor, video RAM organization, and commercial mode timing are part of the actual software target.</p>
+          <p>This is another reason the field guide should not simply teach console Astrocade drawing. The arcade
+            monitor, video RAM organization, and commercial mode timing are part of the actual software target.</p>
         </section>
 
         <section class="card" id="pattern-board">
           <h2>Pattern board context</h2>
-          <p>The pattern board is video-adjacent but should not be confused with the base Astrocade Magic register. The arcade include defines a separate block at <code>$78-$7F</code>:</p>
+          <p>The pattern board is video-adjacent but should not be confused with the base Astrocade Magic register. The
+            arcade include defines a separate block at <code>$78-$7F</code>:</p>
           <pre><code>PORT_PBLINADRL          equ $78
 PORT_PBLINADRH          equ $79
 PORT_PBCTL              equ $7A
@@ -279,26 +520,61 @@ PORT_PBMASK             equ $7C
 PORT_PBMR               equ $7D
 PORT_PBXR               equ $7E
 PORT_PBOR               equ $7F</code></pre>
-          <p>The earlier I/O chapter treated <code>$78-$7E</code> as the MAME-backed pattern-board range. The include also names <code>$7F</code> as <code>PORT_PBOR</code>, which is useful for our project code but should stay marked for board/manual/ROM verification when describing exact behavior.</p>
+          <p>The earlier I/O chapter treated <code>$78-$7E</code> as the MAME-backed pattern-board range. The include
+            also names <code>$7F</code> as <code>PORT_PBOR</code>, which is useful for our project code but should stay
+            marked for board/manual/ROM verification when describing exact behavior.</p>
           <table>
             <thead>
-              <tr><th>Port</th><th>Likely role in project naming</th><th>Field-guide caution</th></tr>
+              <tr>
+                <th>Port</th>
+                <th>Likely role in project naming</th>
+                <th>Field-guide caution</th>
+              </tr>
             </thead>
             <tbody>
-              <tr><td class="addr">$78/$79</td><td>Pattern board line/address low/high.</td><td>Confirm address loading sequence against WoW/Gorf routines.</td></tr>
-              <tr><td class="addr">$7A</td><td>Control/status style register.</td><td>Exact bits belong in the future pattern-board chapter.</td></tr>
-              <tr><td class="addr">$7B</td><td>Rotation / alternate address alias in older code.</td><td>Older aliases can obscure what the hardware is doing.</td></tr>
-              <tr><td class="addr">$7C</td><td>Mask / high-address alias in older code.</td><td>Prefer the clearer <code>PBMASK</code> naming until proven otherwise.</td></tr>
-              <tr><td class="addr">$7D</td><td>Pattern-board Magic register.</td><td>Do not confuse with Astrocade <code>PORT_MAGIC</code> at <code>$0C</code>.</td></tr>
-              <tr><td class="addr">$7E</td><td>X register / width-style alias in older code.</td><td>Needs examples from original ROM code.</td></tr>
-              <tr><td class="addr">$7F</td><td>OR register in current include.</td><td>Useful project symbol, but document exact MAME/manual support separately.</td></tr>
+              <tr>
+                <td class="addr">$78/$79</td>
+                <td>Pattern board line/address low/high.</td>
+                <td>Confirm address loading sequence against WoW/Gorf routines.</td>
+              </tr>
+              <tr>
+                <td class="addr">$7A</td>
+                <td>Control/status style register.</td>
+                <td>Exact bits belong in the future pattern-board chapter.</td>
+              </tr>
+              <tr>
+                <td class="addr">$7B</td>
+                <td>Rotation / alternate address alias in older code.</td>
+                <td>Older aliases can obscure what the hardware is doing.</td>
+              </tr>
+              <tr>
+                <td class="addr">$7C</td>
+                <td>Mask / high-address alias in older code.</td>
+                <td>Prefer the clearer <code>PBMASK</code> naming until proven otherwise.</td>
+              </tr>
+              <tr>
+                <td class="addr">$7D</td>
+                <td>Pattern-board Magic register.</td>
+                <td>Do not confuse with Astrocade <code>PORT_MAGIC</code> at <code>$0C</code>.</td>
+              </tr>
+              <tr>
+                <td class="addr">$7E</td>
+                <td>X register / width-style alias in older code.</td>
+                <td>Needs examples from original ROM code.</td>
+              </tr>
+              <tr>
+                <td class="addr">$7F</td>
+                <td>OR register in current include.</td>
+                <td>Useful project symbol, but document exact MAME/manual support separately.</td>
+              </tr>
             </tbody>
           </table>
         </section>
 
         <section class="card" id="init-sequence">
           <h2>Practical video init sequence</h2>
-          <p>A minimal arcade video bring-up should be boring. The goal is not to use every feature; the goal is to make a stable screen whose memory layout you trust.</p>
+          <p>A minimal arcade video bring-up should be boring. The goal is not to use every feature; the goal is to make
+            a stable screen whose memory layout you trust.</p>
           <pre><code>; Suggested first-screen order for WoW-style experiments
 
 InitVideoAndScreen:
@@ -329,7 +605,8 @@ InitVideoAndScreen:
         call    DrawVideoSanityMarks
 
         ret</code></pre>
-          <p>Only after this works should you add interrupts, Magic sprites, pattern-board operations, or split-palette tricks.</p>
+          <p>Only after this works should you add interrupts, Magic sprites, pattern-board operations, or split-palette
+            tricks.</p>
         </section>
 
         <section class="card" id="rules">
@@ -339,12 +616,24 @@ InitVideoAndScreen:
               <h3>Do this</h3>
               <table>
                 <tbody>
-                  <tr><td>Use <code>SCREEN_RAM + y*$50 + xByte</code> for first-pass hi-res drawing.</td></tr>
-                  <tr><td>Program all eight color latches before judging colors.</td></tr>
-                  <tr><td>Use symmetric left/right palettes while debugging.</td></tr>
-                  <tr><td>Start with direct VRAM writes before Magic writes.</td></tr>
-                  <tr><td>Keep Magic, pattern-board, and direct-VRAM code paths clearly named.</td></tr>
-                  <tr><td>Tag interlace/field behavior separately for MAME vs real hardware.</td></tr>
+                  <tr>
+                    <td>Use <code>SCREEN_RAM + y*$50 + xByte</code> for first-pass hi-res drawing.</td>
+                  </tr>
+                  <tr>
+                    <td>Program all eight color latches before judging colors.</td>
+                  </tr>
+                  <tr>
+                    <td>Use symmetric left/right palettes while debugging.</td>
+                  </tr>
+                  <tr>
+                    <td>Start with direct VRAM writes before Magic writes.</td>
+                  </tr>
+                  <tr>
+                    <td>Keep Magic, pattern-board, and direct-VRAM code paths clearly named.</td>
+                  </tr>
+                  <tr>
+                    <td>Tag interlace/field behavior separately for MAME vs real hardware.</td>
+                  </tr>
                 </tbody>
               </table>
             </div>
@@ -352,12 +641,24 @@ InitVideoAndScreen:
               <h3>Do not do this</h3>
               <table>
                 <tbody>
-                  <tr><td>Do not assume console low-res layout is the arcade default.</td></tr>
-                  <tr><td>Do not treat <code>$7FC0-$7FFF</code> as free RAM or palette RAM without proof.</td></tr>
-                  <tr><td>Do not leave Magic in XOR/OR/expand mode accidentally.</td></tr>
-                  <tr><td>Do not debug palette and drawing bugs at the same time if you can avoid it.</td></tr>
-                  <tr><td>Do not confuse <code>PORT_MAGIC $0C</code> with pattern-board <code>PBMR $7D</code>.</td></tr>
-                  <tr><td>Do not trust emulator-only video timing until the board agrees.</td></tr>
+                  <tr>
+                    <td>Do not assume console low-res layout is the arcade default.</td>
+                  </tr>
+                  <tr>
+                    <td>Do not treat <code>$7FC0-$7FFF</code> as free RAM or palette RAM without proof.</td>
+                  </tr>
+                  <tr>
+                    <td>Do not leave Magic in XOR/OR/expand mode accidentally.</td>
+                  </tr>
+                  <tr>
+                    <td>Do not debug palette and drawing bugs at the same time if you can avoid it.</td>
+                  </tr>
+                  <tr>
+                    <td>Do not confuse <code>PORT_MAGIC $0C</code> with pattern-board <code>PBMR $7D</code>.</td>
+                  </tr>
+                  <tr>
+                    <td>Do not trust emulator-only video timing until the board agrees.</td>
+                  </tr>
                 </tbody>
               </table>
             </div>
@@ -366,41 +667,48 @@ InitVideoAndScreen:
 
         <section class="card" id="sources">
           <h2>Source notes</h2>
-          <p>This chapter is a synthesis. The direct constants come from the arcade HVGLIB include and our current field-guide model. The interpretation should remain tagged by source.</p>
+          <p>This chapter is a synthesis. The direct constants come from the arcade HVGLIB include and our current
+            field-guide model. The interpretation should remain tagged by source.</p>
           <div class="source-list">
             <div class="source">
               <b><code>HW-HVGLIB.H.h</code></b>
-              <span>Provides the arcade-oriented names for video RAM, screen stride, commercial video mode, color latches, Magic register bits, expand port, and pattern-board ports.</span>
+              <span>Provides the arcade-oriented names for video RAM, screen stride, commercial video mode, color
+                latches, Magic register bits, expand port, and pattern-board ports.</span>
             </div>
             <div class="source">
               <b>MAME Astrocade arcade driver</b>
-              <span>Backbone for the arcade memory map, video RAM window, low I/O block, Magic write behavior, and pattern-board port region.</span>
+              <span>Backbone for the arcade memory map, video RAM window, low I/O block, Magic write behavior, and
+                pattern-board port region.</span>
             </div>
             <div class="source">
               <b>Nutting Manual / Better Bally Book / 8bitworkshop</b>
-              <span>Useful for console-side concepts: color encoding, Magic system behavior, and low-res vs hi-res explanation. Treat as concept support, not as final arcade board truth.</span>
+              <span>Useful for console-side concepts: color encoding, Magic system behavior, and low-res vs hi-res
+                explanation. Treat as concept support, not as final arcade board truth.</span>
             </div>
             <div class="source">
               <b>WoW/Gorf service manuals and real hardware tests</b>
-              <span>Needed for monitor timing, interlace/field behavior, schematics, pattern-board electrical details, and final confirmation.</span>
+              <span>Needed for monitor timing, interlace/field behavior, schematics, pattern-board electrical details,
+                and final confirmation.</span>
             </div>
           </div>
         </section>
 
         <section class="card">
-          <h2>Chapter navigation</h2>
-          <div class="page-nav">
-            <a class="nav-card" href="io-map.html">
-              <span class="nav-kicker">Previous</span>
-              <b>I/O Map</b>
-              <small>Ports, direction traps, sound/input overlap, pattern-board block.</small>
+          <nav class="chapter-strip" aria-label="Chapter navigation">
+            <a class="prev" href="io-map.html" aria-label="Prev Chapter: I/O Map">
+              <span class="nav-arrow">⟵</span>
+              <span class="nav-title">I/O Map</span>
             </a>
-            <a class="nav-card" href="index.html">
-              <span class="nav-kicker">Index</span>
-              <b>Back to Field Guide</b>
-              <small>Return to the front page and full chapter list.</small>
+
+            <a class="index" href="index.html" aria-label="Home">
+              <span class="home-icon">⌂</span>
             </a>
-          </div>
+
+            <a class="next" href="inputs-dip-switches.html" aria-label="Next chapter: Inputs and DIPs">
+              <span class="nav-title">Inputs and DIPs</span>
+              <span class="nav-arrow">⟶</span>
+            </a>
+          </nav>
         </section>
       </div>
     </main>
@@ -410,4 +718,5 @@ InitVideoAndScreen:
     </footer>
   </div>
 </body>
+
 </html>
