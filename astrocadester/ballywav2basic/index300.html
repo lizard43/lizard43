@@ -1,0 +1,1999 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Bally 300-baud WAV Decoder - 20260627_130629_UTC</title>
+  <style>
+    :root {
+      --bg: #0d1117;
+      --panel: #151b24;
+      --panel2: #1b2430;
+      --panel3: #0f1621;
+      --text: #e6edf3;
+      --muted: #91a4b7;
+      --soft: #263242;
+      --border: #2b3a4c;
+      --accent: #5eead4;
+      --accent2: #60a5fa;
+      --warn: #fbbf24;
+      --bad: #fb7185;
+      --good: #86efac;
+      --shadow: 0 20px 55px rgba(0, 0, 0, .32);
+      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      --sans: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      margin: 0;
+      min-height: 100%;
+      background: radial-gradient(circle at top left, rgba(94, 234, 212, .14), transparent 34rem), radial-gradient(circle at top right, rgba(96, 165, 250, .12), transparent 32rem), var(--bg);
+      color: var(--text);
+      font-family: var(--sans);
+    }
+
+    body {
+      padding: 8px;
+    }
+
+    button,
+    input,
+    textarea {
+      font: inherit;
+    }
+
+    .app {
+      max-width: 1640px;
+      margin: 0 auto;
+    }
+
+    header.hero {
+      border: 1px solid rgba(94, 234, 212, .22);
+      background: linear-gradient(135deg, rgba(21, 27, 36, .95), rgba(16, 22, 31, .88));
+      box-shadow: var(--shadow);
+      border-radius: 12px;
+      padding: 10px 12px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    header.hero:before {
+      content: "";
+      position: absolute;
+      inset: -2px;
+      background: linear-gradient(90deg, transparent, rgba(94, 234, 212, .14), transparent);
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      display: grid;
+      gap: 10px;
+      grid-template-columns: minmax(320px, 1fr) minmax(420px, 0.9fr);
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    h1,
+    h2 {
+      margin: 0;
+      font-size: clamp(22px, 2.3vw, 32px);
+      letter-spacing: -0.035em;
+      line-height: 1.0;
+    }
+
+    .subtitle {
+      margin: 4px 0 0;
+      color: var(--muted);
+      max-width: 850px;
+      line-height: 1.25;
+      font-size: 14px;
+    }
+
+    .hero-note {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      margin-top: 7px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .hero-note span {
+      border: 1px solid var(--border);
+      background: rgba(15, 22, 33, .55);
+      padding: 4px 8px;
+      border-radius: 999px;
+    }
+
+    .upload-card {
+      width: 100%;
+      border: 1px dashed rgba(94, 234, 212, .45);
+      background: rgba(15, 22, 33, .72);
+      border-radius: 12px;
+      padding: 8px 10px;
+    }
+
+    .upload-card.dragging {
+      border-color: var(--accent);
+      background: rgba(94, 234, 212, .08);
+    }
+
+    .upload-main {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .upload-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 9px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, rgba(94, 234, 212, .18), rgba(96, 165, 250, .15));
+      color: var(--accent);
+      font-size: 18px;
+      flex: 0 0 auto;
+    }
+
+    .upload-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.2;
+    }
+
+    .file-name {
+      color: var(--text);
+      font-weight: 700;
+      margin-bottom: 1px;
+      word-break: break-word;
+      font-size: 14px;
+      line-height: 1.15;
+    }
+
+    .button-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin-top: 8px;
+    }
+
+    .btn {
+      border: 1px solid var(--border);
+      color: var(--text);
+      background: linear-gradient(180deg, #243145, #182231);
+      border-radius: 9px;
+      padding: 7px 10px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: transform .12s ease, border-color .12s ease, background .12s ease;
+      user-select: none;
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+      border-color: rgba(94, 234, 212, .55);
+    }
+
+    .btn.primary {
+      background: linear-gradient(180deg, rgba(45, 212, 191, .92), rgba(20, 184, 166, .72));
+      border-color: rgba(94, 234, 212, .9);
+      color: #061318;
+      font-weight: 800;
+    }
+
+    .btn.small {
+      padding: 8px 10px;
+      border-radius: 10px;
+      font-size: 13px;
+    }
+
+    .btn.ghost {
+      background: rgba(15, 22, 33, .55);
+    }
+
+    .btn:disabled {
+      opacity: .45;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    input[type="file"] {
+      display: none;
+    }
+
+    .status {
+      margin: 7px 2px;
+      min-height: 20px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--muted);
+      box-shadow: 0 0 0 5px rgba(145, 164, 183, .09);
+    }
+
+    .dot.good {
+      background: var(--good);
+      box-shadow: 0 0 0 5px rgba(134, 239, 172, .12);
+    }
+
+    .dot.bad {
+      background: var(--bad);
+      box-shadow: 0 0 0 5px rgba(251, 113, 133, .12);
+    }
+
+    .dot.work {
+      background: var(--warn);
+      box-shadow: 0 0 0 5px rgba(251, 191, 36, .12);
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.45fr) minmax(330px, .55fr);
+      gap: 8px;
+      align-items: start;
+    }
+
+    .panel {
+      background: rgba(21, 27, 36, .95);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      box-shadow: 0 10px 28px rgba(0, 0, 0, .24);
+      overflow: hidden;
+    }
+
+    .panel-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      border-bottom: 1px solid var(--border);
+      padding: 8px 10px;
+      background: rgba(15, 22, 33, .72);
+    }
+
+    .panel-title {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      font-weight: 800;
+      letter-spacing: -.01em;
+      font-size: 16px;
+    }
+
+    .panel-title .mini {
+      width: 8px;
+      height: 8px;
+      border-radius: 3px;
+      background: var(--accent);
+      box-shadow: 0 0 20px rgba(94, 234, 212, .55);
+    }
+
+    .panel-sub {
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .panel-body {
+      padding: 8px;
+    }
+
+    .editor-tools {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .textarea-wrap {
+      position: relative;
+    }
+
+    .copy-icon {
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      z-index: 3;
+      width: 30px;
+      height: 30px;
+      border-radius: 8px;
+      border: 1px solid rgba(94, 234, 212, .38);
+      background: rgba(15, 22, 33, .9);
+      color: var(--accent);
+      cursor: pointer;
+      display: grid;
+      place-items: center;
+      font-size: 16px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, .25);
+    }
+
+    .copy-icon:hover {
+      border-color: rgba(94, 234, 212, .8);
+      background: rgba(20, 33, 43, .96);
+    }
+
+    .copy-icon:disabled {
+      opacity: .35;
+      cursor: not-allowed;
+    }
+
+    textarea#basicOutput {
+      width: 100%;
+      min-height: calc(100vh - 205px);
+      resize: vertical;
+      border: 1px solid var(--soft);
+      border-radius: 10px;
+      background: #070b10;
+      color: #dff7ef;
+      padding: 10px 44px 10px 10px;
+      font-family: var(--mono);
+      font-size: 14px;
+      line-height: 1.32;
+      tab-size: 2;
+      outline: none;
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .02);
+    }
+
+    textarea#basicOutput:focus {
+      border-color: rgba(94, 234, 212, .55);
+      box-shadow: inset 0 0 0 1px rgba(94, 234, 212, .16), 0 0 0 4px rgba(94, 234, 212, .08);
+    }
+
+    .copy-toast {
+      position: absolute;
+      right: 14px;
+      top: 14px;
+      background: rgba(6, 19, 24, .92);
+      color: var(--accent);
+      border: 1px solid rgba(94, 234, 212, .38);
+      border-radius: 999px;
+      padding: 6px 10px;
+      font-size: 12px;
+      opacity: 0;
+      transform: translateY(-6px);
+      pointer-events: none;
+      transition: .2s ease;
+    }
+
+    .copy-toast.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 6px;
+    }
+
+    .stat {
+      border: 1px solid var(--soft);
+      background: linear-gradient(180deg, rgba(27, 36, 48, .95), rgba(15, 22, 33, .75));
+      border-radius: 10px;
+      padding: 7px;
+      min-height: 56px;
+    }
+
+    .stat .label {
+      color: var(--muted);
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: .07em;
+    }
+
+    .stat .value {
+      margin-top: 3px;
+      font-family: var(--mono);
+      font-size: 16px;
+      font-weight: 800;
+      overflow-wrap: anywhere;
+    }
+
+    .stat.wide {
+      grid-column: 1 / -1;
+    }
+
+    .stat .tiny {
+      color: var(--muted);
+      font-size: 10px;
+      margin-top: 2px;
+      font-family: var(--mono);
+    }
+
+    .chart-card {
+      border: 1px solid var(--soft);
+      background: rgba(15, 22, 33, .64);
+      border-radius: 10px;
+      padding: 8px;
+      margin-top: 8px;
+    }
+
+    .chart-title {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 6px;
+      margin-bottom: 5px;
+    }
+
+    .chart-title h3 {
+      margin: 0;
+      font-size: 13px;
+    }
+
+    .chart-title span {
+      color: var(--muted);
+      font-size: 11px;
+    }
+
+    canvas {
+      width: 100%;
+      height: 140px;
+      display: block;
+      background: #081018;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, .05);
+    }
+
+    #waveCanvas {
+      height: 82px;
+      cursor: crosshair;
+      touch-action: none;
+    }
+
+    #zoomCanvas {
+      height: 118px;
+    }
+
+    #histCanvas {
+      height: 74px;
+    }
+
+    .chart-note {
+      display: none;
+      margin-top: 4px;
+      color: var(--muted);
+      font-size: 11px;
+      line-height: 1.25;
+    }
+
+    .compact-chart {
+      padding-bottom: 10px;
+    }
+
+    details.options {
+      margin-top: 8px;
+      border: 1px solid var(--soft);
+      border-radius: 10px;
+      background: rgba(15, 22, 33, .64);
+      padding: 8px;
+    }
+
+    details.options summary {
+      cursor: pointer;
+      color: var(--text);
+      font-weight: 800;
+    }
+
+    .options-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 7px;
+      margin-top: 8px;
+    }
+
+    .field {
+      display: grid;
+      gap: 6px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .field input[type="number"],
+    .field input[type="text"] {
+      width: 100%;
+      border: 1px solid var(--soft);
+      background: #090e15;
+      color: var(--text);
+      border-radius: 8px;
+      padding: 6px 8px;
+      font-family: var(--mono);
+    }
+
+    .check {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .debug-log {
+      white-space: pre-wrap;
+      word-break: break-word;
+      font-family: var(--mono);
+      font-size: 12px;
+      line-height: 1.35;
+      color: #cbd5e1;
+      background: #070b10;
+      border: 1px solid var(--soft);
+      border-radius: 8px;
+      padding: 8px;
+      max-height: 220px;
+      overflow: auto;
+      margin-top: 12px;
+    }
+
+    .hidden {
+      display: none !important;
+    }
+
+    .footnote {
+      display: none;
+      color: var(--muted);
+      font-size: 11px;
+      line-height: 1.3;
+      margin-top: 8px;
+    }
+
+    .note-copy {
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.5;
+      margin: 10px 0 0;
+    }
+
+    .note-copy b {
+      color: var(--text);
+    }
+
+    .error-box {
+      border: 1px solid rgba(251, 113, 133, .45);
+      background: rgba(251, 113, 133, .08);
+      color: #fecdd3;
+      padding: 12px;
+      border-radius: 14px;
+      margin-top: 12px;
+    }
+
+    @media (max-width: 1120px) {
+
+      .hero-inner,
+      .layout {
+        grid-template-columns: 1fr;
+      }
+
+      .upload-card {
+        width: 100%;
+      }
+
+      textarea#basicOutput {
+        min-height: 520px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      body {
+        padding: 6px;
+      }
+
+      header.hero {
+        padding: 8px;
+        border-radius: 10px;
+      }
+
+      .stats-grid,
+      .options-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .panel-header {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+    }
+
+    /* Compact pass: make output visible first, reduce decorative spacing. */
+    .hero {
+      margin-bottom: 0;
+    }
+
+    .upload-card .button-row {
+      margin-left: 40px;
+    }
+
+    .btn.primary {
+      font-size: 14px;
+    }
+
+    .panel:first-child .panel-body {
+      padding: 8px;
+    }
+
+    .panel:first-child {
+      min-height: calc(100vh - 155px);
+    }
+
+    .panel:first-child .textarea-wrap,
+    .panel:first-child textarea {
+      height: calc(100vh - 210px);
+      min-height: 560px;
+    }
+
+    textarea#basicOutput {
+      min-height: 0;
+    }
+
+    .status+.layout {
+      margin-top: 0;
+    }
+
+    @media (max-width: 1120px) {
+
+      .panel:first-child,
+      .panel:first-child .textarea-wrap,
+      .panel:first-child textarea {
+        min-height: 520px;
+        height: 520px;
+      }
+
+      .upload-card .button-row {
+        margin-left: 0;
+      }
+    }
+
+
+    /* Fix pass: keep the BASIC editor fully inside the viewport and make its scrollbar usable. */
+    .layout {
+      align-items: stretch;
+    }
+
+    .decoded-panel {
+      height: calc(100vh - 132px);
+      min-height: 430px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .decoded-panel .panel-header {
+      flex: 0 0 auto;
+    }
+
+    .decoded-panel .panel-body {
+      flex: 1 1 auto;
+      min-height: 0;
+      display: flex;
+    }
+
+    .decoded-panel .textarea-wrap {
+      flex: 1 1 auto;
+      min-height: 0;
+      width: 100%;
+      display: flex;
+    }
+
+    .decoded-panel textarea#basicOutput {
+      flex: 1 1 auto;
+      width: 100%;
+      height: auto;
+      min-height: 0;
+      resize: none;
+      overflow: auto;
+      scrollbar-gutter: stable;
+      padding-bottom: 18px;
+    }
+
+    .details-panel {
+      align-self: start;
+    }
+
+    @media (max-width: 1120px) {
+      .decoded-panel {
+        height: calc(100vh - 150px);
+        min-height: 420px;
+      }
+
+      .decoded-panel .textarea-wrap,
+      .decoded-panel textarea#basicOutput {
+        height: auto;
+        min-height: 0;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .decoded-panel {
+        height: calc(100vh - 132px);
+        min-height: 360px;
+      }
+    }
+
+
+
+    /* 20260627_124015_UTC viewport-fit fix: no page clipping, editor/right panel own their scrollbars. */
+    html,
+    body {
+      height: 100%;
+      min-height: 0;
+      overflow: hidden;
+    }
+
+    body {
+      padding: 6px !important;
+    }
+
+    .app {
+      height: calc(100vh - 12px);
+      max-width: none;
+      display: grid;
+      grid-template-rows: auto auto minmax(0, 1fr);
+      gap: 5px;
+      overflow: hidden;
+    }
+
+    .build-stamp {
+      margin-top: 3px;
+      color: #607487;
+      font: 10px/1.1 var(--mono);
+    }
+
+    header.hero {
+      padding: 7px 10px !important;
+      border-radius: 10px !important;
+      flex: 0 0 auto;
+    }
+
+    .hero-inner {
+      gap: 8px !important;
+    }
+
+    .subtitle {
+      margin-top: 2px !important;
+      font-size: 13px !important;
+    }
+
+    .hero-note {
+      margin-top: 5px !important;
+    }
+
+    .upload-card {
+      padding: 7px 9px !important;
+    }
+
+    .upload-icon {
+      width: 28px !important;
+      height: 28px !important;
+    }
+
+    .button-row {
+      margin-top: 6px !important;
+    }
+
+    .status {
+      margin: 0 2px !important;
+      min-height: 18px !important;
+      font-size: 13px !important;
+      flex: 0 0 auto;
+    }
+
+    .layout {
+      height: 100%;
+      min-height: 0;
+      overflow: hidden;
+      align-items: stretch !important;
+      grid-template-columns: minmax(0, 1.5fr) minmax(320px, .5fr) !important;
+      gap: 6px !important;
+    }
+
+    .panel {
+      min-height: 0;
+    }
+
+    .layout>.decoded-panel {
+      height: auto !important;
+      min-height: 0 !important;
+      max-height: none !important;
+      display: flex !important;
+      flex-direction: column !important;
+      overflow: hidden !important;
+    }
+
+    .layout>.decoded-panel .panel-header {
+      flex: 0 0 auto;
+      padding: 6px 8px !important;
+    }
+
+    .layout>.decoded-panel .panel-body {
+      flex: 1 1 auto !important;
+      min-height: 0 !important;
+      display: flex !important;
+      padding: 6px !important;
+      overflow: hidden !important;
+    }
+
+    .layout>.decoded-panel .textarea-wrap {
+      flex: 1 1 auto !important;
+      min-height: 0 !important;
+      height: auto !important;
+      width: 100% !important;
+      display: flex !important;
+      overflow: hidden !important;
+    }
+
+    .layout>.decoded-panel textarea#basicOutput {
+      flex: 1 1 auto !important;
+      height: 100% !important;
+      min-height: 0 !important;
+      max-height: none !important;
+      resize: none !important;
+      overflow: auto !important;
+      scrollbar-gutter: stable both-edges;
+      padding-bottom: 42px !important;
+    }
+
+    .copy-icon {
+      right: 18px !important;
+    }
+
+    .layout>.details-panel {
+      height: 100% !important;
+      min-height: 0 !important;
+      max-height: none !important;
+      display: flex !important;
+      flex-direction: column !important;
+      overflow: hidden !important;
+      align-self: stretch !important;
+    }
+
+    .layout>.details-panel .panel-header {
+      flex: 0 0 auto;
+      padding: 6px 8px !important;
+    }
+
+    .layout>.details-panel .panel-body {
+      flex: 1 1 auto !important;
+      min-height: 0 !important;
+      overflow-y: auto !important;
+      overflow-x: hidden !important;
+      padding: 6px !important;
+    }
+
+    .chart-title {
+      margin-bottom: 3px !important;
+    }
+
+    .chart-card {
+      padding: 6px !important;
+      margin-top: 6px !important;
+    }
+
+    #waveCanvas {
+      height: 78px !important;
+      cursor: crosshair;
+      touch-action: none;
+    }
+
+    #zoomCanvas {
+      height: 140px !important;
+    }
+
+    #histCanvas {
+      height: 70px !important;
+    }
+
+    @media (max-width: 1120px) {
+
+      html,
+      body {
+        height: auto;
+        overflow: auto;
+      }
+
+      .app {
+        height: auto;
+        min-height: 100vh;
+        overflow: visible;
+        display: block;
+      }
+
+      .layout {
+        height: auto;
+        overflow: visible;
+        grid-template-columns: 1fr !important;
+      }
+
+      .layout>.decoded-panel {
+        height: 58vh !important;
+        min-height: 420px !important;
+      }
+
+      .layout>.details-panel {
+        height: auto !important;
+        overflow: visible !important;
+      }
+
+      .layout>.details-panel .panel-body {
+        overflow: visible !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="app">
+    <header class="hero" id="dropZone">
+      <div class="hero-inner">
+        <div>
+          <h2>Bally 300-baud WAV Decoder</h2>
+          <div class="build-stamp">20260627_130629_UTC</div>
+        </div>
+        <div class="upload-card" id="uploadCard">
+          <div class="upload-main">
+            <div class="upload-icon">▣</div>
+            <div>
+              <div class="file-name" id="fileName"></div>
+              <div class="status" id="status"><span class="dot" id="statusDot"></span><span id="statusText">Ready.
+                  Upload a 300-baud Bally BASIC WAV.</span></div>
+            </div>
+          </div>
+          <div class="button-row">
+            <label class="btn primary" for="wavInput">⬆ Upload WAV</label>
+            <input id="wavInput" type="file" accept="audio/wav,.wav" />
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="layout">
+      <section class="panel decoded-panel">
+        <div class="panel-header">
+        </div>
+        <div class="panel-body">
+          <div class="textarea-wrap">
+            <button class="copy-icon" id="copyBtn" disabled title="Copy decoded BASIC"
+              aria-label="Copy decoded BASIC">⧉</button>
+            <textarea id="basicOutput" spellcheck="false" placeholder="Decoded BASIC will appear here..."></textarea>
+            <div class="copy-toast" id="copyToast">Copied</div>
+          </div>
+        </div>
+      </section>
+
+      <aside class="panel details-panel">
+        <div class="panel-header">
+          <div>
+            <div class="panel-title"><span class="mini"></span>Stats and signal checks</div>
+          </div>
+        </div>
+        <div class="panel-body">
+          <div class="stats-grid" id="statsGrid">
+            <div class="stat">
+              <div class="label">Sample rate</div>
+              <div class="value">—</div>
+            </div>
+            <div class="stat">
+              <div class="label">Duration</div>
+              <div class="value">—</div>
+            </div>
+            <div class="stat">
+              <div class="label">Bytes decoded</div>
+              <div class="value">—</div>
+            </div>
+            <div class="stat">
+              <div class="label">BASIC lines</div>
+              <div class="value">—</div>
+            </div>
+          </div>
+
+          <div class="chart-card">
+            <div class="chart-title">
+              <h3>WAV overview</h3><span id="waveCaption">teal=level, blue=transitions, yellow=leaders</span>
+            </div>
+            <canvas id="waveCanvas" width="900" height="180"></canvas>
+            <div class="chart-note">Compressed full-file view: teal shows average signal level, blue bars show
+              transition density.</div>
+          </div>
+          <div class="chart-card">
+            <div class="chart-title">
+              <h3>Zoom window</h3><span id="zoomCaption">drag overview box · mouse wheel zooms</span>
+            </div>
+            <canvas id="zoomCanvas" width="900" height="220"></canvas>
+          </div>
+          <div class="chart-card compact-chart">
+            <div class="chart-title">
+              <h3>Tone separation</h3><span id="histCaption">short vs long cycles</span>
+            </div>
+            <canvas id="histCanvas" width="900" height="150"></canvas>
+            <div class="chart-note">Good tapes show two clusters: short cycles for 1 bits and long cycles for 0 bits.
+            </div>
+          </div>
+
+          <details class="options decoder-notes">
+            <summary>Format notes</summary>
+            <p class="note-copy">The bit rules are fixed by the Bally 300-baud format:
+              <b>1</b> is eight short cycles, <b>0</b> is four long cycles, a byte starts with a zero start bit and then
+              eight LSB-first data bits, and the loader syncs on ten consecutive one bits. The options below are only
+              rescue knobs for bad recordings.</p>
+          </details>
+
+          <details class="options">
+            <summary>Decode options</summary>
+            <div class="options-grid">
+              <label class="field">Hysteresis fraction
+                <input id="hysteresis" type="number" min="0" max="1" step="0.005" value="0.06" />
+              </label>
+              <label class="field">Cycle split samples
+                <input id="cycleSplit" type="text" placeholder="auto = sampleRate / 1600" />
+              </label>
+              <label class="field">Start cycle
+                <input id="startCycle" type="number" min="0" step="1" value="0" />
+              </label>
+              <label class="field">Max bytes
+                <input id="maxBytes" type="text" placeholder="unlimited" />
+              </label>
+              <label class="check"><input id="invert" type="checkbox" /> Invert digital waveform</label>
+              <label class="check"><input id="noSchmitt" type="checkbox" /> Disable Schmitt trigger</label>
+            </div>
+            <div class="button-row"><button class="btn small" id="applyOptions" disabled>Decode with options</button>
+            </div>
+          </details>
+
+          <details class="options">
+            <summary>Debug / paste-back report</summary>
+            <pre class="debug-log" id="debugLog">No decode yet.</pre>
+          </details>
+
+          <p class="footnote">The browser decoder preserves the same core constants as the Node tool: MIN0=3, MAX0=4,
+            MIN1=6, MAX1=8. It decodes to the raw tape byte stream and expands known BASIC keyword tokens for a readable
+            listing.</p>
+        </div>
+      </aside>
+    </main>
+  </div>
+
+  <script>
+    'use strict';
+
+    const MIN0 = 3;
+    const MAX0 = 4;
+    const MIN1 = 6;
+    const MAX1 = 8;
+    const NL = 0x0d;
+    const RUBOUT = 0x1f;
+    const TOK_RUN = 0x6a;
+    const TOK_CLEAR = 0x69;
+    const TOK_RETURN = 0x70;
+
+    const BASIC_TOKEN_LIST_TEXT = new Map([
+      [0x69, 'CLEAR '],
+      [0x6a, 'RUN '],
+      [0x6b, 'NEXT '],
+      [0x6d, 'IF '],
+      [0x6e, 'GOTO '],
+      [0x6f, 'GOSUB '],
+      [0x70, 'RETURN '],
+      [0x71, 'BOX '],
+      [0x72, 'FOR '],
+      [0x74, 'PRINT '],
+      [0x75, 'STEP '],
+      [0x77, 'TO '],
+    ]);
+
+    let lastFile = null;
+    let lastArrayBuffer = null;
+    let lastResult = null;
+
+    const $ = (id) => document.getElementById(id);
+    const wavInput = $('wavInput');
+    const fileName = $('fileName');
+    const statusText = $('statusText');
+    const statusDot = $('statusDot');
+    const basicOutput = $('basicOutput');
+    const copyBtn = $('copyBtn');
+    const applyOptions = $('applyOptions');
+    const debugLog = $('debugLog');
+    const uploadCard = $('uploadCard');
+    const dropZone = $('dropZone');
+    const waveCanvas = $('waveCanvas');
+    const zoomCanvas = $('zoomCanvas');
+    const histCanvas = $('histCanvas');
+    let isDraggingZoomWindow = false;
+    const DEFAULT_ZOOM_SECONDS = 0.055;
+    const MIN_ZOOM_SECONDS = 0.012;
+    const MAX_ZOOM_SECONDS = 1.25;
+
+    wavInput.addEventListener('change', async () => {
+      const file = wavInput.files && wavInput.files[0];
+      if (file) await loadFile(file);
+    });
+
+    applyOptions.addEventListener('click', () => {
+      if (lastArrayBuffer && lastFile) decodeAndRender(lastFile, lastArrayBuffer.slice(0));
+    });
+
+    copyBtn.addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText(basicOutput.value);
+        showToast('Copied');
+      } catch (e) {
+        basicOutput.select();
+        document.execCommand('copy');
+        showToast('Copied');
+      }
+    });
+
+    waveCanvas.addEventListener('pointerdown', (ev) => {
+      if (!lastResult) return;
+      isDraggingZoomWindow = true;
+      waveCanvas.setPointerCapture(ev.pointerId);
+      setZoomWindowFromOverviewPointer(ev);
+    });
+    waveCanvas.addEventListener('pointermove', (ev) => {
+      if (!isDraggingZoomWindow || !lastResult) return;
+      setZoomWindowFromOverviewPointer(ev);
+    });
+    waveCanvas.addEventListener('pointerup', () => { isDraggingZoomWindow = false; });
+    waveCanvas.addEventListener('pointercancel', () => { isDraggingZoomWindow = false; });
+    waveCanvas.addEventListener('lostpointercapture', () => { isDraggingZoomWindow = false; });
+    waveCanvas.addEventListener('wheel', (ev) => adjustZoomWindowWithWheel(ev, 'overview'), { passive: false });
+    zoomCanvas.addEventListener('wheel', (ev) => adjustZoomWindowWithWheel(ev, 'zoom'), { passive: false });
+
+    for (const el of [dropZone, uploadCard]) {
+      el.addEventListener('dragover', (ev) => { ev.preventDefault(); uploadCard.classList.add('dragging'); });
+      el.addEventListener('dragleave', () => uploadCard.classList.remove('dragging'));
+      el.addEventListener('drop', async (ev) => {
+        ev.preventDefault();
+        uploadCard.classList.remove('dragging');
+        const file = ev.dataTransfer.files && ev.dataTransfer.files[0];
+        if (file) await loadFile(file);
+      });
+    }
+
+    async function loadFile(file) {
+      setStatus('work', `Reading ${file.name}...`);
+      try {
+        const buf = await file.arrayBuffer();
+        lastFile = file;
+        lastArrayBuffer = buf.slice(0);
+        await new Promise(requestAnimationFrame);
+        decodeAndRender(file, buf);
+      } catch (e) {
+        renderError(e);
+      }
+    }
+
+    function getOptions() {
+      const cycleSplitRaw = $('cycleSplit').value.trim();
+      const maxBytesRaw = $('maxBytes').value.trim();
+      const hysteresis = Number($('hysteresis').value);
+      const startCycle = Number($('startCycle').value);
+      const cycleSplit = cycleSplitRaw ? Number(cycleSplitRaw) : null;
+      const maxBytes = maxBytesRaw ? Number(maxBytesRaw) : Infinity;
+      if (!Number.isFinite(hysteresis) || hysteresis < 0) throw new Error('Hysteresis must be a non-negative number.');
+      if (!Number.isInteger(startCycle) || startCycle < 0) throw new Error('Start cycle must be a non-negative integer.');
+      if (cycleSplit !== null && (!Number.isFinite(cycleSplit) || cycleSplit <= 0)) throw new Error('Cycle split must be positive, or blank for auto.');
+      if (maxBytes !== Infinity && (!Number.isInteger(maxBytes) || maxBytes <= 0)) throw new Error('Max bytes must be a positive integer, or blank for unlimited.');
+      return {
+        hysteresis,
+        startCycle,
+        cycleSplit,
+        maxBytes,
+        invert: $('invert').checked,
+        schmitt: !$('noSchmitt').checked,
+      };
+    }
+
+    function decodeAndRender(file, arrayBuffer) {
+      setStatus('work', 'Decoding 300-baud tape stream...');
+      try {
+        const opts = getOptions();
+        const result = decodeWav300(arrayBuffer, file.name, opts);
+        lastResult = result;
+        fileName.textContent = file.name;
+        basicOutput.value = result.cleanBasic;
+        copyBtn.disabled = false;
+        applyOptions.disabled = false;
+        renderStats(result);
+        renderDebug(result);
+        drawAll(result);
+        if (result.leader) {
+          setStatus('good', `Decoded ${result.dec.stats.bytes} bytes into ${result.parser.lines.length} BASIC lines.`);
+        } else {
+          setStatus('bad', 'No leader found. Try invert, no-Schmitt, or a manual cycle split.');
+        }
+      } catch (e) {
+        renderError(e);
+      }
+    }
+
+    function decodeWav300(arrayBuffer, inputName, opts) {
+      const wav = parseWav(arrayBuffer);
+      const st = signalStats(wav.samples);
+      const dig = makeDigital(wav.samples, st, opts);
+      const transitions = findTransitions(dig.digital);
+      const cycleInfo = makeCycles(transitions, wav.fmt.sampleRate, opts);
+      const dec = new Bally300Decoder(cycleInfo.cycles, wav.fmt.sampleRate, opts);
+      const leader = dec.waitLeader();
+      const parser = new BasicLineParser300BLOAD(opts);
+      let stop = null;
+      let leaders = [];
+      if (leader) {
+        leaders.push(leader);
+        while (dec.stats.bytes < opts.maxBytes) {
+          const rec = dec.readByte();
+          if (!rec) break;
+          const r = parser.feed(rec.byte, rec);
+          if (r === 'segment-end') {
+            stop = parser.stopReason;
+            const nextLeader = dec.waitLeader();
+            if (!nextLeader) break;
+            leaders.push(nextLeader);
+            parser.stopReason = null;
+          }
+        }
+      }
+      const cleanBasic = bytesToCleanBasicText(parser.raw);
+      const zoomWindow = makeDefaultZoomWindow(wav, leader);
+      return { inputName, opts, wav, signalStats: st, digital: dig, transitions, cycleInfo, dec, leader, leaders, parser, stop, cleanBasic, zoomWindow };
+    }
+
+    function makeDefaultZoomWindow(wav, leader) {
+      const spanSamples = Math.max(1, Math.min(wav.samples.length, Math.round(wav.fmt.sampleRate * DEFAULT_ZOOM_SECONDS)));
+      const center = leader && Number.isFinite(leader.timeSec)
+        ? Math.round((((leader.timeSec || 0) + (Number.isFinite(leader.endTimeSec) ? leader.endTimeSec : leader.timeSec)) / 2) * wav.fmt.sampleRate)
+        : Math.floor(spanSamples / 2);
+      const startSample = clamp(Math.round(center - spanSamples / 2), 0, Math.max(0, wav.samples.length - spanSamples));
+      return { startSample, spanSamples };
+    }
+
+    function setZoomWindowFromOverviewPointer(ev) {
+      if (!lastResult || !lastResult.zoomWindow) return;
+      const rect = waveCanvas.getBoundingClientRect();
+      const x = clamp(ev.clientX - rect.left, 0, rect.width);
+      const total = lastResult.wav.samples.length;
+      const span = lastResult.zoomWindow.spanSamples;
+      const center = x / Math.max(1, rect.width) * total;
+      lastResult.zoomWindow.startSample = clamp(Math.round(center - span / 2), 0, Math.max(0, total - span));
+      drawSignalOverview(waveCanvas, lastResult.wav.samples, lastResult.signalStats.mean, lastResult.transitions, lastResult.wav.fmt.sampleRate, lastResult.leaders, lastResult.zoomWindow);
+      drawZoom(zoomCanvas, lastResult.wav.samples, lastResult.digital.digital, lastResult.signalStats.mean, lastResult.wav.fmt.sampleRate, lastResult.zoomWindow, lastResult.leaders);
+      updateZoomCaption(lastResult);
+    }
+
+    function adjustZoomWindowWithWheel(ev, source) {
+      if (!lastResult || !lastResult.zoomWindow) return;
+      ev.preventDefault();
+      const sr = lastResult.wav.fmt.sampleRate;
+      const total = lastResult.wav.samples.length;
+      const oldSpan = lastResult.zoomWindow.spanSamples;
+      const minSpan = Math.max(16, Math.round(sr * MIN_ZOOM_SECONDS));
+      const maxSpan = Math.min(total, Math.round(sr * MAX_ZOOM_SECONDS));
+      const factor = ev.deltaY < 0 ? 0.72 : 1.38;
+      const newSpan = clamp(Math.round(oldSpan * factor), minSpan, maxSpan);
+      let center;
+      if (source === 'overview') {
+        const rect = waveCanvas.getBoundingClientRect();
+        const x = clamp(ev.clientX - rect.left, 0, rect.width);
+        center = x / Math.max(1, rect.width) * total;
+      } else {
+        center = lastResult.zoomWindow.startSample + oldSpan / 2;
+      }
+      lastResult.zoomWindow.spanSamples = newSpan;
+      lastResult.zoomWindow.startSample = clamp(Math.round(center - newSpan / 2), 0, Math.max(0, total - newSpan));
+      drawSignalOverview(waveCanvas, lastResult.wav.samples, lastResult.signalStats.mean, lastResult.transitions, sr, lastResult.leaders, lastResult.zoomWindow);
+      drawZoom(zoomCanvas, lastResult.wav.samples, lastResult.digital.digital, lastResult.signalStats.mean, sr, lastResult.zoomWindow, lastResult.leaders);
+      updateZoomCaption(lastResult);
+    }
+
+    function leaderIntervalSamples(leader, sampleRate) {
+      if (!leader || !Number.isFinite(leader.timeSec)) return null;
+      const start = Math.max(0, Math.round(leader.timeSec * sampleRate));
+      const endTime = Number.isFinite(leader.endTimeSec) && leader.endTimeSec > leader.timeSec
+        ? leader.endTimeSec
+        : leader.timeSec + 10 / 300;
+      const end = Math.max(start + 1, Math.round(endTime * sampleRate));
+      return { start, end };
+    }
+
+    function zoomWindowHitsLeader(result) {
+      if (!result || !result.zoomWindow || !result.leaders) return false;
+      const z0 = result.zoomWindow.startSample;
+      const z1 = z0 + result.zoomWindow.spanSamples;
+      return result.leaders.some(leader => {
+        const iv = leaderIntervalSamples(leader, result.wav.fmt.sampleRate);
+        return iv && iv.end >= z0 && iv.start <= z1;
+      });
+    }
+
+    function updateZoomCaption(result) {
+      if (!result || !result.zoomWindow) return;
+      const sr = result.wav.fmt.sampleRate;
+      const start = result.zoomWindow.startSample / sr;
+      const end = (result.zoomWindow.startSample + result.zoomWindow.spanSamples) / sr;
+      const ms = result.zoomWindow.spanSamples / sr * 1000;
+      const hit = zoomWindowHitsLeader(result) ? ' · LEADER highlighted' : '';
+      $('zoomCaption').textContent = `${start.toFixed(4)}s–${end.toFixed(4)}s · ${ms.toFixed(0)} ms${hit}`;
+    }
+
+    function clamp(v, lo, hi) {
+      return Math.max(lo, Math.min(hi, v));
+    }
+
+    class Bally300Decoder {
+      constructor(cycles, sampleRate, opts) {
+        this.cycles = cycles;
+        this.sampleRate = sampleRate;
+        this.opts = opts;
+        this.ci = opts.startCycle || 0;
+        this.bitNo = 0;
+        this.byteNo = 0;
+        this.stats = { bits: 0, ones: 0, zeros: 0, get0Scans: 0, falseStartOnes: 0, bytes: 0, eofBits: 0, eofBytes: 0 };
+      }
+      logBit(info) {
+        this.stats.bits++;
+        if (info.bit) this.stats.ones++; else this.stats.zeros++;
+        this.bitNo++;
+      }
+      readBit(initialShort = 0, initialLong = 0, label = 'GETBIT') {
+        let b = initialShort;
+        let c = initialLong;
+        const startCycle = this.ci;
+        const startSample = this.cycles[this.ci] ? this.cycles[this.ci].start : NaN;
+        while (this.ci < this.cycles.length) {
+          const cyc = this.cycles[this.ci++];
+          if (cyc.type === 'long') {
+            c++;
+            if (b >= MIN1) { const info = { bit: 1, startCycle, endCycle: this.ci, startSample, shortCount: b, longCount: c, reason: `${label}:long_after_min1` }; this.logBit(info); return info; }
+            if (c >= MAX0) { const info = { bit: 0, startCycle, endCycle: this.ci, startSample, shortCount: b, longCount: c, reason: `${label}:max0` }; this.logBit(info); return info; }
+          } else {
+            b++;
+            if (c >= MIN0) { const info = { bit: 0, startCycle, endCycle: this.ci, startSample, shortCount: b, longCount: c, reason: `${label}:short_after_min0` }; this.logBit(info); return info; }
+            if (b >= MAX1) { const info = { bit: 1, startCycle, endCycle: this.ci, startSample, shortCount: b, longCount: c, reason: `${label}:max1` }; this.logBit(info); return info; }
+          }
+        }
+        this.stats.eofBits++;
+        return null;
+      }
+      get0() {
+        while (this.ci < this.cycles.length && this.cycles[this.ci].type !== 'long') {
+          this.ci++;
+          this.stats.get0Scans++;
+        }
+        if (this.ci >= this.cycles.length) return null;
+        this.ci++;
+        return this.readBit(0, 1, 'GET0');
+      }
+      waitLeader() {
+        let consecutive = 0;
+        let scanned = 0;
+        const leaderStartCycle = this.ci;
+        while (this.ci < this.cycles.length) {
+          const bit = this.readBit(0, 0, 'WLDR');
+          if (!bit) return null;
+          scanned++;
+          if (bit.bit === 1) {
+            consecutive++;
+            if (consecutive >= 10) {
+              return {
+                found: true,
+                scannedBits: scanned,
+                leaderStartCycle,
+                endCycle: this.ci,
+                timeSec: this.cycles[leaderStartCycle] ? this.cycles[leaderStartCycle].start / this.sampleRate : 0,
+                endTimeSec: this.cycles[this.ci] ? this.cycles[this.ci].start / this.sampleRate : NaN,
+              };
+            }
+          } else {
+            consecutive = 0;
+          }
+        }
+        return null;
+      }
+      readByte() {
+        let startBit;
+        let falseOnes = 0;
+        do {
+          startBit = this.get0();
+          if (!startBit) { this.stats.eofBytes++; return null; }
+          if (startBit.bit !== 0) { falseOnes++; this.stats.falseStartOnes++; }
+        } while (startBit.bit !== 0);
+        let byte = 0;
+        const bits = [];
+        const byteStartCycle = startBit.startCycle;
+        const byteStartSample = startBit.startSample;
+        for (let i = 0; i < 8; i++) {
+          const bi = this.readBit(0, 0, 'DATA');
+          if (!bi) { this.stats.eofBytes++; return null; }
+          bits.push(bi.bit);
+          byte |= (bi.bit << i);
+        }
+        const rec = { index: this.byteNo, byte, bits, falseOnes, startCycle: byteStartCycle, endCycle: this.ci, startSample: byteStartSample, timeSec: byteStartSample / this.sampleRate };
+        this.stats.bytes++;
+        this.byteNo++;
+        return rec;
+      }
+    }
+
+    class BasicLineParser300BLOAD {
+      constructor(opts) {
+        this.opts = opts;
+        this.state = 'WLN';
+        this.buffer = [];
+        this.raw = [];
+        this.currentLine = [];
+        this.lines = [];
+        this.ignoredBytes = 0;
+        this.rubouts = 0;
+        this.segmentsEnded = 0;
+        this.stopReason = null;
+      }
+      isNum(b) { return b >= 0x30 && b <= 0x39; }
+      stuf(b) {
+        this.buffer.push(b);
+        this.currentLine.push(b);
+        if (b === NL) {
+          const lineBytes = this.currentLine.slice(0, -1);
+          const text = bytesToDisplayText(lineBytes);
+          this.lines.push({ number: this.lines.length + 1, bytes: lineBytes, text });
+          this.currentLine = [];
+        }
+      }
+      feed(b, rec) {
+        this.raw.push(b);
+        let again = true;
+        let cur = b;
+        while (again) {
+          again = false;
+          switch (this.state) {
+            case 'WLN':
+              if (cur === 0x3a) this.state = 'COLN';
+              else if (cur === TOK_RUN) { this.segmentsEnded++; this.stopReason = 'unnumbered RUN token $6A'; return 'segment-end'; }
+              else if (this.isNum(cur)) { this.stuf(cur); this.state = 'IGNS'; }
+              else this.ignoredBytes++;
+              break;
+            case 'IGNS':
+              if (this.isNum(cur)) this.stuf(cur);
+              else if (cur === 0x20) this.ignoredBytes++;
+              else { this.state = 'LINL'; again = true; }
+              break;
+            case 'COLN':
+              if (cur === 0x20) this.ignoredBytes++;
+              else if (cur === TOK_RETURN) { this.segmentsEnded++; this.stopReason = ':RETURN token $70'; this.state = 'WLN'; return 'segment-end'; }
+              else { this.state = 'WLN'; again = true; }
+              break;
+            case 'LINL':
+              if (cur === RUBOUT) this.rubouts++;
+              else { this.stuf(cur); if (cur === NL) this.state = 'WLN'; }
+              break;
+            default:
+              throw new Error(`Parser state error: ${this.state}`);
+          }
+        }
+        return 'ok';
+      }
+    }
+
+    function parseWav(arrayBuffer) {
+      const dv = new DataView(arrayBuffer);
+      const bytes = new Uint8Array(arrayBuffer);
+      if (arrayBuffer.byteLength < 44) throw new Error('File too small for WAV.');
+      if (fourCC(bytes, 0) !== 'RIFF' || fourCC(bytes, 8) !== 'WAVE') throw new Error('Not a RIFF/WAVE file.');
+      let fmt = null;
+      let dataOff = -1;
+      let dataLen = -1;
+      const chunks = [];
+      let p = 12;
+      while (p + 8 <= arrayBuffer.byteLength) {
+        const id = fourCC(bytes, p);
+        const len = dv.getUint32(p + 4, true);
+        const off = p + 8;
+        chunks.push({ id, off, len });
+        if (off + len > arrayBuffer.byteLength) throw new Error(`Bad WAV chunk ${id}: length exceeds file.`);
+        if (id === 'fmt ') {
+          if (len < 16) throw new Error('fmt chunk too short.');
+          fmt = {
+            audioFormat: dv.getUint16(off + 0, true),
+            channels: dv.getUint16(off + 2, true),
+            sampleRate: dv.getUint32(off + 4, true),
+            byteRate: dv.getUint32(off + 8, true),
+            blockAlign: dv.getUint16(off + 12, true),
+            bitsPerSample: dv.getUint16(off + 14, true),
+          };
+        } else if (id === 'data') {
+          dataOff = off;
+          dataLen = len;
+        }
+        p = off + len + (len & 1);
+      }
+      if (!fmt) throw new Error('No fmt chunk found.');
+      if (dataOff < 0) throw new Error('No data chunk found.');
+      if (![1, 3].includes(fmt.audioFormat)) throw new Error(`Unsupported WAV format ${fmt.audioFormat}; expected PCM=1 or float=3.`);
+      if (fmt.channels < 1) throw new Error('WAV has zero channels.');
+      const bytesPerSample = fmt.bitsPerSample / 8;
+      if (!Number.isInteger(bytesPerSample)) throw new Error(`Unsupported bits/sample ${fmt.bitsPerSample}.`);
+      const frames = Math.floor(dataLen / fmt.blockAlign);
+      const samples = new Float64Array(frames);
+      for (let i = 0; i < frames; i++) {
+        const base = dataOff + i * fmt.blockAlign;
+        let sum = 0;
+        for (let ch = 0; ch < fmt.channels; ch++) {
+          sum += readSample(dv, base + ch * bytesPerSample, fmt.audioFormat, fmt.bitsPerSample);
+        }
+        samples[i] = sum / fmt.channels;
+      }
+      return { fmt, chunks, samples, frames, durationSec: frames / fmt.sampleRate, fileBytes: arrayBuffer.byteLength };
+    }
+
+    function readSample(dv, off, audioFormat, bits) {
+      if (audioFormat === 3) {
+        if (bits === 32) return dv.getFloat32(off, true);
+        if (bits === 64) return dv.getFloat64(off, true);
+        throw new Error(`Unsupported float bits/sample ${bits}`);
+      }
+      if (bits === 8) return (dv.getUint8(off) - 128) / 128;
+      if (bits === 16) return dv.getInt16(off, true) / 32768;
+      if (bits === 24) {
+        let v = dv.getUint8(off) | (dv.getUint8(off + 1) << 8) | (dv.getUint8(off + 2) << 16);
+        if (v & 0x800000) v |= 0xff000000;
+        return v / 8388608;
+      }
+      if (bits === 32) return dv.getInt32(off, true) / 2147483648;
+      throw new Error(`Unsupported PCM bits/sample ${bits}`);
+    }
+
+    function fourCC(bytes, off) {
+      return String.fromCharCode(bytes[off], bytes[off + 1], bytes[off + 2], bytes[off + 3]);
+    }
+
+    function signalStats(samples) {
+      let min = Infinity, max = -Infinity, sum = 0, sumSq = 0;
+      for (const x of samples) { if (x < min) min = x; if (x > max) max = x; sum += x; sumSq += x * x; }
+      const mean = sum / samples.length;
+      let peakAfterDc = 0;
+      for (const x of samples) peakAfterDc = Math.max(peakAfterDc, Math.abs(x - mean));
+      return { min, max, mean, rms: Math.sqrt(sumSq / samples.length), peakAfterDc };
+    }
+
+    function makeDigital(samples, stats, opts) {
+      const digital = new Uint8Array(samples.length);
+      const threshold = stats.mean;
+      const hyst = opts.schmitt ? stats.peakAfterDc * opts.hysteresis : 0;
+      let state = samples[0] >= threshold ? 1 : 0;
+      for (let i = 0; i < samples.length; i++) {
+        const x = samples[i];
+        if (opts.schmitt) {
+          if (x > threshold + hyst) state = 1;
+          else if (x < threshold - hyst) state = 0;
+        } else {
+          state = x >= threshold ? 1 : 0;
+        }
+        digital[i] = opts.invert ? (state ^ 1) : state;
+      }
+      return { digital, threshold, hyst };
+    }
+
+    function findTransitions(digital) {
+      const t = [];
+      let prev = digital[0];
+      for (let i = 1; i < digital.length; i++) {
+        const v = digital[i];
+        if (v !== prev) { t.push(i); prev = v; }
+      }
+      return t;
+    }
+
+    function makeCycles(transitions, sampleRate, opts) {
+      const split = opts.cycleSplit || (sampleRate / 1600);
+      const expectedShort = sampleRate / 2400;
+      const expectedLong = sampleRate / 1200;
+      const cycles = [];
+      for (let i = 0; i + 2 < transitions.length; i += 2) {
+        const start = transitions[i], mid = transitions[i + 1], end = transitions[i + 2];
+        const dur = end - start, h1 = mid - start, h2 = end - mid;
+        const type = dur < split ? 'short' : 'long';
+        cycles.push({ index: cycles.length, start, mid, end, dur, h1, h2, type, hz: sampleRate / dur });
+      }
+      const durs = cycles.map(c => c.dur).sort((a, b) => a - b);
+      const shortDurs = cycles.filter(c => c.type === 'short').map(c => c.dur).sort((a, b) => a - b);
+      const longDurs = cycles.filter(c => c.type === 'long').map(c => c.dur).sort((a, b) => a - b);
+      return {
+        cycles,
+        split,
+        expectedShort,
+        expectedLong,
+        stats: {
+          count: cycles.length,
+          shortCount: shortDurs.length,
+          longCount: longDurs.length,
+          p01: percentile(durs, .01), p10: percentile(durs, .10), p50: percentile(durs, .50), p90: percentile(durs, .90), p99: percentile(durs, .99),
+          shortP50: percentile(shortDurs, .50), longP50: percentile(longDurs, .50),
+        }
+      };
+    }
+
+    function percentile(sorted, q) {
+      if (!sorted.length) return NaN;
+      const pos = (sorted.length - 1) * q;
+      const lo = Math.floor(pos), hi = Math.ceil(pos);
+      if (lo === hi) return sorted[lo];
+      return sorted[lo] + (sorted[hi] - sorted[lo]) * (pos - lo);
+    }
+
+    function bytesToDisplayText(bytes) {
+      return bytes.map(b => {
+        if (b >= 0x20 && b <= 0x7e) return String.fromCharCode(b);
+        if (b === TOK_RUN) return '<RUN>';
+        if (b === TOK_CLEAR) return '<CLEAR>';
+        if (b === TOK_RETURN) return '<RETURN>';
+        if (b === RUBOUT) return '<RUBOUT>';
+        return `<${hex2(b)}>`;
+      }).join('');
+    }
+
+    function bytesToCleanBasicText(bytes) {
+      let out = '';
+      for (const b of bytes) {
+        if (b === NL) out += '\n';
+        else if (BASIC_TOKEN_LIST_TEXT.has(b)) out += BASIC_TOKEN_LIST_TEXT.get(b);
+        else if (b >= 0x20 && b <= 0x7e) out += String.fromCharCode(b);
+        else if (b === RUBOUT) out += '<RUBOUT>';
+        else out += `<${hex2(b)}>`;
+      }
+      return out;
+    }
+
+    function hex2(b) { return '$' + (b & 0xff).toString(16).toUpperCase().padStart(2, '0'); }
+    function fmtSec(s) { return Number.isFinite(s) ? `${s.toFixed(6)}s` : 'NaNs'; }
+    function fmtNum(n, digits = 3) { return Number.isFinite(n) ? n.toFixed(digits) : 'NaN'; }
+    function compact(n) { return Number.isFinite(n) ? n.toLocaleString() : '—'; }
+
+    function renderStats(result) {
+      const { wav, cycleInfo, dec, parser, signalStats: st, digital, transitions, leader, stop } = result;
+      $('statsGrid').innerHTML = [
+        statHtml('Sample rate', `${compact(wav.fmt.sampleRate)} Hz`, `audio samples/sec • ${wav.fmt.channels} ch, ${wav.fmt.bitsPerSample}-bit`),
+        statHtml('Duration', `${wav.durationSec.toFixed(2)}s`, `${compact(wav.frames)} frames`),
+        statHtml('Bytes decoded', compact(dec.stats.bytes), `EOF bytes ${dec.stats.eofBytes}`),
+        statHtml('BASIC lines', compact(parser.lines.length), `${compact(parser.raw.length)} raw bytes`),
+        statHtml('Cycle split', `${cycleInfo.split.toFixed(2)} samples`, `short ${compact(cycleInfo.stats.shortCount)} / long ${compact(cycleInfo.stats.longCount)}`),
+        statHtml('Leader', leader ? 'Found' : 'Missing', leader ? `${result.leaders.length} leader run(s)` : 'try invert/options'),
+        statHtml('False starts', compact(dec.stats.falseStartOnes), `get0 skips ${compact(dec.stats.get0Scans)}`),
+        statHtml('Stop reason', parser.stopReason || stop || '(none)', `state ${parser.state}`),
+      ].join('');
+      $('waveCaption').textContent = `${compact(wav.frames)} samples / ${compact(transitions.length)} transitions · drag amber box · wheel zoom`;
+      updateZoomCaption(result);
+      // zoom caption is updated by updateZoomCaption(result)
+      $('histCaption').textContent = `${compact(cycleInfo.stats.count)} full cycles from ${compact(transitions.length)} transitions`;
+    }
+
+    function statHtml(label, value, tiny) {
+      return `<div class="stat"><div class="label">${escapeHtml(label)}</div><div class="value">${escapeHtml(String(value))}</div><div class="tiny">${escapeHtml(String(tiny || ''))}</div></div>`;
+    }
+
+    function renderDebug(result) {
+      const { wav, cycleInfo, dec, parser, signalStats: st, digital, transitions, leader, stop, opts } = result;
+      const summary = {
+        decoder: 'wav2bally300_browser 300BLOAD-port',
+        inputName: result.inputName,
+        fileBytes: wav.fileBytes,
+        format: wav.fmt.audioFormat === 1 ? 'PCM' : 'FLOAT',
+        channels: wav.fmt.channels,
+        sampleRate: wav.fmt.sampleRate,
+        bitsPerSample: wav.fmt.bitsPerSample,
+        durationSec: Number(wav.durationSec.toFixed(6)),
+        transitions: transitions.length,
+        cycles: cycleInfo.stats.count,
+        shortCycles: cycleInfo.stats.shortCount,
+        longCycles: cycleInfo.stats.longCount,
+        splitSamples: Number(cycleInfo.split.toFixed(6)),
+        leaderFound: !!leader,
+        leaderCount: result.leaders.length,
+        cycleIndexFinal: dec.ci,
+        bits: dec.stats.bits,
+        zeros: dec.stats.zeros,
+        ones: dec.stats.ones,
+        bytes: dec.stats.bytes,
+        eofBytes: dec.stats.eofBytes,
+        falseStartOnes: dec.stats.falseStartOnes,
+        rawBytesFedToParser: parser.raw.length,
+        filteredBufferBytes: parser.buffer.length,
+        lines: parser.lines.length,
+        ignoredBytes: parser.ignoredBytes,
+        ruboutsIgnored: parser.rubouts,
+        segmentEnds: parser.segmentsEnded,
+        parserState: parser.state,
+        stopReason: parser.stopReason || stop || null,
+        opts,
+      };
+      const lines = [];
+      lines.push('PASTE-BACK SUMMARY:');
+      lines.push(JSON.stringify(summary, null, 2));
+      lines.push('');
+      lines.push('WAV:');
+      lines.push(`  fileBytes=${wav.fileBytes}`);
+      lines.push(`  format=${summary.format} channels=${wav.fmt.channels} sampleRate=${wav.fmt.sampleRate} bits=${wav.fmt.bitsPerSample}`);
+      lines.push(`  frames=${wav.frames} duration=${fmtSec(wav.durationSec)}`);
+      lines.push(`  chunks=${wav.chunks.map(c => `${c.id}:${c.len}`).join(', ')}`);
+      lines.push('');
+      lines.push('SIGNAL FRONT-END:');
+      lines.push(`  min=${fmtNum(st.min, 6)} max=${fmtNum(st.max, 6)} mean/DC=${fmtNum(st.mean, 6)} rms=${fmtNum(st.rms, 6)} peakAfterDC=${fmtNum(st.peakAfterDc, 6)}`);
+      lines.push(`  threshold=${fmtNum(digital.threshold, 6)} schmitt=${opts.schmitt ? 'yes' : 'no'} hysteresis=${fmtNum(digital.hyst, 6)} invert=${opts.invert ? 'yes' : 'no'}`);
+      lines.push('');
+      lines.push('CYCLE CLASSIFIER:');
+      lines.push(`  expectedShort_2400Hz=${fmtNum(cycleInfo.expectedShort, 3)} samples expectedLong_1200Hz=${fmtNum(cycleInfo.expectedLong, 3)} samples`);
+      lines.push(`  shortLongSplit=${fmtNum(cycleInfo.split, 3)} samples`);
+      lines.push(`  cycleDurSamples p01=${fmtNum(cycleInfo.stats.p01, 2)} p10=${fmtNum(cycleInfo.stats.p10, 2)} p50=${fmtNum(cycleInfo.stats.p50, 2)} p90=${fmtNum(cycleInfo.stats.p90, 2)} p99=${fmtNum(cycleInfo.stats.p99, 2)}`);
+      debugLog.textContent = lines.join('\n');
+    }
+
+    function drawAll(result) {
+      drawSignalOverview(waveCanvas, result.wav.samples, result.signalStats.mean, result.transitions, result.wav.fmt.sampleRate, result.leaders, result.zoomWindow);
+      drawZoom(zoomCanvas, result.wav.samples, result.digital.digital, result.signalStats.mean, result.wav.fmt.sampleRate, result.zoomWindow, result.leaders);
+      drawHistogram(histCanvas, result.cycleInfo);
+      updateZoomCaption(result);
+    }
+
+    function drawSignalOverview(canvas, samples, mean, transitions, sampleRate, leaders, zoomWindow) {
+      const ctx = setupCanvas(canvas);
+      const w = canvas.width, h = canvas.height;
+      ctx.clearRect(0, 0, w, h);
+      drawGrid(ctx, w, h);
+      if (!samples || samples.length === 0) return;
+
+      const bucketCount = Math.max(1, Math.min(w, 900));
+      const samplesPerBucket = Math.max(1, Math.floor(samples.length / bucketCount));
+      const amp = new Float64Array(bucketCount);
+      let maxAmp = 0;
+      for (let b = 0; b < bucketCount; b++) {
+        const s0 = b * samplesPerBucket;
+        const s1 = Math.min(samples.length, s0 + samplesPerBucket);
+        let sumAbs = 0;
+        for (let i = s0; i < s1; i++) sumAbs += Math.abs(samples[i] - mean);
+        amp[b] = sumAbs / Math.max(1, s1 - s0);
+        if (amp[b] > maxAmp) maxAmp = amp[b];
+      }
+
+      const transBins = new Uint32Array(bucketCount);
+      for (const t of transitions) {
+        const b = Math.max(0, Math.min(bucketCount - 1, Math.floor(t / samples.length * bucketCount)));
+        transBins[b]++;
+      }
+      let maxTrans = 0;
+      for (const v of transBins) if (v > maxTrans) maxTrans = v;
+
+      const topPad = h * 0.12;
+      const ampBase = h * 0.48;
+      const ampHeight = h * 0.30;
+      const transBase = h * 0.90;
+      const transHeight = h * 0.26;
+
+      // Transition density bars: more useful at full-WAV scale than raw PCM cycles.
+      ctx.fillStyle = 'rgba(96,165,250,.55)';
+      for (let b = 0; b < bucketCount; b++) {
+        const x = b / bucketCount * w;
+        const bw = Math.max(1, w / bucketCount);
+        const bh = maxTrans ? (transBins[b] / maxTrans) * transHeight : 0;
+        ctx.fillRect(x, transBase - bh, bw, bh);
+      }
+
+      // Average absolute amplitude envelope as a calm line, not a solid min/max block.
+      ctx.strokeStyle = 'rgba(94,234,212,.95)';
+      ctx.lineWidth = 2;
+      ctx.beginPath();
+      for (let b = 0; b < bucketCount; b++) {
+        const x = b / (bucketCount - 1 || 1) * w;
+        const y = ampBase - (maxAmp ? amp[b] / maxAmp : 0) * ampHeight;
+        if (b === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
+      }
+      ctx.stroke();
+
+      // Leader markers: line plus a small translucent band for the ten-one-bit leader run.
+      if (leaders && leaders.length) {
+        for (const leader of leaders) {
+          const iv = leaderIntervalSamples(leader, sampleRate);
+          if (!iv) continue;
+          const x1 = iv.start / samples.length * w;
+          const x2 = iv.end / samples.length * w;
+          const bandW = Math.max(3, x2 - x1);
+          const cxBand = x1 + (x2 - x1) / 2;
+          ctx.fillStyle = 'rgba(251,191,36,.18)';
+          ctx.fillRect(cxBand - bandW / 2, topPad, bandW, h - topPad * 2);
+          ctx.strokeStyle = 'rgba(251,191,36,.9)';
+          ctx.lineWidth = 1.5;
+          ctx.beginPath();
+          ctx.moveTo(cxBand, topPad);
+          ctx.lineTo(cxBand, h - topPad);
+          ctx.stroke();
+        }
+      }
+
+      if (zoomWindow && Number.isFinite(zoomWindow.startSample) && Number.isFinite(zoomWindow.spanSamples)) {
+        const rawX1 = zoomWindow.startSample / samples.length * w;
+        const rawX2 = (zoomWindow.startSample + zoomWindow.spanSamples) / samples.length * w;
+        const rawWidth = Math.max(1, rawX2 - rawX1);
+        const visualWidth = Math.max(18, rawWidth);
+        const cx = rawX1 + rawWidth / 2;
+        const x = clamp(cx - visualWidth / 2, 0, Math.max(0, w - visualWidth));
+        const y = topPad;
+        const hh = h - topPad * 2;
+        const z0 = zoomWindow.startSample;
+        const z1 = z0 + zoomWindow.spanSamples;
+        const hitLeader = leaders && leaders.some(leader => {
+          const iv = leaderIntervalSamples(leader, sampleRate);
+          return iv && iv.end >= z0 && iv.start <= z1;
+        });
+        ctx.fillStyle = hitLeader ? 'rgba(251,191,36,.24)' : 'rgba(251,191,36,.13)';
+        ctx.fillRect(x, y, visualWidth, hh);
+        ctx.strokeStyle = hitLeader ? 'rgba(255,225,110,.98)' : 'rgba(251,191,36,.98)';
+        ctx.lineWidth = hitLeader ? 3 : 2;
+        ctx.strokeRect(x + 0.5, y + 0.5, visualWidth - 1, hh - 1);
+        ctx.fillStyle = 'rgba(251,191,36,.95)';
+        ctx.fillRect(cx - 1, y, 2, hh);
+      }
+    }
+
+    function drawZoom(canvas, samples, digital, mean, sampleRate, zoomWindow, leaders) {
+      const ctx = setupCanvas(canvas);
+      const w = canvas.width, h = canvas.height;
+      ctx.clearRect(0, 0, w, h);
+      drawGrid(ctx, w, h);
+      const startSample = zoomWindow ? Math.max(0, Math.min(samples.length - 1, Math.floor(zoomWindow.startSample))) : 0;
+      const span = zoomWindow ? Math.max(1, Math.min(samples.length - startSample, Math.floor(zoomWindow.spanSamples))) : Math.min(samples.length - startSample, Math.floor(sampleRate * DEFAULT_ZOOM_SECONDS));
+      const endSample = startSample + span;
+      if (leaders && leaders.length) {
+        for (const leader of leaders) {
+          const iv = leaderIntervalSamples(leader, sampleRate);
+          if (!iv || iv.end < startSample || iv.start > endSample) continue;
+          const x1 = clamp((iv.start - startSample) / span * w, 0, w);
+          const x2 = clamp((iv.end - startSample) / span * w, 0, w);
+          const bw = Math.max(2, x2 - x1);
+          ctx.fillStyle = 'rgba(251,191,36,.16)';
+          ctx.fillRect(x1, 0, bw, h);
+          ctx.strokeStyle = 'rgba(251,191,36,.65)';
+          ctx.lineWidth = 1.5;
+          ctx.beginPath();
+          ctx.moveTo(x1 + 0.5, 0);
+          ctx.lineTo(x1 + 0.5, h);
+          ctx.stroke();
+          ctx.beginPath();
+          ctx.moveTo(Math.min(w - 0.5, x1 + bw), 0);
+          ctx.lineTo(Math.min(w - 0.5, x1 + bw), h);
+          ctx.stroke();
+        }
+      }
+      const mid = h * .46;
+      ctx.strokeStyle = 'rgba(96,165,250,.96)';
+      ctx.lineWidth = 1.5;
+      ctx.beginPath();
+      for (let x = 0; x < w; x++) {
+        const i = startSample + Math.min(span - 1, Math.floor(x / w * span));
+        const y = mid - (samples[i] - mean) * (h * .38);
+        if (x === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
+      }
+      ctx.stroke();
+      ctx.strokeStyle = 'rgba(251,191,36,.9)';
+      ctx.lineWidth = 1;
+      ctx.beginPath();
+      for (let x = 0; x < w; x++) {
+        const i = startSample + Math.min(span - 1, Math.floor(x / w * span));
+        const y = digital[i] ? h * .82 : h * .93;
+        if (x === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
+      }
+      ctx.stroke();
+    }
+
+    function drawHistogram(canvas, cycleInfo) {
+      const ctx = setupCanvas(canvas);
+      const w = canvas.width, h = canvas.height;
+      ctx.clearRect(0, 0, w, h);
+      drawGrid(ctx, w, h);
+      const maxDur = Math.max(40, Math.ceil(cycleInfo.stats.p99 || 40) + 4);
+      const bins = new Array(maxDur + 1).fill(0);
+      for (const c of cycleInfo.cycles) {
+        const d = Math.max(0, Math.min(maxDur, Math.round(c.dur)));
+        bins[d]++;
+      }
+      const maxCount = Math.max(...bins, 1);
+      const padL = 34, padR = 10, padT = 12, padB = 28;
+      const cw = w - padL - padR, ch = h - padT - padB;
+      for (let i = 0; i < bins.length; i++) {
+        const x = padL + i / bins.length * cw;
+        const bw = Math.max(1, cw / bins.length - 1);
+        const bh = bins[i] / maxCount * ch;
+        ctx.fillStyle = i < cycleInfo.split ? 'rgba(94,234,212,.78)' : 'rgba(96,165,250,.78)';
+        ctx.fillRect(x, padT + ch - bh, bw, bh);
+      }
+      const splitX = padL + cycleInfo.split / bins.length * cw;
+      ctx.strokeStyle = 'rgba(251,191,36,.95)';
+      ctx.lineWidth = 2;
+      ctx.beginPath(); ctx.moveTo(splitX, padT); ctx.lineTo(splitX, padT + ch); ctx.stroke();
+      ctx.fillStyle = 'rgba(226,232,240,.9)';
+      ctx.font = '12px ui-monospace, monospace';
+      ctx.fillText('short', padL + 12, h - 9);
+      ctx.fillText('long', splitX + 12, h - 9);
+      ctx.fillText(`${cycleInfo.split.toFixed(1)} split`, Math.min(w - 116, splitX + 6), 22);
+    }
+
+    function setupCanvas(canvas) {
+      const rect = canvas.getBoundingClientRect();
+      const dpr = window.devicePixelRatio || 1;
+      const width = Math.max(1, Math.floor(rect.width * dpr));
+      const height = Math.max(1, Math.floor(rect.height * dpr));
+      if (canvas.width !== width || canvas.height !== height) { canvas.width = width; canvas.height = height; }
+      const ctx = canvas.getContext('2d');
+      ctx.setTransform(1, 0, 0, 1, 0, 0);
+      return ctx;
+    }
+
+    function drawGrid(ctx, w, h) {
+      ctx.fillStyle = '#081018';
+      ctx.fillRect(0, 0, w, h);
+      ctx.strokeStyle = 'rgba(255,255,255,.055)';
+      ctx.lineWidth = 1;
+      const xStep = w / 10, yStep = h / 5;
+      ctx.beginPath();
+      for (let x = 0; x <= w; x += xStep) { ctx.moveTo(x, 0); ctx.lineTo(x, h); }
+      for (let y = 0; y <= h; y += yStep) { ctx.moveTo(0, y); ctx.lineTo(w, y); }
+      ctx.stroke();
+    }
+
+    function renderError(e) {
+      console.error(e);
+      setStatus('bad', e.message || String(e));
+      debugLog.textContent = e && e.stack ? e.stack : String(e);
+    }
+
+    function setStatus(kind, text) {
+      statusDot.className = 'dot ' + (kind || '');
+      statusText.textContent = text;
+    }
+
+    function showToast(text) {
+      const toast = $('copyToast');
+      toast.textContent = text;
+      toast.classList.add('show');
+      setTimeout(() => toast.classList.remove('show'), 1200);
+    }
+
+    function clearAll() {
+      basicOutput.value = '';
+      debugLog.textContent = 'No decode yet.';
+      fileName.textContent = '';
+      copyBtn.disabled = true;
+      applyOptions.disabled = true;
+      lastFile = null;
+      lastArrayBuffer = null;
+      lastResult = null;
+      $('statsGrid').innerHTML = [
+        statHtml('Sample rate', '—', ''), statHtml('Duration', '—', ''), statHtml('Bytes decoded', '—', ''), statHtml('BASIC lines', '—', '')
+      ].join('');
+      for (const id of ['waveCanvas', 'zoomCanvas', 'histCanvas']) {
+        const c = $(id); const ctx = setupCanvas(c); ctx.clearRect(0, 0, c.width, c.height); drawGrid(ctx, c.width, c.height);
+      }
+      setStatus('', 'Ready. Upload a 300-baud Bally BASIC WAV.');
+    }
+
+    function escapeHtml(s) {
+      return String(s).replace(/[&<>"]/g, ch => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[ch]));
+    }
+
+    window.addEventListener('resize', () => { if (lastResult) drawAll(lastResult); });
+    clearAll();
+  </script>
+</body>
+
+</html>
