@@ -9,31 +9,15 @@
 <body class="guide-chapter">
   <div class="wrap">
     <header class="hero">
-      <div class="eyebrow"><span class="lamp"></span>Astrocade Arcade Field Guide · Chapter 01</div>
-      <h1>Machine Model</h1>
-      <p class="subtitle">The working mental model for writing Z80 software on Bally/Midway Astrocade arcade hardware: CPU, reset path, ROM/RAM layout, video RAM, protected RAM, stack placement, interrupts, and the Magic-memory trap that makes this machine so strange and useful.</p>
-
-      <div class="toplinks">
-        <a class="pill-link" href="index.html">← Field Guide Index</a>
-        <a class="pill-link" href="index.html#chapters">All Chapters</a>
-        <span class="tag ok">MAME-confirmed</span>
-        <span class="tag warn">schematic-aware</span>
-        <span class="tag info">developer-facing</span>
-      </div>
-
-      <div class="hero-grid">
-        <div class="stat"><b>Z80</b><span>main CPU</span></div>
-        <div class="stat"><b>$0000</b><span>reset vector</span></div>
-        <div class="stat"><b>$4000</b><span>video RAM base</span></div>
-        <div class="stat"><b>$D000</b><span>WoW protected RAM</span></div>
-        <div class="stat"><b>$A55B</b><span>RAM write enable port</span></div>
-      </div>
+      <div class="eyebrow"><span class="lamp"></span>Chapter 01 · Machine Model</div>
+      <p class="subtitle">CPU, ROM/RAM layout, video RAM, protected RAM, scratchpad RAM, stack placement, interrupts, and Magic-memory</p>
     </header>
 
     <main>
       <nav class="toc" aria-label="Chapter navigation">
         <h2>Chapter map</h2>
         <a href="index.html">← Field Guide Index <small>return to overview and full TOC</small></a>
+        <a href="io-map.html">Next Chapter → I/O Map</a>
         <a href="#why">Why this chapter matters <small>ROM reads vs Magic writes</small></a>
         <a href="#baseline">Baseline machine <small>what these games share</small></a>
         <a href="#wow-map">Wizard of Wor map <small>the primary target</small></a>
@@ -46,8 +30,7 @@
       </nav>
 
       <div class="content">
-        <section class="card" id="why">
-          <h2>Why this chapter matters</h2>
+        <!-- <section class="card" id="why">
           <p>The Astrocade arcade family is not hard because it uses a Z80. It is hard because the same address range can mean different things depending on whether the CPU is <strong>reading</strong> or <strong>writing</strong>.</p>
           <p>For Wizard of Wor, MAME maps <code>$0000-$3FFF</code> as ROM for reads, but also maps writes to that same range into the Astrocade function generator, usually called <strong>Magic memory</strong>. That means code can execute from low ROM while writes to low addresses are treated as drawing operations into video RAM.</p>
           <div class="callout">
@@ -55,11 +38,11 @@
             Read from <code>$0000-$3FFF</code> and you are fetching ROM bytes. Write to <code>$0000-$3FFF</code> and you are not changing ROM; you are feeding the Magic hardware. This is the trick that makes the low address space both executable code and a graphics accelerator command surface.
           </div>
           <p class="return-link"><a href="index.html">← Back to the Field Guide overview</a></p>
-        </section>
+        </section> -->
 
         <section class="card" id="baseline">
           <h2>Baseline machine</h2>
-          <p>The common Astrocade arcade model is a Z80-based board set built around the Bally/Midway Astrocade custom video/sound hardware. The exact ROM and RAM map changes by game, but the broad pattern is consistent:</p>
+          <p>The Astrocade arcade model is a Z80-based board set built around the Bally/Midway Astrocade custom video/sound hardware. The exact ROM and RAM map changes by game, but the broad pattern is consistent:</p>
           <table>
             <thead>
               <tr><th>Subsystem</th><th>Working model</th><th>Developer consequence</th></tr>
