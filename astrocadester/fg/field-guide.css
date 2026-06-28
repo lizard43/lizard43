@@ -1720,3 +1720,146 @@ header.hero .hero-title {
     font-size: 1.5rem;
   }
 }
+
+/* -------------------------------------------------------------------------
+   Card-rack PCB section
+   Clean implementation. No fixed-wide board column and no forced table scroll.
+--------------------------------------------------------------------------- */
+#card-rack .pcb-callout {
+  max-width: 100ch;
+}
+
+#card-rack .pcb-game-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 12px;
+  margin-top: 14px;
+}
+
+#card-rack .pcb-game {
+  min-width: 0;
+  border: 1px solid rgba(255, 255, 255, .085);
+  border-radius: 13px;
+  background: rgba(0, 0, 0, .14);
+  padding: 13px;
+}
+
+#card-rack .pcb-game.highlight {
+  border-color: rgba(255, 209, 102, .28);
+  background: rgba(255, 209, 102, .06);
+}
+
+#card-rack .pcb-game h3 {
+  margin: 0 0 9px;
+}
+
+#card-rack .pcb-board-list {
+  display: grid;
+  gap: 7px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+#card-rack .pcb-board-list li {
+  display: grid;
+  grid-template-columns: max-content minmax(0, 1fr);
+  gap: 10px;
+  align-items: baseline;
+  min-width: 0;
+}
+
+#card-rack .pcb-board-list code {
+  white-space: nowrap;
+  overflow-wrap: normal;
+  word-break: normal;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#card-rack .pcb-board-list span {
+  min-width: 0;
+  color: var(--muted);
+}
+
+#card-rack .table-wrap {
+  max-width: 100%;
+  overflow-x: visible;
+}
+
+#card-rack table.pcb-table {
+  display: table;
+  width: 100%;
+  min-width: 0;
+  table-layout: auto;
+}
+
+#card-rack table.pcb-table col.pcb-col-board {
+  width: 1%;
+}
+
+#card-rack table.pcb-table th:first-child,
+#card-rack table.pcb-table td:first-child {
+  width: 1%;
+  min-width: 0 !important;
+  max-width: none !important;
+  padding-left: 8px;
+  padding-right: 8px;
+  white-space: nowrap !important;
+  overflow-wrap: normal !important;
+  word-break: normal !important;
+  word-wrap: normal !important;
+  hyphens: none !important;
+}
+
+#card-rack table.pcb-table td.addr:first-child {
+  white-space: nowrap !important;
+  overflow-wrap: normal !important;
+  word-break: normal !important;
+  word-wrap: normal !important;
+  hyphens: none !important;
+}
+
+#card-rack table.pcb-table .pcb-board-code {
+  display: inline-block;
+  white-space: nowrap !important;
+  overflow-wrap: normal !important;
+  word-break: normal !important;
+  word-wrap: normal !important;
+  hyphens: none !important;
+  font-family: var(--mono);
+  font-variant-numeric: tabular-nums;
+  color: var(--cyan);
+}
+
+#card-rack table.pcb-table th:nth-child(2),
+#card-rack table.pcb-table td:nth-child(2),
+#card-rack table.pcb-table th:nth-child(3),
+#card-rack table.pcb-table td:nth-child(3) {
+  min-width: 0;
+  white-space: normal;
+}
+
+@media (max-width: 620px) {
+  #card-rack .table-wrap {
+    overflow-x: visible;
+  }
+
+  #card-rack table.pcb-table {
+    display: table !important;
+    width: 100%;
+    min-width: 0;
+    table-layout: auto;
+  }
+
+  #card-rack table.pcb-table th,
+  #card-rack table.pcb-table td {
+    min-width: 0 !important;
+  }
+
+  #card-rack table.pcb-table th:first-child,
+  #card-rack table.pcb-table td:first-child {
+    width: 1%;
+    white-space: nowrap !important;
+  }
+}
