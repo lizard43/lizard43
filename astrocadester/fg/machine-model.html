@@ -5,7 +5,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Astrocade Arcade Field Guide — Machine Model</title>
-  <link rel="stylesheet" href="field-guide.css?v=pcb-tight-contents" />
+  <link rel="stylesheet" href="field-guide.css?v=wow-memory-map-vertical" />
 </head>
 
 <body class="guide-chapter">
@@ -250,33 +250,34 @@
 
         <section class="card" id="wow-map">
           <h2>Wizard of Wor memory map</h2>
-          <p>This is the primary map for our current WoW-card-rack development. The table below mirrors the MAME model
-            and should be treated as the default starting point for new Wizard of Wor-targeted code.</p>
+          <p>This is the primary map for our current WoW-card-rack development. The vertical map below mirrors the MAME model and uses the conventional low-address-at-the-bottom layout: <code>$0000</code> starts at the bottom, and addresses increase upward toward the work-RAM/stack end of the map.</p>
 
-          <div class="map-grid" aria-label="Wizard of Wor memory map visualization">
-            <div class="map-row"><b>$0000-$3FFF</b>
-              <div class="bar rom"></div><small>ROM reads · Magic writes</small>
+          <div class="wow-memory-widget" aria-label="Wizard of Wor vertical memory map">
+            <div class="memmap-header">
+              <div>
+                <span class="memmap-kicker">Z80 address space · Wizard of Wor</span>
+                <strong>Primary development map</strong>
+              </div>
+              <div class="memmap-axis-chip" aria-hidden="true">$0000 bottom · address ↑</div>
             </div>
-            <div class="map-row"><b>$4000-$7FFF</b>
-              <div class="bar video"></div><small>video RAM</small>
+
+            <div class="memmap-ladder" id="wow-memory-ladder" data-memory-map="wizard-of-wor">
+              <div class="memmap-loading">Building memory map…</div>
             </div>
-            <div class="map-row"><b>$8000-$CFFF</b>
-              <div class="bar rom"></div><small>additional ROM</small>
-            </div>
-            <div class="map-row"><b>$D000-$D03F</b>
-              <div class="bar protect"></div><small>protected RAM</small>
-            </div>
-            <div class="map-row"><b>$D040-$DFFF</b>
-              <div class="bar ram"></div><small>ordinary work RAM</small>
+
+            <div class="memmap-footnotes">
+              <span><b>Scale note:</b> large blocks are roughly proportional; tiny-but-important regions get a minimum visible height.</span>
+              <span><b>Stack model:</b> place <code>SP</code> near <code>$E000</code>; the Z80 stack then grows downward into ordinary work RAM.</span>
             </div>
           </div>
 
           <pre><code>WoW memory map:
-0000-3FFF  ROM, also Magic write window
+0000-3FFF  ROM reads, also Magic write window
 4000-7FFF  video RAM
 8000-CFFF  ROM
 D000-D03F  protected RAM
-D040-DFFF  work RAM</code></pre>
+D040-DFFF  ordinary work RAM
+E000       suggested STACK_TOP boundary</code></pre>
 
           <div class="callout gold">
             <b>Reset placement</b>
@@ -653,6 +654,146 @@ STACK_TOP           equ $E000</code></pre>
       scroller.addEventListener('pointercancel', stopPanning);
       scroller.addEventListener('pointerleave', stopPanning);
     });
+
+
+    const wowMemoryRegions = [
+      {
+        start: 0xD040,
+        end: 0xDFFF,
+        title: 'Ordinary work RAM',
+        subtitle: 'runtime workspace · stack lives here',
+        kind: 'workram',
+        calloutTitle: 'Stack and scratch space',
+        callout: 'Keep structs, input snapshots, object state, temporary buffers, and the stack in ordinary RAM. Use STACK_TOP near $E000 so pushes move downward into $D040-$DFFF.',
+        badges: ['~4 KB', 'SP ↓', 'scratch RAM'],
+        weight: 4,
+        minHeight: 116
+      },
+      {
+        start: 0xD000,
+        end: 0xD03F,
+        title: 'Protected RAM',
+        subtitle: 'credits, coin latch, tiny protected state',
+        kind: 'protected',
+        calloutTitle: 'Only 64 bytes',
+        callout: 'Treat this as precious. Use it for bookkeeping and small state only; protected writes must go through the write-enable path.',
+        badges: ['64 B', 'write gated'],
+        weight: 2.2,
+        minHeight: 92
+      },
+      {
+        start: 0x8000,
+        end: 0xCFFF,
+        title: 'Additional ROM',
+        subtitle: 'upper game code and data',
+        kind: 'rom-high',
+        calloutTitle: 'High ROM bank in the WoW model',
+        callout: 'This area is normal ROM for more game code, lookup tables, strings, sprite data, and routines that do not fit in the low $0000-$3FFF window.',
+        badges: ['20 KB', 'ROM'],
+        weight: 20,
+        minHeight: 142
+      },
+      {
+        start: 0x4000,
+        end: 0x7FFF,
+        title: 'Video RAM',
+        subtitle: 'framebuffer memory',
+        kind: 'video',
+        calloutTitle: 'Screen memory',
+        callout: 'Direct writes can target the framebuffer here. Magic operations also ultimately affect this side of the video system.',
+        badges: ['16 KB', 'VRAM'],
+        weight: 16,
+        minHeight: 132
+      },
+      {
+        start: 0x0000,
+        end: 0x3FFF,
+        title: 'Low ROM / Magic writes',
+        subtitle: 'ROM reads · Magic function-generator writes',
+        kind: 'magic-rom',
+        calloutTitle: 'Split-personality region',
+        callout: 'Reads fetch ROM bytes, including the reset vector at $0000. Writes to the same address range are intercepted by the Astrocade Magic hardware instead of changing ROM.',
+        badges: ['16 KB', 'reset @ $0000', 'Magic write window'],
+        weight: 16,
+        minHeight: 144
+      }
+    ];
+
+    function formatHex(value) {
+      return '$' + value.toString(16).toUpperCase().padStart(4, '0');
+    }
+
+    function renderWowMemoryMap(root) {
+      if (!root) return;
+      root.innerHTML = '';
+
+      wowMemoryRegions.forEach((region, index) => {
+        const row = document.createElement('article');
+        row.className = `memmap-row mem-${region.kind}`;
+        row.style.setProperty('--row-weight', String(region.weight));
+        row.style.setProperty('--row-min-height', `${region.minHeight}px`);
+        if (index === 0) row.classList.add('is-top');
+        if (index === wowMemoryRegions.length - 1) row.classList.add('is-bottom');
+
+        const address = document.createElement('div');
+        address.className = 'memmap-address';
+
+        const topBoundary = document.createElement('span');
+        topBoundary.className = 'memmap-boundary memmap-boundary-top';
+        topBoundary.textContent = formatHex(region.end + 1);
+        address.append(topBoundary);
+
+        const range = document.createElement('span');
+        range.className = 'memmap-range-label';
+        range.textContent = `${formatHex(region.start)}–${formatHex(region.end)}`;
+        address.append(range);
+
+        if (index === wowMemoryRegions.length - 1) {
+          const bottomBoundary = document.createElement('span');
+          bottomBoundary.className = 'memmap-boundary memmap-boundary-bottom';
+          bottomBoundary.textContent = formatHex(region.start);
+          address.append(bottomBoundary);
+        }
+
+        const block = document.createElement('div');
+        block.className = 'memmap-block';
+
+        const blockPanel = document.createElement('div');
+        blockPanel.className = 'memmap-block-panel';
+
+        const blockTitle = document.createElement('strong');
+        blockTitle.className = 'memmap-block-title';
+        blockTitle.textContent = region.title;
+
+        const blockSubtitle = document.createElement('span');
+        blockSubtitle.className = 'memmap-block-subtitle';
+        blockSubtitle.textContent = region.subtitle;
+
+        const badgeWrap = document.createElement('div');
+        badgeWrap.className = 'memmap-badges';
+        region.badges.forEach((badge) => {
+          const chip = document.createElement('span');
+          chip.textContent = badge;
+          badgeWrap.append(chip);
+        });
+
+        blockPanel.append(blockTitle, blockSubtitle, badgeWrap);
+        block.append(blockPanel);
+
+        const callout = document.createElement('div');
+        callout.className = 'memmap-callout';
+        const calloutTitle = document.createElement('b');
+        calloutTitle.textContent = region.calloutTitle;
+        const calloutText = document.createElement('p');
+        calloutText.textContent = region.callout;
+        callout.append(calloutTitle, calloutText);
+
+        row.append(address, block, callout);
+        root.append(row);
+      });
+    }
+
+    document.querySelectorAll('[data-memory-map="wizard-of-wor"]').forEach(renderWowMemoryMap);
   </script>
 </body>
 
