@@ -23,21 +23,21 @@
       <p class="subtitle">CPU, ROM/RAM layout, video RAM, protected RAM, scratchpad RAM, stack placement, interrupts,
         and Magic-memory</p>
 
-          <nav class="chapter-strip" aria-label="Chapter navigation">
-            <a class="prev" href="index.html" aria-label="Intro">
-              <span class="nav-arrow">⟵</span>
-              <span class="nav-title">Intro</span>
-            </a>
+      <nav class="chapter-strip" aria-label="Chapter navigation">
+        <a class="prev" href="index.html" aria-label="Intro">
+          <span class="nav-arrow">⟵</span>
+          <span class="nav-title">Intro</span>
+        </a>
 
-            <a class="index" href="index.html" aria-label="Home">
-              <span class="home-icon">⌂</span>
-            </a>
+        <a class="index" href="index.html" aria-label="Home">
+          <span class="home-icon">⌂</span>
+        </a>
 
-            <a class="next" href="io-map.html" aria-label="Next chapter: I/O Map">
-              <span class="nav-title">I/O Map</span>
-              <span class="nav-arrow">⟶</span>
-            </a>
-          </nav>
+        <a class="next" href="io-map.html" aria-label="Next chapter: I/O Map">
+          <span class="nav-title">I/O Map</span>
+          <span class="nav-arrow">⟶</span>
+        </a>
+      </nav>
 
     </header>
 
@@ -67,8 +67,25 @@
         <section class="card" id="baseline">
           <h2>Baseline machine</h2>
           <p>The Astrocade arcade model is a Z80-based board set built around the Bally/Midway Astrocade custom
-            video/sound hardware. The exact ROM and RAM map changes by game, but the broad pattern is consistent:</p>
-          <table>
+            video/sound hardware designed by DNA.</p>
+          <figure class="guide-figure">
+            <a class="guide-image-link" href="#card-rack-full" aria-label="Open card rack diagram full size">
+              <img src="images/card-rack.png" alt="Commercial card rack assembly diagram">
+            </a>
+            <figcaption>Click image to open the full-size pan view.</figcaption>
+          </figure>
+
+          <div class="image-lightbox" id="card-rack-full" role="dialog" aria-label="Full-size card rack diagram">
+            <a class="image-lightbox__backdrop" href="#baseline" aria-label="Close full-size image"></a>
+            <div class="image-lightbox__panel">
+              <a class="image-lightbox__close" href="#baseline" aria-label="Close full-size image">×</a>
+              <div class="image-lightbox__scroller" tabindex="0" aria-label="Pan full-size card rack image">
+                <img src="images/card-rack.png" alt="Commercial card rack assembly diagram, full size">
+              </div>
+            </div>
+          </div>
+
+          <!-- <table>
             <thead>
               <tr>
                 <th>Subsystem</th>
@@ -110,7 +127,125 @@
                 <td>Use this for stack, runtime variables, object tables, scratch buffers.</td>
               </tr>
             </tbody>
-          </table>
+          </table> -->
+        </section>
+
+        <section class="card" id="card-rack">
+          <h2>Card-Rack PCBs</h2>
+          <p>The arcade card-rack games use a closely related board set. The CPU, Pattern, and RAM boards are common
+            across the games below; each title then adds or swaps game-specific, ROM/RAM, or memory boards.</p>
+
+          <div class="callout cyan pcb-callout">
+            <b>Pattern to notice</b>
+            <code>91354</code>, <code>91355</code>, and <code>91356</code> appear across this group. Wizard of Wor,
+            Gorf, and Robby Roto also share <code>90708</code> as the game board, while Space Zap uses
+            <code>90706</code>.
+          </div>
+
+          <div class="pcb-game-grid" aria-label="Card-rack PCB lists by game">
+            <article class="pcb-game">
+              <h3>Space Zap</h3>
+              <ul class="pcb-board-list">
+                <li><code>90706</code><span>Space Zap Game Board</span></li>
+                <li><code>91354</code><span>CPU Board</span></li>
+                <li><code>91355</code><span>Pattern Board</span></li>
+                <li><code>91356</code><span>RAM Board</span></li>
+              </ul>
+            </article>
+
+            <article class="pcb-game highlight">
+              <h3>Wizard of Wor</h3>
+              <ul class="pcb-board-list">
+                <li><code>90708</code><span>Game Board</span></li>
+                <li><code>91354</code><span>CPU Board</span></li>
+                <li><code>91355</code><span>Pattern Transfer Board</span></li>
+                <li><code>91356</code><span>RAM Board</span></li>
+                <li><code>91397</code><span>Memory Board</span></li>
+              </ul>
+            </article>
+
+            <article class="pcb-game">
+              <h3>Gorf</h3>
+              <ul class="pcb-board-list">
+                <li><code>90708</code><span>Game Board</span></li>
+                <li><code>91354</code><span>CPU Board</span></li>
+                <li><code>91355</code><span>Pattern Board</span></li>
+                <li><code>91356</code><span>RAM Board</span></li>
+                <li><code>91364</code><span>ROM/RAM Board</span></li>
+              </ul>
+            </article>
+
+            <article class="pcb-game">
+              <h3>Robby Roto</h3>
+              <ul class="pcb-board-list">
+                <li><code>90708</code><span>Game Board</span></li>
+                <li><code>91354</code><span>CPU Board</span></li>
+                <li><code>91355</code><span>Pattern Board</span></li>
+                <li><code>91356</code><span>RAM Board</span></li>
+                <li><code>91423</code><span>Memory Board</span></li>
+              </ul>
+            </article>
+          </div>
+
+          <h3>Board cross-reference</h3>
+          <div class="table-wrap">
+            <table class="pcb-table">
+              <colgroup>
+                <col class="pcb-col-board">
+                <col class="pcb-col-function">
+                <col class="pcb-col-used-by">
+              </colgroup>
+              <thead>
+                <tr>
+                  <th>Board</th>
+                  <th>Function</th>
+                  <th>Used by</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="addr">90706</td>
+                  <td>Space Zap Game Board</td>
+                  <td>Space Zap</td>
+                </tr>
+                <tr>
+                  <td class="addr">90708</td>
+                  <td>Game Board</td>
+                  <td>Wizard of Wor, Gorf, Robby Roto</td>
+                </tr>
+                <tr>
+                  <td class="addr">91354</td>
+                  <td>CPU Board</td>
+                  <td>Space Zap, Wizard of Wor, Gorf, Robby Roto</td>
+                </tr>
+                <tr>
+                  <td class="addr">91355</td>
+                  <td>Pattern Board / Pattern Transfer Board</td>
+                  <td>Space Zap, Wizard of Wor, Gorf, Robby Roto</td>
+                </tr>
+                <tr>
+                  <td class="addr">91356</td>
+                  <td>RAM Board</td>
+                  <td>Space Zap, Wizard of Wor, Gorf, Robby Roto</td>
+                </tr>
+                <tr>
+                  <td class="addr">91364</td>
+                  <td>ROM/RAM Board</td>
+                  <td>Gorf</td>
+                </tr>
+                <tr>
+                  <td class="addr">91397</td>
+                  <td>Memory Board</td>
+                  <td>Wizard of Wor</td>
+                </tr>
+                <tr>
+                  <td class="addr">91423</td>
+                  <td>Memory Board</td>
+                  <td>Robby Roto</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </section>
 
         <section class="card" id="wow-map">
@@ -476,6 +611,49 @@ STACK_TOP           equ $E000</code></pre>
       arcade-targeted Z80 software
     </footer>
   </div>
+
+  <script>
+    document.querySelectorAll('.image-lightbox__scroller').forEach((scroller) => {
+      let isPanning = false;
+      let startX = 0;
+      let startY = 0;
+      let startScrollLeft = 0;
+      let startScrollTop = 0;
+
+      scroller.addEventListener('pointerdown', (event) => {
+        if (event.button !== 0) return;
+        isPanning = true;
+        startX = event.clientX;
+        startY = event.clientY;
+        startScrollLeft = scroller.scrollLeft;
+        startScrollTop = scroller.scrollTop;
+        scroller.classList.add('is-panning');
+        scroller.setPointerCapture(event.pointerId);
+      });
+
+      scroller.addEventListener('pointermove', (event) => {
+        if (!isPanning) return;
+        event.preventDefault();
+        scroller.scrollLeft = startScrollLeft - (event.clientX - startX);
+        scroller.scrollTop = startScrollTop - (event.clientY - startY);
+      });
+
+      function stopPanning(event) {
+        if (!isPanning) return;
+        isPanning = false;
+        scroller.classList.remove('is-panning');
+        try {
+          scroller.releasePointerCapture(event.pointerId);
+        } catch (error) {
+          // Pointer capture may already be released by the browser.
+        }
+      }
+
+      scroller.addEventListener('pointerup', stopPanning);
+      scroller.addEventListener('pointercancel', stopPanning);
+      scroller.addEventListener('pointerleave', stopPanning);
+    });
+  </script>
 </body>
 
 </html>
