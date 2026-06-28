@@ -2527,3 +2527,115 @@ header.hero .hero-title {
     white-space: normal;
   }
 }
+
+/* -------------------------------------------------------------------------
+   90708 Game Board reference page
+   Extracted from the former inline <style> block in 90708.html.
+--------------------------------------------------------------------------- */
+.pcb-hero-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 14px;
+  position: relative;
+  z-index: 2;
+}
+
+.pcb-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.pcb-stat {
+  min-width: 0;
+  border: 1px solid rgba(255, 255, 255, .085);
+  border-radius: 13px;
+  background: rgba(0, 0, 0, .16);
+  padding: 12px 13px;
+}
+
+.pcb-stat b {
+  display: block;
+  color: var(--gold);
+  font-family: var(--mono);
+  font-size: .78rem;
+  line-height: 1.2;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  margin-bottom: 5px;
+}
+
+.pcb-stat span {
+  color: var(--muted);
+  line-height: 1.35;
+}
+
+.pcb-figure-wide,
+.pcb-schematic-pair .guide-figure {
+  width: min(100%, 1480px);
+}
+
+.pcb-schematic-pair {
+  display: grid;
+  gap: 16px;
+  margin-top: 14px;
+}
+
+.pcb-support-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 460px), 1fr));
+  gap: 14px;
+  margin-top: 14px;
+  align-items: start;
+}
+
+.pcb-support-grid .guide-figure {
+  width: 100%;
+  margin-top: 0;
+}
+
+.pcb-support-grid .image-lightbox {
+  grid-column: initial;
+}
+
+.pcb-note-list {
+  display: grid;
+  gap: 8px;
+  margin: 12px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.pcb-note-list li {
+  min-width: 0;
+  border: 1px solid rgba(255, 255, 255, .085);
+  border-radius: 12px;
+  background: rgba(0, 0, 0, .15);
+  color: var(--muted);
+  padding: 10px 11px;
+}
+
+.pcb-note-list b {
+  color: var(--ink);
+}
+
+.pcb-warning {
+  border-left-color: var(--gold);
+  background: rgba(255, 209, 102, .08);
+}
+
+.pcb-component-table td:first-child,
+.pcb-component-table td:nth-child(2) {
+  font-family: var(--mono);
+  color: var(--cyan);
+  white-space: nowrap;
+}
+
+@media (max-width: 620px) {
+  .pcb-component-table td:first-child,
+  .pcb-component-table td:nth-child(2) {
+    white-space: normal;
+  }
+}
