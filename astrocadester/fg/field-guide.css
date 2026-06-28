@@ -2504,3 +2504,26 @@ header.hero .hero-title {
   content: none !important;
   display: none !important;
 }
+
+/* Memory-map block range line generated from region.start / region.end. */
+.memmap-block-range {
+  display: block;
+  margin-top: 4px;
+  /* color: color-mix(in srgb, var(--mem-accent) 82%, white 18%); */
+  /* font-family: var(--mono); */
+  font-size: .82rem;
+  line-height: 1.2;
+  letter-spacing: .01em;
+  white-space: nowrap;
+}
+
+.memmap-block-range + .memmap-block-subtitle {
+  margin-top: 5px;
+}
+
+@media (max-width: 520px) {
+  .memmap-block-range {
+    font-size: .62rem;
+    white-space: normal;
+  }
+}
