@@ -1873,7 +1873,7 @@ header.hero .hero-title {
   max-width: 105ch;
 }
 
-.wow-memory-widget {
+.memory-widget {
   margin-top: 16px;
   max-width: 1240px;
   overflow: hidden;
@@ -2249,7 +2249,7 @@ header.hero .hero-title {
 }
 
 @media (max-width: 1050px) {
-  .wow-memory-widget {
+  .memory-widget {
     max-width: none;
   }
 
@@ -2336,7 +2336,7 @@ header.hero .hero-title {
 }
 
 @media (max-width: 520px) {
-  .wow-memory-widget {
+  .memory-widget {
     padding: 11px;
     border-radius: 14px;
   }
@@ -2391,14 +2391,9 @@ header.hero .hero-title {
 
 
 /* -------------------------------------------------------------------------
-   Wizard of Wor memory map final callout cleanup
-   - Rows size from their content instead of flex-shrinking callout cards.
-   - Callout cards use one neutral note style; only connector dots/lines are
-     region-colored.
-   - Adds breathing room below the map so the bottom block does not sit on the
-     widget border.
+   memory map 
 --------------------------------------------------------------------------- */
-.wow-memory-widget {
+.memory-widget {
   padding: 15px 15px 26px;
 }
 
@@ -2466,10 +2461,7 @@ header.hero .hero-title {
 
 
 /* -------------------------------------------------------------------------
-   Wizard of Wor memory map connector visibility pass
-   The previous connector faded toward the memory block side. On same-colored
-   rows such as work RAM and video RAM, that made the stick/dot disappear into
-   the block glow. Keep the region accent, but make the whole connector visible.
+   memory map 
 --------------------------------------------------------------------------- */
 .memmap-callout {
   z-index: 3;
