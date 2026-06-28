@@ -5,7 +5,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Astrocade Arcade Field Guide — Machine Model</title>
-  <link rel="stylesheet" href="field-guide.css?v=wow-memory-map-connector-fix" />
+  <link rel="stylesheet" href="field-guide.css?v=generic-memory-map-renderer" />
 </head>
 
 <body class="guide-chapter">
@@ -258,7 +258,7 @@
               </div>
             </div>
 
-            <div class="memmap-ladder" id="wow-memory-ladder" data-memory-map="wizard-of-wor">
+            <div class="memmap-ladder" id="wow-memory-ladder" data-memory-map="wowMemoryRegions">
               <div class="memmap-loading">Building memory map…</div>
             </div>
 
@@ -276,7 +276,7 @@
               </div>
             </div>
 
-            <div class="memmap-ladder" id="wow-memory-ladder" data-memory-map="gorf">
+            <div class="memmap-ladder" id="gorf-memory-ladder" data-memory-map="gorfMemoryRegions">
               <div class="memmap-loading">Building memory map…</div>
             </div>
 
@@ -658,7 +658,7 @@ STACK_TOP           equ $E000</code></pre>
         start: 0xE000,
         end: 0xFFFF,
         title: 'Unmapped/Mirroring',
-        subtitle: '',
+        subtitle: '0xE000-0xFFFF',
         kind: 'unmapped',
         calloutTitle: 'Unmapped',
         callout: 'On the Astrocade hardware, the Z80 CPUs address space wraps around, meaning that addresses in this upper range will mirror other parts of the memory map (or return open bus data).',
@@ -670,7 +670,7 @@ STACK_TOP           equ $E000</code></pre>
         start: 0xD040,
         end: 0xDFFF,
         title: 'Ordinary work RAM',
-        subtitle: 'runtime workspace · stack lives here',
+        subtitle: '0xD040-0xDFFF<br>runtime workspace · stack lives here',
         kind: 'workram',
         calloutTitle: 'Stack and scratch space',
         callout: 'Keep structs, input snapshots, object state, temp buffers, and the stack here. Init SP to $E000 lets pushes move down into $D040-$DFFF.',
@@ -803,21 +803,54 @@ STACK_TOP           equ $E000</code></pre>
       }
     ];
 
+    const memoryMapDataBlocks = {
+      // Canonical names match the const datablocks above.
+      wowMemoryRegions,
+      gorfMemoryRegions,
+
+      // Friendly aliases, so page markup can use either style.
+      wow: wowMemoryRegions,
+      'wizard-of-wor': wowMemoryRegions,
+      gorf: gorfMemoryRegions
+    };
+
     function formatHex(value) {
       return '$' + value.toString(16).toUpperCase().padStart(4, '0');
     }
 
-    function renderWowMemoryMap(root) {
+    function resolveMemoryRegions(dataBlockName) {
+      return memoryMapDataBlocks[dataBlockName] || null;
+    }
+
+    function renderMemoryMap(root, dataBlockName = root?.dataset?.memoryMap) {
       if (!root) return;
+
+      const regions = resolveMemoryRegions(dataBlockName);
       root.innerHTML = '';
 
-      wowMemoryRegions.forEach((region, index) => {
+      if (!regions) {
+        const message = document.createElement('div');
+        message.className = 'memmap-loading';
+        message.textContent = `Unknown memory map data block: ${dataBlockName || '(missing)'}`;
+        root.append(message);
+        return;
+      }
+
+      if (!Array.isArray(regions) || regions.length === 0) {
+        const message = document.createElement('div');
+        message.className = 'memmap-loading';
+        message.textContent = `Memory map data block is empty: ${dataBlockName}`;
+        root.append(message);
+        return;
+      }
+
+      regions.forEach((region, index) => {
         const row = document.createElement('article');
-        row.className = `memmap-row mem-${region.kind}`;
-        row.style.setProperty('--row-weight', String(region.weight));
-        row.style.setProperty('--row-min-height', `${region.minHeight}px`);
+        row.className = `memmap-row mem-${region.kind || 'generic'}`;
+        row.style.setProperty('--row-weight', String(region.weight ?? 1));
+        row.style.setProperty('--row-min-height', `${region.minHeight ?? 120}px`);
         if (index === 0) row.classList.add('is-top');
-        if (index === wowMemoryRegions.length - 1) row.classList.add('is-bottom');
+        if (index === regions.length - 1) row.classList.add('is-bottom');
 
         const address = document.createElement('div');
         address.className = 'memmap-address';
@@ -832,7 +865,7 @@ STACK_TOP           equ $E000</code></pre>
         range.textContent = `${formatHex(region.start)}–${formatHex(region.end)}`;
         address.append(range);
 
-        if (index === wowMemoryRegions.length - 1) {
+        if (index === regions.length - 1) {
           const bottomBoundary = document.createElement('span');
           bottomBoundary.className = 'memmap-boundary memmap-boundary-bottom';
           bottomBoundary.textContent = formatHex(region.start);
@@ -847,15 +880,15 @@ STACK_TOP           equ $E000</code></pre>
 
         const blockTitle = document.createElement('strong');
         blockTitle.className = 'memmap-block-title';
-        blockTitle.textContent = region.title;
+        blockTitle.textContent = region.title || '';
 
         const blockSubtitle = document.createElement('span');
         blockSubtitle.className = 'memmap-block-subtitle';
-        blockSubtitle.textContent = region.subtitle;
+        blockSubtitle.textContent = region.subtitle || '';
 
         const badgeWrap = document.createElement('div');
         badgeWrap.className = 'memmap-badges';
-        region.badges.forEach((badge) => {
+        (region.badges || []).forEach((badge) => {
           const chip = document.createElement('span');
           chip.textContent = badge;
           badgeWrap.append(chip);
@@ -866,18 +899,26 @@ STACK_TOP           equ $E000</code></pre>
 
         const callout = document.createElement('div');
         callout.className = 'memmap-callout';
-        const calloutTitle = document.createElement('b');
-        calloutTitle.textContent = region.calloutTitle;
-        const calloutText = document.createElement('p');
-        calloutText.textContent = region.callout;
-        callout.append(calloutTitle, calloutText);
 
+        const calloutTitle = document.createElement('b');
+        calloutTitle.textContent = region.calloutTitle || region.title || '';
+
+        const calloutText = document.createElement('p');
+        calloutText.textContent = region.callout || '';
+
+        callout.append(calloutTitle, calloutText);
         row.append(address, block, callout);
         root.append(row);
       });
     }
 
-    document.querySelectorAll('[data-memory-map="wizard-of-wor"]').forEach(renderWowMemoryMap);
+    function renderAllMemoryMaps() {
+      document.querySelectorAll('[data-memory-map]').forEach((root) => {
+        renderMemoryMap(root, root.dataset.memoryMap);
+      });
+    }
+
+    renderAllMemoryMaps();
   </script>
 </body>
 
