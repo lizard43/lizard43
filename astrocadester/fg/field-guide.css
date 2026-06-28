@@ -2420,6 +2420,10 @@ header.hero .hero-title {
   --mem-accent: rgba(114, 216, 255, .78);
 }
 
+.mem-unmapped {
+  --mem-accent: rgba(128, 128, 128, 0.82);
+}
+
 .mem-workram {
   --mem-accent: rgba(126, 231, 135, .82);
 }

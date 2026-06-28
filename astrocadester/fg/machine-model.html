@@ -265,6 +265,24 @@
           </div>
 
         </section>
+        
+        <section class="card" id="gorf-map">
+          <h2>Gorf memory map</h2>
+
+          <div class="memory-widget" aria-label="Gorf vertical memory map">
+            <div class="memmap-header">
+              <div>
+                <span class="memmap-kicker">Z80 address space · Gorf</span>
+              </div>
+            </div>
+
+            <div class="memmap-ladder" id="wow-memory-ladder" data-memory-map="gorf">
+              <div class="memmap-loading">Building memory map…</div>
+            </div>
+
+          </div>
+
+        </section>
 
         <section class="card" id="magic-shadow">
           <h2>The Magic shadow region</h2>
@@ -637,14 +655,101 @@ STACK_TOP           equ $E000</code></pre>
 
     const wowMemoryRegions = [
       {
+        start: 0xE000,
+        end: 0xFFFF,
+        title: 'Unmapped/Mirroring',
+        subtitle: '',
+        kind: 'unmapped',
+        calloutTitle: 'Unmapped',
+        callout: 'On the Astrocade hardware, the Z80 CPUs address space wraps around, meaning that addresses in this upper range will mirror other parts of the memory map (or return open bus data).',
+        badges: ['8 KB', 'Mirror', 'Open Data Bus'],
+        weight: 4,
+        minHeight: 150
+      },
+      {
         start: 0xD040,
         end: 0xDFFF,
         title: 'Ordinary work RAM',
         subtitle: 'runtime workspace · stack lives here',
         kind: 'workram',
         calloutTitle: 'Stack and scratch space',
-        callout: 'Keep structs, input snapshots, object state, temp buffers, and the stack here. STACK_TOP near $E000 lets pushes move down into $D040-$DFFF.',
-        badges: ['~4 KB', 'SP ↓', 'scratch RAM'],
+        callout: 'Keep structs, input snapshots, object state, temp buffers, and the stack here. Init SP to $E000 lets pushes move down into $D040-$DFFF.',
+        badges: ['3.9 KB', 'SP @ $E000', 'scratchpad RAM'],
+        weight: 4,
+        minHeight: 150
+      },
+      {
+        start: 0xD000,
+        end: 0xD03F,
+        title: 'Protected RAM',
+        subtitle: 'credits, coin latch, tiny protected state',
+        kind: 'protected',
+        calloutTitle: 'Only 64 bytes',
+        callout: 'Use it for credits, latches, and tiny bookkeeping only. Protected writes must go through the write-enable path.',
+        badges: ['64 B', 'write gated'],
+        weight: 2.2,
+        minHeight: 150
+      },
+      {
+        start: 0x8000,
+        end: 0xCFFF,
+        title: 'Additional ROM',
+        subtitle: 'upper game code and data',
+        kind: 'rom-high',
+        calloutTitle: 'High ROM bank in the WoW model',
+        callout: 'Normal ROM for upper game code, lookup tables, strings, sprite data, and routines that do not fit in the low $0000-$3FFF window.',
+        badges: ['20 KB', 'ROM'],
+        weight: 20,
+        minHeight: 154
+      },
+      {
+        start: 0x4000,
+        end: 0x7FFF,
+        title: 'Video RAM',
+        subtitle: 'framebuffer memory',
+        kind: 'video',
+        calloutTitle: 'Screen memory',
+        callout: 'Direct writes can target the framebuffer here. Magic operations also ultimately affect this side of the video system.',
+        badges: ['16 KB', 'VRAM'],
+        weight: 16,
+        minHeight: 142
+      },
+      {
+        start: 0x0000,
+        end: 0x3FFF,
+        title: 'Low ROM / Magic writes',
+        subtitle: 'ROM reads · Magic function-generator writes',
+        kind: 'magic-rom',
+        calloutTitle: 'Split-personality region',
+        callout: 'Reads fetch ROM bytes, including the reset vector at $0000. Writes to the same range are intercepted by the Astrocade Magic hardware instead of changing ROM.',
+        badges: ['16 KB', 'reset @ $0000', 'Magic write window'],
+        weight: 16,
+        minHeight: 154
+      }
+    ];
+    
+    const gorfMemoryRegions = [
+      {
+        start: 0xE000,
+        end: 0xFFFF,
+        title: 'Unmapped/Mirroring',
+        subtitle: '',
+        kind: 'unmapped',
+        calloutTitle: 'Unmapped',
+        callout: 'On the Astrocade hardware, the Z80 CPUs address space wraps around, meaning that addresses in this upper range will mirror other parts of the memory map (or return open bus data).',
+        badges: ['8 KB', 'Mirror', 'Open Data Bus'],
+        weight: 4,
+        minHeight: 150
+      },
+      {
+        start: 0xD040,
+        end: 0xDFFF,
+        title: 'Ordinary work RAM',
+        subtitle: 'runtime workspace · stack lives here',
+        kind: 'workram',
+        calloutTitle: 'Stack and scratch space',
+        callout: 'Keep structs, input snapshots, object state, temp buffers, and the stack here. Init SP to $E000 lets pushes move down into $D040-$DFFF.',
+        badges: ['3.9 KB', 'SP @ $E000', 'scratchpad RAM'],
         weight: 4,
         minHeight: 150
       },
