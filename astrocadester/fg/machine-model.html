@@ -5,7 +5,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Astrocade Arcade Field Guide — Machine Model</title>
-  <link rel="stylesheet" href="field-guide.css?v=wow-memory-map-vertical" />
+  <link rel="stylesheet" href="field-guide.css?v=wow-memory-map-protected-fix" />
 </head>
 
 <body class="guide-chapter">
@@ -643,10 +643,10 @@ STACK_TOP           equ $E000</code></pre>
         subtitle: 'runtime workspace · stack lives here',
         kind: 'workram',
         calloutTitle: 'Stack and scratch space',
-        callout: 'Keep structs, input snapshots, object state, temporary buffers, and the stack in ordinary RAM. Use STACK_TOP near $E000 so pushes move downward into $D040-$DFFF.',
+        callout: 'Keep structs, input snapshots, object state, temp buffers, and the stack here. STACK_TOP near $E000 lets pushes move down into $D040-$DFFF.',
         badges: ['~4 KB', 'SP ↓', 'scratch RAM'],
         weight: 4,
-        minHeight: 116
+        minHeight: 150
       },
       {
         start: 0xD000,
@@ -655,10 +655,10 @@ STACK_TOP           equ $E000</code></pre>
         subtitle: 'credits, coin latch, tiny protected state',
         kind: 'protected',
         calloutTitle: 'Only 64 bytes',
-        callout: 'Treat this as precious. Use it for bookkeeping and small state only; protected writes must go through the write-enable path.',
+        callout: 'Use it for credits, latches, and tiny bookkeeping only. Protected writes must go through the write-enable path.',
         badges: ['64 B', 'write gated'],
         weight: 2.2,
-        minHeight: 92
+        minHeight: 150
       },
       {
         start: 0x8000,
@@ -667,10 +667,10 @@ STACK_TOP           equ $E000</code></pre>
         subtitle: 'upper game code and data',
         kind: 'rom-high',
         calloutTitle: 'High ROM bank in the WoW model',
-        callout: 'This area is normal ROM for more game code, lookup tables, strings, sprite data, and routines that do not fit in the low $0000-$3FFF window.',
+        callout: 'Normal ROM for upper game code, lookup tables, strings, sprite data, and routines that do not fit in the low $0000-$3FFF window.',
         badges: ['20 KB', 'ROM'],
         weight: 20,
-        minHeight: 142
+        minHeight: 154
       },
       {
         start: 0x4000,
@@ -682,7 +682,7 @@ STACK_TOP           equ $E000</code></pre>
         callout: 'Direct writes can target the framebuffer here. Magic operations also ultimately affect this side of the video system.',
         badges: ['16 KB', 'VRAM'],
         weight: 16,
-        minHeight: 132
+        minHeight: 142
       },
       {
         start: 0x0000,
@@ -691,10 +691,10 @@ STACK_TOP           equ $E000</code></pre>
         subtitle: 'ROM reads · Magic function-generator writes',
         kind: 'magic-rom',
         calloutTitle: 'Split-personality region',
-        callout: 'Reads fetch ROM bytes, including the reset vector at $0000. Writes to the same address range are intercepted by the Astrocade Magic hardware instead of changing ROM.',
+        callout: 'Reads fetch ROM bytes, including the reset vector at $0000. Writes to the same range are intercepted by the Astrocade Magic hardware instead of changing ROM.',
         badges: ['16 KB', 'reset @ $0000', 'Magic write window'],
         weight: 16,
-        minHeight: 144
+        minHeight: 154
       }
     ];
 
