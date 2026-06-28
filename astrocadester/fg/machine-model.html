@@ -250,41 +250,20 @@
 
         <section class="card" id="wow-map">
           <h2>Wizard of Wor memory map</h2>
-          <p>This is the primary map for our current WoW-card-rack development. The vertical map below mirrors the MAME model and uses the conventional low-address-at-the-bottom layout: <code>$0000</code> starts at the bottom, and addresses increase upward toward the work-RAM/stack end of the map.</p>
 
           <div class="wow-memory-widget" aria-label="Wizard of Wor vertical memory map">
             <div class="memmap-header">
               <div>
                 <span class="memmap-kicker">Z80 address space · Wizard of Wor</span>
-                <strong>Primary development map</strong>
               </div>
-              <div class="memmap-axis-chip" aria-hidden="true">$0000 bottom · address ↑</div>
             </div>
 
             <div class="memmap-ladder" id="wow-memory-ladder" data-memory-map="wizard-of-wor">
               <div class="memmap-loading">Building memory map…</div>
             </div>
 
-            <div class="memmap-footnotes">
-              <span><b>Scale note:</b> large blocks are roughly proportional; tiny-but-important regions get a minimum visible height.</span>
-              <span><b>Stack model:</b> place <code>SP</code> near <code>$E000</code>; the Z80 stack then grows downward into ordinary work RAM.</span>
-            </div>
           </div>
 
-          <pre><code>WoW memory map:
-0000-3FFF  ROM reads, also Magic write window
-4000-7FFF  video RAM
-8000-CFFF  ROM
-D000-D03F  protected RAM
-D040-DFFF  ordinary work RAM
-E000       suggested STACK_TOP boundary</code></pre>
-
-          <div class="callout gold">
-            <b>Reset placement</b>
-            A replacement ROM should provide a real reset entry at <code>$0000</code>. A common pattern is a short jump
-            at <code>$0000</code> to startup code placed elsewhere in ROM, then initialize stack, video registers, color
-            map, interrupt vector, protected RAM state, input state, and the first screen.
-          </div>
         </section>
 
         <section class="card" id="magic-shadow">
