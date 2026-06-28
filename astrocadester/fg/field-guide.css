@@ -2388,3 +2388,123 @@ header.hero .hero-title {
     font-size: .78rem;
   }
 }
+
+
+/* -------------------------------------------------------------------------
+   Wizard of Wor memory map final callout cleanup
+   - Rows size from their content instead of flex-shrinking callout cards.
+   - Callout cards use one neutral note style; only connector dots/lines are
+     region-colored.
+   - Adds breathing room below the map so the bottom block does not sit on the
+     widget border.
+--------------------------------------------------------------------------- */
+.wow-memory-widget {
+  padding: 15px 15px 26px;
+}
+
+.memmap-ladder {
+  min-height: 0;
+  padding-bottom: 18px;
+}
+
+.memmap-row {
+  flex: 0 0 auto;
+  overflow: visible;
+}
+
+.memmap-callout {
+  align-self: center;
+  margin-block: 8px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, .055), rgba(255, 255, 255, .018)),
+    rgba(0, 0, 0, .24) !important;
+  border-color: rgba(255, 255, 255, .13) !important;
+}
+
+.memmap-row {
+  --mem-accent: rgba(114, 216, 255, .78);
+}
+
+.mem-workram {
+  --mem-accent: rgba(126, 231, 135, .82);
+}
+
+.mem-protected {
+  --mem-accent: rgba(255, 79, 100, .86);
+}
+
+.mem-rom-high {
+  --mem-accent: rgba(255, 209, 102, .82);
+}
+
+.mem-video {
+  --mem-accent: rgba(114, 216, 255, .86);
+}
+
+.mem-magic-rom {
+  --mem-accent: rgba(195, 156, 255, .86);
+}
+
+.memmap-callout::before {
+  background: linear-gradient(90deg, rgba(114, 216, 255, .12), var(--mem-accent));
+}
+
+/* .memmap-callout::after {
+  background: var(--mem-accent);
+  box-shadow: 0 0 14px color-mix(in srgb, var(--mem-accent) 72%, transparent);
+} */
+
+@media (max-width: 820px) {
+  .memmap-ladder {
+    padding-bottom: 12px;
+  }
+
+  .memmap-callout {
+    margin-block: 0 8px;
+  }
+}
+
+
+/* -------------------------------------------------------------------------
+   Wizard of Wor memory map connector visibility pass
+   The previous connector faded toward the memory block side. On same-colored
+   rows such as work RAM and video RAM, that made the stick/dot disappear into
+   the block glow. Keep the region accent, but make the whole connector visible.
+--------------------------------------------------------------------------- */
+.memmap-callout {
+  z-index: 3;
+}
+
+.memmap-block {
+  z-index: 1;
+}
+
+.memmap-callout::before {
+  right: 100%;
+  width: 20px;
+  height: 2px;
+  opacity: .96;
+  background: linear-gradient(
+    90deg,
+    color-mix(in srgb, var(--mem-accent) 76%, white 24%),
+    var(--mem-accent)
+  ) !important;
+  box-shadow: 0 0 9px color-mix(in srgb, var(--mem-accent) 55%, transparent);
+}
+
+/* .memmap-callout::after {
+  right: calc(100% + 24px);
+  width: 8px;
+  height: 8px;
+  border: 1px solid rgba(255, 255, 255, .55);
+  background: var(--mem-accent) !important;
+  box-shadow:
+    0 0 0 2px rgba(7, 8, 11, .74),
+    0 0 16px color-mix(in srgb, var(--mem-accent) 78%, transparent) !important;
+} */
+
+/* Remove the callout connector dot. Keep the stick/line. */
+.memmap-callout::after {
+  content: none !important;
+  display: none !important;
+}
