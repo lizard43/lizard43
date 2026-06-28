@@ -20,13 +20,17 @@
     <header class="hero">
       <div class="eyebrow"><span class="lamp"></span>Astrocade Arcade Field Guide · PCB Reference</div>
       <h2>90708 Game Board</h2>
-      <p class="subtitle">Bally/Midway card-rack game logic board: cabinet I/O, option switches, custom I/O, sound routing, and board-specific harness behavior.</p>
+      <p class="subtitle">Bally/Midway card-rack game logic board: cabinet I/O, option switches, custom I/O, sound
+        routing, and board-specific harness behavior.</p>
 
       <div class="pcb-hero-tags" aria-label="90708 quick tags">
-        <span class="tag warn">A084-90708-A961 · Wizard of Wor</span>
         <span class="tag info">Game Logic Board</span>
+        <span class="tag ok">Card-Rack</span>
         <span class="tag violet">Custom I/O</span>
-        <span class="tag ok">Card-rack interface</span>
+        <span class="tag warn">A084-90708-A902 · Space Zap</span>
+        <span class="tag warn">A084-90708-A961 · Wizard of Wor</span>
+        <span class="tag warn">A084-90708-C873 · Gorf</span>
+        <span class="tag warn">A084-90708-A530 · Robby Rotto</span>
       </div>
 
       <nav class="chapter-strip" aria-label="Page navigation">
@@ -63,95 +67,53 @@
       <div class="content">
         <section class="card lead-card" id="overview">
           <h2>90708 at a glance</h2>
-          <p class="lede">The <strong>90708 Game Board</strong> is the cabinet-facing game logic board used in the Bally/Midway Astrocade card-rack family. In a Wizard of Wor set it is the board that carries the option switches, custom I/O logic, speech/audio-related interface pieces, and the wiring traversal between the internal card rack and the external cabinet harness.</p>
-          <p>Use the board number carefully. The card-rack family includes Space Zap, Wizard of Wor, Gorf, and Robby Roto, but <strong>Space Zap uses 90706</strong> as its game board. Wizard of Wor, Gorf, and Robby Roto share the <code>90708</code> board number at the family level, while the actual assemblies and pinout behavior vary by game and revision.</p>
-
-          <div class="pcb-stats">
-            <div class="pcb-stat"><b>Board family</b><span>Bally/Midway commercial Astrocade card rack</span></div>
-            <div class="pcb-stat"><b>Wizard assembly</b><span><code>A084-90708-A961</code></span></div>
-            <div class="pcb-stat"><b>Board role</b><span>Game logic, cabinet I/O, option switches, custom I/O, signal routing</span></div>
-            <div class="pcb-stat"><b>Do not assume</b><span>A Gorf 90708 assembly is not a drop-in Wizard of Wor cabinet board without pinout verification.</span></div>
-          </div>
+          <p class="lede">The <strong>90708 Game Board</strong> is the cabinet-facing game logic board used in the
+            Bally/Midway Astrocade card-rack family.</p>
+          <p>It is the board that carries the option switches, custom I/O logic, speech/audio-related interface pieces,
+            and the wiring traversal between the internal card rack and the external cabinet harness.</p>
 
           <div class="callout cyan">
-            <b>The useful mental model</b>
-            The CPU, RAM, and pattern boards form the reusable computing core. The <code>90708</code> board is where that core becomes a specific game cabinet: coin doors, controls, DIP options, speech/audio routing, video/interface signals, and revision-specific harness logic.
-          </div>
-        </section>
-
-        <section class="card" id="card-rack-role">
-          <h2>Where 90708 sits in the card rack</h2>
-          <p>Bally/Midway used a modular card cage instead of one large monolithic game PCB. The game-specific boards plug into an edge-connector backplane. The <code>90708</code> is the final game logic/interface card in that stack for Wizard of Wor-style systems.</p>
-
-          <div class="table-wrap">
-            <table>
-              <thead>
-                <tr>
-                  <th>Board</th>
-                  <th>Working role</th>
-                  <th>Notes</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td class="addr">91354</td>
-                  <td>Central Processing Unit board</td>
-                  <td>Z80 CPU, address custom chip, data custom chip, and system crystal on Wizard of Wor six-card systems.</td>
-                </tr>
-                <tr>
-                  <td class="addr">91355 / 91348</td>
-                  <td>Pattern Transfer / graphics board</td>
-                  <td>Moves pattern/graphics information at the faster board-level rate used by the card-rack video system.</td>
-                </tr>
-                <tr>
-                  <td class="addr">91356</td>
-                  <td>RAM card</td>
-                  <td>Wizard of Wor documentation calls out two RAM cards, each with sixteen M4027 RAMs.</td>
-                </tr>
-                <tr>
-                  <td class="addr">91397 / 91398</td>
-                  <td>ROM/RAM memory board family</td>
-                  <td>Game code/data storage varies by title and revision.</td>
-                </tr>
-                <tr>
-                  <td class="addr">90708</td>
-                  <td>Main game logic / I/O board</td>
-                  <td>Game-specific cabinet bridge. Carries custom I/O chips, option switches, speech/audio interface pieces, input traversal, and harness-facing logic.</td>
-                </tr>
-              </tbody>
-            </table>
+            The CPU, RAM, and pattern boards form the reusable computing core. The <code>90708</code> board is where
+            that core becomes a specific game cabinet: coin doors, controls, DIP options, speech/audio routing,
+            video/interface signals, and revision-specific harness logic.
           </div>
 
           <div class="callout pcb-warning">
             <b>Revision warning</b>
-            Treat <code>90708</code> as a board family number, not a universal interchangeable cabinet adapter. Wizard of Wor documentation identifies <code>A084-90708-A961</code>; Gorf revisions are different. Verify assembly suffix, connector pinout, power rails, and cabinet harness before swapping boards.
+            Treat <code>90708</code> as a board family number, not a universal interchangeable cabinet adapter. Wizard
+            of Wor documentation identifies <code>A084-90708-A961</code>; Gorf revisions are different. Verify assembly
+            suffix, connector pinout, power rails, and cabinet harness before swapping boards.
           </div>
         </section>
 
         <section class="card" id="board-architecture">
           <h2>Board architecture and signal jobs</h2>
-          <p>The 90708 board is best understood as the system's <strong>cabinet-facing translator</strong>. It does not replace the CPU board or RAM board; it makes the shared card-rack electronics behave like a specific arcade machine.</p>
 
           <div class="two-col">
             <div class="mini">
               <h3>Cabinet I/O bridge</h3>
-              <p>Routes coin door triggers, start buttons, player controls, test/service lines, cabinet wiring, and board-level status signals between the external harness and the internal card rack.</p>
+              <p>Routes coin door triggers, start buttons, player controls, test/service lines, cabinet wiring, and
+                board-level status signals between the external harness and the internal card rack.</p>
             </div>
             <div class="mini">
               <h3>Option switch host</h3>
-              <p>The Wizard of Wor option switch bank is physically located on the game P.C.B. in the commercial card rack, so rule settings and coin pricing terminate at this board.</p>
+              <p>Option switch bank is physically located on the game P.C.B. in the commercial card
+                rack, so rule settings and coin pricing terminate at this board.</p>
             </div>
             <div class="mini">
               <h3>Custom I/O support</h3>
-              <p>The board includes custom I/O sockets and glue logic for scanned switch matrices, potentiometer input handling, audio data loading, and game-specific interface behavior.</p>
+              <p>The board includes custom I/O sockets and glue logic for scanned switch matrices, potentiometer input
+                handling, audio data loading, and game-specific interface behavior.</p>
             </div>
             <div class="mini">
               <h3>Audio and speech routing</h3>
-              <p>Wizard of Wor's speech and player-sound routing differs from simpler card-rack titles. The game board participates in the signal path before audio reaches the remote volume controls and amplifier/speaker wiring.</p>
+              <p>Speech and player-sound routing differs from simpler card-rack titles. The game board
+                participates in the signal path before audio reaches the remote volume controls and amplifier/speaker
+                wiring.</p>
             </div>
           </div>
 
-          <h3>Primary components called out on the Wizard of Wor 90708 layout</h3>
+          <h3>Primary components</h3>
           <div class="table-wrap">
             <table class="pcb-component-table">
               <thead>
@@ -162,22 +124,86 @@
                 </tr>
               </thead>
               <tbody>
-                <tr><td>U1, U2, U3, U8</td><td>14539</td><td>Custom/interface support logic listed on the component layout.</td></tr>
-                <tr><td>U4</td><td>LM358</td><td>Dual op-amp used in analog conditioning paths.</td></tr>
-                <tr><td>U5</td><td>74LS153</td><td>Dual 4-input multiplexer.</td></tr>
-                <tr><td>U6</td><td>14099</td><td>Addressable latch.</td></tr>
-                <tr><td>U9</td><td>74LS174</td><td>Hex D flip-flop.</td></tr>
-                <tr><td>U10</td><td>74LS86</td><td>Quad XOR gate.</td></tr>
-                <tr><td>U11, U12, U18, U19</td><td>74LS164</td><td>Serial-in / parallel-out shift registers.</td></tr>
-                <tr><td>U13</td><td>74LS30</td><td>8-input NAND gate.</td></tr>
-                <tr><td>U14, U17, U22</td><td>74LS74</td><td>Dual D flip-flops.</td></tr>
-                <tr><td>U15, U16</td><td>74LS161</td><td>4-bit binary counters.</td></tr>
-                <tr><td>U20</td><td>74LS257</td><td>Quad 2-line selector/multiplexer.</td></tr>
-                <tr><td>U21, U23</td><td>74LS04</td><td>Hex inverters.</td></tr>
-                <tr><td>U24</td><td>74LS367</td><td>Tri-state buffer.</td></tr>
-                <tr><td>Q5, Q6, Q7</td><td>TIP110</td><td>Power transistor drivers.</td></tr>
-                <tr><td>X1</td><td>SC-01</td><td>Speech synthesizer position for Wizard of Wor voice output.</td></tr>
-                <tr><td>X2, X3</td><td>Custom I/O</td><td>Socketed custom I/O positions on the game board.</td></tr>
+                <tr>
+                  <td>U1, U2, U3, U8</td>
+                  <td>14539</td>
+                  <td>Custom/interface support logic listed on the component layout.</td>
+                </tr>
+                <tr>
+                  <td>U4</td>
+                  <td>LM358</td>
+                  <td>Dual op-amp used in analog conditioning paths.</td>
+                </tr>
+                <tr>
+                  <td>U5</td>
+                  <td>74LS153</td>
+                  <td>Dual 4-input multiplexer.</td>
+                </tr>
+                <tr>
+                  <td>U6</td>
+                  <td>14099</td>
+                  <td>Addressable latch.</td>
+                </tr>
+                <tr>
+                  <td>U9</td>
+                  <td>74LS174</td>
+                  <td>Hex D flip-flop.</td>
+                </tr>
+                <tr>
+                  <td>U10</td>
+                  <td>74LS86</td>
+                  <td>Quad XOR gate.</td>
+                </tr>
+                <tr>
+                  <td>U11, U12, U18, U19</td>
+                  <td>74LS164</td>
+                  <td>Serial-in / parallel-out shift registers.</td>
+                </tr>
+                <tr>
+                  <td>U13</td>
+                  <td>74LS30</td>
+                  <td>8-input NAND gate.</td>
+                </tr>
+                <tr>
+                  <td>U14, U17, U22</td>
+                  <td>74LS74</td>
+                  <td>Dual D flip-flops.</td>
+                </tr>
+                <tr>
+                  <td>U15, U16</td>
+                  <td>74LS161</td>
+                  <td>4-bit binary counters.</td>
+                </tr>
+                <tr>
+                  <td>U20</td>
+                  <td>74LS257</td>
+                  <td>Quad 2-line selector/multiplexer.</td>
+                </tr>
+                <tr>
+                  <td>U21, U23</td>
+                  <td>74LS04</td>
+                  <td>Hex inverters.</td>
+                </tr>
+                <tr>
+                  <td>U24</td>
+                  <td>74LS367</td>
+                  <td>Tri-state buffer.</td>
+                </tr>
+                <tr>
+                  <td>Q5, Q6, Q7</td>
+                  <td>TIP110</td>
+                  <td>Power transistor drivers.</td>
+                </tr>
+                <tr>
+                  <td>X1</td>
+                  <td>SC-01</td>
+                  <td>Speech synthesizer</td>
+                </tr>
+                <tr>
+                  <td>X2, X3</td>
+                  <td>Custom I/O</td>
+                  <td>Socketed custom I/O positions on the game board.</td>
+                </tr>
               </tbody>
             </table>
           </div>
@@ -185,18 +211,22 @@
 
         <section class="card" id="schematics">
           <h2>Board schematics and manual plates</h2>
-          <p>The two most important 90708 pages are the component layout and the full hardware schematic. Both are shown below using the same click-to-open full-size pan view used elsewhere in the Field Guide.</p>
+          <p>The two most important 90708 pages are the component layout and the full hardware schematic. Both are shown
+            below using the same click-to-open full-size pan view used elsewhere in the Field Guide.</p>
 
           <div class="pcb-schematic-pair">
-            
+
             <figure class="guide-figure pcb-figure" id="fig-layout">
-              <a class="guide-image-link" href="#lightbox-layout" aria-label="Open 90708 Game Board component layout full size">
-                <img src="images/wow-schematic-146.png" alt="90708 Game Board component layout">
+              <a class="guide-image-link" href="#lightbox-layout"
+                aria-label="Open 90708 Game Board component layout full size">
+                <img src="../images/wow-schematic-146.png" alt="90708 Game Board component layout">
               </a>
-              <figcaption>Manual plate: Wizard of Wor Game Board component layout, assembly A084-90708-A961.</figcaption>
+              <figcaption>Manual plate: Game Board component layout, assembly A084-90708-A961.
+              </figcaption>
             </figure>
 
-            <div class="image-lightbox" id="lightbox-layout" role="dialog" aria-label="90708 Game Board component layout full-size view">
+            <div class="image-lightbox" id="lightbox-layout" role="dialog"
+              aria-label="90708 Game Board component layout full-size view">
               <a class="image-lightbox__backdrop" href="#fig-layout" aria-label="Close full-size image"></a>
               <div class="image-lightbox__panel">
                 <a class="image-lightbox__close" href="#fig-layout" aria-label="Close full-size image">×</a>
@@ -205,15 +235,17 @@
                 </div>
               </div>
             </div>
-            
+
             <figure class="guide-figure pcb-figure" id="fig-schematic">
-              <a class="guide-image-link" href="#lightbox-schematic" aria-label="Open 90708 Game Board schematic full size">
+              <a class="guide-image-link" href="#lightbox-schematic"
+                aria-label="Open 90708 Game Board schematic full size">
                 <img src="../images/wow-schematic-147.png" alt="90708 Game Board schematic">
               </a>
-              <figcaption>Manual plate: full hardware schematic for the Wizard of Wor 90708 Game Board.</figcaption>
+              <figcaption>Manual plate: full hardware schematic for 90708 Game Board.</figcaption>
             </figure>
 
-            <div class="image-lightbox" id="lightbox-schematic" role="dialog" aria-label="90708 Game Board schematic full-size view">
+            <div class="image-lightbox" id="lightbox-schematic" role="dialog"
+              aria-label="90708 Game Board schematic full-size view">
               <a class="image-lightbox__backdrop" href="#fig-schematic" aria-label="Close full-size image"></a>
               <div class="image-lightbox__panel">
                 <a class="image-lightbox__close" href="#fig-schematic" aria-label="Close full-size image">×</a>
@@ -225,34 +257,41 @@
           </div>
 
           <h3>Supporting manual pages</h3>
-          <p>These supporting pages document the option switch bank, back-panel pin names, custom chip pinouts, custom chip functional descriptions, and the Wizard of Wor six-card Z80 service-bulletin summary.</p>
+          <p>These supporting pages document the option switch bank, back-panel pin names, custom chip pinouts, custom
+            chip functional descriptions, and the Wizard of Wor six-card Z80 service-bulletin summary.</p>
           <div class="pcb-support-grid">
-            
+
             <figure class="guide-figure pcb-figure" id="fig-dip">
-              <a class="guide-image-link" href="#lightbox-dip" aria-label="Open Wizard of Wor option switch settings full size">
+              <a class="guide-image-link" href="#lightbox-dip"
+                aria-label="Open Wizard of Wor option switch settings full size">
                 <img src="images/wow-schematic-020.png" alt="Wizard of Wor option switch settings">
               </a>
-              <figcaption>Figure 9: option switch settings mounted on the game P.C.B. in the commercial card rack.</figcaption>
+              <figcaption>Figure 9: option switch settings mounted on the game P.C.B. in the commercial card rack.
+              </figcaption>
             </figure>
 
-            <div class="image-lightbox" id="lightbox-dip" role="dialog" aria-label="Wizard of Wor option switch settings full-size view">
+            <div class="image-lightbox" id="lightbox-dip" role="dialog"
+              aria-label="Wizard of Wor option switch settings full-size view">
               <a class="image-lightbox__backdrop" href="#fig-dip" aria-label="Close full-size image"></a>
               <div class="image-lightbox__panel">
                 <a class="image-lightbox__close" href="#fig-dip" aria-label="Close full-size image">×</a>
-                <div class="image-lightbox__scroller" tabindex="0" aria-label="Pan Wizard of Wor option switch settings">
+                <div class="image-lightbox__scroller" tabindex="0"
+                  aria-label="Pan Wizard of Wor option switch settings">
                   <img src="images/wow-schematic-020.png" alt="Wizard of Wor option switch settings, full size">
                 </div>
               </div>
             </div>
 
             <figure class="guide-figure pcb-figure" id="fig-backpanel">
-              <a class="guide-image-link" href="#lightbox-backpanel" aria-label="Open Back panel board pin table full size">
+              <a class="guide-image-link" href="#lightbox-backpanel"
+                aria-label="Open Back panel board pin table full size">
                 <img src="images/wow-schematic-102.png" alt="Back panel board pin table">
               </a>
               <figcaption>Back panel board PC A082-93006 C/D000 pin designations and descriptions.</figcaption>
             </figure>
 
-            <div class="image-lightbox" id="lightbox-backpanel" role="dialog" aria-label="Back panel board pin table full-size view">
+            <div class="image-lightbox" id="lightbox-backpanel" role="dialog"
+              aria-label="Back panel board pin table full-size view">
               <a class="image-lightbox__backdrop" href="#fig-backpanel" aria-label="Close full-size image"></a>
               <div class="image-lightbox__panel">
                 <a class="image-lightbox__close" href="#fig-backpanel" aria-label="Close full-size image">×</a>
@@ -263,30 +302,36 @@
             </div>
 
             <figure class="guide-figure pcb-figure" id="fig-customchips">
-              <a class="guide-image-link" href="#lightbox-customchips" aria-label="Open Custom I/O, address, and data chip pinouts full size">
+              <a class="guide-image-link" href="#lightbox-customchips"
+                aria-label="Open Custom I/O, address, and data chip pinouts full size">
                 <img src="images/wow-schematic-103.png" alt="Custom I/O, address, and data chip pinouts">
               </a>
               <figcaption>Custom I/O, Custom Address, and Custom Data chip package pinouts.</figcaption>
             </figure>
 
-            <div class="image-lightbox" id="lightbox-customchips" role="dialog" aria-label="Custom I/O, address, and data chip pinouts full-size view">
+            <div class="image-lightbox" id="lightbox-customchips" role="dialog"
+              aria-label="Custom I/O, address, and data chip pinouts full-size view">
               <a class="image-lightbox__backdrop" href="#fig-customchips" aria-label="Close full-size image"></a>
               <div class="image-lightbox__panel">
                 <a class="image-lightbox__close" href="#fig-customchips" aria-label="Close full-size image">×</a>
-                <div class="image-lightbox__scroller" tabindex="0" aria-label="Pan Custom I/O, address, and data chip pinouts">
+                <div class="image-lightbox__scroller" tabindex="0"
+                  aria-label="Pan Custom I/O, address, and data chip pinouts">
                   <img src="images/wow-schematic-103.png" alt="Custom I/O, address, and data chip pinouts, full size">
                 </div>
               </div>
             </div>
 
             <figure class="guide-figure pcb-figure" id="fig-ioaddress">
-              <a class="guide-image-link" href="#lightbox-ioaddress" aria-label="Open I/O and address chip descriptions full size">
+              <a class="guide-image-link" href="#lightbox-ioaddress"
+                aria-label="Open I/O and address chip descriptions full size">
                 <img src="images/wow-schematic-104.png" alt="I/O and address chip descriptions">
               </a>
-              <figcaption>Manual text describing the I/O chip, switch matrix, pots, music processor loading, and scan address generation.</figcaption>
+              <figcaption>Manual text describing the I/O chip, switch matrix, pots, music processor loading, and scan
+                address generation.</figcaption>
             </figure>
 
-            <div class="image-lightbox" id="lightbox-ioaddress" role="dialog" aria-label="I/O and address chip descriptions full-size view">
+            <div class="image-lightbox" id="lightbox-ioaddress" role="dialog"
+              aria-label="I/O and address chip descriptions full-size view">
               <a class="image-lightbox__backdrop" href="#fig-ioaddress" aria-label="Close full-size image"></a>
               <div class="image-lightbox__panel">
                 <a class="image-lightbox__close" href="#fig-ioaddress" aria-label="Close full-size image">×</a>
@@ -300,10 +345,12 @@
               <a class="guide-image-link" href="#lightbox-datachip" aria-label="Open Data chip description full size">
                 <img src="images/wow-schematic-105.png" alt="Data chip description">
               </a>
-              <figcaption>Manual text describing sync generation, video data shifting, clocks, microcycle generation, and Magic function writes.</figcaption>
+              <figcaption>Manual text describing sync generation, video data shifting, clocks, microcycle generation,
+                and Magic function writes.</figcaption>
             </figure>
 
-            <div class="image-lightbox" id="lightbox-datachip" role="dialog" aria-label="Data chip description full-size view">
+            <div class="image-lightbox" id="lightbox-datachip" role="dialog"
+              aria-label="Data chip description full-size view">
               <a class="image-lightbox__backdrop" href="#fig-datachip" aria-label="Close full-size image"></a>
               <div class="image-lightbox__panel">
                 <a class="image-lightbox__close" href="#fig-datachip" aria-label="Close full-size image">×</a>
@@ -314,13 +361,16 @@
             </div>
 
             <figure class="guide-figure pcb-figure" id="fig-bulletin">
-              <a class="guide-image-link" href="#lightbox-bulletin" aria-label="Open Six-card Z80 service bulletin full size">
+              <a class="guide-image-link" href="#lightbox-bulletin"
+                aria-label="Open Six-card Z80 service bulletin full size">
                 <img src="images/wow-schematic-107.png" alt="Six-card Z80 service bulletin">
               </a>
-              <figcaption>Service bulletin identifying the Wizard of Wor six-card Z80 card-rack system and board assembly numbers.</figcaption>
+              <figcaption>Service bulletin identifying the Wizard of Wor six-card Z80 card-rack system and board
+                assembly numbers.</figcaption>
             </figure>
 
-            <div class="image-lightbox" id="lightbox-bulletin" role="dialog" aria-label="Six-card Z80 service bulletin full-size view">
+            <div class="image-lightbox" id="lightbox-bulletin" role="dialog"
+              aria-label="Six-card Z80 service bulletin full-size view">
               <a class="image-lightbox__backdrop" href="#fig-bulletin" aria-label="Close full-size image"></a>
               <div class="image-lightbox__panel">
                 <a class="image-lightbox__close" href="#fig-bulletin" aria-label="Close full-size image">×</a>
@@ -334,36 +384,48 @@
 
         <section class="card" id="custom-chips">
           <h2>Custom chips and data flow</h2>
-          <p>The 90708 board works with the same Astrocade custom-chip ecosystem described in the machine-model chapter, but its cabinet-facing custom I/O role is especially important for troubleshooting.</p>
+          <p>The 90708 board works with the same Astrocade custom-chip ecosystem described in the machine-model chapter,
+            but its cabinet-facing custom I/O role is especially important for troubleshooting.</p>
 
           <div class="two-col">
             <div class="mini">
               <h3>I/O custom chip</h3>
-              <p>The Z80 communicates with the I/O chip through input and output instructions. Switches are read as an 8×8 matrix: one of the <code>SO0-SO7</code> scan lines is activated, and the switch matrix returns eight data bits through <code>SI0-SI7</code>, then back to the Z80 through <code>MUXD0-MUXD7</code>.</p>
+              <p>The Z80 communicates with the I/O chip through input and output instructions. Switches are read as an
+                8×8 matrix: one of the <code>SO0-SO7</code> scan lines is activated, and the switch matrix returns eight
+                data bits through <code>SI0-SI7</code>, then back to the Z80 through <code>MUXD0-MUXD7</code>.</p>
             </div>
             <div class="mini">
               <h3>Pot and music paths</h3>
-              <p>The Z80 can read four potentiometer positions through the A-D converter. It also loads data into the music processor through output instructions; that data determines the generated audio characteristics.</p>
+              <p>The Z80 can read four potentiometer positions through the A-D converter. It also loads data into the
+                music processor through output instructions; that data determines the generated audio characteristics.
+              </p>
             </div>
             <div class="mini">
               <h3>Address custom chip</h3>
-              <p>The Microcycle Decoder generates twelve bits of Z80 address from the 8-bit Microcycle Data Bus. Scan-address logic arbitrates RAM access with the Z80 and can force the Z80 to wait for no more than one cycle.</p>
+              <p>The Microcycle Decoder generates twelve bits of Z80 address from the 8-bit Microcycle Data Bus.
+                Scan-address logic arbitrates RAM access with the Z80 and can force the Z80 to wait for no more than one
+                cycle.</p>
             </div>
             <div class="mini">
               <h3>Data custom chip</h3>
-              <p>The TV sync generator, shift register, microcycle generator, and Magic Function Generator all meet here. During memory write cycles, Magic can modify data before it is placed on the memory data bus.</p>
+              <p>The TV sync generator, shift register, microcycle generator, and Magic Function Generator all meet
+                here. During memory write cycles, Magic can modify data before it is placed on the memory data bus.</p>
             </div>
           </div>
 
           <div class="callout cyan">
             <b>Debugging translation</b>
-            Input problems are not just a joystick problem. On this platform they can involve cabinet switches, scan lines, return bits, custom I/O sockets, pullups, edge connector continuity, and the board revision's harness mapping.
+            Input problems are not just a joystick problem. On this platform they can involve cabinet switches, scan
+            lines, return bits, custom I/O sockets, pullups, edge connector continuity, and the board revision's harness
+            mapping.
           </div>
         </section>
 
         <section class="card" id="option-switches">
           <h2>Option switch configuration</h2>
-          <p>The Wizard of Wor 8-position DIP switch bank is located on the game P.C.B. in the commercial card rack. Changing selection switches during diagnostics produces a continuous test tone through the speaker system, which is useful when confirming that the board sees a switch transition.</p>
+          <p>The Wizard of Wor 8-position DIP switch bank is located on the game P.C.B. in the commercial card rack.
+            Changing selection switches during diagnostics produces a continuous test tone through the speaker system,
+            which is useful when confirming that the board sees a switch transition.</p>
 
           <div class="table-wrap">
             <table>
@@ -385,7 +447,8 @@
                 <tr>
                   <td class="addr">SW #2 + SW #3</td>
                   <td>Right coin slot matrix</td>
-                  <td colspan="2">OFF/OFF: 1 coin / 1 credit · ON/OFF: 2 coins / 1 credit · OFF/ON: 1 coin / 3 credits · ON/ON: 1 coin / 5 credits</td>
+                  <td colspan="2">OFF/OFF: 1 coin / 1 credit · ON/OFF: 2 coins / 1 credit · OFF/ON: 1 coin / 3 credits ·
+                    ON/ON: 1 coin / 5 credits</td>
                 </tr>
                 <tr>
                   <td class="addr">SW #4</td>
@@ -423,22 +486,30 @@
 
           <div class="callout gold">
             <b>Coin-meter special note</b>
-            When SW #1, SW #2, and SW #3 are all OFF or all ON, only coin meter number 1 counts. Other combinations split coin counting between coin acceptor 1 and coin acceptor 2.
+            When SW #1, SW #2, and SW #3 are all OFF or all ON, only coin meter number 1 counts. Other combinations
+            split coin counting between coin acceptor 1 and coin acceptor 2.
           </div>
         </section>
 
         <section class="card" id="diagnostics">
           <h2>Diagnostic and maintenance notes</h2>
-          <p>For bench work, the 90708 should be treated as both a logic board and a cabinet-interface board. A black screen may be a failed memory-board/ROM/RAM check, but bad inputs, stuck switch-matrix lines, or harness shorts can also put the board into diagnostic behavior.</p>
+          <p>For bench work, the 90708 should be treated as both a logic board and a cabinet-interface board. A black
+            screen may be a failed memory-board/ROM/RAM check, but bad inputs, stuck switch-matrix lines, or harness
+            shorts can also put the board into diagnostic behavior.</p>
 
           <ul class="pcb-note-list">
-            <li><b>Watchdog loop / black screen:</b> The platform performs RAM/ROM validation on boot. If RAM on a 91356 card or ROM on the memory board fails, the program can halt almost immediately.</li>
-            <li><b>16-second flash:</b> On a healthy test-bench loop, the screen can flash roughly every 16 seconds while cycling through continuous validation code.</li>
-            <li><b>Switch-change tone:</b> Moving option switches during diagnostics should trigger a continuous tone. If the tone is present without input, look for a stuck switch, shorted input line, or grounded contact path.</li>
+            <li><b>Watchdog loop / black screen:</b> The platform performs RAM/ROM validation on boot. If RAM on a 91356
+              card or ROM on the memory board fails, the program can halt almost immediately.</li>
+            <li><b>16-second flash:</b> On a healthy test-bench loop, the screen can flash roughly every 16 seconds
+              while cycling through continuous validation code.</li>
+            <li><b>Switch-change tone:</b> Moving option switches during diagnostics should trigger a continuous tone.
+              If the tone is present without input, look for a stuck switch, shorted input line, or grounded contact
+              path.</li>
           </ul>
 
           <h3>Joystick MOVE/DIR traversal</h3>
-          <p>Wizard of Wor's player controls use a two-stage blade setup so the player can aim without moving. For input diagnosis, keep the distinction between direction and movement clear.</p>
+          <p>Wizard of Wor's player controls use a two-stage blade setup so the player can aim without moving. For input
+            diagnosis, keep the distinction between direction and movement clear.</p>
           <div class="table-wrap">
             <table>
               <thead>
@@ -469,42 +540,33 @@
           </div>
 
           <h3>Crosshatch monitor calibration</h3>
-          <p>To reach the crosshatch path through the 90708 logic, switch the master diagnostic switch under the counter assembly inside the coin door to ON, then press <strong>1 Player Start</strong> and <strong>2 Player Start</strong> together. The board should replace the normal alphanumeric system check with a crosshatch grid for monitor alignment.</p>
+          <p>To reach the crosshatch path through the 90708 logic, switch the master diagnostic switch under the counter
+            assembly inside the coin door to ON, then press <strong>1 Player Start</strong> and <strong>2 Player
+              Start</strong> together. The board should replace the normal alphanumeric system check with a crosshatch
+            grid for monitor alignment.</p>
 
           <h3>Volume controls</h3>
-          <p>The game board participates in the audio/speech path, but the physical Wizard of Wor volume adjustments are not on the card cage. The remote three-pot board is mounted behind the coin box: left pot for the Wizard voice, center pot for left-player sounds, and right pot for right-player sounds.</p>
+          <p>The game board participates in the audio/speech path, but the physical Wizard of Wor volume adjustments are
+            not on the card cage. The remote three-pot board is mounted behind the coin box: left pot for the Wizard
+            voice, center pot for left-player sounds, and right pot for right-player sounds.</p>
         </section>
 
         <section class="card" id="mame-context">
           <h2>MAME driver context</h2>
-          <p>MAME groups Wizard of Wor, Gorf, Space Zap, Robby Roto, and related Astrocade arcade hardware under the <code>astrocde.cpp</code> driver family. That driver is useful because it encodes the shared memory/I/O model while still preserving game-specific behavior.</p>
+          <p>MAME groups Wizard of Wor, Gorf, Space Zap, Robby Roto, and related Astrocade arcade hardware under the
+            <code>astrocde.cpp</code> driver family. That driver is useful because it encodes the shared memory/I/O
+            model while still preserving game-specific behavior.</p>
 
           <div class="two-col">
             <div class="mini">
               <h3>Shared architecture</h3>
-              <p>The common driver model reflects the shared low-ROM/Magic-write window, video RAM conventions, custom port behavior, and card-rack family resemblance.</p>
+              <p>The common driver model reflects the shared low-ROM/Magic-write window, video RAM conventions, custom
+                port behavior, and card-rack family resemblance.</p>
             </div>
             <div class="mini">
               <h3>Game-board differences</h3>
-              <p>Do not flatten the family into one board. Wizard of Wor has unique speech and multi-speaker behavior; Space Zap is simpler and uses 90706; Gorf uses its own game-specific board assembly behavior.</p>
-            </div>
-          </div>
-        </section>
-
-        <section class="card" id="source-notes">
-          <h2>Source notes</h2>
-          <div class="source-list">
-            <div class="source">
-              <b>Wizard of Wor manual pages</b>
-              <span>Used for the option switch table, card-rack board list, diagnostics notes, custom chip descriptions, component layout, and full 90708 schematic.</span>
-            </div>
-            <div class="source">
-              <b>90708 component layout and schematic</b>
-              <span>The board is labeled as the Wizard of Wor Game Board, assembly <code>A084-90708-A961</code>. The layout marks <code>X1</code>, <code>X2</code>, and <code>X3</code> as socketed positions.</span>
-            </div>
-            <div class="source">
-              <b>MAME <code>astrocde.cpp</code></b>
-              <span>Useful executable reference for comparing board-family memory maps, custom I/O behavior, and game-specific hardware paths against the physical schematics.</span>
+              <p>Do not flatten the family into one board. Wizard of Wor has unique speech and multi-speaker behavior;
+                Space Zap is simpler and uses 90706; Gorf uses its own game-specific board assembly behavior.</p>
             </div>
           </div>
         </section>

@@ -68,6 +68,36 @@
           <h2>Baseline machine</h2>
           <p>The Astrocade arcade model is a Z80-based board set built around the Bally/Midway Astrocade custom
             video/sound hardware designed by DNA.</p>
+
+          <h3>Interlocking "L-Shape" Stack</h3>
+          <p><code>Seawolf II</code> <code>Extra Bases</code> are earlier Astrocade games (1978–1980)
+            and utilize a physical layout that predates the standardized card rack cage. They used an interlocking
+            horizontal/vertical stack. It features a large horizontal Motherboard <code>90002</code> mounted flat inside
+            the
+            cabinet. A secondary Logic Board <code>90700</code> connects to it at a rigid 90-degree angle, supported
+            structurally
+            by heavy metal or aluminum braces. A smaller "Characterization Card" daughterboard then plugs directly
+            into a specialized socket on the assembly.</p>
+
+          <h3>Card-Rack Cage</h3>
+          <p><code>Wizard of Wor</code> <code>Gorf</code> <code>Robby Roto</code> <code>Space Zap</code> used the Bally
+            Card-Rack system. Inside the bottom of the cabinet sits a metal enclosure (cage) containing a
+            backplane motherboard. The individual, rectangular boards (<code>91354</code> CPU, <code>91355</code>
+            Pattern, <code>91356</code> RAM, etc.) slide
+            vertically into card guides inside the cage and press into edge connectors on the backplane, looking very
+            much like an industrial computer rack.</p>
+
+          <h3>Traditional PCB Stack</h3>
+          <p><code>Professor Pac-Man</code> <code>Ten Pin Deluxe</code> games completely abandoned the card rack
+            enclosure. They represent a much later (1983/1984) hardware revision called the Midway 16-Color System.
+            Instead of sliding into a cage, the <code>91465</code> CPU card, the <code>91466</code> Screen RAM board,
+            and the massive 91846 EPROM
+            board are physically stacked horizontally on top of each other using nylon spacers/standoffs, connected
+            together via multi-pin ribbon cables and pin-header interconnects.</p>
+
+          <p>Our guide focuses on <code>Wizard of Wor</code> <code>Gorf</code> <code>Robby Roto</code> so we will
+            continue with the Card-Rack details</p>
+
           <figure class="guide-figure">
             <a class="guide-image-link" href="#card-rack-full" aria-label="Open card rack diagram full size">
               <img src="images/card-rack.png" alt="Commercial card rack assembly diagram">
@@ -135,32 +165,27 @@
           <p>The arcade card-rack games use a closely related board set. The CPU, Pattern, and RAM boards are common
             across the games below; each title then adds or swaps game-specific, ROM/RAM, or memory boards.</p>
 
-          <div class="callout cyan pcb-callout">
-            <b>Pattern to notice</b>
-            <a class="pcb-board-link" href="pcbs/91354.html"><code>91354</code></a>, <a class="pcb-board-link" href="pcbs/91355.html"><code>91355</code></a>, and <a class="pcb-board-link" href="pcbs/91356.html"><code>91356</code></a> appear across this group. Wizard of Wor,
-            Gorf, and Robby Roto also share <a class="pcb-board-link" href="pcbs/90708.html"><code>90708</code></a> as the game board, while Space Zap uses
-            <a class="pcb-board-link" href="pcbs/90706.html"><code>90706</code></a>.
-          </div>
-
           <div class="pcb-game-grid" aria-label="Card-rack PCB lists by game">
             <article class="pcb-game">
               <h3>Space Zap</h3>
               <ul class="pcb-board-list">
-                <li><a class="pcb-board-link" href="pcbs/90706.html"><code>90706</code></a><span>Space Zap Game Board</span></li>
+                <li><a class="pcb-board-link" href="pcbs/90708.html"><code>90708</code></a><span>Game Board</span></li>
                 <li><a class="pcb-board-link" href="pcbs/91354.html"><code>91354</code></a><span>CPU Board</span></li>
-                <li><a class="pcb-board-link" href="pcbs/91355.html"><code>91355</code></a><span>Pattern Board</span></li>
+                <li><a class="pcb-board-link" href="pcbs/91355.html"><code>91355</code></a><span>Pattern Board</span>
+                </li>
                 <li><a class="pcb-board-link" href="pcbs/91356.html"><code>91356</code></a><span>RAM Board</span></li>
               </ul>
             </article>
 
-            <article class="pcb-game highlight">
+            <article class="pcb-game">
               <h3>Wizard of Wor</h3>
               <ul class="pcb-board-list">
                 <li><a class="pcb-board-link" href="pcbs/90708.html"><code>90708</code></a><span>Game Board</span></li>
                 <li><a class="pcb-board-link" href="pcbs/91354.html"><code>91354</code></a><span>CPU Board</span></li>
-                <li><a class="pcb-board-link" href="pcbs/91355.html"><code>91355</code></a><span>Pattern Transfer Board</span></li>
+                <li><a class="pcb-board-link" href="pcbs/91355.html"><code>91355</code></a><span>Pattern Board</span></li>
                 <li><a class="pcb-board-link" href="pcbs/91356.html"><code>91356</code></a><span>RAM Board</span></li>
-                <li><a class="pcb-board-link" href="pcbs/91397.html"><code>91397</code></a><span>Memory Board</span></li>
+                <li><a class="pcb-board-link" href="pcbs/91397.html"><code>91397</code></a><span>Memory Board</span>
+                </li>
               </ul>
             </article>
 
@@ -169,9 +194,11 @@
               <ul class="pcb-board-list">
                 <li><a class="pcb-board-link" href="pcbs/90708.html"><code>90708</code></a><span>Game Board</span></li>
                 <li><a class="pcb-board-link" href="pcbs/91354.html"><code>91354</code></a><span>CPU Board</span></li>
-                <li><a class="pcb-board-link" href="pcbs/91355.html"><code>91355</code></a><span>Pattern Board</span></li>
+                <li><a class="pcb-board-link" href="pcbs/91355.html"><code>91355</code></a><span>Pattern Board</span>
+                </li>
                 <li><a class="pcb-board-link" href="pcbs/91356.html"><code>91356</code></a><span>RAM Board</span></li>
-                <li><a class="pcb-board-link" href="pcbs/91364.html"><code>91364</code></a><span>ROM/RAM Board</span></li>
+                <li><a class="pcb-board-link" href="pcbs/91364.html"><code>91364</code></a><span>ROM/RAM Board</span>
+                </li>
               </ul>
             </article>
 
@@ -180,14 +207,16 @@
               <ul class="pcb-board-list">
                 <li><a class="pcb-board-link" href="pcbs/90708.html"><code>90708</code></a><span>Game Board</span></li>
                 <li><a class="pcb-board-link" href="pcbs/91354.html"><code>91354</code></a><span>CPU Board</span></li>
-                <li><a class="pcb-board-link" href="pcbs/91355.html"><code>91355</code></a><span>Pattern Board</span></li>
+                <li><a class="pcb-board-link" href="pcbs/91355.html"><code>91355</code></a><span>Pattern Board</span>
+                </li>
                 <li><a class="pcb-board-link" href="pcbs/91356.html"><code>91356</code></a><span>RAM Board</span></li>
-                <li><a class="pcb-board-link" href="pcbs/91423.html"><code>91423</code></a><span>Memory Board</span></li>
+                <li><a class="pcb-board-link" href="pcbs/91423.html"><code>91423</code></a><span>Memory Board</span>
+                </li>
               </ul>
             </article>
           </div>
 
-          <h3>Board cross-reference</h3>
+          <!-- <h3>Board cross-reference</h3>
           <div class="table-wrap">
             <table class="pcb-table">
               <colgroup>
@@ -204,48 +233,56 @@
               </thead>
               <tbody>
                 <tr>
-                  <td class="addr pcb-board-nowrap"><a class="pcb-board-code pcb-board-link" href="pcbs/90706.html">90706</a></td>
+                  <td class="addr pcb-board-nowrap"><a class="pcb-board-code pcb-board-link"
+                      href="pcbs/90708.html">90708</a></td>
                   <td>Space Zap Game Board</td>
                   <td>Space Zap</td>
                 </tr>
                 <tr>
-                  <td class="addr pcb-board-nowrap"><a class="pcb-board-code pcb-board-link" href="pcbs/90708.html">90708</a></td>
+                  <td class="addr pcb-board-nowrap"><a class="pcb-board-code pcb-board-link"
+                      href="pcbs/90708.html">90708</a></td>
                   <td>Game Board</td>
                   <td>Wizard of Wor, Gorf, Robby Roto</td>
                 </tr>
                 <tr>
-                  <td class="addr pcb-board-nowrap"><a class="pcb-board-code pcb-board-link" href="pcbs/91354.html">91354</a></td>
+                  <td class="addr pcb-board-nowrap"><a class="pcb-board-code pcb-board-link"
+                      href="pcbs/91354.html">91354</a></td>
                   <td>CPU Board</td>
                   <td>Space Zap, Wizard of Wor, Gorf, Robby Roto</td>
                 </tr>
                 <tr>
-                  <td class="addr pcb-board-nowrap"><a class="pcb-board-code pcb-board-link" href="pcbs/91355.html">91355</a></td>
+                  <td class="addr pcb-board-nowrap"><a class="pcb-board-code pcb-board-link"
+                      href="pcbs/91355.html">91355</a></td>
                   <td>Pattern Board / Pattern Transfer Board</td>
                   <td>Space Zap, Wizard of Wor, Gorf, Robby Roto</td>
                 </tr>
                 <tr>
-                  <td class="addr pcb-board-nowrap"><a class="pcb-board-code pcb-board-link" href="pcbs/91356.html">91356</a></td>
+                  <td class="addr pcb-board-nowrap"><a class="pcb-board-code pcb-board-link"
+                      href="pcbs/91356.html">91356</a></td>
                   <td>RAM Board</td>
                   <td>Space Zap, Wizard of Wor, Gorf, Robby Roto</td>
                 </tr>
                 <tr>
-                  <td class="addr pcb-board-nowrap"><a class="pcb-board-code pcb-board-link" href="pcbs/91364.html">91364</a></td>
+                  <td class="addr pcb-board-nowrap"><a class="pcb-board-code pcb-board-link"
+                      href="pcbs/91364.html">91364</a></td>
                   <td>ROM/RAM Board</td>
                   <td>Gorf</td>
                 </tr>
                 <tr>
-                  <td class="addr pcb-board-nowrap"><a class="pcb-board-code pcb-board-link" href="pcbs/91397.html">91397</a></td>
+                  <td class="addr pcb-board-nowrap"><a class="pcb-board-code pcb-board-link"
+                      href="pcbs/91397.html">91397</a></td>
                   <td>Memory Board</td>
                   <td>Wizard of Wor</td>
                 </tr>
                 <tr>
-                  <td class="addr pcb-board-nowrap"><a class="pcb-board-code pcb-board-link" href="pcbs/91423.html">91423</a></td>
+                  <td class="addr pcb-board-nowrap"><a class="pcb-board-code pcb-board-link"
+                      href="pcbs/91423.html">91423</a></td>
                   <td>Memory Board</td>
                   <td>Robby Roto</td>
                 </tr>
               </tbody>
             </table>
-          </div>
+          </div> -->
         </section>
 
         <section class="card" id="wow-map">
@@ -843,80 +880,80 @@ STACK_TOP           equ $E000</code></pre>
       }
     ];
 
-const spaceZapMemoryRegions = [
-  { 
-    start: 0xD000, 
-    end: 0xFFFF, 
-    title: 'Unmapped / Open Data Bus', 
-    subtitle: 'unallocated dead space', 
-    kind: 'unmapped', 
-    calloutTitle: 'Unmapped Upper Void', 
-    callout: 'The address rows from $D000 upward are structurally empty. Because Space Zap does not use secondary expansion ROM chips or upper memory banking, querying this region returns open bus data.', 
-    badges: ['12 KB', 'Open Bus', 'Void'], 
-    weight: 12, 
-    minHeight: 150 
-  },
-  { 
-    start: 0xC040, 
-    end: 0xCFFF, 
-    title: 'Ordinary work RAM', 
-    subtitle: 'runtime workspace · stack lives here', 
-    kind: 'workram', 
-    calloutTitle: 'Stack and scratch space', 
-    callout: 'Holds local player flags, alien tracking tables, explosion timers, and active input snapshots. Initializing the Stack Pointer (SP) to $D000 allows pushes to move safely down into this region.', 
-    badges: ['3.9 KB', 'SP @ $D000', 'scratchpad RAM'], 
-    weight: 4, 
-    minHeight: 150 
-  },
-  { 
-    start: 0xC000, 
-    end: 0xC03F, 
-    title: 'Protected RAM', 
-    subtitle: 'credits, coin latch, tiny protected state', 
-    kind: 'protected', 
-    calloutTitle: 'Only 64 bytes (Shifted Lower)', 
-    callout: 'Captures bookkeeping details, audits, and credit queues. Unlike WoW ($D000) or Gorf ($E000), Space Zap maps this block down to $C000. Writes remain locked out until a read toggle registers on port $A55B.', 
-    badges: ['64 B', 'write gated'], 
-    weight: 2.2, 
-    minHeight: 150 
-  },
-  { 
-    start: 0x8000, 
-    end: 0xBFFF, 
-    title: 'Unmapped Expansion Space', 
-    subtitle: 'unallocated open bus void', 
-    kind: 'unmapped', 
-    calloutTitle: 'The $8000 Mid-Bus Gap', 
-    callout: 'Unlike Wizard of Wor (which houses static ROM here) or Gorf (which uses a custom banking swap-board), Space Zap leaves this 16 KB expansion window entirely unmapped. Reads float on the physical motherboard lines.', 
-    badges: ['16 KB', 'Open Bus', 'Empty Block'], 
-    weight: 16, 
-    minHeight: 150 
-  },
-  { 
-    start: 0x4000, 
-    end: 0x7FFF, 
-    title: 'Video RAM', 
-    subtitle: 'framebuffer memory', 
-    kind: 'video', 
-    calloutTitle: 'Screen memory', 
-    callout: 'Holds the raw pixel matrix translated directly to the CRT monitor. Direct writes here physically paint the base visual components like the center outpost station and active projectiles.', 
-    badges: ['16 KB', 'VRAM'], 
-    weight: 16, 
-    minHeight: 142 
-  },
-  { 
-    start: 0x0000, 
-    end: 0x3FFF, 
-    title: 'Low ROM / Magic writes', 
-    subtitle: 'ROM reads · Magic function-generator writes', 
-    kind: 'magic-rom', 
-    calloutTitle: 'Split-personality region', 
-    callout: 'Reads fetch main game logic, instruction checks, and enemy spawning code from the base board ROM (Reset vector at $0000). Writes to this exact range are intercepted by the Astrocade hardware Blitter.', 
-    badges: ['16 KB', 'reset @ $0000', 'Magic write window'], 
-    weight: 16, 
-    minHeight: 154 
-  }
-];
+    const spaceZapMemoryRegions = [
+      {
+        start: 0xD000,
+        end: 0xFFFF,
+        title: 'Unmapped / Open Data Bus',
+        subtitle: 'unallocated dead space',
+        kind: 'unmapped',
+        calloutTitle: 'Unmapped Upper Void',
+        callout: 'The address rows from $D000 upward are structurally empty. Because Space Zap does not use secondary expansion ROM chips or upper memory banking, querying this region returns open bus data.',
+        badges: ['12 KB', 'Open Bus', 'Void'],
+        weight: 12,
+        minHeight: 150
+      },
+      {
+        start: 0xC040,
+        end: 0xCFFF,
+        title: 'Ordinary work RAM',
+        subtitle: 'runtime workspace · stack lives here',
+        kind: 'workram',
+        calloutTitle: 'Stack and scratch space',
+        callout: 'Holds local player flags, alien tracking tables, explosion timers, and active input snapshots. Initializing the Stack Pointer (SP) to $D000 allows pushes to move safely down into this region.',
+        badges: ['3.9 KB', 'SP @ $D000', 'scratchpad RAM'],
+        weight: 4,
+        minHeight: 150
+      },
+      {
+        start: 0xC000,
+        end: 0xC03F,
+        title: 'Protected RAM',
+        subtitle: 'credits, coin latch, tiny protected state',
+        kind: 'protected',
+        calloutTitle: 'Only 64 bytes (Shifted Lower)',
+        callout: 'Captures bookkeeping details, audits, and credit queues. Unlike WoW ($D000) or Gorf ($E000), Space Zap maps this block down to $C000. Writes remain locked out until a read toggle registers on port $A55B.',
+        badges: ['64 B', 'write gated'],
+        weight: 2.2,
+        minHeight: 150
+      },
+      {
+        start: 0x8000,
+        end: 0xBFFF,
+        title: 'Unmapped Expansion Space',
+        subtitle: 'unallocated open bus void',
+        kind: 'unmapped',
+        calloutTitle: 'The $8000 Mid-Bus Gap',
+        callout: 'Unlike Wizard of Wor (which houses static ROM here) or Gorf (which uses a custom banking swap-board), Space Zap leaves this 16 KB expansion window entirely unmapped. Reads float on the physical motherboard lines.',
+        badges: ['16 KB', 'Open Bus', 'Empty Block'],
+        weight: 16,
+        minHeight: 150
+      },
+      {
+        start: 0x4000,
+        end: 0x7FFF,
+        title: 'Video RAM',
+        subtitle: 'framebuffer memory',
+        kind: 'video',
+        calloutTitle: 'Screen memory',
+        callout: 'Holds the raw pixel matrix translated directly to the CRT monitor. Direct writes here physically paint the base visual components like the center outpost station and active projectiles.',
+        badges: ['16 KB', 'VRAM'],
+        weight: 16,
+        minHeight: 142
+      },
+      {
+        start: 0x0000,
+        end: 0x3FFF,
+        title: 'Low ROM / Magic writes',
+        subtitle: 'ROM reads · Magic function-generator writes',
+        kind: 'magic-rom',
+        calloutTitle: 'Split-personality region',
+        callout: 'Reads fetch main game logic, instruction checks, and enemy spawning code from the base board ROM (Reset vector at $0000). Writes to this exact range are intercepted by the Astrocade hardware Blitter.',
+        badges: ['16 KB', 'reset @ $0000', 'Magic write window'],
+        weight: 16,
+        minHeight: 154
+      }
+    ];
 
 
     const memoryMapDataBlocks = {
