@@ -2646,3 +2646,162 @@ header.hero .hero-title {
     white-space: normal;
   }
 }
+
+/* -------------------------------------------------------------------------
+   Shared hamburger TOC upgrades
+   - close button in panel header
+   - nested/sub item indentation via menu.js level/sub flags
+   - panel scrolls when TOC is taller than the viewport
+--------------------------------------------------------------------------- */
+nav.toc[data-menu-managed="true"] {
+  max-height: calc(100dvh - 20px);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-gutter: stable;
+  -webkit-overflow-scrolling: touch;
+}
+
+nav.toc .toc-panel-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  min-width: 0;
+  border-bottom: 1px solid var(--line);
+  background: rgba(17, 20, 28, .98);
+}
+
+nav.toc .toc-panel-head h2 {
+  flex: 1 1 auto;
+  min-width: 0;
+  border-bottom: 0;
+  margin: 0;
+}
+
+.toc-toggle ~ .wrap nav.toc[data-menu-managed="true"] {
+  height: 100dvh;
+  max-height: 100dvh;
+  overflow-y: auto;
+}
+
+.toc-toggle ~ .wrap nav.toc .toc-panel-head {
+  position: sticky;
+  top: 0;
+  z-index: 3;
+  backdrop-filter: blur(10px);
+}
+
+.toc-toggle ~ .wrap nav.toc .toc-panel-head h2 {
+  position: static;
+  top: auto;
+  z-index: auto;
+  border-bottom: 0;
+  background: transparent;
+  backdrop-filter: none;
+  padding: 14px 16px 12px;
+}
+
+.toc-close {
+  flex: 0 0 auto;
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  margin-right: 8px;
+  border: 1px solid rgba(255, 255, 255, .12);
+  border-radius: 999px;
+  background: rgba(0, 0, 0, .18);
+  color: var(--muted);
+  cursor: pointer;
+  user-select: none;
+  line-height: 1;
+}
+
+.toc-close:hover {
+  color: var(--cyan);
+  border-color: rgba(114, 216, 255, .35);
+  background: rgba(255, 255, 255, .06);
+}
+
+.toc-close-icon {
+  display: block;
+  transform: translateY(-1px);
+  font-family: var(--mono);
+  font-size: 1.35rem;
+  line-height: 1;
+}
+
+.toc-close-text {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+nav.toc a.toc-link {
+  padding-left: calc(14px + (var(--toc-level, 0) * 1.45rem));
+}
+
+.toc-toggle ~ .wrap nav.toc a.toc-link {
+  padding-left: calc(16px + (var(--toc-level, 0) * 1.45rem));
+}
+
+nav.toc a.toc-link-sub {
+  color: var(--dim);
+  font-size: .91rem;
+  padding-top: 9px;
+  padding-bottom: 9px;
+}
+
+.toc-toggle ~ .wrap nav.toc a.toc-link-sub {
+  font-size: .92rem;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+nav.toc a.toc-link-sub:hover {
+  color: var(--ink);
+}
+
+nav.toc a[aria-current="page"].toc-link {
+  padding-left: calc(11px + (var(--toc-level, 0) * 1.45rem));
+}
+
+.toc-toggle ~ .wrap nav.toc a[aria-current="page"].toc-link {
+  padding-left: calc(13px + (var(--toc-level, 0) * 1.45rem));
+}
+
+nav.toc .toc-separator {
+  height: 1px;
+  margin: 6px 0 6px calc(14px + (var(--toc-level, 0) * 1.45rem));
+  background: rgba(255, 255, 255, .075);
+}
+
+@media (max-width: 620px) {
+  .toc-close {
+    width: 34px;
+    height: 34px;
+    margin-right: 7px;
+  }
+
+  .toc-close-icon {
+    font-size: 1.25rem;
+  }
+
+  .toc-toggle ~ .wrap nav.toc .toc-panel-head h2 {
+    padding: 12px 14px 10px;
+  }
+
+  .toc-toggle ~ .wrap nav.toc a.toc-link {
+    padding-left: calc(14px + (var(--toc-level, 0) * 1.25rem));
+  }
+
+  .toc-toggle ~ .wrap nav.toc a[aria-current="page"].toc-link {
+    padding-left: calc(11px + (var(--toc-level, 0) * 1.25rem));
+  }
+}
