@@ -5,16 +5,10 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Astrocade Arcade Field Guide — Machine Model</title>
-  <link rel="stylesheet" href="field-guide.css?v=memory-range-line" />
+  <script src="js/loader.js"></script>
 </head>
 
 <body class="guide-chapter">
-  <input class="toc-toggle" id="toc-toggle" type="checkbox" aria-hidden="true" />
-  <label class="toc-button" for="toc-toggle" aria-label="Open or close chapter map">
-    <span class="toc-button-icon">☰</span>
-    <span class="toc-button-text">Chapter Map</span>
-  </label>
-  <label class="toc-backdrop" for="toc-toggle" aria-label="Close chapter map"></label>
 
   <div class="wrap">
     <header class="hero">
@@ -42,27 +36,8 @@
     </header>
 
     <main>
-      <nav class="toc" aria-label="Table of contents">
-        <h2>Field Guide TOC</h2>
-        <a href="index.html">Intro</a>
-        <a href="machine-model.html">Chapter 01: Machine Model</a>
-        <a href="io-map.html">Chapter 02: I/O Map</a>
-        <a href="video-system.html">Chapter 03: Video System</a>
-        <a href="inputs-dip-switches.html">Chapter 04: Inputs and DIP Switches</a>
-        <a href="sound.html">Chapter 05: Sound</a>
-        <a href="pattern-board.html">Chapter 06: Pattern Board</a>
-      </nav>
 
       <div class="content">
-        <!-- <section class="card" id="why">
-          <p>The Astrocade arcade family is not hard because it uses a Z80. It is hard because the same address range can mean different things depending on whether the CPU is <strong>reading</strong> or <strong>writing</strong>.</p>
-          <p>For Wizard of Wor, MAME maps <code>$0000-$3FFF</code> as ROM for reads, but also maps writes to that same range into the Astrocade function generator, usually called <strong>Magic memory</strong>. That means code can execute from low ROM while writes to low addresses are treated as drawing operations into video RAM.</p>
-          <div class="callout">
-            <b>The big idea</b>
-            Read from <code>$0000-$3FFF</code> and you are fetching ROM bytes. Write to <code>$0000-$3FFF</code> and you are not changing ROM; you are feeding the Magic hardware. This is the trick that makes the low address space both executable code and a graphics accelerator command surface.
-          </div>
-          <p class="return-link"><a href="index.html">← Back to the Field Guide overview</a></p>
-        </section> -->
 
         <section class="card" id="baseline">
           <h2>Baseline machine</h2>
