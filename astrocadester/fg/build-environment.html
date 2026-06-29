@@ -1,0 +1,383 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Build Environment · Astrocade Arcade Field Guide</title>
+  <script src="js/loader.js"></script>
+</head>
+
+<body>
+  <div class="wrap">
+    <header class="hero">
+      <div class="eyebrow"><span class="lamp"></span> Astrocade Arcade Field Guide · Build Environment</div>
+      <h2>Build Environment</h2>
+      <p class="subtitle">
+        Linux-first setup notes for assembling, packaging, and testing Astrocade arcade code with zmac and MAME.
+      </p>
+
+      <div class="pcb-hero-tags" aria-label="Build environment tags">
+        <span class="tag info">Linux examples</span>
+        <span class="tag">Windows possible</span>
+        <span class="tag ok">zmac</span>
+        <span class="tag ok">MAME</span>
+        <span class="tag violet">arcade ROM workflow</span>
+      </div>
+
+      <nav class="chapter-strip" aria-label="Chapter navigation">
+        <a class="prev" href="index.html" aria-label="Previous chapter: Intro">
+          <span class="nav-arrow">⟵</span>
+          <span class="nav-title">Intro</span>
+        </a>
+
+        <a class="index" href="index.html" aria-label="Home">
+          <span class="home-icon">⌂</span>
+        </a>
+
+        <a class="next" href="machine-model.html" aria-label="Next chapter: Machine Model">
+          <span class="nav-title">Machine Model</span>
+          <span class="nav-arrow">⟶</span>
+        </a>
+      </nav>
+    </header>
+
+    <main>
+      <div class="content">
+        <section id="scope" class="card lead-card">
+          <h2>scope</h2>
+          <p class="lede">
+            This page describes the working development environment used by this guide: edit Z80 source,
+            assemble it into arcade ROM output, then run or debug it with MAME.
+          </p>
+          <p>
+            Development can be done on Windows, macOS, or Linux. For consistency, the commands and examples in this
+            guide assume a Linux shell. Windows users can adapt the same flow using WSL, MSYS2, Git Bash, PowerShell,
+            or a native Windows MAME/zmac setup.
+          </p>
+          <div class="callout cyan">
+            <b>TODO: fill in local assumptions</b>
+            Document the exact distro, shell, project directory layout, editor, MAME version, and where ROM ZIPs are
+            stored for the examples in this guide.
+          </div>
+        </section>
+
+        <section id="toolchain-checklist" class="card">
+          <h2>toolchain checklist</h2>
+          <p>
+            The examples assume these commands are available from the terminal. The exact install method is less
+            important than having stable paths and repeatable build commands.
+          </p>
+          <table>
+            <thead>
+              <tr>
+                <th>Tool</th>
+                <th>Used for</th>
+                <th>Sanity check</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="codeish">git</td>
+                <td>Cloning the example repository and tracking local changes.</td>
+                <td class="codeish">git --version</td>
+              </tr>
+              <tr>
+                <td class="codeish">zmac</td>
+                <td>Assembling Z80 source into binary output and list files.</td>
+                <td class="codeish">zmac -h</td>
+              </tr>
+              <tr>
+                <td class="codeish">mame</td>
+                <td>Running arcade drivers, loading ROM ZIPs, and using the debugger.</td>
+                <td class="codeish">mame -version</td>
+              </tr>
+              <tr>
+                <td class="codeish">make / bash</td>
+                <td>Optional automation around build scripts.</td>
+                <td class="codeish">bash --version</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+        <section id="linux-base" class="card">
+          <h2>linux base packages</h2>
+          <p>
+            Start with the basic compiler and command-line tools needed to build helpers from source and run project
+            scripts.
+          </p>
+          <pre><code>sudo apt update
+sudo apt install git build-essential make unzip zip</code></pre>
+          <div class="callout gold">
+            <b>TODO: adjust per distribution</b>
+            Keep the commands here aligned with the Linux distribution used for the guide. Debian, Ubuntu, Linux Mint,
+            Fedora, Arch, and openSUSE package names may differ.
+          </div>
+        </section>
+
+        <section id="install-zmac" class="card">
+          <h2>install zmac</h2>
+          <p>
+            zmac is the Z80 macro assembler used by many Astrocade examples. The important thing is to use the same
+            assembler consistently, because syntax, macro behavior, and generated output can vary between assemblers.
+          </p>
+          <pre><code>cd ~/src
+git clone https://github.com/gp48k/zmac.git
+cd zmac
+make
+sudo install -m 755 zmac /usr/local/bin/zmac
+zmac -h</code></pre>
+          <p>
+            The zmac project also has built-in help/documentation through the command line, so keep that close while
+            writing or porting assembly.
+          </p>
+          <div class="callout cyan">
+            <b>TODO: lock down the exact zmac build</b>
+            Add the tested zmac version/date, any local patches, and the exact command-line switches used by the guide.
+          </div>
+        </section>
+
+        <section id="install-mame" class="card">
+          <h2>install and setup MAME</h2>
+          <p>
+            MAME is used both as the arcade hardware emulator and as the debugger. For this guide, the examples assume
+            the executable is named <code>mame</code> and is available on the shell path.
+          </p>
+          <div class="grid2">
+            <div class="mini">
+              <h3>distro package</h3>
+              <p>
+                Convenient and usually enough for quick testing, but it may lag behind the latest upstream MAME.
+              </p>
+              <pre><code>sudo apt install mame
+mame -version</code></pre>
+            </div>
+            <div class="mini">
+              <h3>upstream/source build</h3>
+              <p>
+                Better when you need current driver behavior, want to inspect source changes, or need a local debug
+                build.
+              </p>
+              <pre><code># TODO: add preferred upstream build steps
+# or link to your local MAME build notes</code></pre>
+            </div>
+          </div>
+          <h3>first-time config</h3>
+          <pre><code>mame -cc
+mame -showconfig | grep rompath</code></pre>
+          <p>
+            After configuration, point <code>rompath</code> at the directory containing clean original ROM ZIPs and any
+            generated development ZIPs. For arcade work, the build script often passes <code>-rompath</code> explicitly
+            so generated output can live beside the project instead of inside the global MAME ROM folder.
+          </p>
+          <div class="callout gold">
+            <b>ROM naming matters</b>
+            Arcade drivers expect the ROM ZIP and files inside it to match the machine driver. A generated ZIP may build
+            correctly and still fail if the filenames, sizes, or checksums are not what the driver expects.
+          </div>
+        </section>
+
+        <section id="mame-smoke-tests" class="card">
+          <h2>MAME smoke tests</h2>
+          <p>
+            Before debugging custom code, verify that MAME can run the baseline machine and that the debugger opens.
+          </p>
+          <pre><code># Run a known-good arcade set.
+mame wow -rompath ~/roms/mame -window -skip_gameinfo
+
+# Run with debugger enabled.
+mame wow -rompath ~/roms/mame -debug -window -skip_gameinfo
+
+# Example with generated ROM output first, original ROMs second.
+mame wow -rompath ./zout:~/roms/mame -debug -window -skip_gameinfo</code></pre>
+          <div class="callout cyan">
+            <b>TODO: add project-specific launch commands</b>
+            Add the exact Wizard of Wor, Gorf, Space Zap, and Robby Roto launch commands used by the guide.
+          </div>
+        </section>
+
+        <section id="clone-examples" class="card">
+          <h2>clone the example repository</h2>
+          <p>
+            Use a dedicated working directory for Astrocade development. Keep third-party examples, guide examples, and
+            experimental arcade code separated so the build scripts stay predictable.
+          </p>
+          <pre><code>mkdir -p ~/projects/arcade
+cd ~/projects/arcade
+git clone https://github.com/lizard43/astrocade-examples.git
+cd astrocade-examples</code></pre>
+          <div class="callout gold">
+            <b>TODO: confirm repo URL and branch</b>
+            If the repository is private, renamed, or mirrored, replace the clone command with the exact URL and branch
+            used by this guide.
+          </div>
+        </section>
+
+        <section id="build-layout" class="card">
+          <h2>expected project layout</h2>
+          <p>
+            The build script should make it obvious where source files, generated binary output, list files, and MAME
+            ZIP output live.
+          </p>
+          <pre><code>astrocade-examples/
+  dev/
+    wow/
+      wow.asm
+      build.sh
+      zout/
+        wow.lst
+        wow.bin
+        wow.zip
+    gorf/
+      gorf.asm
+      build.sh
+      zout/
+  shared/
+    include/
+    tools/</code></pre>
+          <p>
+            This is only a suggested shape. The real layout should match the repository and scripts used by the guide.
+          </p>
+        </section>
+
+        <section id="tailor-build" class="card">
+          <h2>tailor build.sh</h2>
+          <p>
+            The build script is the repeatable path from source code to a MAME run. Keep local paths near the top of the
+            script and make the defaults easy to override from the shell.
+          </p>
+          <pre><code>#!/usr/bin/env bash
+set -euo pipefail
+
+MAME_BIN="${MAME_BIN:-mame}"
+ZMAC_BIN="${ZMAC_BIN:-zmac}"
+ROMPATH="${ROMPATH:-$PWD/zout:$HOME/roms/mame}"
+PROJECT="${PROJECT:-wow}"
+MAIN_ASM="${MAIN_ASM:-wow.asm}"
+OUT_DIR="${OUT_DIR:-zout}"
+
+mkdir -p "$OUT_DIR"
+
+# TODO: replace with the real assembler flags used by this project.
+"$ZMAC_BIN" -o "$OUT_DIR/$PROJECT.bin" "$MAIN_ASM"
+
+# TODO: package generated ROM files into the driver-compatible ZIP.
+# zip -j "$OUT_DIR/$PROJECT.zip" "$OUT_DIR"/*.bin
+
+"$MAME_BIN" "$PROJECT" -rompath "$ROMPATH" -window -skip_gameinfo</code></pre>
+          <div class="grid2">
+            <div class="mini">
+              <h3>local overrides</h3>
+              <p>
+                Let local machines override paths without editing the script every time.
+              </p>
+              <pre><code>MAME_BIN=/opt/mame/mame ./build.sh
+ROMPATH=./zout:/mnt/roms/mame ./build.sh</code></pre>
+            </div>
+            <div class="mini">
+              <h3>debug mode</h3>
+              <p>
+                Add a flag for MAME debugger launches so normal test runs and debugging use the same build path.
+              </p>
+              <pre><code>./build.sh -debug
+./build.sh -build</code></pre>
+            </div>
+          </div>
+        </section>
+
+        <section id="debugger-basics" class="card">
+          <h2>debugger basics</h2>
+          <p>
+            The MAME debugger is the fastest way to confirm where the CPU starts, what I/O ports are touched, and what
+            RAM or video addresses are changing.
+          </p>
+          <pre><code># Break at reset/start code.
+bpset 0000
+
+# Disassemble around an address.
+dasm 0100
+
+# Show registers.
+r
+
+# Watch writes to an I/O port range.
+wp 0:io,10000,w,(wpaddr &amp; ff) &lt; 20</code></pre>
+          <div class="callout cyan">
+            <b>TODO: add arcade-specific recipes</b>
+            Add the debugger commands used repeatedly in the guide: interrupt vector checks, protected RAM writes,
+            video RAM watches, sound port watches, and pattern-board I/O traces.
+          </div>
+        </section>
+
+        <section id="windows-note" class="card">
+          <h2>Windows notes</h2>
+          <p>
+            Windows development is fine, but the examples in this guide stay Linux-oriented to avoid showing every
+            command twice. The same pieces still apply: a Z80 assembler, MAME, the original ROM ZIPs, a repeatable build
+            script, and a predictable output directory.
+          </p>
+          <ul class="pcb-note-list">
+            <li><b>WSL:</b> good for Linux-like scripts and command-line tools; be mindful of paths crossing between
+              Windows and Linux filesystems.</li>
+            <li><b>Native Windows:</b> works if MAME and zmac are installed as Windows executables and the build script is
+              rewritten as <code>.bat</code>, PowerShell, or a portable Node/bash flow.</li>
+            <li><b>Path separators:</b> the common failure point is usually not assembly code, but paths, ROM output
+              locations, and where MAME expects ZIP files.</li>
+          </ul>
+        </section>
+
+        <section id="references" class="card">
+          <h2>references</h2>
+          <p>
+            Keep links here focused on install/setup material, not hardware theory.
+          </p>
+          <table>
+            <tbody>
+              <tr>
+                <td><a href="https://docs.mamedev.org/">MAME Documentation</a></td>
+                <td>Official documentation for installing, configuring, running, and debugging MAME.</td>
+              </tr>
+              <tr>
+                <td><a href="https://www.mamedev.org/release.html">MAME Releases</a></td>
+                <td>Official release downloads and source packages.</td>
+              </tr>
+              <tr>
+                <td><a href="https://48k.ca/zmac.html">zmac</a></td>
+                <td>Primary zmac page and documentation notes.</td>
+              </tr>
+              <tr>
+                <td><a href="https://github.com/gp48k/zmac">gp48k/zmac</a></td>
+                <td>zmac source repository.</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+        <section class="card">
+          <nav class="chapter-strip" aria-label="Chapter navigation">
+            <a class="prev" href="index.html" aria-label="Previous chapter: Intro">
+              <span class="nav-arrow">⟵</span>
+              <span class="nav-title">Intro</span>
+            </a>
+
+            <a class="index" href="index.html" aria-label="Home">
+              <span class="home-icon">⌂</span>
+            </a>
+
+            <a class="next" href="machine-model.html" aria-label="Next chapter: Machine Model">
+              <span class="nav-title">Machine Model</span>
+              <span class="nav-arrow">⟶</span>
+            </a>
+          </nav>
+        </section>
+      </div>
+    </main>
+
+    <footer>
+      Astrocade Arcade Field Guide — a practical notebook for building new software on old Bally/Midway hardware.
+    </footer>
+  </div>
+</body>
+
+</html>
