@@ -334,6 +334,13 @@ nav.toc a:hover {
   text-decoration: none;
 }
 
+nav.toc a[aria-current="page"] {
+  color: var(--ink);
+  background: rgba(114, 216, 255, .08);
+  border-left: 3px solid var(--cyan);
+  padding-left: 11px;
+}
+
 nav.toc small {
   display: block;
   color: var(--dim);
@@ -1010,7 +1017,7 @@ footer {
 
 
 /* No-frills hamburger / off-canvas TOC
-   Required HTML directly after <body>:
+   Injected by menu.js directly after <body>:
    <input class="toc-toggle" id="toc-toggle" type="checkbox" aria-hidden="true" />
    <label class="toc-button" for="toc-toggle" aria-label="Open chapter map"><span class="toc-button-icon">☰</span><span class="toc-button-text">Chapter Map</span></label>
    <label class="toc-backdrop" for="toc-toggle" aria-label="Close chapter map"></label>
