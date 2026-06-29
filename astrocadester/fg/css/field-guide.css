@@ -429,6 +429,11 @@ strong {
   background: rgba(126, 231, 135, .07);
 }
 
+.callout.red {
+  border-left-color: var(--red);
+  background: rgba(255, 79, 100, .08);
+}
+
 .callout b {
   display: block;
   color: var(--ink);
@@ -1297,7 +1302,7 @@ body.guide-home .toc-toggle~.wrap main {
 
 /* Desktop presentation cleanup: full-width cards, no orphan half-cards. */
 header.hero h1,
-header.hero > h2 {
+header.hero>h2 {
   margin: 0 0 10px;
   font-size: clamp(2.0rem, 3.2vw, 3.8rem);
   line-height: 1;
@@ -1311,32 +1316,32 @@ header.hero > h2 {
 }
 
 /* Hamburger removes the sidebar, so the content should become the page. */
-.toc-toggle ~ .wrap main,
-body.guide-home .toc-toggle ~ .wrap main {
+.toc-toggle~.wrap main,
+body.guide-home .toc-toggle~.wrap main {
   grid-template-columns: minmax(0, 1fr) !important;
 }
 
 .content,
 .guide-home .content,
-.toc-toggle ~ .wrap .content,
-.toc-toggle ~ .wrap .guide-home .content {
+.toc-toggle~.wrap .content,
+.toc-toggle~.wrap .guide-home .content {
   display: grid;
   grid-template-columns: minmax(0, 1fr) !important;
   gap: 8px;
   align-items: stretch;
 }
 
-.content > section.card,
-.guide-home .content > section.card {
+.content>section.card,
+.guide-home .content>section.card {
   grid-column: 1 / -1 !important;
   width: 100%;
 }
 
 /* Keep long prose readable without shrinking the whole card/table. */
-.card > p,
-.card > ul,
-.card > ol,
-.card > .callout {
+.card>p,
+.card>ul,
+.card>ol,
+.card>.callout {
   max-width: 100ch;
 }
 
@@ -1350,8 +1355,8 @@ body.guide-home .toc-toggle ~ .wrap main {
     align-items: start;
   }
 
-  .guide-home #journey > h2,
-  .guide-home #journey > p {
+  .guide-home #journey>h2,
+  .guide-home #journey>p {
     grid-column: 1;
     max-width: 72ch;
   }
@@ -1377,8 +1382,8 @@ body.guide-home .toc-toggle ~ .wrap main {
   min-width: 0;
   border: 1px solid var(--line);
   border-radius: var(--radius);
-  background: linear-gradient(180deg, rgba(255,255,255,.035), rgba(255,255,255,.012)), rgba(17,20,28,.82);
-  box-shadow: 0 10px 26px rgba(0,0,0,.30);
+  background: linear-gradient(180deg, rgba(255, 255, 255, .035), rgba(255, 255, 255, .012)), rgba(17, 20, 28, .82);
+  box-shadow: 0 10px 26px rgba(0, 0, 0, .30);
   padding: 10px 18px;
 }
 
@@ -1391,10 +1396,10 @@ body.guide-home .toc-toggle ~ .wrap main {
 /* If an older page still wraps the strip in section.card, make it slim. */
 section.card:has(> .chapter-strip) {
   padding: 10px 18px;
-  box-shadow: 0 10px 26px rgba(0,0,0,.30);
+  box-shadow: 0 10px 26px rgba(0, 0, 0, .30);
 }
 
-section.card:has(> .chapter-strip) > .chapter-strip {
+section.card:has(> .chapter-strip)>.chapter-strip {
   margin-top: 0;
   padding-top: 0;
   border-top: 0;
@@ -1419,20 +1424,22 @@ section.card:has(> .chapter-strip) > .chapter-strip {
 
 /* Phone and small tablet keep the clean stack. */
 @media (max-width: 900px) {
+
   .wrap,
   .guide-home .wrap {
     width: min(100% - 16px, 1760px);
   }
 
-  .card > p,
-  .card > ul,
-  .card > ol,
-  .card > .callout {
+  .card>p,
+  .card>ul,
+  .card>ol,
+  .card>.callout {
     max-width: none;
   }
 }
 
 @media (max-width: 620px) {
+
   .wrap,
   .guide-home .wrap {
     width: min(100% - 10px, 1760px);
@@ -1586,6 +1593,7 @@ header.hero .hero-title {
   min-width: 0;
   display: block;
 }
+
 /* Centered responsive figures with full-size pan lightbox. */
 .guide-figure {
   width: min(100%, 980px);
@@ -1876,7 +1884,7 @@ header.hero .hero-title {
    Wizard of Wor vertical memory map
    Traditional low-address-at-bottom layout with callouts.
 --------------------------------------------------------------------------- */
-#wow-map > p {
+#wow-map>p {
   max-width: 105ch;
 }
 
@@ -2297,7 +2305,7 @@ header.hero .hero-title {
     padding-bottom: 12px;
   }
 
-  .memmap-row + .memmap-row {
+  .memmap-row+.memmap-row {
     padding-top: 0;
   }
 
@@ -2487,11 +2495,9 @@ header.hero .hero-title {
   width: 20px;
   height: 2px;
   opacity: .96;
-  background: linear-gradient(
-    90deg,
-    color-mix(in srgb, var(--mem-accent) 76%, white 24%),
-    var(--mem-accent)
-  ) !important;
+  background: linear-gradient(90deg,
+      color-mix(in srgb, var(--mem-accent) 76%, white 24%),
+      var(--mem-accent)) !important;
   box-shadow: 0 0 9px color-mix(in srgb, var(--mem-accent) 55%, transparent);
 }
 
@@ -2524,7 +2530,7 @@ header.hero .hero-title {
   white-space: nowrap;
 }
 
-.memmap-block-range + .memmap-block-subtitle {
+.memmap-block-range+.memmap-block-subtitle {
   margin-top: 5px;
 }
 
@@ -2641,6 +2647,7 @@ header.hero .hero-title {
 }
 
 @media (max-width: 620px) {
+
   .pcb-component-table td:first-child,
   .pcb-component-table td:nth-child(2) {
     white-space: normal;
@@ -2678,20 +2685,20 @@ nav.toc .toc-panel-head h2 {
   margin: 0;
 }
 
-.toc-toggle ~ .wrap nav.toc[data-menu-managed="true"] {
+.toc-toggle~.wrap nav.toc[data-menu-managed="true"] {
   height: 100dvh;
   max-height: 100dvh;
   overflow-y: auto;
 }
 
-.toc-toggle ~ .wrap nav.toc .toc-panel-head {
+.toc-toggle~.wrap nav.toc .toc-panel-head {
   position: sticky;
   top: 0;
   z-index: 3;
   backdrop-filter: blur(10px);
 }
 
-.toc-toggle ~ .wrap nav.toc .toc-panel-head h2 {
+.toc-toggle~.wrap nav.toc .toc-panel-head h2 {
   position: static;
   top: auto;
   z-index: auto;
@@ -2747,7 +2754,7 @@ nav.toc a.toc-link {
   padding-left: calc(14px + (var(--toc-level, 0) * 1.45rem));
 }
 
-.toc-toggle ~ .wrap nav.toc a.toc-link {
+.toc-toggle~.wrap nav.toc a.toc-link {
   padding-left: calc(16px + (var(--toc-level, 0) * 1.45rem));
 }
 
@@ -2758,7 +2765,7 @@ nav.toc a.toc-link-sub {
   padding-bottom: 9px;
 }
 
-.toc-toggle ~ .wrap nav.toc a.toc-link-sub {
+.toc-toggle~.wrap nav.toc a.toc-link-sub {
   font-size: .92rem;
   padding-top: 10px;
   padding-bottom: 10px;
@@ -2772,7 +2779,7 @@ nav.toc a[aria-current="page"].toc-link {
   padding-left: calc(11px + (var(--toc-level, 0) * 1.45rem));
 }
 
-.toc-toggle ~ .wrap nav.toc a[aria-current="page"].toc-link {
+.toc-toggle~.wrap nav.toc a[aria-current="page"].toc-link {
   padding-left: calc(13px + (var(--toc-level, 0) * 1.45rem));
 }
 
@@ -2793,15 +2800,486 @@ nav.toc .toc-separator {
     font-size: 1.25rem;
   }
 
-  .toc-toggle ~ .wrap nav.toc .toc-panel-head h2 {
+  .toc-toggle~.wrap nav.toc .toc-panel-head h2 {
     padding: 12px 14px 10px;
   }
 
-  .toc-toggle ~ .wrap nav.toc a.toc-link {
+  .toc-toggle~.wrap nav.toc a.toc-link {
     padding-left: calc(14px + (var(--toc-level, 0) * 1.25rem));
   }
 
-  .toc-toggle ~ .wrap nav.toc a[aria-current="page"].toc-link {
+  .toc-toggle~.wrap nav.toc a[aria-current="page"].toc-link {
     padding-left: calc(11px + (var(--toc-level, 0) * 1.25rem));
   }
+}
+
+/* -------------------------------------------------------------------------
+   COMPACT LAYOUT OVERRIDE
+   Keep this section last. It deliberately wins over the older spacing rules
+   above so page/card/header gaps do not creep back in later edits.
+--------------------------------------------------------------------------- */
+:root {
+  --radius: 12px;
+}
+
+html {
+  font-size: 20px;
+}
+
+body {
+  line-height: 1.45;
+}
+
+.wrap,
+.guide-home .wrap {
+  width: min(100% - 6px, 1760px);
+  padding: 3px 0 26px;
+}
+
+.toc-toggle ~ .wrap {
+  padding-top: 3px;
+}
+
+header.hero,
+.guide-home header.hero {
+  border-radius: 18px;
+  padding: 10px 24px 6px;
+}
+
+.eyebrow {
+  margin-bottom: 5px;
+  font-size: .72rem;
+  line-height: 1.2;
+}
+
+header.hero h1,
+header.hero > h2,
+.guide-home header.hero h1,
+header.hero .hero-title {
+  margin: 0 0 6px;
+  font-size: clamp(2.05rem, 3.2vw, 3.45rem);
+  line-height: .96;
+}
+
+.hero-subtitle,
+.subtitle {
+  margin-top: 3px;
+  line-height: 1.25;
+}
+
+.toplinks,
+.pcb-hero-tags,
+.hero-grid,
+.guide-home .hero-grid,
+.pcb-stats {
+  margin-top: 8px;
+  gap: 8px;
+}
+
+.stat,
+.pcb-stat {
+  padding: 8px 10px;
+  border-radius: 10px;
+}
+
+main,
+.guide-home main {
+  margin-top: 5px;
+  gap: 8px;
+}
+
+.content,
+.guide-home .content,
+.toc-toggle ~ .wrap .content,
+.toc-toggle ~ .wrap .guide-home .content {
+  gap: 6px !important;
+}
+
+section.card,
+.guide-home #overview.lead-card {
+  border-radius: 14px;
+  padding: 13px 22px;
+}
+
+section.card:has(> .chapter-strip),
+.chapter-strip-card {
+  padding: 6px 14px;
+}
+
+h2 {
+  margin: 0 0 6px;
+  line-height: 1.1;
+}
+
+h3,
+.guide-home h3 {
+  margin: 10px 0 5px;
+  line-height: 1.15;
+}
+
+p {
+  margin: 0 0 8px;
+  line-height: 1.45;
+}
+
+p:last-child {
+  margin-bottom: 0;
+}
+
+.lead-card p,
+.card > p,
+.card > ul,
+.card > ol,
+.card > .callout {
+  max-width: 110ch;
+}
+
+.grid,
+.grid2,
+.two-col,
+.source-list,
+.chapters,
+.map-grid,
+.pcb-schematic-pair,
+.pcb-support-grid,
+.pcb-note-list {
+  gap: 8px;
+}
+
+.grid,
+.overview-callout-grid {
+  display: grid;
+  min-width: 0;
+}
+
+.grid2,
+.two-col,
+.overview-callout-grid {
+  margin-top: 8px;
+}
+
+#overview .overview-callout-grid {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.callout {
+  border-radius: 11px;
+  padding: 10px 14px;
+  margin: 8px 0;
+}
+
+.callout h2,
+.callout h3,
+.guide-home .callout h2,
+.guide-home .callout h3 {
+  margin: 0 0 7px;
+}
+
+.callout p {
+  margin: 0 0 7px;
+}
+
+.callout p:last-child {
+  margin-bottom: 0;
+}
+
+.callout.red {
+  border-left-color: var(--red);
+  background: rgba(255, 79, 100, .065);
+}
+
+.callout.gold {
+  border-left-color: var(--gold);
+  background: rgba(255, 209, 102, .065);
+}
+
+.callout.cyan {
+  border-left-color: var(--cyan);
+  background: rgba(114, 216, 255, .065);
+}
+
+.callout.green {
+  border-left-color: var(--green);
+  background: rgba(126, 231, 135, .06);
+}
+
+.mini,
+.source,
+.nav-card,
+.pcb-game,
+.pcb-note-list li {
+  border-radius: 10px;
+  padding: 9px 10px;
+}
+
+.chapter {
+  grid-template-columns: 40px minmax(0, 1fr) auto;
+  gap: 8px;
+  padding: 8px;
+  border-radius: 10px;
+}
+
+.num {
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+}
+
+.tagrow {
+  gap: 6px;
+  margin-top: 7px;
+}
+
+.pill-link,
+.tag {
+  padding: 4px 8px;
+  font-size: .78rem;
+  line-height: 1.15;
+}
+
+code {
+  padding: .08rem .28rem;
+  border-radius: 5px;
+}
+
+pre {
+  margin-top: 7px;
+  padding: 10px;
+  border-radius: 9px;
+  line-height: 1.38;
+}
+
+table {
+  margin-top: 7px;
+  font-size: .93rem;
+}
+
+th,
+td {
+  padding: 6px 8px;
+}
+
+.chapter-strip,
+.chapter-strip-card .chapter-strip,
+section.card:has(> .chapter-strip) > .chapter-strip {
+  margin-top: 6px;
+  padding-top: 5px;
+}
+
+.chapter-strip-card .chapter-strip,
+section.card:has(> .chapter-strip) > .chapter-strip {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+.chapter-strip a {
+  padding: 2px 0;
+  gap: 6px;
+}
+
+.chapter-strip .nav-arrow {
+  font-size: 1.05rem;
+}
+
+.chapter-strip .home-icon {
+  width: 1.25rem;
+  height: 1.25rem;
+  font-size: 1.05rem;
+}
+
+footer,
+.guide-home footer {
+  margin-top: 10px;
+  font-size: .82rem;
+}
+
+/* Tighten the memory-map and figure widgets without changing their structure. */
+.guide-figure {
+  margin-top: 8px;
+}
+
+.guide-figure figcaption {
+  margin-top: 5px;
+}
+
+.memory-widget {
+  margin-top: 8px;
+  padding: 10px 10px 16px;
+  border-radius: 14px;
+}
+
+.memmap-header {
+  gap: 8px;
+  padding: 0 0 8px;
+}
+
+.memmap-ladder {
+  margin-top: 10px;
+  padding-bottom: 10px;
+}
+
+.memmap-row {
+  gap: 0 14px;
+  --row-min-height: 92px;
+}
+
+.memmap-block-panel {
+  padding: 11px 13px;
+}
+
+.memmap-block-subtitle,
+.memmap-block-range {
+  margin-top: 4px;
+}
+
+.memmap-badges {
+  gap: 5px;
+  margin-top: 7px;
+}
+
+.memmap-badges span {
+  padding: 3px 6px;
+}
+
+.memmap-callout {
+  margin-block: 5px;
+  padding: 9px 10px;
+  border-radius: 11px;
+}
+
+.memmap-callout b {
+  margin-bottom: 3px;
+}
+
+.memmap-footnotes {
+  gap: 6px;
+  margin-top: 8px;
+}
+
+.memmap-footnotes span {
+  padding: 7px 8px;
+  border-radius: 9px;
+}
+
+nav.toc a,
+.toc-toggle ~ .wrap nav.toc a,
+.toc-toggle ~ .wrap nav.toc a.toc-link-sub {
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+
+nav.toc h2,
+.toc-toggle ~ .wrap nav.toc h2,
+.toc-toggle ~ .wrap nav.toc .toc-panel-head h2 {
+  padding-top: 10px;
+  padding-bottom: 8px;
+}
+
+@media (max-width: 900px) {
+  .wrap,
+  .guide-home .wrap {
+    width: min(100% - 6px, 1760px);
+    padding-top: 3px;
+  }
+
+  section.card,
+  .guide-home #overview.lead-card {
+    padding: 12px 14px;
+  }
+
+  .card > p,
+  .card > ul,
+  .card > ol,
+  .card > .callout,
+  .lead-card p {
+    max-width: none;
+  }
+}
+
+@media (max-width: 700px) {
+  header.hero,
+  .guide-home header.hero {
+    padding: 9px 12px 6px;
+    border-radius: 15px;
+  }
+
+  .chapter-strip {
+    margin-top: 5px;
+    padding-top: 5px;
+    gap: 4px;
+    font-size: .7rem;
+  }
+
+  .chapter-strip a {
+    padding: 1px 0;
+  }
+}
+
+@media (max-width: 620px) {
+  html {
+    font-size: 18px;
+  }
+
+  .wrap,
+  .guide-home .wrap {
+    width: min(100% - 4px, 1760px);
+    padding: 2px 0 22px;
+  }
+
+  section.card,
+  .guide-home #overview.lead-card {
+    padding: 10px;
+    border-radius: 12px;
+  }
+
+  h2 {
+    font-size: 1.35rem;
+  }
+
+  h3,
+  .guide-home h3 {
+    margin: 8px 0 4px;
+  }
+
+  p {
+    margin-bottom: 7px;
+  }
+
+  .callout {
+    padding: 8px 10px;
+    margin: 7px 0;
+  }
+
+  .grid2,
+  .two-col,
+  .page-nav {
+    gap: 7px;
+  }
+
+  th,
+  td {
+    padding: 6px;
+    min-width: 7.5rem;
+  }
+}
+
+/* Do not split table text in the middle of words. */
+th,
+td {
+  overflow-wrap: normal;
+  word-break: normal;
+  hyphens: none;
+}
+
+/* Let links wrap only at normal break points, not inside words. */
+td a {
+  overflow-wrap: normal;
+  word-break: normal;
+  hyphens: none;
+}
+
+/* Optional: keep the first column source names together. */
+#source-map td:first-child {
+  white-space: nowrap;
+  width: 1%;
 }
