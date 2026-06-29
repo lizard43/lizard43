@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Astrocade Arcade Field Guide — 91354 CPU Board</title>
   <meta name="description" content="Technical field-guide page for the Bally/Midway A082-91354 CPU Board used in the Astrocade commercial card-rack system." />
-  <script src="js/loader.js"></script>
+  <script src="../js/loader.js"></script>
 </head>
 
 <body class="guide-chapter">
@@ -519,41 +519,56 @@
         </section>
 
         <section class="card wide" id="schematics">
-          <h2>Board schematics and manual plates</h2>
-          <p>The two main 91354 pages are the component-side layout and the full CPU-board schematic. Both use the same click-to-open full-size pan view as the 90708 page.</p>
-
+          <h2>schematics</h2>
           <div class="pcb-schematic-pair">
 
-            <figure class="guide-figure pcb-figure pcb-figure-wide" id="fig-layout">
-              <a class="guide-image-link" href="#lightbox-layout" aria-label="Open 91354 CPU Board component layout full size">
-                <img src="91354-assets/91354-cpu-board-layout.png" alt="91354 CPU Board component layout and IC list">
+            <figure class="guide-figure pcb-figure pcb-figure-wide" id="fig-block">
+              <a class="guide-image-link" href="#lightbox-block" aria-label="Open 91354 CPU Board block">
+                <img src="../images/91354-block.png" alt="91354 CPU Board block diagram">
               </a>
-              <figcaption>Manual plate: 91354 CPU Board component-side layout, including factory IC list.</figcaption>
+              <figcaption>91354 block diagram</figcaption>
             </figure>
 
-            <div class="image-lightbox" id="lightbox-layout" role="dialog" aria-label="91354 CPU Board component layout full-size view">
+            <div class="image-lightbox" id="lightbox-block" role="dialog" aria-label="91354 CPU Board block">
+              <a class="image-lightbox__backdrop" href="#fig-block" aria-label="Close full-size image"></a>
+              <div class="image-lightbox__panel">
+                <a class="image-lightbox__close" href="#fig-block" aria-label="Close full-size image">×</a>
+                <div class="image-lightbox__scroller" tabindex="0" aria-label="Pan 91354 CPU Board block">
+                  <img src="../images/91354-block.png" alt="91354 CPU Board block diagram">
+                </div>
+              </div>
+            </div>
+
+            <figure class="guide-figure pcb-figure pcb-figure-wide" id="fig-layout">
+              <a class="guide-image-link" href="#lightbox-layout" aria-label="Open 91354 CPU Board layout">
+                <img src="../images/91354-layout.png" alt="91354 CPU Board layout">
+              </a>
+              <figcaption>91354 layout</figcaption>
+            </figure>
+
+            <div class="image-lightbox" id="lightbox-layout" role="dialog" aria-label="91354 CPU Board layout">
               <a class="image-lightbox__backdrop" href="#fig-layout" aria-label="Close full-size image"></a>
               <div class="image-lightbox__panel">
                 <a class="image-lightbox__close" href="#fig-layout" aria-label="Close full-size image">×</a>
-                <div class="image-lightbox__scroller" tabindex="0" aria-label="Pan 91354 CPU Board component layout">
-                  <img src="91354-assets/91354-cpu-board-layout.png" alt="91354 CPU Board component layout and IC list, full size">
+                <div class="image-lightbox__scroller" tabindex="0" aria-label="Pan 91354 CPU Board layout">
+                  <img src="../images/91354-layout.png" alt="91354 CPU Board layout">
                 </div>
               </div>
             </div>
 
             <figure class="guide-figure pcb-figure pcb-figure-wide" id="fig-schematic">
-              <a class="guide-image-link" href="#lightbox-schematic" aria-label="Open 91354 CPU Board schematic full size">
-                <img src="91354-assets/91354-cpu-board-schematic.png" alt="91354 CPU Board schematic">
+              <a class="guide-image-link" href="#lightbox-schematic" aria-label="Open 91354 CPU Board schematic">
+                <img src="../images/91354-schematic.png" alt="91354 CPU Board schematic">
               </a>
-              <figcaption>Manual plate: full hardware schematic for A082-91354-F000 CPU Board.</figcaption>
+              <figcaption>91354 schematic</figcaption>
             </figure>
 
-            <div class="image-lightbox" id="lightbox-schematic" role="dialog" aria-label="91354 CPU Board schematic full-size view">
+            <div class="image-lightbox" id="lightbox-schematic" role="dialog" aria-label="91354 CPU Board schematic">
               <a class="image-lightbox__backdrop" href="#fig-schematic" aria-label="Close full-size image"></a>
               <div class="image-lightbox__panel">
                 <a class="image-lightbox__close" href="#fig-schematic" aria-label="Close full-size image">×</a>
                 <div class="image-lightbox__scroller" tabindex="0" aria-label="Pan 91354 CPU Board schematic">
-                  <img src="91354-assets/91354-cpu-board-schematic.png" alt="91354 CPU Board schematic, full size">
+                  <img src="../images/91354-schematic.png" alt="91354 CPU Board schematic">
                 </div>
               </div>
             </div>
