@@ -3,11 +3,17 @@
 
   Use on every page with:
     <link rel="stylesheet" href="field-guide.css" />
-    <script src="menu.js" defer></script>
+    <script src="js/menu.js" defer></script>
 
   The script injects the hamburger controls directly after <body> and inserts
   the off-canvas <nav class="toc"> as the first child of <main>.
+
   Edit FIELD_GUIDE_MENU below to maintain the TOC in one place.
+
+  Sub-items:
+    - Flat style:   { label: "Sub page", href: "sub.html", sub: true }
+    - Level style:  { label: "Deep page", href: "deep.html", level: 2 }
+    - Nested style: { label: "Parent", href: "parent.html", items: [ ... ] }
 */
 (function () {
   "use strict";
@@ -16,16 +22,27 @@
     title: "Field Guide TOC",
     buttonLabel: "Open or close chapter map",
     buttonText: "Chapter Map",
+    closeLabel: "Close chapter map",
     items: [
       { label: "Intro", href: "index.html" },
-      { label: "Chapter 01: Machine Model", href: "machine-model.html" },
-      { label: "Chapter 02: I/O Map", href: "io-map.html" },
-      { label: "Chapter 03: Video System", href: "video-system.html" },
-      { label: "Chapter 04: Inputs and DIP Switches", href: "inputs-dip-switches.html" },
-      { label: "Chapter 05: Sound", href: "sound.html" },
-      { label: "Chapter 06: Pattern Board", href: "pattern-board.html" }
+      {
+        label: "Machine Model", href: "machine-model.html",
+        items: [
+          { label: "91355 Pattern Board", href: "pcbs/91355.html" }
+        ]
+      },
+      { label: "I/O Map", href: "io-map.html" },
+      { label: "Video System", href: "video-system.html" },
+      { label: "Inputs and DIP Switches", href: "inputs-dip-switches.html" },
+      { label: "Sound", href: "sound.html" },
+      { label: "Pattern Board", href: "pattern-board.html" }
     ]
   };
+
+  const MAX_MENU_LEVEL = 4;
+  let keydownHandlerInstalled = false;
+  let hashChangeHandlerInstalled = false;
+  let currentManagedNav = null;
 
   function makeElement(tagName, className, text) {
     const element = document.createElement(tagName);
@@ -38,27 +55,98 @@
     return element;
   }
 
-  function pageNameFromHref(href) {
+  function clampLevel(value) {
+    const numeric = Number(value);
+    if (!Number.isFinite(numeric)) {
+      return 0;
+    }
+    return Math.max(0, Math.min(MAX_MENU_LEVEL, Math.floor(numeric)));
+  }
+
+  function menuItemLevel(item, inheritedLevel) {
+    if (item && item.level !== undefined) {
+      return clampLevel(item.level);
+    }
+
+    if (item && item.sub) {
+      return Math.max(1, clampLevel(inheritedLevel));
+    }
+
+    return clampLevel(inheritedLevel);
+  }
+
+  function flattenMenuItems(items, inheritedLevel, output) {
+    (items || []).forEach(function (item) {
+      if (!item) {
+        return;
+      }
+
+      if (item.separator) {
+        output.push({ separator: true, level: clampLevel(inheritedLevel) });
+        return;
+      }
+
+      const level = menuItemLevel(item, inheritedLevel);
+      output.push(Object.assign({}, item, { level: level }));
+
+      const children = item.items || item.children || item.subitems;
+      if (children && children.length) {
+        flattenMenuItems(children, level + 1, output);
+      }
+    });
+
+    return output;
+  }
+
+  function normalizedLocation(href) {
     try {
       const url = new URL(href, window.location.href);
       const pathname = url.pathname.replace(/\/+$/, "");
-      return pathname.split("/").pop() || "index.html";
+      const page = pathname.split("/").pop() || "index.html";
+      return {
+        page: page,
+        hash: url.hash || ""
+      };
     } catch (error) {
-      const cleaned = String(href || "").split(/[?#]/)[0].replace(/\/+$/, "");
-      return cleaned.split("/").pop() || "index.html";
+      const raw = String(href || "");
+      const parts = raw.split("#");
+      const cleaned = parts[0].split(/[?]/)[0].replace(/\/+$/, "");
+      return {
+        page: cleaned.split("/").pop() || "index.html",
+        hash: parts[1] ? "#" + parts[1] : ""
+      };
     }
   }
 
-  function isCurrentPage(href) {
-    const current = pageNameFromHref(window.location.href);
-    const target = pageNameFromHref(href);
+  function isCurrentHref(href) {
+    const current = normalizedLocation(window.location.href);
+    const target = normalizedLocation(href);
 
-    if (current === target) {
-      return true;
+    if (current.page !== target.page) {
+      return false;
     }
 
-    // Treat a directory URL as index.html.
-    return current === "" && target === "index.html";
+    // Anchor links should only highlight when that exact hash is active.
+    if (target.hash) {
+      return current.hash === target.hash;
+    }
+
+    // Plain page links highlight only at the top of that page.
+    return current.hash === "";
+  }
+
+  function updateCurrentLinks(nav) {
+    if (!nav) {
+      return;
+    }
+
+    nav.querySelectorAll("a.toc-link").forEach(function (link) {
+      if (isCurrentHref(link.getAttribute("href"))) {
+        link.setAttribute("aria-current", "page");
+      } else {
+        link.removeAttribute("aria-current");
+      }
+    });
   }
 
   function removeExistingMenuShell() {
@@ -98,6 +186,62 @@
     return toggle;
   }
 
+  function buildTocHeader(menu) {
+    const header = makeElement("div", "toc-panel-head");
+    const heading = makeElement("h2", "", menu.title || "Field Guide TOC");
+
+    const close = makeElement("label", "toc-close");
+    close.setAttribute("for", "toc-toggle");
+    close.setAttribute("aria-label", menu.closeLabel || "Close chapter map");
+    close.setAttribute("title", menu.closeLabel || "Close chapter map");
+
+    close.append(
+      makeElement("span", "toc-close-icon", "×"),
+      makeElement("span", "toc-close-text", menu.closeLabel || "Close chapter map")
+    );
+
+    header.append(heading, close);
+    return header;
+  }
+
+  function buildTocLink(item) {
+    const level = clampLevel(item.level);
+    const link = makeElement("a", "toc-link", item.label || item.href || "Untitled");
+
+    link.href = item.href || "#";
+    link.dataset.tocLevel = String(level);
+    link.style.setProperty("--toc-level", String(level));
+
+    if (level > 0 || item.sub) {
+      link.classList.add("toc-link-sub");
+      link.classList.add("toc-link-level-" + String(level));
+    }
+
+    if (item.className) {
+      String(item.className).split(/\s+/).filter(Boolean).forEach(function (name) {
+        link.classList.add(name);
+      });
+    }
+
+    if (item.title) {
+      link.title = item.title;
+    }
+
+    if (item.target) {
+      link.target = item.target;
+    }
+
+    if (item.rel) {
+      link.rel = item.rel;
+    }
+
+    if (item.note) {
+      link.append(makeElement("small", "", item.note));
+    }
+
+    return link;
+  }
+
   function buildToc(menu) {
     const main = document.querySelector("main");
     if (!main) {
@@ -108,58 +252,71 @@
     nav.setAttribute("aria-label", "Table of contents");
     nav.dataset.menuManaged = "true";
 
-    nav.append(makeElement("h2", "", menu.title || "Field Guide TOC"));
+    nav.append(buildTocHeader(menu));
 
-    (menu.items || []).forEach(function (item) {
-      const link = makeElement("a", "", item.label || item.href || "Untitled");
-      link.href = item.href || "#";
-
-      if (item.title) {
-        link.title = item.title;
+    flattenMenuItems(menu.items || [], 0, []).forEach(function (item) {
+      if (item.separator) {
+        const rule = makeElement("div", "toc-separator");
+        rule.style.setProperty("--toc-level", String(clampLevel(item.level)));
+        nav.append(rule);
+        return;
       }
 
-      if (item.target) {
-        link.target = item.target;
-      }
-
-      if (item.rel) {
-        link.rel = item.rel;
-      }
-
-      if (isCurrentPage(link.getAttribute("href"))) {
-        link.setAttribute("aria-current", "page");
-      }
-
-      if (item.note) {
-        link.append(makeElement("small", "", item.note));
-      }
-
-      nav.append(link);
+      nav.append(buildTocLink(item));
     });
 
     const content = main.querySelector(":scope > .content");
     main.insertBefore(nav, content || main.firstChild);
+    updateCurrentLinks(nav);
+    currentManagedNav = nav;
     return nav;
   }
 
+  function closeMenu() {
+    const toggle = document.getElementById("toc-toggle");
+    if (toggle) {
+      toggle.checked = false;
+    }
+  }
+
+  function installGlobalHandlers() {
+    if (!keydownHandlerInstalled) {
+      document.addEventListener("keydown", function (event) {
+        if (event.key === "Escape") {
+          closeMenu();
+        }
+      });
+      keydownHandlerInstalled = true;
+    }
+
+    if (!hashChangeHandlerInstalled) {
+      window.addEventListener("hashchange", function () {
+        updateCurrentLinks(currentManagedNav);
+      });
+      hashChangeHandlerInstalled = true;
+    }
+  }
+
   function bindMenuBehavior(toggle, nav) {
-    if (!toggle) {
+    installGlobalHandlers();
+
+    if (!toggle || !nav) {
       return;
     }
 
-    document.addEventListener("keydown", function (event) {
-      if (event.key === "Escape") {
-        toggle.checked = false;
+    nav.addEventListener("click", function (event) {
+      const link = event.target.closest("a");
+      if (!link) {
+        return;
       }
-    });
 
-    if (nav) {
-      nav.addEventListener("click", function (event) {
-        if (event.target.closest("a")) {
-          toggle.checked = false;
-        }
-      });
-    }
+      // Let the browser update the URL/hash first, then update the highlight.
+      window.setTimeout(function () {
+        updateCurrentLinks(nav);
+      }, 0);
+
+      closeMenu();
+    });
   }
 
   function buildFieldGuideMenu(menu) {
@@ -187,6 +344,7 @@
 
   window.FieldGuideMenu = {
     config: FIELD_GUIDE_MENU,
-    rebuild: buildFieldGuideMenu
+    rebuild: buildFieldGuideMenu,
+    close: closeMenu
   };
 }());
