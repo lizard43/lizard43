@@ -18,24 +18,43 @@
 (function () {
   "use strict";
 
+  function getJavaScriptLocation() {
+    const scripts = Array.from(document.scripts || []);
+    const script = document.currentScript || scripts.reverse().find(function (candidate) {
+      const src = candidate && candidate.src ? candidate.src : "";
+      return /(?:^|\/)menu\.js(?:[?#].*)?$/.test(src);
+    });
+
+    if (script && script.src) {
+      return new URL(".", script.src).href;
+    }
+
+    return "";
+  }
+
+  const JSLOC = getJavaScriptLocation();
+
   const FIELD_GUIDE_MENU = {
     title: "Field Guide TOC",
     buttonLabel: "Open or close chapter map",
     buttonText: "Chapter Map",
     closeLabel: "Close chapter map",
     items: [
-      { label: "Intro", href: "index.html" },
+      { label: "Intro", href: JSLOC + "../index.html" },
       {
-        label: "Machine Model", href: "machine-model.html",
+        label: "Machine Model", href: JSLOC + "../machine-model.html",
         items: [
-          { label: "91355 Pattern Board", href: "pcbs/91355.html" }
+          { label: "90708 Game Board", href: JSLOC + "../pcbs/90708.html" },
+          { label: "91354 CPU Board", href: JSLOC + "../pcbs/91354.html" },
+          { label: "91355 Pattern Board", href: JSLOC + "../pcbs/91355.html" }
         ]
       },
-      { label: "I/O Map", href: "io-map.html" },
-      { label: "Video System", href: "video-system.html" },
-      { label: "Inputs and DIP Switches", href: "inputs-dip-switches.html" },
-      { label: "Sound", href: "sound.html" },
-      { label: "Pattern Board", href: "pattern-board.html" }
+      { label: "I/O Map", href: JSLOC + "../io-map.html" },
+      { label: "Video System", href: JSLOC + "../video-system.html" },
+      { label: "Inputs and DIP Switches", href: JSLOC + "../inputs-dip-switches.html" },
+      { label: "Sound", href: JSLOC + "../sound.html" },
+      { label: "Pattern Board", href: JSLOC + "../pattern-board.html" },
+      { label: "Build Environment", href: JSLOC + "../build-environment.html" },
     ]
   };
 

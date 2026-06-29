@@ -1,10 +1,27 @@
 (() => {
+
+  function getJavaScriptLocation() {
+    const scripts = Array.from(document.scripts || []);
+    const script = document.currentScript || scripts.reverse().find(function (candidate) {
+      const src = candidate && candidate.src ? candidate.src : "";
+      return /(?:^|\/)menu\.js(?:[?#].*)?$/.test(src);
+    });
+
+    if (script && script.src) {
+      return new URL(".", script.src).href;
+    }
+
+    return "";
+  }
+
+  const JSLOC = getJavaScriptLocation();
+
   const v = Date.now();
 
   // CSS
   const css = document.createElement("link");
   css.rel = "stylesheet";
-  css.href = `css/field-guide.css?v=${v}`;
+  css.href = JSLOC + "../css/field-guide.css?v=${v}";
 
   css.onload = () => {
     // show UI only after CSS is applied (prevents FOUC)
@@ -20,7 +37,7 @@
 
   // Main JS
   const js = document.createElement("script");
-  js.src = `js/menu.js?v=${v}`;
+  js.src = JSLOC + "../js/menu.js?v=${v}";
   js.defer = true;
   document.head.appendChild(js);
 
