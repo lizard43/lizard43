@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-29T14:08:05.831Z",
+  "generated_at": "2026-06-29T15:09:13.357Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,93 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 42,
-      "droppedPrice": 446,
+      "exported_ads": 46,
+      "droppedPrice": 452,
       "droppedMissingGeo": 0,
-      "droppedCircle": 471
+      "droppedCircle": 476
     }
   },
   "ads": [
+    {
+      "adID": "KLOV-564268",
+      "source": "KLOV",
+      "authorUrl": "https://forums.arcade-museum.com/members/random_billybob.90752/",
+      "author": "Random_Billybob",
+      "postedTime": "2026-06-29T14:25:05.000Z",
+      "title": "Empty Irem Lode Runner cab - $120",
+      "description": "Empty Irem Lode Runner arcade cabinet with a Matsushita 19\" monitor and Jamma harness. Monitor is untested, but I can guarantee that it doesn't work. Some of the bottom corners are busted, but it is in otherwise decent shape with little to no water damage. This is a pretty rare cab, but not a game ...",
+      "price": "$120",
+      "lat": 33.5228885,
+      "lon": -85.3446728,
+      "location": "Ranburne, Alabama",
+      "imageUrl": "https://forums.arcade-museum.com/attachments/1000008559-jpg.906598/",
+      "adUrl": "https://forums.arcade-museum.com/threads/564268/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-06-29 15:09:10",
+      "lastSeen": "2026-06-29T15:09:10.106Z"
+    },
+    {
+      "adID": "1483306017160035",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/61565526324585/?product_id=1483306017160035",
+      "author": "K-b Ullery",
+      "postedTime": "2026-06-29T13:38:25.000Z",
+      "title": "Speed Pong Game",
+      "description": "New in box",
+      "price": "$25",
+      "lat": 34.1652304,
+      "lon": -84.7997613,
+      "location": "Cartersville, GA",
+      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/733963915_1712459166448542_691635996965693235_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=107&ccb=1-7&_nc_sid=92e707&_nc_ohc=18twYvWafM4Q7kNvwEnBRPt&_nc_oc=AdpBIR3UD0I1rNpafqmh2-RQ0dRFXmzOn_pxYlzgDmz5VA9vP38P2F4ejSkQ3V1T23A&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=uA66_v-qnqD0zs9nUyCUOw&_nc_ss=7b2a8&oh=00_Af-TpSLTWCfUZt42EGFTHRSQSJzALAeIHwVXmSprH05BVw&oe=6A485C0C",
+      "adUrl": "https://www.facebook.com/marketplace/item/1483306017160035/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-06-29 15:07:11",
+      "lastSeen": "2026-06-29T15:08:13.547Z"
+    },
+    {
+      "adID": "948096101613980",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/807494379/?product_id=948096101613980",
+      "author": "Jaya Sharma",
+      "postedTime": "2026-06-28T04:17:44.000Z",
+      "title": "Slow cooker",
+      "description": "Used",
+      "price": "$10",
+      "lat": 27.9378338,
+      "lon": -82.2327525,
+      "location": "Valrico, FL",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/731380094_3853662634773400_6074579459905193811_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=105&ccb=1-7&_nc_sid=92e707&_nc_ohc=muTduPsl1FQQ7kNvwHg-LzK&_nc_oc=AdqYZgSWpBQjbfi9OLivtJ3OrRQCqLpKt3gF2KY9_g15Zj4csESGhunTA2QItwKWgU0&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=9-MWDTzksmwGO7lYhY4Emg&_nc_ss=7b2a8&oh=00_Af8lSmwg5JfdzkkebNrIRMmXr_TPFEEkiML3gTmNBQxd1g&oe=6A48749E",
+      "adUrl": "https://www.facebook.com/marketplace/item/948096101613980/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-06-29 15:07:11",
+      "lastSeen": "2026-06-29T15:08:13.580Z"
+    },
+    {
+      "adID": "3959480354182971",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100007041038622/?product_id=3959480354182971",
+      "author": "Terrence Tyler",
+      "postedTime": "2026-06-29T14:06:08.000Z",
+      "title": "Pac-Man video game",
+      "description": "In great condition",
+      "price": "$75",
+      "lat": 31.884561,
+      "lon": -81.6155936,
+      "location": "Fort Stewart, GA",
+      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/733233219_1462173042333016_6469339760755039908_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=101&ccb=1-7&_nc_sid=92e707&_nc_ohc=rUChPpCrrvYQ7kNvwEh7mGs&_nc_oc=Adqp1z7Yf41nMEew5X1A4D58Tlq8HT2LYijh6z_2-QxFXVSItDCIPSJg3RvEL6xw-oM&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=J_jFK7UfhoDZUxDwnzs_aQ&_nc_ss=7b2a8&oh=00_Af825QzwGwLNjRphnJAMZyaGaRAfvIAy5MtIIJPpzvANyg&oe=6A4855CC",
+      "adUrl": "https://www.facebook.com/marketplace/item/3959480354182971/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-06-29 15:05:05",
+      "lastSeen": "2026-06-29T15:06:30.379Z"
+    },
     {
       "adID": "KLOV-512184",
       "source": "KLOV",
@@ -36,7 +116,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-29 14:08:01",
-      "lastSeen": "2026-06-29T14:08:01.347Z"
+      "lastSeen": "2026-06-29T15:09:08.448Z"
     },
     {
       "adID": "2006344423330746",
@@ -56,7 +136,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-29 13:05:56",
-      "lastSeen": "2026-06-29T14:06:33.766Z"
+      "lastSeen": "2026-06-29T15:07:11.222Z"
     },
     {
       "adID": "1323583062740690",
@@ -76,7 +156,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-29 12:05:54",
-      "lastSeen": "2026-06-29T13:05:57.678Z"
+      "lastSeen": "2026-06-29T15:07:11.748Z"
     },
     {
       "adID": "KLOV-557313",
@@ -96,7 +176,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-29 02:34:08",
-      "lastSeen": "2026-06-29T14:08:01.885Z"
+      "lastSeen": "2026-06-29T15:09:09.270Z"
     },
     {
       "adID": "2176805556437333",
@@ -136,7 +216,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-29 02:25:33",
-      "lastSeen": "2026-06-29T14:06:34.273Z"
+      "lastSeen": "2026-06-29T15:07:11.389Z"
     },
     {
       "adID": "996649142967399",
@@ -196,7 +276,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-29 02:00:56",
-      "lastSeen": "2026-06-29T13:05:57.444Z"
+      "lastSeen": "2026-06-29T15:07:11.523Z"
     },
     {
       "adID": "1666208991162594",
@@ -216,7 +296,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-29 02:00:56",
-      "lastSeen": "2026-06-29T13:05:57.483Z"
+      "lastSeen": "2026-06-29T15:07:11.557Z"
     },
     {
       "adID": "1674508826977207",
@@ -236,7 +316,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-29 02:00:56",
-      "lastSeen": "2026-06-29T13:05:57.522Z"
+      "lastSeen": "2026-06-29T15:07:11.591Z"
     },
     {
       "adID": "1397616155751804",
@@ -256,7 +336,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-29 02:00:52",
-      "lastSeen": "2026-06-29T14:04:48.118Z"
+      "lastSeen": "2026-06-29T15:05:06.292Z"
     },
     {
       "adID": "902026556254979",
@@ -276,7 +356,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-29 02:00:51",
-      "lastSeen": "2026-06-29T14:04:47.916Z"
+      "lastSeen": "2026-06-29T15:05:06.124Z"
     },
     {
       "adID": "1337098347855547",
@@ -316,7 +396,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-27 21:12:47",
-      "lastSeen": "2026-06-29T14:08:02.086Z"
+      "lastSeen": "2026-06-29T15:09:09.470Z"
     },
     {
       "adID": "1009930805235586",
@@ -396,7 +476,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-27 15:15:30",
-      "lastSeen": "2026-06-29T14:08:02.353Z"
+      "lastSeen": "2026-06-29T15:09:09.738Z"
     },
     {
       "adID": "2195828457883240",
@@ -463,20 +543,20 @@
       "source": "FB",
       "authorUrl": null,
       "author": "Anthony Ward",
-      "postedTime": "2026-06-27T14:03:22.149Z",
+      "postedTime": "2026-06-27T15:03:35.279Z",
       "title": "Big Event Golf",
       "description": "I have a Big Event Golf arcade machine. Own a piece of nostalgic history. Before Golden Tee. Do not expect it to be in perfect condition as it is from 1986, but everyth... See more",
       "price": "$320",
       "lat": 27.9449854,
       "lon": -82.4583107,
       "location": "TAMPA, FL",
-      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.30808-6/731253032_3541431712671266_1665902000841851541_n.jpg?stp=cp6_dst-jpg_tt6&cstp=mx1536x2048&ctp=s590x590&_nc_cat=105&ccb=1-7&_nc_sid=aa7b47&_nc_ohc=BGcHOBQEtXIQ7kNvwGNUa1_&_nc_oc=AdqrjZKtDFXmfbGGfFHei0qrdp0H78-I73HDDPorcZ7rD0nVB8WIZuKn7TwRAfJdqYE&_nc_zt=23&_nc_ht=scontent-dfw5-1.xx&_nc_gid=8vS8ySBohZD4kQOJcPVwcA&_nc_ss=7b2a8&oh=00_Af_qkdh4f_WD55pQo0YW8ixwJcs3CEc_Q9ztOhhQCravPA&oe=6A485062",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.30808-6/731253032_3541431712671266_1665902000841851541_n.jpg?stp=cp6_dst-jpg_tt6&cstp=mx1536x2048&ctp=s590x590&_nc_cat=105&ccb=1-7&_nc_sid=aa7b47&_nc_ohc=6-ILhvJT8HUQ7kNvwGTh5RH&_nc_oc=AdreK8-dQV_7pxMvrVuWVw8Q_3a4ixi0Quf5dAJhUVsGwbztkuX4JhtirHcRPlN-iBg&_nc_zt=23&_nc_ht=scontent-dfw5-1.xx&_nc_gid=L6HyRH2VMzBgauD_b5WuCg&_nc_ss=7b2a8&oh=00_Af-Lft6lvuW_TDX9kxSW3iZmN_l7Ry_w2B8CYCFxru0HQA&oe=6A485062",
       "adUrl": "https://www.facebook.com/commerce/listing/1024766013340116/",
       "priceChanged": 1,
       "priceChangedAt": "2026-06-29 14:03:22",
       "hidden": 0,
       "created_at": "2026-06-27 12:31:56",
-      "lastSeen": "2026-06-29T14:03:22.453Z"
+      "lastSeen": "2026-06-29T15:03:35.867Z"
     },
     {
       "adID": "KLOV-545491",
@@ -843,20 +923,20 @@
       "source": "FB",
       "authorUrl": null,
       "author": "Clayton Lacey",
-      "postedTime": "2026-06-25T14:01:52.069Z",
+      "postedTime": "2026-06-25T15:02:03.968Z",
       "title": "Atari Hard Drivin upright project working needs cabinet repair no trades",
       "description": "This is a project I am willing to pass on to anyone who wants to restore it. Monitor chassis recapped the tube is original with burn in on screen text and gauges only the text is noticeable during gameplay. The bad the base of the seat and cabinet need repaired or replacing so listing as a project that works and plays the switch on third gear is flaky so currently disabled in settings. No back door or monitor door on the top. No trades.",
       "price": "$500",
       "lat": 33.2442813,
       "lon": -86.8163773,
       "location": "ALABASTER, AL",
-      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.30808-6/729964610_27722897317303315_769344303372621387_n.jpg?stp=dst-jpg_tt6&cstp=mx1537x2048&ctp=s590x590&_nc_cat=102&ccb=1-7&_nc_sid=aa7b47&_nc_ohc=IlbgpjXZlqsQ7kNvwHJfZeL&_nc_oc=AdpP2djB_1tDNRAvIADxk2UFjdChpUfhk9E2tT3B1DTdvS_oKJQs-95H_wy-jd9IAGs&_nc_zt=23&_nc_ht=scontent-dfw6-1.xx&_nc_gid=K6qRSG8oW5nwft056kRt3Q&_nc_ss=7b2a8&oh=00_Af_qtOiOeQBq6BH2XpddmBhb9X_X1tSCDA_NI8YRTWg5Zg&oe=6A4836C1",
+      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.30808-6/729964610_27722897317303315_769344303372621387_n.jpg?stp=dst-jpg_tt6&cstp=mx1537x2048&ctp=s590x590&_nc_cat=102&ccb=1-7&_nc_sid=aa7b47&_nc_ohc=IlbgpjXZlqsQ7kNvwHJfZeL&_nc_oc=AdpP2djB_1tDNRAvIADxk2UFjdChpUfhk9E2tT3B1DTdvS_oKJQs-95H_wy-jd9IAGs&_nc_zt=23&_nc_ht=scontent-dfw6-1.xx&_nc_gid=3OR7nX1CAR2jw7VDlP6waA&_nc_ss=7b2a8&oh=00_Af8rEAnw5xV0UtqKzL7lNKX36IiaEAB4BUm3-r-UjfBkBQ&oe=6A486F01",
       "adUrl": "https://www.facebook.com/commerce/listing/1288483403087344/",
       "priceChanged": 0,
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-25 11:18:09",
-      "lastSeen": "2026-06-29T14:01:52.622Z"
+      "lastSeen": "2026-06-29T15:02:04.172Z"
     }
   ]
 }
