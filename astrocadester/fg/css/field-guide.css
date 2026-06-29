@@ -88,7 +88,7 @@ video {
 }
 
 .guide-home .wrap {
-  width: min(100% - 24px, 1880px);
+  width: min(100% - 16px, 1880px);
 }
 
 /* Header / hero */
@@ -282,7 +282,7 @@ main {
   display: grid;
   grid-template-columns: minmax(260px, 330px) minmax(0, 1fr);
   gap: 16px;
-  margin-top: 16px;
+  margin-top: 8px;
   align-items: start;
   min-width: 0;
 }
@@ -1104,7 +1104,7 @@ body.guide-home .toc-toggle~.wrap main {
 
 /* Do NOT add top padding. The hamburger floats over the page without pushing layout down. */
 .toc-toggle~.wrap {
-  padding-top: 12px;
+  padding-top: 6px;
 }
 
 .toc-toggle~.wrap nav.toc {
@@ -1307,7 +1307,7 @@ header.hero > h2 {
 
 .wrap,
 .guide-home .wrap {
-  width: min(100% - 48px, 1760px);
+  width: min(100% - 16px, 1760px);
 }
 
 /* Hamburger removes the sidebar, so the content should become the page. */
@@ -1322,7 +1322,7 @@ body.guide-home .toc-toggle ~ .wrap main {
 .toc-toggle ~ .wrap .guide-home .content {
   display: grid;
   grid-template-columns: minmax(0, 1fr) !important;
-  gap: 16px;
+  gap: 8px;
   align-items: stretch;
 }
 
