@@ -239,6 +239,12 @@
       padding-left: 32px;
     }
 
+    #source,
+    #exportText {
+      white-space: pre;
+      overflow: auto;
+    }
+
     #lstCaretOverlay,
     #lstEndCaretOverlay {
       position: absolute;
@@ -263,7 +269,8 @@
 
     .fullWidth {
       margin-top: 14px;
-      width: 100%;
+      width: var(--editor-workspace-width, 100%);
+      max-width: none;
     }
 
     .panel {
@@ -851,6 +858,8 @@
     }
 
     .exportBox {
+      display: block;
+      width: 100%;
       min-height: 330px;
     }
 
@@ -986,10 +995,63 @@
     @media (max-width: 900px) {
       .topLayout {
         grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        align-items: start;
+      }
+
+      .topSpriteToolbar {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        overflow-y: visible;
+        scrollbar-width: thin;
       }
 
       .verticalResizer {
         display: none;
+      }
+
+      .sideStack,
+      .opcodePanel,
+      .tabArea,
+      .tabPane {
+        min-height: 0;
+        height: auto;
+      }
+
+      .sideStack {
+        display: block;
+      }
+
+      .opcodePanel textarea {
+        flex: 0 0 auto;
+        min-height: 230px;
+        height: 34vh;
+        max-height: 520px;
+      }
+
+      .lstViewerWrap {
+        flex: 0 0 auto;
+        min-height: 260px;
+        height: 42vh;
+      }
+
+      #lstViewer {
+        min-height: 260px;
+        height: 42vh;
+      }
+
+      .libraryControls,
+      .lstControls {
+        flex-wrap: wrap;
+      }
+
+      .fullWidth {
+        width: var(--editor-workspace-width, 100%);
+      }
+
+      .exportBox {
+        min-height: 430px;
+        height: 48vh;
       }
     }
   </style>
@@ -1178,7 +1240,7 @@
           <div class="tabPane active" id="opcodePane" role="tabpanel" aria-labelledby="opcodeTabBtn">
             <label for="source">Paste Z80/Astrocade sprite bytes here. Parser reads <span class="mono">.DB</span>/<span class="mono">DEFB</span> byte
               tokens including <span class="mono">$FF</span>, <span class="mono">0FFH</span>, decimal, and binary <span class="mono">00000011B</span>. It also accepts numbered tile rows such as <span class="mono">00: ...2...</span>.</label>
-            <textarea id="source"></textarea>
+            <textarea id="source" wrap="off"></textarea>
           </div>
 
           <div class="tabPane" id="lstPane" role="tabpanel" aria-labelledby="lstTabBtn">
@@ -1229,7 +1291,7 @@
 
   <section class="panel fullWidth">
     <div class="buttons"><button class="action primary" id="copyBtn">Copy annotated .DB to clipboard</button></div>
-    <textarea id="exportText" class="exportBox" readonly></textarea>
+    <textarea id="exportText" class="exportBox" wrap="off" readonly></textarea>
   </section>
 
   <div class="colorMapBackdrop" id="colorMapBackdrop" role="dialog" aria-modal="true" aria-labelledby="colorMapDialogTitle">
@@ -1287,6 +1349,21 @@
       document.documentElement.style.setProperty('--cell', getGridCellSize() + 'px');
       grid.style.setProperty('--grid-cols', String(getActivePixelWidth()));
       grid.style.setProperty('--grid-rows', String(Math.max(spriteRows, MIN_VISIBLE_GRID_ROWS)));
+      scheduleWorkspaceWidthSync();
+    }
+
+    function syncWorkspaceWidth() {
+      if (!topLayout) return;
+      const workspaceWidth = Math.ceil(Math.max(
+        document.documentElement.clientWidth || 0,
+        topLayout.getBoundingClientRect().width || 0,
+        topLayout.scrollWidth || 0
+      ));
+      document.documentElement.style.setProperty('--editor-workspace-width', workspaceWidth + 'px');
+    }
+
+    function scheduleWorkspaceWidthSync() {
+      window.requestAnimationFrame(syncWorkspaceWidth);
     }
 
     // Astrocade color byte decode:
@@ -2351,6 +2428,7 @@
         }
       }
       if (pastePreviewState) drawPastePreview();
+      scheduleWorkspaceWidthSync();
     }
 
     function parseColorByteInput(text) {
@@ -3285,6 +3363,7 @@
     lstViewer.addEventListener('scroll', updateLstVisibleCaret);
     window.addEventListener('resize', () => {
       updateLstVisibleCaret();
+      scheduleWorkspaceWidthSync();
       if (customColorPickerPopover && customColorPickerPopover.classList.contains('open')) positionCustomColorPicker(activeColorPickerAnchor);
     });
     lstIndexInput.addEventListener('change', () => {
@@ -4674,6 +4753,7 @@
     initBinaryImportButton();
     initPastePreviewHandlers();
     loadSpriteFromLibrary();
+    syncWorkspaceWidth();
     loadLibraryFromUrlParamOnStartup();
   </script>
 </body>
