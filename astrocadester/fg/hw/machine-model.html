@@ -19,7 +19,7 @@
     }
   </style>
 
-  <script src="js/loader.js"></script>
+  <script src="../js/loader.js"></script>
 </head>
 
 <body class="guide-chapter">
@@ -59,6 +59,11 @@
             video/sound hardware designed by DNA.</p>
 
           <h3>Interlocking "L-Shape" Stack</h3>
+          <figure class="hardware-inline-figure">
+            <img src="../images/L-shape.png" alt="Bally/Midway interlocking L-shape board stack">
+            <figcaption>Interlocking L-shape board stack.</figcaption>
+          </figure>
+
           <p><code>Seawolf II</code> (1978) utilized a physical layout that predates the standardized card rack cage.
             It used an interlocking horizontal/vertical stack that featured a large horizontal Motherboard
             <code>90002</code>
@@ -67,10 +72,16 @@
             supported structurally by heavy metal or aluminum braces. A smaller "Characterization Card" daughterboard
             then plugs directly into a specialized socket on the assembly.
           </p>
+          <div class="hardware-inline-clear" aria-hidden="true"></div>
 
           <h3>Card-Rack Cage</h3>
+          <figure class="hardware-inline-figure left">
+            <img src="../images/pcb-cage.jpg" alt="Bally/Midway card-rack cage with vertical PCBs">
+            <figcaption>Card-rack cage with vertical plug-in boards.</figcaption>
+          </figure>
+
           <p>
-            <code>Extra Bases</code>,<code>Wizard of Wor</code>,<code>Gorf</code>,<code>Robby Roto</code>,<code>Space Zap</code>
+            <code>Extra Bases</code>·<code>Wizard of Wor</code>·<code>Gorf</code>·<code>Robby Roto</code>·<code>Space Zap</code>
             used the Bally
             Card-Rack system. Inside the bottom of the cabinet sits a metal enclosure (cage) containing a
             backplane motherboard. The individual, rectangular boards (<code>91354</code> CPU, <code>91355</code>
@@ -78,26 +89,36 @@
             vertically into card guides inside the cage and press into edge connectors on the backplane, looking very
             much like an industrial computer rack.
           </p>
+          <div class="hardware-inline-clear" aria-hidden="true"></div>
 
           <h3>Traditional PCB Stack</h3>
-          <p><code>Professor Pac-Man</code> <code>Ten Pin Deluxe</code> games completely abandoned the card rack
+          <figure class="hardware-inline-figure">
+            <img src="../images/pcb-stack.jpg" alt="Later horizontal stacked PCB assembly">
+            <figcaption>Later horizontal stacked PCB assembly.</figcaption>
+          </figure>
+
+          <p><code>Professor Pac-Man</code>·<code>Ten Pin Deluxe</code> games completely abandoned the card rack
             enclosure. They represent a much later (1983/1984) hardware revision called the Midway 16-Color System.
             Instead of sliding into a cage, the <code>91465</code> CPU card, the <code>91466</code> Screen RAM board,
             and the massive 91846 EPROM
             board are physically stacked horizontally on top of each other using nylon spacers/standoffs, connected
             together via multi-pin ribbon cables and pin-header interconnects.</p>
+          <div class="hardware-inline-clear" aria-hidden="true"></div>
+        </section>
+        <section class="card" id="card-rack">
 
-          <p>Our guide focuses on <code>Wizard of Wor</code> <code>Gorf</code> <code>Robby Roto</code> so we will
+
+          <p>Our guide focuses on <code>Wizard of Wor</code>·<code>Gorf</code>·<code>Robby Roto</code> so we will
             continue with the Card-Rack details</p>
 
           <figure class="guide-figure">
             <a class="guide-image-link" href="#card-rack-full" aria-label="Open card rack diagram full size">
-              <img src="images/card-rack.png" alt="Commercial card rack assembly diagram">
+              <img src="../images/card-rack.png" alt="Commercial card rack assembly diagram">
             </a>
-            <figcaption>Click image to open the full-size pan view.</figcaption>
+            <figcaption>Card-Rack</figcaption>
           </figure>
 
-          <div class="image-lightbox" id="card-rack-full" role="dialog" aria-label="Full-size card rack diagram">
+          <!-- <div class="image-lightbox" id="card-rack-full" role="dialog" aria-label="Full-size card rack diagram">
             <a class="image-lightbox__backdrop" href="#baseline" aria-label="Close full-size image"></a>
             <div class="image-lightbox__panel">
               <a class="image-lightbox__close" href="#baseline" aria-label="Close full-size image">×</a>
@@ -105,7 +126,7 @@
                 <img src="images/card-rack.png" alt="Commercial card rack assembly diagram, full size">
               </div>
             </div>
-          </div>
+          </div> -->
 
           <!-- <table>
             <thead>
@@ -211,7 +232,7 @@
 
         </section>
 
-        <section class="card" id="wow-map">
+        <!-- <section class="card" id="wow-map">
           <h2>Wizard of Wor memory map</h2>
 
           <div class="memory-widget" aria-label="Wizard of Wor vertical memory map">
@@ -273,7 +294,7 @@
 
           </div>
 
-        </section>
+        </section> -->
 
         <section class="card" id="magic-shadow">
           <h2>The Magic shadow region</h2>
@@ -417,54 +438,6 @@ MainLoop:
             be tested on actual board hardware. Mark those claims separately as MAME-confirmed, ROM-observed,
             schematic-confirmed, or real-hardware-confirmed.
           </div>
-        </section>
-
-        <section class="card" id="family">
-          <h2>Machine-model differences across the family</h2>
-          <p>The games share the Astrocade DNA, but the memory maps are not identical. Do not assume Wizard of Wor
-            equals Gorf equals Robby Roto equals Space Zap.</p>
-          <table>
-            <thead>
-              <tr>
-                <th>Game / class</th>
-                <th>Memory model notes</th>
-                <th>Why it matters</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><strong>Wizard of Wor</strong></td>
-                <td>Low ROM/Magic window, video RAM at <code>$4000-$7FFF</code>, extra ROM at <code>$8000-$CFFF</code>,
-                  protected RAM at <code>$D000-$D03F</code>, work RAM to <code>$DFFF</code>.</td>
-                <td>Best target for our current replacement-code experiments.</td>
-              </tr>
-              <tr>
-                <td><strong>Gorf</strong></td>
-                <td>Same broad Astrocade arcade class, but Gorf has additional speech/sound complexity and its own
-                  ROM/board configuration.</td>
-                <td>Good source for routines and patterns, but not a blind drop-in map for WoW.</td>
-              </tr>
-              <tr>
-                <td><strong>Space Zap</strong></td>
-                <td>MAME maps low ROM/Magic, video RAM, protected RAM at <code>$D000-$D03F</code>, and a smaller
-                  ordinary RAM area ending at <code>$D7FF</code>.</td>
-                <td>Simpler early reference; less RAM headroom than WoW in MAME's model.</td>
-              </tr>
-              <tr>
-                <td><strong>Robby Roto</strong></td>
-                <td>MAME maps low ROM/Magic, video RAM, ROM through <code>$DFFF</code>, NVRAM/protected area around
-                  <code>$E000</code>, and ordinary RAM at <code>$E800-$FFFF</code>.
-                </td>
-                <td>Valuable commercial-code specimen, but its RAM/protected/NVRAM layout differs heavily from WoW.</td>
-              </tr>
-              <tr>
-                <td><strong>Professor Pac-Man / Demons & Dragons</strong></td>
-                <td>Later 16-color/paged variants add banked behavior and screen-RAM control beyond the simpler
-                  WoW/Space Zap model.</td>
-                <td>Useful later, but do not contaminate the base WoW machine model with those assumptions.</td>
-              </tr>
-            </tbody>
-          </table>
         </section>
 
         <section class="card" id="rules">

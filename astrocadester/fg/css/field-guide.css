@@ -3283,3 +3283,228 @@ td a {
   white-space: nowrap;
   width: 1%;
 }
+
+/* -------------------------------------------------------------------------
+   Reference Library page
+   Small, self-contained styles for the refs/ JSON renderer.
+--------------------------------------------------------------------------- */
+.reference-toolbar {
+  display: grid;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.reference-search {
+  width: 100%;
+  min-width: 0;
+  border: 1px solid rgba(255, 255, 255, .12);
+  border-radius: 11px;
+  background: rgba(0, 0, 0, .18);
+  color: var(--ink);
+  font: inherit;
+  padding: 9px 11px;
+  outline: none;
+}
+
+.reference-search::placeholder {
+  color: var(--dim);
+}
+
+.reference-search:focus {
+  border-color: rgba(114, 216, 255, .45);
+  box-shadow: 0 0 0 2px rgba(114, 216, 255, .12);
+}
+
+.reference-filter-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.reference-filter {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border: 1px solid rgba(255, 255, 255, .12);
+  border-radius: 999px;
+  background: rgba(0, 0, 0, .18);
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: .76rem;
+  line-height: 1.15;
+  padding: 5px 8px;
+  cursor: pointer;
+}
+
+.reference-filter:hover,
+.reference-filter.is-active {
+  color: var(--ink);
+  border-color: rgba(114, 216, 255, .38);
+  background: rgba(114, 216, 255, .08);
+}
+
+.reference-list {
+  display: grid;
+  gap: 7px;
+  margin-top: 10px;
+}
+
+.reference-card {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  gap: 10px;
+  align-items: center;
+  min-width: 0;
+  border: 1px solid rgba(255, 255, 255, .085);
+  border-radius: 12px;
+  background: rgba(0, 0, 0, .16);
+  padding: 9px 10px;
+}
+
+.reference-card:hover {
+  border-color: rgba(114, 216, 255, .30);
+  background: rgba(255, 255, 255, .045);
+}
+
+.reference-icon {
+  display: grid;
+  place-items: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  border: 1px solid rgba(255, 255, 255, .12);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, .045);
+  font-size: 1.15rem;
+  line-height: 1;
+}
+
+.reference-main {
+  min-width: 0;
+}
+
+.reference-title {
+  display: inline-block;
+  max-width: 100%;
+  color: var(--ink);
+  font-weight: 700;
+  line-height: 1.22;
+  overflow-wrap: anywhere;
+}
+
+.reference-title:hover {
+  color: var(--cyan);
+  text-decoration: none;
+}
+
+.reference-path {
+  display: block;
+  margin-top: 3px;
+  color: var(--dim);
+  font-family: var(--mono);
+  font-size: .72rem;
+  line-height: 1.25;
+  overflow-wrap: anywhere;
+}
+
+.reference-type {
+  justify-self: end;
+  border: 1px solid rgba(255, 209, 102, .28);
+  border-radius: 999px;
+  background: rgba(255, 209, 102, .065);
+  color: var(--gold);
+  font-family: var(--mono);
+  font-size: .68rem;
+  line-height: 1.1;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  padding: 5px 7px;
+  white-space: nowrap;
+}
+
+.reference-empty {
+  border: 1px dashed rgba(255, 255, 255, .18);
+  border-radius: 12px;
+  background: rgba(0, 0, 0, .12);
+  color: var(--dim);
+  padding: 14px;
+}
+
+.reference-count-note {
+  color: var(--dim);
+  font-family: var(--mono);
+  font-size: .78rem;
+  margin-top: 7px;
+}
+
+@media (max-width: 620px) {
+  .reference-card {
+    grid-template-columns: auto minmax(0, 1fr);
+    align-items: start;
+  }
+
+  .reference-type {
+    grid-column: 2;
+    justify-self: start;
+    margin-top: 3px;
+  }
+
+  .reference-icon {
+    width: 2rem;
+    height: 2rem;
+    border-radius: 9px;
+  }
+}
+
+/* -------------------------------------------------------------------------
+   Machine Model inline hardware photos
+   Small, non-clickable PCB/cage photos that float with the prose.
+   Keep this near the end so it wins over general img/figure rules.
+--------------------------------------------------------------------------- */
+.hardware-inline-figure {
+  float: right;
+  inline-size: clamp(180px, 20vw, 300px);
+  max-inline-size: min(42%, 300px);
+  margin: 2px 0 8px 16px;
+  padding: 5px;
+  border: 1px solid rgba(255, 255, 255, .12);
+  border-radius: 11px;
+  background: rgba(0, 0, 0, .18);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, .26);
+}
+
+.hardware-inline-figure.left {
+  float: left;
+  margin: 2px 16px 8px 0;
+}
+
+.hardware-inline-figure img {
+  display: block;
+  inline-size: 100%;
+  max-inline-size: 100%;
+  block-size: auto;
+  border-radius: 8px;
+  background: #000;
+}
+
+.hardware-inline-figure figcaption {
+  margin-top: 5px;
+  color: var(--dim);
+  font-family: var(--mono);
+  font-size: .66rem;
+  line-height: 1.2;
+  text-align: center;
+}
+
+.hardware-inline-clear {
+  clear: both;
+}
+
+@media (max-width: 700px) {
+  .hardware-inline-figure,
+  .hardware-inline-figure.left {
+    float: none;
+    inline-size: min(100%, 300px);
+    max-inline-size: 300px;
+    margin: 8px auto 10px;
+  }
+}

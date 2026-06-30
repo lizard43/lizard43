@@ -42,19 +42,23 @@
     items: [
       { label: "Intro", href: JSLOC + "../index.html" },
       {
-        label: "Machine Model", href: JSLOC + "../machine-model.html",
+        label: "Machine Model", href: JSLOC + "../hw/machine-model.html",
         items: [
-          { label: "90708 Game Board", href: JSLOC + "../pcbs/90708.html" },
-          { label: "91354 CPU Board", href: JSLOC + "../pcbs/91354.html" },
-          { label: "91355 Pattern Board", href: JSLOC + "../pcbs/91355.html" }
+          { label: "Memory Maps", href: JSLOC + "../hw/memory-map.html" },
+          { label: "I/O Maps", href: JSLOC + "../hw/memory-map.html" },
+          { label: "90708 Game Board", href: JSLOC + "../hw/pcbs/90708.html" },
+          { label: "91354 CPU Board", href: JSLOC + "../hw/pcbs/91354.html" },
+          { label: "91355 Pattern Board", href: JSLOC + "../hw/pcbs/91355.html" }
         ]
       },
-      { label: "I/O Map", href: JSLOC + "../io-map.html" },
-      { label: "Video System", href: JSLOC + "../video-system.html" },
-      { label: "Inputs and DIP Switches", href: JSLOC + "../inputs-dip-switches.html" },
-      { label: "Sound", href: JSLOC + "../sound.html" },
-      { label: "Pattern Board", href: JSLOC + "../pattern-board.html" },
-      { label: "Build Environment", href: JSLOC + "../build-environment.html" },
+      { label: "I/O Map", href: JSLOC + "../hw/io-map.html" },
+      { label: "Video System", href: JSLOC + "../hw/video-system.html" },
+      { label: "Inputs and DIP Switches", href: JSLOC + "../hw/inputs-dip-switches.html" },
+      { label: "Sound", href: JSLOC + "../hw/sound.html" },
+      { label: "Pattern Board", href: JSLOC + "../hw/pattern-board.html" },
+      { label: "Build Environment", href: JSLOC + "../sw/build-environment.html" },
+      { label: "Build Environment", href: JSLOC + "../sw/build-environment.html" },
+      { label: "References", href: JSLOC + "../refs/references.html" },
     ]
   };
 
