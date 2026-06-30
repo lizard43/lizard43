@@ -1,0 +1,4676 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Astrocade 2bpp Sprite Editor</title>
+  <style>
+    :root {
+      --bg: #14171c;
+      --panel: #1d222b;
+      --panel2: #252c37;
+      --text: #e9edf3;
+      --muted: #9ba7b6;
+      --border: #3a4350;
+      --accent: #5ee083;
+      --danger: #ff6b6b;
+      --cell: 24px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 5px;
+      background: var(--bg);
+      color: var(--text);
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    }
+
+    h2 {
+      margin: 0 0 10px;
+      font-size: 16px;
+    }
+
+    .topLayout {
+      --left-pane-width: min(680px, 48vw);
+      display: grid;
+      grid-template-columns: minmax(280px, var(--left-pane-width)) 10px minmax(360px, 1fr);
+      grid-template-rows: auto 1fr;
+      gap: 8px;
+      align-items: stretch;
+    }
+
+    .topSpriteToolbar {
+      grid-column: 1 / -1;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      padding: 2px 7px;
+      background: #171b22;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      overflow: visible;
+      position: relative;
+      z-index: 50;
+    }
+
+    .topSpriteToolbar .toolbarLabel {
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .04em;
+      margin-right: 4px;
+      white-space: nowrap;
+    }
+
+    .topSpriteToolbar .toolDivider {
+      width: 1px;
+      height: 24px;
+      background: var(--border);
+      margin: 0 2px;
+      flex: 0 0 auto;
+    }
+
+    .verticalResizer {
+      width: 10px;
+      min-width: 10px;
+      cursor: col-resize;
+      border: 0;
+      border-radius: 8px;
+      background: transparent;
+      position: relative;
+      align-self: stretch;
+      padding: 0;
+      touch-action: none;
+    }
+
+    .verticalResizer::before {
+      content: '';
+      position: absolute;
+      top: 12px;
+      bottom: 12px;
+      left: 4px;
+      width: 2px;
+      border-radius: 99px;
+      background: var(--border);
+    }
+
+    .verticalResizer::after {
+      content: '⋮';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: var(--muted);
+      font: 700 22px/1 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    }
+
+    .verticalResizer:hover::before,
+    .verticalResizer.dragging::before {
+      background: var(--accent);
+    }
+
+    body.resizingSplit {
+      cursor: col-resize;
+      user-select: none;
+    }
+
+    .sideStack {
+      display: grid;
+      grid-template-rows: 1fr;
+      min-height: 100%;
+    }
+
+    .opcodePanel {
+      display: flex;
+      flex-direction: column;
+      min-height: 0;
+      height: 100%;
+      position: relative;
+    }
+
+    .opcodeHeader {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+
+    .opcodeHeader h2 {
+      margin: 0;
+    }
+
+    .iconButton {
+      width: 36px;
+      height: 32px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--panel2);
+      color: var(--text);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      cursor: pointer;
+      padding: 0;
+    }
+
+    .iconButton:hover {
+      border-color: var(--accent);
+    }
+
+    .iconButton svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    .opcodeTopBar {
+      display: flex;
+      align-items: start;
+      justify-content: space-between;
+      gap: 12px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 10px;
+    }
+
+    .tabs {
+      display: flex;
+      gap: 6px;
+    }
+
+    .tabButton {
+      background: transparent;
+      color: var(--muted);
+      border: 0;
+      border-bottom: 2px solid transparent;
+      padding: 3px 6px;
+      cursor: pointer;
+      font-weight: 700;
+    }
+
+    .tabButton:hover {
+      color: var(--text);
+    }
+
+    .tabButton.active {
+      color: var(--accent);
+      border-bottom-color: var(--accent);
+    }
+
+    .tabPane {
+      display: none;
+      flex: 1;
+      min-height: 0;
+      flex-direction: column;
+    }
+
+    .tabPane.active {
+      display: flex;
+    }
+
+    .opcodePanel textarea {
+      flex: 1;
+      min-height: 0;
+    }
+
+    .tabArea {
+      flex: 1;
+      min-height: 0;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .lstViewerWrap {
+      position: relative;
+      flex: 1;
+      min-height: 0;
+    }
+
+    #lstViewer {
+      white-space: pre;
+      overflow: auto;
+      resize: none;
+      height: 100%;
+      padding-left: 32px;
+    }
+
+    #lstCaretOverlay,
+    #lstEndCaretOverlay {
+      position: absolute;
+      left: 8px;
+      top: 10px;
+      font: 700 16px/1 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      pointer-events: none;
+      display: none;
+      z-index: 2;
+    }
+
+    #lstCaretOverlay {
+      color: #00ff30;
+      text-shadow: 0 0 6px rgba(0, 255, 48, .65);
+    }
+
+    #lstEndCaretOverlay {
+      left: 20px;
+      color: #ff3b3b;
+      text-shadow: 0 0 6px rgba(255, 59, 59, .65);
+    }
+
+    .fullWidth {
+      margin-top: 14px;
+      width: 100%;
+    }
+
+    .panel {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 12px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, .2);
+    }
+
+    .gridPanel {
+      width: 100%;
+      min-width: 0;
+      max-width: none;
+      align-self: start;
+    }
+
+    .gridEditArea {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      min-width: 0;
+    }
+
+    .gridEditArea .gridWrap {
+      flex: 0 1 auto;
+    }
+
+    .spriteToolbar {
+      flex: 0 0 auto;
+      display: flex;
+      flex-direction: row;
+      gap: 6px;
+      align-items: center;
+      padding: 0;
+      background: transparent;
+      border: 0;
+      border-radius: 0;
+    }
+
+    .toolIconButton {
+      width: 32px;
+      height: 32px;
+      padding: 1px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .toolIconButton svg {
+      width: 26px;
+      height: 26px;
+      display: block;
+      flex: 0 0 auto;
+    }
+
+    .binaryImportButton {
+      font: 800 13px/1 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      letter-spacing: .02em;
+    }
+
+    .binaryImportButton.dragover {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 2px rgba(94, 224, 131, .25);
+    }
+
+
+    .toolIconButton.dangerTool:hover {
+      border-color: var(--danger);
+    }
+
+    .toolbarMenuWrap {
+      position: relative;
+    }
+
+    .toolbarMenu {
+      position: absolute;
+      z-index: 25;
+      left: 0;
+      right: auto;
+      top: calc(100% + 8px);
+      display: none;
+      min-width: 118px;
+      padding: 8px;
+      background: #0f1218;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, .45);
+    }
+
+    .toolbarMenu.open {
+      display: grid;
+      gap: 6px;
+    }
+
+    .toolbarMenu button {
+      width: 100%;
+      text-align: left;
+      justify-content: flex-start;
+      padding: 7px 9px;
+      font-size: 13px;
+    }
+
+    .gridWrap {
+      overflow: auto;
+      width: 100%;
+      max-width: none;
+      max-height: 760px;
+      position: relative;
+    }
+
+    .pastePreviewCanvas {
+      position: absolute;
+      left: 0;
+      top: 0;
+      z-index: 12;
+      display: none;
+      cursor: grab;
+      touch-action: none;
+    }
+
+    .pastePreviewCanvas.active {
+      display: block;
+    }
+
+    .pastePreviewCanvas.dragging {
+      cursor: grabbing;
+    }
+
+    #grid {
+      display: grid;
+      grid-template-columns: repeat(var(--grid-cols), var(--cell));
+      grid-template-rows: repeat(var(--grid-rows), var(--cell));
+      gap: 1px;
+      background: #050608;
+      border: 2px solid #050608;
+      width: max-content;
+    }
+
+    .pix {
+      width: var(--cell);
+      height: var(--cell);
+      border: 0;
+      padding: 0;
+      color: white;
+      font: 700 12px/1 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      cursor: pointer;
+      text-shadow: 0 1px 2px rgba(0, 0, 0, .9);
+    }
+
+    .pix:hover {
+      outline: 2px solid white;
+      outline-offset: -2px;
+    }
+
+    .pix.inactive {
+      background: #2b3038 !important;
+      color: #565f6c !important;
+      cursor: not-allowed;
+      text-shadow: none;
+    }
+
+    .pix.inactive:hover {
+      outline: none;
+    }
+
+    .rowHint {
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .geometryControls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: end;
+      margin-top: 10px;
+      padding-top: 10px;
+      border-top: 1px solid var(--border);
+      max-width: none;
+    }
+
+    .geometryControls label {
+      margin-bottom: 0;
+    }
+
+    .geometryControls input[type="number"] {
+      width: 82px;
+      background: #0f1218;
+      color: var(--text);
+      border: 1px solid var(--border);
+      border-radius: 7px;
+      padding: 7px 8px;
+      font: 13px ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    }
+
+    .checkLabel {
+      display: inline-flex;
+      gap: 7px;
+      align-items: center;
+      min-height: 34px;
+      user-select: none;
+    }
+
+    .geometrySummary {
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.25;
+      min-height: 30px;
+      flex: 0 0 100%;
+      max-width: none;
+      overflow-wrap: anywhere;
+    }
+
+    textarea {
+      width: 100%;
+      min-height: 360px;
+      resize: vertical;
+      background: #0f1218;
+      color: var(--text);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 10px;
+      font: 13px/1.35 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    }
+
+    label {
+      display: block;
+      color: var(--muted);
+      font-size: 13px;
+      margin-bottom: 5px;
+    }
+
+    select,
+    input[type="text"] {
+      background: #0f1218;
+      color: var(--text);
+      border: 1px solid var(--border);
+      border-radius: 7px;
+      padding: 7px 8px;
+      font: 13px ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    }
+
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 1px;
+    }
+
+    .libraryControls {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 10px;
+      padding-top: 10px;
+      border-top: 1px solid var(--border);
+      flex: 0 0 auto;
+    }
+
+    .libraryControls .spacer {
+      flex: 1;
+    }
+
+    .libraryGroup {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .lstControls {
+      margin-top: 10px;
+      margin-bottom: 0;
+      align-items: center;
+    }
+
+    #lstIndexInput,
+    #lstEndIndexInput {
+      width: 140px;
+    }
+
+    button.action {
+      background: var(--panel2);
+      color: var(--text);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 3px 6px;
+      cursor: pointer;
+      font-weight: 650;
+    }
+
+    button.action:hover {
+      border-color: var(--accent);
+    }
+
+    button.action:disabled {
+      opacity: .45;
+      cursor: not-allowed;
+      border-color: var(--border);
+    }
+
+    button.primary {
+      background: #174528;
+      border-color: #318851;
+    }
+
+    button.action.toolIconButton {
+      padding: 2px;
+      min-width: 0;
+    }
+
+    button.action.toolIconButton svg {
+      width: 26px;
+      height: 26px;
+    }
+
+    .paintToolWrap {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+    }
+
+    .paintToolButton {
+      border-radius: 8px;
+      position: relative;
+    }
+
+    .paintToolButton.active {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 2px rgba(94, 224, 131, .25), inset 0 0 0 1px rgba(255, 255, 255, .10);
+    }
+
+    .paintToolButton .paintNib {
+      position: absolute;
+      right: 3px;
+      bottom: 3px;
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, .55);
+      background: var(--accent);
+    }
+
+    .paintToolButton .paintNib.hidden {
+      display: none;
+    }
+
+    .paintChooser {
+      position: absolute;
+      z-index: 20;
+      right: 0;
+      top: calc(100% + 8px);
+      display: none;
+      grid-template-columns: repeat(4, 38px);
+      gap: 8px;
+      padding: 10px;
+      background: #0f1218;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, .45);
+    }
+
+    .spriteToolbar .paintChooser {
+      left: 0;
+      right: auto;
+      top: calc(100% + 8px);
+    }
+
+    .paintChooser.open {
+      display: grid;
+    }
+
+    .paintSwatchChoice {
+      width: 38px;
+      height: 34px;
+      border: 1px solid rgba(255, 255, 255, .45);
+      border-radius: 8px;
+      cursor: pointer;
+      font: 800 13px/1 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      text-shadow: 0 1px 2px rgba(0, 0, 0, .75);
+    }
+
+    .paintSwatchChoice:hover,
+    .paintSwatchChoice.selected {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
+    }
+
+    .colorMap {
+      display: grid;
+      grid-template-columns: auto auto 70px 100px minmax(190px, 1fr) minmax(170px, 1fr) 120px 110px;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .colorMapHeader {
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .04em;
+    }
+
+    .swatch {
+      width: 42px;
+      height: 28px;
+      border-radius: 6px;
+      border: 1px solid rgba(255, 255, 255, .35);
+    }
+
+    .swatchButton {
+      padding: 0;
+      cursor: pointer;
+      background: transparent;
+    }
+
+    .swatchButton:hover,
+    .swatchButton:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
+    }
+
+    .colorPickerButton {
+      width: 56px;
+      height: 32px;
+      padding: 3px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: #0f1218;
+      color: var(--text);
+      border: 1px solid var(--border);
+      border-radius: 7px;
+      cursor: pointer;
+    }
+
+    .colorPickerButton:hover,
+    .colorPickerButton:focus-visible {
+      border-color: var(--accent);
+      outline: none;
+    }
+
+    .colorPickerMiniSwatch {
+      width: 100%;
+      height: 100%;
+      display: block;
+      border-radius: 4px;
+      border: 1px solid rgba(255, 255, 255, .35);
+      box-shadow: inset 0 0 0 1px rgba(0, 0, 0, .35);
+    }
+
+    .customColorPickerPopover {
+      position: fixed;
+      z-index: 1500;
+      width: min(420px, calc(100vw - 24px));
+      max-height: calc(100vh - 24px);
+      overflow: auto;
+      display: none;
+      padding: 12px;
+      background: #0f1218;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      box-shadow: 0 18px 48px rgba(0, 0, 0, .65);
+    }
+
+    .customColorPickerPopover.open {
+      display: block;
+    }
+
+    .customColorPickerHeader {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 10px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .customColorPickerTitle {
+      font-weight: 800;
+      letter-spacing: .02em;
+    }
+
+    .customPickerCurrent {
+      display: grid;
+      grid-template-columns: 58px 1fr;
+      gap: 10px;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .customPickerCurrentSwatch {
+      width: 58px;
+      height: 44px;
+      border-radius: 8px;
+      border: 1px solid rgba(255, 255, 255, .35);
+      box-shadow: inset 0 0 0 1px rgba(0, 0, 0, .35);
+    }
+
+    .customPickerSectionTitle {
+      margin: 12px 0 6px;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .04em;
+    }
+
+    .quickSwatchGrid {
+      display: grid;
+      grid-template-columns: repeat(8, minmax(0, 1fr));
+      gap: 5px;
+    }
+
+    .quickSwatchButton,
+    .astroPaletteSwatch {
+      min-width: 0;
+      border: 1px solid rgba(255, 255, 255, .28);
+      border-radius: 6px;
+      cursor: pointer;
+      box-shadow: inset 0 0 0 1px rgba(0, 0, 0, .25);
+    }
+
+    .quickSwatchButton {
+      height: 28px;
+    }
+
+    .quickSwatchButton:hover,
+    .quickSwatchButton:focus-visible,
+    .astroPaletteSwatch:hover,
+    .astroPaletteSwatch:focus-visible,
+    .astroPaletteSwatch.selected {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
+      border-color: rgba(255, 255, 255, .65);
+    }
+
+    .customHexRow {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .customHexRow input {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .astroPaletteGrid {
+      display: grid;
+      grid-template-columns: repeat(8, 1fr);
+      gap: 3px;
+      padding: 8px;
+      background: #080a0f;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+    }
+
+    .astroPaletteSwatch {
+      width: 100%;
+      height: 18px;
+      padding: 0;
+    }
+
+    .bitField {
+      background: #0f1218;
+      border: 1px solid var(--border);
+      border-radius: 7px;
+      padding: 7px 8px;
+      min-height: 34px;
+    }
+
+    .small {
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    #status {
+      margin-top: 8px;
+      color: var(--accent);
+      min-height: 18px;
+      font-size: 13px;
+    }
+
+    .exportBox {
+      min-height: 330px;
+    }
+
+    .spriteNameControl {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding-bottom: 8px;
+      white-space: nowrap;
+    }
+
+    .spriteNameControl label {
+      margin: 0;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    #labelName {
+      width: 170px;
+    }
+
+    .mono {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    }
+
+
+    .toolbarSpacer {
+      flex: 1 1 auto;
+      min-width: 16px;
+    }
+
+    .setupBackdrop {
+      position: fixed;
+      inset: 0;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+      background: rgba(0, 0, 0, .55);
+      padding: 20px;
+    }
+
+    .setupBackdrop.open {
+      display: flex;
+    }
+
+    .setupDialog {
+      width: min(460px, 100%);
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      box-shadow: 0 18px 48px rgba(0, 0, 0, .55);
+      padding: 16px;
+    }
+
+    .setupDialog h2 {
+      margin: 0 0 10px;
+      font-size: 16px;
+    }
+
+    .setupDialog p {
+      margin: 0 0 16px;
+      color: var(--muted);
+      line-height: 1.35;
+      font-size: 14px;
+    }
+
+    .setupDialogActions {
+      display: flex;
+      justify-content: flex-end;
+      gap: 8px;
+      border-top: 1px solid var(--border);
+      padding-top: 12px;
+    }
+
+    .colorMapBackdrop {
+      position: fixed;
+      inset: 0;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+      background: rgba(0, 0, 0, .55);
+      padding: 20px;
+    }
+
+    .colorMapBackdrop.open {
+      display: flex;
+    }
+
+    .colorMapDialog {
+      width: min(1180px, 100%);
+      max-height: calc(100vh - 40px);
+      display: flex;
+      flex-direction: column;
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      box-shadow: 0 18px 48px rgba(0, 0, 0, .55);
+      padding: 16px;
+    }
+
+    .colorMapDialogHeader {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 12px;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 10px;
+    }
+
+    .colorMapDialogHeader h2 {
+      margin: 0;
+      font-size: 16px;
+    }
+
+    .colorMapDialogBody {
+      overflow: auto;
+      min-height: 0;
+      padding: 2px;
+    }
+
+    .colorMapDialogActions {
+      display: flex;
+      justify-content: flex-end;
+      gap: 8px;
+      border-top: 1px solid var(--border);
+      margin-top: 12px;
+      padding-top: 12px;
+    }
+
+    @media (max-width: 900px) {
+      .topLayout {
+        grid-template-columns: 1fr;
+      }
+
+      .verticalResizer {
+        display: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="topLayout">
+    <div class="topSpriteToolbar spriteToolbar" aria-label="Sprite edit toolbar">
+      <div class="paintToolWrap">
+        <button class="action toolIconButton paintToolButton" id="paintToolBtn" type="button"
+          title="Paint with selected color" aria-label="Paint with selected color" aria-expanded="false">
+          <svg viewBox="0 0 24 24" aria-hidden="true" width="21" height="21">
+            <path fill="currentColor"
+              d="M4 17.25V21h3.75L18.81 9.94l-3.75-3.75L4 17.25Zm2 1.58.38-1.88 8.68-8.68 1.67 1.67-8.68 8.68L6 18.83ZM20.71 7.04a1 1 0 0 0 0-1.41l-2.34-2.34a1 1 0 0 0-1.41 0l-1.18 1.18 3.75 3.75 1.18-1.18Z" />
+          </svg>
+          <span class="paintNib" id="paintToolNib"></span>
+        </button>
+        <div class="paintChooser" id="paintChooser" role="menu" aria-label="Choose paint color"></div>
+      </div>
+      <button class="action toolIconButton" id="colorMapBtn" type="button" title="Color map" aria-label="Color map">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path fill="currentColor"
+            d="M12 3a9 9 0 0 0 0 18h1.25a2.25 2.25 0 0 0 1.59-3.84 1.25 1.25 0 0 1 .88-2.13H17A4 4 0 0 0 21 11c0-4.42-4.03-8-9-8Zm-5 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3Zm2.5-4a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3Zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3Zm2.5 4a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3Z" />
+        </svg>
+      </button>
+      <button class="action toolIconButton" id="undoBtn" type="button" title="Undo" aria-label="Undo" disabled>
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path fill="currentColor"
+            d="M12 5V2L5 8l7 6v-4h4.5A3.5 3.5 0 0 1 20 13.5 3.5 3.5 0 0 1 16.5 17H9v2h7.5A5.5 5.5 0 0 0 22 13.5 5.5 5.5 0 0 0 16.5 8H12V5Z" />
+        </svg>
+      </button>
+      <button class="action toolIconButton" id="redoBtn" type="button" title="Redo" aria-label="Redo" disabled>
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path fill="currentColor"
+            d="M12 5V2l7 6-7 6v-4H7.5A3.5 3.5 0 0 0 4 13.5 3.5 3.5 0 0 0 7.5 17H15v2H7.5A5.5 5.5 0 0 1 2 13.5 5.5 5.5 0 0 1 7.5 8H12V5Z" />
+        </svg>
+      </button>
+      <span class="toolDivider" aria-hidden="true"></span>
+      <button class="action toolIconButton" id="rotateLeftBtn" type="button" title="Rotate left 90°"
+        aria-label="Rotate left 90 degrees">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"
+            d="M18 5H7v11h11" />
+          <path fill="currentColor" d="M7 5l4-4v8L7 5Z" />
+        </svg>
+      </button>
+      <button class="action toolIconButton" id="rotateRightBtn" type="button" title="Rotate right 90°"
+        aria-label="Rotate right 90 degrees">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"
+            d="M6 5h11v11H6" />
+          <path fill="currentColor" d="M17 5l-4-4v8l4-4Z" />
+        </svg>
+      </button>
+      <span class="toolDivider" aria-hidden="true"></span>
+      <button class="action toolIconButton" id="shiftUpBtn" type="button" title="Shift up" aria-label="Shift up">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path fill="currentColor" d="M12 3 6 9h4v9H6v2h12v-2h-4V9h4l-6-6Z" />
+        </svg>
+      </button>
+      <button class="action toolIconButton" id="shiftDownBtn" type="button" title="Shift down" aria-label="Shift down">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path fill="currentColor" d="M12 21 6 15h4V6H6V4h12v2h-4v9h4l-6 6Z" />
+        </svg>
+      </button>
+      <button class="action toolIconButton" id="shiftLeftBtn" type="button" title="Shift left" aria-label="Shift left">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path fill="currentColor" d="M3 12 9 6v4h9V6h2v12h-2v-4H9v4l-6-6Z" />
+        </svg>
+      </button>
+      <button class="action toolIconButton" id="shiftRightBtn" type="button" title="Shift right"
+        aria-label="Shift right">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path fill="currentColor" d="M21 12 15 6v4H6V6H4v12h2v-4h9v4l6-6Z" />
+        </svg>
+      </button>
+      <span class="toolDivider" aria-hidden="true"></span>
+      <button class="action toolIconButton" id="flipHorzBtn" type="button" title="Flip horizontal"
+        aria-label="Flip horizontal">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path fill="currentColor" d="M3 4h2v16H3V4Zm16 0h2v16h-2V4ZM8 7l7 5-7 5V7Zm8 0v10l-7-5 7-5Z" />
+        </svg>
+      </button>
+      <button class="action toolIconButton" id="flipVertBtn" type="button" title="Flip vertical"
+        aria-label="Flip vertical">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path fill="currentColor" d="M4 3h16v2H4V3Zm0 16h16v2H4v-2Zm3-11 5 7 5-7H7Zm0 8h10l-5-7-5 7Z" />
+        </svg>
+      </button>
+      <span class="toolDivider" aria-hidden="true"></span>
+      <div class="toolbarMenuWrap">
+        <button class="action toolIconButton" id="saveImageBtn" type="button" title="Save sprite as image"
+          aria-label="Save sprite as image" aria-expanded="false">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path fill="currentColor" d="M5 3h12l2 2v16H5V3Zm2 2v5h10V6.2L15.8 5H7Zm1 14h8v-6H8v6Zm2-12h5V5h-5v2Z" />
+          </svg>
+        </button>
+        <div class="toolbarMenu" id="saveImageMenu" role="menu" aria-label="Save sprite image format">
+          <button class="action" type="button" data-save-format="png">PNG</button>
+          <button class="action" type="button" data-save-format="jpg">JPG</button>
+          <button class="action" type="button" data-save-format="bmp">BMP</button>
+          <button class="action" type="button" data-save-format="tif">TIF</button>
+        </div>
+      </div>
+      <button class="action toolIconButton" id="copyImageBtn" type="button" title="Copy sprite as PNG"
+        aria-label="Copy sprite as PNG">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path fill="currentColor" d="M16 1H4v14h2V3h10V1Zm3 4H8v18h11V5Zm-2 2v14h-7V7h7Z" />
+        </svg>
+      </button>
+      <button class="action toolIconButton" id="pasteImageBtn" type="button" title="Paste image or tile-map text from clipboard"
+        aria-label="Paste image or tile-map text from clipboard">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path fill="currentColor"
+            d="M19 20H8V8h11v12Zm-9-2h7V10h-7v8ZM6 16H4V4h8v2H6v10Zm7-15 4 4h-3v3h-2V5H9l4-4Z" />
+        </svg>
+      </button>
+      <button class="action toolIconButton binaryImportButton" id="binaryImportBtn" type="button"
+        title="PB: click or drop a raw Astrocade 2bpp binary file"
+        aria-label="PB: import raw Astrocade 2bpp binary file">PB</button>
+      <input id="binaryFileInput" type="file" accept=".bin,.raw,.2bpp,.chr,.gfx,application/octet-stream" hidden />
+      <span class="toolDivider" aria-hidden="true"></span>
+      <button class="action toolIconButton dangerTool" id="clearBtn" type="button" title="Clear grid"
+        aria-label="Clear grid">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path fill="currentColor"
+            d="M9 3h6l1 2h4v2H4V5h4l1-2Zm-2 6h10l-.8 12H7.8L7 9Zm3 2 .3 8h1.4l-.3-8H10Zm3.6 0-.3 8h1.4l.3-8h-1.4Z" />
+        </svg>
+      </button>
+      <span class="toolbarSpacer" aria-hidden="true"></span>
+      <button class="action toolIconButton" id="setupBtn" type="button" title="Setup" aria-label="Setup">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path fill="currentColor"
+            d="M19.43 12.98c.04-.32.07-.65.07-.98s-.02-.66-.07-.98l2.11-1.65-2-3.46-2.49 1a7.15 7.15 0 0 0-1.69-.98L15 3.25h-4l-.36 2.68c-.6.23-1.16.56-1.69.98l-2.49-1-2 3.46 2.11 1.65c-.04.32-.07.65-.07.98s.02.66.07.98l-2.11 1.65 2 3.46 2.49-1c.52.41 1.08.74 1.69.98L11 20.75h4l.36-2.68c.6-.23 1.16-.56 1.69-.98l2.49 1 2-3.46-2.11-1.65ZM13 15.5A3.5 3.5 0 1 1 13 8a3.5 3.5 0 0 1 0 7.5Z" />
+        </svg>
+      </button>
+    </div>
+    <section class="panel gridPanel">
+      <div class="gridEditArea">
+        <div class="gridWrap" id="gridWrap">
+          <div id="grid" aria-label="sprite pixel editor"></div><canvas id="pastePreviewCanvas"
+            class="pastePreviewCanvas" aria-label="Pasted image preview"></canvas>
+        </div>
+
+      </div>
+      <div class="rowHint">Click pixel to cycle. Sh-click cycles backward. Use the top toolbar for paint, undo/redo,
+        rotate, flips, image export, paste image/tile-map text, PB raw binary import, and clear.</div>
+
+      <div class="geometryControls" aria-label="Sprite geometry controls">
+        <label for="spriteWidthBytes">Width
+          <input id="spriteWidthBytes" type="number" min="4" max="352" step="4" value="20"
+            title="Sprite width in pixels; stored as 2bpp bytes, 4 pixels per byte. Maximum 352 pixels = 88 bytes." />
+        </label>
+        <label for="spriteRows">Rows
+          <input id="spriteRows" type="number" min="1" max="352" step="1" value="18" title="Raw bitmap mode supports up to 352 rows. Header-defined mode uses a one-byte row header, so it tops out at 255 rows." />
+        </label>
+        <label class="checkLabel" for="fixedSizeMode"
+          title="Checked: object starts with width,height header bytes. Unchecked: raw fixed-size bitmap.">
+          <input id="fixedSizeMode" type="checkbox" />
+          Header-defined
+        </label>
+        <div id="geometrySummary" class="geometrySummary"></div>
+      </div>
+    </section>
+
+    <button class="verticalResizer" id="layoutResizer" type="button" aria-label="Resize grid and opcode panels"
+      title="Drag to resize grid/opcode split. Double-click to reset."></button>
+
+    <div class="sideStack">
+      <section class="panel opcodePanel">
+        <div class="opcodeTopBar">
+          <div class="tabs" id="opcodeTabs" role="tablist" aria-label="Opcode area tabs">
+            <button class="tabButton active" id="opcodeTabBtn" type="button" data-tab="opcode" role="tab"
+              aria-selected="true">Opcodes</button>
+            <button class="tabButton" id="lstTabBtn" type="button" data-tab="lst" role="tab"
+              aria-selected="false">LST</button>
+          </div>
+          <div class="spriteNameControl">
+            <label for="labelName">Sprite</label>
+            <input id="labelName" type="text" value="GARWOR1" />
+          </div>
+        </div>
+
+        <div class="tabArea">
+          <div class="tabPane active" id="opcodePane" role="tabpanel" aria-labelledby="opcodeTabBtn">
+            <label for="source">Paste Z80/Astrocade sprite bytes here. Parser reads <span class="mono">.DB</span>/<span class="mono">DEFB</span> byte
+              tokens including <span class="mono">$FF</span>, <span class="mono">0FFH</span>, decimal, and binary <span class="mono">00000011B</span>. It also accepts numbered tile rows such as <span class="mono">00: ...2...</span>.</label>
+            <textarea id="source"></textarea>
+          </div>
+
+          <div class="tabPane" id="lstPane" role="tabpanel" aria-labelledby="lstTabBtn">
+            <div class="lstViewerWrap">
+              <div id="lstCaretOverlay" aria-hidden="true">▶</div>
+              <div id="lstEndCaretOverlay" aria-hidden="true">▶</div>
+              <textarea id="lstViewer" readonly spellcheck="false"
+                placeholder="Load a .lst file to view it here."></textarea>
+            </div>
+            <div class="buttons lstControls">
+              <input id="lstIndexInput" type="text" value="" placeholder="start address" title="LST start address" />
+              <input id="lstEndIndexInput" type="text" value="" placeholder="end address" title="LST end address" />
+              <button class="action" id="loadLstBtn" type="button">Load</button>
+              <button class="action" id="lstBackBtn" type="button">Back</button>
+              <button class="action" id="lstNextBtn" type="button">Next</button>
+              <button class="action" id="lstMinusBtn" type="button">-</button>
+              <button class="action" id="lstPlusBtn" type="button">+</button>
+              <input id="lstFileInput" type="file" accept=".lst,text/plain" hidden />
+            </div>
+          </div>
+        </div>
+
+        <div class="libraryControls">
+          <label for="librarySelect"
+            style="display:inline-flex;align-items:center;margin:0;color:var(--muted);">Library</label>
+          <select id="librarySelect" title="Sprite library"></select>
+          <button class="action" id="loadLibraryBtn">Load</button>
+          <button class="action" id="saveSpriteBtn" disabled>Save</button>
+          <button class="action" id="downloadLibraryBtn">Download</button>
+          <input id="libraryFileInput" type="file" accept="application/json,.json" hidden />
+        </div>
+
+        <div id="status"></div>
+      </section>
+    </div>
+  </div>
+
+  <div class="setupBackdrop" id="setupBackdrop" role="dialog" aria-modal="true" aria-labelledby="setupDialogTitle">
+    <div class="setupDialog">
+      <h2 id="setupDialogTitle">Setup</h2>
+      <p>Setup options will go here.</p>
+      <div class="setupDialogActions">
+        <button class="action" id="setupCancelBtn" type="button">Cancel</button>
+        <button class="action primary" id="setupOkBtn" type="button">OK</button>
+      </div>
+    </div>
+  </div>
+
+  <section class="panel fullWidth">
+    <div class="buttons"><button class="action primary" id="copyBtn">Copy annotated .DB to clipboard</button></div>
+    <textarea id="exportText" class="exportBox" readonly></textarea>
+  </section>
+
+  <div class="colorMapBackdrop" id="colorMapBackdrop" role="dialog" aria-modal="true" aria-labelledby="colorMapDialogTitle">
+    <div class="colorMapDialog">
+      <div class="colorMapDialogHeader">
+        <h2 id="colorMapDialogTitle">Color map</h2>
+        <button class="action toolIconButton" id="colorMapCloseBtn" type="button" title="Close" aria-label="Close color map">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path fill="currentColor" d="m18.3 5.71-1.41-1.41L12 9.17 7.11 4.3 5.7 5.71 10.59 10.6 5.7 15.49l1.41 1.41L12 12.01l4.89 4.89 1.41-1.41-4.89-4.89 4.89-4.89Z" />
+          </svg>
+        </button>
+      </div>
+      <div class="colorMapDialogBody">
+        <div class="colorMap" id="colorMap"></div>
+        <div class="small" style="margin-top:8px;">Color byte decode: upper 5 bits are NTSC phase/hue; lower 3 bits are
+          luminance/color-code. RGB is an approximate preview for editing, not a calibrated CRT measurement.</div>
+        <div class="small" style="margin-top:6px;">Use Picker to open the built-in color picker. Astrocade palette cells set both Byte and Preview; quick swatches/custom hex change only the editor preview. Edit the Byte field separately if you want a specific hardware byte. Use OK or X to keep changes, or Cancel/Esc to revert this dialog session.</div>
+      </div>
+      <div class="colorMapDialogActions">
+        <button class="action" id="colorMapCancelBtn" type="button" title="Revert color map changes from this dialog session">Cancel</button>
+        <button class="action primary" id="colorMapOkBtn" type="button">OK</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    'use strict';
+
+    const MAX_BYTES_PER_ROW = 88; // 352 pixels / 4 pixels per 2bpp byte
+    const MAX_WIDTH = MAX_BYTES_PER_ROW * 4;
+    const MAX_HEIGHT = 352;
+    const MAX_HEADER_ROWS = 255; // Header-defined objects store row count in one byte.
+    const MIN_VISIBLE_GRID_ROWS = 15;
+
+    function getMaxRowsForMode(isRawFixed = rawFixedSizeMode) {
+      return isRawFixed ? MAX_HEIGHT : Math.min(MAX_HEIGHT, MAX_HEADER_ROWS);
+    }
+
+    let spriteBytesPerRow = 5;
+    let spriteRows = 18;
+    let rawFixedSizeMode = true;
+
+    function getActivePixelWidth() { return spriteBytesPerRow * 4; }
+    function getBitmapByteCount() { return spriteBytesPerRow * spriteRows; }
+    function getObjectByteCount() { return getBitmapByteCount() + (rawFixedSizeMode ? 0 : 2); }
+    function getHeaderByteCount() { return rawFixedSizeMode ? 0 : 2; }
+
+    function getGridCellSize() {
+      // Keep pixel cells at the same visual size after transforms.
+      // Larger sprites should use the gridWrap scrollbars instead of shrinking the sprite.
+      return 24;
+    }
+
+    function updateGridSizing() {
+      document.documentElement.style.setProperty('--cell', getGridCellSize() + 'px');
+      grid.style.setProperty('--grid-cols', String(getActivePixelWidth()));
+      grid.style.setProperty('--grid-rows', String(Math.max(spriteRows, MIN_VISIBLE_GRID_ROWS)));
+    }
+
+    // Astrocade color byte decode:
+    //   bits 7..3 = 5-bit NTSC phase/hue code
+    //   bits 2..0 = 3-bit brightness/luminance code
+    // This produces an approximate RGB preview. Real arcade CRT/NTSC output
+    // varies by monitor, capture chain, and adjustment, but the bit fields are real.
+    const hueNames = [
+      'Black/gray', 'Orange', 'Amber', 'Gold', 'Yellow-orange', 'Yellow-green', 'Green-yellow', 'Green',
+      'Aqua-green', 'Cyan-green', 'Cyan', 'Blue-cyan', 'Red', 'Red-orange', 'Orange-red', 'Yellow',
+      'Yellow-green', 'Green-yellow', 'Green', 'Green', 'Aqua', 'Cyan', 'Blue-cyan', 'Violet-blue',
+      'Violet', 'Purple', 'Magenta', 'Rose', 'Pink-red', 'Deep blue', 'Blue', 'Indigo'
+    ];
+
+    // Approximate modern preview palette for the Astrocade 5-bit hue code.
+    // Astrocade color bytes are laid out as 32 hue rows * 8 luminance/color columns:
+    //   byte = (hue << 3) | luminanceCode.
+    // Important: luminance/color code 0 is NOT always black. Only hue row 0 is grayscale.
+    // Example from Astrocade sample art:
+    //   $07 = white, $68 = red, $99 = green, $00 = black.
+    const hueDegrees = [
+      0, 28, 36, 45, 52, 68, 84, 102,
+      122, 142, 162, 182, 0, 8, 22, 58,
+      78, 94, 112, 126, 150, 174, 196, 222,
+      252, 276, 300, 320, 338, 226, 236, 248
+    ];
+
+    // Exact/hand-tuned anchors for colors we know from Astrocade examples and WoW work.
+    // These keep common bytes from being misrepresented by the approximate HSV fallback.
+    const knownColorOverrides = new Map([
+      [0x00, { hex: '#000000', name: 'Black' }],
+      [0x01, { hex: '#242424', name: 'Dark gray' }],
+      [0x02, { hex: '#484848', name: 'Gray 2' }],
+      [0x03, { hex: '#6C6C6C', name: 'Gray 3' }],
+      [0x04, { hex: '#909090', name: 'Gray 4' }],
+      [0x05, { hex: '#B8B8B8', name: 'Gray 5' }],
+      [0x06, { hex: '#DCDCDC', name: 'Light gray' }],
+      [0x07, { hex: '#FFFFFF', name: 'White' }],
+      [0x63, { hex: '#D83232', name: 'Red' }],
+      [0x68, { hex: '#8B0000', name: 'Red 2' }],
+      [0x7D, { hex: '#D9C338', name: 'Yellow' }],
+      [0x99, { hex: '#008000', name: 'Green' }],
+      [0xF4, { hex: '#3F62E8', name: 'Blue' }]
+    ]);
+
+    const DEFAULT_COLOR_BYTES = [0x00, 0xF4, 0x7D, 0x63];
+    // The sample raw-screen viewer's COLSET bytes are written in Astrocade order:
+    // 11b, 10b, 01b, 00b. The editor's Color 0..3 rows are pixel values
+    // 00b, 01b, 10b, 11b, so that palette has to be reversed for display.
+    const IWIZARD_VIEWER_COLSET_LEFT_PALETTE = [0x5E, 0x54, 0xD0, 0x70];
+    const QUICK_PREVIEW_SWATCHES = [
+      { label: 'Black', hex: '#000000' },
+      { label: 'Dark red', hex: '#8B1E1E' },
+      { label: 'Red', hex: '#D83232' },
+      { label: 'Blue', hex: '#3F62E8' },
+      { label: 'Yellow', hex: '#D9C338' },
+      { label: 'Tan', hex: '#C2A45B' },
+      { label: 'Cream', hex: '#F4E6C8' },
+      { label: 'White', hex: '#FFFFFF' },
+      { label: 'Green', hex: '#008000' },
+      { label: 'Cyan', hex: '#34C6D3' },
+      { label: 'Purple', hex: '#8B4FD8' },
+      { label: 'Gray', hex: '#909090' },
+      { label: 'Charcoal', hex: '#242424' },
+      { label: 'Orange', hex: '#D87932' },
+      { label: 'Pink', hex: '#D85A8A' },
+      { label: 'Brown', hex: '#6B3F23' }
+    ];
+    let colorBytes = DEFAULT_COLOR_BYTES.slice(); // index is pixel value 0..3
+    // Preview colors are intentionally independent from Astrocade color bytes.
+    // The byte field is the hardware-ish value; the picker is the editor/display color.
+    // This lets you choose normal RGB colors such as white without the picker snapping
+    // them back to the nearest Astrocade hue byte.
+    let colorPreviewHex = ['#000000', '#3F62E8', '#D9C338', '#D83232'];
+    let pixels = Array.from({ length: MAX_HEIGHT }, () => Array(MAX_WIDTH).fill(0));
+
+    const topLayout = document.querySelector('.topLayout');
+    const layoutResizer = document.getElementById('layoutResizer');
+    const source = document.getElementById('source');
+    const grid = document.getElementById('grid');
+    const gridWrap = document.getElementById('gridWrap');
+    const pastePreviewCanvas = document.getElementById('pastePreviewCanvas');
+    const binaryImportBtn = document.getElementById('binaryImportBtn');
+    const binaryFileInput = document.getElementById('binaryFileInput');
+    const statusEl = document.getElementById('status');
+    const exportText = document.getElementById('exportText');
+    const labelName = document.getElementById('labelName');
+    const librarySelect = document.getElementById('librarySelect');
+    const loadLibraryBtn = document.getElementById('loadLibraryBtn');
+    const saveSpriteBtn = document.getElementById('saveSpriteBtn');
+    const downloadLibraryBtn = document.getElementById('downloadLibraryBtn');
+    const libraryFileInput = document.getElementById('libraryFileInput');
+    const lstFileInput = document.getElementById('lstFileInput');
+    const loadLstBtn = document.getElementById('loadLstBtn');
+    const lstIndexInput = document.getElementById('lstIndexInput');
+    const lstEndIndexInput = document.getElementById('lstEndIndexInput');
+    const lstBackBtn = document.getElementById('lstBackBtn');
+    const lstNextBtn = document.getElementById('lstNextBtn');
+    const lstMinusBtn = document.getElementById('lstMinusBtn');
+    const lstPlusBtn = document.getElementById('lstPlusBtn');
+    const opcodeTabs = document.getElementById('opcodeTabs');
+    const opcodeTabBtn = document.getElementById('opcodeTabBtn');
+    const opcodePane = document.getElementById('opcodePane');
+    const lstPane = document.getElementById('lstPane');
+    const lstViewer = document.getElementById('lstViewer');
+    const lstCaretOverlay = document.getElementById('lstCaretOverlay');
+    const lstEndCaretOverlay = document.getElementById('lstEndCaretOverlay');
+    const colorMapEl = document.getElementById('colorMap');
+    const spriteWidthBytesInput = document.getElementById('spriteWidthBytes');
+    const spriteRowsInput = document.getElementById('spriteRows');
+    const fixedSizeModeInput = document.getElementById('fixedSizeMode');
+    const paintToolBtn = document.getElementById('paintToolBtn');
+    const colorMapBtn = document.getElementById('colorMapBtn');
+    const colorMapBackdrop = document.getElementById('colorMapBackdrop');
+    const colorMapCloseBtn = document.getElementById('colorMapCloseBtn');
+    const colorMapCancelBtn = document.getElementById('colorMapCancelBtn');
+    const colorMapOkBtn = document.getElementById('colorMapOkBtn');
+    const paintChooser = document.getElementById('paintChooser');
+    const paintToolNib = document.getElementById('paintToolNib');
+    const saveImageBtn = document.getElementById('saveImageBtn');
+    const saveImageMenu = document.getElementById('saveImageMenu');
+    const copyImageBtn = document.getElementById('copyImageBtn');
+    const pasteImageBtn = document.getElementById('pasteImageBtn');
+    const undoBtn = document.getElementById('undoBtn');
+    const redoBtn = document.getElementById('redoBtn');
+    const rotateLeftBtn = document.getElementById('rotateLeftBtn');
+    const rotateRightBtn = document.getElementById('rotateRightBtn');
+    const shiftUpBtn = document.getElementById('shiftUpBtn');
+    const shiftDownBtn = document.getElementById('shiftDownBtn');
+    const shiftLeftBtn = document.getElementById('shiftLeftBtn');
+    const shiftRightBtn = document.getElementById('shiftRightBtn');
+    const geometrySummary = document.getElementById('geometrySummary');
+    const setupBtn = document.getElementById('setupBtn');
+    const setupBackdrop = document.getElementById('setupBackdrop');
+    const setupOkBtn = document.getElementById('setupOkBtn');
+    const setupCancelBtn = document.getElementById('setupCancelBtn');
+    let syncingSourceFromGrid = false;
+    let sourceDebounce = null;
+    let currentLstCaretLine = null;
+    let currentLstEndCaretLine = null;
+    let lstMoveBackStack = [];
+    let lstMoveForwardStack = [];
+    let colorMapDialogOriginalColorBytes = null;
+    let colorMapDialogOriginalPreviewHex = null;
+    let colorMapDialogOriginalDirty = false;
+    let customColorPickerPopover = null;
+    let activeColorPickerIndex = null;
+    let activeColorPickerAnchor = null;
+
+    const DEFAULT_LIBRARY_FILENAME = 'astrocade_2bpp_sprite_library.json';
+    const LIBRARY_URL_PARAM_NAMES = ['lib', 'library', 'json'];
+
+    function getLibraryUrlParamValue() {
+      const params = new URLSearchParams(window.location.search);
+      for (const name of LIBRARY_URL_PARAM_NAMES) {
+        const value = params.get(name);
+        if (value && value.trim()) return value.trim();
+      }
+      return '';
+    }
+
+    function getLibraryRequestTarget() {
+      const requested = getLibraryUrlParamValue();
+      const target = requested || DEFAULT_LIBRARY_FILENAME;
+      const url = new URL(target, window.location.href);
+
+      if (window.location.protocol !== 'file:' && url.origin !== window.location.origin) {
+        throw new Error('Library JSON must be on the same site as the editor.');
+      }
+
+      if (!url.pathname.toLowerCase().endsWith('.json')) {
+        throw new Error('Library URL must point to a .json file.');
+      }
+
+      return {
+        url,
+        requested: Boolean(requested),
+        label: requested || DEFAULT_LIBRARY_FILENAME
+      };
+    }
+
+    // Sprite library model.
+    // For now this is an in-memory object with one built-in sprite. Later this can be
+    // replaced/merged with JSON loaded from disk and saved back out.
+    let spriteLibrary = {
+      lastUsed: 'GARWOR1',
+      entries: {
+        GARWOR1: {
+          name: 'GARWOR1',
+          width: 20,
+          height: 18,
+          bytesPerRow: 5,
+          data: [
+            '0x00', '0x00', '0x00', '0x03', '0xC0',
+            '0x00', '0x02', '0xAA', '0x00', '0xFC',
+            '0x00', '0x0A', '0xAA', '0x80', '0x3C',
+            '0x00', '0xAA', '0x0A', '0xA0', '0x08',
+            '0x0A', '0xAA', '0x4A', '0xA8', '0x08',
+            '0x0A', '0xAA', '0xAA', '0xAA', '0x08',
+            '0x00', '0xBB', '0xAA', '0xAA', '0x08',
+            '0x0F', '0xFF', '0xAA', '0xAA', '0x88',
+            '0x32', '0xEE', '0x8A', '0xAA', '0x88',
+            '0x00', '0xAA', '0x2A', '0xAA', '0x88',
+            '0x00', '0x00', '0x2A', '0xAA', '0xA8',
+            '0x00', '0x00', '0xAA', '0xAA', '0xA8',
+            '0x00', '0x0A', '0xAA', '0xAA', '0xA0',
+            '0x00', '0x20', '0x2A', '0xAA', '0x80',
+            '0x00', '0x00', '0x0A', '0xA8', '0x00',
+            '0x00', '0x00', '0x0A', '0x82', '0x00',
+            '0x00', '0x00', '0x0A', '0x02', '0x00',
+            '0x00', '0x00', '0xA8', '0x0A', '0x00'
+          ],
+          colorBytes: ['0x00', '0xF4', '0x7D', '0x63']
+        }
+      }
+    };
+
+    let currentSpriteName = null;
+    let workingSpriteName = null;
+    let workingBytes = Array(MAX_HEIGHT * MAX_BYTES_PER_ROW).fill(0);
+    let workingDirty = false;
+    let paintColorIndex = null;
+    const UNDO_LIMIT = 50;
+    let undoStack = [];
+    let redoStack = [];
+    let restoringHistory = false;
+    // The editor has a working copy of the selected sprite in `pixels` and `workingBytes`.
+    // Library entries are source templates and are not mutated by Clear Grid,
+    // pasted opcode edits, pixel edits, or label edits. Save explicitly writes
+    // the working bytes back into the in-memory library.
+
+    function clonePixelsMatrix(src = pixels) {
+      return src.map(row => row.slice());
+    }
+
+    function makeEditorSnapshot() {
+      updateWorkingBytesFromPixels();
+      return {
+        spriteBytesPerRow,
+        spriteRows,
+        rawFixedSizeMode,
+        pixels: clonePixelsMatrix(),
+        colorBytes: colorBytes.slice(),
+        colorPreviewHex: colorPreviewHex.slice(),
+        label: labelName ? labelName.value : '',
+        workingSpriteName,
+        currentSpriteName,
+        workingDirty
+      };
+    }
+
+    function updateUndoRedoButtons() {
+      if (undoBtn) {
+        undoBtn.disabled = undoStack.length === 0;
+        undoBtn.title = undoStack.length ? `Undo (${undoStack.length})` : 'Undo';
+      }
+      if (redoBtn) {
+        redoBtn.disabled = redoStack.length === 0;
+        redoBtn.title = redoStack.length ? `Redo (${redoStack.length})` : 'Redo';
+      }
+    }
+
+    function pushUndoSnapshot() {
+      if (restoringHistory) return;
+      undoStack.push(makeEditorSnapshot());
+      if (undoStack.length > UNDO_LIMIT) undoStack.shift();
+      redoStack = [];
+      updateUndoRedoButtons();
+    }
+
+    function resetUndoHistory() {
+      undoStack = [];
+      redoStack = [];
+      updateUndoRedoButtons();
+    }
+
+    function restoreEditorSnapshot(snapshot) {
+      if (!snapshot) return;
+      restoringHistory = true;
+      rawFixedSizeMode = Boolean(snapshot.rawFixedSizeMode);
+      spriteBytesPerRow = clampGeometry(snapshot.spriteBytesPerRow, 1, MAX_BYTES_PER_ROW, spriteBytesPerRow);
+      spriteRows = clampGeometry(snapshot.spriteRows, 1, getMaxRowsForMode(rawFixedSizeMode), spriteRows);
+      pixels = clonePixelsMatrix(snapshot.pixels || pixels);
+      colorBytes = normalizeColorBytes(snapshot.colorBytes || colorBytes);
+      colorPreviewHex = normalizePreviewColors(snapshot.colorPreviewHex, colorBytes);
+      workingSpriteName = snapshot.workingSpriteName || workingSpriteName;
+      currentSpriteName = snapshot.currentSpriteName || currentSpriteName;
+      if (labelName) labelName.value = snapshot.label || 'SPRITE';
+      syncGeometryControls();
+      renderColorMap();
+      renderGrid();
+      refreshDerivedText();
+      setWorkingDirty(Boolean(snapshot.workingDirty));
+      restoringHistory = false;
+    }
+
+    function undoEdit() {
+      if (!undoStack.length) return;
+      redoStack.push(makeEditorSnapshot());
+      const snapshot = undoStack.pop();
+      restoreEditorSnapshot(snapshot);
+      setStatus('Undo.');
+      updateUndoRedoButtons();
+    }
+
+    function redoEdit() {
+      if (!redoStack.length) return;
+      undoStack.push(makeEditorSnapshot());
+      if (undoStack.length > UNDO_LIMIT) undoStack.shift();
+      const snapshot = redoStack.pop();
+      restoreEditorSnapshot(snapshot);
+      setStatus('Redo.');
+      updateUndoRedoButtons();
+    }
+
+    function hex2(n) {
+      return '$' + (n & 0xFF).toString(16).toUpperCase().padStart(2, '0');
+    }
+
+    function normalizeByteArray(data) {
+      return (Array.isArray(data) ? data : []).map(value => {
+        if (typeof value === 'number') return value & 0xFF;
+        if (typeof value === 'string') {
+          const cleaned = value.trim().replace(/^[$#]/, '').replace(/^0x/i, '');
+          const parsed = parseInt(cleaned, 16);
+          return Number.isFinite(parsed) ? (parsed & 0xFF) : 0;
+        }
+        return 0;
+      });
+    }
+
+    function normalizeColorBytes(data) {
+      const normalized = normalizeByteArray(data).slice(0, 4);
+      while (normalized.length < 4) normalized.push(DEFAULT_COLOR_BYTES[normalized.length]);
+      return normalized;
+    }
+
+    function isCssHexColor(value) {
+      return /^#[0-9a-fA-F]{6}$/.test(String(value || '').trim());
+    }
+
+    function normalizePreviewColors(data, bytes = colorBytes) {
+      const source = Array.isArray(data) ? data : [];
+      const normalized = [];
+      const normalizedBytes = normalizeColorBytes(bytes);
+      for (let i = 0; i < 4; i++) {
+        const candidate = String(source[i] || '').trim();
+        normalized.push(isCssHexColor(candidate) ? candidate.toUpperCase() : decodeAstrocadeColor(normalizedBytes[i]).hex);
+      }
+      return normalized;
+    }
+
+    function previewColorsToJsonHex(colors = colorPreviewHex) {
+      return normalizePreviewColors(colors, colorBytes);
+    }
+
+    function colorBytesToJsonHex(bytes = colorBytes) {
+      return normalizeColorBytes(bytes).map(n => '0x' + (n & 0xFF).toString(16).toUpperCase().padStart(2, '0'));
+    }
+
+    function setActiveColorBytes(bytes, previewColors = null) {
+      colorBytes = normalizeColorBytes(bytes);
+      colorPreviewHex = normalizePreviewColors(previewColors, colorBytes);
+      renderColorMap();
+      renderGrid();
+    }
+
+    function bytesToJsonHex(bytes) {
+      return bytes.slice(0, getBitmapByteCount()).map(n => '0x' + (n & 0xFF).toString(16).toUpperCase().padStart(2, '0'));
+    }
+
+    function makeEmptyLibrary() {
+      return { lastUsed: '', entries: {} };
+    }
+
+    function normalizeLibraryObject(raw) {
+      if (!raw || typeof raw !== 'object') throw new Error('JSON root must be an object.');
+      const entries = raw.entries && typeof raw.entries === 'object' ? raw.entries : null;
+      if (!entries) throw new Error('Library JSON needs an entries object.');
+
+      const normalized = makeEmptyLibrary();
+
+      for (const [key, value] of Object.entries(entries)) {
+        if (!value || typeof value !== 'object') continue;
+        const entryName = String(value.name || key).trim() || key;
+        const entryRawFixedMode = value.rawFixedSizeMode !== false;
+        const entryHeight = clampGeometry(value.height, 1, getMaxRowsForMode(entryRawFixedMode), 18);
+        const entryBytesPerRow = clampGeometry(
+          value.bytesPerRow,
+          1,
+          MAX_BYTES_PER_ROW,
+          Math.max(1, Math.min(MAX_BYTES_PER_ROW, Math.ceil((Number(value.width) || 20) / 4)))
+        );
+        const entryBitmapByteCount = entryBytesPerRow * entryHeight;
+        const data = normalizeByteArray(value.data).slice(0, entryBitmapByteCount);
+        while (data.length < entryBitmapByteCount) data.push(0);
+
+        normalized.entries[key] = {
+          name: entryName,
+          width: entryBytesPerRow * 4,
+          height: entryHeight,
+          bytesPerRow: entryBytesPerRow,
+          rawFixedSizeMode: entryRawFixedMode,
+          data: data.map(n => '0x' + (n & 0xFF).toString(16).toUpperCase().padStart(2, '0')),
+          colorBytes: Array.isArray(value.colorBytes) ? colorBytesToJsonHex(value.colorBytes) : undefined,
+          colorPreviewHex: Array.isArray(value.colorPreviewHex) ? previewColorsToJsonHex(value.colorPreviewHex) : undefined
+        };
+      }
+
+      const names = Object.keys(normalized.entries);
+      if (names.length === 0) throw new Error('Library JSON did not contain any usable entries.');
+
+      normalized.lastUsed = raw.lastUsed in normalized.entries ? raw.lastUsed : names[0];
+      return normalized;
+    }
+
+    function makeWorkingSpriteLibraryEntry() {
+      const name = labelName.value.trim() || workingSpriteName || currentSpriteName || 'SPRITE';
+      updateWorkingBytesFromPixels();
+
+      return {
+        key: name,
+        entry: {
+          name,
+          width: getActivePixelWidth(),
+          height: spriteRows,
+          bytesPerRow: spriteBytesPerRow,
+          rawFixedSizeMode,
+          data: bytesToJsonHex(getWorkingBytes()),
+          colorBytes: colorBytesToJsonHex(),
+          colorPreviewHex: previewColorsToJsonHex()
+        }
+      };
+    }
+
+    function replaceLibrary(newLibrary) {
+      const dirtyCarry = workingDirty ? makeWorkingSpriteLibraryEntry() : null;
+      spriteLibrary = normalizeLibraryObject(newLibrary);
+
+      if (dirtyCarry) {
+        spriteLibrary.entries[dirtyCarry.key] = dirtyCarry.entry;
+        spriteLibrary.lastUsed = dirtyCarry.key;
+      }
+
+      populateLibraryDropdown();
+      loadSpriteFromLibrary(spriteLibrary.lastUsed);
+      setWorkingDirty(false);
+
+      if (dirtyCarry) {
+        setStatus(`Loaded library and preserved dirty sprite ${dirtyCarry.key} in it. Use Download to write the merged library file.`);
+      }
+    }
+
+    function setWorkingDirty(isDirty) {
+      workingDirty = Boolean(isDirty);
+      saveSpriteBtn.disabled = !workingDirty;
+    }
+
+
+    function getCurrentSpriteEntry() {
+      const fallbackName = Object.keys(spriteLibrary.entries)[0];
+      const name = spriteLibrary.lastUsed in spriteLibrary.entries ? spriteLibrary.lastUsed : fallbackName;
+      return { name, entry: spriteLibrary.entries[name] };
+    }
+
+
+    function getLibraryNames() {
+      return Object.keys(spriteLibrary.entries);
+    }
+
+    function populateLibraryDropdown() {
+      librarySelect.innerHTML = '';
+      for (const name of getLibraryNames()) {
+        const opt = document.createElement('option');
+        opt.value = name;
+        opt.textContent = name;
+        librarySelect.appendChild(opt);
+      }
+
+      const selectedName = spriteLibrary.lastUsed in spriteLibrary.entries
+        ? spriteLibrary.lastUsed
+        : getLibraryNames()[0];
+
+      if (selectedName) librarySelect.value = selectedName;
+    }
+
+    function syncLibraryDropdownSelection() {
+      if (librarySelect && currentSpriteName in spriteLibrary.entries) {
+        librarySelect.value = currentSpriteName;
+      }
+    }
+
+    function updateWorkingBytesFromPixels() {
+      workingBytes = pixelsToBytes();
+    }
+
+    function setWorkingBytes(bytes) {
+      workingBytes = bytes.slice(0, MAX_HEIGHT * MAX_BYTES_PER_ROW).map(n => n & 0xFF);
+      while (workingBytes.length < MAX_HEIGHT * MAX_BYTES_PER_ROW) workingBytes.push(0);
+    }
+
+    function getWorkingBytes() {
+      return workingBytes.slice(0, getBitmapByteCount());
+    }
+
+    function loadSpriteFromLibrary(name = spriteLibrary.lastUsed) {
+      if (!(name in spriteLibrary.entries)) name = Object.keys(spriteLibrary.entries)[0];
+      const entry = spriteLibrary.entries[name];
+      const entryRawFixedMode = entry.rawFixedSizeMode !== false;
+      const entryHeight = clampGeometry(entry.height, 1, getMaxRowsForMode(entryRawFixedMode), 18);
+      const entryBytesPerRow = clampGeometry(
+        entry.bytesPerRow,
+        1,
+        MAX_BYTES_PER_ROW,
+        Math.max(1, Math.min(MAX_BYTES_PER_ROW, Math.ceil((Number(entry.width) || 20) / 4)))
+      );
+      const bytes = normalizeByteArray(entry.data).slice(0, entryBytesPerRow * entryHeight);
+      while (bytes.length < entryBytesPerRow * entryHeight) bytes.push(0);
+
+      currentSpriteName = name;
+      workingSpriteName = name;
+      spriteLibrary.lastUsed = name;
+      labelName.value = entry.name || name;
+      setGeometry(entryBytesPerRow, entryHeight, entryRawFixedMode, { skipRefresh: true });
+      setWorkingBytes(bytes);
+      pixels = bytesToPixels(getWorkingBytes());
+      setActiveColorBytes(Array.isArray(entry.colorBytes) ? entry.colorBytes : DEFAULT_COLOR_BYTES, entry.colorPreviewHex);
+      refreshDerivedText();
+      syncLibraryDropdownSelection();
+      setWorkingDirty(false);
+      resetUndoHistory();
+      setStatus(`Loaded ${name} from sprite library.`);
+    }
+
+    function setStatus(msg, isError = false) {
+      statusEl.textContent = msg;
+      statusEl.style.color = isError ? 'var(--danger)' : 'var(--accent)';
+    }
+
+    function clamp255(n) {
+      return Math.max(0, Math.min(255, Math.round(n)));
+    }
+
+    function rgbToHex(r, g, b) {
+      return '#' + [r, g, b].map(v => clamp255(v).toString(16).toUpperCase().padStart(2, '0')).join('');
+    }
+
+    function hsvToHex(h, s, v) {
+      const c = v * s;
+      const hp = h / 60;
+      const x = c * (1 - Math.abs((hp % 2) - 1));
+      let r = 0, g = 0, b = 0;
+      if (hp >= 0 && hp < 1) [r, g, b] = [c, x, 0];
+      else if (hp < 2) [r, g, b] = [x, c, 0];
+      else if (hp < 3) [r, g, b] = [0, c, x];
+      else if (hp < 4) [r, g, b] = [0, x, c];
+      else if (hp < 5) [r, g, b] = [x, 0, c];
+      else[r, g, b] = [c, 0, x];
+      const m = v - c;
+      return rgbToHex((r + m) * 255, (g + m) * 255, (b + m) * 255);
+    }
+
+    function decodeAstrocadeColor(byteValue) {
+      const byte = byteValue & 0xFF;
+      const hue = (byte >> 3) & 0x1F;
+      const luminance = byte & 0x07;
+      const upperBits = hue.toString(2).padStart(5, '0');
+      const lowerBits = luminance.toString(2).padStart(3, '0');
+
+      const override = knownColorOverrides.get(byte);
+      const hueName = override?.name || hueNames[hue] || `Hue ${hue}`;
+
+      let hex;
+      if (override) {
+        hex = override.hex;
+      } else if (hue === 0) {
+        // Hue row 0 is the grayscale row: $00 black through $07 white.
+        const gray = Math.round((luminance / 7) * 255);
+        hex = rgbToHex(gray, gray, gray);
+      } else {
+        const hueDegreesValue = hueDegrees[hue] ?? 0;
+        // Luminance/color code 0 is a valid color column, not universal black.
+        // Keep it dark-ish but visible, then brighten through column 7.
+        const value = Math.min(1, 0.36 + luminance * 0.082);
+        const saturation = 0.92;
+        hex = hsvToHex(hueDegreesValue, saturation, value);
+      }
+
+      return { byte, hue, brightness: luminance, luminance, upperBits, lowerBits, hueName, hex };
+    }
+
+    function parseByteToken(token) {
+      const t = String(token || '').trim();
+      let parsed = NaN;
+
+      if (/^\$[0-9a-fA-F]{1,2}$/.test(t)) {
+        parsed = parseInt(t.slice(1), 16);
+      } else if (/^0x[0-9a-fA-F]{1,2}$/i.test(t)) {
+        parsed = parseInt(t.slice(2), 16);
+      } else if (/^[0-9a-fA-F]{1,3}H$/i.test(t)) {
+        // Old Intel/Z80 style hex, including forms like 0FFH and 3FH.
+        parsed = parseInt(t.slice(0, -1), 16);
+      } else if (/^[01]{1,8}B$/i.test(t)) {
+        // Binary byte notation, e.g. 00000011B.
+        parsed = parseInt(t.slice(0, -1), 2);
+      } else if (/^\d{1,3}$/.test(t)) {
+        // Bare numbers in DEFB/DB source are decimal in the old Astrocade samples.
+        parsed = parseInt(t, 10);
+      }
+
+      if (!Number.isFinite(parsed) || parsed < 0 || parsed > 0xFF) return null;
+      return parsed & 0xFF;
+    }
+
+    function parseBytes(text) {
+      // Source/opcode editor parser. Handles the forms we commonly paste:
+      //   WIZARD5: .DB $05,$12
+      //   DB      $05, $12
+      //   .db     0x05,0x12
+      //   HOUSE   DEFB 16
+      //   DEFB    0FFH, 0AAH, 3FH
+      //   DEFB    00000011B, 00000000B
+      // Comments after ; are ignored so pixel comments do not get parsed as bytes.
+      // Parsed output is still normalized/exported as our usual .DB $xx style.
+      const bytes = [];
+      const lines = String(text || '').split(/\n/);
+      const tokenPattern = /(?:\$[0-9a-fA-F]{1,2}|0x[0-9a-fA-F]{1,2}|\b[0-9a-fA-F]{1,3}H\b|\b[01]{1,8}B\b|\b\d{1,3}\b)/gi;
+
+      for (const rawLine of lines) {
+        const line = rawLine.split(';')[0];
+        const dbMatch = line.match(/\b(?:\.?DB|DEFB)\b(.*)$/i);
+
+        if (dbMatch) {
+          const body = dbMatch[1];
+          const tokens = body.match(tokenPattern) || [];
+          for (const token of tokens) {
+            const parsed = parseByteToken(token);
+            if (parsed !== null) bytes.push(parsed);
+          }
+          continue;
+        }
+
+        // Fallback for raw byte lists without DB/DEFB. Require explicit hex/binary
+        // notation so we do not accidentally eat labels or prose.
+        const fallbackTokens = line.match(/(?:\$[0-9a-fA-F]{1,2}|0x[0-9a-fA-F]{1,2}|\b[0-9a-fA-F]{1,3}H\b|\b[01]{1,8}B\b)/gi) || [];
+        for (const token of fallbackTokens) {
+          const parsed = parseByteToken(token);
+          if (parsed !== null) bytes.push(parsed);
+        }
+      }
+
+      return bytes;
+    }
+
+
+    function parseTileMapText(text, options = {}) {
+      // Copy-tile text format, e.g.:
+      //   00: ...2................
+      //   01: ..222.2.............
+      // Characters map directly to pixel values: . or 0 = color 0, 1/2/3 = colors 1/2/3.
+      // Row numbers are ignored; width/height come from the row text itself.
+      const minRows = Math.max(1, options.minRows || 2);
+      const sourceText = String(text || '');
+      const lines = sourceText.split(/\r?\n/);
+      const rowStrings = [];
+      let sawNumberedRows = false;
+      let sawTileLikeRows = false;
+
+      for (const raw of lines) {
+        let line = String(raw || '').trim();
+        if (!line || /^```/.test(line)) continue;
+        line = line.replace(/^>\s?/, '').trim();
+        const commentIndex = line.indexOf(';');
+        if (commentIndex >= 0) line = line.slice(0, commentIndex).trim();
+        if (!line) continue;
+
+        const match = line.match(/^(?:(\d{1,4})\s*:\s*)?([.0123](?:[.0123\s]*[.0123])?)\s*$/);
+        if (!match) continue;
+
+        const rowText = match[2].replace(/\s+/g, '');
+        if (!/^[.0123]+$/.test(rowText)) continue;
+
+        sawTileLikeRows = true;
+        if (match[1] !== undefined) sawNumberedRows = true;
+        rowStrings.push(rowText);
+      }
+
+      if (rowStrings.length < minRows) {
+        return {
+          valid: false,
+          sawTileLikeRows,
+          message: rowStrings.length ? `Need at least ${minRows} tile row(s); found ${rowStrings.length}.` : 'No numbered tile rows found.'
+        };
+      }
+
+      // Require either explicit row numbers or a block that is mostly tile data.
+      // This prevents ordinary prose with a stray "..." line from resizing the editor.
+      if (!sawNumberedRows && rowStrings.length < 3) {
+        return {
+          valid: false,
+          sawTileLikeRows: true,
+          message: 'Tile-map text needs row numbers like 00: or at least 3 plain tile rows.'
+        };
+      }
+
+      const widthPixels = rowStrings[0].length;
+      const badRowIndex = rowStrings.findIndex(row => row.length !== widthPixels);
+      if (badRowIndex >= 0) {
+        return {
+          valid: false,
+          sawTileLikeRows: true,
+          message: `Tile row ${badRowIndex} is ${rowStrings[badRowIndex].length} pixels wide; expected ${widthPixels}.`
+        };
+      }
+
+      if (widthPixels < 1 || widthPixels > MAX_WIDTH) {
+        return { valid: false, sawTileLikeRows: true, message: `Tile-map width ${widthPixels} is outside 1-${MAX_WIDTH} pixels.` };
+      }
+
+      const maxRows = getMaxRowsForMode(rawFixedSizeMode);
+      if (rowStrings.length > maxRows) {
+        return { valid: false, sawTileLikeRows: true, message: `Tile-map has ${rowStrings.length} rows; current mode allows ${maxRows}.` };
+      }
+
+      const storedWidthPixels = Math.ceil(widthPixels / 4) * 4;
+      const bytesPerRow = storedWidthPixels / 4;
+      if (bytesPerRow < 1 || bytesPerRow > MAX_BYTES_PER_ROW) {
+        return { valid: false, sawTileLikeRows: true, message: `Tile-map width needs ${bytesPerRow} bytes/row; max is ${MAX_BYTES_PER_ROW}.` };
+      }
+
+      const pixelRows = rowStrings.map(row => {
+        const out = row.split('').map(ch => ch === '.' ? 0 : (Number(ch) & 3));
+        while (out.length < storedWidthPixels) out.push(0);
+        return out;
+      });
+
+      return {
+        valid: true,
+        widthPixels,
+        storedWidthPixels,
+        bytesPerRow,
+        rows: rowStrings.length,
+        pixelRows,
+        padded: storedWidthPixels !== widthPixels,
+        sawNumberedRows,
+        sawTileLikeRows: true
+      };
+    }
+
+    function applyTileMapText(text, options = {}) {
+      const parsed = parseTileMapText(text, options);
+      if (!parsed.valid) {
+        if (!options.quiet) setStatus(parsed.message || 'Text is not a valid 0/1/2/3 tile map.', true);
+        return false;
+      }
+
+      if (!options.skipUndo && !restoringHistory) pushUndoSnapshot();
+
+      const nextPixels = Array.from({ length: MAX_HEIGHT }, () => Array(MAX_WIDTH).fill(0));
+      for (let y = 0; y < parsed.rows; y++) {
+        for (let x = 0; x < parsed.storedWidthPixels; x++) {
+          nextPixels[y][x] = parsed.pixelRows[y][x] || 0;
+        }
+      }
+
+      pixels = nextPixels;
+      setGeometry(parsed.bytesPerRow, parsed.rows, rawFixedSizeMode, { skipRefresh: true });
+      renderGrid();
+      refreshDerivedText();
+      showOpcodeTab('opcode');
+      setWorkingDirty(true);
+
+      if (!options.quiet) {
+        const padText = parsed.padded ? ` Width padded from ${parsed.widthPixels}px to ${parsed.storedWidthPixels}px because Astrocade 2bpp bytes hold 4 pixels.` : '';
+        setStatus(`Loaded ${parsed.widthPixels}×${parsed.rows} tile map into grid/export.${padText}`);
+      }
+      return true;
+    }
+
+    function parseSpriteLabel(text) {
+      const sourceText = String(text || '');
+      const colonMatch = sourceText.match(/^\s*([A-Za-z_.$?@][A-Za-z0-9_.$?@]*)\s*:/m);
+      if (colonMatch) return colonMatch[1];
+
+      // Old Astrocade examples often use "LABEL DEFB ..." with no colon.
+      const defbLabelMatch = sourceText.match(/^\s*([A-Za-z_.$?@][A-Za-z0-9_.$?@]*)\s+(?:DEFB|\.?DB)\b/im);
+      return defbLabelMatch ? defbLabelMatch[1] : '';
+    }
+
+    function clampGeometry(value, min, max, fallback) {
+      const parsed = Number.parseInt(value, 10);
+      if (!Number.isFinite(parsed)) return fallback;
+      return Math.max(min, Math.min(max, parsed));
+    }
+
+    function syncGeometryControls() {
+      spriteWidthBytesInput.value = String(getActivePixelWidth());
+      spriteRowsInput.value = String(spriteRows);
+      fixedSizeModeInput.checked = !rawFixedSizeMode;
+      updateGeometrySummary();
+    }
+
+    function updateGeometryFromControls(options = {}) {
+      if (!options.skipRefresh && !restoringHistory) pushUndoSnapshot();
+      const nextRawFixedMode = !fixedSizeModeInput.checked;
+      spriteBytesPerRow = Math.ceil(clampGeometry(spriteWidthBytesInput.value, 4, MAX_WIDTH, getActivePixelWidth()) / 4);
+      spriteRows = clampGeometry(spriteRowsInput.value, 1, getMaxRowsForMode(nextRawFixedMode), spriteRows);
+      rawFixedSizeMode = nextRawFixedMode;
+      syncGeometryControls();
+      if (!options.skipRefresh) {
+        renderGrid();
+        refreshDerivedText();
+        updateLstButtonTitles();
+        if (lstIndexInput.value) lstEndIndexInput.value = calcLstEndAddress(lstIndexInput.value);
+        resetLstMoveHistory();
+        setWorkingDirty(true);
+      }
+    }
+
+    function handleHeaderModeToggle() {
+      pushUndoSnapshot();
+      resetLstMoveHistory();
+
+      // Apply the checkbox state first, but do not redraw from the stale grid yet.
+      updateGeometryFromControls({ skipRefresh: true });
+
+      const address = normalizeLstAddressText(lstIndexInput.value);
+      const hasLoadedLst = Boolean(lstViewer.value && address);
+
+      if (hasLoadedLst) {
+        const loaded = gotoLstAddress(address);
+        if (loaded) {
+          setStatus(rawFixedSizeMode
+            ? `Header-defined object off; reloaded raw bitmap from LST address ${address}.`
+            : `Header-defined object on; reloaded object from LST address ${address} using its width/height header.`);
+          return;
+        }
+      }
+
+      renderGrid();
+      refreshDerivedText();
+      updateLstButtonTitles();
+      if (address) lstEndIndexInput.value = calcLstEndAddress(address);
+      setWorkingDirty(true);
+    }
+
+    function setGeometry(widthBytes, rows, isRawFixed, options = {}) {
+      const nextRawFixedMode = Boolean(isRawFixed);
+      spriteBytesPerRow = clampGeometry(widthBytes, 1, MAX_BYTES_PER_ROW, spriteBytesPerRow);
+      spriteRows = clampGeometry(rows, 1, getMaxRowsForMode(nextRawFixedMode), spriteRows);
+      rawFixedSizeMode = nextRawFixedMode;
+      syncGeometryControls();
+      if (!options.skipRefresh) {
+        renderGrid();
+        refreshDerivedText();
+        updateLstButtonTitles();
+        if (lstIndexInput.value) lstEndIndexInput.value = calcLstEndAddress(lstIndexInput.value);
+      }
+    }
+
+    function updateGeometrySummary() {
+      const bitmapBytes = getBitmapByteCount();
+      const totalBytes = getObjectByteCount();
+      const modeText = rawFixedSizeMode ? 'raw bitmap' : 'header + bitmap';
+      const headerLimitText = rawFixedSizeMode ? '' : ` Header-defined row count is one byte, so max rows in this mode is ${MAX_HEADER_ROWS}.`;
+      geometrySummary.textContent = `${getActivePixelWidth()} pixels wide (${spriteBytesPerRow} bytes/row), ${spriteRows} rows; bitmap ${bitmapBytes} bytes ($${bitmapBytes.toString(16).toUpperCase()}); LST step ${totalBytes} bytes ($${totalBytes.toString(16).toUpperCase()}) ${modeText}.${headerLimitText}`;
+    }
+
+    function bytesToPixels(bytes) {
+      const out = [];
+      for (let y = 0; y < MAX_HEIGHT; y++) {
+        const row = [];
+        for (let b = 0; b < MAX_BYTES_PER_ROW; b++) {
+          const byte = b < spriteBytesPerRow ? (bytes[y * spriteBytesPerRow + b] || 0) : 0;
+          // MSB-first 2bpp pairs: bits 7-6, 5-4, 3-2, 1-0.
+          row.push((byte >> 6) & 3, (byte >> 4) & 3, (byte >> 2) & 3, byte & 3);
+        }
+        out.push(row.slice(0, MAX_WIDTH));
+      }
+      return out;
+    }
+
+    function pixelsToBytes() {
+      const bytes = [];
+      for (let y = 0; y < spriteRows; y++) {
+        for (let b = 0; b < spriteBytesPerRow; b++) {
+          const x = b * 4;
+          bytes.push(
+            ((pixels[y][x] & 3) << 6) |
+            ((pixels[y][x + 1] & 3) << 4) |
+            ((pixels[y][x + 2] & 3) << 2) |
+            (pixels[y][x + 3] & 3)
+          );
+        }
+      }
+      return bytes;
+    }
+
+    function colorForPixel(v) {
+      const index = Math.max(0, Math.min(3, v | 0));
+      return isCssHexColor(colorPreviewHex[index]) ? colorPreviewHex[index] : decodeAstrocadeColor(colorBytes[index]).hex;
+    }
+
+    function closePaintChooser() {
+      paintChooser.classList.remove('open');
+      paintToolBtn.setAttribute('aria-expanded', 'false');
+    }
+
+    function setPaintColor(index) {
+      paintColorIndex = index === null ? null : Math.max(0, Math.min(3, index | 0));
+      const isPainting = paintColorIndex !== null;
+      paintToolBtn.classList.toggle('active', isPainting);
+      paintToolBtn.title = isPainting ? `Painting Color ${paintColorIndex}; click pencil to turn off` : 'Cycle mode: click pixels to cycle, Shift-click cycles backward';
+      paintToolBtn.setAttribute('aria-label', isPainting ? `Painting Color ${paintColorIndex}` : 'Cycle pixel colors');
+      paintToolNib.classList.toggle('hidden', !isPainting);
+      if (isPainting) paintToolNib.style.background = colorForPixel(paintColorIndex);
+      renderPaintChooser();
+    }
+
+    function renderPaintChooser() {
+      if (!paintChooser) return;
+      paintChooser.innerHTML = '';
+      for (let v = 0; v < 4; v++) {
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'paintSwatchChoice' + (paintColorIndex === v ? ' selected' : '');
+        const c = colorForPixel(v);
+        btn.style.background = c;
+        btn.style.color = textColorFor(c);
+        btn.textContent = String(v);
+        btn.title = `Paint Color ${v}`;
+        btn.addEventListener('click', ev => {
+          ev.stopPropagation();
+          setPaintColor(v);
+          closePaintChooser();
+        });
+        paintChooser.appendChild(btn);
+      }
+    }
+
+    function textColorFor(bgHex) {
+      const r = parseInt(bgHex.slice(1, 3), 16);
+      const g = parseInt(bgHex.slice(3, 5), 16);
+      const b = parseInt(bgHex.slice(5, 7), 16);
+      return (r * 299 + g * 587 + b * 114) / 1000 > 140 ? '#101010' : '#ffffff';
+    }
+
+    function hexToRgb(hex) {
+      const match = String(hex || '').trim().match(/^#?([0-9a-fA-F]{6})$/);
+      if (!match) return null;
+      const value = match[1];
+      return {
+        r: parseInt(value.slice(0, 2), 16),
+        g: parseInt(value.slice(2, 4), 16),
+        b: parseInt(value.slice(4, 6), 16)
+      };
+    }
+
+    function colorDistanceSquared(a, b) {
+      const dr = a.r - b.r;
+      const dg = a.g - b.g;
+      const db = a.b - b.b;
+      return dr * dr + dg * dg + db * db;
+    }
+
+    function nearestAstrocadeColorByteForHex(hex) {
+      const target = hexToRgb(hex);
+      if (!target) return null;
+
+      let bestByte = 0;
+      let bestDistance = Infinity;
+      for (let byte = 0; byte <= 0xFF; byte++) {
+        const decoded = decodeAstrocadeColor(byte);
+        const candidate = hexToRgb(decoded.hex);
+        if (!candidate) continue;
+        const distance = colorDistanceSquared(target, candidate);
+        if (distance < bestDistance) {
+          bestDistance = distance;
+          bestByte = byte;
+        }
+      }
+      return bestByte;
+    }
+
+    function refreshColorDependentUi(colorIndex = null) {
+      if (colorIndex === null) renderColorMap();
+      else updateColorMapRow(colorIndex);
+      renderGrid();
+      renderPaintChooser();
+      if (paintColorIndex !== null) paintToolNib.style.background = colorForPixel(paintColorIndex);
+      paintToolNib.classList.toggle('hidden', paintColorIndex === null);
+    }
+
+    function applyPreviewColor(colorIndex, hexColor, options = {}) {
+      if (!isCssHexColor(hexColor)) return;
+      if (!options.skipUndo && !restoringHistory) pushUndoSnapshot();
+      colorPreviewHex[colorIndex] = String(hexColor).trim().toUpperCase();
+      refreshColorDependentUi(colorIndex);
+      setWorkingDirty(true);
+    }
+
+    function applyColorByte(colorIndex, byteValue, options = {}) {
+      if (!options.skipUndo && !restoringHistory) pushUndoSnapshot();
+      colorBytes[colorIndex] = byteValue & 0xFF;
+      // Typing a hardware byte should reset that row's preview color to the decoded byte.
+      colorPreviewHex[colorIndex] = decodeAstrocadeColor(colorBytes[colorIndex]).hex;
+      const byteInput = document.getElementById(`colorByte${colorIndex}`);
+      if (byteInput) byteInput.value = hex2(colorBytes[colorIndex]);
+      refreshColorDependentUi(colorIndex);
+      setWorkingDirty(true);
+    }
+
+    function refreshDerivedText() {
+      updateWorkingBytesFromPixels();
+      updateGeometrySummary();
+      syncingSourceFromGrid = true;
+      source.value = formatDbOnly();
+      exportText.value = makeExportText();
+      syncingSourceFromGrid = false;
+    }
+
+    function renderGrid() {
+      updateGridSizing();
+      grid.innerHTML = '';
+      const activeWidth = getActivePixelWidth();
+      const visibleRows = Math.max(spriteRows, MIN_VISIBLE_GRID_ROWS);
+      for (let y = 0; y < visibleRows; y++) {
+        for (let x = 0; x < activeWidth; x++) {
+          const btn = document.createElement('button');
+          const active = y < spriteRows;
+          btn.className = active ? 'pix' : 'pix inactive';
+          btn.type = 'button';
+          btn.dataset.x = x;
+          btn.dataset.y = y;
+
+          if (active) {
+            const v = pixels[y][x] || 0;
+            const c = colorForPixel(v);
+            btn.style.background = c;
+            btn.style.color = textColorFor(c);
+            btn.textContent = v === 0 ? '·' : String(v);
+            btn.title = `x=${x}, y=${y}, value=${v}`;
+            btn.addEventListener('click', ev => {
+              pushUndoSnapshot();
+              if (paintColorIndex !== null) {
+                pixels[y][x] = paintColorIndex;
+              } else {
+                const step = ev.shiftKey ? -1 : 1;
+                pixels[y][x] = (pixels[y][x] + step + 4) % 4;
+              }
+              renderGrid();
+              refreshDerivedText();
+              setWorkingDirty(true);
+            });
+          } else {
+            btn.textContent = '';
+            btn.title = 'empty filler row for layout';
+            btn.disabled = true;
+          }
+
+          grid.appendChild(btn);
+        }
+      }
+      if (pastePreviewState) drawPastePreview();
+    }
+
+    function parseColorByteInput(text) {
+      const cleaned = String(text || '').trim().replace(/^\$/, '').replace(/^0x/i, '');
+      if (!/^[0-9a-fA-F]{1,2}$/.test(cleaned)) return null;
+      return parseInt(cleaned, 16) & 0xFF;
+    }
+
+    function setText(id, text) {
+      const el = document.getElementById(id);
+      if (el) el.textContent = text;
+    }
+
+    function normalizeHexColorText(value) {
+      let text = String(value || '').trim();
+      if (!text) return null;
+      if (!text.startsWith('#')) text = '#' + text;
+      return isCssHexColor(text) ? text.toUpperCase() : null;
+    }
+
+    function ensureCustomColorPickerPopover() {
+      if (customColorPickerPopover) return customColorPickerPopover;
+      customColorPickerPopover = document.createElement('div');
+      customColorPickerPopover.id = 'customColorPickerPopover';
+      customColorPickerPopover.className = 'customColorPickerPopover';
+      customColorPickerPopover.setAttribute('role', 'dialog');
+      customColorPickerPopover.setAttribute('aria-modal', 'false');
+      customColorPickerPopover.addEventListener('click', ev => ev.stopPropagation());
+      document.body.appendChild(customColorPickerPopover);
+      return customColorPickerPopover;
+    }
+
+    function closeCustomColorPicker() {
+      if (!customColorPickerPopover) return;
+      customColorPickerPopover.classList.remove('open');
+      customColorPickerPopover.style.left = '';
+      customColorPickerPopover.style.top = '';
+      activeColorPickerIndex = null;
+      activeColorPickerAnchor = null;
+    }
+
+    function positionCustomColorPicker(anchorEl) {
+      if (!customColorPickerPopover || !anchorEl) return;
+      const rect = anchorEl.getBoundingClientRect();
+      const margin = 12;
+      const width = customColorPickerPopover.offsetWidth || 420;
+      const height = customColorPickerPopover.offsetHeight || 520;
+      let left = rect.left;
+      let top = rect.bottom + 8;
+      if (left + width + margin > window.innerWidth) left = window.innerWidth - width - margin;
+      if (top + height + margin > window.innerHeight) top = rect.top - height - 8;
+      left = Math.max(margin, left);
+      top = Math.max(margin, Math.min(top, window.innerHeight - height - margin));
+      customColorPickerPopover.style.left = `${Math.round(left)}px`;
+      customColorPickerPopover.style.top = `${Math.round(top)}px`;
+    }
+
+    function makeButton(className, title = '') {
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = className;
+      if (title) btn.title = title;
+      return btn;
+    }
+
+    function renderCustomColorPicker() {
+      if (activeColorPickerIndex === null || !customColorPickerPopover) return;
+      const v = activeColorPickerIndex;
+      const decoded = decodeAstrocadeColor(colorBytes[v]);
+      const currentHex = colorForPixel(v);
+      customColorPickerPopover.innerHTML = '';
+
+      const header = document.createElement('div');
+      header.className = 'customColorPickerHeader';
+      const title = document.createElement('div');
+      title.className = 'customColorPickerTitle';
+      title.textContent = `Color ${v} picker`;
+      const closeBtn = makeButton('action toolIconButton', 'Close picker');
+      closeBtn.setAttribute('aria-label', 'Close picker');
+      closeBtn.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="m18.3 5.71-1.41-1.41L12 9.17 7.11 4.3 5.7 5.71 10.59 10.6 5.7 15.49l1.41 1.41L12 12.01l4.89 4.89 1.41-1.41-4.89-4.89 4.89-4.89Z" /></svg>';
+      closeBtn.addEventListener('click', closeCustomColorPicker);
+      header.append(title, closeBtn);
+
+      const current = document.createElement('div');
+      current.className = 'customPickerCurrent';
+      const currentSwatch = document.createElement('div');
+      currentSwatch.className = 'customPickerCurrentSwatch';
+      currentSwatch.style.background = currentHex;
+      const currentText = document.createElement('div');
+      currentText.className = 'small';
+      currentText.innerHTML = `<div><b class="mono">${currentHex}</b> preview</div><div><b class="mono">${hex2(colorBytes[v])}</b> byte: Hue ${decoded.hue}, lum ${decoded.luminance}</div>`;
+      current.append(currentSwatch, currentText);
+
+      const quickTitle = document.createElement('div');
+      quickTitle.className = 'customPickerSectionTitle';
+      quickTitle.textContent = 'Quick preview colors';
+      const quickGrid = document.createElement('div');
+      quickGrid.className = 'quickSwatchGrid';
+      for (const swatchInfo of QUICK_PREVIEW_SWATCHES) {
+        const btn = makeButton('quickSwatchButton', `${swatchInfo.label}: ${swatchInfo.hex} (preview only)`);
+        btn.style.background = swatchInfo.hex;
+        btn.setAttribute('aria-label', `${swatchInfo.label} ${swatchInfo.hex}`);
+        btn.addEventListener('click', () => {
+          applyPreviewColor(v, swatchInfo.hex);
+          renderCustomColorPicker();
+          positionCustomColorPicker(activeColorPickerAnchor);
+        });
+        quickGrid.appendChild(btn);
+      }
+
+      const customTitle = document.createElement('div');
+      customTitle.className = 'customPickerSectionTitle';
+      customTitle.textContent = 'Custom preview hex';
+      const customRow = document.createElement('div');
+      customRow.className = 'customHexRow';
+      const hexInput = document.createElement('input');
+      hexInput.type = 'text';
+      hexInput.value = currentHex;
+      hexInput.placeholder = '#RRGGBB';
+      hexInput.spellcheck = false;
+      const applyBtn = makeButton('action', 'Apply custom preview color');
+      applyBtn.textContent = 'Apply';
+      function applyCustomHex() {
+        const normalized = normalizeHexColorText(hexInput.value);
+        if (!normalized) {
+          setStatus('Enter a CSS hex color like #D83232.', true);
+          hexInput.focus();
+          hexInput.select();
+          return;
+        }
+        applyPreviewColor(v, normalized);
+        renderCustomColorPicker();
+        positionCustomColorPicker(activeColorPickerAnchor);
+        setStatus(`Color ${v} preview set to ${normalized}; byte stayed ${hex2(colorBytes[v])}.`);
+      }
+      applyBtn.addEventListener('click', applyCustomHex);
+      hexInput.addEventListener('keydown', ev => {
+        if (ev.key === 'Enter') {
+          ev.preventDefault();
+          applyCustomHex();
+        }
+      });
+      customRow.append(hexInput, applyBtn);
+      const customHint = document.createElement('div');
+      customHint.className = 'small';
+      customHint.style.marginTop = '5px';
+      customHint.textContent = 'Quick/custom colors change only the editor preview. They do not change the hardware byte.';
+
+      const paletteTitle = document.createElement('div');
+      paletteTitle.className = 'customPickerSectionTitle';
+      paletteTitle.textContent = 'Astrocade byte palette';
+      const paletteHint = document.createElement('div');
+      paletteHint.className = 'small';
+      paletteHint.style.marginBottom = '6px';
+      paletteHint.textContent = 'Rows are upper 5-bit hue values 0-31; columns are lower 3-bit luminance/color codes 0-7. Selecting a cell sets both Byte and Preview.';
+      const paletteGrid = document.createElement('div');
+      paletteGrid.className = 'astroPaletteGrid';
+      for (let hue = 0; hue < 32; hue++) {
+        for (let lum = 0; lum < 8; lum++) {
+          const byte = ((hue << 3) | lum) & 0xFF;
+          const info = decodeAstrocadeColor(byte);
+          const btn = makeButton('astroPaletteSwatch' + (byte === colorBytes[v] ? ' selected' : ''), `${hex2(byte)}: Hue ${info.hue} (${info.hueName}), luminance ${info.luminance}`);
+          btn.style.background = info.hex;
+          btn.setAttribute('aria-label', `${hex2(byte)} Hue ${info.hue} luminance ${info.luminance}`);
+          btn.addEventListener('click', () => {
+            applyColorByte(v, byte);
+            closeCustomColorPicker();
+            setStatus(`Color ${v} byte and preview set to ${hex2(byte)}.`);
+          });
+          paletteGrid.appendChild(btn);
+        }
+      }
+
+      customColorPickerPopover.append(
+        header,
+        current,
+        quickTitle,
+        quickGrid,
+        customTitle,
+        customRow,
+        customHint,
+        paletteTitle,
+        paletteHint,
+        paletteGrid
+      );
+    }
+
+    function openCustomColorPicker(colorIndex, anchorEl) {
+      closePaintChooser();
+      closeSaveImageMenu();
+      const popover = ensureCustomColorPickerPopover();
+      activeColorPickerIndex = Math.max(0, Math.min(3, colorIndex | 0));
+      activeColorPickerAnchor = anchorEl;
+      renderCustomColorPicker();
+      popover.classList.add('open');
+      positionCustomColorPicker(anchorEl);
+    }
+
+    function updateColorMapRow(v) {
+      const decoded = decodeAstrocadeColor(colorBytes[v]);
+
+      const swatch = document.getElementById(`colorSwatch${v}`);
+      if (swatch) swatch.style.background = colorForPixel(v);
+
+      const picker = document.getElementById(`colorPicker${v}`);
+      if (picker) {
+        const current = colorForPixel(v);
+        const miniSwatch = picker.querySelector('.colorPickerMiniSwatch');
+        if (miniSwatch) miniSwatch.style.background = current;
+        picker.title = `Open picker for Color ${v} (${current})`;
+      }
+
+      setText(`colorHue${v}`, `${decoded.upperBits}: Hue ${decoded.hue} (${decoded.hueName})`);
+      setText(`colorBright${v}`, `${decoded.lowerBits}: Luminance/color code ${decoded.luminance}`);
+      setText(`colorRgb${v}`, colorForPixel(v));
+      setText(`colorName${v}`, colorForPixel(v).toUpperCase() === decoded.hex.toUpperCase() ? decoded.hueName : 'Custom preview');
+    }
+
+    function renderColorMap() {
+      colorMapEl.innerHTML = '';
+      ['Pixel', 'Preview', 'Picker', 'Byte', 'Upper 5 bits / hue', 'Lower 3 bits / luminance', 'Preview RGB', 'Source'].forEach(text => {
+        const h = document.createElement('div');
+        h.className = 'colorMapHeader';
+        h.textContent = text;
+        colorMapEl.appendChild(h);
+      });
+
+      for (let v = 0; v < 4; v++) {
+        const label = document.createElement('div');
+        label.textContent = `Color ${v}`;
+
+        const swatch = document.createElement('button');
+        swatch.className = 'swatch swatchButton';
+        swatch.id = `colorSwatch${v}`;
+        swatch.type = 'button';
+        swatch.title = `Pick preview color for Color ${v}`;
+        swatch.setAttribute('aria-label', `Pick preview color for Color ${v}`);
+
+        const colorPicker = document.createElement('button');
+        colorPicker.type = 'button';
+        colorPicker.className = 'colorPickerButton';
+        colorPicker.id = `colorPicker${v}`;
+        colorPicker.title = `Open picker for Color ${v}`;
+        colorPicker.setAttribute('aria-label', `Open picker for Color ${v}`);
+        const miniSwatch = document.createElement('span');
+        miniSwatch.className = 'colorPickerMiniSwatch';
+        miniSwatch.style.background = colorForPixel(v);
+        colorPicker.appendChild(miniSwatch);
+        swatch.addEventListener('click', ev => {
+          ev.stopPropagation();
+          openCustomColorPicker(v, swatch);
+        });
+        colorPicker.addEventListener('click', ev => {
+          ev.stopPropagation();
+          openCustomColorPicker(v, colorPicker);
+        });
+
+        const input = document.createElement('input');
+        input.type = 'text';
+        input.value = hex2(colorBytes[v]);
+        input.size = 4;
+        input.id = `colorByte${v}`;
+        input.title = 'Astrocade color byte. Edit freely; value applies on Enter or when leaving the field.';
+        input.addEventListener('keydown', ev => {
+          if (ev.key === 'Enter') {
+            ev.preventDefault();
+            const parsed = parseColorByteInput(input.value);
+            if (parsed === null) {
+              input.value = hex2(colorBytes[v]);
+              return;
+            }
+            applyColorByte(v, parsed);
+          }
+        });
+        input.addEventListener('blur', () => {
+          const parsed = parseColorByteInput(input.value);
+          if (parsed !== null) applyColorByte(v, parsed);
+          else input.value = hex2(colorBytes[v]);
+          updateColorMapRow(v);
+          renderGrid();
+        });
+
+        const hue = document.createElement('div');
+        hue.className = 'small bitField';
+        hue.id = `colorHue${v}`;
+
+        const bright = document.createElement('div');
+        bright.className = 'small bitField';
+        bright.id = `colorBright${v}`;
+
+        const rgb = document.createElement('div');
+        rgb.className = 'small bitField mono';
+        rgb.id = `colorRgb${v}`;
+
+        const desc = document.createElement('div');
+        desc.className = 'small';
+        desc.id = `colorName${v}`;
+
+        colorMapEl.append(label, swatch, colorPicker, input, hue, bright, rgb, desc);
+        updateColorMapRow(v);
+      }
+    }
+
+    function getHeaderDefinedExpectation(bytes) {
+      if (!bytes || bytes.length < 2) {
+        return { valid: false, needed: 2, message: 'Need 2 header byte(s): width bytes, rows.' };
+      }
+
+      const headerWidth = bytes[0] & 0xFF;
+      const headerRows = bytes[1] & 0xFF;
+      if (headerWidth < 1 || headerWidth > MAX_BYTES_PER_ROW || headerRows < 1 || headerRows > getMaxRowsForMode(false)) {
+        return {
+          valid: false,
+          needed: 2,
+          headerWidth,
+          headerRows,
+          message: `Invalid header: width=${hex2(headerWidth)}, rows=${hex2(headerRows)}.`
+        };
+      }
+
+      return {
+        valid: true,
+        headerWidth,
+        headerRows,
+        bitmapBytes: headerWidth * headerRows,
+        needed: 2 + headerWidth * headerRows
+      };
+    }
+
+    function applyHeaderGeometryFromBytes(bytes, options = {}) {
+      if (rawFixedSizeMode) return null;
+      const expected = getHeaderDefinedExpectation(bytes);
+      if (!expected.valid) return expected;
+
+      const changed = expected.headerWidth !== spriteBytesPerRow || expected.headerRows !== spriteRows;
+      setGeometry(expected.headerWidth, expected.headerRows, false, { skipRefresh: true });
+      if (changed && !options.quiet) {
+        setStatus(`Header-defined paste resized editor to ${getActivePixelWidth()}×${spriteRows} (${spriteBytesPerRow} bytes/row, ${spriteRows} rows).`);
+      }
+      return { ...expected, changed };
+    }
+
+    function decodeSourceObjectBytes(bytes) {
+      if (rawFixedSizeMode) {
+        return { bitmapBytes: bytes.slice(0, getBitmapByteCount()), consumed: getBitmapByteCount(), header: null };
+      }
+
+      const expected = applyHeaderGeometryFromBytes(bytes, { quiet: true });
+
+      return {
+        bitmapBytes: bytes.slice(2, 2 + getBitmapByteCount()),
+        consumed: getObjectByteCount(),
+        header: bytes.slice(0, 2),
+        expected
+      };
+    }
+
+    function loadFromSource(options = {}) {
+      const rawText = source.value;
+
+      const tileMap = parseTileMapText(rawText, { minRows: 2 });
+      if (tileMap.valid) {
+        return applyTileMapText(rawText, options);
+      }
+
+      const bytes = parseBytes(rawText);
+
+      let headerResize = null;
+      if (!rawFixedSizeMode) {
+        headerResize = applyHeaderGeometryFromBytes(bytes, { quiet: options.quiet });
+        if (!headerResize || !headerResize.valid) {
+          if (!options.quiet) setStatus(headerResize?.message || `Need 2 header byte(s); found ${bytes.length}.`, true);
+          return false;
+        }
+      }
+
+      const needed = getObjectByteCount();
+      if (bytes.length < needed) {
+        if (!options.quiet) {
+          const base = rawFixedSizeMode
+            ? `Need ${needed} byte(s) for ${getActivePixelWidth()}×${spriteRows} raw bitmap`
+            : `Header says ${spriteBytesPerRow} bytes/row × ${spriteRows} rows, so need ${needed} byte(s) total`;
+          setStatus(`${base}; found ${bytes.length}.`, true);
+        }
+        syncGeometryControls();
+        return false;
+      }
+
+      if (!options.skipUndo && !restoringHistory) pushUndoSnapshot();
+
+      const parsedLabel = parseSpriteLabel(rawText);
+      if (parsedLabel) {
+        labelName.value = parsedLabel;
+        workingSpriteName = parsedLabel;
+      }
+
+      const decoded = decodeSourceObjectBytes(bytes);
+      setWorkingBytes(decoded.bitmapBytes);
+      pixels = bytesToPixels(getWorkingBytes());
+      renderGrid();
+
+      syncingSourceFromGrid = true;
+      source.value = formatDbOnly();
+      syncingSourceFromGrid = false;
+
+      exportText.value = makeExportText();
+
+      if (!options.quiet) {
+        const resizeText = headerResize?.changed ? ` Resized to ${getActivePixelWidth()}×${spriteRows}.` : '';
+        if (bytes.length > needed) setStatus(`Loaded first ${needed} byte(s); ignored ${bytes.length - needed} extra byte(s).${resizeText}`);
+        else setStatus(`Loaded ${needed} byte(s).${resizeText}`);
+      }
+      return true;
+    }
+
+    function formatDbOnly() {
+      const bytes = getWorkingBytes();
+      const lines = [];
+      if (!rawFixedSizeMode) lines.push('.DB      ' + [hex2(spriteBytesPerRow), hex2(spriteRows)].join(',') + '           ; width bytes, height rows');
+      for (let y = 0; y < spriteRows; y++) {
+        const row = bytes.slice(y * spriteBytesPerRow, y * spriteBytesPerRow + spriteBytesPerRow).map(hex2).join(',');
+        lines.push('.DB      ' + row);
+      }
+      return lines.join('\n');
+    }
+
+    function pixelComment(row) {
+      return row.map(v => v === 0 ? '.' : String(v)).join(' ');
+    }
+
+    function makeExportText() {
+      const bytes = getWorkingBytes();
+      const label = labelName.value.trim() || 'SPRITE';
+      const labelPrefix = label.endsWith(':') ? label : label + ':';
+      const lines = [];
+      const bitmapBytes = getBitmapByteCount();
+      const totalBytes = getObjectByteCount();
+      lines.push(';*******************************************************************************');
+      lines.push(`; ${label.replace(/:$/, '')}`);
+      lines.push(`; ${spriteBytesPerRow} bytes/row = ${getActivePixelWidth()} pixels wide, ${spriteRows} rows`);
+      lines.push(`; Sprite bitmap size: ${bitmapBytes} bytes ($${bitmapBytes.toString(16).toUpperCase()})`);
+      lines.push(rawFixedSizeMode ? `; Sprite size: ${totalBytes} bytes ($${totalBytes.toString(16).toUpperCase()})` : `; Object total size: ${totalBytes} bytes ($${totalBytes.toString(16).toUpperCase()}), including 2-byte width/height header`);
+      lines.push('; Pixel values: . = 0, 1 = color 1, 2 = color 2, 3 = color 3');
+      lines.push(';');
+      lines.push(';*******************************************************************************');
+
+      if (!rawFixedSizeMode) {
+        lines.push(`${labelPrefix}`);
+        lines.push('        .DB      ' + [hex2(spriteBytesPerRow), hex2(spriteRows)].join(',') + '           ; width bytes, height rows');
+        for (let y = 0; y < spriteRows; y++) {
+          const rowBytes = bytes.slice(y * spriteBytesPerRow, y * spriteBytesPerRow + spriteBytesPerRow).map(hex2).join(',');
+          lines.push('        .DB      ' + rowBytes.padEnd(17, ' ') + ' ; ' + pixelComment(pixels[y].slice(0, getActivePixelWidth())));
+        }
+      } else {
+        for (let y = 0; y < spriteRows; y++) {
+          const rowBytes = bytes.slice(y * spriteBytesPerRow, y * spriteBytesPerRow + spriteBytesPerRow).map(hex2).join(',');
+          const prefix = y === 0 ? labelPrefix.padEnd(8, ' ') + '.DB      ' : '        .DB      ';
+          lines.push(prefix + rowBytes.padEnd(17, ' ') + ' ; ' + pixelComment(pixels[y].slice(0, getActivePixelWidth())));
+        }
+      }
+      return lines.join('\n');
+    }
+
+    async function copyExport() {
+      const text = makeExportText();
+      exportText.value = text;
+      try {
+        await navigator.clipboard.writeText(text);
+        setStatus('Export copied to clipboard.');
+      } catch (err) {
+        exportText.focus();
+        exportText.select();
+        setStatus('Clipboard failed; export text is selected for manual copy.', true);
+      }
+    }
+
+
+
+    function showOpcodeTab(tabName) {
+      const buttons = opcodeTabs.querySelectorAll('.tabButton');
+      const panes = { opcode: opcodePane, lst: lstPane };
+      buttons.forEach(btn => {
+        const isActive = btn.dataset.tab === tabName;
+        btn.classList.toggle('active', isActive);
+        btn.setAttribute('aria-selected', isActive ? 'true' : 'false');
+      });
+      Object.entries(panes).forEach(([name, pane]) => {
+        if (!pane) return;
+        const isActive = name === tabName;
+        pane.classList.toggle('active', isActive);
+        pane.hidden = false;
+      });
+    }
+
+    function normalizeLstAddressText(text) {
+      const cleaned = String(text || '').trim().replace(/^[$#]/, '').replace(/^0x/i, '');
+      const match = cleaned.match(/[0-9a-fA-F]{1,4}/);
+      if (!match) return '';
+      return match[0].toUpperCase().padStart(4, '0').slice(-4);
+    }
+
+    function getTextareaLineHeight(textarea) {
+      const style = window.getComputedStyle(textarea);
+      const lineHeight = parseFloat(style.lineHeight);
+      if (Number.isFinite(lineHeight)) return lineHeight;
+      const fontSize = parseFloat(style.fontSize);
+      return Number.isFinite(fontSize) ? fontSize * 1.35 : 18;
+    }
+
+    function getTextareaPaddingTop(textarea) {
+      const style = window.getComputedStyle(textarea);
+      const paddingTop = parseFloat(style.paddingTop);
+      return Number.isFinite(paddingTop) ? paddingTop : 10;
+    }
+
+    function updateLstVisibleCaret() {
+      updateLstCaretOverlay(lstCaretOverlay, currentLstCaretLine);
+      updateLstCaretOverlay(lstEndCaretOverlay, currentLstEndCaretLine);
+    }
+
+    function updateLstCaretOverlay(overlay, lineIndex) {
+      if (lineIndex === null || !lstViewer.value) {
+        overlay.style.display = 'none';
+        return;
+      }
+
+      const lineHeight = getTextareaLineHeight(lstViewer);
+      const paddingTop = getTextareaPaddingTop(lstViewer);
+      const y = paddingTop + lineIndex * lineHeight - lstViewer.scrollTop;
+
+      if (y < 0 || y > lstViewer.clientHeight - lineHeight) {
+        overlay.style.display = 'none';
+        return;
+      }
+
+      overlay.style.top = `${Math.round(y)}px`;
+      overlay.style.display = 'block';
+    }
+
+    function add16(value, delta) {
+      return (value + delta) & 0xFFFF;
+    }
+
+    function formatAddress(value) {
+      return (value & 0xFFFF).toString(16).toUpperCase().padStart(4, '0');
+    }
+
+    function calcLstEndAddress(startAddressText) {
+      const start = normalizeLstAddressText(startAddressText);
+      if (!start) return '';
+      return formatAddress(add16(parseInt(start, 16), getObjectByteCount() - 1));
+    }
+
+    function calcLstStartAddressFromEnd(endAddressText) {
+      const end = normalizeLstAddressText(endAddressText);
+      if (!end) return '';
+      return formatAddress(add16(parseInt(end, 16), -(getObjectByteCount() - 1)));
+    }
+
+    function hexStringToBytes(hexText) {
+      const clean = String(hexText || '').replace(/[^0-9A-Fa-f]/g, '');
+      const bytes = [];
+      for (let i = 0; i + 1 < clean.length; i += 2) {
+        bytes.push(parseInt(clean.slice(i, i + 2), 16) & 0xFF);
+      }
+      return bytes;
+    }
+
+    function parseLstListingItems() {
+      const text = lstViewer.value || '';
+      const lines = text.split(/\n/);
+      const items = [];
+      const labelsByAddress = new Map();
+      let offset = 0;
+
+      for (let i = 0; i < lines.length; i++) {
+        const line = lines[i];
+
+        // Capture labels that live on their own LST line at the same address as
+        // the following .DB/data line, e.g.:
+        //   7192:     -    2401                  GORF_LINE:
+        //   7193:     -    2401  0301            .DB $03,$01
+        const labelOnlyMatch = line.match(/^\s*\d+:\s*(?:\S+\s+)?([0-9A-Fa-f]{4})\b.*?\b([A-Za-z_.$?@][A-Za-z0-9_.$?@]*):\s*(?:;.*)?$/);
+        if (labelOnlyMatch) {
+          const labelAddress = parseInt(labelOnlyMatch[1], 16) & 0xFFFF;
+          const labelName = labelOnlyMatch[2];
+          if (!labelsByAddress.has(labelAddress)) labelsByAddress.set(labelAddress, labelName);
+        }
+
+        // zmac .lst lines commonly look like:
+        //   13317:     -    970E  00000C00  GARWOR4:.DB ...
+        //   13318:     -    9713  00000328          .DB ...
+        // The address column is the red-circled field from your screenshot.
+        // The opcode field may wrap to following continuation lines, e.g. a fifth
+        // byte of a 5-byte .DB row appears as a standalone "00" on the next line.
+        const match = line.match(/^\s*\d+:\s*(?:\S+\s+)?([0-9A-Fa-f]{4})\s+([0-9A-Fa-f]{2,})\b/);
+        if (!match) {
+          offset += line.length + 1;
+          continue;
+        }
+
+        const start = parseInt(match[1], 16) & 0xFFFF;
+        let bytes = hexStringToBytes(match[2]);
+
+        let continuationIndex = i + 1;
+        while (continuationIndex < lines.length) {
+          const continuation = lines[continuationIndex];
+          if (/^\s*\d+:/.test(continuation)) break;
+          const contMatch = continuation.match(/^\s+((?:[0-9A-Fa-f]{2})+)\s*$/);
+          if (!contMatch) break;
+          bytes = bytes.concat(hexStringToBytes(contMatch[1]));
+          continuationIndex++;
+        }
+
+        const sameLineLabelMatch = line.match(/\b([A-Za-z_.$?@][A-Za-z0-9_.$?@]*):\s*\.DB\b/i);
+        const label = sameLineLabelMatch ? sameLineLabelMatch[1] : (labelsByAddress.get(start) || '');
+
+        items.push({
+          lineIndex: i,
+          offset,
+          line,
+          start,
+          end: (start + Math.max(0, bytes.length - 1)) & 0xFFFF,
+          bytes,
+          label
+        });
+
+        offset += line.length + 1;
+      }
+
+      return items;
+    }
+
+    function findLstAddressLine(targetAddress) {
+      const target = normalizeLstAddressText(targetAddress);
+      if (!target) return null;
+      const targetValue = parseInt(target, 16) & 0xFFFF;
+
+      for (const item of parseLstListingItems()) {
+        if (targetValue >= item.start && targetValue <= item.end) return item;
+      }
+
+      return null;
+    }
+
+    function extractLstBytesFromAddress(addressText, count = getObjectByteCount()) {
+      const address = normalizeLstAddressText(addressText);
+      if (!address) return null;
+
+      const startAddress = parseInt(address, 16) & 0xFFFF;
+      const byteMap = new Map();
+      const items = parseLstListingItems();
+      let sourceLabel = '';
+
+      for (const item of items) {
+        if (!sourceLabel && startAddress >= item.start && startAddress <= item.end) sourceLabel = item.label;
+        for (let i = 0; i < item.bytes.length; i++) {
+          byteMap.set((item.start + i) & 0xFFFF, item.bytes[i] & 0xFF);
+        }
+      }
+
+      const bytes = [];
+      for (let i = 0; i < count; i++) {
+        const absoluteAddress = (startAddress + i) & 0xFFFF;
+        if (!byteMap.has(absoluteAddress)) break;
+        bytes.push(byteMap.get(absoluteAddress));
+      }
+
+      return { address, bytes, label: sourceLabel };
+    }
+
+    function loadSpriteFromLstAddress(addressText, options = {}) {
+      const probeCount = rawFixedSizeMode ? getBitmapByteCount() : Math.max(2, getObjectByteCount());
+      let extracted = extractLstBytesFromAddress(addressText, probeCount);
+      if (!extracted || extracted.bytes.length < (rawFixedSizeMode ? getBitmapByteCount() : 2)) {
+        if (!options.quiet) {
+          const found = extracted ? extracted.bytes.length : 0;
+          setStatus(`LST has only ${found} contiguous byte(s) at ${normalizeLstAddressText(addressText) || addressText}.`, true);
+        }
+        return false;
+      }
+
+      let bitmapBytes;
+      let needed;
+      if (rawFixedSizeMode) {
+        needed = getBitmapByteCount();
+        bitmapBytes = extracted.bytes.slice(0, needed);
+      } else {
+        const headerWidth = extracted.bytes[0];
+        const headerRows = extracted.bytes[1];
+        if (headerWidth < 1 || headerWidth > MAX_BYTES_PER_ROW || headerRows < 1 || headerRows > getMaxRowsForMode(false)) {
+          if (!options.quiet) setStatus(`Invalid Gorf-style header at ${extracted.address}: width=${hex2(headerWidth)}, rows=${hex2(headerRows)}.`, true);
+          return false;
+        }
+        setGeometry(headerWidth, headerRows, false, { skipRefresh: true });
+        needed = getObjectByteCount();
+        if (extracted.bytes.length < needed) extracted = extractLstBytesFromAddress(addressText, needed);
+        if (!extracted || extracted.bytes.length < needed) {
+          const found = extracted ? extracted.bytes.length : 0;
+          if (!options.quiet) setStatus(`LST has only ${found} contiguous byte(s) at ${normalizeLstAddressText(addressText) || addressText}; need ${needed}.`, true);
+          return false;
+        }
+        bitmapBytes = extracted.bytes.slice(2, 2 + getBitmapByteCount());
+      }
+
+      setWorkingBytes(bitmapBytes);
+      pixels = bytesToPixels(getWorkingBytes());
+
+      const newLabel = extracted.label || `LST_${extracted.address}`;
+      labelName.value = newLabel;
+      workingSpriteName = newLabel;
+
+      renderGrid();
+      refreshDerivedText();
+      setWorkingDirty(true);
+
+      if (!options.quiet) setStatus(`Loaded ${needed} byte object from LST address ${extracted.address} into opcode/grid/export.`);
+      return true;
+    }
+
+    function gotoLstAddress(addressText, options = {}) {
+      const address = normalizeLstAddressText(addressText);
+      if (!address) {
+        if (!options.quiet) setStatus('Enter a 1-4 digit hex LST index/address.', true);
+        return false;
+      }
+
+      lstIndexInput.value = address;
+      const endAddress = calcLstEndAddress(address);
+      lstEndIndexInput.value = endAddress;
+
+      const found = findLstAddressLine(address);
+      if (!found) {
+        if (!options.quiet) setStatus(`Address ${address} not found in loaded LST.`, true);
+        return false;
+      }
+
+      // Put the browser caret at the far left of the matching LST line.
+      lstViewer.focus({ preventScroll: true });
+      lstViewer.setSelectionRange(found.offset, found.offset);
+
+      // Scroll to bring the caret line into view without relying on textarea internals.
+      const lineHeight = getTextareaLineHeight(lstViewer);
+      const targetTop = Math.max(0, found.lineIndex * lineHeight - (lstViewer.clientHeight * 0.25));
+      lstViewer.scrollTop = targetTop;
+      lstViewer.scrollLeft = 0;
+      currentLstCaretLine = found.lineIndex;
+
+      const loadedSprite = loadSpriteFromLstAddress(address, { quiet: true });
+      const finalEndAddress = calcLstEndAddress(address);
+      lstEndIndexInput.value = finalEndAddress;
+      const endFound = findLstAddressLine(finalEndAddress);
+      currentLstEndCaretLine = endFound ? endFound.lineIndex : null;
+      updateLstVisibleCaret();
+
+      if (!options.quiet) {
+        if (loadedSprite) {
+          setStatus(`LST range ${address}-${finalEndAddress}; opcode/grid/export updated.`);
+        } else {
+          setStatus(`LST caret moved to address ${address}; could not load object with current mode/dimensions.`, true);
+        }
+      }
+      return true;
+    }
+
+    function loadLstFromFile(file) {
+      if (!file) return;
+
+      const reader = new FileReader();
+      reader.onload = () => {
+        const text = String(reader.result || '');
+        lstViewer.value = text;
+        currentLstCaretLine = null;
+        currentLstEndCaretLine = null;
+        resetLstMoveHistory();
+        updateLstVisibleCaret();
+        lstIndexInput.value = '0000';
+        lstEndIndexInput.value = calcLstEndAddress('0000');
+        showOpcodeTab('lst');
+        const found = gotoLstAddress('0000', { quiet: true });
+        setStatus(found ? `Loaded ${file.name}; caret at address 0000.` : `Loaded ${file.name} into LST tab; address 0000 not found.`);
+      };
+      reader.onerror = () => setStatus(`LST load failed: ${reader.error?.message || 'file read error'}`, true);
+      reader.readAsText(file);
+    }
+
+    async function loadLibraryFromSameFolder() {
+      let target;
+      try {
+        target = getLibraryRequestTarget();
+      } catch (err) {
+        setStatus(err.message || 'Invalid library URL parameter.', true);
+        libraryFileInput.value = '';
+        libraryFileInput.click();
+        return;
+      }
+
+      // Browsers block fetch(file://...) from a locally opened HTML page.
+      // When served by a tiny local web server or static site, this will load
+      // either ?lib=somefile.json (also ?library= / ?json=) or the default JSON.
+      // When opened directly as file://, use the file picker fallback.
+      if (window.location.protocol === 'file:') {
+        setStatus(`Choose ${target.label} to load the sprite library.`);
+        libraryFileInput.value = '';
+        libraryFileInput.click();
+        return;
+      }
+
+      try {
+        const response = await fetch(target.url, { cache: 'no-store' });
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        const json = await response.json();
+        replaceLibrary(json);
+        setStatus(`Loaded library from ${target.label}.`);
+      } catch (err) {
+        setStatus(`Could not auto-load ${target.label}; choose a JSON file.`, true);
+        libraryFileInput.value = '';
+        libraryFileInput.click();
+      }
+    }
+
+    function loadLibraryFromUrlParamOnStartup() {
+      if (!getLibraryUrlParamValue()) return;
+      loadLibraryFromSameFolder();
+    }
+
+    function loadLibraryFromFile(file) {
+      if (!file) return;
+
+      const reader = new FileReader();
+      reader.onload = () => {
+        try {
+          const json = JSON.parse(String(reader.result || ''));
+          replaceLibrary(json);
+          setStatus(`Loaded library from ${file.name}.`);
+        } catch (err) {
+          setStatus(`Library load failed: ${err.message}`, true);
+        }
+      };
+      reader.onerror = () => setStatus(`Library load failed: ${reader.error?.message || 'file read error'}`, true);
+      reader.readAsText(file);
+    }
+
+    function saveWorkingSpriteToLibrary() {
+      const saved = makeWorkingSpriteLibraryEntry();
+      const name = saved.key;
+
+      spriteLibrary.entries[name] = saved.entry;
+      spriteLibrary.lastUsed = name;
+      currentSpriteName = name;
+      workingSpriteName = name;
+      labelName.value = name;
+
+      populateLibraryDropdown();
+      syncLibraryDropdownSelection();
+      setWorkingDirty(false);
+      setStatus(`Saved ${name} to in-memory library.`);
+    }
+
+    function downloadLibraryJson() {
+      const blob = new Blob([JSON.stringify(spriteLibrary, null, 2) + '\n'], { type: 'application/json' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = DEFAULT_LIBRARY_FILENAME;
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      URL.revokeObjectURL(url);
+      setStatus(`Downloaded ${DEFAULT_LIBRARY_FILENAME}.`);
+    }
+
+    function describeSourceParseWait(bytes) {
+      if (!rawFixedSizeMode) {
+        const expected = getHeaderDefinedExpectation(bytes);
+        if (!expected.valid) return expected.message || `Need 2 header byte(s); found ${bytes.length}.`;
+        return `Header says ${expected.headerWidth} bytes/row × ${expected.headerRows} rows, so need ${expected.needed} byte(s) total; found ${bytes.length}.`;
+      }
+      return `Waiting for ${getObjectByteCount()} byte(s); found ${bytes.length}.`;
+    }
+
+    function parseSourceEditorSoon() {
+      if (syncingSourceFromGrid) return;
+      clearTimeout(sourceDebounce);
+      sourceDebounce = setTimeout(() => {
+        const bytes = parseBytes(source.value);
+        const ok = loadFromSource({ quiet: true });
+        if (ok) {
+          setWorkingDirty(true);
+          const headerText = rawFixedSizeMode ? '' : ` Header resized to ${getActivePixelWidth()}×${spriteRows}.`;
+          setStatus(`Opcode text parsed, cleaned, and loaded into grid/export.${headerText}`);
+        } else {
+          setStatus(describeSourceParseWait(bytes), true);
+        }
+      }, 75);
+    }
+
+    source.addEventListener('input', parseSourceEditorSoon);
+    source.addEventListener('paste', () => {
+      setTimeout(parseSourceEditorSoon, 0);
+    });
+
+    function loadSelectedLibrarySprite() {
+      loadSpriteFromLibrary(librarySelect.value);
+    }
+
+    librarySelect.addEventListener('change', loadSelectedLibrarySprite);
+    librarySelect.addEventListener('input', loadSelectedLibrarySprite);
+    librarySelect.addEventListener('click', loadSelectedLibrarySprite);
+    librarySelect.addEventListener('keyup', ev => {
+      if (ev.key === 'ArrowUp' || ev.key === 'ArrowDown' || ev.key === 'Home' || ev.key === 'End') {
+        loadSelectedLibrarySprite();
+      }
+    });
+
+    opcodeTabs.addEventListener('click', ev => {
+      const btn = ev.target.closest('.tabButton');
+      if (!btn) return;
+      showOpcodeTab(btn.dataset.tab);
+    });
+
+    loadLstBtn.addEventListener('click', () => {
+      lstFileInput.value = '';
+      lstFileInput.click();
+    });
+    lstFileInput.addEventListener('change', () => loadLstFromFile(lstFileInput.files[0]));
+    lstViewer.addEventListener('scroll', updateLstVisibleCaret);
+    window.addEventListener('resize', () => {
+      updateLstVisibleCaret();
+      if (customColorPickerPopover && customColorPickerPopover.classList.contains('open')) positionCustomColorPicker(activeColorPickerAnchor);
+    });
+    lstIndexInput.addEventListener('change', () => {
+      resetLstMoveHistory();
+      gotoLstAddress(lstIndexInput.value);
+    });
+    lstIndexInput.addEventListener('keydown', ev => {
+      if (ev.key === 'Enter') {
+        ev.preventDefault();
+        resetLstMoveHistory();
+        gotoLstAddress(lstIndexInput.value);
+      }
+    });
+    lstIndexInput.addEventListener('blur', () => {
+      const normalized = normalizeLstAddressText(lstIndexInput.value);
+      if (normalized) lstIndexInput.value = normalized;
+    });
+
+    lstEndIndexInput.addEventListener('change', () => {
+      const startAddress = calcLstStartAddressFromEnd(lstEndIndexInput.value);
+      if (startAddress) {
+        resetLstMoveHistory();
+        gotoLstAddress(startAddress);
+      } else setStatus('Enter a 1-4 digit hex LST end address.', true);
+    });
+    lstEndIndexInput.addEventListener('keydown', ev => {
+      if (ev.key === 'Enter') {
+        ev.preventDefault();
+        const startAddress = calcLstStartAddressFromEnd(lstEndIndexInput.value);
+        if (startAddress) {
+          resetLstMoveHistory();
+          gotoLstAddress(startAddress);
+        } else setStatus('Enter a 1-4 digit hex LST end address.', true);
+      }
+    });
+    lstEndIndexInput.addEventListener('blur', () => {
+      const normalized = normalizeLstAddressText(lstEndIndexInput.value);
+      if (normalized) lstEndIndexInput.value = normalized;
+    });
+
+    function getCurrentLstAddressValue() {
+      const normalized = normalizeLstAddressText(lstIndexInput.value);
+      if (!normalized) return null;
+      return parseInt(normalized, 16) & 0xFFFF;
+    }
+
+    function moveLstAddress(delta) {
+      const current = getCurrentLstAddressValue();
+      if (current === null) {
+        setStatus('Enter a 1-4 digit hex LST index/address first.', true);
+        return false;
+      }
+
+      const next = (current + delta) & 0xFFFF;
+      const nextText = next.toString(16).toUpperCase().padStart(4, '0');
+      return gotoLstAddress(nextText);
+    }
+
+    function moveLstPreviousObject() {
+      const step = lstMoveBackStack.length ? lstMoveBackStack.pop() : getObjectByteCount();
+      const moved = moveLstAddress(-step);
+      if (moved) {
+        lstMoveForwardStack.push(step);
+        updateLstButtonTitles();
+      }
+    }
+
+    function moveLstNextObject() {
+      const step = lstMoveForwardStack.length ? lstMoveForwardStack.pop() : getObjectByteCount();
+      const moved = moveLstAddress(step);
+      if (moved) {
+        lstMoveBackStack.push(step);
+        updateLstButtonTitles();
+      }
+    }
+
+    function updateLstButtonTitles() {
+      const n = getObjectByteCount();
+      const previousStep = lstMoveBackStack.length ? lstMoveBackStack[lstMoveBackStack.length - 1] : n;
+      const nextStep = lstMoveForwardStack.length ? lstMoveForwardStack[lstMoveForwardStack.length - 1] : n;
+      lstBackBtn.title = `Move back ${previousStep} bytes`;
+      lstNextBtn.title = `Move forward ${nextStep} bytes`;
+    }
+
+    function resetLstMoveHistory() {
+      lstMoveBackStack = [];
+      lstMoveForwardStack = [];
+      updateLstButtonTitles();
+    }
+    updateLstButtonTitles();
+    lstMinusBtn.title = 'Move back 1 byte';
+    lstPlusBtn.title = 'Move forward 1 byte';
+
+    lstBackBtn.addEventListener('click', moveLstPreviousObject);
+    lstNextBtn.addEventListener('click', moveLstNextObject);
+    lstMinusBtn.addEventListener('click', () => { resetLstMoveHistory(); moveLstAddress(-1); });
+    lstPlusBtn.addEventListener('click', () => { resetLstMoveHistory(); moveLstAddress(1); });
+
+    loadLibraryBtn.addEventListener('click', loadLibraryFromSameFolder);
+    saveSpriteBtn.addEventListener('click', saveWorkingSpriteToLibrary);
+    downloadLibraryBtn.addEventListener('click', downloadLibraryJson);
+    libraryFileInput.addEventListener('change', () => loadLibraryFromFile(libraryFileInput.files[0]));
+
+    paintToolBtn.addEventListener('click', ev => {
+      ev.stopPropagation();
+      if (paintColorIndex !== null && !paintChooser.classList.contains('open')) {
+        setPaintColor(null);
+        closePaintChooser();
+        return;
+      }
+      renderPaintChooser();
+      const opening = !paintChooser.classList.contains('open');
+      paintChooser.classList.toggle('open', opening);
+      paintToolBtn.setAttribute('aria-expanded', opening ? 'true' : 'false');
+    });
+    paintChooser.addEventListener('click', ev => ev.stopPropagation());
+    document.addEventListener('click', () => { closePaintChooser(); closeSaveImageMenu(); closeCustomColorPicker(); });
+    document.addEventListener('keydown', ev => {
+      if (ev.key === 'Escape') {
+        closePaintChooser();
+        closeSaveImageMenu();
+        if (customColorPickerPopover && customColorPickerPopover.classList.contains('open')) {
+          ev.preventDefault();
+          closeCustomColorPicker();
+          return;
+        }
+        if (colorMapBackdrop.classList.contains('open')) { ev.preventDefault(); cancelColorMapDialog(); }
+        if (setupBackdrop.classList.contains('open')) { ev.preventDefault(); closeSetupDialog(); }
+        if (pastePreviewState) { ev.preventDefault(); cancelPastePreview(); }
+      }
+      const key = ev.key.toLowerCase();
+      const textEntry = ev.target && ['INPUT', 'TEXTAREA', 'SELECT'].includes(ev.target.tagName);
+      if ((ev.ctrlKey || ev.metaKey) && !ev.shiftKey && key === 'z' && !textEntry) {
+        ev.preventDefault();
+        undoEdit();
+      } else if (((ev.ctrlKey || ev.metaKey) && key === 'y') || ((ev.ctrlKey || ev.metaKey) && ev.shiftKey && key === 'z')) {
+        if (!textEntry) {
+          ev.preventDefault();
+          redoEdit();
+        }
+      }
+    });
+
+    document.addEventListener('paste', ev => {
+      const textEntry = ev.target && ['INPUT', 'TEXTAREA', 'SELECT'].includes(ev.target.tagName);
+      if (textEntry) return;
+
+      const items = Array.from(ev.clipboardData?.items || []);
+      const imageItem = items.find(item => item.type && item.type.startsWith('image/'));
+      if (imageItem) {
+        const file = imageItem.getAsFile();
+        if (!file) return;
+        ev.preventDefault();
+        createImageBitmap(file)
+          .then(bitmap => startPastePreview(bitmapToImportPixels(bitmap)))
+          .catch(err => setStatus(`Image paste failed: ${err.message}`, true));
+        return;
+      }
+
+      const text = ev.clipboardData?.getData('text/plain') || '';
+      if (text && parseTileMapText(text, { minRows: 2 }).valid) {
+        ev.preventDefault();
+        applyTileMapText(text);
+      }
+    });
+
+    function isLikelyBinary2bppFile(file) {
+      if (!file) return false;
+      const name = String(file.name || '');
+      const type = String(file.type || '').toLowerCase();
+      if (/\.(bin|raw|2bpp|chr|gfx)$/i.test(name)) return true;
+      if (!type || type === 'application/octet-stream') return true;
+      return false;
+    }
+
+    function readBinaryFile(file) {
+      return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onload = () => resolve(reader.result instanceof ArrayBuffer ? reader.result : new ArrayBuffer(0));
+        reader.onerror = () => reject(reader.error || new Error('file read error'));
+        reader.readAsArrayBuffer(file);
+      });
+    }
+
+    function getBinaryDimensionCandidates(byteLength) {
+      const length = Math.max(0, byteLength | 0);
+      const candidates = [];
+      for (let bytesPerRow = 1; bytesPerRow <= MAX_BYTES_PER_ROW; bytesPerRow++) {
+        if (length % bytesPerRow !== 0) continue;
+        const rows = length / bytesPerRow;
+        if (rows < 1 || rows > MAX_HEIGHT) continue;
+        candidates.push({ width: bytesPerRow * 4, rows, bytesPerRow });
+      }
+      const commonWidths = [160, 320, 256, 176, 192, 128, 80, 352, 336, 304, 288, 280, 240, 224, 200, 184, 144, 120, 96, 64, 40];
+      candidates.sort((a, b) => {
+        const aCurrent = a.width === getActivePixelWidth() && a.rows === spriteRows ? 0 : 1;
+        const bCurrent = b.width === getActivePixelWidth() && b.rows === spriteRows ? 0 : 1;
+        if (aCurrent !== bCurrent) return aCurrent - bCurrent;
+        const aCommon = commonWidths.includes(a.width) ? commonWidths.indexOf(a.width) : 999;
+        const bCommon = commonWidths.includes(b.width) ? commonWidths.indexOf(b.width) : 999;
+        if (aCommon !== bCommon) return aCommon - bCommon;
+        const aAspect = Math.abs((a.width / a.rows) - (4 / 3));
+        const bAspect = Math.abs((b.width / b.rows) - (4 / 3));
+        if (aAspect !== bAspect) return aAspect - bAspect;
+        return a.width - b.width;
+      });
+      return candidates;
+    }
+
+    function formatBinaryDimensionHelp(file, byteLength, candidates) {
+      const fileName = file?.name ? ` ${file.name}` : '';
+      const candidateText = candidates.slice(0, 6).map(c => `${c.width}x${c.rows}`).join(', ');
+      const currentText = `${getActivePixelWidth()}x${spriteRows}`;
+      return `Raw 2bpp binary${fileName}: ${byteLength} bytes.\n\nEnter width x height in pixels. Width must be divisible by 4 and width/4*height must equal ${byteLength}.\n\nSuggested: ${candidateText || currentText}`;
+    }
+
+    function parseBinaryDimensionText(text) {
+      const match = String(text || '').trim().match(/^(\d{1,4})\s*(?:x|×|,|\s)\s*(\d{1,4})$/i);
+      if (!match) return null;
+      return { width: parseInt(match[1], 10), rows: parseInt(match[2], 10) };
+    }
+
+    function promptForBinaryDimensions(file, byteLength) {
+      const candidates = getBinaryDimensionCandidates(byteLength);
+      let defaultValue = candidates.length ? `${candidates[0].width}x${candidates[0].rows}` : `${getActivePixelWidth()}x${spriteRows}`;
+      let message = formatBinaryDimensionHelp(file, byteLength, candidates);
+
+      for (;;) {
+        const answer = window.prompt(message, defaultValue);
+        if (answer === null) return null;
+        const parsed = parseBinaryDimensionText(answer);
+        if (!parsed) {
+          message = `Use format WIDTHxHEIGHT, for example 160x98.\n\n` + formatBinaryDimensionHelp(file, byteLength, candidates);
+          defaultValue = answer || defaultValue;
+          continue;
+        }
+
+        const width = parsed.width;
+        const rows = parsed.rows;
+        if (width < 4 || width > MAX_WIDTH || width % 4 !== 0) {
+          message = `Width must be divisible by 4 and between 4 and ${MAX_WIDTH} pixels.\n\n` + formatBinaryDimensionHelp(file, byteLength, candidates);
+          defaultValue = `${width}x${rows}`;
+          continue;
+        }
+        if (rows < 1 || rows > MAX_HEIGHT) {
+          message = `Height must be between 1 and ${MAX_HEIGHT} rows.\n\n` + formatBinaryDimensionHelp(file, byteLength, candidates);
+          defaultValue = `${width}x${rows}`;
+          continue;
+        }
+
+        const expectedBytes = (width / 4) * rows;
+        if (expectedBytes !== byteLength) {
+          message = `${width}x${rows} expects ${expectedBytes} bytes, but this file is ${byteLength} bytes.\n\n` + formatBinaryDimensionHelp(file, byteLength, candidates);
+          defaultValue = `${width}x${rows}`;
+          continue;
+        }
+
+        return { width, rows, bytesPerRow: width / 4 };
+      }
+    }
+
+    function colsetPaletteToEditorColorBytes(colsetBytes) {
+      const bytes = normalizeColorBytes(colsetBytes);
+      // COLSET order is [11,10,01,00]. Editor order is [00,01,10,11].
+      return [bytes[3], bytes[2], bytes[1], bytes[0]];
+    }
+
+    function shouldApplyIWizardViewerPalette(file, dims, byteLength) {
+      const name = String(file?.name || '').toLowerCase();
+      return /i[-_ ]?wizard|iwizard|wizard/.test(name) ||
+        (byteLength === 40 * 98 && dims?.width === 160 && dims?.rows === 98);
+    }
+
+    function basenameWithoutExtension(name) {
+      return String(name || 'BINARY_SPRITE')
+        .replace(/\.[^.]*$/, '')
+        .replace(/[^A-Za-z0-9_.?@$-]+/g, '_')
+        .replace(/^_+|_+$/g, '') || 'BINARY_SPRITE';
+    }
+
+    async function loadBinary2bppFile(file) {
+      if (!file) return false;
+      try {
+        const buffer = await readBinaryFile(file);
+        const bytes = Array.from(new Uint8Array(buffer));
+        if (!bytes.length) {
+          setStatus(`${file.name || 'Dropped file'} is empty.`, true);
+          return false;
+        }
+
+        const dims = promptForBinaryDimensions(file, bytes.length);
+        if (!dims) {
+          setStatus('Binary import canceled.');
+          return false;
+        }
+
+        pushUndoSnapshot();
+        rawFixedSizeMode = true;
+        setGeometry(dims.bytesPerRow, dims.rows, true, { skipRefresh: true });
+        labelName.value = basenameWithoutExtension(file.name);
+        workingSpriteName = labelName.value;
+        setWorkingBytes(bytes);
+        // Raw Astrocade 2bpp screen/object memory: each byte is four pixels,
+        // left-to-right as bit pairs 7-6, 5-4, 3-2, 1-0. Keep the pixel
+        // values as 00b/01b/10b/11b; do not reverse or invert the bitmap data.
+        pixels = bytesToPixels(getWorkingBytes());
+        const appliedViewerPalette = shouldApplyIWizardViewerPalette(file, dims, bytes.length);
+        if (appliedViewerPalette) {
+          setActiveColorBytes(colsetPaletteToEditorColorBytes(IWIZARD_VIEWER_COLSET_LEFT_PALETTE));
+        }
+        renderGrid();
+        refreshDerivedText();
+        showOpcodeTab('opcode');
+        setWorkingDirty(true);
+        resetLstMoveHistory();
+        const paletteText = appliedViewerPalette ? ' Applied viewer COLSET palette as Color0=$70, Color1=$D0, Color2=$54, Color3=$5E.' : '';
+        setStatus(`Loaded ${file.name || 'binary file'} as ${dims.width}×${dims.rows} raw Astrocade 2bpp (${dims.bytesPerRow} bytes/row, ${bytes.length} bytes).${paletteText}`);
+        return true;
+      } catch (err) {
+        setStatus(`Binary import failed: ${err.message || err}`, true);
+        return false;
+      }
+    }
+
+    function dropHasSupportedEditorData(ev) {
+      const dataTransfer = ev.dataTransfer;
+      if (!dataTransfer) return false;
+      const items = Array.from(dataTransfer.items || []);
+      if (items.some(item => item.kind === 'string' && item.type === 'text/plain')) return true;
+      if (items.some(item => item.kind === 'file' && (item.type.startsWith('image/') || item.type.startsWith('text/') || item.type === 'application/octet-stream' || !item.type))) return true;
+      const types = Array.from(dataTransfer.types || []);
+      return types.includes('text/plain') || types.includes('Files');
+    }
+
+    function isLikelyTextTileMapFile(file) {
+      const name = String(file?.name || '');
+      const type = String(file?.type || '');
+      return type.startsWith('text/') || /\.(txt|text|rows|tilemap|map)$/i.test(name);
+    }
+
+    function readDroppedTextFile(file) {
+      return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onload = () => resolve(String(reader.result || ''));
+        reader.onerror = () => reject(reader.error || new Error('file read error'));
+        reader.readAsText(file);
+      });
+    }
+
+    document.addEventListener('dragover', ev => {
+      if (dropHasSupportedEditorData(ev)) ev.preventDefault();
+    });
+
+    document.addEventListener('drop', async ev => {
+      const textEntry = ev.target && ['INPUT', 'TEXTAREA', 'SELECT'].includes(ev.target.tagName);
+      if (textEntry && ev.target !== source) return;
+
+      const dataTransfer = ev.dataTransfer;
+      if (!dataTransfer) return;
+
+      const droppedText = dataTransfer.getData('text/plain') || '';
+      if (droppedText && parseTileMapText(droppedText, { minRows: 2 }).valid) {
+        ev.preventDefault();
+        applyTileMapText(droppedText);
+        return;
+      }
+
+      const files = Array.from(dataTransfer.files || []);
+      const imageFile = files.find(file => String(file.type || '').startsWith('image/'));
+      if (imageFile) {
+        ev.preventDefault();
+        try {
+          const bitmap = await createImageBitmap(imageFile);
+          startPastePreview(bitmapToImportPixels(bitmap));
+          setStatus(`Dropped image ${imageFile.name || ''}; preview ready.`.trim());
+        } catch (err) {
+          setStatus(`Image drop failed: ${err.message}`, true);
+        }
+        return;
+      }
+
+      const textFile = files.find(isLikelyTextTileMapFile);
+      if (textFile) {
+        ev.preventDefault();
+        try {
+          const text = await readDroppedTextFile(textFile);
+          if (!applyTileMapText(text)) {
+            setStatus(`${textFile.name || 'Dropped text file'} is not a valid numbered tile-map file.`, true);
+          }
+        } catch (err) {
+          setStatus(`Text drop failed: ${err.message}`, true);
+        }
+        return;
+      }
+
+      const binaryFile = files.find(isLikelyBinary2bppFile);
+      if (binaryFile) {
+        ev.preventDefault();
+        await loadBinary2bppFile(binaryFile);
+        return;
+      }
+
+      if (files.length) {
+        ev.preventDefault();
+        setStatus('Dropped file is not a supported image, numbered tile-map text file, or raw 2bpp binary.', true);
+      }
+    });
+
+
+    function initBinaryImportButton() {
+      if (!binaryImportBtn || !binaryFileInput) return;
+
+      binaryImportBtn.addEventListener('click', () => {
+        closePaintChooser();
+        closeSaveImageMenu();
+        binaryFileInput.value = '';
+        binaryFileInput.click();
+      });
+
+      binaryFileInput.addEventListener('change', async () => {
+        const file = binaryFileInput.files && binaryFileInput.files[0];
+        if (file) await loadBinary2bppFile(file);
+      });
+
+      binaryImportBtn.addEventListener('dragover', ev => {
+        ev.preventDefault();
+        ev.stopPropagation();
+        binaryImportBtn.classList.add('dragover');
+        if (ev.dataTransfer) ev.dataTransfer.dropEffect = 'copy';
+      });
+
+      binaryImportBtn.addEventListener('dragleave', ev => {
+        if (binaryImportBtn.contains(ev.relatedTarget)) return;
+        binaryImportBtn.classList.remove('dragover');
+      });
+
+      binaryImportBtn.addEventListener('drop', async ev => {
+        ev.preventDefault();
+        ev.stopPropagation();
+        binaryImportBtn.classList.remove('dragover');
+        const files = Array.from(ev.dataTransfer?.files || []);
+        const binaryFile = files.find(isLikelyBinary2bppFile) || files[0];
+        if (!binaryFile) {
+          setStatus('Drop a raw Astrocade 2bpp binary file on PB.', true);
+          return;
+        }
+        if (!isLikelyBinary2bppFile(binaryFile)) {
+          setStatus(`${binaryFile.name || 'Dropped file'} does not look like a raw 2bpp binary file.`, true);
+          return;
+        }
+        await loadBinary2bppFile(binaryFile);
+      });
+    }
+
+
+    function makeSafeFilenameBase() {
+      return (labelName.value.trim() || workingSpriteName || currentSpriteName || 'sprite')
+        .replace(/:$/, '')
+        .replace(/[^A-Za-z0-9_.-]+/g, '_')
+        .replace(/^_+|_+$/g, '') || 'sprite';
+    }
+
+    function makeSpriteCanvas(scale = 8, options = {}) {
+      const activeWidth = getActivePixelWidth();
+      const canvas = document.createElement('canvas');
+      canvas.width = Math.max(1, activeWidth * scale);
+      canvas.height = Math.max(1, spriteRows * scale);
+      const ctx = canvas.getContext('2d', { willReadFrequently: true });
+      ctx.imageSmoothingEnabled = false;
+      if (options.background) {
+        ctx.fillStyle = options.background;
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+      }
+      for (let y = 0; y < spriteRows; y++) {
+        for (let x = 0; x < activeWidth; x++) {
+          ctx.fillStyle = colorForPixel(pixels[y][x] || 0);
+          ctx.fillRect(x * scale, y * scale, scale, scale);
+        }
+      }
+      return canvas;
+    }
+
+    function canvasToBlob(canvas, type, quality) {
+      return new Promise((resolve, reject) => {
+        canvas.toBlob(blob => blob ? resolve(blob) : reject(new Error('Browser could not encode image.')), type, quality);
+      });
+    }
+
+    function downloadBlob(blob, filename) {
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = filename;
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      URL.revokeObjectURL(url);
+    }
+
+    function canvasToImageData(canvas) {
+      return canvas.getContext('2d', { willReadFrequently: true }).getImageData(0, 0, canvas.width, canvas.height);
+    }
+
+    function writeAscii(view, offset, text) {
+      for (let i = 0; i < text.length; i++) view.setUint8(offset + i, text.charCodeAt(i));
+    }
+
+    function encodeBmpFromCanvas(canvas) {
+      const { width, height, data } = canvasToImageData(canvas);
+      const rowStride = Math.ceil((width * 3) / 4) * 4;
+      const pixelBytes = rowStride * height;
+      const fileSize = 14 + 40 + pixelBytes;
+      const buffer = new ArrayBuffer(fileSize);
+      const view = new DataView(buffer);
+      writeAscii(view, 0, 'BM');
+      view.setUint32(2, fileSize, true);
+      view.setUint32(10, 54, true);
+      view.setUint32(14, 40, true);
+      view.setInt32(18, width, true);
+      view.setInt32(22, height, true);
+      view.setUint16(26, 1, true);
+      view.setUint16(28, 24, true);
+      view.setUint32(34, pixelBytes, true);
+      let dstBase = 54;
+      for (let y = height - 1; y >= 0; y--) {
+        let dst = dstBase + (height - 1 - y) * rowStride;
+        for (let x = 0; x < width; x++) {
+          const src = (y * width + x) * 4;
+          view.setUint8(dst++, data[src + 2]);
+          view.setUint8(dst++, data[src + 1]);
+          view.setUint8(dst++, data[src]);
+        }
+      }
+      return new Blob([buffer], { type: 'image/bmp' });
+    }
+
+    function writeTiffEntry(view, offset, tag, type, count, value) {
+      view.setUint16(offset, tag, true);
+      view.setUint16(offset + 2, type, true);
+      view.setUint32(offset + 4, count, true);
+      view.setUint32(offset + 8, value, true);
+    }
+
+    function encodeTiffFromCanvas(canvas) {
+      const { width, height, data } = canvasToImageData(canvas);
+      const entries = 10;
+      const ifdOffset = 8;
+      const bitsOffset = ifdOffset + 2 + entries * 12 + 4;
+      const stripOffset = bitsOffset + 6;
+      const pixelBytes = width * height * 3;
+      const buffer = new ArrayBuffer(stripOffset + pixelBytes);
+      const view = new DataView(buffer);
+      writeAscii(view, 0, 'II');
+      view.setUint16(2, 42, true);
+      view.setUint32(4, ifdOffset, true);
+      view.setUint16(ifdOffset, entries, true);
+      let e = ifdOffset + 2;
+      writeTiffEntry(view, e, 256, 4, 1, width); e += 12;        // ImageWidth
+      writeTiffEntry(view, e, 257, 4, 1, height); e += 12;       // ImageLength
+      writeTiffEntry(view, e, 258, 3, 3, bitsOffset); e += 12;   // BitsPerSample
+      writeTiffEntry(view, e, 259, 3, 1, 1); e += 12;            // Compression none
+      writeTiffEntry(view, e, 262, 3, 1, 2); e += 12;            // RGB
+      writeTiffEntry(view, e, 273, 4, 1, stripOffset); e += 12;  // StripOffsets
+      writeTiffEntry(view, e, 277, 3, 1, 3); e += 12;            // SamplesPerPixel
+      writeTiffEntry(view, e, 278, 4, 1, height); e += 12;       // RowsPerStrip
+      writeTiffEntry(view, e, 279, 4, 1, pixelBytes); e += 12;   // StripByteCounts
+      writeTiffEntry(view, e, 284, 3, 1, 1); e += 12;            // PlanarConfiguration chunky
+      view.setUint32(e, 0, true);
+      view.setUint16(bitsOffset, 8, true);
+      view.setUint16(bitsOffset + 2, 8, true);
+      view.setUint16(bitsOffset + 4, 8, true);
+      let dst = stripOffset;
+      for (let i = 0; i < data.length; i += 4) {
+        view.setUint8(dst++, data[i]);
+        view.setUint8(dst++, data[i + 1]);
+        view.setUint8(dst++, data[i + 2]);
+      }
+      return new Blob([buffer], { type: 'image/tiff' });
+    }
+
+    async function saveSpriteImage(format) {
+      const fmt = String(format || 'png').toLowerCase();
+      const canvas = makeSpriteCanvas(8, fmt === 'jpg' || fmt === 'jpeg' ? { background: '#000000' } : {});
+      const base = makeSafeFilenameBase();
+      let blob;
+      let ext = fmt;
+      if (fmt === 'png') blob = await canvasToBlob(canvas, 'image/png');
+      else if (fmt === 'jpg' || fmt === 'jpeg') { blob = await canvasToBlob(canvas, 'image/jpeg', 0.95); ext = 'jpg'; }
+      else if (fmt === 'bmp') blob = encodeBmpFromCanvas(canvas);
+      else if (fmt === 'tif' || fmt === 'tiff') { blob = encodeTiffFromCanvas(canvas); ext = 'tif'; }
+      else throw new Error(`Unsupported image format: ${format}`);
+      downloadBlob(blob, `${base}.${ext}`);
+      setStatus(`Saved ${base}.${ext}.`);
+    }
+
+    async function copySpritePngToClipboard() {
+      try {
+        const canvas = makeSpriteCanvas(8);
+        const blob = await canvasToBlob(canvas, 'image/png');
+        if (!navigator.clipboard || typeof ClipboardItem === 'undefined') throw new Error('PNG clipboard is not available in this browser/context.');
+        await navigator.clipboard.write([new ClipboardItem({ 'image/png': blob })]);
+        setStatus('Copied sprite PNG to clipboard.');
+      } catch (err) {
+        setStatus(`PNG copy failed: ${err.message}`, true);
+      }
+    }
+
+
+    let pastePreviewState = null;
+    let pasteDragState = null;
+    const PASTE_SCALE_WHEEL_STEP = 1.12;
+    const MAX_PASTE_RASTER_DIMENSION = 512;
+
+    function getPaletteRgbForPaste() {
+      const palette = [];
+      for (let i = 0; i < 4; i++) {
+        palette.push(hexToRgb(colorForPixel(i)) || { r: 0, g: 0, b: 0 });
+      }
+      return palette;
+    }
+
+    function nearestPaletteIndexForRgb(r, g, b, a = 255, palette = null) {
+      if (a < 80) return 0;
+      const colors = palette || getPaletteRgbForPaste();
+      let bestIndex = 0;
+      let bestDistance = Infinity;
+      for (let i = 0; i < 4; i++) {
+        const candidate = colors[i];
+        if (!candidate) continue;
+        const dr = r - candidate.r;
+        const dg = g - candidate.g;
+        const db = b - candidate.b;
+        const distance = dr * dr + dg * dg + db * db;
+        if (distance < bestDistance) {
+          bestDistance = distance;
+          bestIndex = i;
+        }
+      }
+      return bestIndex;
+    }
+
+    function getGridMetrics() {
+      const cell = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--cell')) || 24;
+      return { cell, gap: 1, border: 2, pitch: cell + 1 };
+    }
+
+    function getInitialPasteRasterSize(sourceImage) {
+      const activeWidth = getActivePixelWidth();
+      const activeHeight = spriteRows;
+      const sourceWidth = Math.max(1, sourceImage.width | 0);
+      const sourceHeight = Math.max(1, sourceImage.height | 0);
+
+      let importWidth = sourceWidth;
+      let importHeight = sourceHeight;
+
+      const scaleX = sourceWidth / activeWidth;
+      const scaleY = sourceHeight / activeHeight;
+      const looksLikeCopiedSprite =
+        scaleX >= 2 &&
+        Math.abs(scaleX - scaleY) < 0.01 &&
+        Math.abs(scaleX - Math.round(scaleX)) < 0.01;
+
+      if (looksLikeCopiedSprite) {
+        importWidth = activeWidth;
+        importHeight = activeHeight;
+      } else if (importWidth > activeWidth || importHeight > activeHeight) {
+        const fitScale = Math.min(activeWidth / importWidth, activeHeight / importHeight);
+        importWidth = Math.max(1, Math.round(importWidth * fitScale));
+        importHeight = Math.max(1, Math.round(importHeight * fitScale));
+      }
+
+      importWidth = Math.max(1, Math.min(MAX_PASTE_RASTER_DIMENSION, importWidth));
+      importHeight = Math.max(1, Math.min(MAX_PASTE_RASTER_DIMENSION, importHeight));
+
+      return {
+        width: importWidth,
+        height: importHeight,
+        smooth: !looksLikeCopiedSprite,
+        dither: !looksLikeCopiedSprite,
+        looksLikeCopiedSprite
+      };
+    }
+
+    function makePasteSourceCanvas(bitmap) {
+      const sourceCanvas = document.createElement('canvas');
+      sourceCanvas.width = Math.max(1, bitmap.width | 0);
+      sourceCanvas.height = Math.max(1, bitmap.height | 0);
+      const sourceCtx = sourceCanvas.getContext('2d', { willReadFrequently: true });
+      sourceCtx.imageSmoothingEnabled = false;
+      sourceCtx.clearRect(0, 0, sourceCanvas.width, sourceCanvas.height);
+      sourceCtx.drawImage(bitmap, 0, 0);
+      return sourceCanvas;
+    }
+
+    function makeImportPixelsFromSource(sourceImage, importWidth, importHeight, options = {}) {
+      importWidth = Math.max(1, Math.min(MAX_PASTE_RASTER_DIMENSION, importWidth | 0));
+      importHeight = Math.max(1, Math.min(MAX_PASTE_RASTER_DIMENSION, importHeight | 0));
+
+      const canvas = document.createElement('canvas');
+      canvas.width = importWidth;
+      canvas.height = importHeight;
+      const ctx = canvas.getContext('2d', { willReadFrequently: true });
+      ctx.imageSmoothingEnabled = options.smooth !== false;
+      ctx.clearRect(0, 0, importWidth, importHeight);
+      ctx.drawImage(sourceImage, 0, 0, importWidth, importHeight);
+
+      const data = ctx.getImageData(0, 0, importWidth, importHeight).data;
+      const palette = getPaletteRgbForPaste();
+      const useDither = Boolean(options.dither);
+      const importPixels = Array.from({ length: importHeight }, () => Array(importWidth).fill(0));
+
+      if (!useDither) {
+        for (let y = 0; y < importHeight; y++) {
+          for (let x = 0; x < importWidth; x++) {
+            const i = (y * importWidth + x) * 4;
+            importPixels[y][x] = nearestPaletteIndexForRgb(data[i], data[i + 1], data[i + 2], data[i + 3], palette);
+          }
+        }
+        return importPixels;
+      }
+
+      // Floyd-Steinberg error diffusion makes high-res art less "empty" when
+      // reduced to only four Astrocade color-map indexes. This is especially
+      // important for dark red/blue art, where plain nearest-color mapping tends
+      // to collapse almost everything to Color 0 black.
+      const work = new Float32Array(importWidth * importHeight * 3);
+      const alpha = new Uint8Array(importWidth * importHeight);
+      for (let i = 0, p = 0; i < data.length; i += 4, p++) {
+        work[p * 3] = data[i];
+        work[p * 3 + 1] = data[i + 1];
+        work[p * 3 + 2] = data[i + 2];
+        alpha[p] = data[i + 3];
+      }
+
+      function addError(x, y, er, eg, eb, factor) {
+        if (x < 0 || x >= importWidth || y < 0 || y >= importHeight) return;
+        const p = (y * importWidth + x) * 3;
+        work[p] += er * factor;
+        work[p + 1] += eg * factor;
+        work[p + 2] += eb * factor;
+      }
+
+      for (let y = 0; y < importHeight; y++) {
+        for (let x = 0; x < importWidth; x++) {
+          const p = y * importWidth + x;
+          const wi = p * 3;
+          const a = alpha[p];
+          const r = Math.max(0, Math.min(255, work[wi]));
+          const g = Math.max(0, Math.min(255, work[wi + 1]));
+          const b = Math.max(0, Math.min(255, work[wi + 2]));
+          const index = nearestPaletteIndexForRgb(r, g, b, a, palette);
+          importPixels[y][x] = index;
+
+          if (a < 80) continue;
+          const chosen = palette[index];
+          const er = r - chosen.r;
+          const eg = g - chosen.g;
+          const eb = b - chosen.b;
+          addError(x + 1, y, er, eg, eb, 7 / 16);
+          addError(x - 1, y + 1, er, eg, eb, 3 / 16);
+          addError(x, y + 1, er, eg, eb, 5 / 16);
+          addError(x + 1, y + 1, er, eg, eb, 1 / 16);
+        }
+      }
+
+      return importPixels;
+    }
+
+    function bitmapToImportPixels(bitmap) {
+      const sourceCanvas = makePasteSourceCanvas(bitmap);
+      if (bitmap && typeof bitmap.close === 'function') {
+        try { bitmap.close(); } catch (_) { }
+      }
+      const initial = getInitialPasteRasterSize(sourceCanvas);
+      return {
+        pixels: makeImportPixelsFromSource(sourceCanvas, initial.width, initial.height, {
+          smooth: initial.smooth,
+          dither: initial.dither
+        }),
+        width: initial.width,
+        height: initial.height,
+        sourceCanvas,
+        sourceWidth: sourceCanvas.width,
+        sourceHeight: sourceCanvas.height,
+        initialWidth: initial.width,
+        initialHeight: initial.height,
+        scale: 1,
+        smooth: initial.smooth,
+        dither: initial.dither,
+        looksLikeCopiedSprite: initial.looksLikeCopiedSprite
+      };
+    }
+
+    function getPasteScaleBounds(state = pastePreviewState) {
+      if (!state) return { minScale: 1, maxScale: 1 };
+      const baseWidth = Math.max(1, state.initialWidth || state.width || 1);
+      const baseHeight = Math.max(1, state.initialHeight || state.height || 1);
+      const sourceWidth = Math.max(1, state.sourceWidth || baseWidth);
+      const sourceHeight = Math.max(1, state.sourceHeight || baseHeight);
+      const minScale = Math.max(1 / baseWidth, 1 / baseHeight);
+      const maxScale = Math.max(
+        minScale,
+        Math.min(
+          MAX_PASTE_RASTER_DIMENSION / baseWidth,
+          MAX_PASTE_RASTER_DIMENSION / baseHeight,
+          sourceWidth / baseWidth,
+          sourceHeight / baseHeight
+        )
+      );
+      return { minScale, maxScale };
+    }
+
+    function rasterizePastePreviewAtScale(targetScale) {
+      if (!pastePreviewState || !pastePreviewState.sourceCanvas) return false;
+      const bounds = getPasteScaleBounds(pastePreviewState);
+      const nextScale = Math.max(bounds.minScale, Math.min(bounds.maxScale, targetScale));
+      const baseWidth = Math.max(1, pastePreviewState.initialWidth || pastePreviewState.width || 1);
+      const baseHeight = Math.max(1, pastePreviewState.initialHeight || pastePreviewState.height || 1);
+      const nextWidth = Math.max(1, Math.min(MAX_PASTE_RASTER_DIMENSION, Math.round(baseWidth * nextScale)));
+      const nextHeight = Math.max(1, Math.min(MAX_PASTE_RASTER_DIMENSION, Math.round(baseHeight * nextScale)));
+
+      if (nextWidth === pastePreviewState.width && nextHeight === pastePreviewState.height) {
+        pastePreviewState.scale = nextScale;
+        return false;
+      }
+
+      pastePreviewState.pixels = makeImportPixelsFromSource(
+        pastePreviewState.sourceCanvas,
+        nextWidth,
+        nextHeight,
+        { smooth: pastePreviewState.smooth, dither: pastePreviewState.dither }
+      );
+      pastePreviewState.width = nextWidth;
+      pastePreviewState.height = nextHeight;
+      pastePreviewState.scale = nextScale;
+      return true;
+    }
+
+    function getPasteGridPointFromCanvasPoint(canvasX, canvasY) {
+      const metrics = getGridMetrics();
+      return {
+        gridX: (canvasX - metrics.border) / metrics.pitch,
+        gridY: (canvasY - metrics.border) / metrics.pitch
+      };
+    }
+
+    function isCanvasPointOverPastePreview(canvasX, canvasY) {
+      if (!pastePreviewState) return false;
+      const point = getPasteGridPointFromCanvasPoint(canvasX, canvasY);
+      return point.gridX >= pastePreviewState.offsetX &&
+        point.gridX < pastePreviewState.offsetX + pastePreviewState.width &&
+        point.gridY >= pastePreviewState.offsetY &&
+        point.gridY < pastePreviewState.offsetY + pastePreviewState.height;
+    }
+
+    function makePastePreviewStatus() {
+      if (!pastePreviewState) return '';
+      const percent = Math.round((pastePreviewState.scale || 1) * 100);
+      return `Image paste preview ${pastePreviewState.width}×${pastePreviewState.height} (${percent}%). Drag to pan, mouse wheel scales/zooms, double-click snaps visible pixels into grid, Esc cancels.`;
+    }
+
+    function scalePastePreviewAtCanvasPoint(canvasX, canvasY, scaleFactor) {
+      if (!pastePreviewState || !pastePreviewState.sourceCanvas) return;
+
+      const oldWidth = pastePreviewState.width;
+      const oldHeight = pastePreviewState.height;
+      const oldOffsetX = pastePreviewState.offsetX;
+      const oldOffsetY = pastePreviewState.offsetY;
+      const point = getPasteGridPointFromCanvasPoint(canvasX, canvasY);
+
+      const anchorX = oldWidth > 0 ? Math.max(0, Math.min(1, (point.gridX - oldOffsetX) / oldWidth)) : 0.5;
+      const anchorY = oldHeight > 0 ? Math.max(0, Math.min(1, (point.gridY - oldOffsetY) / oldHeight)) : 0.5;
+      const changed = rasterizePastePreviewAtScale((pastePreviewState.scale || 1) * scaleFactor);
+      if (!changed) {
+        setStatus(makePastePreviewStatus());
+        return;
+      }
+
+      pastePreviewState.offsetX = Math.round(point.gridX - anchorX * pastePreviewState.width);
+      pastePreviewState.offsetY = Math.round(point.gridY - anchorY * pastePreviewState.height);
+      clampPasteOffset();
+      drawPastePreview();
+      setStatus(makePastePreviewStatus());
+    }
+
+    function releasePastePreviewResources() {
+      // Source image is an ordinary offscreen canvas; dropping pastePreviewState is enough.
+    }
+
+    function clampPasteOffset() {
+      if (!pastePreviewState) return;
+      const activeWidth = getActivePixelWidth();
+      pastePreviewState.offsetX = Math.max(-pastePreviewState.width + 1, Math.min(activeWidth - 1, pastePreviewState.offsetX));
+      pastePreviewState.offsetY = Math.max(-pastePreviewState.height + 1, Math.min(spriteRows - 1, pastePreviewState.offsetY));
+    }
+
+    function cancelPastePreview(message = 'Image paste canceled.') {
+      releasePastePreviewResources();
+      pastePreviewState = null;
+      pasteDragState = null;
+      if (pastePreviewCanvas) {
+        pastePreviewCanvas.classList.remove('active', 'dragging');
+        pastePreviewCanvas.style.display = 'none';
+        const ctx = pastePreviewCanvas.getContext('2d');
+        ctx.clearRect(0, 0, pastePreviewCanvas.width, pastePreviewCanvas.height);
+      }
+      setStatus(message);
+    }
+
+    function drawPastePreview() {
+      if (!pastePreviewState || !pastePreviewCanvas) return;
+      updateGridSizing();
+      const metrics = getGridMetrics();
+      pastePreviewCanvas.width = grid.offsetWidth;
+      pastePreviewCanvas.height = grid.offsetHeight;
+      pastePreviewCanvas.style.width = grid.offsetWidth + 'px';
+      pastePreviewCanvas.style.height = grid.offsetHeight + 'px';
+      pastePreviewCanvas.style.display = 'block';
+      pastePreviewCanvas.classList.add('active');
+
+      const ctx = pastePreviewCanvas.getContext('2d');
+      ctx.clearRect(0, 0, pastePreviewCanvas.width, pastePreviewCanvas.height);
+      ctx.save();
+      ctx.globalAlpha = 0.92;
+
+      const activeWidth = getActivePixelWidth();
+      const syStart = Math.max(0, -pastePreviewState.offsetY);
+      const syEnd = Math.min(pastePreviewState.height, spriteRows - pastePreviewState.offsetY);
+      const sxStart = Math.max(0, -pastePreviewState.offsetX);
+      const sxEnd = Math.min(pastePreviewState.width, activeWidth - pastePreviewState.offsetX);
+
+      for (let sy = syStart; sy < syEnd; sy++) {
+        const gy = pastePreviewState.offsetY + sy;
+        for (let sx = sxStart; sx < sxEnd; sx++) {
+          const gx = pastePreviewState.offsetX + sx;
+          const value = pastePreviewState.pixels[sy][sx] || 0;
+          ctx.fillStyle = colorForPixel(value);
+          ctx.fillRect(
+            metrics.border + gx * metrics.pitch,
+            metrics.border + gy * metrics.pitch,
+            metrics.cell,
+            metrics.cell
+          );
+        }
+      }
+
+      ctx.restore();
+      ctx.save();
+      ctx.strokeStyle = 'rgba(94,224,131,.95)';
+      ctx.lineWidth = 2;
+      const visibleLeft = Math.max(0, pastePreviewState.offsetX);
+      const visibleTop = Math.max(0, pastePreviewState.offsetY);
+      const visibleRight = Math.min(activeWidth, pastePreviewState.offsetX + pastePreviewState.width);
+      const visibleBottom = Math.min(spriteRows, pastePreviewState.offsetY + pastePreviewState.height);
+      if (visibleRight > visibleLeft && visibleBottom > visibleTop) {
+        ctx.strokeRect(
+          metrics.border + visibleLeft * metrics.pitch - 1,
+          metrics.border + visibleTop * metrics.pitch - 1,
+          (visibleRight - visibleLeft) * metrics.pitch - 1,
+          (visibleBottom - visibleTop) * metrics.pitch - 1
+        );
+      }
+      ctx.restore();
+    }
+
+    function startPastePreview(imported) {
+      if (!imported || !imported.pixels || !imported.width || !imported.height) return;
+      if (pastePreviewState) releasePastePreviewResources();
+      pastePreviewState = {
+        pixels: imported.pixels,
+        width: imported.width,
+        height: imported.height,
+        sourceCanvas: imported.sourceCanvas || null,
+        sourceWidth: imported.sourceWidth || imported.width,
+        sourceHeight: imported.sourceHeight || imported.height,
+        initialWidth: imported.initialWidth || imported.width,
+        initialHeight: imported.initialHeight || imported.height,
+        scale: imported.scale || 1,
+        smooth: imported.smooth !== false,
+        dither: Boolean(imported.dither),
+        looksLikeCopiedSprite: Boolean(imported.looksLikeCopiedSprite),
+        offsetX: Math.round((getActivePixelWidth() - imported.width) / 2),
+        offsetY: Math.round((spriteRows - imported.height) / 2)
+      };
+      clampPasteOffset();
+      drawPastePreview();
+      setStatus(makePastePreviewStatus());
+    }
+
+    async function pasteImageFromClipboard() {
+      let richClipboardError = null;
+
+      try {
+        if (navigator.clipboard && typeof navigator.clipboard.read === 'function') {
+          const items = await navigator.clipboard.read();
+          let textCandidate = '';
+
+          for (const item of items) {
+            const imageType = item.types.find(type => type.startsWith('image/'));
+            if (!imageType) continue;
+            const blob = await item.getType(imageType);
+            const bitmap = await createImageBitmap(blob);
+            startPastePreview(bitmapToImportPixels(bitmap));
+            return;
+          }
+
+          for (const item of items) {
+            if (!item.types.includes('text/plain')) continue;
+            const blob = await item.getType('text/plain');
+            textCandidate = await blob.text();
+            break;
+          }
+
+          if (textCandidate) {
+            if (applyTileMapText(textCandidate)) return;
+            throw new Error('Clipboard text is not in numbered tile-map format.');
+          }
+        } else {
+          richClipboardError = new Error('Clipboard image read is not available in this browser/context.');
+        }
+      } catch (err) {
+        richClipboardError = err;
+      }
+
+      try {
+        if (!navigator.clipboard || typeof navigator.clipboard.readText !== 'function') {
+          throw richClipboardError || new Error('Clipboard read is not available in this browser/context.');
+        }
+        const text = await navigator.clipboard.readText();
+        if (text && applyTileMapText(text)) return;
+        throw richClipboardError || new Error('No image or numbered tile-map text found on the clipboard.');
+      } catch (err) {
+        setStatus(`Clipboard paste failed: ${err.message}`, true);
+      }
+    }
+
+    function commitPastePreview() {
+      if (!pastePreviewState) return;
+      pushUndoSnapshot();
+      const activeWidth = getActivePixelWidth();
+      const syStart = Math.max(0, -pastePreviewState.offsetY);
+      const syEnd = Math.min(pastePreviewState.height, spriteRows - pastePreviewState.offsetY);
+      const sxStart = Math.max(0, -pastePreviewState.offsetX);
+      const sxEnd = Math.min(pastePreviewState.width, activeWidth - pastePreviewState.offsetX);
+
+      for (let sy = syStart; sy < syEnd; sy++) {
+        const gy = pastePreviewState.offsetY + sy;
+        for (let sx = sxStart; sx < sxEnd; sx++) {
+          const gx = pastePreviewState.offsetX + sx;
+          pixels[gy][gx] = pastePreviewState.pixels[sy][sx] || 0;
+        }
+      }
+      const w = pastePreviewState.width;
+      const h = pastePreviewState.height;
+      releasePastePreviewResources();
+      pastePreviewState = null;
+      pasteDragState = null;
+      pastePreviewCanvas.classList.remove('active', 'dragging');
+      pastePreviewCanvas.style.display = 'none';
+      finishSpriteTransform(`Pasted visible image pixels into grid (${w}×${h} paste raster).`);
+    }
+
+    function initPastePreviewHandlers() {
+      if (!pastePreviewCanvas) return;
+
+      pastePreviewCanvas.addEventListener('wheel', ev => {
+        if (!pastePreviewState) return;
+        const rect = pastePreviewCanvas.getBoundingClientRect();
+        const canvasX = ev.clientX - rect.left;
+        const canvasY = ev.clientY - rect.top;
+        if (!isCanvasPointOverPastePreview(canvasX, canvasY)) return;
+        ev.preventDefault();
+        const factor = ev.deltaY > 0 ? (1 / PASTE_SCALE_WHEEL_STEP) : PASTE_SCALE_WHEEL_STEP;
+        scalePastePreviewAtCanvasPoint(canvasX, canvasY, factor);
+      }, { passive: false });
+
+      pastePreviewCanvas.addEventListener('pointerdown', ev => {
+        if (!pastePreviewState) return;
+        const metrics = getGridMetrics();
+        pasteDragState = {
+          pointerId: ev.pointerId,
+          startX: ev.clientX,
+          startY: ev.clientY,
+          startOffsetX: pastePreviewState.offsetX,
+          startOffsetY: pastePreviewState.offsetY,
+          pitch: metrics.pitch
+        };
+        pastePreviewCanvas.classList.add('dragging');
+        pastePreviewCanvas.setPointerCapture(ev.pointerId);
+        ev.preventDefault();
+      });
+
+      pastePreviewCanvas.addEventListener('pointermove', ev => {
+        if (!pastePreviewState || !pasteDragState || ev.pointerId !== pasteDragState.pointerId) return;
+        const dx = Math.round((ev.clientX - pasteDragState.startX) / pasteDragState.pitch);
+        const dy = Math.round((ev.clientY - pasteDragState.startY) / pasteDragState.pitch);
+        pastePreviewState.offsetX = pasteDragState.startOffsetX + dx;
+        pastePreviewState.offsetY = pasteDragState.startOffsetY + dy;
+        clampPasteOffset();
+        drawPastePreview();
+        ev.preventDefault();
+      });
+
+      function endPasteDrag(ev) {
+        if (!pasteDragState || ev.pointerId !== pasteDragState.pointerId) return;
+        pasteDragState = null;
+        pastePreviewCanvas.classList.remove('dragging');
+        try { pastePreviewCanvas.releasePointerCapture(ev.pointerId); } catch (_) { }
+      }
+
+      pastePreviewCanvas.addEventListener('pointerup', endPasteDrag);
+      pastePreviewCanvas.addEventListener('pointercancel', endPasteDrag);
+      pastePreviewCanvas.addEventListener('dblclick', ev => {
+        ev.preventDefault();
+        commitPastePreview();
+      });
+    }
+
+
+    function closeSaveImageMenu() {
+      if (!saveImageMenu) return;
+      saveImageMenu.classList.remove('open');
+      if (saveImageBtn) saveImageBtn.setAttribute('aria-expanded', 'false');
+    }
+
+    function openColorMapDialog() {
+      closePaintChooser();
+      closeSaveImageMenu();
+      closeCustomColorPicker();
+      colorMapDialogOriginalColorBytes = colorBytes.slice();
+      colorMapDialogOriginalPreviewHex = colorPreviewHex.slice();
+      colorMapDialogOriginalDirty = workingDirty;
+      renderColorMap();
+      colorMapBackdrop.classList.add('open');
+      colorMapOkBtn.focus();
+    }
+
+    function closeColorMapDialog() {
+      closeCustomColorPicker();
+      colorMapBackdrop.classList.remove('open');
+      colorMapBtn.focus();
+    }
+
+    function cancelColorMapDialog() {
+      if (Array.isArray(colorMapDialogOriginalColorBytes)) {
+        colorBytes = normalizeColorBytes(colorMapDialogOriginalColorBytes);
+        colorPreviewHex = normalizePreviewColors(colorMapDialogOriginalPreviewHex, colorBytes);
+        renderColorMap();
+        renderGrid();
+        renderPaintChooser();
+        if (paintColorIndex !== null) paintToolNib.style.background = colorForPixel(paintColorIndex);
+        paintToolNib.classList.toggle('hidden', paintColorIndex === null);
+        setWorkingDirty(colorMapDialogOriginalDirty);
+        setStatus('Color map changes canceled.');
+      }
+      closeColorMapDialog();
+    }
+
+    function openSetupDialog() {
+      closePaintChooser();
+      closeSaveImageMenu();
+      setupBackdrop.classList.add('open');
+      setupOkBtn.focus();
+    }
+
+    function closeSetupDialog() {
+      setupBackdrop.classList.remove('open');
+      setupBtn.focus();
+    }
+
+    function finishSpriteTransform(statusMessage) {
+      renderGrid();
+      refreshDerivedText();
+      setWorkingDirty(true);
+      setStatus(statusMessage);
+    }
+
+    function rotateSprite(direction) {
+      const oldWidth = getActivePixelWidth();
+      const oldHeight = spriteRows;
+      const newWidth = Math.ceil(oldHeight / 4) * 4;
+      const newHeight = oldWidth;
+      if (newWidth > MAX_WIDTH || newHeight > MAX_HEIGHT) {
+        setStatus(`Rotate would become ${newWidth}×${newHeight}, beyond editor max ${MAX_WIDTH}×${MAX_HEIGHT}.`, true);
+        return;
+      }
+
+      pushUndoSnapshot();
+      const next = Array.from({ length: MAX_HEIGHT }, () => Array(MAX_WIDTH).fill(0));
+      for (let y = 0; y < oldHeight; y++) {
+        for (let x = 0; x < oldWidth; x++) {
+          let nx, ny;
+          if (direction === 'right') {
+            nx = oldHeight - 1 - y;
+            ny = x;
+          } else {
+            nx = y;
+            ny = oldWidth - 1 - x;
+          }
+          next[ny][nx] = pixels[y][x] || 0;
+        }
+      }
+
+      pixels = next;
+      spriteBytesPerRow = newWidth / 4;
+      spriteRows = newHeight;
+      syncGeometryControls();
+      finishSpriteTransform(direction === 'right'
+        ? `Sprite rotated right 90°${newWidth !== oldHeight ? `; width padded to ${newWidth}px.` : '.'}`
+        : `Sprite rotated left 90°${newWidth !== oldHeight ? `; width padded to ${newWidth}px.` : '.'}`);
+    }
+
+    function shiftSprite(direction) {
+      pushUndoSnapshot();
+      const activeWidth = getActivePixelWidth();
+      const next = Array.from({ length: MAX_HEIGHT }, () => Array(MAX_WIDTH).fill(0));
+
+      for (let y = 0; y < spriteRows; y++) {
+        for (let x = 0; x < activeWidth; x++) {
+          let nx = x;
+          let ny = y;
+          if (direction === 'up') ny = y - 1;
+          else if (direction === 'down') ny = y + 1;
+          else if (direction === 'left') nx = x - 1;
+          else if (direction === 'right') nx = x + 1;
+
+          if (nx >= 0 && nx < activeWidth && ny >= 0 && ny < spriteRows) {
+            next[ny][nx] = pixels[y][x] || 0;
+          }
+        }
+      }
+
+      pixels = next;
+      const label = direction.charAt(0).toUpperCase() + direction.slice(1);
+      finishSpriteTransform(`Sprite shifted ${direction}.`);
+    }
+
+    function flipSpriteHorizontal() {
+      pushUndoSnapshot();
+      const activeWidth = getActivePixelWidth();
+      for (let y = 0; y < spriteRows; y++) {
+        const active = pixels[y].slice(0, activeWidth).reverse();
+        for (let x = 0; x < activeWidth; x++) pixels[y][x] = active[x];
+      }
+      finishSpriteTransform('Sprite flipped horizontal.');
+    }
+
+    function flipSpriteVertical() {
+      pushUndoSnapshot();
+      const activeWidth = getActivePixelWidth();
+      for (let y = 0; y < Math.floor(spriteRows / 2); y++) {
+        const oppositeY = spriteRows - 1 - y;
+        for (let x = 0; x < activeWidth; x++) {
+          const tmp = pixels[y][x];
+          pixels[y][x] = pixels[oppositeY][x];
+          pixels[oppositeY][x] = tmp;
+        }
+      }
+      finishSpriteTransform('Sprite flipped vertical.');
+    }
+
+    undoBtn.addEventListener('click', undoEdit);
+    redoBtn.addEventListener('click', redoEdit);
+    rotateLeftBtn.addEventListener('click', () => rotateSprite('left'));
+    rotateRightBtn.addEventListener('click', () => rotateSprite('right'));
+    shiftUpBtn.addEventListener('click', () => shiftSprite('up'));
+    shiftDownBtn.addEventListener('click', () => shiftSprite('down'));
+    shiftLeftBtn.addEventListener('click', () => shiftSprite('left'));
+    shiftRightBtn.addEventListener('click', () => shiftSprite('right'));
+    document.getElementById('flipHorzBtn').addEventListener('click', flipSpriteHorizontal);
+    document.getElementById('flipVertBtn').addEventListener('click', flipSpriteVertical);
+    saveImageBtn.addEventListener('click', ev => {
+      ev.stopPropagation();
+      closePaintChooser();
+      const opening = !saveImageMenu.classList.contains('open');
+      saveImageMenu.classList.toggle('open', opening);
+      saveImageBtn.setAttribute('aria-expanded', opening ? 'true' : 'false');
+    });
+    saveImageMenu.addEventListener('click', ev => {
+      ev.stopPropagation();
+      const btn = ev.target.closest('[data-save-format]');
+      if (!btn) return;
+      closeSaveImageMenu();
+      saveSpriteImage(btn.dataset.saveFormat).catch(err => setStatus(`Save image failed: ${err.message}`, true));
+    });
+    copyImageBtn.addEventListener('click', copySpritePngToClipboard);
+    pasteImageBtn.addEventListener('click', pasteImageFromClipboard);
+    colorMapBtn.addEventListener('click', openColorMapDialog);
+    colorMapCloseBtn.addEventListener('click', closeColorMapDialog);
+    colorMapCancelBtn.addEventListener('click', cancelColorMapDialog);
+    colorMapOkBtn.addEventListener('click', closeColorMapDialog);
+    colorMapBackdrop.addEventListener('click', ev => {
+      if (ev.target === colorMapBackdrop) closeColorMapDialog();
+    });
+    setupBtn.addEventListener('click', openSetupDialog);
+    setupOkBtn.addEventListener('click', closeSetupDialog);
+    setupCancelBtn.addEventListener('click', closeSetupDialog);
+    setupBackdrop.addEventListener('click', ev => {
+      if (ev.target === setupBackdrop) closeSetupDialog();
+    });
+    document.getElementById('clearBtn').addEventListener('click', () => {
+      pushUndoSnapshot();
+      pixels = Array.from({ length: MAX_HEIGHT }, () => Array(MAX_WIDTH).fill(0));
+      finishSpriteTransform('Grid cleared.');
+    });
+    document.getElementById('copyBtn').addEventListener('click', copyExport);
+    labelName.addEventListener('input', () => {
+      exportText.value = makeExportText();
+      setWorkingDirty(true);
+    });
+
+    spriteWidthBytesInput.addEventListener('change', () => updateGeometryFromControls());
+    spriteRowsInput.addEventListener('change', () => updateGeometryFromControls());
+    fixedSizeModeInput.addEventListener('change', handleHeaderModeToggle);
+
+
+    function clampLayoutSplit(width) {
+      if (!topLayout) return width;
+      const rect = topLayout.getBoundingClientRect();
+      const minLeft = 280;
+      const minRight = 360;
+      const resizerWidth = layoutResizer ? layoutResizer.offsetWidth : 10;
+      const gapTotal = 16;
+      const maxLeft = Math.max(minLeft, rect.width - minRight - resizerWidth - gapTotal);
+      return Math.max(minLeft, Math.min(maxLeft, width));
+    }
+
+    function setLayoutSplitWidth(width, persist = true) {
+      const clamped = clampLayoutSplit(width);
+      topLayout.style.setProperty('--left-pane-width', `${Math.round(clamped)}px`);
+      if (persist) localStorage.setItem('astrocadeSpriteEditorLeftPaneWidth', String(Math.round(clamped)));
+      updateLstVisibleCaret();
+    }
+
+    function initLayoutResizer() {
+      if (!topLayout || !layoutResizer) return;
+      const saved = parseInt(localStorage.getItem('astrocadeSpriteEditorLeftPaneWidth') || '', 10);
+      if (Number.isFinite(saved)) setLayoutSplitWidth(saved, false);
+
+      let startX = 0;
+      let startWidth = 0;
+      let dragging = false;
+
+      layoutResizer.addEventListener('pointerdown', ev => {
+        if (window.matchMedia('(max-width: 900px)').matches) return;
+        dragging = true;
+        startX = ev.clientX;
+        startWidth = document.querySelector('.gridPanel').getBoundingClientRect().width;
+        layoutResizer.classList.add('dragging');
+        document.body.classList.add('resizingSplit');
+        layoutResizer.setPointerCapture(ev.pointerId);
+        ev.preventDefault();
+      });
+
+      layoutResizer.addEventListener('pointermove', ev => {
+        if (!dragging) return;
+        setLayoutSplitWidth(startWidth + (ev.clientX - startX));
+      });
+
+      function endDrag(ev) {
+        if (!dragging) return;
+        dragging = false;
+        layoutResizer.classList.remove('dragging');
+        document.body.classList.remove('resizingSplit');
+        try { layoutResizer.releasePointerCapture(ev.pointerId); } catch (_) { }
+      }
+
+      layoutResizer.addEventListener('pointerup', endDrag);
+      layoutResizer.addEventListener('pointercancel', endDrag);
+      layoutResizer.addEventListener('dblclick', () => {
+        localStorage.removeItem('astrocadeSpriteEditorLeftPaneWidth');
+        topLayout.style.removeProperty('--left-pane-width');
+        updateLstVisibleCaret();
+      });
+
+      window.addEventListener('resize', () => {
+        const current = document.querySelector('.gridPanel').getBoundingClientRect().width;
+        setLayoutSplitWidth(current, false);
+      });
+    }
+
+    renderColorMap();
+    setPaintColor(null);
+    updateUndoRedoButtons();
+    populateLibraryDropdown();
+    initLayoutResizer();
+    initBinaryImportButton();
+    initPastePreviewHandlers();
+    loadSpriteFromLibrary();
+    loadLibraryFromUrlParamOnStartup();
+  </script>
+</body>
+
+</html>
