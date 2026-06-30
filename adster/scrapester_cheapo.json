@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-29T23:21:38.890Z",
+  "generated_at": "2026-06-30T00:16:10.399Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,53 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 46,
-      "droppedPrice": 483,
+      "exported_ads": 48,
+      "droppedPrice": 508,
       "droppedMissingGeo": 0,
-      "droppedCircle": 371
+      "droppedCircle": 399
     }
   },
   "ads": [
+    {
+      "adID": "1525198286052051",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100084999009658/?product_id=1525198286052051",
+      "author": "John Harvey",
+      "postedTime": "2026-06-29T23:52:33.000Z",
+      "title": "Fackelmann Arcadalina servicing spoon",
+      "description": "Fackelmann Arcadalina servicing spoon $5.00 obo - Shipping is available for an additional $10.00 - Also will do bundles to make it cheaper and you pay shipping only 1 time!",
+      "price": "$5",
+      "lat": 30.6168569,
+      "lon": -89.6525648,
+      "location": "Carriere, MS",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/733524033_27528995740067618_8465428092409620812_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=106&ccb=1-7&_nc_sid=92e707&_nc_ohc=pRyAuiwgFaEQ7kNvwGmomAc&_nc_oc=AdrxShROhkKT84OhnDxttrJKtg0V0l0rjKg3ITFZnpEqHO1Xvqr3AmRTaTuS7JvRoCg&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=89VxDO5d38cwX0IvLHh7Eg&_nc_ss=7b2a8&oh=00_AQDXTynPLPxAulKy5UzxBDZoaCR42rgopMl87vBCywghkw&oe=6A48F8C8",
+      "adUrl": "https://www.facebook.com/marketplace/item/1525198286052051/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-06-30 00:14:26",
+      "lastSeen": "2026-06-30T00:15:09.851Z"
+    },
+    {
+      "adID": "2024748261753229",
+      "source": "FB",
+      "authorUrl": null,
+      "author": "Benjamin Lamborn",
+      "postedTime": "2026-06-30T00:10:05.955Z",
+      "title": "Pinstadium Lights only. Not selling pinball machine. Stern, spooky, jersey jack",
+      "description": "I have an extra pinstadium light. It helped with the darkness of my godzilla, I let it change colors but you can leave it on white. Lights only, not pinball machine for sale.",
+      "price": "$150",
+      "lat": 28.2441768,
+      "lon": -82.7192671,
+      "location": "NEW PORT RICHEY, FL",
+      "imageUrl": "https://scontent-dfw6-2.xx.fbcdn.net/v/t39.30808-6/727415811_10162542041636556_6373422201961944905_n.jpg?stp=cp6_dst-jpegr_tt6&cstp=mx1392x3013&ctp=s590x590&_nc_cat=108&ccb=1-7&_nc_sid=aa7b47&_nc_ohc=lCbszpOOehgQ7kNvwHDy39v&_nc_oc=AdrdOUVxHDgOud93pnugUYchewC91A1alfJlhV4qYhavW7SH8SZYby0LZgH4-A6Mcpk&_nc_zt=23&se=-1&_nc_ht=scontent-dfw6-2.xx&_nc_gid=TpPMe-qpL577mLdlzuLoSg&_nc_ss=7b2a8&oh=00_AQBqObGROeAY1gl-_1CuufI5e9whpofHon5oPWxlZlKxRQ&oe=6A48F4BA",
+      "adUrl": "https://www.facebook.com/commerce/listing/2024748261753229/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-06-30 00:10:05",
+      "lastSeen": "2026-06-30T00:10:05.956Z"
+    },
     {
       "adID": "1555085429403593",
       "source": "MP",
@@ -236,7 +276,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-29 22:04:49",
-      "lastSeen": "2026-06-29T23:00:42.787Z"
+      "lastSeen": "2026-06-30T00:12:11.628Z"
     },
     {
       "adID": "1512601667017738",
@@ -256,7 +296,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-29 21:04:50",
-      "lastSeen": "2026-06-29T23:00:45.130Z"
+      "lastSeen": "2026-06-30T00:12:12.275Z"
     },
     {
       "adID": "2100996757117990",
@@ -276,7 +316,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-29 21:04:49",
-      "lastSeen": "2026-06-29T23:00:42.852Z"
+      "lastSeen": "2026-06-30T00:12:11.695Z"
     },
     {
       "adID": "KLOV-564268",
@@ -296,7 +336,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-29 15:09:10",
-      "lastSeen": "2026-06-29T23:21:35.722Z"
+      "lastSeen": "2026-06-30T00:16:07.360Z"
     },
     {
       "adID": "KLOV-512184",
@@ -316,7 +356,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-29 14:08:01",
-      "lastSeen": "2026-06-29T23:21:34.683Z"
+      "lastSeen": "2026-06-30T00:16:06.322Z"
     },
     {
       "adID": "2006344423330746",
@@ -336,7 +376,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-29 13:05:56",
-      "lastSeen": "2026-06-29T23:12:00.331Z"
+      "lastSeen": "2026-06-30T00:14:26.802Z"
     },
     {
       "adID": "KLOV-557313",
@@ -356,7 +396,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-29 02:34:08",
-      "lastSeen": "2026-06-29T23:21:35.119Z"
+      "lastSeen": "2026-06-30T00:16:06.758Z"
     },
     {
       "adID": "1397616155751804",
@@ -376,7 +416,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-29 02:00:52",
-      "lastSeen": "2026-06-29T23:11:59.655Z"
+      "lastSeen": "2026-06-30T00:14:26.434Z"
     },
     {
       "adID": "902026556254979",
@@ -396,7 +436,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-29 02:00:51",
-      "lastSeen": "2026-06-29T23:00:43.288Z"
+      "lastSeen": "2026-06-30T00:12:12.074Z"
     },
     {
       "adID": "1337098347855547",
@@ -436,7 +476,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-27 21:12:47",
-      "lastSeen": "2026-06-29T23:21:35.320Z"
+      "lastSeen": "2026-06-30T00:16:06.960Z"
     },
     {
       "adID": "1009930805235586",
@@ -543,20 +583,20 @@
       "source": "FB",
       "authorUrl": null,
       "author": "Marc Richter",
-      "postedTime": "2026-06-27T22:50:46.375Z",
+      "postedTime": "2026-06-28T00:02:29.970Z",
       "title": "Tekken 3 arcade machine in excellent condition, 100% working.",
       "description": "Tekken 3 in great condition 100% working. Set to free play. Comes with beautiful LCD monitor for years of problem free fun play. Can deliver locally.",
       "price": "$875",
       "lat": 28.1866014,
       "lon": -82.366121,
       "location": "WESLEY CHAPEL, FL",
-      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.30808-6/731444146_10242948334588270_319462232030511107_n.jpg?stp=dst-jpg_tt6&cstp=mx1536x2048&ctp=s590x590&_nc_cat=111&ccb=1-7&_nc_sid=aa7b47&_nc_ohc=n90xnfbZPlwQ7kNvwEUnvPk&_nc_oc=AdrCPuLTbFJBEi2TAJziB7fPETcNs1Nw-D0F3cNtnmlgBAGMqTEjOVte4Zj-G27kHU0&_nc_zt=23&_nc_ht=scontent-dfw5-1.xx&_nc_gid=fPKekRtwjxL0A-PLQmCwBA&_nc_ss=7b2a8&oh=00_AQClOiaqDGJuMhIkvtqvo4n2g4ATyehrDAcugR2LWBsCgw&oe=6A48E254",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.30808-6/731444146_10242948334588270_319462232030511107_n.jpg?stp=dst-jpg_tt6&cstp=mx1536x2048&ctp=s590x590&_nc_cat=111&ccb=1-7&_nc_sid=aa7b47&_nc_ohc=n90xnfbZPlwQ7kNvwEUnvPk&_nc_oc=AdrCPuLTbFJBEi2TAJziB7fPETcNs1Nw-D0F3cNtnmlgBAGMqTEjOVte4Zj-G27kHU0&_nc_zt=23&_nc_ht=scontent-dfw5-1.xx&_nc_gid=H9B9VNUmqJSNtSee2Hoh3g&_nc_ss=7b2a8&oh=00_AQCZdM7Z8bm3onDCz0Q9TeMLY7Y39Nb0cHtgH-xxHShaoA&oe=6A48E254",
       "adUrl": "https://www.facebook.com/commerce/listing/4455572051388037/",
       "priceChanged": 0,
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-27 13:00:55",
-      "lastSeen": "2026-06-29T22:50:46.838Z"
+      "lastSeen": "2026-06-30T00:02:30.542Z"
     },
     {
       "adID": "1714705549553494",
@@ -583,20 +623,20 @@
       "source": "FB",
       "authorUrl": null,
       "author": "Anthony Ward",
-      "postedTime": "2026-06-27T22:56:57.367Z",
+      "postedTime": "2026-06-28T00:08:48.808Z",
       "title": "Big Event Golf",
       "description": "I have a Big Event Golf arcade machine. Own a piece of nostalgic history. Before Golden Tee. Do not expect it to be in perfect condition as it is from 1986, but everyth... See more",
       "price": "$320",
       "lat": 27.9449854,
       "lon": -82.4583107,
       "location": "TAMPA, FL",
-      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.30808-6/731253032_3541431712671266_1665902000841851541_n.jpg?stp=cp6_dst-jpg_tt6&cstp=mx1536x2048&ctp=s590x590&_nc_cat=105&ccb=1-7&_nc_sid=aa7b47&_nc_ohc=6-ILhvJT8HUQ7kNvwGTh5RH&_nc_oc=AdreK8-dQV_7pxMvrVuWVw8Q_3a4ixi0Quf5dAJhUVsGwbztkuX4JhtirHcRPlN-iBg&_nc_zt=23&_nc_ht=scontent-dfw5-1.xx&_nc_gid=sL7wbvSPj7LEDiCKIxml0w&_nc_ss=7b2a8&oh=00_AQCDPPi6ynWx8MuTobj8LhqVFYX_jfqDFZwMW3wKmtsiUg&oe=6A48C0E2",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.30808-6/731253032_3541431712671266_1665902000841851541_n.jpg?stp=cp6_dst-jpg_tt6&cstp=mx1536x2048&ctp=s590x590&_nc_cat=105&ccb=1-7&_nc_sid=aa7b47&_nc_ohc=6-ILhvJT8HUQ7kNvwGTh5RH&_nc_oc=AdreK8-dQV_7pxMvrVuWVw8Q_3a4ixi0Quf5dAJhUVsGwbztkuX4JhtirHcRPlN-iBg&_nc_zt=23&_nc_ht=scontent-dfw5-1.xx&_nc_gid=a5GxMjzmOTBMuStJkxbzsg&_nc_ss=7b2a8&oh=00_AQCWI4yXBb_xpJU4Ug5P_4atwAMTnu1i1ByTYqfnOniRFg&oe=6A48C0E2",
       "adUrl": "https://www.facebook.com/commerce/listing/1024766013340116/",
       "priceChanged": 1,
       "priceChangedAt": "2026-06-29 14:03:22",
       "hidden": 0,
       "created_at": "2026-06-27 12:31:56",
-      "lastSeen": "2026-06-29T22:56:57.648Z"
+      "lastSeen": "2026-06-30T00:08:49.091Z"
     },
     {
       "adID": "KLOV-545491",
@@ -903,40 +943,40 @@
       "source": "FB",
       "authorUrl": null,
       "author": "Richard Thompson",
-      "postedTime": "2026-06-24T22:56:57.397Z",
+      "postedTime": "2026-06-25T00:08:48.837Z",
       "title": "PAC MAN MONITOR GLASS BEZEL ONLY $50 OBO!",
       "description": "This PAC MAN MONITOR GLASS BEZEL is a collectible replacement part for an arcade gaming machine, specifically designed for the game Pac-Man. Produced by Bally Midway, this bezel adds a sleek and authentic touch to the monitor of a vintage arcade game, enhancing the overall gaming experience for enthusiasts. Perfect for restoring or customizing a classic arcade machine, this PAC MAN MONITOR GLASS BEZEL is a must-have for collectors and gamers looking to preserve the nostalgia ... See more",
       "price": "$50",
       "lat": 32.2998686,
       "lon": -90.1830408,
       "location": "JACKSON, MS",
-      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.30808-6/689495336_2457459551439313_1413917428850761011_n.jpg?stp=dst-jpg_tt6&cstp=mx640x480&ctp=s590x590&_nc_cat=103&ccb=1-7&_nc_sid=aa7b47&_nc_ohc=Jyf0r5jydooQ7kNvwEUGvYr&_nc_oc=Ado_tXVomzYkf-7T44AF3w55pJ_gzbS3KrNNcxRvYvkVq1Gx8IG4PXMqBLT3oXZSgbk&_nc_zt=23&_nc_ht=scontent-dfw6-1.xx&_nc_gid=9pdirVeNJ7XP7iMuY64dYQ&_nc_ss=7b2a8&oh=00_AQC_dDo5C7erqvc79l0w8-5WNKimHq_BFEYXBYtD5MwjhQ&oe=6A48BFC6",
+      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.30808-6/689495336_2457459551439313_1413917428850761011_n.jpg?stp=dst-jpg_tt6&cstp=mx640x480&ctp=s590x590&_nc_cat=103&ccb=1-7&_nc_sid=aa7b47&_nc_ohc=Jyf0r5jydooQ7kNvwEUGvYr&_nc_oc=Ado_tXVomzYkf-7T44AF3w55pJ_gzbS3KrNNcxRvYvkVq1Gx8IG4PXMqBLT3oXZSgbk&_nc_zt=23&_nc_ht=scontent-dfw6-1.xx&_nc_gid=oGr-8wGnNLDX5IAWaheKvQ&_nc_ss=7b2a8&oh=00_AQDx5-adcZ4GgJw64FtZkGRbxNAXHiNUCYv1WwM8PWj9pg&oe=6A48BFC6",
       "adUrl": "https://www.facebook.com/commerce/listing/1639860653870129/",
       "priceChanged": 0,
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-25 11:19:45",
-      "lastSeen": "2026-06-29T22:56:57.883Z"
+      "lastSeen": "2026-06-30T00:08:49.336Z"
     },
     {
       "adID": "1288483403087344",
       "source": "FB",
       "authorUrl": null,
       "author": "Clayton Lacey",
-      "postedTime": "2026-06-25T22:53:14.445Z",
+      "postedTime": "2026-06-25T00:04:58.484Z",
       "title": "Atari Hard Drivin upright project working needs cabinet repair no trades",
       "description": "This is a project I am willing to pass on to anyone who wants to restore it. Monitor chassis recapped the tube is original with burn in on screen text and gauges only the text is noticeable during gameplay. The bad the base of the seat and cabinet need repaired or replacing so listing as a project that works and plays the switch on third gear is flaky so currently disabled in settings. No back door or monitor door on the top. No trades.",
       "price": "$500",
       "lat": 33.2442813,
       "lon": -86.8163773,
       "location": "ALABASTER, AL",
-      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.30808-6/729964610_27722897317303315_769344303372621387_n.jpg?stp=dst-jpg_tt6&cstp=mx1537x2048&ctp=s590x590&_nc_cat=102&ccb=1-7&_nc_sid=aa7b47&_nc_ohc=IlbgpjXZlqsQ7kNvwHJfZeL&_nc_oc=AdpP2djB_1tDNRAvIADxk2UFjdChpUfhk9E2tT3B1DTdvS_oKJQs-95H_wy-jd9IAGs&_nc_zt=23&_nc_ht=scontent-dfw6-1.xx&_nc_gid=NbkGt-rN4pXMLVsNtSJTow&_nc_ss=7b2a8&oh=00_AQAs5Lc__M12d17Jx4MKI6FFVHTzgB-MCwxFdBtqbK0-fg&oe=6A48DF81",
+      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.30808-6/729964610_27722897317303315_769344303372621387_n.jpg?stp=dst-jpg_tt6&cstp=mx1537x2048&ctp=s590x590&_nc_cat=102&ccb=1-7&_nc_sid=aa7b47&_nc_ohc=IlbgpjXZlqsQ7kNvwHJfZeL&_nc_oc=AdpP2djB_1tDNRAvIADxk2UFjdChpUfhk9E2tT3B1DTdvS_oKJQs-95H_wy-jd9IAGs&_nc_zt=23&_nc_ht=scontent-dfw6-1.xx&_nc_gid=adkaQ9Az4OA2Bm2OyfNqcg&_nc_ss=7b2a8&oh=00_AQA--A1ndm4LYQJsS_1Gz9y_BSz4AydGinqdponjwSF-nQ&oe=6A48DF81",
       "adUrl": "https://www.facebook.com/commerce/listing/1288483403087344/",
       "priceChanged": 0,
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-25 11:18:09",
-      "lastSeen": "2026-06-29T22:53:14.731Z"
+      "lastSeen": "2026-06-30T00:04:59.164Z"
     }
   ]
 }
