@@ -3177,6 +3177,11 @@
       loadLibraryFromSameFolder();
     }
 
+    function openManualLibraryFileChooser() {
+      libraryFileInput.value = '';
+      libraryFileInput.click();
+    }
+
     function loadLibraryFromFile(file) {
       if (!file) return;
 
@@ -3378,7 +3383,7 @@
     lstMinusBtn.addEventListener('click', () => { resetLstMoveHistory(); moveLstAddress(-1); });
     lstPlusBtn.addEventListener('click', () => { resetLstMoveHistory(); moveLstAddress(1); });
 
-    loadLibraryBtn.addEventListener('click', loadLibraryFromSameFolder);
+    loadLibraryBtn.addEventListener('click', openManualLibraryFileChooser);
     saveSpriteBtn.addEventListener('click', saveWorkingSpriteToLibrary);
     downloadLibraryBtn.addEventListener('click', downloadLibraryJson);
     libraryFileInput.addEventListener('change', () => loadLibraryFromFile(libraryFileInput.files[0]));
