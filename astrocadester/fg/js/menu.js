@@ -48,7 +48,8 @@
           { label: "I/O Maps", href: JSLOC + "../hw/memory-map.html" },
           { label: "90708 Game Board", href: JSLOC + "../hw/pcbs/90708.html" },
           { label: "91354 CPU Board", href: JSLOC + "../hw/pcbs/91354.html" },
-          { label: "91355 Pattern Board", href: JSLOC + "../hw/pcbs/91355.html" }
+          { label: "91355 Pattern Board", href: JSLOC + "../hw/pcbs/91355.html" },
+          { label: "91363 RGB Interface Board", href: JSLOC + "../hw/pcbs/91363.html" }
         ]
       },
       { label: "I/O Map", href: JSLOC + "../hw/io-map.html" },
