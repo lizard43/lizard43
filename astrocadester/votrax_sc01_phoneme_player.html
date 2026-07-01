@@ -564,7 +564,7 @@
       <button class="action" id="copyDbBtn">Copy .DB</button>
       <button class="action" id="loadVoxBtn">Load Vox/ASM</button>
       <button class="action" id="importVoxBtn">Import Phrases</button>
-      <button class="action" id="loadSc01RomBtn">Load SC-01 ROM ZIP/BIN</button>
+      <button class="action" id="loadSc01RomBtn">Load/Override SC-01 ROM ZIP/BIN</button>
       <button class="action" id="clearBtn">Clear</button>
       <input id="voxFileInput" type="file" accept=".txt,.asm,.inc,text/plain" hidden />
       <input id="sc01RomFileInput" type="file" accept=".zip,.bin,application/zip,application/octet-stream" hidden />
@@ -605,9 +605,9 @@
           </div>
         </div>
         <div class="romTools">
-          <div class="romStatus" id="sc01RomStatus">Embedded SC-01 internal ROM will be used by default. You can load another SC-01 ZIP/BIN to override it.</div>
+          <div class="romStatus" id="sc01RomStatus">Embedded default SC-01 ROM active.</div>
           <div class="buttons">
-            <button class="action" id="clearSc01RomBtn" type="button">Reset ROM</button>
+            <button class="action" id="clearSc01RomBtn" type="button" disabled>Reset ROM</button>
           </div>
         </div>
         <textarea id="source" spellcheck="false" wrap="off"></textarea>
@@ -702,7 +702,7 @@
           Click any green phoneme pill in the Decoded, 64 Phonemes, or Wizard Tokens tabs to audition it. Use Add when you want to append raw SC-01 phonemes or Wizard script-layer tokens to the phrase.
         </div>
         <div class="small" style="margin-top:10px;">
-          The SC-01 chip internally contains its own phoneme timing and articulation behavior. This browser version approximates phoneme length, voiced/unvoiced consonants, glides, fricatives, plosives, and pauses using simplified envelopes. An embedded <span class="mono">sc01.bin</span> ROM is active by default. Loading another <span class="mono">sc01.bin</span>/<span class="mono">sc01a.bin</span> or MAME ZIP overrides the default and updates the 64-entry phone ROM parameters used for duration, amplitude, formants, noise, and closures.
+          The SC-01 chip internally contains its own phoneme timing and articulation behavior. This browser version approximates phoneme length, voiced/unvoiced consonants, glides, fricatives, plosives, and pauses using simplified envelopes. Loading <span class="mono">sc01.bin</span> or MAME's <span class="mono">votrsc01.zip</span> lets the tool decode the 64-entry internal phone ROM and use those parameter fields to bias duration, amplitude, formants, noise, and closures.
         </div>
       </div>
     </section>
@@ -716,7 +716,7 @@
   <script>
     'use strict';
 
-    const SAMPLE_RATE = 44100;
+    const SAMPLE_RATE = 40000;
     const DEFAULT_SOURCE = `; =====================================================================\n; EXAMPLE STRING DATA (Wizard of Wor Voice Data Layout Example)\n; =====================================================================\n; Phrase Construction for "WOR" (Approximate Phonetic Mix)\n; Uses W + O1 + O2 + R + STOP\nPhonicPhrase_Wor:\n    db $2D                  ; W\n    db $35                  ; O1\n    db $34                  ; O2\n    db $2B                  ; R\n    db $3F                  ; custom termination character ($3F / STOP)`;
 
     const FORMANTS = {
@@ -868,18 +868,13 @@
 
 
     const SC01_ROM_SHA1 = '268b5884dce04e49e2376df3e2dc82e852b708c1';
-    const SC01A_ROM_SHA1 = '1d6da90b1807a01b5e186ef08476119a862b5e6d';
-    const KNOWN_SC01_ROM_HASHES = new Map([
-      [SC01_ROM_SHA1, 'MAME SC-01 sc01.bin'],
-      [SC01A_ROM_SHA1, 'MAME SC-01A sc01a.bin']
-    ]);
-    const DEFAULT_SC01_ROM_NAME = 'embedded sc01.bin';
-    const DEFAULT_SC01_ROM_BASE64 =
-      'pFCg8OAAAAOkUKAAIwoAPqRYoDDwAAA/o4FpsMEMAD0m00mQoQkAPCeBaJQhCgA7gsNIJKEIADqkADgYaAEAOSBS4YhjCgA4IsHokGEEADeig2AQZgMANqLB6IChCQA1osHoNGEKADSjgcm0IQoAM6OByeShBwAyo4HJVGMBADGjgWlgYQQAMKeB6HSgBwAvp4HodCAKAC4iwWAUZgoALSbTSXAgCgAsgkMIVGMEACvgMhHocgEAKiZTAWShBwApIsHogCEKACimkWGAIQoAJ6LB6IQhCgAmqCQTY7IHACWjwemEwQwAJKOByVTjAAAjJhKgZGEKACIm02lwYQUAIabByYQhCgAg4DKRSGgEAB8mkegAfAsAHqgsg2WiBwAdJsFB4HMBABysBCL9YgEAGyw0e9voAAAaLGQjEXIKABmi0An0oQcAGCOBSSAhCgAXI4FJMKEHABajwemEoQgAFTZLCNSgCQAUo4FpcKAIABNgWNGcYwEAEmxUi/uiCQARbFSL+2MBABAoZNP3YwEADyKR4ZBzAQAONhkk5mEKAA0yiKVmowcADKaRYZChCQALppFhkGEKAAqmkWGAYQsACaPB6cRhAQAIbFTL82MEAAemwck0oQcABqbByWRhAQAF6BYDYfsAAAQngWjEoQkAAieBaNRhAQABJ4FodGEDAAA=';
     const SC01_ROM_SIZE = 0x200;
+    // Embedded from the user's supplied votrsc01.zip/sc01.bin so the utility
+    // starts with the same 64-phone parameter ROM that MAME declares for SC-01.
+    const EMBEDDED_SC01_BIN_HEX = 'a450a0f0e0000003a450a000230a003ea458a030f000003fa38169b0c10c003d26d34990a109003c27816894210a003b82c34824a108003aa4003818680100392052e188630a003822c1e89061040037a283601066030036a2c1e880a1090035a2c1e834610a0034a381c9b4210a0033a381c9e4a1070032a381c95463010031a381696061040030a781e874a007002fa781e874200a002e22c16014660a002d26d34970200a002c824308546304002be03211e87201002a26530164a107002922c1e880210a0028a6916180210a0027a2c1e884210a0026a8241363b2070025a3c1e984c10c0024a381c954e30000232612a064610a002226d3697061050021a6c1c984210a0020e03291486804001f2691e8007c0b001ea82c8365a207001d26c141e07301001cac0422fd6201001b2c347bdbe800001a2c642311720a0019a2d009f4a107001823814920210a001723814930a1070016a3c1e984a1080015364b08d4a0090014a3816970a00800136058d19c630100126c548bfba20900116c548bfb630100102864d3f76301000f2291e1907301000e361924e6610a000d3288a566a307000ca6916190a109000ba6916190610a000aa6916180610b0009a3c1e9c4610100086c54cbf363040007a6c1c934a1070006a6c1c96461010005e8160361fb000004278168c4a1090002278168d4610100012781687461030000';
+    const EMBEDDED_SC01_SOURCE_NAME = 'embedded sc01.bin';
     const SC01_PHONE_NAMES = PHONEMES.map(ph => ph.symbol);
     let sc01RomState = null;
-    let usingEmbeddedSc01Rom = false;
 
     function bitswapBigInt(value, ...positions) {
       let out = 0;
@@ -891,23 +886,6 @@
       let value = 0n;
       for (let i = 0; i < 8; i++) value |= BigInt(bytes[offset + i] || 0) << BigInt(i * 8);
       return value;
-    }
-
-    function base64ToBytes(text) {
-      const raw = atob(String(text || '').replace(/\s+/g, ''));
-      const bytes = new Uint8Array(raw.length);
-      for (let i = 0; i < raw.length; i++) bytes[i] = raw.charCodeAt(i) & 0xFF;
-      return bytes;
-    }
-
-    function romHashLabel(sha1) {
-      return KNOWN_SC01_ROM_HASHES.get(String(sha1 || '').toLowerCase()) || '';
-    }
-
-    function loadEmbeddedSc01Rom() {
-      const bytes = base64ToBytes(DEFAULT_SC01_ROM_BASE64);
-      sc01RomState = decodeSc01RomBytes(bytes, DEFAULT_SC01_ROM_NAME, SC01_ROM_SHA1);
-      usingEmbeddedSc01Rom = true;
     }
 
     function decodeSc01RomBytes(rawBytes, sourceName = 'sc01.bin', sha1 = '') {
@@ -966,12 +944,6 @@
       return [f1, f2, f3];
     }
 
-    function blendFormants(a, b, amount) {
-      if (!a || !b) return a || b || null;
-      const t = Math.max(0, Math.min(1, Number(amount) || 0));
-      return a.map((value, idx) => value + ((b[idx] ?? value) - value) * t);
-    }
-
     function applySc01RomToPhoneme(ph) {
       if (!ph || !sc01RomState || ph.byte < 0 || ph.byte > 0x3f) return ph;
       const entry = sc01RomState.byPhone.get(ph.byte & 0x3f);
@@ -987,22 +959,12 @@
       }
 
       const forms = romFormants(entry);
-      // The ROM fields are parameter nibbles, not literal Hz values. Replacing
-      // the human-readable phoneme table with a linear ROM-to-Hz mapping made
-      // the browser sound worse. Blend the ROM-derived target into the curated
-      // formants so the default sc01a.bin timing/energy affects playback while
-      // the phrase remains intelligible.
-      if (forms && next.formants) next.formants = blendFormants(next.formants, forms, 0.42);
-      else if (forms) next.formants = forms;
-      if (forms && next.toFormants) next.toFormants = blendFormants(next.toFormants, forms, 0.24);
-
-      const energy = 0.62 + entry.va / 30 + entry.fc / 90;
-      next.amp = Math.max(0.06, Math.min(0.92, ph.amp * energy));
-      next.fric = Math.max(650, Math.min(4700, (ph.fric || 1800) * 0.58 + (900 + entry.f2 * 125 + entry.fa * 95 + entry.fc * 65) * 0.42));
-      next.burst = Math.max(500, Math.min(4600, (ph.burst || 1500) * 0.62 + (700 + entry.f1 * 70 + entry.f3 * 130) * 0.38));
-      next.soft = Math.max(next.soft || 0, entry.fa > entry.va ? 0.22 : 0);
+      if (forms) next.formants = forms;
+      next.amp = Math.max(0.08, Math.min(1.0, ph.amp * (0.55 + entry.va / 22) + entry.fc / 70));
+      next.fric = Math.max(650, Math.min(5200, 900 + entry.f2 * 130 + entry.fa * 115 + entry.fc * 85));
+      next.burst = Math.max(500, Math.min(5200, 750 + entry.f1 * 80 + entry.f3 * 155));
       if ((entry.fa > entry.va && entry.fa >= 8) && (ph.kind === 'vowel' || ph.family === 'vowel')) {
-        next.amp *= 0.86;
+        next.amp *= 0.8;
       }
       return next;
     }
@@ -1277,6 +1239,26 @@ L8E78:
     function hex2(n) { return '$' + (n & 0xFF).toString(16).toUpperCase().padStart(2, '0'); }
     function rawHex2(n) { return (n & 0xFF).toString(16).toUpperCase().padStart(2, '0'); }
 
+    function hexToBytes(hex) {
+      const clean = String(hex || '').replace(/[^0-9a-fA-F]/g, '');
+      const out = new Uint8Array(Math.floor(clean.length / 2));
+      for (let i = 0; i < out.length; i++) out[i] = parseInt(clean.slice(i * 2, i * 2 + 2), 16) & 0xFF;
+      return out;
+    }
+
+    function installDefaultSc01Rom() {
+      try {
+        const bytes = hexToBytes(EMBEDDED_SC01_BIN_HEX);
+        sc01RomState = decodeSc01RomBytes(bytes, EMBEDDED_SC01_SOURCE_NAME, SC01_ROM_SHA1);
+        sc01RomState.embeddedDefault = true;
+        updateRomUi();
+      } catch (err) {
+        sc01RomState = null;
+        updateRomUi();
+        setStatus(`Embedded SC-01 ROM init failed: ${err.message || err}`, true);
+      }
+    }
+
     function setStatus(msg, isError = false) {
       statusEl.textContent = msg;
       statusEl.style.color = isError ? 'var(--danger)' : 'var(--accent)';
@@ -1296,17 +1278,15 @@ L8E78:
 
     function updateRomUi() {
       if (!sc01RomState) {
-        setRomStatus('No SC-01 internal ROM active. Click Reset ROM to restore the embedded default.', 'warn');
-        if (clearSc01RomBtn) clearSc01RomBtn.disabled = false;
+        setRomStatus('Embedded default SC-01 ROM active.');
+        if (clearSc01RomBtn) clearSc01RomBtn.disabled = true;
         return;
       }
-      const label = romHashLabel(sc01RomState.sha1);
       const hashText = sc01RomState.sha1 ? ` SHA-1 <span class="mono">${sc01RomState.sha1.slice(0, 8)}…</span>` : '';
-      const matchText = label ? ` · ${label} hash match` : (sc01RomState.sha1 ? ' · non-MAME/unknown hash' : '');
-      const sourcePrefix = usingEmbeddedSc01Rom ? 'Using default embedded ' : 'Loaded override ';
+      const matchText = sc01RomState.sha1 === SC01_ROM_SHA1 ? ' · MAME SC-01 hash match' : (sc01RomState.sha1 ? ' · non-MAME/unknown hash' : '');
       const sample = sc01RomState.byPhone.get(0x2d) || sc01RomState.entries[0];
       setRomStatus(
-        `${sourcePrefix}<span class="mono">${escapeHtml(sc01RomState.sourceName)}</span>: ${sc01RomState.bytes.length} bytes, 64 phone rows.${hashText}${matchText}` +
+        `${sc01RomState.embeddedDefault ? 'Using default ' : 'Loaded override '}<span class="mono">${escapeHtml(sc01RomState.sourceName)}</span>: ${sc01RomState.bytes.length} bytes, 64 phone rows.${hashText}${matchText}` +
         `<div class="romParamGrid">` +
         `<div class="romParam">W dur ${sample.duration}</div>` +
         `<div class="romParam">f1 ${sample.f1}</div>` +
@@ -1315,12 +1295,9 @@ L8E78:
         `<div class="romParam">va ${sample.va}</div>` +
         `<div class="romParam">fa ${sample.fa}</div>` +
         `</div>`,
-        label ? 'loaded' : 'warn'
+        sc01RomState.sha1 && sc01RomState.sha1 !== SC01_ROM_SHA1 ? 'warn' : 'loaded'
       );
-      if (clearSc01RomBtn) {
-        clearSc01RomBtn.disabled = false;
-        clearSc01RomBtn.textContent = usingEmbeddedSc01Rom ? 'Default ROM' : 'Reset ROM';
-      }
+      if (clearSc01RomBtn) clearSc01RomBtn.disabled = false;
       renderPhonemeTable();
       analyze();
     }
@@ -1394,15 +1371,14 @@ L8E78:
         }
         const hash = await sha1Hex(romBytes);
         sc01RomState = decodeSc01RomBytes(romBytes, sourceName, hash);
-        usingEmbeddedSc01Rom = false;
+        sc01RomState.embeddedDefault = false;
         updateRomUi();
-        const label = romHashLabel(hash);
-        const match = label ? ` ${label} hash matches.` : (hash ? ` SHA-1 ${hash}.` : '');
-        setStatus(`Loaded SC-01 ROM override ${sourceName}.${match}`);
+        const match = hash === SC01_ROM_SHA1 ? ' MAME SC-01 hash matches.' : (hash ? ` SHA-1 ${hash}.` : '');
+        setStatus(`Loaded SC-01 ROM ${sourceName}.${match}`);
       } catch (err) {
-        loadEmbeddedSc01Rom();
+        sc01RomState = null;
         updateRomUi();
-        setStatus(`SC-01 ROM load failed: ${err.message || err}. Restored embedded default.`, true);
+        setStatus(`SC-01 ROM load failed: ${err.message || err}`, true);
       }
     }
 
@@ -1881,57 +1857,6 @@ L8E78:
       return out;
     }
 
-    function isContextBlendable(ph) {
-      return Boolean(ph && ph.formants && !ph.skipAudio &&
-        (ph.family === 'vowel' || ph.kind === 'vowel' || ph.kind === 'liquid' ||
-         ph.kind === 'glide' || ph.kind === 'nasal' || ph.kind === 'breath'));
-    }
-
-    function contextualizePhoneme(ph, prevPh, nextPh) {
-      if (!isContextBlendable(ph)) return ph;
-      let out = { ...ph };
-      if (isContextBlendable(prevPh)) out.formants = blendFormants(prevPh.toFormants || prevPh.formants, out.formants, 0.78);
-      if (!out.toFormants && isContextBlendable(nextPh)) out.toFormants = blendFormants(out.formants, nextPh.formants, 0.32);
-      return out;
-    }
-
-    function nextPlayablePh(decoded, startIndex, mode) {
-      for (let j = startIndex + 1; j < decoded.length; j++) {
-        const item = decoded[j];
-        if (!item || item.skipAudio || !item.ph) continue;
-        return mode === 'sc01' ? applySc01RomToPhoneme(item.ph) : item.ph;
-      }
-      return null;
-    }
-
-    function postProcessVotraxOutput(samples, mode) {
-      if (!samples || !samples.length) return samples;
-      const out = new Float32Array(samples.length);
-      const lowCutHz = mode === 'sc01' ? 90 : 75;
-      const highCutHz = mode === 'sc01' ? 4300 : 4800;
-      const hpAlpha = 1 / (1 + (2 * Math.PI * lowCutHz / SAMPLE_RATE));
-      const lpAlpha = 1 - Math.exp(-2 * Math.PI * highCutHz / SAMPLE_RATE);
-      let hpY = 0, hpPrevX = 0, lpY = 0;
-      const fade = Math.min(samples.length >> 1, Math.floor(SAMPLE_RATE * 0.0025));
-
-      for (let i = 0; i < samples.length; i++) {
-        let x = samples[i];
-        hpY = hpAlpha * (hpY + x - hpPrevX);
-        hpPrevX = x;
-        lpY += lpAlpha * (hpY - lpY);
-        x = lpY;
-
-        // The real arcade output path is bandwidth-limited and a little dirty.
-        // Mild asymmetric saturation gets closer than hard clipping or clean PCM.
-        const drive = mode === 'sc01' ? 1.45 : 1.25;
-        x = Math.tanh((x + 0.018 * x * x) * drive) / Math.tanh(drive);
-        if (fade > 0 && i < fade) x *= i / fade;
-        if (fade > 0 && i > samples.length - fade) x *= Math.max(0, (samples.length - i) / fade);
-        out[i] = Math.max(-1, Math.min(1, x));
-      }
-      return out;
-    }
-
     function pitchFromWizardNote(value, basePitch) {
       // Wizard voice data carries note/control pairs. This is a musical-ish
       // approximation: lower note values drop the formant source pitch, higher
@@ -1940,7 +1865,7 @@ L8E78:
       return basePitch * (0.72 + normalized * 0.62);
     }
 
-    function synthesize(bytes, options = {}) {
+    function synthesizeLegacy(bytes, options = {}) {
       const baseRate = Number(rateEl.value) || 1;
       const basePitch = Number(pitchEl.value) || 115;
       const opts = {
@@ -1965,7 +1890,6 @@ L8E78:
       let rateModifier = 1;
       let ampModifier = 1;
       let pitchBend = 0;
-      let prevPlayablePh = null;
 
       for (const item of decoded) {
         const ph = item.ph;
@@ -1988,18 +1912,15 @@ L8E78:
         const startSamples = total;
         const localOpts = { ...opts, pitch: currentPitch * (1 + pitchBend), rate: opts.rate * rateModifier };
         const romPh = mode === 'sc01' ? applySc01RomToPhoneme(ph) : ph;
-        const ampPh = ampModifier === 1 ? romPh : { ...romPh, amp: Math.min(1, romPh.amp * ampModifier) };
-        const nextPh = nextPlayablePh(decoded, item.index, mode);
-        const localPh = contextualizePhoneme(ampPh, prevPlayablePh, nextPh);
+        const localPh = ampModifier === 1 ? romPh : { ...romPh, amp: Math.min(1, romPh.amp * ampModifier) };
         const chunk = synthesizePhoneme(localPh, localOpts, seedBase);
-        prevPlayablePh = localPh;
         seedBase = (seedBase + 0x9E3779B9) >>> 0;
         chunks.push(chunk);
         total += chunk.length;
-        events.push({ byte: item.byte, ph: localPh, index: item.index, start: startSamples / SAMPLE_RATE, end: total / SAMPLE_RATE });
+        events.push({ byte: item.byte, ph, index: item.index, start: startSamples / SAMPLE_RATE, end: total / SAMPLE_RATE });
 
         if (opts.gap && ph.kind !== 'pause' && ph.kind !== 'stop') {
-          const gapMs = mode === 'sc01' ? 1.5 : 4;
+          const gapMs = mode === 'sc01' ? 2.5 : 5;
           const gap = new Float32Array(Math.floor(SAMPLE_RATE * (gapMs / localOpts.rate) / 1000));
           chunks.push(gap);
           total += gap.length;
@@ -2018,12 +1939,340 @@ L8E78:
       for (const chunk of chunks) { samples.set(chunk, offset); offset += chunk.length; }
       let peak = 0;
       for (let i = 0; i < samples.length; i++) peak = Math.max(peak, Math.abs(samples[i]));
-      const targetPeak = mode === 'sc01' ? .80 : .88;
-      const scale = opts.normalize && peak > .001 ? Math.min(targetPeak / peak, 2.25) * opts.gain : opts.gain;
-      for (let i = 0; i < samples.length; i++) samples[i] *= scale;
-      const processed = postProcessVotraxOutput(samples, mode);
-      return { samples: processed, events, duration: processed.length / SAMPLE_RATE };
+      const targetPeak = mode === 'sc01' ? .86 : .90;
+      const scale = opts.normalize && peak > .001 ? Math.min(targetPeak / peak, 2.8) * opts.gain : opts.gain;
+      for (let i = 0; i < samples.length; i++) {
+        const x = samples[i] * scale;
+        samples[i] = Math.tanh(x * 1.18) / Math.tanh(1.18);
+      }
+      return { samples, events, duration: samples.length / SAMPLE_RATE };
     }
+
+    // ---------------------------------------------------------------------
+    // MAME-derived SC-01 renderer
+    // ---------------------------------------------------------------------
+    // Portions derived from MAME src/devices/sound/votrax.cpp (BSD-3-Clause; copyright Olivier Galibert).
+    // JavaScript port of MAME's key Votrax SC-01 sound path: ROM field decode,
+    // per-phone timing, glottal waveform, noise LFSR, interpolated registers,
+    // switched-capacitor filter coefficient formulas, voice/noise/mixed paths,
+    // closure amplitude, and final analog-style shaping.
+
+    const MAME_SC01_MAINCLOCK = 720000;
+    const MAME_SC01_GLOTTAL_WAVE = [0, -4 / 7, 1, 6 / 7, 5 / 7, 4 / 7, 3 / 7, 2 / 7, 1 / 7];
+
+    function clampFinite(value, lo = -1e12, hi = 1e12) {
+      if (!Number.isFinite(value)) return 0;
+      return Math.max(lo, Math.min(hi, value));
+    }
+
+    function bitsToCaps(value, caps) {
+      let total = 0;
+      let v = value >>> 0;
+      for (const cap of caps) {
+        if (v & 1) total += cap;
+        v >>>= 1;
+      }
+      return total;
+    }
+
+    function makeHist(n) { return Array(n).fill(0); }
+
+    class MameSc01Renderer {
+      constructor(romState, opts = {}) {
+        if (!romState || !romState.byPhone) throw new Error('SC-01 ROM state is not loaded.');
+        this.romState = romState;
+        this.mainclock = opts.clock || MAME_SC01_MAINCLOCK;
+        this.sclock = this.mainclock / 18.0;
+        this.cclock = this.mainclock / 36.0;
+        this.inflection = opts.inflection & 3;
+        this.reset();
+      }
+
+      reset() {
+        this.phone = 0x3f;
+        this.rom_duration = 0;
+        this.rom_vd = this.rom_cld = 0;
+        this.rom_fa = this.rom_fc = this.rom_va = 0;
+        this.rom_f1 = this.rom_f2 = this.rom_f2q = this.rom_f3 = 0;
+        this.rom_closure = false;
+        this.rom_pause = true;
+
+        this.cur_fa = this.cur_fc = this.cur_va = 0;
+        this.cur_f1 = this.cur_f2 = this.cur_f2q = this.cur_f3 = 0;
+        this.filt_fa = this.filt_fc = this.filt_va = 0;
+        this.filt_f1 = this.filt_f2 = this.filt_f2q = this.filt_f3 = 0;
+
+        this.phonetick = 0;
+        this.ticks = 0;
+        this.pitch = 0;
+        this.closure = 7 << 2;
+        this.update_counter = 0;
+        this.cur_closure = true;
+        this.noise = 0;
+        this.cur_noise = true;
+        this.cold = true;
+
+        this.voice_1 = makeHist(4); this.voice_2 = makeHist(4); this.voice_3 = makeHist(4);
+        this.noise_1 = makeHist(3); this.noise_2 = makeHist(3); this.noise_3 = makeHist(2); this.noise_4 = makeHist(2);
+        this.vn_1 = makeHist(4); this.vn_2 = makeHist(4); this.vn_3 = makeHist(4); this.vn_4 = makeHist(4);
+        this.vn_5 = makeHist(2); this.vn_6 = makeHist(2);
+
+        this.f1_a = makeHist(4); this.f1_b = makeHist(4);
+        this.f2v_a = makeHist(4); this.f2v_b = makeHist(4);
+        this.f2n_a = makeHist(2); this.f2n_b = makeHist(2);
+        this.f3_a = makeHist(4); this.f3_b = makeHist(4);
+        this.f4_a = makeHist(4); this.f4_b = makeHist(4);
+        this.fx_a = makeHist(1); this.fx_b = makeHist(2);
+        this.fn_a = makeHist(3); this.fn_b = makeHist(3);
+        this.filtersCommit(true);
+      }
+
+      shiftHist(hist, value) {
+        for (let i = hist.length - 1; i > 0; i--) hist[i] = hist[i - 1];
+        hist[0] = clampFinite(value);
+      }
+
+      applyFilter(x, y, a, b) {
+        let total = 0;
+        for (let i = 0; i < a.length; i++) total += (x[i] || 0) * (a[i] || 0);
+        for (let i = 1; i < b.length; i++) total -= (y[i - 1] || 0) * (b[i] || 0);
+        const denom = Math.abs(b[0] || 0) < 1e-30 ? 1e-30 : b[0];
+        return clampFinite(total / denom);
+      }
+
+      buildStandardFilter(c1t, c1b, c2t, c2b, c3, c4) {
+        const PI = Math.PI;
+        const k0 = c1t / (this.cclock * c1b);
+        const k1 = c4 * c2t / (this.cclock * c1b * c3);
+        const k2 = c4 * c2b / (this.cclock * this.cclock * c1b * c3);
+        const fpeak = Math.sqrt(Math.abs(k0 * k1 - k2)) / (2 * PI * k2);
+        const zc = 2 * PI * fpeak / Math.tan(PI * fpeak / this.sclock);
+        const m0 = zc * k0, m1 = zc * k1, m2 = zc * zc * k2;
+        return { a: [1 + m0, 3 + m0, 3 - m0, 1 - m0], b: [1 + m1 + m2, 3 + m1 - m2, 3 - m1 - m2, 1 - m1 + m2] };
+      }
+
+      buildLowpassFilter(c1t, c1b) {
+        const PI = Math.PI;
+        const k = c1b / (this.cclock * c1t) * (150.0 / 4000.0);
+        const fpeak = 1 / (2 * PI * k);
+        const zc = 2 * PI * fpeak / Math.tan(PI * fpeak / this.sclock);
+        const m = zc * k;
+        return { a: [1], b: [1 + m, 1 - m] };
+      }
+
+      buildNoiseShaperFilter(c1, c2t, c2b, c3, c4) {
+        const PI = Math.PI;
+        const k0 = c2t * c3 * c2b / c4;
+        const k1 = c2t * (this.cclock * c2b);
+        const k2 = c1 * c2t * c3 / (this.cclock * c4);
+        const fpeak = Math.sqrt(1 / k2) / (2 * PI);
+        const zc = 2 * PI * fpeak / Math.tan(PI * fpeak / this.sclock);
+        const m0 = zc * k0, m1 = zc * k1, m2 = zc * zc * k2;
+        return { a: [m0, 0, -m0], b: [1 + m1 + m2, 2 - 2 * m2, 1 - m1 + m2] };
+      }
+
+      buildInjectionFilter(c1b, c2t, c2b, c3, c4) {
+        const k0 = this.cclock * c2t;
+        const k1 = this.cclock * (c1b * c3 / c2t - c2t);
+        const k2 = c2b;
+        const zc = 2 * this.sclock;
+        const m = zc * k2;
+        return { a: [k0 + m, k0 - m], b: [k1 + m, k1 - m] };
+      }
+
+      filtersCommit(force) {
+        this.filt_fa = this.cur_fa >> 4;
+        this.filt_fc = this.cur_fc >> 4;
+        this.filt_va = this.cur_va >> 4;
+
+        if (force || this.filt_f1 !== (this.cur_f1 >> 4)) {
+          this.filt_f1 = this.cur_f1 >> 4;
+          const f = this.buildStandardFilter(11247, 11797, 949, 52067, 2280 + bitsToCaps(this.filt_f1, [2546, 4973, 9861, 19724]), 166272);
+          this.f1_a = f.a; this.f1_b = f.b;
+        }
+        if (force || this.filt_f2 !== (this.cur_f2 >> 3) || this.filt_f2q !== (this.cur_f2q >> 4)) {
+          this.filt_f2 = this.cur_f2 >> 3;
+          this.filt_f2q = this.cur_f2q >> 4;
+          const f2v = this.buildStandardFilter(24840, 29154, 829 + bitsToCaps(this.filt_f2q, [1390, 2965, 5875, 11297]), 38180, 2352 + bitsToCaps(this.filt_f2, [833, 1663, 3164, 6327, 12654]), 34270);
+          this.f2v_a = f2v.a; this.f2v_b = f2v.b;
+          const f2n = this.buildInjectionFilter(29154, 829 + bitsToCaps(this.filt_f2q, [1390, 2965, 5875, 11297]), 38180, 2352 + bitsToCaps(this.filt_f2, [833, 1663, 3164, 6327, 12654]), 34270);
+          this.f2n_a = f2n.a; this.f2n_b = f2n.b;
+        }
+        if (force || this.filt_f3 !== (this.cur_f3 >> 4)) {
+          this.filt_f3 = this.cur_f3 >> 4;
+          const f3 = this.buildStandardFilter(0, 17594, 868, 18828, 8480 + bitsToCaps(this.filt_f3, [2226, 4485, 9056, 18111]), 50019);
+          this.f3_a = f3.a; this.f3_b = f3.b;
+        }
+        if (force) {
+          const f4 = this.buildStandardFilter(0, 28810, 1165, 21457, 8558, 7289);
+          this.f4_a = f4.a; this.f4_b = f4.b;
+          const fx = this.buildLowpassFilter(1122, 23131);
+          this.fx_a = fx.a; this.fx_b = fx.b;
+          const fn = this.buildNoiseShaperFilter(15500, 14854, 8450, 9523, 14083);
+          this.fn_a = fn.a; this.fn_b = fn.b;
+        }
+      }
+
+      interpolate(current, target) { return (current - (current >> 3) + ((target & 0xff) << 1)) & 0xff; }
+
+      commitPhone(phone) {
+        this.phone = phone & 0x3f;
+        const entry = this.romState.byPhone.get(this.phone);
+        if (!entry) return;
+        this.rom_f1 = entry.f1; this.rom_va = entry.va; this.rom_f2 = entry.f2; this.rom_fc = entry.fc;
+        this.rom_f2q = entry.f2q; this.rom_f3 = entry.f3; this.rom_fa = entry.fa;
+        this.rom_cld = entry.cld; this.rom_vd = entry.vd; this.rom_closure = !!entry.closure;
+        this.rom_duration = entry.duration; this.rom_pause = this.phone === 0x03 || this.phone === 0x3e;
+        this.phonetick = 0; this.ticks = 0;
+        if (this.rom_cld === 0) this.cur_closure = this.rom_closure;
+
+        if (this.cold && !this.rom_pause && this.phone !== 0x3f) {
+          this.cur_fa = this.rom_fa << 4; this.cur_fc = this.rom_fc << 4; this.cur_va = this.rom_va << 4;
+          this.cur_f1 = this.rom_f1 << 4; this.cur_f2 = this.rom_f2 << 3; this.cur_f2q = this.rom_f2q << 4; this.cur_f3 = this.rom_f3 << 4;
+          this.filtersCommit(true);
+          this.cold = false;
+        }
+      }
+
+      phoneDurationSamples() {
+        const mainTicks = 16 * (this.rom_duration * 4 + 1) * 4 * 9 + 2;
+        return Math.max(1, Math.ceil(mainTicks / this.mainclock * this.sclock));
+      }
+
+      chipUpdate() {
+        if (this.ticks !== 0x10) {
+          this.phonetick++;
+          if (this.phonetick === ((this.rom_duration << 2) | 1)) {
+            this.phonetick = 0; this.ticks++;
+            if (this.ticks === this.rom_cld) this.cur_closure = this.rom_closure;
+          }
+        }
+        this.update_counter++;
+        if (this.update_counter === 0x30) this.update_counter = 0;
+        const tick625 = !(this.update_counter & 0xf);
+        const tick208 = this.update_counter === 0x28;
+        if (tick208 && (!this.rom_pause || !(this.filt_fa || this.filt_va))) {
+          this.cur_fc = this.interpolate(this.cur_fc, this.rom_fc);
+          this.cur_f1 = this.interpolate(this.cur_f1, this.rom_f1);
+          this.cur_f2 = this.interpolate(this.cur_f2, this.rom_f2);
+          this.cur_f2q = this.interpolate(this.cur_f2q, this.rom_f2q);
+          this.cur_f3 = this.interpolate(this.cur_f3, this.rom_f3);
+        }
+        if (tick625) {
+          if (this.ticks >= this.rom_vd) this.cur_fa = this.interpolate(this.cur_fa, this.rom_fa);
+          if (this.ticks >= this.rom_cld) this.cur_va = this.interpolate(this.cur_va, this.rom_va);
+        }
+        if (!this.cur_closure && (this.filt_fa || this.filt_va)) this.closure = 0;
+        else if (this.closure !== (7 << 2)) this.closure++;
+        this.pitch = (this.pitch + 1) & 0xff;
+        const pitchTarget = (((0xe0 ^ ((this.inflection & 3) << 5) ^ (this.filt_f1 << 1)) + 2) & 0xff);
+        if (this.pitch === pitchTarget) this.pitch = 0;
+        if ((this.pitch & 0xf9) === 0x08) this.filtersCommit(false);
+        const inp = this.cur_noise && this.noise !== 0x7fff;
+        this.noise = ((this.noise << 1) & 0x7ffe) | (inp ? 1 : 0);
+        this.cur_noise = !(((this.noise >> 14) ^ (this.noise >> 13)) & 1);
+      }
+
+      analogCalc() {
+        let v = this.pitch >= (9 << 3) ? 0 : MAME_SC01_GLOTTAL_WAVE[this.pitch >> 3];
+        v = v * this.filt_va / 15.0;
+        this.shiftHist(this.voice_1, v);
+        v = this.applyFilter(this.voice_1, this.voice_2, this.f1_a, this.f1_b);
+        this.shiftHist(this.voice_2, v);
+        v = this.applyFilter(this.voice_2, this.voice_3, this.f2v_a, this.f2v_b);
+        this.shiftHist(this.voice_3, v);
+        let n = 1e4 * (((this.pitch & 0x40) ? this.cur_noise : false) ? 1 : -1);
+        n = n * this.filt_fa / 15.0;
+        this.shiftHist(this.noise_1, n);
+        n = this.applyFilter(this.noise_1, this.noise_2, this.fn_a, this.fn_b);
+        this.shiftHist(this.noise_2, n);
+        let n2 = n * this.filt_fc / 15.0;
+        this.shiftHist(this.noise_3, n2);
+        n2 = this.applyFilter(this.noise_3, this.noise_4, this.f2n_a, this.f2n_b);
+        this.shiftHist(this.noise_4, n2);
+        let vn = v + n2;
+        this.shiftHist(this.vn_1, vn);
+        vn = this.applyFilter(this.vn_1, this.vn_2, this.f3_a, this.f3_b);
+        this.shiftHist(this.vn_2, vn);
+        vn += n * (5 + (15 ^ this.filt_fc)) / 20.0;
+        this.shiftHist(this.vn_3, vn);
+        vn = this.applyFilter(this.vn_3, this.vn_4, this.f4_a, this.f4_b);
+        this.shiftHist(this.vn_4, vn);
+        vn = vn * (7 ^ (this.closure >> 2)) / 7.0;
+        this.shiftHist(this.vn_5, vn);
+        vn = this.applyFilter(this.vn_5, this.vn_6, this.fx_a, this.fx_b);
+        this.shiftHist(this.vn_6, vn);
+        return clampFinite(vn * 0.35);
+      }
+
+      renderPhone(phone) {
+        this.commitPhone(phone);
+        const count = this.phoneDurationSamples();
+        const out = new Float32Array(count);
+        for (let i = 0; i < count; i++) {
+          out[i] = this.analogCalc();
+          this.chipUpdate();
+        }
+        return out;
+      }
+    }
+
+    function concatFloatChunks(chunks, total) {
+      const out = new Float32Array(Math.max(1, total));
+      let off = 0;
+      for (const chunk of chunks) { out.set(chunk, off); off += chunk.length; }
+      return out;
+    }
+
+    function postProcessMameSamples(samples, gain, normalize) {
+      let dc = 0;
+      for (let i = 0; i < samples.length; i++) dc += samples[i];
+      dc /= Math.max(1, samples.length);
+      let peak = 0;
+      for (let i = 0; i < samples.length; i++) {
+        samples[i] -= dc;
+        peak = Math.max(peak, Math.abs(samples[i]));
+      }
+      const scale = normalize && peak > 1e-9 ? Math.min(0.86 / peak, 20) * gain : gain * 0.00008;
+      let hp = 0, prev = 0, lp = 0;
+      for (let i = 0; i < samples.length; i++) {
+        const x = samples[i] * scale;
+        hp = x - prev + 0.995 * hp;
+        prev = x;
+        lp += (hp - lp) * 0.82;
+        samples[i] = Math.tanh(lp * 1.35) / Math.tanh(1.35);
+      }
+      return samples;
+    }
+
+    function synthesizeMameSc01(bytes, options = {}) {
+      const decoded = decodeSc01Stream(bytes);
+      const gain = ((Number(gainEl.value) || 90) / 100) * (options.gain ?? 1);
+      const renderer = new MameSc01Renderer(sc01RomState, { clock: MAME_SC01_MAINCLOCK, inflection: options.inflection || 0 });
+      const chunks = [];
+      const events = [];
+      let total = 0;
+      for (const item of decoded) {
+        if (!item.ph) continue;
+        const phone = item.byte & 0x3f;
+        const start = total;
+        const chunk = renderer.renderPhone(phone);
+        chunks.push(chunk);
+        total += chunk.length;
+        events.push({ byte: phone, ph: PHONEME_BY_BYTE.get(phone), index: item.index, start: start / SAMPLE_RATE, end: total / SAMPLE_RATE });
+        if (stopAtStopEl.checked && phone === 0x3f) break;
+      }
+      const samples = postProcessMameSamples(concatFloatChunks(chunks, total), gain, normalizeAudioEl.checked);
+      return { samples, events, duration: samples.length / SAMPLE_RATE };
+    }
+
+    function synthesize(bytes, options = {}) {
+      const requestedMode = options.mode || guessDecodeMode(bytes);
+      const normalizedInput = normalizeInputForDecode(bytes, requestedMode);
+      if (normalizedInput.mode === 'sc01' && sc01RomState) return synthesizeMameSc01(normalizedInput.bytes, options);
+      return synthesizeLegacy(bytes, options);
+    }
+
 
     async function ensureAudioContext() {
       if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)({ sampleRate: SAMPLE_RATE });
@@ -2559,9 +2808,8 @@ L8E78:
     });
     sc01RomFileInput.addEventListener('change', () => loadSc01RomFromFile(sc01RomFileInput.files[0]));
     clearSc01RomBtn.addEventListener('click', () => {
-      loadEmbeddedSc01Rom();
-      updateRomUi();
-      setStatus('Restored embedded default SC-01 ROM.');
+      installDefaultSc01Rom();
+      setStatus('Reset to embedded default sc01.bin ROM.');
     });
     importVoxBtn.addEventListener('click', importPhrasesFromSource);
     loadPhraseBtn.addEventListener('click', loadSelectedPhrase);
@@ -2651,11 +2899,10 @@ L8E78:
     renderPhonemeTable();
     renderWizardTokenTable();
     updateSliderLabels();
-    loadEmbeddedSc01Rom();
-    updateRomUi();
+    installDefaultSc01Rom();
     sourceEl.value = DEFAULT_SOURCE;
     analyze();
-    setStatus('Ready. Embedded SC-01 ROM is active by default. Paste bytes, import Wizard Vox/ASM data, or load another sc01/sc01a ZIP/BIN.');
+    setStatus('Ready. Embedded sc01.bin is active; paste bytes, import Wizard/ASM data, or load an SC-01/SC-01A override ZIP/BIN.');
   </script>
 </body>
 
