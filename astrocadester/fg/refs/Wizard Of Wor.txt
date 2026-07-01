@@ -1,0 +1,252 @@
+Wizard of Wor Midway, 1981
+--------------------------
+ 
+There are nine boards in the Wizard of Wor boardset:
+Qty                                                Position on
+                                                   Motherboard
+1 *Game Bd                 A084-90708-A961             J6
+1 *Memory Bd (ROM/RAM)     A082-91397-A000             J5
+1  Pattern Bd              A082-91348-0000             J4
+1  CPU Bd (C.P.U.)         A082-91354-F000             J3
+2  RAM Card                A082-91356-C000           J2 & J1
+ 
+1  Comm. Mother Bd         A082-90006-B/C000
+1  RGB Interface Board     A082-91363-A/B000
+1 *Audio Amp #2            A084-90907-A961
+ 
+With the exception of those boards marked with an asterisk (*), the rest of
+the boards are used by at least two other Midway games -- Gorf and Space Zap.
+All three of these games -- Space Zap, Wizard of Wor, and Gorf -- also share
+the same power supply (A082-90411-A000).
+ 
+Unfortunately, each of these games uses completely different pinouts on the
+main Game board.  Also, Wizard of Wor uses a different amp board (the Audio
+Amp #2 vs. the regular Audio Amp board) because it uses three speakers.  Gorf
+and Space Zap can only use 2 speakers.  The power supply outputs from the
+motherboard are the same for all these games, which means if you have the
+power supply and the motherboard, you have all the power requirements for any
+one of these games taken care of.
+ 
+The "Position on Motherboard" column refers to the fact that these boards
+plug into a common motherboard much like ISA/EISA/VESA/PCI cards plug into
+PC card expansion slots.
+ 
+ 
+ 
+Motherboard (9-pos, 0.156") (outputs & inputs from power supply)
+Pin | Definition
+------------------
+  1 | +5V
+  2 | +5V
+  3 | +12V
+  4 | !Reset
+  5 | -5V
+  6 | Key
+  7 | Gnd
+  8 | Gnd
+  9 | -Sense (Gnd)
+ 
+ 
+P1 CPU Board (24-pos, 0.100")
+Pin | Definition
+------------------
+  1 | P2 Up
+  2 | P2 Down
+  3 | P2 Left
+  4 | P2 Right
+  5 | P2 Move
+  6 | P2 Fire
+  7 | Not Used
+  8 | P1 Up
+  9 | P1 Down
+ 10 | P1 Left
+ 11 | P1 Right
+ 12 | P1 Move
+ 13 | P1 Fire
+ 14 | Gnd (common return for all buttons & controls)
+ 15 | Key
+ 16 | Coin #1
+ 17 | Coin #2
+ 18 | Not Used
+ 19 | Test Sw. (in test mode when switch closed, else game mode)
+ 20 | Tilt
+ 21 | 1P Select
+ 22 | 2P Select
+ 23 | Gnd (common return for Coin, Tilt, and Test Sw.)
+ 24 | Not Used
+ 
+ 
+P2 CPU Board (23-pos, 0.100")
+Pin | Definition
+------------------
+  1 | Audio In #3 [to AA-4]
+  2 | Audio In #1 [to AA-2]
+  3 | Audio In #2 [to AA-3]
+  4 | Audio Common [from AA-6]
+  5 | Key
+  6 | Coin Meter #1
+  7 | Coin Meter #2
+  8 | Not Used
+  9 | Gnd [to PS]
+ 10 | Not Used
+ 11 | Key
+ 12 | Not Used
+ 13 | Not Used
+ 14 | +12V [to IB-2]
+ 15 | -5V [to IB-4]
+ 16 | +5V [to IB-5]
+ 17 | Gnd [from IB-1]
+ 18 | Blue [to IB-7]
+ 19 | Gnd [to IB-8]
+ 20 | Red [to IB-9]
+ 21 | Gnd [to IB-10]
+ 22 | Video (Green + -Sync?) [to IB-11]
+ 23 | Gnd [to IB-12]
+ 
+ 
+RGB Interface Board (12-pos, 0.100"?)
+(to & from Game Board)
+Pin | Definition
+------------------
+  1 | Gnd
+  2 | +12V
+  3 | +12V
+  4 | -5V
+  5 | +5V
+  6 | Key
+  7 | Blue
+  8 | Gnd
+  9 | Red
+ 10 | Gnd
+ 11 | Video (Green + -Sync?)
+ 12 | Gnd
+ 
+Note: Pins 7 & 8, 9 & 10, and 11 & 12 are labeled as "twisted pair" on the
+schematic for the RGB Interface Board.
+ 
+ 
+RGB Interface Board (9-pos, 0.100"?)
+(to & from Monitor)
+Pin | Definition
+------------------
+  1 | Gnd [to monitor RGB Gnd]
+  2 | Red
+  3 | Key
+  4 | Gnd
+  5 | Green
+  6 | Gnd
+  7 | Blue
+  8 | Gnd [to monitor Sync Gnd]
+  9 | -Sync
+ 
+Note: Pins 1 & 2, 4 & 5, 6 & 7, and 8 & 9 are labeled "twisted pair" on the
+schematic for the RGB Interface Board.
+ 
+ 
+Audio Amp #2 Board (13-pos, 0.100"?)
+(to & from Game Board)
+Pin | Definition
+------------------
+  1 | Audio Return (+16V Gnd) [to PS]
+  2 | Audio In #1
+  3 | Audio In #2
+  4 | Audio In #3
+  5 | Key
+  6 | Audio Common (common return from speakers)
+  7 | +16V [from PS]
+  8 | Speaker #1
+  9 | Speaker #1
+ 10 | Speaker #2
+ 11 | Speaker #2
+ 12 | Speaker #3
+ 13 | Speaker #3
+ 
+ 
+Here is most of the information for the power supply pinouts on the game
+side of the power supply (A082-90411-0000).  A question mark indicates
+information I was not absolutely sure about.  This power supply uses almost
+exactly the same outputs and inputs as the one in Super Pac-Man (A082-
+90421-0000).
+ 
+Power Supply (19-pos?)
+1   +V Audio (~13V @ 1.5A)
+2   -5V @ 0.45A
+3   +V Independent [~10V @ 3.5A, to coin door and control lights?]
+4   !Reset
+5   V.Batt?
+6   Key
+7   +12V @ 1.45A
+8   +12V @ 1.45A
+9   -Sense
+10  AC Sync?
+11  -V Audio [Gnd for Audio circuit]
+12  -V Independent [Gnd, control lights return?]
+13  Gnd
+14  Gnd
+15  Gnd
+16  Gnd
+17  Coin Counter Drivers (~8V, unreg +5V) [from coin meter]
+18  +5V @ 3A
+19  +5V @ 2A regulated for logic
+ 
+-------------------------------------------------------------------------------
+Option switches are located on the game PCB in the commercial card rack.
+ 1   2   3   4   5   6   7   8    Option
+-------------------------------------------------------------------------------
+                                  Left Hand Coin Slot
+                                  -------------------
+Off                               1 Coin  1 Credit
+On                                2 Coins 1 Credit
+
+                                  Right Hand Coin Slot
+                                  --------------------
+    Off Off                       1 Coin  1 Credit
+    On  Off                       2 Coins 1 Credit
+    Off On                        1 Coin  3 Credits
+    On  On                        1 Coin  5 Credits
+
+                                  Language
+                                  --------
+            Off                   English
+            On                    Foreign Language
+                                  (Requires A082-91374-A000)
+
+                                  Worriors Per Credit
+                                  -------------------
+                Off               1 Credit = 2 Worriors/2 Credits = 5 Worriors
+                On                1 Credit = 3 Worriors/2 Credits = 7 Worriors
+
+                                  Bonus Player Awarded
+                                  --------------------
+                    Off           Bonus Worrior after third dungeon
+                    On            Bonus Worrior after fourth dungeon
+
+                                  Play Mode
+                                  ---------
+                        Off       Coin Play
+                        On        Free Play
+
+                                  Game Attraction Sounds
+                                  ----------------------
+                            Off   Continuous sound during "attract mode"
+                            On    Sound during attract mode _only_ if game
+                                  controls are touched.  (When any button
+                                  or control is touched, game provides sound
+                                  for one complete cycle of the "attract mode".
+                                  It will then be quiet until touched again.)
+-------------------------------------------------------------------------------
+
+Special Note:
+
+When setting the switches SW#1, SW#2, and SW#3 to either of the following two
+combinations, _only coin meter number 1 will count_.
+
+SW#1  SW#2  SW#3
+Off   Off   Off
+On    On    On
+
+If the above three switches are set to any other combination, coin acceptor
+number 1 will cause coin meter number 1 to count and coin acceptor number 2
+will cause coin meter number 2 to count.
+
+

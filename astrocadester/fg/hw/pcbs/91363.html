@@ -31,9 +31,9 @@
       <p class="subtitle">Astrocade color-difference video decoder, RGB matrix, sync output, and CRT monitor interface</p>
 
       <div class="pcb-hero-tags" aria-label="91363 quick tags">
-        <span class="tag info">A082-91363-A/B000</span>
+        <span class="tag info">A082-91363-B000</span>
         <span class="tag ok">RGB Interface</span>
-        <span class="tag violet">Video Matrix</span>
+        <span class="tag violet">TBA530 Matrix</span>
         <span class="tag warn">No Hot-Plugging</span>
       </div>
 
@@ -57,23 +57,23 @@
     <main>
       <div class="content">
         <section class="card lead-card" id="overview">
-          <p class="lede">The 91363 RGB Interface Board is the small Bally/Midway Astrocade video daughterboard that turns the card rack's native video signals into monitor-ready analog RGB plus negative composite sync.</p>
+          <p class="lede">The 91363 RGB Interface Board is the small Bally/Midway Astrocade video interface board that converts the card-rack video outputs into monitor-ready analog red, green, blue, and negative composite sync.</p>
 
           <figure class="hardware-inline-figure" id="fig-board-photo-inline">
             <img src="../../images/91363-rgb-interface-pcb.jpg" alt="Original Bally/Midway 91363 RGB Interface PCB mounted inside a cabinet">
-            <figcaption>Original 91363-style RGB interface PCB.</figcaption>
+            <figcaption>Original 91363-style RGB interface PCB mounted near the cabinet harness.</figcaption>
           </figure>
 
-          <p>The Astrocade arcade video system does not leave the card rack as plain arcade RGB. The game board feeds this interface with <code>R-Y</code>, <code>B-Y</code>, and <code>VIDEO</code>. The interface delays, biases, and mixes those signals through the RGB matrix circuit, then presents the monitor harness with separate <code>R</code>, <code>G</code>, <code>B</code>, and <code>-SYNC</code> outputs.</p>
+          <p>The Astrocade arcade card rack does not feed the color monitor as plain RGB. The interface board receives three native video signals on its 12-pin input connector: <code>R-Y</code>, <code>B-Y</code>, and <code>VIDEO</code>. The board delays and biases the two color-difference channels, mixes them with the video/luminance path in <code>U1</code>, and sends separate <code>R</code>, <code>G</code>, <code>B</code>, and <code>-SYNC</code> signals to the monitor-side 9-pin connector.</p>
 
           <div class="callout gold">
             <b>Factory service warning</b>
-            Do not unplug or insert this PCB with the game powered. The loose warning card in the reference photo is exactly right: hot-plugging the board or monitor harness can damage the interface board, the game board, or monitor input circuitry.
+            Do not unplug or insert this PCB with the game powered. The loose warning tag in the reference photo is right: hot-plugging the board or monitor harness can damage the interface board, the game board, or the monitor input circuitry.
           </div>
 
           <div class="callout cyan">
-            <b>Important correction</b>
-            The two large tan cylinders on this board are not power resistors. In the factory drawing they are <code>DL1</code> and <code>DL2</code>, both listed as <strong>270 ns delay lines</strong>. The main IC is listed as <code>U1 TBA530</code>, an RGB matrix pre-amplifier, not an <code>LM3900</code> op-amp.
+            <b>Review correction</b>
+            The two large tan cylinders are not power resistors. The factory component drawing identifies them as <code>DL1</code> and <code>DL2</code>, both <strong>270 ns delay lines</strong>. The main IC is <code>U1 TBA530</code>, an RGB matrix / pre-amplifier, not an <code>LM3900</code> quad op-amp.
           </div>
 
           <div class="hardware-inline-clear"></div>
@@ -84,20 +84,20 @@
 
           <div class="two-col">
             <div class="mini">
-              <h3>Factory part number</h3>
-              <p>The Wizard of Wor board list identifies the RGB Interface Board as <code>A082-91363-A/B000</code>. The factory component drawing in the manual shows <code>A082-91363-B000</code>.</p>
+              <h3>Factory drawing</h3>
+              <p>The attached component drawing and schematic title blocks identify the circuit as <code>RGB INTERFACE</code> for <code>CCRS</code> and show drawing / board number <code>A082-91363-B000</code>.</p>
             </div>
             <div class="mini">
-              <h3>Cabinet role</h3>
-              <p>It is not a game logic card. It is the external video conversion board that sits between the card rack and the color CRT monitor harness.</p>
+              <h3>Board role</h3>
+              <p>It is not a CPU board, pattern board, or game logic card. It is the cabinet video conversion board between the Astrocade card-rack video harness and the color CRT monitor harness.</p>
             </div>
             <div class="mini">
-              <h3>Shared family usage</h3>
-              <p>Wizard of Wor, Gorf, and Robby Roto board sets are commonly associated with this RGB interface family. Space Zap is the important exception: it is a black-and-white game and does not require the RGB Interface Board.</p>
+              <h3>Board family</h3>
+              <p>Use <code>91363</code> as the family identifier. Original boards and service literature may show suffixes such as <code>A000</code> or <code>B000</code>; compare the actual schematic, connector keying, and harness before swapping parts.</p>
             </div>
             <div class="mini">
-              <h3>Revision caution</h3>
-              <p>Use the board number as a family identifier. Harnesses, monitor chassis, cabinet size, and game-specific assemblies can change how the same interface circuit is wired in the machine.</p>
+              <h3>Connector format</h3>
+              <p>The component drawing labels the monitor-side connector as <code>J1 KK-100-9</code> and the card-rack side as <code>J2 KK-100-12</code>.</p>
             </div>
           </div>
         </section>
@@ -125,31 +125,31 @@
           <div class="two-col">
             <div class="mini">
               <h3>Color-difference inputs</h3>
-              <p>The 12-pin card-rack side brings in <code>R-Y</code>, <code>B-Y</code>, and <code>VIDEO</code>. The red and blue difference paths run through the two 270 ns delay lines before entering the matrix IC.</p>
+              <p><code>J2 pin 9</code> brings in <code>R-Y</code> and runs through <code>DL2</code>. <code>J2 pin 7</code> brings in <code>B-Y</code> and runs through <code>DL1</code>. Both delay lines are 270 ns parts.</p>
             </div>
             <div class="mini">
               <h3>RGB matrix</h3>
-              <p><code>U1</code> combines the delayed color-difference signals with the video/luminance path to create analog red, green, and blue monitor drive outputs.</p>
+              <p><code>U1 TBA530</code> combines the delayed color-difference paths with the video/luminance path. Its outputs route to <code>J1 pin 2</code> red, <code>J1 pin 5</code> green, and <code>J1 pin 7</code> blue.</p>
             </div>
             <div class="mini">
               <h3>Sync extraction</h3>
-              <p>The sync output is derived from the incoming <code>VIDEO</code> line through the small transistor path around <code>Q1</code>, then routed to output pin 9 as negative sync.</p>
+              <p><code>J2 pin 11</code> is the incoming <code>VIDEO</code> signal. It feeds both the video/matrix path and the separate sync path around <code>Q1 2N4401</code>, producing negative composite sync at <code>J1 pin 9</code>.</p>
             </div>
             <div class="mini">
-              <h3>Power rails</h3>
-              <p>The board uses <code>+12V</code>, <code>+5V</code>, and <code>-5V</code>. Treat the grounds on the video pairs as signal returns, not random spare wires.</p>
+              <h3>Power rails and returns</h3>
+              <p>The input connector supplies <code>+12V</code>, <code>+5V</code>, and <code>-5V</code>. Multiple ground pins serve as power and video/sync returns; keep the paired returns with their signals.</p>
             </div>
           </div>
 
           <div class="callout cyan">
-            <b>Debugging translation</b>
-            A missing color can be a card-rack source problem, a bad 91363 matrix path, a cracked connector joint, a delay-line fault, a monitor input problem, or a wiring error. Start by separating source-side inputs from monitor-side outputs.
+            <b>Do not copy the common bad pinout</b>
+            <code>J2 pin 1</code> is ground on the schematic, not video. <code>VIDEO</code> enters on <code>J2 pin 11</code>. <code>J2 pin 6</code> is the connector key position, not a logic input.
           </div>
         </section>
 
         <section class="card" id="schematics">
           <h2>Factory drawing and schematic</h2>
-          <p>The attached Wizard of Wor manual scan includes the 91363 component drawing and schematic as manual pages 85 and 86. The schematic title block identifies the circuit as <code>RGB INTERFACE</code> for <code>CCRS</code> and shows part number <code>A082-91363-B000</code>.</p>
+          <p>The attached manual scans include the 91363 component drawing and schematic as manual pages 85 and 86. The component list calls out <code>U1 TBA530</code>, <code>DL1-DL2 270NS DELAY</code>, and <code>Q1 2N4401</code>. The schematic shows <code>R-Y</code>, <code>B-Y</code>, and <code>VIDEO</code> entering from <code>J2</code>, and <code>R</code>, <code>G</code>, <code>B</code>, and <code>SYNC</code> leaving on <code>J1</code>.</p>
 
           <div class="pcb-schematic-pair">
             <figure class="guide-figure pcb-figure" id="fig-layout">
@@ -173,7 +173,7 @@
               <a class="guide-image-link" href="#lightbox-schematic" aria-label="Open 91363 RGB Interface schematic full size">
                 <img src="../../images/91363-schematic.png" alt="91363 RGB Interface schematic">
               </a>
-              <figcaption>91363 RGB Interface schematic: R-Y, B-Y, VIDEO in; R, G, B, and -SYNC out.</figcaption>
+              <figcaption>91363 RGB Interface schematic: R-Y, B-Y, VIDEO in; R, G, B, and negative sync out.</figcaption>
             </figure>
 
             <div class="image-lightbox" id="lightbox-schematic" role="dialog" aria-label="91363 RGB Interface schematic full-size view">
@@ -204,17 +204,17 @@
                 <tr>
                   <td>U1</td>
                   <td>TBA530</td>
-                  <td>RGB matrix pre-amplifier. Generates the red, green, and blue output channels from the color-difference and video inputs.</td>
+                  <td>RGB matrix / pre-amplifier. It generates the analog red, green, and blue monitor drive outputs from the color-difference and video inputs.</td>
                 </tr>
                 <tr>
                   <td>DL1</td>
                   <td>270 ns delay</td>
-                  <td>Delay line in the <code>B-Y</code> path. The large tan cylinder is not a load resistor.</td>
+                  <td>Delay line in the <code>B-Y</code> path from <code>J2 pin 7</code>. This is one of the two large tan cylindrical parts.</td>
                 </tr>
                 <tr>
                   <td>DL2</td>
                   <td>270 ns delay</td>
-                  <td>Delay line in the <code>R-Y</code> path. Its Midway part code matches the markings seen on original boards.</td>
+                  <td>Delay line in the <code>R-Y</code> path from <code>J2 pin 9</code>. This is the other large tan cylindrical part.</td>
                 </tr>
                 <tr>
                   <td>Q1</td>
@@ -224,17 +224,17 @@
                 <tr>
                   <td>CR1</td>
                   <td>1N5232B</td>
-                  <td>Zener/diode element in the incoming video/sync conditioning path.</td>
+                  <td>Diode / zener element shown on the schematic in the incoming <code>VIDEO</code> conditioning path.</td>
                 </tr>
                 <tr>
                   <td>J1</td>
-                  <td>9-pin header</td>
-                  <td>Monitor-side output: RGB, grounds, key, and negative sync.</td>
+                  <td>9-pin KK-100 header</td>
+                  <td>Monitor-side output connector: RGB, video/sync returns, key, and negative sync.</td>
                 </tr>
                 <tr>
                   <td>J2</td>
-                  <td>12-pin header</td>
-                  <td>Card-rack/game-board side input: power, grounds, color-difference inputs, video, and key.</td>
+                  <td>12-pin KK-100 header</td>
+                  <td>Card-rack / game-board harness input connector: power rails, grounds, color-difference inputs, video, and key.</td>
                 </tr>
               </tbody>
             </table>
@@ -242,8 +242,8 @@
         </section>
 
         <section class="card" id="input-vector">
-          <h2>12-pin input vector: card rack to RGB interface</h2>
-          <p>This connector brings the native Astrocade video signals and power rails from the game board/card-rack harness into the 91363 board.</p>
+          <h2>J2 · 12-pin input vector: card rack to RGB interface</h2>
+          <p>This connector brings the native Astrocade video signals and the analog support rails from the card-rack harness into the 91363 board. Pin numbers below follow the factory schematic.</p>
 
           <div class="table-wrap">
             <table>
@@ -251,7 +251,7 @@
                 <tr>
                   <th>Pin</th>
                   <th>Signal</th>
-                  <th>Original field note</th>
+                  <th>Factory schematic evidence</th>
                   <th>Practical reading</th>
                 </tr>
               </thead>
@@ -259,74 +259,74 @@
                 <tr>
                   <td class="addr">1</td>
                   <td>Ground</td>
-                  <td>Logic/reference ground</td>
-                  <td>Power and video reference return.</td>
+                  <td>Tied to the ground bus with pins 8, 10, and 12</td>
+                  <td>Power/video reference return. This is not the video input.</td>
                 </tr>
                 <tr>
                   <td class="addr">2</td>
                   <td>+12V</td>
-                  <td>+12V operating power</td>
-                  <td>Feeds the video matrix output loads.</td>
+                  <td>Connected to the <code>+12</code> rail</td>
+                  <td>Analog support rail for the matrix/output network.</td>
                 </tr>
                 <tr>
                   <td class="addr">3</td>
                   <td>+12V</td>
-                  <td>Often parallel or not populated in harness notes</td>
-                  <td>Confirm against the exact cabinet harness before assuming this pin is empty.</td>
+                  <td>Also connected to the <code>+12</code> rail</td>
+                  <td>Second +12 feed on the schematic; do not treat this as the key pin.</td>
                 </tr>
                 <tr>
                   <td class="addr">4</td>
                   <td>-5V</td>
-                  <td>Bias rail</td>
-                  <td>Used by the analog matrix/bias network.</td>
+                  <td>Connected to the <code>-5</code> rail</td>
+                  <td>Bias rail used by the analog matrix and conditioning network.</td>
                 </tr>
                 <tr>
                   <td class="addr">5</td>
                   <td>+5V</td>
-                  <td>Logic/conditioning rail</td>
-                  <td>Used in the sync and bias support circuitry.</td>
+                  <td>Connected to the <code>+5</code> rail</td>
+                  <td>Support rail for bias/sync-related circuitry.</td>
                 </tr>
                 <tr>
                   <td class="addr">6</td>
                   <td>Key</td>
-                  <td>Plastic keying slot</td>
-                  <td>Prevents the connector from being shifted or reversed.</td>
+                  <td>Labeled <code>KEY</code>; no signal path shown</td>
+                  <td>Mechanical connector key position. This is not a logic signal.</td>
                 </tr>
                 <tr>
                   <td class="addr">7</td>
                   <td>B-Y</td>
-                  <td>Blue color-difference input</td>
-                  <td>Runs through <code>DL1</code> before entering the matrix.</td>
+                  <td>Input labeled <code>B-Y</code></td>
+                  <td>Blue color-difference input; runs through <code>R10</code> and <code>DL1</code>.</td>
                 </tr>
                 <tr>
                   <td class="addr">8</td>
                   <td>Ground</td>
-                  <td>Twisted-pair return for pin 7</td>
-                  <td>Keep paired with the <code>B-Y</code> input lead.</td>
+                  <td>Tied to the ground bus</td>
+                  <td>Return paired with the <code>B-Y</code> input lead.</td>
                 </tr>
                 <tr>
                   <td class="addr">9</td>
                   <td>R-Y</td>
-                  <td>Red color-difference input</td>
-                  <td>Runs through <code>DL2</code> before entering the matrix.</td>
+                  <td>Input labeled <code>R-Y</code></td>
+                  <td>Red color-difference input; runs through <code>R25</code> and <code>DL2</code>.</td>
                 </tr>
                 <tr>
                   <td class="addr">10</td>
                   <td>Ground</td>
-                  <td>Twisted-pair return for pin 9</td>
-                  <td>Keep paired with the <code>R-Y</code> input lead.</td>
+                  <td>Tied to the ground bus</td>
+                  <td>Return paired with the <code>R-Y</code> input lead.</td>
                 </tr>
                 <tr>
                   <td class="addr">11</td>
                   <td>VIDEO</td>
-                  <td>Luminance/video plus sync source</td>
-                  <td>Feeds the RGB matrix and the sync extraction path.</td>
+                  <td>Input labeled <code>VIDEO</code></td>
+                  <td>Luminance/video source for the RGB matrix and source for the sync output path.</td>
                 </tr>
                 <tr>
                   <td class="addr">12</td>
                   <td>Ground</td>
-                  <td>Twisted-pair return for pin 11</td>
-                  <td>Keep paired with the video input lead.</td>
+                  <td>Tied to the ground bus</td>
+                  <td>Return paired with the video input lead.</td>
                 </tr>
               </tbody>
             </table>
@@ -334,8 +334,8 @@
         </section>
 
         <section class="card" id="output-vector">
-          <h2>9-pin output vector: RGB interface to monitor</h2>
-          <p>The monitor-side connector outputs standard analog RGB and negative sync. The schematic labels the output pins directly at the right edge of the drawing.</p>
+          <h2>J1 · 9-pin output vector: RGB interface to monitor</h2>
+          <p>The monitor-side connector outputs analog RGB and negative composite sync. The schematic labels the output pins directly at the right edge of the drawing.</p>
 
           <div class="table-wrap">
             <table>
@@ -343,64 +343,64 @@
                 <tr>
                   <th>Pin</th>
                   <th>Signal</th>
-                  <th>Typical wire color</th>
+                  <th>Factory schematic evidence</th>
                   <th>Practical reading</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
                   <td class="addr">1</td>
-                  <td>RGB ground</td>
-                  <td>Gray</td>
-                  <td>Return paired with red output.</td>
+                  <td>Ground</td>
+                  <td>Tied to ground with pins 4, 6, and 8</td>
+                  <td>Video return for the monitor harness.</td>
                 </tr>
                 <tr>
                   <td class="addr">2</td>
                   <td>Red out</td>
-                  <td>Red</td>
-                  <td>Analog red video to monitor input.</td>
+                  <td>Output labeled <code>R</code></td>
+                  <td>Analog red video from <code>U1</code>.</td>
                 </tr>
                 <tr>
                   <td class="addr">3</td>
                   <td>Key</td>
-                  <td>No wire</td>
-                  <td>Connector key.</td>
+                  <td>Labeled <code>KEY</code></td>
+                  <td>Mechanical connector key position.</td>
                 </tr>
                 <tr>
                   <td class="addr">4</td>
-                  <td>RGB ground</td>
-                  <td>Gray</td>
-                  <td>Return paired with green output.</td>
+                  <td>Ground</td>
+                  <td>Tied to ground</td>
+                  <td>Video return for the monitor harness.</td>
                 </tr>
                 <tr>
                   <td class="addr">5</td>
                   <td>Green out</td>
-                  <td>Green</td>
-                  <td>Analog green video to monitor input.</td>
+                  <td>Output labeled <code>G</code></td>
+                  <td>Analog green video from <code>U1</code>.</td>
                 </tr>
                 <tr>
                   <td class="addr">6</td>
-                  <td>RGB ground</td>
-                  <td>Gray</td>
-                  <td>Return paired with blue output.</td>
+                  <td>Ground</td>
+                  <td>Tied to ground</td>
+                  <td>Video return for the monitor harness.</td>
                 </tr>
                 <tr>
                   <td class="addr">7</td>
                   <td>Blue out</td>
-                  <td>Blue</td>
-                  <td>Analog blue video to monitor input.</td>
+                  <td>Output labeled <code>B</code></td>
+                  <td>Analog blue video from <code>U1</code>.</td>
                 </tr>
                 <tr>
                   <td class="addr">8</td>
-                  <td>Sync ground</td>
-                  <td>Gray</td>
-                  <td>Return paired with sync output.</td>
+                  <td>Ground</td>
+                  <td>Tied to ground</td>
+                  <td>Sync/video return for the monitor harness.</td>
                 </tr>
                 <tr>
                   <td class="addr">9</td>
                   <td>-Sync out</td>
-                  <td>Orange</td>
-                  <td>Negative composite sync to monitor sync input.</td>
+                  <td>Output labeled <code>SYNC</code> from the <code>Q1</code> stage</td>
+                  <td>Negative composite sync to the monitor sync input.</td>
                 </tr>
               </tbody>
             </table>
@@ -409,100 +409,30 @@
 
         <section class="card" id="monitor-hookup">
           <h2>Monitor hookup notes</h2>
-          <p>These notes are for field verification, not a substitute for the exact monitor manual and cabinet wiring diagram. CRT chassis orientation and connector numbering vary, and a one-pin offset can destroy parts.</p>
+          <p>These notes are for field verification only. The 91363 side is well defined by the factory schematic, but CRT chassis input headers vary by monitor model, daughtercard, revision, and harness orientation.</p>
 
           <div class="callout red">
             <b>CRT safety</b>
             Unplug the cabinet before service. A color CRT monitor must be powered through the cabinet's proper isolation transformer. Do not defeat the isolation transformer, do not move connectors with power on, and verify the chassis input header before power-up.
           </div>
 
-          <h3>Wells-Gardner K4600 family</h3>
-          <p>The K4600 has several interface daughtercard variants. Some use a 6-pin video connector where pin 6 accepts composite negative sync; others reserve the 6-pin header for RGB plus positive sync and move negative sync to a separate 3-pin connector. Confirm the daughtercard type before adapting the Astrocade harness.</p>
-
-          <div class="table-wrap">
-            <table>
-              <thead>
-                <tr>
-                  <th>91363 output</th>
-                  <th>Common negative-sync K4600 P205</th>
-                  <th>Note</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td class="addr">Pin 2 · Red</td>
-                  <td>P205 pin 4</td>
-                  <td>Some negative-sync K4600 cards use non-RGB order: green, blue, no connection, red, ground, sync.</td>
-                </tr>
-                <tr>
-                  <td class="addr">Pin 5 · Green</td>
-                  <td>P205 pin 1</td>
-                  <td>Verify your daughtercard; do not assume pin 1 is always red.</td>
-                </tr>
-                <tr>
-                  <td class="addr">Pin 7 · Blue</td>
-                  <td>P205 pin 2</td>
-                  <td>Use the chassis documentation for your exact interface board.</td>
-                </tr>
-                <tr>
-                  <td class="addr">Any RGB ground</td>
-                  <td>P205 pin 5</td>
-                  <td>Use the video ground expected by the monitor input card.</td>
-                </tr>
-                <tr>
-                  <td class="addr">Pin 9 · -Sync</td>
-                  <td>P205 pin 6</td>
-                  <td>Only for K4600 cards whose P205 pin 6 is composite negative sync.</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-
-          <h3>Electrohome G07 family</h3>
-          <p>The G07 separates RGB/video ground from sync polarity handling. Feed red, green, blue, and video ground into the main video header, then route the 91363 negative sync to the negative-sync header rather than the positive-sync pins.</p>
-
-          <div class="table-wrap">
-            <table>
-              <thead>
-                <tr>
-                  <th>91363 output</th>
-                  <th>G07 target</th>
-                  <th>Note</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td class="addr">Pin 2 · Red</td>
-                  <td>Main video header red input</td>
-                  <td>Usually the first three positions are red, green, blue.</td>
-                </tr>
-                <tr>
-                  <td class="addr">Pin 5 · Green</td>
-                  <td>Main video header green input</td>
-                  <td>Keep the signal ground with the RGB group.</td>
-                </tr>
-                <tr>
-                  <td class="addr">Pin 7 · Blue</td>
-                  <td>Main video header blue input</td>
-                  <td>Leave positive sync inputs empty when using negative sync.</td>
-                </tr>
-                <tr>
-                  <td class="addr">Pin 1, 4, or 6 · Ground</td>
-                  <td>Main video ground</td>
-                  <td>Do not rely on frame ground alone for video return.</td>
-                </tr>
-                <tr>
-                  <td class="addr">Pin 9 · -Sync</td>
-                  <td>Negative-sync header</td>
-                  <td>Many harnesses bridge composite negative sync to both negative H and V inputs; verify against the G07 manual and connector orientation.</td>
-                </tr>
-                <tr>
-                  <td class="addr">Pin 8 · Sync ground</td>
-                  <td>Sync/header ground where required</td>
-                  <td>Keep the sync return paired with the orange sync lead if the harness provides it.</td>
-                </tr>
-              </tbody>
-            </table>
+          <div class="two-col">
+            <div class="mini">
+              <h3>91363 side</h3>
+              <p>Use <code>J1 pin 2</code> for red, <code>J1 pin 5</code> for green, <code>J1 pin 7</code> for blue, <code>J1 pin 9</code> for negative composite sync, and one or more <code>J1</code> ground pins for video/sync return.</p>
+            </div>
+            <div class="mini">
+              <h3>Monitor side</h3>
+              <p>Match those signals to the exact monitor input board. Some chassis families have separate positive-sync and negative-sync inputs, and some Wells-Gardner K4600 interface cards move negative sync away from the main RGB header.</p>
+            </div>
+            <div class="mini">
+              <h3>Do not trust wire color alone</h3>
+              <p>Wire colors are useful clues, but old cabinet harnesses are often repaired, extended, or replaced. Verify pin numbers and continuity.</p>
+            </div>
+            <div class="mini">
+              <h3>Do not one-pin offset</h3>
+              <p>The input connector carries power rails and the output connector feeds the monitor input. A shifted connector can put the wrong voltage or signal on the wrong node.</p>
+            </div>
           </div>
         </section>
 
@@ -510,27 +440,27 @@
           <h2>Diagnostic and maintenance notes</h2>
 
           <ul class="pcb-note-list">
-            <li><b>One color missing:</b> Check whether the missing color exists at the 91363 output. If not, trace back through the associated matrix output and its input path. If the output exists, move downstream to the monitor header, neck board, and chassis solder joints.</li>
-            <li><b>Wrong color balance:</b> Inspect the 270 ns delay lines, surrounding resistors, connector pins, and any cracked solder joints. Do not replace the tan cylinders as if they were simple power resistors.</li>
-            <li><b>Rolling picture:</b> Confirm that pin 9 output from the 91363 is reaching the monitor's negative-sync input, not a positive-sync pin or the wrong K4600 daughtercard connector.</li>
-            <li><b>Washed-out video:</b> Verify video ground continuity. A missing shield/return in one twisted pair can look like an analog board failure.</li>
-            <li><b>Intermittent boot or board damage after service:</b> Recheck connector orientation and keying. The input side carries power rails; offsetting that connector can put supply voltages on signal pins.</li>
+            <li><b>One color missing:</b> Check whether the missing color is absent at <code>J1</code>. If it is absent there, trace the related <code>U1</code> output path and the corresponding input path. If it is present at <code>J1</code>, move downstream to the monitor header, neck board, chassis solder joints, and wiring.</li>
+            <li><b>Color edge shifted or smeared:</b> Inspect <code>DL1</code> and <code>DL2</code>, their solder joints, and their surrounding resistors. A delay-line or connection fault can make chroma information appear horizontally displaced from luminance edges.</li>
+            <li><b>Rolling, tearing, or no lock:</b> Confirm that <code>J1 pin 9</code> reaches the monitor's negative-sync input and that <code>J1 pin 8</code> or another ground return is present where the monitor expects it.</li>
+            <li><b>Washed-out or unstable video:</b> Verify ground continuity on the video/sync returns. A missing return in one of the signal pairs can look like a bad analog board.</li>
+            <li><b>Board damage after service:</b> Recheck connector orientation and keying. <code>J2</code> includes <code>+12V</code>, <code>+5V</code>, and <code>-5V</code>; offsetting that connector can put supply rails on signal pins.</li>
           </ul>
 
           <div class="callout gold">
-            <b>Self-test crosshatch</b>
-            For Wizard of Wor monitor adjustment, use the cabinet diagnostic path and crosshatch screen after the video board is wired correctly. A crosshatch that is stable but color-shifted points you toward RGB level/bias paths; a rolling or tearing crosshatch points you toward sync routing.
+            <b>Crosshatch interpretation</b>
+            A stable crosshatch with bad color points toward RGB level, matrix, wiring, or monitor color paths. A rolling or tearing crosshatch points first toward sync routing, sync polarity, or monitor sync input selection.
           </div>
         </section>
 
         <section class="card" id="modern-context">
           <h2>Modern repair and FPGA context</h2>
-          <p>Modern Astrocade cabinet projects sometimes keep the original 9-pin monitor-side convention so a reproduction interface, test fixture, or FPGA bridge can plug into cabinet wiring without modifying the monitor harness. That is useful, but it is not the same job as the original 91363 circuit.</p>
+          <p>Modern Astrocade cabinet projects sometimes keep the original 9-pin monitor-side convention so a reproduction interface, test fixture, or FPGA bridge can plug into cabinet wiring without modifying the monitor harness. That is useful, but it is not always the same electrical job as the original 91363 circuit.</p>
 
           <div class="two-col">
             <div class="mini">
               <h3>Original 91363 job</h3>
-              <p>Decode Astrocade color-difference/video signals into analog RGB and sync for a commercial raster CRT.</p>
+              <p>Decode Astrocade color-difference/video signals into analog RGB and negative sync for a commercial raster CRT.</p>
             </div>
             <div class="mini">
               <h3>Modern bridge job</h3>
@@ -541,7 +471,7 @@
 
         <section class="card" id="source-notes">
           <h2>Source notes</h2>
-          <p>This page was built from the attached 90708 Field Guide page structure, the shared Field Guide stylesheet, the attached board photo, the Wizard of Wor manual scan, and supporting public pinout references.</p>
+          <p>This page was checked against the attached 91363 component drawing, attached 91363 schematic, and attached board photo. The pin tables are derived from the schematic labels and connector key positions, not from secondary connector lists.</p>
 
           <div class="table-wrap">
             <table>
@@ -553,16 +483,16 @@
               </thead>
               <tbody>
                 <tr>
-                  <td class="addr">Wizard of Wor Parts and Operating Manual</td>
-                  <td>91363 component designation, component list, and schematic. Manual pages 85-86 / PDF image pages 134-135.</td>
+                  <td class="addr">91363 component designation drawing</td>
+                  <td>Board number, connector names, physical component placement, and primary component list: <code>U1 TBA530</code>, <code>DL1-DL2 270NS DELAY</code>, and <code>Q1 2N4401</code>.</td>
                 </tr>
                 <tr>
-                  <td class="addr">Mike's Arcade / Wiretap pinout archive</td>
-                  <td>Board-set membership plus 12-pin and 9-pin RGB interface connector definitions.</td>
+                  <td class="addr">91363 schematic</td>
+                  <td>R-Y, B-Y, VIDEO input pins; RGB/sync output pins; power rails; ground pins; delay-line routing; TBA530 matrix routing; and Q1 sync path.</td>
                 </tr>
                 <tr>
-                  <td class="addr">K4600 and G07 monitor references</td>
-                  <td>Monitor hookup cautions, negative sync routing, and connector-variant warnings.</td>
+                  <td class="addr">Reference cabinet photo</td>
+                  <td>Physical board appearance, large delay-line bodies, harness mounting context, and factory hot-plug warning tag.</td>
                 </tr>
               </tbody>
             </table>
