@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-01T10:04:48.009Z",
+  "generated_at": "2026-07-01T11:16:46.794Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,33 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 51,
-      "droppedPrice": 564,
+      "exported_ads": 52,
+      "droppedPrice": 568,
       "droppedMissingGeo": 0,
-      "droppedCircle": 507
+      "droppedCircle": 516
     }
   },
   "ads": [
+    {
+      "adID": "914230688356037",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/1754360956/?product_id=914230688356037",
+      "author": "Patricia Mcdowell Lee",
+      "postedTime": "2026-07-01T01:23:54.000Z",
+      "title": "Thankuvacations",
+      "description": "44250 Thankuvacations.com We have 2 condos located in Panama City beach florida available Great rates available Contact us 470/902-7700 We have pickle ball court Golf tee Boardwalk Grills Heated pool Hot tubs Restaurants on 1st floor if building 810 bowling arcade We are the only resort in Panama City beach to have these many amenities plus restaurants Covered parking for your car Give us a call today to reserve your condo www.thankuvacations.com",
+      "price": "$0",
+      "lat": 34.1206564,
+      "lon": -84.0043513,
+      "location": "Buford, GA",
+      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/735076175_934340049627493_2897388840383469877_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=92e707&_nc_ohc=Zfd2HIswouQQ7kNvwEBVCD5&_nc_oc=AdofQ8BWnGgAs1XX54MC0VKg3Ika4SI2tbI7Otjz3MlUISDZTQK8HvsOPkB6E90V5EI&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=c7t70vZDa0qy6K4EXlOpWg&_nc_ss=7b2a8&oh=00_AQAaKI8hPnLhsTLgxCK7VGAWjl2a-UNe4ZyY3FqCYDVSUg&oe=6A4AB549",
+      "adUrl": "https://www.facebook.com/marketplace/item/914230688356037/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-07-01 11:12:11",
+      "lastSeen": "2026-07-01T11:13:30.814Z"
+    },
     {
       "adID": "1471631054989307",
       "source": "MP",
@@ -30,13 +50,13 @@
       "lat": 30.3262247,
       "lon": -81.6579179,
       "location": "Jacksonville, FL",
-      "imageUrl": "https://scontent-dfw6-2.xx.fbcdn.net/v/t15.5256-10/734435377_27394364463565585_1849165061859797571_n.jpg?stp=dst-jpg_tt6&cstp=mx720x1280&ctp=s960x960&_nc_cat=110&ccb=1-7&_nc_sid=d4195b&_nc_ohc=mG-rx0p-eiwQ7kNvwHWrnTO&_nc_oc=Adpg_CFgCZ8N6XT-WQg0Uyj53fym36pthvXWVTl6GHBvXDHM_PBi-3-P1uEme7xAozc&_nc_zt=23&_nc_ht=scontent-dfw6-2.xx&_nc_gid=wo8-VVCzAJ4G2uRapnozVQ&_nc_ss=7b2a8&oh=00_AQDs0y5aUKtNNcidcq_cAYzFS0nCZD61s6pnLprqx-SQxQ&oe=6A4A247B",
+      "imageUrl": "https://scontent-dfw6-2.xx.fbcdn.net/v/t15.5256-10/734435377_27394364463565585_1849165061859797571_n.jpg?stp=dst-jpg_tt6&cstp=mx720x1280&ctp=s960x960&_nc_cat=110&ccb=1-7&_nc_sid=d4195b&_nc_ohc=mG-rx0p-eiwQ7kNvwHWrnTO&_nc_oc=Adpg_CFgCZ8N6XT-WQg0Uyj53fym36pthvXWVTl6GHBvXDHM_PBi-3-P1uEme7xAozc&_nc_zt=23&_nc_ht=scontent-dfw6-2.xx&_nc_gid=eHM-4qNqkBes4D2BXZyX4g&_nc_ss=7b2a8&oh=00_AQA6y_6P27ZL7TGpINlQ4XHyOQ9joLUEGQ1QF351xaTIhw&oe=6A4ACD3B",
       "adUrl": "https://www.facebook.com/marketplace/item/1471631054989307/",
       "priceChanged": 0,
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-30 22:11:56",
-      "lastSeen": "2026-07-01T01:14:57.041Z"
+      "lastSeen": "2026-07-01T11:15:44.733Z"
     },
     {
       "adID": "1730224717972003",
@@ -116,7 +136,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-30 18:12:05",
-      "lastSeen": "2026-07-01T01:12:08.063Z"
+      "lastSeen": "2026-07-01T11:12:11.508Z"
     },
     {
       "adID": "2077568293133611",
@@ -136,7 +156,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-30 18:12:05",
-      "lastSeen": "2026-07-01T01:12:08.096Z"
+      "lastSeen": "2026-07-01T11:12:11.541Z"
     },
     {
       "adID": "2855388601465237",
@@ -156,7 +176,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-30 17:24:42",
-      "lastSeen": "2026-07-01T01:14:10.880Z"
+      "lastSeen": "2026-07-01T11:14:41.864Z"
     },
     {
       "adID": "1350591777247896",
@@ -176,7 +196,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-30 17:24:41",
-      "lastSeen": "2026-07-01T01:14:10.706Z"
+      "lastSeen": "2026-07-01T11:14:41.684Z"
     },
     {
       "adID": "1667510114509875",
@@ -196,7 +216,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-30 17:24:39",
-      "lastSeen": "2026-07-01T01:14:10.471Z"
+      "lastSeen": "2026-07-01T11:14:41.449Z"
     },
     {
       "adID": "1545536510696421",
@@ -216,7 +236,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-30 17:24:37",
-      "lastSeen": "2026-07-01T01:14:09.928Z"
+      "lastSeen": "2026-07-01T11:14:41.213Z"
     },
     {
       "adID": "2049150759047495",
@@ -256,7 +276,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-30 17:12:07",
-      "lastSeen": "2026-07-01T01:14:09.138Z"
+      "lastSeen": "2026-07-01T11:14:40.401Z"
     },
     {
       "adID": "27445454091740755",
@@ -276,7 +296,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-30 17:12:06",
-      "lastSeen": "2026-07-01T01:14:09.037Z"
+      "lastSeen": "2026-07-01T11:14:40.300Z"
     },
     {
       "adID": "KLOV-381287",
@@ -296,7 +316,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-30 16:25:28",
-      "lastSeen": "2026-07-01T01:15:56.999Z"
+      "lastSeen": "2026-07-01T11:16:42.572Z"
     },
     {
       "adID": "2075596243023448",
@@ -316,7 +336,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-30 16:21:36",
-      "lastSeen": "2026-07-01T01:12:07.092Z"
+      "lastSeen": "2026-07-01T11:12:10.396Z"
     },
     {
       "adID": "1370916738471862",
@@ -336,7 +356,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-30 15:43:40",
-      "lastSeen": "2026-07-01T01:12:07.192Z"
+      "lastSeen": "2026-07-01T11:12:10.496Z"
     },
     {
       "adID": "3216493655219509",
@@ -356,7 +376,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-30 13:14:59",
-      "lastSeen": "2026-07-01T01:14:08.402Z"
+      "lastSeen": "2026-07-01T11:14:39.335Z"
     },
     {
       "adID": "1069277575530045",
@@ -476,7 +496,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-29 15:09:10",
-      "lastSeen": "2026-07-01T01:15:58.798Z"
+      "lastSeen": "2026-07-01T11:16:44.057Z"
     },
     {
       "adID": "KLOV-512184",
@@ -496,7 +516,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-29 14:08:01",
-      "lastSeen": "2026-07-01T01:15:57.300Z"
+      "lastSeen": "2026-07-01T11:16:42.839Z"
     },
     {
       "adID": "2006344423330746",
@@ -703,20 +723,20 @@
       "source": "FB",
       "authorUrl": null,
       "author": "Anthony Ward",
-      "postedTime": "2026-06-28T01:08:45.714Z",
+      "postedTime": "2026-06-27T11:08:48.764Z",
       "title": "Big Event Golf",
       "description": "I have a Big Event Golf arcade machine. Own a piece of nostalgic history. Before Golden Tee. Do not expect it to be in perfect condition as it is from 1986, but everyth... See more",
       "price": "$320",
       "lat": 27.9449854,
       "lon": -82.4583107,
       "location": "TAMPA, FL",
-      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.30808-6/731253032_3541431712671266_1665902000841851541_n.jpg?stp=cp6_dst-jpg_tt6&cstp=mx1536x2048&ctp=s590x590&_nc_cat=105&ccb=1-7&_nc_sid=aa7b47&_nc_ohc=6-ILhvJT8HUQ7kNvwGTh5RH&_nc_oc=AdreK8-dQV_7pxMvrVuWVw8Q_3a4ixi0Quf5dAJhUVsGwbztkuX4JhtirHcRPlN-iBg&_nc_zt=23&_nc_ht=scontent-dfw5-1.xx&_nc_gid=BbalJEPp_g5lqyBOIaWQwg&_nc_ss=7b2a8&oh=00_AQCl6Zq-4qLeuP9rbQf1YprJ4sA-HRNaWN07RPTfGtCoGw&oe=6A4A4AA2",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.30808-6/731253032_3541431712671266_1665902000841851541_n.jpg?stp=cp6_dst-jpg_tt6&cstp=mx1536x2048&ctp=s590x590&_nc_cat=105&ccb=1-7&_nc_sid=aa7b47&_nc_ohc=6-ILhvJT8HUQ7kNvwGTh5RH&_nc_oc=AdreK8-dQV_7pxMvrVuWVw8Q_3a4ixi0Quf5dAJhUVsGwbztkuX4JhtirHcRPlN-iBg&_nc_zt=23&_nc_ht=scontent-dfw5-1.xx&_nc_gid=05Zm25v1Xyui9VqD5zpS2Q&_nc_ss=7b2a8&oh=00_AQAc0EDnl2wkXjMMugSa-5Cqyds01D7_mR3y15d0GJJP0A&oe=6A4ABB22",
       "adUrl": "https://www.facebook.com/commerce/listing/1024766013340116/",
       "priceChanged": 1,
       "priceChangedAt": "2026-06-29 14:03:22",
       "hidden": 0,
       "created_at": "2026-06-27 12:31:56",
-      "lastSeen": "2026-07-01T01:08:46.101Z"
+      "lastSeen": "2026-07-01T11:08:49.090Z"
     },
     {
       "adID": "KLOV-545491",
@@ -1023,20 +1043,20 @@
       "source": "FB",
       "authorUrl": null,
       "author": "Clayton Lacey",
-      "postedTime": "2026-06-25T01:04:59.797Z",
+      "postedTime": "2026-06-25T11:05:03.987Z",
       "title": "Atari Hard Drivin upright project working needs cabinet repair no trades",
       "description": "This is a project I am willing to pass on to anyone who wants to restore it. Monitor chassis recapped the tube is original with burn in on screen text and gauges only the text is noticeable during gameplay. The bad the base of the seat and cabinet need repaired or replacing so listing as a project that works and plays the switch on third gear is flaky so currently disabled in settings. No back door or monitor door on the top. No trades.",
       "price": "$500",
       "lat": 33.2442813,
       "lon": -86.8163773,
       "location": "ALABASTER, AL",
-      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.30808-6/729964610_27722897317303315_769344303372621387_n.jpg?stp=dst-jpg_tt6&cstp=mx1537x2048&ctp=s590x590&_nc_cat=102&ccb=1-7&_nc_sid=aa7b47&_nc_ohc=IlbgpjXZlqsQ7kNvwHJfZeL&_nc_oc=AdpP2djB_1tDNRAvIADxk2UFjdChpUfhk9E2tT3B1DTdvS_oKJQs-95H_wy-jd9IAGs&_nc_zt=23&_nc_ht=scontent-dfw6-1.xx&_nc_gid=2S1mwxLC6g8-p6BOyLtE-Q&_nc_ss=7b2a8&oh=00_AQDJFukAOub4jSy_OPyFrDc-O4eiAUiy64OBk3eXeBGT2Q&oe=6A4A3101",
+      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.30808-6/729964610_27722897317303315_769344303372621387_n.jpg?stp=dst-jpg_tt6&cstp=mx1537x2048&ctp=s590x590&_nc_cat=102&ccb=1-7&_nc_sid=aa7b47&_nc_ohc=IlbgpjXZlqsQ7kNvwHJfZeL&_nc_oc=AdpP2djB_1tDNRAvIADxk2UFjdChpUfhk9E2tT3B1DTdvS_oKJQs-95H_wy-jd9IAGs&_nc_zt=23&_nc_ht=scontent-dfw6-1.xx&_nc_gid=wr9NsIdHvPtrtgTfRXllpA&_nc_ss=7b2a8&oh=00_AQBQ8rXr5ERdZyp0AqBxmQ8HpsIqBt5mOgY-_Qz392jxHQ&oe=6A4AD9C1",
       "adUrl": "https://www.facebook.com/commerce/listing/1288483403087344/",
       "priceChanged": 0,
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-25 11:18:09",
-      "lastSeen": "2026-07-01T01:05:00.068Z"
+      "lastSeen": "2026-07-01T11:05:04.530Z"
     }
   ]
 }
