@@ -1000,10 +1000,40 @@
       }
 
       .topSpriteToolbar {
-        flex-wrap: nowrap;
-        overflow-x: auto;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 5px 6px;
+        overflow-x: visible;
         overflow-y: visible;
-        scrollbar-width: thin;
+        scrollbar-width: auto;
+      }
+
+      .topSpriteToolbar .toolIconButton,
+      .topSpriteToolbar button.action.toolIconButton {
+        flex: 0 0 32px;
+        width: 32px;
+        min-width: 32px;
+        height: 32px;
+      }
+
+      .topSpriteToolbar .toolIconButton svg,
+      .topSpriteToolbar button.action.toolIconButton svg {
+        flex: 0 0 auto;
+        width: 26px;
+        height: 26px;
+      }
+
+      .topSpriteToolbar .toolbarMenuWrap,
+      .topSpriteToolbar .paintToolWrap {
+        flex: 0 0 auto;
+      }
+
+      .topSpriteToolbar .toolDivider {
+        flex: 0 0 1px;
+      }
+
+      .topSpriteToolbar .toolbarSpacer {
+        display: none;
       }
 
       .verticalResizer {
