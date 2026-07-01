@@ -296,7 +296,9 @@
     }
 
     .gridEditArea .gridWrap {
-      flex: 0 1 auto;
+      flex: 1 1 auto;
+      min-width: 0;
+      max-width: 100%;
     }
 
     .spriteToolbar {
@@ -377,9 +379,34 @@
     .gridWrap {
       overflow: auto;
       width: 100%;
-      max-width: none;
+      max-width: 100%;
       max-height: 760px;
       position: relative;
+      overscroll-behavior: contain;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-gutter: stable both-edges;
+      scrollbar-color: var(--border) #0f1218;
+      scrollbar-width: thin;
+    }
+
+    .gridWrap::-webkit-scrollbar {
+      width: 12px;
+      height: 12px;
+    }
+
+    .gridWrap::-webkit-scrollbar-track {
+      background: #0f1218;
+      border-radius: 999px;
+    }
+
+    .gridWrap::-webkit-scrollbar-thumb {
+      background: var(--border);
+      border: 2px solid #0f1218;
+      border-radius: 999px;
+    }
+
+    .gridWrap::-webkit-scrollbar-corner {
+      background: #0f1218;
     }
 
     .pastePreviewCanvas {
@@ -1040,6 +1067,34 @@
         display: none;
       }
 
+      .gridPanel,
+      .sideStack,
+      .fullWidth {
+        min-width: 0;
+        max-width: 100%;
+      }
+
+      .gridPanel {
+        overflow: hidden;
+      }
+
+      .gridEditArea {
+        display: block;
+        width: 100%;
+        min-width: 0;
+        overflow: hidden;
+      }
+
+      .gridEditArea .gridWrap {
+        width: 100%;
+        max-width: 100%;
+        max-height: clamp(300px, 58vh, 560px);
+        overflow: scroll;
+        border: 1px solid var(--border);
+        border-radius: 7px;
+        touch-action: pan-x pan-y;
+      }
+
       .sideStack,
       .opcodePanel,
       .tabArea,
@@ -1076,7 +1131,8 @@
       }
 
       .fullWidth {
-        width: var(--editor-workspace-width, 100%);
+        width: 100%;
+        max-width: 100%;
       }
 
       .exportBox {
@@ -1384,8 +1440,18 @@
 
     function syncWorkspaceWidth() {
       if (!topLayout) return;
+      const viewportWidth = Math.ceil(document.documentElement.clientWidth || window.innerWidth || 0);
+
+      // On mobile, keep the page itself locked to the viewport and let the
+      // sprite grid scroll inside .gridWrap. Otherwise a wide sprite makes the
+      // whole document wider, which hides the useful grid scrollbars off-screen.
+      if (window.matchMedia('(max-width: 900px)').matches) {
+        document.documentElement.style.setProperty('--editor-workspace-width', viewportWidth + 'px');
+        return;
+      }
+
       const workspaceWidth = Math.ceil(Math.max(
-        document.documentElement.clientWidth || 0,
+        viewportWidth,
         topLayout.getBoundingClientRect().width || 0,
         topLayout.scrollWidth || 0
       ));

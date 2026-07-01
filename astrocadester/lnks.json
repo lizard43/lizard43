@@ -1,10 +1,16 @@
 {
   "title": "Hidden Links",
   "links": [
-    { "label": "Field Guide Home", "href": "index.html" },
-    { "label": "Machine Model", "href": "machine-model.html" },
-    { "label": "90708 Game Board", "href": "90708.html" },
-    { "label": "91354 CPU Board", "href": "91354.html" },
-    { "label": "91355 Pattern Board", "href": "91355.html" }
+    { "label": "Field Guide Home", "href": "/astrocadester/fg/index.html" },
+    { "label": "wow sprites", "href": "/astrocadester/astrocade_2bpp_sprite_editor.html?lib=wow_2bpp_sprite_library.json" },
+    { "label": "gorf sprites", "href": "/astrocadester/astrocade_2bpp_sprite_editor.html?lib=gorf_2bpp_sprite_library.json" },
+    { "label": "bally2wav", "href": "/astrocadester/ballywav2basic.html" },
+    { "label": "gamester", "href": "/gamester" },
+    { "label": "adster", "href": "/adster" },
+    { "label": "priceguide/pins", "href": "/priceguide/pins" },
+    { "label": "priceguide/vag", "href": "/priceguide/vag" },
+    { "label": "priceguide/klov", "href": "/priceguide/klov" },
+    { "label": "ravster", "href": "/ravster" },
+    { "label": "mazster", "href": "/mazster" }
   ]
 }
