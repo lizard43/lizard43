@@ -41,6 +41,8 @@
     closeLabel: "Close chapter map",
     items: [
       { label: "Intro", href: JSLOC + "../index.html" },
+      { label: "Build Environment", href: JSLOC + "../sw/build-environment.html" },
+      { label: "Build Environment", href: JSLOC + "../sw/build-environment.html" },
       {
         label: "Machine Model", href: JSLOC + "../hw/machine-model.html",
         items: [
@@ -57,8 +59,6 @@
       { label: "Inputs and DIP Switches", href: JSLOC + "../hw/inputs-dip-switches.html" },
       { label: "Sound", href: JSLOC + "../hw/sound.html" },
       { label: "Pattern Board", href: JSLOC + "../hw/pattern-board.html" },
-      { label: "Build Environment", href: JSLOC + "../sw/build-environment.html" },
-      { label: "Build Environment", href: JSLOC + "../sw/build-environment.html" },
       { label: "References", href: JSLOC + "../refs/references.html" },
     ]
   };
