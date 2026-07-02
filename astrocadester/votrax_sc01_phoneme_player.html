@@ -116,6 +116,29 @@
       padding-inline: 10px;
     }
 
+    .toolbarRomLabel {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin: 0;
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .04em;
+      flex: 0 0 auto;
+      min-height: 32px;
+    }
+
+    .toolbarRomSelect {
+      width: auto;
+      min-width: 92px;
+      max-width: 110px;
+      min-height: 32px;
+      padding: 5px 8px;
+      font-size: 12px;
+    }
+
     @media (max-width: 1280px) {
       .topToolbar .action {
         min-height: 34px;
@@ -664,55 +687,6 @@
       min-height: 0;
     }
 
-
-    .romTools {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(120px, 160px);
-      gap: 8px;
-      align-items: center;
-      padding: 8px;
-      background: #0f1218;
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      margin: 8px 0;
-      min-width: 0;
-    }
-
-    .romModelLabel {
-      margin: 0;
-      display: grid;
-      gap: 3px;
-      color: var(--muted);
-      font-size: 12px;
-      min-width: 120px;
-    }
-
-    .romModelLabel select {
-      min-height: 32px;
-      padding: 5px 8px;
-      font-size: 12px;
-    }
-
-    .romStatus {
-      min-width: 0;
-      color: var(--muted);
-      font-size: 12px;
-      line-height: 1.35;
-      overflow-wrap: anywhere;
-    }
-
-    .romStatus.loaded {
-      color: var(--accent);
-    }
-
-    .romStatus.warn {
-      color: var(--gold);
-    }
-
-    .romStatus.bad {
-      color: var(--danger);
-    }
-
     .romParamGrid {
       display: grid;
       grid-template-columns: repeat(6, minmax(0, 1fr));
@@ -804,8 +778,7 @@
       }
 
       .modeTools,
-      .phraseTools,
-      .romTools {
+      .phraseTools {
         grid-template-columns: 1fr 1fr;
       }
 
@@ -834,8 +807,7 @@
       .row,
       .statusGrid,
       .modeTools,
-      .phraseTools,
-      .romTools {
+      .phraseTools {
         grid-template-columns: 1fr;
       }
 
@@ -872,6 +844,13 @@
           <path fill="currentColor" d="M5 20h14v-2H5v2ZM12 3v10.2l-4-4-1.4 1.4L12 16l5.4-5.4L16 9.2l-4 4V3h0Z" />
         </svg>
       </button>
+      <span class="toolDivider" aria-hidden="true"></span>
+      <label class="toolbarRomLabel" for="builtInRomSelect"><span>ROM</span>
+        <select id="builtInRomSelect" class="toolbarRomSelect" title="Select built-in Votrax ROM model">
+          <option value="sc01" selected>SC-01</option>
+          <option value="sc01a">SC-01A</option>
+        </select>
+      </label>
       <span class="toolDivider" aria-hidden="true"></span>
       <button class="action" id="copyDbBtn">Copy .DB</button>
       <button class="action" id="loadVoxBtn">Load Vox/ASM</button>
@@ -916,15 +895,6 @@
             <button class="action" id="loadPhraseBtn" type="button" disabled>Load Phrase</button>
             <button class="action primary" id="playPhraseBtn" type="button" disabled>Play Phrase</button>
           </div>
-        </div>
-        <div class="romTools">
-          <div class="romStatus" id="sc01RomStatus">Built-in SC-01 ROM table active.</div>
-          <label class="romModelLabel" for="builtInRomSelect">Built-in ROM
-            <select id="builtInRomSelect">
-              <option value="sc01" selected>SC-01</option>
-              <option value="sc01a">SC-01A</option>
-            </select>
-          </label>
         </div>
         <textarea id="source" spellcheck="false" wrap="off"></textarea>
       </div>
@@ -1054,7 +1024,7 @@
         <div class="small" style="margin-top:10px;">
           The SC-01 chip internally contains its own phoneme timing and articulation behavior. This browser version
           approximates phoneme length, voiced/unvoiced consonants, glides, fricatives, plosives, and pauses using
-          simplified envelopes. Built-in SC-01 / SC-01A ROM tables are available immediately; use the Built-in ROM dropdown to switch the active 64-entry internal phone ROM used for duration, amplitude, formants, noise, and closures.
+          simplified envelopes. Built-in SC-01 / SC-01A ROM tables are available immediately; use the toolbar ROM dropdown to switch the active 64-entry internal phone ROM used for duration, amplitude, formants, noise, and closures.
         </div>
       </div>
     </section>
@@ -1224,7 +1194,7 @@
     const SC01_ROM_SIZE = 0x200;
     // Built-in ROM words imported from votrax-processor.js. These are the 64
     // decoded 64-bit rows for the SC-01 / SC-01A internal phoneme parameter ROMs.
-    // They replace the older embedded hex string, but ZIP/BIN overrides still work.
+    // They replace the older embedded hex string; the current UI uses only these built-in ROMs.
     const VOTRAX_ROM_WORDS = {
         sc01: [
             0x030000e0f0a050a4n, // Phoneme Index 0
