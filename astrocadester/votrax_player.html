@@ -5,6 +5,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Votrax Player</title>
+  <!-- cache-bust-head: source-active-corner-cleanup-20260702-f4a91d -->
   <style>
     :root {
       --bg: #14171c;
@@ -2083,6 +2084,154 @@
       }
     }
 
+
+
+    /* Notes panel is now a first-class toolbar-toggled section under the fixed toolbar. */
+    .notesToggleButton {
+      margin-left: auto;
+      font: 900 18px/1 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    }
+
+    .settingsButton {
+      margin-left: 0 !important;
+    }
+
+    .questionGlyph {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 100%;
+      transform: translateY(-1px);
+    }
+
+    .notesToggleButton.active,
+    .notesToggleButton.active:hover,
+    .notesToggleButton.active:focus-visible {
+      border-color: #d7dee9;
+      background: var(--panel2);
+      color: var(--text);
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .18);
+      outline: none;
+    }
+
+    .notesPanel {
+      grid-column: 1 / -1;
+    }
+
+    .notesPanel.isHidden {
+      display: none !important;
+    }
+
+    .notesPanel.resizablePanel {
+      min-height: 120px;
+    }
+
+
+    /* Source resize + scrollbar fix: source-active-corner-cleanup-20260702-f4a91d
+       Keep the source editor's textarea flexed to the resized pane, and let the
+       textarea itself scroll when the pane is smaller than its contents. */
+    .sourceEditorPanel.resizablePanel {
+      overflow: hidden !important;
+      height: var(--source-pane-height, 332px);
+      min-height: 150px;
+      display: flex !important;
+      flex-direction: column !important;
+    }
+
+    .sourceEditorPanel .sourceTextWrap {
+      flex: 1 1 auto !important;
+      min-height: 0 !important;
+      min-width: 0 !important;
+      display: flex !important;
+      overflow: hidden !important;
+    }
+
+    .sourceEditorPanel #source {
+      flex: 1 1 auto !important;
+      width: 100% !important;
+      height: 100% !important;
+      min-height: 0 !important;
+      max-height: none !important;
+      overflow: auto !important;
+      resize: none !important;
+      scrollbar-color: var(--border) #0f1218;
+      scrollbar-width: thin;
+    }
+
+    .sourceEditorPanel .paneResizeHandle {
+      flex: 0 0 14px !important;
+      min-height: 14px !important;
+    }
+
+    #exportText {
+      overflow: hidden;
+      resize: none;
+    }
+
+
+    /* Edit/source toggle default-off fix: source-active-corner-cleanup-20260702-f4a91d
+       This override must appear after the resizable source flex rules. The
+       previous late .sourceEditorPanel.resizablePanel { display:flex!important }
+       rule beat .sourceEditorPanel.isHidden and made the editor always visible. */
+    .sourceEditorPanel.resizablePanel.isHidden {
+      display: none !important;
+    }
+
+    .sourceEditorPanel.resizablePanel:not(.isHidden) {
+      display: flex !important;
+    }
+
+
+    /* Source active-corner cleanup: source-active-corner-cleanup-20260702-f4a91d
+       Keep the editor hidden by default and resizable, but remove the browser
+       textarea chrome/focus ring/scrollbar corner artifacts when the pencil
+       panel is open. */
+    .sourceEditorPanel.resizablePanel:not(.isHidden) {
+      background: var(--black) !important;
+      border-radius: 0 !important;
+    }
+
+    .sourceEditorPanel .sourceTextWrap {
+      background: var(--black) !important;
+      border-radius: 0 !important;
+    }
+
+    .sourceEditorPanel #source,
+    .sourceEditorPanel #source:focus,
+    .sourceEditorPanel #source:focus-visible,
+    .sourceEditorPanel #source:active {
+      border: 0 !important;
+      border-radius: 0 !important;
+      outline: none !important;
+      box-shadow: none !important;
+      background: var(--black) !important;
+      appearance: none;
+      -webkit-appearance: none;
+      scrollbar-color: var(--border) var(--black);
+      scrollbar-width: thin;
+    }
+
+    .sourceEditorPanel #source::-webkit-scrollbar {
+      width: 10px;
+      height: 10px;
+    }
+
+    .sourceEditorPanel #source::-webkit-scrollbar-track,
+    .sourceEditorPanel #source::-webkit-scrollbar-corner {
+      background: var(--black);
+    }
+
+    .sourceEditorPanel #source::-webkit-scrollbar-thumb {
+      background: var(--border);
+      border: 2px solid var(--black);
+      border-radius: 999px;
+    }
+
+    .sourceEditorPanel #source::-webkit-scrollbar-thumb:hover {
+      background: var(--muted);
+    }
+
   </style>
 </head>
 
@@ -2116,8 +2265,7 @@
       </button>
       <button class="action iconButton" id="wavBtn" title="Download WAV render" aria-label="Download WAV">
         <svg viewBox="0 0 24 24" aria-hidden="true">
-          <path fill="currentColor" d="M5 20h14v-2H5v2ZM12 3v10.2l-4-4-1.4 1.4L12 16l5.4-5.4L16 9.2l-4 4V3h0Z" />
-        </svg>
+          <path fill="currentColor" d="M19 20H5c-1.1 0-2-.9-2-2v-4h2v4h14v-4h2v4c0 1.1-.9 2-2 2ZM13 4v8.17l3.59-3.58L18 10l-6 6-6-6 1.41-1.41L11 12.17V4h2Z" /></svg>
       </button>
       <button class="action iconButton" id="exportCopyBtn" title="Copy .DB" aria-label="Copy .DB">
         <svg viewBox="0 0 24 24" aria-hidden="true">
@@ -2128,6 +2276,9 @@
         <svg viewBox="0 0 24 24" aria-hidden="true">
           <path fill="currentColor" d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12ZM8 4l1-1h6l1 1h4v2H4V4h4Zm2 5h2v9h-2V9Zm4 0h2v9h-2V9Z" />
         </svg>
+      </button>
+      <button class="action iconButton notesToggleButton" id="notesToggleBtn" title="Show notes" aria-label="Show notes" aria-expanded="false">
+        <span class="questionGlyph" aria-hidden="true">?</span>
       </button>
       <input id="voxFileInput" type="file" accept=".txt,.asm,.inc,text/plain" hidden />
       <button class="action iconButton settingsButton" id="settingsBtn" title="Show playback controls / stats" aria-label="Show playback controls / stats" aria-expanded="false">
@@ -2146,6 +2297,62 @@
         </select>
       </label>
     </div>
+
+    <section class="panel stack rightPanel notesPanel resizablePanel isHidden" id="notesPanel" aria-label="Playback notes" aria-hidden="true" data-pane-name="decode" style="--decode-pane-height: 420px; --decode-pane-height-mobile: 360px;">
+      <div class="tabBar" role="tablist" aria-label="right side tabs">
+        <button class="tabButton active" type="button" data-tab="notes">notes</button>
+      </div>
+
+      <div class="tabPane" id="decodedPane" role="tabpanel" hidden>
+        <div class="decodedList" id="decodedList"></div>
+      </div>
+
+      <div class="tabPane" id="tablePane" role="tabpanel" hidden>
+        <div class="phonemeTableWrap">
+          <table>
+            <thead>
+            </thead>
+            <tbody id="phonemeTableBody"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="tabPane" id="tokensPane" role="tabpanel" hidden>
+        <div class="phonemeTableWrap">
+          <table>
+            <thead>
+            </thead>
+            <tbody id="tokenTableBody"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="tabPane active" id="notesPane" role="tabpanel">
+        <h2>Playback notes</h2>
+        <div class="callout cyan">
+          Parser accepts <span class="mono">.DB</span>, <span class="mono">DEFB</span>, <span class="mono">$3F</span>,
+          <span class="mono">0x3F</span>, <span class="mono">3FH</span>, binary <span class="mono">00111111B</span>,
+          raw decimal CSV lines,  voice-symbol lines such as <span class="mono">\NTB2 \HE</span>, whole Vox Data
+          text files, known raw WoW disassembly speech strings such as <span class="mono">L8E78</span>, and direct SC-01 ASM
+          phrase blocks such as <span class="mono">ALLBSE</span>.
+        </div>
+        <div class="callout cyan" style="margin-top:8px;">
+          This page uses the browser <span class="mono">AudioContext</span> and a small formant/noise synthesizer. It is
+          meant for fast Astrocade phrase prototyping from ROM byte streams, not cycle-accurate Votrax SC-01 emulation.
+        </div>
+        <div class="callout gold" style="margin-top:8px;">
+          Click any green phoneme pill in the Decoded, phonemes, or tokens tabs to audition it. Use Add when
+          you want to append raw SC-01 phonemes or  script-layer tokens to the phrase.
+        </div>
+        <div class="small" style="margin-top:10px;">
+          The SC-01 chip internally contains its own phoneme timing and articulation behavior. This browser version
+          approximates phoneme length, voiced/unvoiced consonants, glides, fricatives, plosives, and pauses using
+          simplified envelopes. Built-in SC-01 / SC-01A ROM tables are available immediately; use the toolbar ROM dropdown to switch the active 64-entry internal phone ROM used for duration, amplitude, formants, noise, and closures.
+        </div>
+      </div>
+      <div class="paneResizeHandle" role="separator" tabindex="0" aria-orientation="horizontal" aria-label="Resize decoded tabs pane" title="Drag to resize decoded tabs pane" data-resize-pane="decode"></div>
+    </section>
+
 
     <section class="toolbarPlaybackPanel resizablePanel isHidden" id="playbackControls" aria-label="Playback controls and stats" aria-hidden="true" data-pane-name="settings" style="--settings-pane-height: 500px; --settings-pane-height-mobile: 420px;">
       <div class="collapsibleControlsInner">
@@ -2258,60 +2465,6 @@
       </section>
     </div>
 
-    <section class="panel stack rightPanel resizablePanel" data-pane-name="decode" style="--decode-pane-height: 420px; --decode-pane-height-mobile: 360px;">
-      <div class="tabBar" role="tablist" aria-label="right side tabs">
-        <button class="tabButton active" type="button" data-tab="notes">notes</button>
-      </div>
-
-      <div class="tabPane" id="decodedPane" role="tabpanel" hidden>
-        <div class="decodedList" id="decodedList"></div>
-      </div>
-
-      <div class="tabPane" id="tablePane" role="tabpanel" hidden>
-        <div class="phonemeTableWrap">
-          <table>
-            <thead>
-            </thead>
-            <tbody id="phonemeTableBody"></tbody>
-          </table>
-        </div>
-      </div>
-
-      <div class="tabPane" id="tokensPane" role="tabpanel" hidden>
-        <div class="phonemeTableWrap">
-          <table>
-            <thead>
-            </thead>
-            <tbody id="tokenTableBody"></tbody>
-          </table>
-        </div>
-      </div>
-
-      <div class="tabPane active" id="notesPane" role="tabpanel">
-        <h2>Playback notes</h2>
-        <div class="callout cyan">
-          Parser accepts <span class="mono">.DB</span>, <span class="mono">DEFB</span>, <span class="mono">$3F</span>,
-          <span class="mono">0x3F</span>, <span class="mono">3FH</span>, binary <span class="mono">00111111B</span>,
-          raw decimal CSV lines,  voice-symbol lines such as <span class="mono">\NTB2 \HE</span>, whole Vox Data
-          text files, known raw WoW disassembly speech strings such as <span class="mono">L8E78</span>, and direct SC-01 ASM
-          phrase blocks such as <span class="mono">ALLBSE</span>.
-        </div>
-        <div class="callout cyan" style="margin-top:8px;">
-          This page uses the browser <span class="mono">AudioContext</span> and a small formant/noise synthesizer. It is
-          meant for fast Astrocade phrase prototyping from ROM byte streams, not cycle-accurate Votrax SC-01 emulation.
-        </div>
-        <div class="callout gold" style="margin-top:8px;">
-          Click any green phoneme pill in the Decoded, phonemes, or tokens tabs to audition it. Use Add when
-          you want to append raw SC-01 phonemes or  script-layer tokens to the phrase.
-        </div>
-        <div class="small" style="margin-top:10px;">
-          The SC-01 chip internally contains its own phoneme timing and articulation behavior. This browser version
-          approximates phoneme length, voiced/unvoiced consonants, glides, fricatives, plosives, and pauses using
-          simplified envelopes. Built-in SC-01 / SC-01A ROM tables are available immediately; use the toolbar ROM dropdown to switch the active 64-entry internal phone ROM used for duration, amplitude, formants, noise, and closures.
-        </div>
-      </div>
-      <div class="paneResizeHandle" role="separator" tabindex="0" aria-orientation="horizontal" aria-label="Resize decoded tabs pane" title="Drag to resize decoded tabs pane" data-resize-pane="decode"></div>
-    </section>
   </div>
 
   <div id="phonemeInfoTip" class="phonemeInfoTip" role="tooltip" aria-hidden="true"></div>
@@ -3059,6 +3212,8 @@ L8E78:
     const sampleMenu = document.getElementById('sampleMenu');
     const sourceToggleBtn = document.getElementById('sourceToggleBtn');
     const sourceEditorPanel = document.getElementById('sourceEditorPanel');
+    const notesToggleBtn = document.getElementById('notesToggleBtn');
+    const notesPanel = document.getElementById('notesPanel');
     const sc01RomStatus = document.getElementById('sc01RomStatus');
 
     let importedPhrases = [];
@@ -5611,18 +5766,31 @@ L8E78:
       return nextHeight;
     }
 
+    function measureTextareaContentHeight(el, minHeight = 0) {
+      if (!el) return minHeight;
+      const oldHeight = el.style.height;
+      const oldOverflowY = el.style.overflowY;
+      el.style.height = 'auto';
+      el.style.overflowY = 'hidden';
+      const nextHeight = Math.max(minHeight, el.scrollHeight + 2);
+      el.style.height = oldHeight;
+      el.style.overflowY = oldOverflowY;
+      return nextHeight;
+    }
+
     function fitSourceEditorToContent(force = false) {
       if (!sourceEditorPanel || !sourceEl || sourceEditorPanel.classList.contains('isHidden')) return;
       if (!force && sourceEditorPanel.dataset.userSized === 'true') return;
-      autoFitTextarea(sourceEl, 44);
-      const wrap = sourceEditorPanel.querySelector('.sourceTextWrap');
       const handle = sourceEditorPanel.querySelector('.paneResizeHandle');
-      const wrapHeight = wrap ? wrap.getBoundingClientRect().height : sourceEl.getBoundingClientRect().height;
+      const textHeight = measureTextareaContentHeight(sourceEl, 44);
       const handleHeight = handle ? Math.max(14, handle.getBoundingClientRect().height) : 14;
-      const total = Math.ceil(wrapHeight + handleHeight + 6);
+      const borderPad = Math.max(0, sourceEditorPanel.offsetHeight - sourceEditorPanel.clientHeight);
+      const total = Math.ceil(textHeight + handleHeight + borderPad + 8);
       sourceEditorPanel.style.setProperty('--source-pane-height', total + 'px');
       sourceEditorPanel.style.setProperty('--source-pane-height-mobile', total + 'px');
       sourceEditorPanel.style.height = total + 'px';
+      sourceEl.style.height = '';
+      sourceEl.style.overflowY = '';
     }
 
     function fitTimelineToContent(force = false) {
@@ -5721,7 +5889,7 @@ L8E78:
 
 
 
-    const VOTRAX_UI_BUILD = 'aligned-load-autofit-20260702';
+    const VOTRAX_UI_BUILD = 'source-active-corner-cleanup-20260702-f4a91d';
     const VOTRAX_UI_STORAGE_PREFIX = 'votrax.' + VOTRAX_UI_BUILD + '.';
 
     function resetPaneCacheForThisBuild() {
@@ -5986,6 +6154,20 @@ L8E78:
     }
 
 
+    function setNotesVisible(visible) {
+      if (!notesPanel || !notesToggleBtn) return;
+      notesPanel.classList.toggle('isHidden', !visible);
+      notesPanel.setAttribute('aria-hidden', visible ? 'false' : 'true');
+      notesToggleBtn.classList.toggle('active', visible);
+      notesToggleBtn.setAttribute('aria-expanded', visible ? 'true' : 'false');
+      notesToggleBtn.title = visible ? 'Hide notes' : 'Show notes';
+      notesToggleBtn.setAttribute('aria-label', notesToggleBtn.title);
+      if (visible) {
+        showTab('notes');
+        scheduleContentFit();
+      }
+    }
+
     function setSourceEditorVisible(visible) {
       if (!sourceEditorPanel || !sourceToggleBtn) return;
       sourceEditorPanel.classList.toggle('isHidden', !visible);
@@ -5995,7 +6177,7 @@ L8E78:
       sourceToggleBtn.title = visible ? 'Hide source editor' : 'Show source editor';
       sourceToggleBtn.setAttribute('aria-label', sourceToggleBtn.title);
       if (visible) {
-        scheduleContentFit();
+        scheduleContentFit({ forceSource: sourceEditorPanel.dataset.userSized !== 'true' });
         sourceEl.focus();
         if (sourceInsertPos === null || sourceInsertPos === undefined) sourceInsertPos = sourceEl.value.length;
         try { sourceEl.setSelectionRange(sourceInsertPos, sourceInsertPos); } catch (_) { }
@@ -6070,6 +6252,9 @@ L8E78:
     });
     if (settingsBtn && playbackControls) settingsBtn.addEventListener('click', () => {
       setPlaybackControlsVisible(playbackControls.classList.contains('isHidden'));
+    });
+    if (notesToggleBtn && notesPanel) notesToggleBtn.addEventListener('click', () => {
+      setNotesVisible(notesPanel.classList.contains('isHidden'));
     });
     if (sampleToggleBtn && sampleMenu) sampleToggleBtn.addEventListener('click', ev => {
       ev.preventDefault();
@@ -6177,6 +6362,12 @@ L8E78:
         sampleToggleBtn?.focus();
         return;
       }
+      if (ev.key === 'Escape' && notesPanel && !notesPanel.classList.contains('isHidden')) {
+        ev.preventDefault();
+        setNotesVisible(false);
+        notesToggleBtn?.focus();
+        return;
+      }
       if (ev.target && ['TEXTAREA', 'INPUT', 'SELECT'].includes(ev.target.tagName)) return;
       if (ev.code === 'Space') {
         ev.preventDefault();
@@ -6191,6 +6382,8 @@ L8E78:
     renderSampleMenu();
     setSampleMenuVisible(false);
     setSourceEditorVisible(false);
+    // Source editor is intentionally default-off; the pencil button toggles it on.
+    setNotesVisible(false);
     showTab('notes');
     resetPaneCacheForThisBuild();
     installPaneResizers();
@@ -6208,5 +6401,5 @@ L8E78:
   </script>
 </body>
 
-<!-- cache-bust: aligned-load-autofit-20260702 -->
+<!-- cache-bust: source-active-corner-cleanup-20260702-f4a91d -->
 </html>
