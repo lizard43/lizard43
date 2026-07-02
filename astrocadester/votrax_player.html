@@ -1373,6 +1373,125 @@
       white-space: nowrap;
     }
 
+
+    /* Pane resizing: source editor and decoded/tab area get their own vertical grabbers. */
+    .sourceEditorPanel,
+    .rightPanel.resizablePanel {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-content: stretch;
+      overflow: hidden;
+      min-height: 150px;
+    }
+
+    .sourceEditorPanel {
+      height: var(--source-pane-height, 332px);
+    }
+
+    .rightPanel.resizablePanel {
+      height: var(--decode-pane-height, 420px);
+      min-height: 180px;
+    }
+
+    .sourceTextWrap {
+      flex: 1 1 auto;
+      min-height: 0;
+      display: flex;
+      min-width: 0;
+    }
+
+    #source {
+      flex: 1 1 auto;
+      min-height: 0;
+      height: 100%;
+      resize: none;
+      overflow: auto;
+    }
+
+    .paneResizeHandle {
+      flex: 0 0 14px;
+      height: 14px;
+      min-height: 14px;
+      margin: 7px -6px -6px;
+      border-radius: 0 0 8px 8px;
+      border-top: 1px solid var(--border);
+      background: linear-gradient(to bottom, rgba(255,255,255,.04), rgba(0,0,0,.08));
+      cursor: ns-resize;
+      touch-action: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      user-select: none;
+    }
+
+    .paneResizeHandle::before {
+      content: '';
+      width: 58px;
+      height: 4px;
+      border-top: 1px solid rgba(155, 167, 182, .75);
+      border-bottom: 1px solid rgba(155, 167, 182, .45);
+      opacity: .75;
+    }
+
+    .paneResizeHandle:hover,
+    .paneResizeHandle:focus-visible,
+    .paneResizeHandle.isDragging {
+      background: rgba(94, 224, 131, .09);
+      outline: none;
+    }
+
+    .paneResizeHandle:hover::before,
+    .paneResizeHandle:focus-visible::before,
+    .paneResizeHandle.isDragging::before {
+      border-color: var(--accent);
+      opacity: 1;
+    }
+
+    body.isPaneResizing {
+      cursor: ns-resize;
+      user-select: none;
+    }
+
+    .rightPanel.resizablePanel .tabBar {
+      flex: 0 0 auto;
+    }
+
+    .rightPanel.resizablePanel .tabPane.active {
+      flex: 1 1 auto;
+      min-height: 0;
+      overflow: auto;
+    }
+
+    .rightPanel.resizablePanel #decodedPane.active {
+      overflow: hidden;
+    }
+
+    .rightPanel.resizablePanel #decodedPane .decodedList,
+    .rightPanel.resizablePanel #tablePane .phonemeTableWrap,
+    .rightPanel.resizablePanel #tokensPane .phonemeTableWrap {
+      flex: 1 1 auto;
+      max-height: none;
+      min-height: 0;
+      overflow: auto;
+    }
+
+    .rightPanel.resizablePanel #notesPane.active {
+      padding-right: 2px;
+      scrollbar-color: var(--border) #0f1218;
+      scrollbar-width: thin;
+    }
+
+    @media (max-width: 520px) {
+      .sourceEditorPanel {
+        height: var(--source-pane-height-mobile, 280px);
+      }
+
+      .rightPanel.resizablePanel {
+        height: var(--decode-pane-height-mobile, 360px);
+      }
+    }
+
   </style>
 </head>
 
@@ -1502,15 +1621,16 @@
       </div>
     </section>
 
-    <section class="panel stack">
-      <div>
+    <section class="panel stack sourceEditorPanel resizablePanel" data-pane-name="source" style="--source-pane-height: 332px; --source-pane-height-mobile: 280px;">
+      <div class="sourceTextWrap">
         <textarea id="source" aria-label="Byte dump / phrase source" spellcheck="false" wrap="off"></textarea>
       </div>
+      <div class="paneResizeHandle" role="separator" tabindex="0" aria-orientation="horizontal" aria-label="Resize source editor pane" title="Drag to resize source editor pane" data-resize-pane="source"></div>
 
 
     </section>
 
-    <section class="panel stack rightPanel">
+    <section class="panel stack rightPanel resizablePanel" data-pane-name="decode" style="--decode-pane-height: 420px; --decode-pane-height-mobile: 360px;">
       <div class="tabBar" role="tablist" aria-label="right side tabs">
         <button class="tabButton active" type="button" data-tab="decoded">decoded</button>
         <button class="tabButton" type="button" data-tab="table">phonemes</button>
@@ -1565,6 +1685,7 @@
           simplified envelopes. Built-in SC-01 / SC-01A ROM tables are available immediately; use the toolbar ROM dropdown to switch the active 64-entry internal phone ROM used for duration, amplitude, formants, noise, and closures.
         </div>
       </div>
+      <div class="paneResizeHandle" role="separator" tabindex="0" aria-orientation="horizontal" aria-label="Resize decoded tabs pane" title="Drag to resize decoded tabs pane" data-resize-pane="decode"></div>
     </section>
   </div>
 
@@ -4093,6 +4214,118 @@ L8E78:
       settingsBtn.setAttribute('aria-label', settingsBtn.title);
     }
 
+
+
+    function installPaneResizers() {
+      const configs = {
+        source: {
+          selector: '[data-pane-name="source"]',
+          cssVar: '--source-pane-height',
+          mobileCssVar: '--source-pane-height-mobile',
+          storageKey: 'votrax.sourcePaneHeight',
+          min: 150,
+          maxRatio: 0.82
+        },
+        decode: {
+          selector: '[data-pane-name="decode"]',
+          cssVar: '--decode-pane-height',
+          mobileCssVar: '--decode-pane-height-mobile',
+          storageKey: 'votrax.decodePaneHeight',
+          min: 180,
+          maxRatio: 0.86
+        }
+      };
+
+      function cssPixelValue(el, prop) {
+        const value = getComputedStyle(el).getPropertyValue(prop).trim();
+        const n = parseFloat(value);
+        return Number.isFinite(n) ? n : 0;
+      }
+
+      function paneMaxHeight(cfg) {
+        return Math.max(cfg.min, Math.floor(window.innerHeight * cfg.maxRatio));
+      }
+
+      function setPaneHeight(pane, cfg, height) {
+        const max = paneMaxHeight(cfg);
+        const h = Math.max(cfg.min, Math.min(max, Math.round(height)));
+        pane.style.setProperty(cfg.cssVar, h + 'px');
+        pane.style.setProperty(cfg.mobileCssVar, h + 'px');
+        pane.style.height = h + 'px';
+        try { localStorage.setItem(cfg.storageKey, String(h)); } catch (_) { }
+      }
+
+      function getPaneHeight(pane, cfg) {
+        return pane.getBoundingClientRect().height || cssPixelValue(pane, cfg.cssVar) || cfg.min;
+      }
+
+      for (const [name, cfg] of Object.entries(configs)) {
+        const pane = document.querySelector(cfg.selector);
+        const handle = document.querySelector(`[data-resize-pane="${name}"]`);
+        if (!pane || !handle) continue;
+
+        try {
+          const saved = Number(localStorage.getItem(cfg.storageKey));
+          if (Number.isFinite(saved) && saved > 0) setPaneHeight(pane, cfg, saved);
+        } catch (_) { }
+
+        let startY = 0;
+        let startHeight = 0;
+        let pointerId = null;
+
+        const startDrag = ev => {
+          if (ev.button !== undefined && ev.button !== 0) return;
+          ev.preventDefault();
+          pointerId = ev.pointerId;
+          startY = ev.clientY;
+          startHeight = getPaneHeight(pane, cfg);
+          handle.classList.add('isDragging');
+          document.body.classList.add('isPaneResizing');
+          try { handle.setPointerCapture(pointerId); } catch (_) { }
+        };
+
+        const moveDrag = ev => {
+          if (pointerId === null) return;
+          ev.preventDefault();
+          setPaneHeight(pane, cfg, startHeight + (ev.clientY - startY));
+        };
+
+        const endDrag = ev => {
+          if (pointerId === null) return;
+          try { handle.releasePointerCapture(pointerId); } catch (_) { }
+          pointerId = null;
+          handle.classList.remove('isDragging');
+          document.body.classList.remove('isPaneResizing');
+        };
+
+        handle.addEventListener('pointerdown', startDrag);
+        handle.addEventListener('pointermove', moveDrag);
+        handle.addEventListener('pointerup', endDrag);
+        handle.addEventListener('pointercancel', endDrag);
+        handle.addEventListener('lostpointercapture', endDrag);
+        handle.addEventListener('keydown', ev => {
+          const step = ev.shiftKey ? 40 : 12;
+          if (ev.key === 'ArrowUp') {
+            ev.preventDefault();
+            setPaneHeight(pane, cfg, getPaneHeight(pane, cfg) - step);
+          } else if (ev.key === 'ArrowDown') {
+            ev.preventDefault();
+            setPaneHeight(pane, cfg, getPaneHeight(pane, cfg) + step);
+          } else if (ev.key === 'Home') {
+            ev.preventDefault();
+            setPaneHeight(pane, cfg, cfg.min);
+          }
+        });
+      }
+
+      window.addEventListener('resize', () => {
+        for (const cfg of Object.values(configs)) {
+          const pane = document.querySelector(cfg.selector);
+          if (pane) setPaneHeight(pane, cfg, getPaneHeight(pane, cfg));
+        }
+      });
+    }
+
     function setSampleRowVisible(visible) {
       if (!toolbarSampleRow || !sampleToggleBtn) return;
       toolbarSampleRow.classList.toggle('isHidden', !visible);
@@ -4264,6 +4497,7 @@ L8E78:
     });
 
     setSampleRowVisible(true);
+    installPaneResizers();
     renderPhonemeTable();
     renderWizardTokenTable();
     updateSliderLabels();
