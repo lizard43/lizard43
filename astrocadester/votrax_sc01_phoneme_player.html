@@ -251,22 +251,29 @@
       align-items: center;
     }
 
-    .phraseTools {
-      display: grid;
-      grid-template-columns: minmax(180px, 1fr) auto;
+    .sectionHeader {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
       gap: 8px;
-      align-items: end;
-      padding: 8px;
-      background: #0f1218;
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      margin: 8px 0;
+      margin-bottom: 8px;
     }
 
-    .phraseTools .buttons {
-      justify-content: flex-end;
-      align-items: end;
+    .sectionHeader h2 {
+      margin: 0;
     }
+
+    .smallIconButton {
+      width: 32px;
+      height: 30px;
+      min-height: 30px;
+    }
+
+    .smallIconButton svg {
+      width: 18px;
+      height: 18px;
+    }
+
 
     .modeTools {
       display: grid;
@@ -777,8 +784,7 @@
         position: static;
       }
 
-      .modeTools,
-      .phraseTools {
+      .modeTools {
         grid-template-columns: 1fr 1fr;
       }
 
@@ -806,8 +812,7 @@
 
       .row,
       .statusGrid,
-      .modeTools,
-      .phraseTools {
+      .modeTools {
         grid-template-columns: 1fr;
       }
 
@@ -852,9 +857,7 @@
         </select>
       </label>
       <span class="toolDivider" aria-hidden="true"></span>
-      <button class="action" id="copyDbBtn">Copy .DB</button>
       <button class="action" id="loadVoxBtn">Load Vox/ASM</button>
-      <button class="action" id="importVoxBtn">Import Phrases</button>
       <button class="action" id="clearBtn">Clear</button>
       <input id="voxFileInput" type="file" accept=".txt,.asm,.inc,text/plain" hidden />
       <span class="toolDivider" aria-hidden="true"></span>
@@ -888,13 +891,6 @@
               <option value="">No imported phrases</option>
             </select>
           </label>
-        </div>
-        <div class="phraseTools">
-          <div class="small" id="phraseInfo">Load or paste a Wizard Vox Data text file, then use Import Phrases.</div>
-          <div class="buttons">
-            <button class="action" id="loadPhraseBtn" type="button" disabled>Load Phrase</button>
-            <button class="action primary" id="playPhraseBtn" type="button" disabled>Play Phrase</button>
-          </div>
         </div>
         <textarea id="source" spellcheck="false" wrap="off"></textarea>
       </div>
@@ -1031,7 +1027,14 @@
   </div>
 
   <section class="panel footerPanel">
-    <h2>Normalized .DB export</h2>
+    <div class="sectionHeader">
+      <h2>Normalized .DB export</h2>
+      <button class="action iconButton smallIconButton" id="exportCopyBtn" title="Copy normalized .DB" aria-label="Copy normalized .DB">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path fill="currentColor" d="M16 1H4c-1.1 0-2 .9-2 2v12h2V3h12V1Zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2Zm0 16H8V7h11v14Z" />
+        </svg>
+      </button>
+    </div>
     <textarea id="exportText" readonly wrap="off" style="min-height:150px"></textarea>
   </section>
 
@@ -1685,7 +1688,7 @@ L8E78:
     const loadPhraseBtn = document.getElementById('loadPhraseBtn');
     const playPhraseBtn = document.getElementById('playPhraseBtn');
     const loadVoxBtn = document.getElementById('loadVoxBtn');
-    const importVoxBtn = document.getElementById('importVoxBtn');
+    const exportCopyBtn = document.getElementById('exportCopyBtn');
     const voxFileInput = document.getElementById('voxFileInput');
     const builtInRomSelect = document.getElementById('builtInRomSelect');
     const sc01RomStatus = document.getElementById('sc01RomStatus');
@@ -1739,6 +1742,10 @@ L8E78:
     function setStatus(msg, isError = false) {
       statusEl.textContent = msg;
       statusEl.style.color = isError ? 'var(--danger)' : 'var(--accent)';
+    }
+
+    function setPhraseInfo(msg) {
+      if (phraseInfo) setPhraseInfo(msg);
     }
 
     async function sha1Hex(bytes) {
@@ -3032,9 +3039,9 @@ L8E78:
         opt.textContent = 'No imported phrases';
         phraseSelect.appendChild(opt);
         phraseSelect.disabled = true;
-        loadPhraseBtn.disabled = true;
-        playPhraseBtn.disabled = true;
-        phraseInfo.textContent = 'Load or paste a Wizard Vox Data text file, then use Import Phrases.';
+        if (loadPhraseBtn) loadPhraseBtn.disabled = true;
+        if (playPhraseBtn) playPhraseBtn.disabled = true;
+        setPhraseInfo('Load Vox/ASM imports phrases automatically. Pasted text is parsed directly.');
         return;
       }
 
@@ -3048,9 +3055,9 @@ L8E78:
       });
 
       phraseSelect.disabled = false;
-      loadPhraseBtn.disabled = false;
-      playPhraseBtn.disabled = false;
-      phraseInfo.textContent = `Imported ${importedPhrases.length} phrase stream(s). Selecting a phrase loads only that phrase into the editor.`;
+      if (loadPhraseBtn) loadPhraseBtn.disabled = false;
+      if (playPhraseBtn) playPhraseBtn.disabled = false;
+      setPhraseInfo(`Imported ${importedPhrases.length} phrase stream(s). Selecting a phrase loads only that phrase into the editor.`);
     }
 
     function importPhrasesFromSource() {
@@ -3077,7 +3084,7 @@ L8E78:
       const phrase = getSelectedPhrase();
       if (!phrase) return;
       const tokenLabel = phrase.mode === 'sc01' ? 'word/comment' : 'symbol';
-      phraseInfo.textContent = `${phrase.section ? phrase.section + ' · ' : ''}${phrase.title}: ${phrase.bytes.length} byte(s), ${phrase.tokens.length} ${tokenLabel} token(s).`;
+      setPhraseInfo(`${phrase.section ? phrase.section + ' · ' : ''}${phrase.title}: ${phrase.bytes.length} byte(s), ${phrase.tokens.length} ${tokenLabel} token(s).`);
     }
 
     function loadSelectedPhrase(options = {}) {
@@ -3248,7 +3255,7 @@ L8E78:
       downloadBlob(audioSamplesToWav(render.samples), makeFilename() + '.wav');
       setStatus(`Downloaded ${makeFilename()}.wav.`);
     });
-    document.getElementById('copyDbBtn').addEventListener('click', async () => {
+    if (exportCopyBtn) exportCopyBtn.addEventListener('click', async () => {
       const analysis = analyze();
       const text = formatDb(analysis.bytes, analysis.mode);
       exportText.value = text;
@@ -3274,9 +3281,8 @@ L8E78:
       installBuiltInSc01Rom(builtInRomSelect.value);
       setStatus(`Switched to ${BUILTIN_ROM_LABELS[builtInRomSelect.value]}.`);
     });
-    importVoxBtn.addEventListener('click', importPhrasesFromSource);
-    loadPhraseBtn.addEventListener('click', loadSelectedPhrase);
-    playPhraseBtn.addEventListener('click', playSelectedPhrase);
+    if (loadPhraseBtn) loadPhraseBtn.addEventListener('click', loadSelectedPhrase);
+    if (playPhraseBtn) playPhraseBtn.addEventListener('click', playSelectedPhrase);
     phraseSelect.addEventListener('change', () => {
       if (suppressPhraseAutoLoad) return;
       loadSelectedPhrase({ silent: false });
@@ -3361,7 +3367,7 @@ L8E78:
     installBuiltInSc01Rom('sc01');
     sourceEl.value = DEFAULT_SOURCE;
     analyze();
-    setStatus('Ready. Built-in SC-01 ROM table is active; paste bytes, import Wizard/ASM data, or switch to SC-01A.');
+    setStatus('Ready. Built-in SC-01 ROM table is active; paste bytes, load Wizard/ASM data, or switch to SC-01A.');
   </script>
 </body>
 
