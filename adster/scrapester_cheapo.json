@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-02T18:23:13.843Z",
+  "generated_at": "2026-07-02T19:22:29.987Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,33 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 105,
-      "droppedPrice": 647,
+      "exported_ads": 106,
+      "droppedPrice": 657,
       "droppedMissingGeo": 0,
-      "droppedCircle": 760
+      "droppedCircle": 765
     }
   },
   "ads": [
+    {
+      "adID": "1503847564573999",
+      "source": "FB",
+      "authorUrl": null,
+      "author": "John Russo",
+      "postedTime": "2026-07-02T18:15:46.162Z",
+      "title": "Raiden DX",
+      "description": "The name and vertical scrolling twin shooters.",
+      "price": "$800",
+      "lat": 27.7712264,
+      "lon": -82.6340259,
+      "location": "ST PETERSBURG, FL",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.30808-6/738261723_10235721597128428_2369652881508152953_n.jpg?stp=dst-jpg_tt6&cstp=mx1537x2048&ctp=s590x590&_nc_cat=105&ccb=1-7&_nc_sid=aa7b47&_nc_ohc=j3LQdjPk99YQ7kNvwFZulkw&_nc_oc=AdqeFTWCZM5M939nS1bmzIg5XdEPiX0cABBBr-KD-DLnZDn-fSS25_wFMmdMtY5KJZU&_nc_zt=23&_nc_ht=scontent-dfw5-1.xx&_nc_gid=DsCRguI1ZW9JC9M5Fnu8HQ&_nc_ss=7b2a8&oh=00_AQDmnqxlwzSb_aSrgm5RwsyfnGWRaBL83cOADdWiv1y0_A&oe=6A4C97C3",
+      "adUrl": "https://www.facebook.com/commerce/listing/1503847564573999/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-07-02 19:03:46",
+      "lastSeen": "2026-07-02T19:03:46.220Z"
+    },
     {
       "adID": "1658663058523177",
       "source": "MP",
@@ -216,7 +236,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-02 16:19:43",
-      "lastSeen": "2026-07-02T17:17:31.978Z"
+      "lastSeen": "2026-07-02T19:18:13.829Z"
     },
     {
       "adID": "1544681287445494",
@@ -256,7 +276,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-02 16:19:42",
-      "lastSeen": "2026-07-02T17:17:31.876Z"
+      "lastSeen": "2026-07-02T19:18:13.721Z"
     },
     {
       "adID": "2507863129662965",
@@ -276,7 +296,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-02 16:19:42",
-      "lastSeen": "2026-07-02T17:17:31.928Z"
+      "lastSeen": "2026-07-02T19:18:13.772Z"
     },
     {
       "adID": "1566084054851682",
@@ -296,7 +316,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-02 16:19:41",
-      "lastSeen": "2026-07-02T17:17:31.826Z"
+      "lastSeen": "2026-07-02T19:18:13.670Z"
     },
     {
       "adID": "2845480079122174",
@@ -316,7 +336,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-02 16:19:38",
-      "lastSeen": "2026-07-02T17:21:15.062Z"
+      "lastSeen": "2026-07-02T19:18:13.315Z"
     },
     {
       "adID": "2176313676548166",
@@ -336,7 +356,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-02 16:12:14",
-      "lastSeen": "2026-07-02T18:18:06.281Z"
+      "lastSeen": "2026-07-02T19:18:12.500Z"
     },
     {
       "adID": "1419388306907318",
@@ -356,7 +376,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-02 16:12:14",
-      "lastSeen": "2026-07-02T18:18:06.495Z"
+      "lastSeen": "2026-07-02T19:18:12.602Z"
     },
     {
       "adID": "1105723555476248",
@@ -376,7 +396,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-02 16:12:14",
-      "lastSeen": "2026-07-02T18:18:06.545Z"
+      "lastSeen": "2026-07-02T19:18:12.961Z"
     },
     {
       "adID": "1752692499501654",
@@ -396,7 +416,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-02 16:12:14",
-      "lastSeen": "2026-07-02T18:18:06.596Z"
+      "lastSeen": "2026-07-02T19:18:13.011Z"
     },
     {
       "adID": "1016903267590312",
@@ -416,7 +436,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-02 16:12:13",
-      "lastSeen": "2026-07-02T18:18:06.445Z"
+      "lastSeen": "2026-07-02T19:18:11.830Z"
     },
     {
       "adID": "1656345078770636",
@@ -436,7 +456,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-02 16:12:13",
-      "lastSeen": "2026-07-02T18:18:06.230Z"
+      "lastSeen": "2026-07-02T19:18:12.398Z"
     },
     {
       "adID": "1337351588589057",
@@ -456,7 +476,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-02 16:12:08",
-      "lastSeen": "2026-07-02T18:18:03.585Z"
+      "lastSeen": "2026-07-02T19:18:08.612Z"
     },
     {
       "adID": "1467987691851345",
@@ -476,7 +496,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-02 15:12:23",
-      "lastSeen": "2026-07-02T18:18:05.672Z"
+      "lastSeen": "2026-07-02T19:18:11.779Z"
     },
     {
       "adID": "2257672951727147",
@@ -496,7 +516,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-02 15:12:23",
-      "lastSeen": "2026-07-02T18:18:05.774Z"
+      "lastSeen": "2026-07-02T19:18:11.931Z"
     },
     {
       "adID": "1523794322546082",
@@ -516,7 +536,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-02 15:12:22",
-      "lastSeen": "2026-07-02T18:18:03.076Z"
+      "lastSeen": "2026-07-02T19:18:11.210Z"
     },
     {
       "adID": "880532071764477",
@@ -530,13 +550,13 @@
       "lat": 34.729847,
       "lon": -86.5859011,
       "location": "Huntsville, AL",
-      "imageUrl": "https://scontent-dfw6-2.xx.fbcdn.net/v/t39.84726-6/735925595_854603317428822_2404618286117742985_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=92e707&_nc_ohc=IwMu12K7ahgQ7kNvwE4gjAY&_nc_oc=AdrHyJ29hCKaDSgbhMKa3pkSvLa4veVNqycZPk6o_SGMCiOydABrW7WVPptUcdeKzGI&_nc_zt=14&_nc_ht=scontent-dfw6-2.xx&_nc_gid=oZ4oi3rxLDx6jEH9SwT8CA&_nc_ss=7b2a8&oh=00_AQBGbdwy_92oukL9_BXZRLI310yDYFF_Kmm0uzoD7gOWaA&oe=6A4C81AE",
+      "imageUrl": "https://scontent-dfw6-2.xx.fbcdn.net/v/t39.84726-6/735925595_854603317428822_2404618286117742985_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=92e707&_nc_ohc=IwMu12K7ahgQ7kNvwE4gjAY&_nc_oc=AdrHyJ29hCKaDSgbhMKa3pkSvLa4veVNqycZPk6o_SGMCiOydABrW7WVPptUcdeKzGI&_nc_zt=14&_nc_ht=scontent-dfw6-2.xx&_nc_gid=LeDdVQI3ZB01FXDAL3A6ww&_nc_ss=7b2a8&oh=00_AQB3T4IsAEAAuhGxouwoWvoxYXhGPP8wy9KYxC_Lsmip0A&oe=6A4C81AE",
       "adUrl": "https://www.facebook.com/marketplace/item/880532071764477/",
       "priceChanged": 0,
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-02 15:12:21",
-      "lastSeen": "2026-07-02T18:21:57.452Z"
+      "lastSeen": "2026-07-02T19:21:21.550Z"
     },
     {
       "adID": "1718516849300231",
@@ -550,13 +570,13 @@
       "lat": 34.729847,
       "lon": -86.5859011,
       "location": "Huntsville, AL",
-      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/735543796_2427505317676270_6588271952897980232_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=92e707&_nc_ohc=u9aKEZKxleIQ7kNvwEZFygE&_nc_oc=Ado0ZNn20RMgY_oJSk96XY14IDvEESpNUePKnfkgnzQ9gTQm9RHFvonO99WWMU1p0kg&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=ATjBScwRDN4BxugTPLz1oA&_nc_ss=7b2a8&oh=00_AQCTx-wrtKY440gAkWgcMMw5AEudSaEWdw_ojFrK4Io-Xw&oe=6A4C91A9",
+      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/735543796_2427505317676270_6588271952897980232_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=92e707&_nc_ohc=u9aKEZKxleIQ7kNvwEZFygE&_nc_oc=Ado0ZNn20RMgY_oJSk96XY14IDvEESpNUePKnfkgnzQ9gTQm9RHFvonO99WWMU1p0kg&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=OZzU87lF4dgJQbanWwfbGg&_nc_ss=7b2a8&oh=00_AQD86cgvtSRXR7QacLPdxiEFx8tWfR6BttBmYUb4sBRzkw&oe=6A4C91A9",
       "adUrl": "https://www.facebook.com/marketplace/item/1718516849300231/",
       "priceChanged": 0,
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-02 15:12:21",
-      "lastSeen": "2026-07-02T18:21:57.488Z"
+      "lastSeen": "2026-07-02T19:21:21.584Z"
     },
     {
       "adID": "1389689709670526",
@@ -576,7 +596,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-02 15:12:21",
-      "lastSeen": "2026-07-02T18:18:02.997Z"
+      "lastSeen": "2026-07-02T19:18:11.058Z"
     },
     {
       "adID": "876082048902916",
@@ -590,33 +610,33 @@
       "lat": 31.297703,
       "lon": -82.8523668,
       "location": "Pearson, GA",
-      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/735075392_877229811601324_7075085288522952841_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=101&ccb=1-7&_nc_sid=92e707&_nc_ohc=6aG4PNTsj_QQ7kNvwGo0hqb&_nc_oc=AdpP2ZlFyW9_IxN3lQO5lLwm0acD0eiQoreOo6NUnHbl5DvexSbP0hPlUsa428iTbhg&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=mR-VWaJ9va8SEYa4XUgtog&_nc_ss=7b2a8&oh=00_AQAdP7PL4GibUIQ5QNcU3Z_L4tgOzwXOZrKCD_EQ-z4NsA&oe=6A4C7D67",
+      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/735075392_877229811601324_7075085288522952841_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=101&ccb=1-7&_nc_sid=92e707&_nc_ohc=6aG4PNTsj_QQ7kNvwGo0hqb&_nc_oc=AdpP2ZlFyW9_IxN3lQO5lLwm0acD0eiQoreOo6NUnHbl5DvexSbP0hPlUsa428iTbhg&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=cMbHjXkpb6WsXOi6gHOLDQ&_nc_ss=7b2a8&oh=00_AQDBQvlnXtTMLRlSXgAwmqisVpq6odto_IaHLoFC5j2QVw&oe=6A4C7D67",
       "adUrl": "https://www.facebook.com/marketplace/item/876082048902916/",
       "priceChanged": 0,
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-02 15:12:20",
-      "lastSeen": "2026-07-02T18:21:57.385Z"
+      "lastSeen": "2026-07-02T19:15:42.933Z"
     },
     {
       "adID": "1047919554244159",
       "source": "MP",
       "authorUrl": "https://www.facebook.com/marketplace/profile/61556259172885/?product_id=1047919554244159",
       "author": "Jay Kay Cody",
-      "postedTime": "2026-05-01T22:17:29.000Z",
+      "postedTime": "2026-07-02T06:06:05.000Z",
       "title": "NWT Anica 3X Stretch Satin Vee-neck Tank Top",
       "description": "Ships anywhere within the US for $6.35 or porch pickup in NW Huntsville Alabama. Brand: Anica (a Stitchfix brand) Pit to pit lying flat: 30\" Length from shoulder seam: 30.5\" Fabric content: 96% recycled polyester satin; 4% spandex A great day-to-evening top that can be worn under a business jacket or dressed up for nighttime date night with some sexy hoop earrings and skinny jeans. Very comfortable wearing material with stretch and its machine washable on cold. If you're reading this then YES it is available. Reliable seller, fast shipper.",
       "price": "$17",
       "lat": 34.729847,
       "lon": -86.5859011,
       "location": "Huntsville, AL",
-      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/737619881_1354673673286958_5277944515898492285_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=92e707&_nc_ohc=zaaOepkMRWcQ7kNvwFGTLzq&_nc_oc=AdqnwV1eoAA3V9jQH6ZMpKa6uwJHhc4Fx6ba6sAGrc1LTckTY2uqu99dsLT6RdB-aQY&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=J3xh6l9K4plSDz7V-eXnQg&_nc_ss=7b2a8&oh=00_AQAvVxsehk4j3T122EGy20oQ2FgOLL8eZTwJAYysBaLSGQ&oe=6A4C99F3",
+      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/737619881_1354673673286958_5277944515898492285_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=92e707&_nc_ohc=zaaOepkMRWcQ7kNvwFGTLzq&_nc_oc=AdqnwV1eoAA3V9jQH6ZMpKa6uwJHhc4Fx6ba6sAGrc1LTckTY2uqu99dsLT6RdB-aQY&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=7NlkfueERgzEAwKIwHWgOA&_nc_ss=7b2a8&oh=00_AQCY94sTy7r2u03SmYVjf3RCP0r91PzcKrJRD9Ra5ydF_g&oe=6A4C99F3",
       "adUrl": "https://www.facebook.com/marketplace/item/1047919554244159/",
       "priceChanged": 0,
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-02 15:12:20",
-      "lastSeen": "2026-07-02T18:21:57.687Z"
+      "lastSeen": "2026-07-02T19:21:21.438Z"
     },
     {
       "adID": "27547642164886585",
@@ -636,7 +656,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-02 15:12:20",
-      "lastSeen": "2026-07-02T18:18:02.830Z"
+      "lastSeen": "2026-07-02T19:12:13.030Z"
     },
     {
       "adID": "1516429663562878",
@@ -656,7 +676,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-02 15:12:20",
-      "lastSeen": "2026-07-02T18:18:02.862Z"
+      "lastSeen": "2026-07-02T19:12:13.171Z"
     },
     {
       "adID": "886717627804647",
@@ -670,13 +690,13 @@
       "lat": 34.729847,
       "lon": -86.5859011,
       "location": "Huntsville, AL",
-      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/737619961_1348335470773549_9194509831256050333_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=92e707&_nc_ohc=Yg4dSWKhwTQQ7kNvwGiupcP&_nc_oc=Adqs5eox_W82mMQi3P7YJTg8U2BToLAuD9rFcGxzOtxiD-TGkwANDLh_kywVBEzXJTY&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=DK6FYymvgyuru4JNefIvww&_nc_ss=7b2a8&oh=00_AQBPSMjY5mXo5tU5VFJ08LXQiPNQ9e1GNif3wAwF7zEvpg&oe=6A4C6C0B",
+      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/737619961_1348335470773549_9194509831256050333_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=92e707&_nc_ohc=Yg4dSWKhwTQQ7kNvwGiupcP&_nc_oc=Adqs5eox_W82mMQi3P7YJTg8U2BToLAuD9rFcGxzOtxiD-TGkwANDLh_kywVBEzXJTY&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=dwNl7Qhqe3JIla4fUn6vRQ&_nc_ss=7b2a8&oh=00_AQCq3WS_E5-P04rElp-BoSrBZPXPL_rzSErgU2YeqngVsQ&oe=6A4CA44B",
       "adUrl": "https://www.facebook.com/marketplace/item/886717627804647/",
       "priceChanged": 0,
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-02 15:12:20",
-      "lastSeen": "2026-07-02T18:21:57.419Z"
+      "lastSeen": "2026-07-02T19:17:00.266Z"
     },
     {
       "adID": "1694311905160421",
@@ -690,13 +710,13 @@
       "lat": 34.729847,
       "lon": -86.5859011,
       "location": "Huntsville, AL",
-      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/738368175_1017175431060445_9026503061376144559_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=111&ccb=1-7&_nc_sid=92e707&_nc_ohc=1ce9OOZLyqgQ7kNvwFiiLH_&_nc_oc=AdqnqFKva55Qkxpmn5Xuyv4N-Vi8Q5W-L65CUFmlsvpairz0NwNfWYOyGD9ZsWTZMYU&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=28sEa8RHzHsu93MSXT1H7Q&_nc_ss=7b2a8&oh=00_AQDcU9neRCBJq6VXh2HyQ1AySf6Q-x7XZ5xMw2txq1iUTw&oe=6A4C91F1",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/738368175_1017175431060445_9026503061376144559_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=111&ccb=1-7&_nc_sid=92e707&_nc_ohc=1ce9OOZLyqgQ7kNvwFiiLH_&_nc_oc=AdqnqFKva55Qkxpmn5Xuyv4N-Vi8Q5W-L65CUFmlsvpairz0NwNfWYOyGD9ZsWTZMYU&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=xQ3l7H-4B58ck1nCTa2qlg&_nc_ss=7b2a8&oh=00_AQCjdZ_GiBl999r5UD8yw8SwX0cZSGBXF4tuTAVBArchlg&oe=6A4C91F1",
       "adUrl": "https://www.facebook.com/marketplace/item/1694311905160421/",
       "priceChanged": 0,
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-02 15:12:20",
-      "lastSeen": "2026-07-02T18:21:57.721Z"
+      "lastSeen": "2026-07-02T19:21:21.472Z"
     },
     {
       "adID": "1336578611248448",
@@ -710,13 +730,13 @@
       "lat": 34.2875925,
       "lon": -85.99414,
       "location": "Crossville, AL",
-      "imageUrl": "https://scontent-dfw6-2.xx.fbcdn.net/v/t39.84726-6/736065596_1376835310990318_741265196531926_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=109&ccb=1-7&_nc_sid=92e707&_nc_ohc=LEtYrU-gelUQ7kNvwHFFUaz&_nc_oc=AdqmUSAAi5DgExRqnljZU6q7sjYB8qUGbXoXvrDzSQv52kKAYGXzTFbOZq5x-LlLDTM&_nc_zt=14&_nc_ht=scontent-dfw6-2.xx&_nc_gid=nzMOAaqO71LfHZ0_jiFcgg&_nc_ss=7b2a8&oh=00_AQA-p0aC8EzB4hO9QjafNXUeJCrNPnnv7VB8sqgPV1rMfA&oe=6A4C490B",
+      "imageUrl": "https://scontent-dfw6-2.xx.fbcdn.net/v/t39.84726-6/736065596_1376835310990318_741265196531926_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=109&ccb=1-7&_nc_sid=92e707&_nc_ohc=LEtYrU-gelUQ7kNvwHFFUaz&_nc_oc=AdqmUSAAi5DgExRqnljZU6q7sjYB8qUGbXoXvrDzSQv52kKAYGXzTFbOZq5x-LlLDTM&_nc_zt=14&_nc_ht=scontent-dfw6-2.xx&_nc_gid=OGB7mZgQ_ZLtjRqYLljr_Q&_nc_ss=7b2a8&oh=00_AQB8Nkv3w2KWHELqYiFnoRFD_rlzM34l3Y565kHG3FgSpQ&oe=6A4C814B",
       "adUrl": "https://www.facebook.com/marketplace/item/1336578611248448/",
       "priceChanged": 0,
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-02 15:12:19",
-      "lastSeen": "2026-07-02T18:18:04.365Z"
+      "lastSeen": "2026-07-02T19:18:10.031Z"
     },
     {
       "adID": "2091910441754521",
@@ -730,13 +750,13 @@
       "lat": 33.5206824,
       "lon": -86.8024326,
       "location": "Birmingham, AL",
-      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/735636710_1552496916536416_4989065549823103233_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=105&ccb=1-7&_nc_sid=92e707&_nc_ohc=MaOSHB7G1koQ7kNvwGbLqSP&_nc_oc=AdpNCbCAdiYCJwr828vfwAFz1PZbO0PUFRxGRDjv-evFHSc1paIyZksbpjSNv0Gzhbc&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=UgjZquQ2GaK0HEDDK3A4GQ&_nc_ss=7b2a8&oh=00_AQDaZmmdhBfweny_yjE4D67K1wE1noYBB8VR1szsAUVmZg&oe=6A4C6F0E",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/735636710_1552496916536416_4989065549823103233_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=105&ccb=1-7&_nc_sid=92e707&_nc_ohc=MaOSHB7G1koQ7kNvwGbLqSP&_nc_oc=AdpNCbCAdiYCJwr828vfwAFz1PZbO0PUFRxGRDjv-evFHSc1paIyZksbpjSNv0Gzhbc&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=Z6CEmWOB5ORnHhabwZDuKg&_nc_ss=7b2a8&oh=00_AQDKQZrDH1eWkGCulm6cO4W-dRLv4vXkwexQnSvbVwgdgA&oe=6A4CA74E",
       "adUrl": "https://www.facebook.com/marketplace/item/2091910441754521/",
       "priceChanged": 0,
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-02 15:12:19",
-      "lastSeen": "2026-07-02T18:21:57.586Z"
+      "lastSeen": "2026-07-02T19:21:21.362Z"
     },
     {
       "adID": "1365264172188653",
@@ -750,13 +770,13 @@
       "lat": 31.297703,
       "lon": -82.8523668,
       "location": "Pearson, GA",
-      "imageUrl": "https://scontent-dfw6-2.xx.fbcdn.net/v/t39.84726-6/735981655_1029058413153068_5499980105600785160_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=110&ccb=1-7&_nc_sid=92e707&_nc_ohc=6XLBKsNvecgQ7kNvwGARg3i&_nc_oc=Adrj-eK7PhiRvgMnSZ1LYBTVCfNV_vzk7jjNE8UaN5g12iTb6HU3XSCVRG8PIm3ZIUk&_nc_zt=14&_nc_ht=scontent-dfw6-2.xx&_nc_gid=2IWLVPDKV4_4dwoaaqoVmA&_nc_ss=7b2a8&oh=00_AQB0BZ_ALbb_Xfuojpi9GhikD4dSXKFoz-KIafQN3E1e0A&oe=6A4C8DDF",
+      "imageUrl": "https://scontent-dfw6-2.xx.fbcdn.net/v/t39.84726-6/735981655_1029058413153068_5499980105600785160_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=110&ccb=1-7&_nc_sid=92e707&_nc_ohc=6XLBKsNvecgQ7kNvwGARg3i&_nc_oc=Adrj-eK7PhiRvgMnSZ1LYBTVCfNV_vzk7jjNE8UaN5g12iTb6HU3XSCVRG8PIm3ZIUk&_nc_zt=14&_nc_ht=scontent-dfw6-2.xx&_nc_gid=3n_yY9WcDPX4evDHOQw20w&_nc_ss=7b2a8&oh=00_AQDlACpy9ntwbhjgICwmAuML3b9vyBDVB14C_d-by70dEg&oe=6A4C8DDF",
       "adUrl": "https://www.facebook.com/marketplace/item/1365264172188653/",
       "priceChanged": 0,
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-02 15:12:19",
-      "lastSeen": "2026-07-02T18:21:57.620Z"
+      "lastSeen": "2026-07-02T19:21:21.405Z"
     },
     {
       "adID": "26412289288446700",
@@ -776,7 +796,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-02 15:12:18",
-      "lastSeen": "2026-07-02T18:12:17.512Z"
+      "lastSeen": "2026-07-02T19:12:12.086Z"
     },
     {
       "adID": "1006209469046083",
@@ -796,7 +816,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-02 15:12:18",
-      "lastSeen": "2026-07-02T18:18:02.354Z"
+      "lastSeen": "2026-07-02T19:12:12.265Z"
     },
     {
       "adID": "1589182072986782",
@@ -816,7 +836,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-02 15:12:18",
-      "lastSeen": "2026-07-02T18:18:04.275Z"
+      "lastSeen": "2026-07-02T19:18:09.931Z"
     },
     {
       "adID": "3870581109915375",
@@ -836,7 +856,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-02 15:12:18",
-      "lastSeen": "2026-07-02T18:18:04.319Z"
+      "lastSeen": "2026-07-02T19:18:09.986Z"
     },
     {
       "adID": "28499521732981139",
@@ -856,7 +876,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-02 15:12:14",
-      "lastSeen": "2026-07-02T18:12:16.929Z"
+      "lastSeen": "2026-07-02T19:18:09.705Z"
     },
     {
       "adID": "1778939053485593",
@@ -876,7 +896,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-02 15:12:13",
-      "lastSeen": "2026-07-02T18:12:16.615Z"
+      "lastSeen": "2026-07-02T19:18:09.391Z"
     },
     {
       "adID": "874629749031817",
@@ -896,7 +916,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-02 15:12:12",
-      "lastSeen": "2026-07-02T18:12:16.370Z"
+      "lastSeen": "2026-07-02T19:18:09.157Z"
     },
     {
       "adID": "1034863375730833",
@@ -916,7 +936,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-02 15:12:12",
-      "lastSeen": "2026-07-02T18:12:16.404Z"
+      "lastSeen": "2026-07-02T19:18:09.195Z"
     },
     {
       "adID": "995860776590743",
@@ -936,7 +956,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-02 15:12:11",
-      "lastSeen": "2026-07-02T18:12:16.303Z"
+      "lastSeen": "2026-07-02T19:18:09.078Z"
     },
     {
       "adID": "4891238244439372",
@@ -956,7 +976,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-02 15:12:10",
-      "lastSeen": "2026-07-02T18:12:16.236Z"
+      "lastSeen": "2026-07-02T19:18:08.999Z"
     },
     {
       "adID": "KLOV-495927",
@@ -976,7 +996,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-02 14:20:53",
-      "lastSeen": "2026-07-02T18:23:00.241Z"
+      "lastSeen": "2026-07-02T19:22:25.424Z"
     },
     {
       "adID": "1830895687880200",
@@ -984,19 +1004,19 @@
       "authorUrl": "https://www.facebook.com/marketplace/profile/100010603985916/?product_id=1830895687880200",
       "author": "Cindy Ross",
       "postedTime": "2026-07-02T13:54:45.000Z",
-      "title": "Presidential Pins",
-      "description": "Presidential pins. Reproduction not vintage 52 pins total",
+      "title": "Presidential Campaign Pins",
+      "description": "Presidential Campaign pins. Reproduction not vintage 52 pins total",
       "price": "$20",
       "lat": 28.1300994,
       "lon": -82.4591842,
       "location": "Lutz, FL",
-      "imageUrl": "https://scontent-dfw6-2.xx.fbcdn.net/v/t39.84726-6/736683043_2466858863812423_781899228137868670_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=108&ccb=1-7&_nc_sid=92e707&_nc_ohc=lLY8PdnvAQQQ7kNvwGM-G-b&_nc_oc=Adqr-YOy_3fySMVw-K0fuMWaBYVllR0fN5yXZRlW773qvuw7bkLRDohJLtsFEkV7g30&_nc_zt=14&_nc_ht=scontent-dfw6-2.xx&_nc_gid=vRK68EoHoMi4-YKTbmkqcg&_nc_ss=7b2a8&oh=00_AQAtExwRVTetBUQH-l0tKQ5UHV4BnXQSoRP1Yxo2KLfaUw&oe=6A4C4CA6",
+      "imageUrl": "https://scontent-dfw6-2.xx.fbcdn.net/v/t39.84726-6/736683043_2466858863812423_781899228137868670_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=108&ccb=1-7&_nc_sid=92e707&_nc_ohc=lLY8PdnvAQQQ7kNvwGM-G-b&_nc_oc=Adqr-YOy_3fySMVw-K0fuMWaBYVllR0fN5yXZRlW773qvuw7bkLRDohJLtsFEkV7g30&_nc_zt=14&_nc_ht=scontent-dfw6-2.xx&_nc_gid=5m5Q0P04cozjKTNH8f9rzA&_nc_ss=7b2a8&oh=00_AQCSqzgWO5_ZAvqJZZHeP7al2ROsqtpXLjFXGG1lXWSCFA&oe=6A4C84E6",
       "adUrl": "https://www.facebook.com/marketplace/item/1830895687880200/",
       "priceChanged": 0,
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-02 14:17:56",
-      "lastSeen": "2026-07-02T18:18:03.742Z"
+      "lastSeen": "2026-07-02T19:21:21.326Z"
     },
     {
       "adID": "1007012658856198",
@@ -1116,7 +1136,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-02 12:15:09",
-      "lastSeen": "2026-07-02T18:18:03.781Z"
+      "lastSeen": "2026-07-02T19:18:08.803Z"
     },
     {
       "adID": "2737142753337137",
@@ -1130,13 +1150,13 @@
       "lat": 31.2275285,
       "lon": -81.7887257,
       "location": "Waynesville, GA",
-      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/735761376_944147465363496_2709720539593001882_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=100&ccb=1-7&_nc_sid=92e707&_nc_ohc=Q33MYoy62_QQ7kNvwF0YV5c&_nc_oc=AdrlKTUbWNuVX-n66H-VRw4JQNP2ODU1Nk3HaHD72eDhc61bkf6jPzXGqDRlfgfIORg&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=IoNmd6gaa6oGwfQDzC8QnQ&_nc_ss=7b2a8&oh=00_AQDdk6woGIUZQsTAKLFm0KdUKXDir3IEhBcpjjNQeyY25Q&oe=6A4C7298",
+      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/735761376_944147465363496_2709720539593001882_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=100&ccb=1-7&_nc_sid=92e707&_nc_ohc=Q33MYoy62_QQ7kNvwF0YV5c&_nc_oc=AdrlKTUbWNuVX-n66H-VRw4JQNP2ODU1Nk3HaHD72eDhc61bkf6jPzXGqDRlfgfIORg&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=2r2-N3SKl77sG7j52hhW7g&_nc_ss=7b2a8&oh=00_AQCkjZ7u-MLeO04mHzyKPEukVfORLb85Kmyb5rVuALnsDw&oe=6A4C7298",
       "adUrl": "https://www.facebook.com/marketplace/item/2737142753337137/",
       "priceChanged": 0,
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-02 12:15:07",
-      "lastSeen": "2026-07-02T18:21:57.335Z"
+      "lastSeen": "2026-07-02T19:21:21.244Z"
     },
     {
       "adID": "1745011969849561",
@@ -1156,7 +1176,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-02 12:15:07",
-      "lastSeen": "2026-07-02T18:18:01.551Z"
+      "lastSeen": "2026-07-02T19:18:07.179Z"
     },
     {
       "adID": "1380215777305180",
@@ -1176,7 +1196,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-02 12:15:07",
-      "lastSeen": "2026-07-02T18:18:01.584Z"
+      "lastSeen": "2026-07-02T19:18:07.212Z"
     },
     {
       "adID": "KLOV-562522",
@@ -1196,7 +1216,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-02 11:19:48",
-      "lastSeen": "2026-07-02T18:23:00.541Z"
+      "lastSeen": "2026-07-02T19:22:25.691Z"
     },
     {
       "adID": "1333462148991655",
@@ -1216,7 +1236,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-02 11:12:21",
-      "lastSeen": "2026-07-02T18:12:15.400Z"
+      "lastSeen": "2026-07-02T19:12:09.647Z"
     },
     {
       "adID": "KLOV-564279",
@@ -1236,7 +1256,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-01 23:18:59",
-      "lastSeen": "2026-07-02T18:23:00.608Z"
+      "lastSeen": "2026-07-02T19:22:25.759Z"
     },
     {
       "adID": "2594159494372390",
@@ -1256,7 +1276,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-01 23:12:21",
-      "lastSeen": "2026-07-02T18:12:15.534Z"
+      "lastSeen": "2026-07-02T19:12:09.781Z"
     },
     {
       "adID": "1504673857495048",
@@ -1276,7 +1296,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-01 21:15:38",
-      "lastSeen": "2026-07-02T18:18:01.885Z"
+      "lastSeen": "2026-07-02T19:18:07.832Z"
     },
     {
       "adID": "1974728540076397",
@@ -1316,7 +1336,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-01 15:23:07",
-      "lastSeen": "2026-07-02T18:23:00.945Z"
+      "lastSeen": "2026-07-02T19:22:26.060Z"
     },
     {
       "adID": "1317784970549944",
@@ -1336,7 +1356,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-01 15:14:51",
-      "lastSeen": "2026-07-02T18:18:02.053Z"
+      "lastSeen": "2026-07-02T19:18:08.000Z"
     },
     {
       "adID": "2123675245216404",
@@ -1356,7 +1376,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-01 15:12:08",
-      "lastSeen": "2026-07-02T18:18:02.087Z"
+      "lastSeen": "2026-07-02T19:18:08.033Z"
     },
     {
       "adID": "1730224717972003",
@@ -1476,7 +1496,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-30 13:14:59",
-      "lastSeen": "2026-07-02T18:18:03.468Z"
+      "lastSeen": "2026-07-02T19:18:08.479Z"
     },
     {
       "adID": "998358612926193",
@@ -1576,7 +1596,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-29 15:09:10",
-      "lastSeen": "2026-07-02T18:23:07.880Z"
+      "lastSeen": "2026-07-02T19:22:27.394Z"
     },
     {
       "adID": "KLOV-512184",
@@ -1676,7 +1696,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-27 21:12:47",
-      "lastSeen": "2026-07-02T18:23:00.034Z"
+      "lastSeen": "2026-07-02T19:22:25.223Z"
     },
     {
       "adID": "1009930805235586",
@@ -1736,7 +1756,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-27 15:15:30",
-      "lastSeen": "2026-07-02T18:23:00.275Z"
+      "lastSeen": "2026-07-02T19:22:25.457Z"
     },
     {
       "adID": "4455572051388037",
@@ -1783,20 +1803,20 @@
       "source": "FB",
       "authorUrl": null,
       "author": "Anthony Ward",
-      "postedTime": "2026-06-27T18:08:52.641Z",
+      "postedTime": "2026-06-27T19:08:48.928Z",
       "title": "Big Event Golf",
       "description": "I have a Big Event Golf arcade machine. Own a piece of nostalgic history. Before Golden Tee. Do not expect it to be in perfect condition as it is from 1986, but everyth... See more",
       "price": "$320",
       "lat": 27.9449854,
       "lon": -82.4583107,
       "location": "TAMPA, FL",
-      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.30808-6/731253032_3541431712671266_1665902000841851541_n.jpg?stp=cp6_dst-jpg_tt6&cstp=mx1536x2048&ctp=s590x590&_nc_cat=105&ccb=1-7&_nc_sid=aa7b47&_nc_ohc=POBk5WmYHDMQ7kNvwFzJI7t&_nc_oc=AdptAiWXRkaFygXNmXc9lBzPP96X9LZQvwfnx4iOUoG97fUorYXCBd5sfQ-WmJJeQdM&_nc_zt=23&_nc_ht=scontent-dfw5-1.xx&_nc_gid=4XrypfV4LwYbjXLgQcy3EQ&_nc_ss=7b2a8&oh=00_AQBbZTyzwMhvXUtRnC0_ScDXgijFMV9n7jdCI5IT1UshAg&oe=6A4C7D22",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.30808-6/731253032_3541431712671266_1665902000841851541_n.jpg?stp=cp6_dst-jpg_tt6&cstp=mx1536x2048&ctp=s590x590&_nc_cat=105&ccb=1-7&_nc_sid=aa7b47&_nc_ohc=POBk5WmYHDMQ7kNvwFzJI7t&_nc_oc=AdptAiWXRkaFygXNmXc9lBzPP96X9LZQvwfnx4iOUoG97fUorYXCBd5sfQ-WmJJeQdM&_nc_zt=23&_nc_ht=scontent-dfw5-1.xx&_nc_gid=e5iMs3fWCRocqw3-Jl1Ucg&_nc_ss=7b2a8&oh=00_AQAG8dKpW-h45va4GlzGwNFE50ZIkzama2cabKHNxw2taA&oe=6A4C7D22",
       "adUrl": "https://www.facebook.com/commerce/listing/1024766013340116/",
       "priceChanged": 0,
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-27 12:31:56",
-      "lastSeen": "2026-07-02T18:08:53.365Z"
+      "lastSeen": "2026-07-02T19:08:49.742Z"
     },
     {
       "adID": "KLOV-545491",
@@ -2036,7 +2056,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-25 11:58:18",
-      "lastSeen": "2026-07-02T18:23:00.911Z"
+      "lastSeen": "2026-07-02T19:22:26.027Z"
     },
     {
       "adID": "1533848331559933",
@@ -2110,13 +2130,13 @@
       "lat": 33.2442813,
       "lon": -86.8163773,
       "location": "ALABASTER, AL",
-      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.30808-6/729964610_27722897317303315_769344303372621387_n.jpg?stp=dst-jpg_tt6&cstp=mx1537x2048&ctp=s590x590&_nc_cat=102&ccb=1-7&_nc_sid=aa7b47&_nc_ohc=b5yS56bq9XQQ7kNvwFBuYhj&_nc_oc=AdrVgtGco8Pwbb1euwx_UFct5kXwRQvRyvab8rzLIgEGSqp_v9vwwmgYKa73Cy0Kj7Y&_nc_zt=23&_nc_ht=scontent-dfw6-1.xx&_nc_gid=1QAHqx44yVwChAyCVLc5Kg&_nc_ss=7b2a8&oh=00_AQABtXr6QwNdwfrO_DcFkSc5O2uJSH2tenw1hRM24Qri9A&oe=6A4C6381",
+      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.30808-6/729964610_27722897317303315_769344303372621387_n.jpg?stp=dst-jpg_tt6&cstp=mx1537x2048&ctp=s590x590&_nc_cat=102&ccb=1-7&_nc_sid=aa7b47&_nc_ohc=b5yS56bq9XQQ7kNvwFBuYhj&_nc_oc=AdrVgtGco8Pwbb1euwx_UFct5kXwRQvRyvab8rzLIgEGSqp_v9vwwmgYKa73Cy0Kj7Y&_nc_zt=23&_nc_ht=scontent-dfw6-1.xx&_nc_gid=kU0CE3tXNkfUHyaheQkwnA&_nc_ss=7b2a8&oh=00_AQBUgro-mqJSwjZg5KeMKgBaYNQApZ3m0dTyJviMIdL_Aw&oe=6A4C9BC1",
       "adUrl": "https://www.facebook.com/commerce/listing/1288483403087344/",
       "priceChanged": 0,
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-25 11:18:09",
-      "lastSeen": "2026-07-02T18:05:03.672Z"
+      "lastSeen": "2026-07-02T19:05:02.913Z"
     }
   ]
 }
