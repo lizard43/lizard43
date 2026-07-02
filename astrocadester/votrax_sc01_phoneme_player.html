@@ -444,7 +444,7 @@
 
     .decodedRow {
       display: grid;
-      grid-template-columns: 52px 62px minmax(0, 1fr) 70px;
+      grid-template-columns: 18px 52px 62px minmax(0, 1fr) 70px;
       gap: 8px;
       align-items: center;
       padding: 5px 8px;
@@ -461,6 +461,32 @@
 
     .decodedRow.bad {
       border-color: var(--danger);
+    }
+
+    .decodedRow.dragging {
+      opacity: .55;
+    }
+
+    .decodedRow.dragOver {
+      border-color: var(--accent);
+      box-shadow: inset 0 0 0 1px rgba(94, 224, 131, .32);
+    }
+
+    .dragHandle {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 16px;
+      min-height: 24px;
+      color: var(--accent);
+      opacity: .85;
+      cursor: grab;
+      font: 900 16px/1 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      user-select: none;
+    }
+
+    .dragHandle:active {
+      cursor: grabbing;
     }
 
     .decodedDesc {
@@ -516,6 +542,27 @@
     .phonemeSymbolCell button.symbolPill {
       width: auto;
       min-width: 58px;
+    }
+
+    .symbolAddCell,
+    .tokenSymbolAddCell {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      min-width: 0;
+    }
+
+    .plusIconButton {
+      width: 24px;
+      height: 24px;
+      min-height: 24px;
+      padding: 0;
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font: 900 17px/1 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      color: var(--accent);
     }
 
     .kindPill {
@@ -909,7 +956,7 @@
       }
 
       .decodedRow {
-        grid-template-columns: 48px 58px minmax(0, 1fr);
+        grid-template-columns: 18px 48px 58px minmax(0, 1fr);
       }
 
       .decodedRow .kindPill {
@@ -1196,11 +1243,10 @@
             <thead>
               <tr>
                 <th>Hex</th>
-                <th>Symbol</th>
+                <th>Symbol / add</th>
                 <th>Description / example</th>
                 <th>Kind</th>
                 <th>ROM</th>
-                <th></th>
               </tr>
             </thead>
             <tbody id="phonemeTableBody"></tbody>
@@ -1220,11 +1266,10 @@
           <table>
             <thead>
               <tr>
-                <th>Token</th>
+                <th>Token / add</th>
                 <th>Byte(s)</th>
                 <th>Type</th>
                 <th>Effect / description</th>
-                <th></th>
               </tr>
             </thead>
             <tbody id="wizardTokenTableBody"></tbody>
@@ -1949,6 +1994,8 @@ L8E78:
     let currentSource = null;
     let highlightTimers = [];
     let currentAnalysis = null;
+    let sourceInsertPos = null;
+    let decodedDragIndex = null;
 
     function hex2(n) { return '$' + (n & 0xFF).toString(16).toUpperCase().padStart(2, '0'); }
     function rawHex2(n) { return (n & 0xFF).toString(16).toUpperCase().padStart(2, '0'); }
@@ -2245,7 +2292,7 @@ L8E78:
         const comment = chunk.map((_, j) => symbolBySource.get(i + j) || '??').join(' ');
         lines.push('    db ' + chunk.map(hex2).join(',').padEnd(39, ' ') + ' ; ' + comment);
       }
-      return lines.join('\\n');
+      return lines.join('\n');
     }
 
     function classifyForUi(ph) {
@@ -2391,6 +2438,28 @@ L8E78:
       return currentAnalysis;
     }
 
+    function rebuildSourceFromDecodedOrder(fromIndex, toIndex) {
+      if (!currentAnalysis || !currentAnalysis.decoded || !currentAnalysis.decoded.length) return;
+      const rows = currentAnalysis.decoded.slice();
+      const from = rows.findIndex(item => Number(item.index) === Number(fromIndex));
+      const to = rows.findIndex(item => Number(item.index) === Number(toIndex));
+      if (from < 0 || to < 0 || from === to) return;
+
+      const [moved] = rows.splice(from, 1);
+      rows.splice(to, 0, moved);
+
+      const mode = currentAnalysis.mode === 'wizard' ? 'wizard' : 'sc01';
+      const bytes = rows.flatMap(item => item.rawBytes || [item.byte]).map(byte => byte & 0xFF);
+      clearActiveImportedPhraseSelection();
+      inputModeEl.value = mode;
+      sourceEl.value = formatDb(bytes, mode);
+      sourceEl.focus();
+      sourceEl.selectionStart = sourceEl.selectionEnd = sourceEl.value.length;
+      sourceInsertPos = sourceEl.value.length;
+      analyze();
+      setStatus(`Moved ${moved.ph?.symbol || hex2(moved.byte)} from row ${from + 1} to row ${to + 1}; source updated.`);
+    }
+
     function renderDecoded(analysis) {
       decodedList.innerHTML = '';
       if (analysis.decodeMessage) {
@@ -2412,8 +2481,38 @@ L8E78:
         row.className = 'decodedRow ' + kind + (!item.ph ? ' bad' : '');
         row.dataset.index = String(item.index);
         row.title = item.ph ? item.ph.desc : 'Unknown byte';
+        row.draggable = true;
+
+        row.addEventListener('dragstart', ev => {
+          decodedDragIndex = item.index;
+          row.classList.add('dragging');
+          ev.dataTransfer.effectAllowed = 'move';
+          ev.dataTransfer.setData('text/plain', String(item.index));
+        });
+        row.addEventListener('dragover', ev => {
+          ev.preventDefault();
+          if (decodedDragIndex !== null && Number(decodedDragIndex) !== Number(item.index)) row.classList.add('dragOver');
+          ev.dataTransfer.dropEffect = 'move';
+        });
+        row.addEventListener('dragleave', () => row.classList.remove('dragOver'));
+        row.addEventListener('drop', ev => {
+          ev.preventDefault();
+          row.classList.remove('dragOver');
+          const from = ev.dataTransfer.getData('text/plain') || decodedDragIndex;
+          rebuildSourceFromDecodedOrder(Number(from), Number(item.index));
+          decodedDragIndex = null;
+        });
+        row.addEventListener('dragend', () => {
+          decodedDragIndex = null;
+          document.querySelectorAll('.decodedRow.dragging,.decodedRow.dragOver').forEach(el => el.classList.remove('dragging', 'dragOver'));
+        });
 
         const byteText = (item.rawBytes || [item.byte]).map(hex2).join(' ');
+
+        const dragHandle = document.createElement('span');
+        dragHandle.className = 'dragHandle';
+        dragHandle.title = 'Drag to reorder this phoneme';
+        dragHandle.textContent = '≡';
 
         const bytePill = document.createElement('span');
         bytePill.className = 'bytePill';
@@ -2444,7 +2543,7 @@ L8E78:
         kindPill.className = 'kindPill';
         kindPill.textContent = kind;
 
-        row.append(bytePill, symbolButton, desc, kindPill);
+        row.append(dragHandle, bytePill, symbolButton, desc, kindPill);
         decodedList.appendChild(row);
       }
     }
@@ -3352,7 +3451,7 @@ L8E78:
         const chunk = phrase.bytes.slice(i, i + perLine);
         lines.push('    .DB ' + chunk.map(hex2).join(','));
       }
-      return lines.join('\\n');
+      return lines.join('\n');
     }
 
     function populatePhraseSelect() {
@@ -3524,16 +3623,66 @@ L8E78:
       return (bytes || []).map(hex2).join(' ');
     }
 
+    function rememberSourceInsertPos() {
+      if (!sourceEl || typeof sourceEl.selectionStart !== 'number') return;
+      sourceInsertPos = Math.max(0, Math.min(sourceEl.value.length, sourceEl.selectionStart));
+    }
+
+    function currentSourceInsertPos() {
+      if (sourceEl && document.activeElement === sourceEl && typeof sourceEl.selectionStart === 'number') {
+        rememberSourceInsertPos();
+      }
+      if (sourceInsertPos === null || sourceInsertPos === undefined) return null;
+      return Math.max(0, Math.min(sourceEl.value.length, sourceInsertPos));
+    }
+
+    function insertDbLineAtCurrentEditLine(line, defaultLabel = 'PhonicPhrase_Custom:') {
+      const insertLine = String(line || '').replace(/\r?\n/g, ' ');
+      let value = sourceEl.value || '';
+      let newPos = 0;
+
+      if (!value.trim()) {
+        value = defaultLabel + '\n' + insertLine;
+        newPos = value.length;
+      } else {
+        const pos = currentSourceInsertPos();
+        if (pos === null) {
+          const prefix = value.endsWith('\n') ? '' : '\n';
+          value = value + prefix + insertLine;
+          newPos = value.length;
+        } else {
+          const safePos = Math.max(0, Math.min(value.length, pos));
+          const lineStart = value.lastIndexOf('\n', Math.max(0, safePos - 1)) + 1;
+          let lineEnd = value.indexOf('\n', safePos);
+          if (lineEnd < 0) lineEnd = value.length;
+          const before = value.slice(0, lineStart);
+          const currentLine = value.slice(lineStart, lineEnd);
+          const after = value.slice(lineEnd);
+
+          if (/^\s*$/.test(currentLine)) {
+            value = before + insertLine + after;
+            newPos = before.length + insertLine.length;
+          } else {
+            value = before + insertLine + '\n' + currentLine + after;
+            newPos = before.length + insertLine.length + 1;
+          }
+        }
+      }
+
+      sourceEl.value = value;
+      sourceEl.focus();
+      sourceEl.selectionStart = sourceEl.selectionEnd = newPos;
+      sourceInsertPos = newPos;
+    }
+
     function appendBytesToSource(bytes, comment, mode = 'wizard') {
       if (!bytes || !bytes.length) return;
       clearActiveImportedPhraseSelection();
-      if (mode === 'wizard') inputModeEl.value = 'wizard';
+      inputModeEl.value = mode === 'wizard' ? 'wizard' : 'sc01';
       const label = mode === 'wizard' ? 'WizardVoicePhrase_Custom:' : 'PhonicPhrase_Custom:';
-      const prefix = sourceEl.value.trim() ? '\n' : label + '\n';
-      sourceEl.value += prefix + '    .DB ' + bytes.map(hex2).join(',').padEnd(39, ' ') + ' ; ' + comment;
+      const line = '    .DB ' + bytes.map(hex2).join(',').padEnd(39, ' ') + ' ; ' + comment;
+      insertDbLineAtCurrentEditLine(line, label);
       analyze();
-      sourceEl.focus();
-      sourceEl.selectionStart = sourceEl.selectionEnd = sourceEl.value.length;
     }
 
     function appendWizardToken(tokenDef) {
@@ -3552,11 +3701,10 @@ L8E78:
           ? `<button class="symbolPill symbolPillButton" type="button" data-token-play="${i}" title="Play \\${escapeHtml(tok.token)}">\\${escapeHtml(tok.token)}</button>`
           : `<button class="symbolPill symbolPillButton" type="button" disabled title="${escapeHtml(tok.desc)}">\\${escapeHtml(tok.token)}</button>`;
         tr.innerHTML =
-          `<td class="mono accent tokenSymbolCell">${playCell}</td>` +
+          `<td class="mono accent tokenSymbolCell"><span class="tokenSymbolAddCell">${playCell}<button class="action plusIconButton" type="button" data-token-add="${i}" title="Insert \\${escapeHtml(tok.token)} at current edit line" aria-label="Insert \\${escapeHtml(tok.token)}">+</button></span></td>` +
           `<td><span class="tokenByteList">${formatTokenBytes(tok.bytes)}</span></td>` +
           `<td><span class="tokenKind ${escapeHtml(tok.type)}">${escapeHtml(tok.type)}</span></td>` +
-          `<td>${escapeHtml(tok.desc)}</td>` +
-          `<td><button class="action" type="button" data-token-add="${i}">Add</button></td>`;
+          `<td>${escapeHtml(tok.desc)}</td>`;
         tokenTableBody.appendChild(tr);
       }
     }
@@ -3569,11 +3717,10 @@ L8E78:
         const romText = rom ? `<span class="romInline" title="${escapeHtml(romSummary(rom))}">${escapeHtml(romSummary(rom))}</span>` : '—';
         tr.innerHTML =
           `<td class="mono">${ph.hex}</td>` +
-          `<td class="mono accent phonemeSymbolCell"><button class="symbolPill symbolPillButton" type="button" data-play-byte="${ph.byte}" title="Play ${escapeHtml(ph.symbol)}">${escapeHtml(ph.symbol)}</button></td>` +
+          `<td class="mono accent phonemeSymbolCell"><span class="symbolAddCell"><button class="symbolPill symbolPillButton" type="button" data-play-byte="${ph.byte}" title="Play ${escapeHtml(ph.symbol)}">${escapeHtml(ph.symbol)}</button><button class="action plusIconButton" type="button" data-append="${ph.byte}" title="Insert ${escapeHtml(ph.symbol)} at current edit line" aria-label="Insert ${escapeHtml(ph.symbol)}">+</button></span></td>` +
           `<td>${escapeHtml(ph.desc)}</td>` +
           `<td><span class="kindPill">${classifyForUi(ph)}</span></td>` +
-          `<td>${romText}</td>` +
-          `<td><button class="action" type="button" data-append="${ph.byte}">Add</button></td>`;
+          `<td>${romText}</td>`;
         tr.addEventListener('dblclick', ev => {
           if (ev.target.closest('button')) return;
           playBytes([ph.byte], { single: true, mode: 'sc01' });
@@ -3584,12 +3731,12 @@ L8E78:
 
     function appendByte(byte) {
       clearActiveImportedPhraseSelection();
-      const insert = (sourceEl.value.trim() ? '\n' : 'PhonicPhrase_Custom:\n') + '    db ' + hex2(byte).padEnd(23, ' ') + ' ; ' + (PHONEME_BY_BYTE.get(byte)?.symbol || '??');
-      sourceEl.value += insert;
+      inputModeEl.value = 'sc01';
+      const ph = PHONEME_BY_BYTE.get(byte);
+      const line = '    db ' + hex2(byte).padEnd(23, ' ') + ' ; ' + (ph?.symbol || '??');
+      insertDbLineAtCurrentEditLine(line, 'PhonicPhrase_Custom:');
       analyze();
-      sourceEl.focus();
-      sourceEl.selectionStart = sourceEl.selectionEnd = sourceEl.value.length;
-      setStatus(`Added ${hex2(byte)} ${PHONEME_BY_BYTE.get(byte)?.symbol || ''}.`);
+      setStatus(`Added ${hex2(byte)} ${ph?.symbol || ''} at current edit line.`);
     }
 
     function updateSliderLabels() {
@@ -3605,7 +3752,12 @@ L8E78:
       document.getElementById(name + 'Pane').classList.add('active');
     }
 
+    ['click', 'keyup', 'select', 'focus', 'mouseup'].forEach(evt => {
+      sourceEl.addEventListener(evt, rememberSourceInsertPos);
+    });
+
     sourceEl.addEventListener('input', () => {
+      rememberSourceInsertPos();
       clearActiveImportedPhraseSelection();
       analyze();
       setStatus('Parsed source text. Playback will use the current byte window.');
@@ -3690,6 +3842,7 @@ L8E78:
     document.querySelectorAll('[data-sample]').forEach(btn => {
       btn.addEventListener('click', () => {
         sourceEl.value = SAMPLES[btn.dataset.sample] || DEFAULT_SOURCE;
+        sourceInsertPos = sourceEl.value.length;
         activeImportedPhraseIndex = null;
         activeImportedPhraseSourceText = '';
         if (importedPhrases.length && phraseSelect) {
@@ -3756,6 +3909,7 @@ L8E78:
     updateSliderLabels();
     installBuiltInSc01Rom('sc01');
     sourceEl.value = DEFAULT_SOURCE;
+    sourceInsertPos = sourceEl.value.length;
     analyze();
     setStatus('Ready. Built-in SC-01 ROM table is active; paste bytes, load Wizard/ASM data, or switch to SC-01A.');
   </script>
