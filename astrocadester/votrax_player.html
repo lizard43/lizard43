@@ -1726,7 +1726,7 @@
         </div>
 
         <div class="buttons">
-          <label class="checkLabel" title="Stop parsing/playback when byte $3F is encountered."><input id="stopAtStop"
+          <label class="checkLabel" title="Stop playback when byte $3F is encountered; keep $3F visible/editable in the source, decoded rows, timeline, and export."><input id="stopAtStop"
               type="checkbox" checked /> Stop at <span class="mono">$3F</span></label>
           <label class="checkLabel"
             title="Insert a tiny guard gap between phonemes to exaggerate SC-01-style articulation."><input
@@ -2852,12 +2852,15 @@ L8E78:
     }
 
     function effectiveBytes(bytes) {
-      const out = [];
-      for (const byte of bytes) {
-        out.push(byte & 0xFF);
-        if (stopAtStopEl.checked && byte === 0x3F) break;
-      }
-      return out;
+      // Keep decode/edit/export views faithful to the source bytes. The Stop at
+      // $3F checkbox is playback-only, so dragging/inserting a STOP phoneme must
+      // not trim the timeline, decoded list, source text, or exported .DB data.
+      return (bytes || []).map(byte => byte & 0xFF);
+    }
+
+    function shouldStopPlaybackAtItem(item, ph) {
+      if (!stopAtStopEl?.checked || !item || !ph || ph.kind !== 'stop') return false;
+      return ((item.byte ?? -1) & 0xFF) === 0x3F;
     }
 
     function formatDb(bytes, mode = guessDecodeMode(bytes)) {
@@ -3529,7 +3532,7 @@ L8E78:
           ampModifier = 1;
         }
 
-        if (mode === 'sc01' && stopAtStopEl.checked && item.byte === 0x3F) break;
+        if (shouldStopPlaybackAtItem(item, ph)) break;
       }
 
       const samples = new Float32Array(Math.max(1, total));
