@@ -1411,10 +1411,10 @@
 
     <section class="panel stack rightPanel">
       <div class="tabBar" role="tablist" aria-label="right side tabs">
-        <button class="tabButton active" type="button" data-tab="decoded">Decoded</button>
-        <button class="tabButton" type="button" data-tab="table">64 Phonemes</button>
+        <button class="tabButton active" type="button" data-tab="decoded">decoded</button>
+        <button class="tabButton" type="button" data-tab="table">phonemes</button>
         <button class="tabButton" type="button" data-tab="tokens">tokens</button>
-        <button class="tabButton" type="button" data-tab="notes">Notes</button>
+        <button class="tabButton" type="button" data-tab="notes">notes</button>
       </div>
 
       <div class="tabPane active" id="decodedPane" role="tabpanel">
@@ -1441,7 +1441,6 @@
       </div>
 
       <div class="tabPane" id="tokensPane" role="tabpanel">
-        <h2>voice-token table</h2>
         <div class="phonemeTableWrap">
           <table>
             <thead>
@@ -1471,7 +1470,7 @@
           meant for fast Astrocade phrase prototyping from ROM byte streams, not cycle-accurate Votrax SC-01 emulation.
         </div>
         <div class="callout gold" style="margin-top:8px;">
-          Click any green phoneme pill in the Decoded, 64 Phonemes, or tokens tabs to audition it. Use Add when
+          Click any green phoneme pill in the Decoded, phonemes, or tokens tabs to audition it. Use Add when
           you want to append raw SC-01 phonemes or  script-layer tokens to the phrase.
         </div>
         <div class="small" style="margin-top:10px;">
@@ -2023,33 +2022,42 @@ Wor:
       TH: [190], TT: [191], KE: [194], KO: [195], EK: [196], OK: [197], PE: [198], PO: [199], W: [186], 2: [2]
     };
 
+const WIZARD_TOKEN_CATALOG = [
+  ...WIZARD_PHONEMES.map(ph => ({
+    token: ph.symbol,
+    bytes: [ph.byte],
+    type: 'voice',
+    desc: ph.desc,
+    playable: true,
+    ph
+  })),
 
+  { token: 'P0', bytes: [0], type: 'pause', desc: 'Shortest pause.', playable: false },
+  { token: 'P1', bytes: [1], type: 'pause', desc: ' pause 1.', playable: false },
+  { token: 'P2', bytes: [2], type: 'pause', desc: ' pause 2.', playable: false },
+  { token: 'P3', bytes: [3], type: 'pause', desc: ' pause 3.', playable: false },
+  { token: 'P4', bytes: [4], type: 'pause', desc: ' pause 4. Not seen in the current text file, but reserved by the utility.', playable: false },
+  { token: 'P5', bytes: [5], type: 'pause', desc: 'Longest pause used by the text file.', playable: false },
 
+  { token: 'FAST', bytes: [7], type: 'control', desc: 'Speed control. The utility speeds up the next playable token.', playable: false },
+  { token: 'SLOW', bytes: [8], type: 'control', desc: 'Speed control. The utility slows the next playable token.', playable: false },
+  { token: 'STRESS', bytes: [14], type: 'control', desc: 'Emphasis control. The utility boosts the next playable token.', playable: false },
+  { token: 'RELAX', bytes: [15], type: 'control', desc: 'Emphasis control. The utility softens the next playable token.', playable: false },
+  { token: 'REPEAT', bytes: [26], type: 'control', desc: 'Repeat command prefix. Usually followed by a numeric argument token such as \\2.', playable: false },
 
-    const WIZARD_TOKEN_CATALOG = [
-      { token: 'P0', bytes: [0], type: 'pause', desc: 'Shortest  pause.', playable: false },
-      { token: 'P1', bytes: [1], type: 'pause', desc: ' pause 1.', playable: false },
-      { token: 'P2', bytes: [2], type: 'pause', desc: ' pause 2.', playable: false },
-      { token: 'P3', bytes: [3], type: 'pause', desc: ' pause 3.', playable: false },
-      { token: 'P4', bytes: [4], type: 'pause', desc: ' pause 4. Not seen in the current text file, but reserved by the utility.', playable: false },
-      { token: 'P5', bytes: [5], type: 'pause', desc: 'Longest  pause used by the text file.', playable: false },
-      { token: 'FAST', bytes: [7], type: 'control', desc: 'Speed control. The utility speeds up the next playable token.', playable: false },
-      { token: 'SLOW', bytes: [8], type: 'control', desc: 'Speed control. The utility slows the next playable token.', playable: false },
-      { token: 'STRESS', bytes: [14], type: 'control', desc: 'Emphasis control. The utility boosts the next playable token.', playable: false },
-      { token: 'RELAX', bytes: [15], type: 'control', desc: 'Emphasis control. The utility softens the next playable token.', playable: false },
-      { token: 'REPEAT', bytes: [26], type: 'control', desc: 'Repeat command prefix. Usually followed by a numeric argument token such as \\2.', playable: false },
-      { token: '2', bytes: [2], type: 'argument', desc: 'Numeric argument used after \\Repeat in the source notes.', playable: false },
-      { token: 'NTA2', bytes: [22, 110], type: 'note', desc: 'Two-byte note/pitch command used by  voice data.', playable: false },
-      { token: 'NTB2', bytes: [22, 123], type: 'note', desc: 'Two-byte note/pitch command used by  voice data.', playable: false },
-      { token: 'NTC3', bytes: [22, 131], type: 'note', desc: 'Two-byte note/pitch command used by  voice data.', playable: false },
-      { token: 'NTE2', bytes: [22, 82], type: 'note', desc: 'Two-byte note/pitch command used by  voice data.', playable: false },
-      { token: 'CMD20', bytes: [20, 96], type: 'note', desc: 'Generic two-byte command prefix $14. Seen in some streams before phrase phonemes.', playable: false },
-      { token: 'CMD21', bytes: [21, 114], type: 'note', desc: 'Generic two-byte command prefix $15. Seen in some streams before phrase phonemes.', playable: false },
-      { token: 'CMD23', bytes: [23, 5], type: 'note', desc: 'Generic two-byte command prefix $17. Treated as a mild pitch/bend control by the utility.', playable: false },
-      { token: 'W', bytes: [186], type: 'alias', desc: 'Alias found in the source notes. The numeric stream represents this position with byte $BA, same as \\FF in this utility.', playable: true },
-      ...WIZARD_PHONEMES.map(ph => ({ token: ph.symbol, bytes: [ph.byte], type: 'voice', desc: ph.desc, playable: true, ph }))
-    ];
+  { token: '2', bytes: [2], type: 'argument', desc: 'Numeric argument used after \\Repeat in the source notes.', playable: false },
 
+  { token: 'NTA2', bytes: [22, 110], type: 'note', desc: 'Two-byte note/pitch command used by voice data.', playable: false },
+  { token: 'NTB2', bytes: [22, 123], type: 'note', desc: 'Two-byte note/pitch command used by voice data.', playable: false },
+  { token: 'NTC3', bytes: [22, 131], type: 'note', desc: 'Two-byte note/pitch command used by voice data.', playable: false },
+  { token: 'NTE2', bytes: [22, 82], type: 'note', desc: 'Two-byte note/pitch command used by voice data.', playable: false },
+
+  { token: 'CMD20', bytes: [20, 96], type: 'note', desc: 'Generic two-byte command prefix $14. Seen in some streams before phrase phonemes.', playable: false },
+  { token: 'CMD21', bytes: [21, 114], type: 'note', desc: 'Generic two-byte command prefix $15. Seen in some streams before phrase phonemes.', playable: false },
+  { token: 'CMD23', bytes: [23, 5], type: 'note', desc: 'Generic two-byte command prefix $17. Treated as a mild pitch/bend control by the utility.', playable: false },
+
+  { token: 'W', bytes: [186], type: 'alias', desc: 'Alias found in the source notes. The numeric stream represents this position with byte $BA, same as \\FF in this utility.', playable: true }
+];
 
 
     const WOW_RAW_PHRASE_LIBRARY = [
