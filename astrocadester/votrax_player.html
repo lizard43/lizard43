@@ -1609,6 +1609,38 @@
       cursor: grabbing;
     }
 
+    .timelineDragGhost.timelineDeleteGhost {
+      border-color: rgba(255, 107, 107, .95) !important;
+      color: var(--danger) !important;
+      background: rgba(255, 107, 107, .14) !important;
+      box-shadow: 0 8px 24px rgba(0,0,0,.45), 0 0 0 2px rgba(255, 107, 107, .42) !important;
+      opacity: .96;
+    }
+
+    .timelineDragGhost.timelineDeleteGhost::after {
+      content: 'DELETE';
+      position: absolute;
+      left: 50%;
+      top: -21px;
+      transform: translateX(-50%);
+      padding: 2px 6px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 107, 107, .80);
+      background: #0f1218;
+      color: var(--danger);
+      font: 900 10px/1 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      letter-spacing: .04em;
+      writing-mode: horizontal-tb;
+      text-orientation: mixed;
+      white-space: nowrap;
+    }
+
+    .timelineDragGhost.timelineCancelGhost {
+      border-color: rgba(155, 167, 182, .65) !important;
+      opacity: .48;
+      box-shadow: 0 8px 24px rgba(0,0,0,.30), 0 0 0 2px rgba(155, 167, 182, .18) !important;
+    }
+
     .timelineDropGap {
       flex: 0 0 10px;
       width: 10px;
@@ -3349,6 +3381,26 @@ L8E78:
       return true;
     }
 
+    function deleteTimelineItemFromSource(fromIndex) {
+      if (!currentAnalysis || !currentAnalysis.decoded || !currentAnalysis.decoded.length) return false;
+      const rows = currentAnalysis.decoded.slice();
+      const from = rows.findIndex(item => Number(item.index) === Number(fromIndex));
+      if (from < 0) return false;
+
+      const [removed] = rows.splice(from, 1);
+      const mode = currentAnalysis.mode === 'wizard' ? 'wizard' : 'sc01';
+      const bytes = rows.flatMap(item => item.rawBytes || [item.byte]).map(byte => byte & 0xFF);
+      clearActiveImportedPhraseSelection();
+      inputModeEl.value = mode;
+      sourceEl.value = bytes.length ? formatDb(bytes, mode) : '';
+      sourceEl.focus();
+      sourceEl.selectionStart = sourceEl.selectionEnd = sourceEl.value.length;
+      sourceInsertPos = sourceEl.value.length;
+      analyze();
+      setStatus(`Deleted ${removed.ph?.symbol || hex2(removed.byte)} from timeline; source updated.`);
+      return true;
+    }
+
     function renderDecoded(analysis) {
       decodedList.innerHTML = '';
       if (analysis.decodeMessage) {
@@ -3499,11 +3551,43 @@ L8E78:
       timelineDragState.slotIndex = safeSlot;
     }
 
+    function removeTimelineDropGap() {
+      if (timelineDragState?.gap?.parentNode) timelineDragState.gap.remove();
+      if (timelineDragState) timelineDragState.slotIndex = null;
+    }
+
+    function timelineDropPanelRect() {
+      const panel = timeline?.closest('.timelinePanel') || timeline;
+      return panel ? panel.getBoundingClientRect() : null;
+    }
+
+    function isPointInTimelineSection(clientX, clientY) {
+      const rect = timelineDropPanelRect();
+      if (!rect) return false;
+      return clientX >= rect.left && clientX <= rect.right && clientY >= rect.top && clientY <= rect.bottom;
+    }
+
     function updateTimelineGhost(ev) {
       const drag = timelineDragState;
       if (!drag?.ghost) return;
       drag.ghost.style.left = `${ev.clientX - drag.offsetX}px`;
       drag.ghost.style.top = `${ev.clientY - drag.offsetY}px`;
+    }
+
+    function updateTimelineDropPlacement(ev) {
+      const drag = timelineDragState;
+      if (!drag?.active) return;
+      const inTimeline = isPointInTimelineSection(ev.clientX, ev.clientY);
+      drag.overTimeline = inTimeline;
+      drag.ghost?.classList.toggle('timelineDeleteGhost', drag.kind !== 'insert' && !inTimeline);
+      drag.ghost?.classList.toggle('timelineCancelGhost', drag.kind === 'insert' && !inTimeline);
+
+      if (!inTimeline) {
+        removeTimelineDropGap();
+        return;
+      }
+
+      placeTimelineDropGap(timelineSlotFromPoint(ev.clientX, ev.clientY, drag.sourceEl));
     }
 
     function startTimelineDrag(seg, ev) {
@@ -3530,7 +3614,7 @@ L8E78:
       seg.classList.add('timelineDragSource');
       document.body.classList.add('isTimelineDragging');
       updateTimelineGhost(ev);
-      placeTimelineDropGap(timelineSlotFromPoint(ev.clientX, ev.clientY, seg));
+      updateTimelineDropPlacement(ev);
     }
 
     function finishTimelineDrag(ev, wasCanceled = false) {
@@ -3539,15 +3623,27 @@ L8E78:
       try { drag.sourceEl?.releasePointerCapture(drag.pointerId); } catch (_) { }
 
       if (drag.active && !wasCanceled) {
-        const slot = Number.isFinite(drag.slotIndex) ? drag.slotIndex : timelineSlotFromPoint(ev.clientX, ev.clientY, drag.sourceEl);
+        const droppedInTimeline = isPointInTimelineSection(ev.clientX, ev.clientY);
         let changed = false;
-        if (drag.kind === 'insert') {
-          changed = insertPaletteBytesIntoTimelineSlot(drag.bytes || [], slot, drag.mode || 'sc01', drag.label || 'phoneme');
+
+        if (!droppedInTimeline) {
+          if (drag.kind === 'insert') {
+            setStatus(`${drag.label || 'Palette item'} insert canceled.`);
+          } else {
+            changed = deleteTimelineItemFromSource(drag.fromIndex);
+            if (!changed) setStatus('Timeline delete canceled.');
+          }
         } else {
-          changed = rebuildSourceFromTimelineSlot(drag.fromIndex, slot);
+          const slot = Number.isFinite(drag.slotIndex) ? drag.slotIndex : timelineSlotFromPoint(ev.clientX, ev.clientY, drag.sourceEl);
+          if (drag.kind === 'insert') {
+            changed = insertPaletteBytesIntoTimelineSlot(drag.bytes || [], slot, drag.mode || 'sc01', drag.label || 'phoneme');
+          } else {
+            changed = rebuildSourceFromTimelineSlot(drag.fromIndex, slot);
+          }
+          if (!changed) setStatus(drag.kind === 'insert' ? 'Phoneme insert canceled.' : 'Timeline reorder unchanged.');
         }
+
         timelineSuppressClickUntil = Date.now() + 400;
-        if (!changed) setStatus(drag.kind === 'insert' ? 'Phoneme insert canceled.' : 'Timeline reorder unchanged.');
       } else if (!drag.active && !wasCanceled) {
         timelineSuppressClickUntil = 0;
       }
@@ -3800,7 +3896,7 @@ L8E78:
           ev.preventDefault();
           hidePhonemeInfoTip();
           updateTimelineGhost(ev);
-          placeTimelineDropGap(timelineSlotFromPoint(ev.clientX, ev.clientY, btn));
+          updateTimelineDropPlacement(ev);
         }
       });
 
@@ -3943,7 +4039,7 @@ L8E78:
           ev.preventDefault();
           hidePhonemeInfoTip();
           updateTimelineGhost(ev);
-          placeTimelineDropGap(timelineSlotFromPoint(ev.clientX, ev.clientY, btn));
+          updateTimelineDropPlacement(ev);
         }
       });
 
@@ -4056,7 +4152,7 @@ L8E78:
           if (drag.active) {
             ev.preventDefault();
             updateTimelineGhost(ev);
-            placeTimelineDropGap(timelineSlotFromPoint(ev.clientX, ev.clientY, seg));
+            updateTimelineDropPlacement(ev);
           }
         });
 
