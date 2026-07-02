@@ -1099,6 +1099,117 @@
       }
     }
 
+
+    /* Toolbar compaction: keep controls usable on desktop and mobile. */
+    .topToolbar {
+      gap: 4px;
+      padding: 3px 5px;
+      border-radius: 8px;
+    }
+
+    .topToolbar button.action {
+      border-radius: 7px;
+    }
+
+    .topToolbar .iconButton {
+      width: 32px;
+      height: 30px;
+      min-height: 30px;
+      padding: 0;
+    }
+
+    .topToolbar .iconButton svg {
+      width: 18px;
+      height: 18px;
+    }
+
+    .topToolbar select {
+      width: auto;
+      min-height: 30px;
+      height: 30px;
+      padding: 4px 24px 4px 8px;
+      border-radius: 7px;
+      font-size: 12px;
+      flex: 0 1 auto;
+    }
+
+    .toolbarModeSelect {
+      min-width: 118px;
+      max-width: 176px;
+    }
+
+    .toolbarRomSelect {
+      min-width: 82px;
+      max-width: 96px;
+    }
+
+    @media (max-width: 520px) {
+      .topToolbar {
+        gap: 3px;
+        padding: 3px 4px;
+      }
+
+      .topToolbar .iconButton {
+        width: 30px;
+        height: 29px;
+        min-height: 29px;
+      }
+
+      .topToolbar .iconButton svg {
+        width: 17px;
+        height: 17px;
+      }
+
+      .topToolbar select {
+        min-height: 29px;
+        height: 29px;
+        padding-left: 7px;
+        padding-right: 20px;
+        font-size: 11px;
+      }
+
+      .toolbarModeSelect {
+        min-width: 104px;
+        max-width: 128px;
+      }
+
+      .toolbarRomSelect {
+        min-width: 76px;
+        max-width: 82px;
+      }
+    }
+
+
+    /* Sticky toolbar restore: keep ONLY the top control bar frozen while scrolling. */
+    .topToolbar {
+      position: sticky !important;
+      position: -webkit-sticky !important;
+      top: 5px !important;
+      align-self: start;
+      z-index: 5000;
+    }
+
+    .toolbarSampleRow {
+      position: static !important;
+      z-index: 1;
+    }
+
+    @media (max-width: 1280px) {
+      .topToolbar {
+        position: sticky !important;
+        position: -webkit-sticky !important;
+        top: 4px !important;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .topToolbar {
+        position: sticky !important;
+        position: -webkit-sticky !important;
+        top: 4px !important;
+      }
+    }
+
   </style>
 </head>
 
@@ -1132,12 +1243,16 @@
       </button>
       <input id="voxFileInput" type="file" accept=".txt,.asm,.inc,text/plain" hidden />
       <span class="toolDivider" aria-hidden="true"></span>
-      <label class="toolbarRomLabel" for="builtInRomSelect"><span>ROM</span>
-        <select id="builtInRomSelect" class="toolbarRomSelect" title="Select built-in Votrax ROM model">
-          <option value="sc01" selected>SC-01</option>
-          <option value="sc01a">SC-01A</option>
-        </select>
-      </label>
+      <select id="inputMode" class="toolbarModeSelect" title="Decode mode" aria-label="Decode mode">
+        <option value="auto">Auto</option>
+        <option value="sc01">SC-01 raw</option>
+        <option value="wizard">Wizard/WoW</option>
+        <option value="wowraw">WoW raw</option>
+      </select>
+      <select id="builtInRomSelect" class="toolbarRomSelect" title="Select built-in Votrax ROM model" aria-label="Select built-in Votrax ROM model">
+        <option value="sc01" selected>SC-01</option>
+        <option value="sc01a">SC-01A</option>
+      </select>
     </div>
 
     <div class="toolbarSampleRow" aria-label="Sample phrases">
@@ -1154,16 +1269,6 @@
 
     <section class="panel stack">
       <div>
-        <div class="modeTools">
-          <label for="inputMode">Decode mode
-            <select id="inputMode">
-              <option value="auto">Auto detect</option>
-              <option value="sc01">Raw SC-01 0-63 phoneme bytes</option>
-              <option value="wizard">Wizard/WoW voice data</option>
-              <option value="wowraw">Arcade WoW disassembly bytes</option>
-            </select>
-          </label>
-        </div>
         <textarea id="source" aria-label="Byte dump / phrase source" spellcheck="false" wrap="off"></textarea>
       </div>
 
