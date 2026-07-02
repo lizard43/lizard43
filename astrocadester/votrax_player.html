@@ -1921,6 +1921,43 @@
       }
     }
 
+
+
+    /* Content-fit defaults: the editor, palette, and export areas expand to their
+       contents instead of showing their own scrollbars. The page can scroll; the
+       section internals should not need to. */
+    .sourceEditorPanel.resizablePanel,
+    .phonemePalettePanel.resizablePanel {
+      overflow: visible;
+    }
+
+    .sourceEditorPanel .sourceTextWrap {
+      flex: 0 0 auto;
+      min-height: 0;
+    }
+
+    #source,
+    #exportText {
+      min-height: 0 !important;
+      height: auto;
+      overflow: hidden;
+      resize: none;
+    }
+
+    .phonemePalettePanel .tabPane.active {
+      overflow: visible;
+    }
+
+    .phonemePalettePanel .phonemePaletteWrap,
+    .phonemePaletteWrap {
+      max-height: none !important;
+      overflow: visible !important;
+    }
+
+    .footerPanel {
+      overflow: visible;
+    }
+
   </style>
 </head>
 
@@ -2100,17 +2137,14 @@
 
     <section class="panel stack rightPanel resizablePanel" data-pane-name="decode" style="--decode-pane-height: 420px; --decode-pane-height-mobile: 360px;">
       <div class="tabBar" role="tablist" aria-label="right side tabs">
-        <button class="tabButton active" type="button" data-tab="decoded">decoded</button>
-        <button class="tabButton" type="button" data-tab="table">phonemes</button>
-        <button class="tabButton" type="button" data-tab="tokens">tokens</button>
-        <button class="tabButton" type="button" data-tab="notes">notes</button>
+        <button class="tabButton active" type="button" data-tab="notes">notes</button>
       </div>
 
-      <div class="tabPane active" id="decodedPane" role="tabpanel">
+      <div class="tabPane" id="decodedPane" role="tabpanel" hidden>
         <div class="decodedList" id="decodedList"></div>
       </div>
 
-      <div class="tabPane" id="tablePane" role="tabpanel">
+      <div class="tabPane" id="tablePane" role="tabpanel" hidden>
         <div class="phonemeTableWrap">
           <table>
             <thead>
@@ -2120,7 +2154,7 @@
         </div>
       </div>
 
-      <div class="tabPane" id="tokensPane" role="tabpanel">
+      <div class="tabPane" id="tokensPane" role="tabpanel" hidden>
         <div class="phonemeTableWrap">
           <table>
             <thead>
@@ -2130,7 +2164,7 @@
         </div>
       </div>
 
-      <div class="tabPane" id="notesPane" role="tabpanel">
+      <div class="tabPane active" id="notesPane" role="tabpanel">
         <h2>Playback notes</h2>
         <div class="callout cyan">
           Parser accepts <span class="mono">.DB</span>, <span class="mono">DEFB</span>, <span class="mono">$3F</span>,
@@ -2160,7 +2194,7 @@
   <div id="phonemeInfoTip" class="phonemeInfoTip" role="tooltip" aria-hidden="true"></div>
 
   <section class="panel footerPanel">
-    <textarea id="exportText" readonly wrap="off" style="min-height:150px"></textarea>
+    <textarea id="exportText" readonly wrap="off"></textarea>
   </section>
 
   <script>
@@ -3350,6 +3384,7 @@ L8E78:
       renderPhonemePalette(currentAnalysis);
       renderTokenPalette(currentAnalysis);
       exportText.value = formatDb(used);
+      scheduleContentFit();
       document.getElementById('metricBytes').textContent = normalizedInput.rawPhrase ? `${parsedBytes.length} → ${bytes.length}` : String(parsedBytes.length);
       document.getElementById('metricPhonemes').textContent = String(decoded.filter(x => x.ph && !x.skipAudio && x.ph.kind !== 'stop').length);
       document.getElementById('metricDuration').textContent = (durationMs / 1000).toFixed(2) + 's';
@@ -4126,6 +4161,7 @@ L8E78:
       const pane = document.getElementById(selected === 'tokens' ? 'paletteTokensPane' : 'palettePhonemesPane');
       if (pane) pane.classList.add('active');
       hidePhonemeInfoTip();
+      scheduleContentFit();
     }
 
     function renderTimeline(analysis) {
@@ -5347,6 +5383,7 @@ L8E78:
     }
 
     function renderPhonemeTable() {
+      if (!tableBody) return;
       tableBody.innerHTML = '';
       for (const ph of PHONEMES) {
         const tr = document.createElement('tr');
@@ -5391,10 +5428,18 @@ L8E78:
     }
 
     function showTab(name) {
-      document.querySelectorAll('.rightPanel .tabButton').forEach(btn => btn.classList.toggle('active', btn.dataset.tab === name));
-      document.querySelectorAll('.rightPanel .tabPane').forEach(pane => pane.classList.remove('active'));
-      const pane = document.getElementById(name + 'Pane');
-      if (pane) pane.classList.add('active');
+      const selected = name === 'notes' ? 'notes' : 'notes';
+      document.querySelectorAll('.rightPanel .tabButton').forEach(btn => btn.classList.toggle('active', btn.dataset.tab === selected));
+      document.querySelectorAll('.rightPanel .tabPane').forEach(pane => {
+        pane.classList.remove('active');
+        if (pane.id !== selected + 'Pane') pane.hidden = true;
+      });
+      const pane = document.getElementById(selected + 'Pane');
+      if (pane) {
+        pane.hidden = false;
+        pane.classList.add('active');
+      }
+      scheduleContentFit();
     }
 
 
@@ -5406,6 +5451,57 @@ L8E78:
       settingsBtn.setAttribute('aria-expanded', visible ? 'true' : 'false');
       settingsBtn.title = visible ? 'Hide playback controls / stats' : 'Show playback controls / stats';
       settingsBtn.setAttribute('aria-label', settingsBtn.title);
+    }
+
+    function autoFitTextarea(el, minHeight = 0) {
+      if (!el) return 0;
+      el.style.height = 'auto';
+      const nextHeight = Math.max(minHeight, el.scrollHeight + 2);
+      el.style.height = nextHeight + 'px';
+      return nextHeight;
+    }
+
+    function fitSourceEditorToContent() {
+      if (!sourceEditorPanel || !sourceEl || sourceEditorPanel.classList.contains('isHidden')) return;
+      autoFitTextarea(sourceEl, 44);
+      const wrap = sourceEditorPanel.querySelector('.sourceTextWrap');
+      const handle = sourceEditorPanel.querySelector('.paneResizeHandle');
+      const wrapHeight = wrap ? wrap.getBoundingClientRect().height : sourceEl.getBoundingClientRect().height;
+      const handleHeight = handle ? handle.getBoundingClientRect().height : 14;
+      const total = Math.ceil(wrapHeight + handleHeight + 6);
+      sourceEditorPanel.style.setProperty('--source-pane-height', total + 'px');
+      sourceEditorPanel.style.setProperty('--source-pane-height-mobile', total + 'px');
+      sourceEditorPanel.style.height = total + 'px';
+    }
+
+    function fitPaletteToContent() {
+      const panel = document.querySelector('[data-pane-name="palette"]');
+      if (!panel) return;
+      const tabBar = panel.querySelector('.tabBar');
+      const activeWrap = panel.querySelector('.tabPane.active .phonemePaletteWrap');
+      const handle = panel.querySelector('.paneResizeHandle');
+      const tabHeight = tabBar ? tabBar.getBoundingClientRect().height : 0;
+      const wrapHeight = activeWrap ? Math.max(activeWrap.scrollHeight, activeWrap.getBoundingClientRect().height) : 0;
+      const handleHeight = handle ? handle.getBoundingClientRect().height : 14;
+      const total = Math.ceil(tabHeight + wrapHeight + handleHeight + 12);
+      panel.style.setProperty('--palette-pane-height', total + 'px');
+      panel.style.setProperty('--palette-pane-height-mobile', total + 'px');
+      panel.style.height = total + 'px';
+    }
+
+    function fitExportToContent() {
+      autoFitTextarea(exportText, 48);
+    }
+
+    let contentFitFrame = 0;
+    function scheduleContentFit() {
+      if (contentFitFrame) cancelAnimationFrame(contentFitFrame);
+      contentFitFrame = requestAnimationFrame(() => {
+        contentFitFrame = 0;
+        fitSourceEditorToContent();
+        fitPaletteToContent();
+        fitExportToContent();
+      });
     }
 
 
@@ -5541,6 +5637,7 @@ L8E78:
           const pane = document.querySelector(cfg.selector);
           if (pane) setPaneHeight(pane, cfg, getPaneHeight(pane, cfg));
         }
+        scheduleContentFit();
       });
     }
 
@@ -5564,6 +5661,7 @@ L8E78:
       sourceToggleBtn.title = visible ? 'Hide source editor' : 'Show source editor';
       sourceToggleBtn.setAttribute('aria-label', sourceToggleBtn.title);
       if (visible) {
+        scheduleContentFit();
         sourceEl.focus();
         if (sourceInsertPos === null || sourceInsertPos === undefined) sourceInsertPos = sourceEl.value.length;
         try { sourceEl.setSelectionRange(sourceInsertPos, sourceInsertPos); } catch (_) { }
@@ -5578,6 +5676,7 @@ L8E78:
       rememberSourceInsertPos();
       clearActiveImportedPhraseSelection();
       analyze();
+      scheduleContentFit();
       setStatus('Parsed source text. Playback will use the current byte window.');
     });
 
@@ -5607,6 +5706,7 @@ L8E78:
       const analysis = analyze();
       const text = formatDb(analysis.bytes, analysis.mode);
       exportText.value = text;
+      scheduleContentFit();
       try { await navigator.clipboard.writeText(text); setStatus('.DB copied to clipboard.'); }
       catch (_) { exportText.focus(); exportText.select(); setStatus('Clipboard failed; export text selected for manual copy.', true); }
     });
@@ -5684,7 +5784,7 @@ L8E78:
       });
     });
 
-    tableBody.addEventListener('click', ev => {
+    if (tableBody) tableBody.addEventListener('click', ev => {
       const playPill = ev.target.closest('[data-play-byte]');
       if (playPill) {
         ev.preventDefault();
@@ -5739,6 +5839,7 @@ L8E78:
 
     setSampleRowVisible(true);
     setSourceEditorVisible(false);
+    showTab('notes');
     installPaneResizers();
     renderPhonemeTable();
     renderWizardTokenTable();
@@ -5749,9 +5850,10 @@ L8E78:
     sourceEl.value = DEFAULT_SOURCE;
     sourceInsertPos = sourceEl.value.length;
     analyze();
+    scheduleContentFit();
     setStatus('Ready. Built-in SC-01 ROM table is active; paste bytes, load Wizard/ASM data, or switch to SC-01A.');
   </script>
 </body>
 
-<!-- cache-bust: source-pencil-toggle-20260702 -->
+<!-- cache-bust: tabs-removed-fit-panes-20260702 -->
 </html>
