@@ -909,6 +909,27 @@
       white-space: nowrap;
     }
 
+    .romInline .romModelTag {
+      color: var(--cyan);
+      margin-right: 6px;
+      font-weight: 900;
+    }
+
+    .romInline .romNumbers {
+      color: var(--gold);
+    }
+
+    .romInline .romDiffMark {
+      color: var(--cyan);
+      margin-left: 6px;
+      font-weight: 900;
+    }
+
+    .romInline.romDiff {
+      text-decoration: underline dotted rgba(114, 216, 255, .65);
+      text-underline-offset: 3px;
+    }
+
     .decodedRow.control .symbolPill,
     .decodedRow.control .kindPill {
       color: var(--gold);
@@ -1921,6 +1942,49 @@ Wor:
     function romSummary(entry) {
       if (!entry) return '—';
       return `dur ${entry.duration} · f1 ${entry.f1} f2 ${entry.f2} f3 ${entry.f3} · va ${entry.va} fa ${entry.fa}`;
+    }
+
+    const ROM_VISIBLE_COMPARE_FIELDS = ['duration', 'f1', 'f2', 'f3', 'va', 'fa'];
+    const builtInRomStateCache = {};
+
+    function romDisplayName(model) {
+      return model === 'sc01a' ? 'SC-01A' : 'SC-01';
+    }
+
+    function activeRomModel() {
+      const model = sc01RomState?.builtInModel || builtInRomSelect?.value || 'sc01';
+      return VOTRAX_ROM_WORDS[model] ? model : 'sc01';
+    }
+
+    function getBuiltInRomState(model) {
+      const key = VOTRAX_ROM_WORDS[model] ? model : 'sc01';
+      if (!builtInRomStateCache[key]) {
+        builtInRomStateCache[key] = decodeSc01RomBytes(
+          romWordsToBytes(VOTRAX_ROM_WORDS[key]),
+          BUILTIN_ROM_LABELS[key],
+          BUILTIN_ROM_HASHES[key]
+        );
+      }
+      return builtInRomStateCache[key];
+    }
+
+    function romDifferenceInfo(phone, entry) {
+      if (!entry) return { changed: false, note: '' };
+      const model = activeRomModel();
+      const otherModel = model === 'sc01a' ? 'sc01' : 'sc01a';
+      const other = getBuiltInRomState(otherModel)?.byPhone.get(phone & 0x3f);
+      if (!other) return { changed: false, note: '' };
+      const changedFields = ROM_VISIBLE_COMPARE_FIELDS.filter(field => Number(entry[field]) !== Number(other[field]));
+      if (!changedFields.length) return { changed: false, note: `same as ${romDisplayName(otherModel)}` };
+      return {
+        changed: true,
+        note: `diff vs ${romDisplayName(otherModel)}: ` + changedFields.map(field => `${field} ${other[field]}→${entry[field]}`).join(', ')
+      };
+    }
+
+    function romSummaryWithModel(entry) {
+      if (!entry) return '—';
+      return `${romDisplayName(activeRomModel())} · ${romSummary(entry)}`;
     }
 
     const WIZARD_CONTROL_PREFIXES = new Set([20, 21, 22, 23]);
@@ -3921,7 +3985,11 @@ L8E78:
       for (const ph of PHONEMES) {
         const tr = document.createElement('tr');
         const rom = sc01RomState?.byPhone.get(ph.byte);
-        const romText = rom ? `<span class="romInline" title="${escapeHtml(romSummary(rom))}">${escapeHtml(romSummary(rom))}</span>` : '—';
+        const romInfo = romDifferenceInfo(ph.byte, rom);
+        const romTitle = rom ? `${romSummaryWithModel(rom)} · ${romInfo.note}` : '—';
+        const romText = rom ?
+          `<span class="romInline ${romInfo.changed ? 'romDiff' : 'romSame'}" data-rom-model="${escapeHtml(activeRomModel())}" title="${escapeHtml(romTitle)}"><span class="romModelTag">${escapeHtml(romDisplayName(activeRomModel()))}</span><span class="romNumbers">${escapeHtml(romSummary(rom))}</span>${romInfo.changed ? '<span class="romDiffMark" title="Differs from the other built-in ROM">*</span>' : ''}</span>` :
+          '—';
         tr.innerHTML =
           `<td class="bytePill">${ph.hex}</td>` +
           `<td class="mono accent phonemeSymbolCell"><span class="symbolAddCell"><button class="symbolPill symbolPillButton" type="button" data-play-byte="${ph.byte}" title="Play ${escapeHtml(ph.symbol)}">${escapeHtml(ph.symbol)}</button><button class="action plusIconButton" type="button" data-append="${ph.byte}" title="Insert ${escapeHtml(ph.symbol)} at current edit line" aria-label="Insert ${escapeHtml(ph.symbol)}">+</button></span></td>` +
@@ -4040,7 +4108,9 @@ L8E78:
     if (builtInRomSelect) builtInRomSelect.addEventListener('change', () => {
       stopPlayback();
       installBuiltInSc01Rom(builtInRomSelect.value);
-      setStatus(`Switched/reloaded ${BUILTIN_ROM_LABELS[builtInRomSelect.value]}. Re-render and playback now use ${builtInRomSelect.value.toUpperCase()}.`);
+      renderPhonemeTable();
+      analyze();
+      setStatus(`Switched/reloaded ${BUILTIN_ROM_LABELS[builtInRomSelect.value]}. Phoneme ROM column and SC-01 playback now use ${romDisplayName(builtInRomSelect.value)}.`);
     });
     if (settingsBtn && playbackControls) settingsBtn.addEventListener('click', () => {
       setPlaybackControlsVisible(playbackControls.classList.contains('isHidden'));
