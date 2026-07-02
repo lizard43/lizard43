@@ -58,10 +58,12 @@
 
     .topLayout {
       display: grid;
-      grid-template-columns: minmax(320px, .95fr) minmax(380px, 1.05fr);
+      grid-template-columns: minmax(0, .95fr) minmax(0, 1.05fr);
       gap: 8px;
       align-items: stretch;
       min-width: 0;
+      width: 100%;
+      overflow: hidden;
     }
 
     .topLayout > * {
@@ -114,6 +116,12 @@
       padding-inline: 10px;
     }
 
+    @media (max-width: 1280px) {
+      .topToolbar .action {
+        min-height: 34px;
+      }
+    }
+
     .panel {
       background: var(--panel);
       border: 1px solid var(--border);
@@ -121,6 +129,7 @@
       padding: 12px;
       box-shadow: 0 2px 10px rgba(0, 0, 0, .2);
       min-width: 0;
+      max-width: 100%;
       overflow: hidden;
     }
 
@@ -256,9 +265,10 @@
 
     .row {
       display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(138px, 1fr));
       gap: 8px;
       align-items: end;
+      min-width: 0;
     }
 
     .checkLabel {
@@ -274,6 +284,7 @@
 
     input[type="range"] {
       width: 100%;
+      min-width: 0;
       accent-color: var(--accent);
     }
 
@@ -286,6 +297,8 @@
       border: 1px solid var(--border);
       border-radius: 8px;
       padding: 8px;
+      min-width: 0;
+      overflow: hidden;
     }
 
     .controlValue {
@@ -440,6 +453,8 @@
       overflow-y: hidden;
       scrollbar-color: var(--border) #0f1218;
       scrollbar-width: thin;
+      max-width: 100%;
+      min-width: 0;
     }
 
     .timelineSegment {
@@ -551,8 +566,9 @@
 
     .statusGrid {
       display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(118px, 1fr));
       gap: 8px;
+      min-width: 0;
     }
 
     .metric {
@@ -560,6 +576,8 @@
       border: 1px solid var(--border);
       border-radius: 8px;
       padding: 8px;
+      min-width: 0;
+      overflow: hidden;
     }
 
     .metricLabel {
@@ -775,17 +793,16 @@
       margin-top: 8px;
     }
 
-    @media (max-width: 1050px) {
+    @media (max-width: 1280px) {
       .topLayout {
         grid-template-columns: 1fr;
+        overflow: visible;
       }
 
       .topToolbar {
         position: static;
       }
 
-      .row,
-      .statusGrid,
       .modeTools,
       .phraseTools,
       .romTools {
@@ -796,8 +813,12 @@
         min-height: 240px;
       }
 
+      .rightPanel {
+        min-height: 420px;
+      }
+
       .decodedRow {
-        grid-template-columns: 48px 58px 1fr;
+        grid-template-columns: 48px 58px minmax(0, 1fr);
       }
 
       .decodedRow .kindPill {
