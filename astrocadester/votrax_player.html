@@ -5,7 +5,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Votrax Player</title>
-  <!-- cache-bust-head: source-active-corner-cleanup-20260702-f4a91d -->
+  <!-- cache-bust-head: source-inner-only-border-20260702-8c2f9a -->
   <style>
     :root {
       --bg: #14171c;
@@ -2230,6 +2230,187 @@
 
     .sourceEditorPanel #source::-webkit-scrollbar-thumb:hover {
       background: var(--muted);
+    }
+
+
+    /* Section border reset: section-border-reset-20260702-b6d4a9
+       Restore the visible rounded section boxes for source/edit, notes, and settings
+       without bringing back textarea focus/scrollbar corner artifacts. */
+    .toolbarPlaybackPanel.resizablePanel,
+    .notesPanel.resizablePanel,
+    .sourceEditorPanel.resizablePanel {
+      background: #0f1218 !important;
+      border: 1px solid var(--border) !important;
+      border-radius: 8px !important;
+      padding: 6px !important;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, .2) !important;
+      overflow: hidden !important;
+    }
+
+    .toolbarPlaybackPanel.resizablePanel.isHidden,
+    .notesPanel.resizablePanel.isHidden,
+    .sourceEditorPanel.resizablePanel.isHidden {
+      display: none !important;
+    }
+
+    .toolbarPlaybackPanel.resizablePanel:not(.isHidden),
+    .notesPanel.resizablePanel:not(.isHidden),
+    .sourceEditorPanel.resizablePanel:not(.isHidden) {
+      display: flex !important;
+      flex-direction: column !important;
+    }
+
+    .toolbarPlaybackPanel.resizablePanel .collapsibleControlsInner,
+    .notesPanel.resizablePanel .tabPane.active,
+    .sourceEditorPanel.resizablePanel .sourceTextWrap {
+      min-height: 0 !important;
+      min-width: 0 !important;
+    }
+
+    .sourceEditorPanel.resizablePanel .sourceTextWrap {
+      flex: 1 1 auto !important;
+      display: flex !important;
+      background: #0f1218 !important;
+      border: 0 !important;
+      border-radius: 0 !important;
+      overflow: hidden !important;
+    }
+
+    .sourceEditorPanel.resizablePanel #source,
+    .sourceEditorPanel.resizablePanel #source:focus,
+    .sourceEditorPanel.resizablePanel #source:focus-visible,
+    .sourceEditorPanel.resizablePanel #source:active {
+      flex: 1 1 auto !important;
+      width: 100% !important;
+      height: 100% !important;
+      min-height: 0 !important;
+      max-height: none !important;
+      overflow: auto !important;
+      resize: none !important;
+      border: 0 !important;
+      border-radius: 0 !important;
+      outline: none !important;
+      box-shadow: none !important;
+      background: #0f1218 !important;
+      scrollbar-color: var(--border) #0f1218;
+      scrollbar-width: thin;
+    }
+
+    .notesPanel.resizablePanel .tabBar,
+    .phonemePalettePanel.resizablePanel .tabBar {
+      flex: 0 0 auto;
+    }
+
+    .notesPanel.resizablePanel #notesPane.active {
+      flex: 1 1 auto !important;
+      overflow: auto !important;
+      padding: 0 2px 0 0;
+      scrollbar-color: var(--border) #0f1218;
+      scrollbar-width: thin;
+    }
+
+    .toolbarPlaybackPanel.resizablePanel .collapsibleControlsInner {
+      flex: 1 1 auto !important;
+      overflow: auto !important;
+      padding: 0 !important;
+      scrollbar-color: var(--border) #0f1218;
+      scrollbar-width: thin;
+    }
+
+
+    /* Source textarea rounded-border fix: source-inner-only-border-20260702-8c2f9a
+       Keep the source/edit SECTION border, and make the actual text editor box
+       use the same rounded inner border style as the timeline, palette, and export boxes. */
+    .sourceEditorPanel.resizablePanel:not(.isHidden) {
+      border: 1px solid var(--border) !important;
+      border-radius: 8px !important;
+      padding: 6px !important;
+      background: #0f1218 !important;
+      overflow: hidden !important;
+    }
+
+    .sourceEditorPanel.resizablePanel .sourceTextWrap {
+      flex: 1 1 auto !important;
+      min-height: 0 !important;
+      min-width: 0 !important;
+      display: flex !important;
+      overflow: hidden !important;
+      background: #0f1218 !important;
+      border: 1px solid var(--border) !important;
+      border-radius: 8px !important;
+    }
+
+    .sourceEditorPanel.resizablePanel #source,
+    .sourceEditorPanel.resizablePanel #source:focus,
+    .sourceEditorPanel.resizablePanel #source:focus-visible,
+    .sourceEditorPanel.resizablePanel #source:active {
+      flex: 1 1 auto !important;
+      width: 100% !important;
+      height: 100% !important;
+      min-height: 0 !important;
+      max-height: none !important;
+      display: block !important;
+      overflow: auto !important;
+      resize: none !important;
+      border: 0 !important;
+      border-radius: 8px !important;
+      outline: none !important;
+      box-shadow: none !important;
+      background: #0f1218 !important;
+      padding: 10px !important;
+      scrollbar-color: var(--border) #0f1218;
+      scrollbar-width: thin;
+    }
+
+    .sourceEditorPanel.resizablePanel #source::-webkit-scrollbar-track,
+    .sourceEditorPanel.resizablePanel #source::-webkit-scrollbar-corner {
+      background: #0f1218;
+    }
+
+    .sourceEditorPanel.resizablePanel .paneResizeHandle {
+      flex: 0 0 14px !important;
+      min-height: 14px !important;
+      margin: 0 !important;
+      background: transparent !important;
+    }
+
+
+    /* Source outer border removal: source-inner-only-border-20260702-8c2f9a
+       Leave the rounded inner text editor border, but remove the extra outer
+       source/edit section border that created the double-box look. */
+    .sourceEditorPanel.resizablePanel:not(.isHidden) {
+      border: 0 !important;
+      border-radius: 0 !important;
+      padding: 0 !important;
+      background: transparent !important;
+      box-shadow: none !important;
+      overflow: hidden !important;
+    }
+
+    .sourceEditorPanel.resizablePanel .sourceTextWrap {
+      border: 1px solid var(--border) !important;
+      border-radius: 8px !important;
+      background: #0f1218 !important;
+      overflow: hidden !important;
+    }
+
+    .sourceEditorPanel.resizablePanel #source,
+    .sourceEditorPanel.resizablePanel #source:focus,
+    .sourceEditorPanel.resizablePanel #source:focus-visible,
+    .sourceEditorPanel.resizablePanel #source:active {
+      border: 0 !important;
+      border-radius: 8px !important;
+      outline: none !important;
+      box-shadow: none !important;
+      background: #0f1218 !important;
+    }
+
+    .sourceEditorPanel.resizablePanel .paneResizeHandle {
+      flex: 0 0 14px !important;
+      min-height: 14px !important;
+      margin: 0 !important;
+      background: transparent !important;
+      border: 0 !important;
     }
 
   </style>
@@ -5889,7 +6070,7 @@ L8E78:
 
 
 
-    const VOTRAX_UI_BUILD = 'source-active-corner-cleanup-20260702-f4a91d';
+    const VOTRAX_UI_BUILD = 'source-inner-only-border-20260702-8c2f9a';
     const VOTRAX_UI_STORAGE_PREFIX = 'votrax.' + VOTRAX_UI_BUILD + '.';
 
     function resetPaneCacheForThisBuild() {
@@ -6401,5 +6582,5 @@ L8E78:
   </script>
 </body>
 
-<!-- cache-bust: source-active-corner-cleanup-20260702-f4a91d -->
+<!-- cache-bust: source-inner-only-border-20260702-8c2f9a -->
 </html>
