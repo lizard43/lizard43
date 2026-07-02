@@ -1323,6 +1323,56 @@
       }
     }
 
+
+    /* Phoneme table row alignment fixes.
+       Keep opcode as a real table cell with a byte pill inside it; do not apply
+       the pill display model directly to <td>, or the row baseline shifts. */
+    #phonemeTableBody td {
+      vertical-align: middle;
+    }
+
+    #phonemeTableBody .phonemeByteCell {
+      width: 54px;
+      min-width: 54px;
+      text-align: center;
+      white-space: nowrap;
+    }
+
+    #phonemeTableBody .phonemeByteCell .bytePill {
+      width: 52px;
+      min-width: 52px;
+      color: var(--text);
+    }
+
+    #phonemeTableBody .phonemeNameCell {
+      width: 156px;
+      min-width: 156px;
+      white-space: nowrap;
+    }
+
+    #phonemeTableBody .phonemeNameCell .symbolAddCell {
+      justify-content: center;
+    }
+
+    #phonemeTableBody .phonemeDescCell {
+      white-space: nowrap;
+    }
+
+    #phonemeTableBody .phonemeKindCell {
+      width: 92px;
+      min-width: 92px;
+      text-align: center;
+    }
+
+    #phonemeTableBody .phonemeKindCell .kindPill {
+      min-width: 70px;
+      justify-content: center;
+    }
+
+    #phonemeTableBody .phonemeRomCell {
+      white-space: nowrap;
+    }
+
   </style>
 </head>
 
@@ -3996,11 +4046,11 @@ L8E78:
           `<span class="romInline ${romInfo.changed ? 'romDiff' : 'romSame'}" data-rom-model="${escapeHtml(activeRomModel())}" title="${escapeHtml(romTitle)}"><span class="romNumbers">${escapeHtml(romSummary(rom))}</span>${diffMark}</span>` :
           '—';
         tr.innerHTML =
-          `<td class="bytePill">${ph.hex}</td>` +
-          `<td class="mono accent phonemeSymbolCell"><span class="symbolAddCell"><button class="symbolPill symbolPillButton" type="button" data-play-byte="${ph.byte}" title="Play ${escapeHtml(ph.symbol)}">${escapeHtml(ph.symbol)}</button><button class="action plusIconButton" type="button" data-append="${ph.byte}" title="Insert ${escapeHtml(ph.symbol)} at current edit line" aria-label="Insert ${escapeHtml(ph.symbol)}">+</button></span></td>` +
-          `<td>${escapeHtml(ph.desc)}</td>` +
-          `<td><span class="kindPill">${classifyForUi(ph)}</span></td>` +
-          `<td>${romText}</td>`;
+          `<td class="phonemeByteCell mono"><span class="bytePill">${ph.hex}</span></td>` +
+          `<td class="phonemeNameCell mono accent phonemeSymbolCell"><span class="symbolAddCell"><button class="symbolPill symbolPillButton" type="button" data-play-byte="${ph.byte}" title="Play ${escapeHtml(ph.symbol)}">${escapeHtml(ph.symbol)}</button><button class="action plusIconButton" type="button" data-append="${ph.byte}" title="Insert ${escapeHtml(ph.symbol)} at current edit line" aria-label="Insert ${escapeHtml(ph.symbol)}">+</button></span></td>` +
+          `<td class="phonemeDescCell">${escapeHtml(ph.desc)}</td>` +
+          `<td class="phonemeKindCell"><span class="kindPill">${classifyForUi(ph)}</span></td>` +
+          `<td class="phonemeRomCell">${romText}</td>`;
         tr.addEventListener('dblclick', ev => {
           if (ev.target.closest('button')) return;
           playBytes([ph.byte], { single: true, mode: 'sc01' });
