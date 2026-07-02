@@ -58,7 +58,7 @@
 
     .topLayout {
       display: grid;
-      grid-template-columns: minmax(340px, .9fr) minmax(420px, 1.1fr);
+      grid-template-columns: minmax(320px, .95fr) minmax(380px, 1.05fr);
       gap: 8px;
       align-items: stretch;
       min-width: 0;
@@ -73,8 +73,8 @@
       display: flex;
       flex-wrap: wrap;
       align-items: center;
-      gap: 7px;
-      padding: 2px 7px;
+      gap: 6px;
+      padding: 4px 6px;
       background: var(--toolbar);
       border: 1px solid var(--border);
       border-radius: 10px;
@@ -104,6 +104,14 @@
     .toolbarSpacer {
       flex: 1 1 auto;
       min-width: 12px;
+    }
+
+    .topToolbar .action {
+      flex: 0 0 auto;
+    }
+
+    .topToolbar [data-sample] {
+      padding-inline: 10px;
     }
 
     .panel {
@@ -166,6 +174,8 @@
       cursor: pointer;
       font-weight: 700;
       min-height: 32px;
+      max-width: 100%;
+      white-space: nowrap;
     }
 
     button.action:hover {
@@ -639,7 +649,7 @@
 
     .romTools {
       display: grid;
-      grid-template-columns: minmax(0, 1fr) auto;
+      grid-template-columns: minmax(0, 1fr) minmax(120px, 160px);
       gap: 8px;
       align-items: center;
       padding: 8px;
@@ -765,7 +775,7 @@
       margin-top: 8px;
     }
 
-    @media (max-width: 920px) {
+    @media (max-width: 1050px) {
       .topLayout {
         grid-template-columns: 1fr;
       }
@@ -826,7 +836,6 @@
 <body>
   <div class="topLayout">
     <div class="topToolbar" aria-label="SC-01 player toolbar">
-      <span class="toolbarLabel">Astrocade · Votrax SC-01 Utility</span>
       <button class="action primary iconButton" id="playBtn" title="Play parsed byte dump" aria-label="Play">
         <svg viewBox="0 0 24 24" aria-hidden="true">
           <path fill="currentColor" d="M8 5v14l11-7L8 5Z" />
@@ -846,18 +855,14 @@
       <button class="action" id="copyDbBtn">Copy .DB</button>
       <button class="action" id="loadVoxBtn">Load Vox/ASM</button>
       <button class="action" id="importVoxBtn">Import Phrases</button>
-      <button class="action" id="loadSc01RomBtn">Load/Override SC-01 ROM ZIP/BIN</button>
       <button class="action" id="clearBtn">Clear</button>
       <input id="voxFileInput" type="file" accept=".txt,.asm,.inc,text/plain" hidden />
-      <input id="sc01RomFileInput" type="file" accept=".zip,.bin,application/zip,application/octet-stream" hidden />
       <span class="toolDivider" aria-hidden="true"></span>
       <button class="action" data-sample="wor">WOR</button>
       <button class="action" data-sample="wizard">Wizard</button>
       <button class="action" data-sample="pressstart">Press Start</button>
       <button class="action" data-sample="wowrawhey">WoW Raw Hey</button>
       <button class="action" data-sample="allbase">All Your Base</button>
-      <span class="toolbarSpacer" aria-hidden="true"></span>
-      <span class="small">Approximate browser synth · not bit-accurate SC-01 silicon</span>
     </div>
 
     <section class="panel stack">
@@ -893,15 +898,12 @@
         </div>
         <div class="romTools">
           <div class="romStatus" id="sc01RomStatus">Built-in SC-01 ROM table active.</div>
-          <div class="buttons">
-            <label class="romModelLabel" for="builtInRomSelect">Built-in ROM
-              <select id="builtInRomSelect">
-                <option value="sc01" selected>SC-01</option>
-                <option value="sc01a">SC-01A</option>
-              </select>
-            </label>
-            <button class="action" id="clearSc01RomBtn" type="button" title="Reload the ROM model selected in the dropdown and clear any external override.">Use Selected ROM</button>
-          </div>
+          <label class="romModelLabel" for="builtInRomSelect">Built-in ROM
+            <select id="builtInRomSelect">
+              <option value="sc01" selected>SC-01</option>
+              <option value="sc01a">SC-01A</option>
+            </select>
+          </label>
         </div>
         <textarea id="source" spellcheck="false" wrap="off"></textarea>
       </div>
@@ -1031,9 +1033,7 @@
         <div class="small" style="margin-top:10px;">
           The SC-01 chip internally contains its own phoneme timing and articulation behavior. This browser version
           approximates phoneme length, voiced/unvoiced consonants, glides, fricatives, plosives, and pauses using
-          simplified envelopes. Built-in SC-01 / SC-01A ROM tables are available immediately. Loading <span class="mono">sc01.bin</span> or MAME's <span
-            class="mono">votrsc01.zip</span> still lets the tool override the active 64-entry internal phone ROM and use those
-          parameter fields to bias duration, amplitude, formants, noise, and closures.
+          simplified envelopes. Built-in SC-01 / SC-01A ROM tables are available immediately; use the Built-in ROM dropdown to switch the active 64-entry internal phone ROM used for duration, amplitude, formants, noise, and closures.
         </div>
       </div>
     </section>
@@ -1696,10 +1696,7 @@ L8E78:
     const loadVoxBtn = document.getElementById('loadVoxBtn');
     const importVoxBtn = document.getElementById('importVoxBtn');
     const voxFileInput = document.getElementById('voxFileInput');
-    const loadSc01RomBtn = document.getElementById('loadSc01RomBtn');
-    const clearSc01RomBtn = document.getElementById('clearSc01RomBtn');
     const builtInRomSelect = document.getElementById('builtInRomSelect');
-    const sc01RomFileInput = document.getElementById('sc01RomFileInput');
     const sc01RomStatus = document.getElementById('sc01RomStatus');
 
     let importedPhrases = [];
@@ -1768,7 +1765,6 @@ L8E78:
     function updateRomUi() {
       if (!sc01RomState) {
         setRomStatus('Built-in SC-01 ROM table active.');
-        if (clearSc01RomBtn) clearSc01RomBtn.disabled = true;
         return;
       }
       const hashText = sc01RomState.sha1 ? ` SHA-1 <span class="mono">${sc01RomState.sha1.slice(0, 8)}…</span>` : '';
@@ -1778,7 +1774,6 @@ L8E78:
         `${sc01RomState.embeddedDefault ? 'Using built-in ' : 'Loaded override '}<span class="mono">${escapeHtml(sc01RomState.sourceName)}</span>: ${sc01RomState.bytes.length} bytes, 64 phone rows.${hashText}${matchText}`,
         sc01RomState.sha1 && !Object.values(BUILTIN_ROM_HASHES).includes(sc01RomState.sha1) ? 'warn' : 'loaded'
       );
-      if (clearSc01RomBtn) clearSc01RomBtn.disabled = false;
       renderPhonemeTable();
       analyze();
     }
@@ -3284,15 +3279,6 @@ L8E78:
       voxFileInput.click();
     });
     voxFileInput.addEventListener('change', () => loadVoxTextFile(voxFileInput.files[0]));
-    loadSc01RomBtn.addEventListener('click', () => {
-      sc01RomFileInput.value = '';
-      sc01RomFileInput.click();
-    });
-    sc01RomFileInput.addEventListener('change', () => loadSc01RomFromFile(sc01RomFileInput.files[0]));
-    clearSc01RomBtn.addEventListener('click', () => {
-      installDefaultSc01Rom();
-      setStatus(`Using selected built-in ROM: ${BUILTIN_ROM_LABELS[builtInRomSelect?.value || 'sc01']}.`);
-    });
     if (builtInRomSelect) builtInRomSelect.addEventListener('change', () => {
       installBuiltInSc01Rom(builtInRomSelect.value);
       setStatus(`Switched to ${BUILTIN_ROM_LABELS[builtInRomSelect.value]}.`);
@@ -3311,12 +3297,6 @@ L8E78:
     });
     document.addEventListener('drop', ev => {
       const files = Array.from(ev.dataTransfer?.files || []);
-      const romFile = files.find(f => /\.(zip|bin)$/i.test(f.name) || String(f.type || '').includes('zip') || String(f.type || '') === 'application/octet-stream');
-      if (romFile) {
-        ev.preventDefault();
-        loadSc01RomFromFile(romFile);
-        return;
-      }
       const file = files.find(f => /\.(txt|asm|inc)$/i.test(f.name) || /^text\//i.test(f.type));
       if (!file) return;
       ev.preventDefault();
@@ -3390,7 +3370,7 @@ L8E78:
     installBuiltInSc01Rom('sc01');
     sourceEl.value = DEFAULT_SOURCE;
     analyze();
-    setStatus('Ready. Built-in SC-01 ROM table is active; paste bytes, import Wizard/ASM data, switch to SC-01A, or load an override ZIP/BIN.');
+    setStatus('Ready. Built-in SC-01 ROM table is active; paste bytes, import Wizard/ASM data, or switch to SC-01A.');
   </script>
 </body>
 
