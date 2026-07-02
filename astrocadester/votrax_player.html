@@ -693,7 +693,7 @@
     }
 
     .timelineSegment {
-      min-width: 22px;
+      min-width: 10px;
       flex: 0 0 auto;
       display: flex;
       align-items: center;
@@ -703,7 +703,7 @@
       background: var(--panel2);
       color: var(--muted);
       font: 800 10px/1 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-      writing-mode: vertical-rl;
+      /* writing-mode: vertical-rl; */
       text-orientation: mixed;
       cursor: pointer;
     }
@@ -2061,6 +2061,26 @@
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap;
+    }
+
+
+    /* Tight mobile/section alignment: panel content borders line up with fixed toolbar extents. */
+    .panel {
+      padding-left: 0 !important;
+      padding-right: 0 !important;
+    }
+
+    @media (max-width: 520px) {
+      .panel {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+      }
+
+      .timelinePanel .timeline,
+      .phonemePaletteWrap,
+      #exportText {
+        border-radius: 8px;
+      }
     }
 
   </style>
@@ -4288,7 +4308,7 @@ L8E78:
         const cls = classifyForUi(ph);
         seg.className = 'timelineSegment ' + cls;
         seg.dataset.index = String(item.index);
-        seg.style.width = Math.max(22, Math.min(120, ((ph?.dur || 28) / maxDur) * 80)) + 'px';
+        seg.style.width = Math.max(30, Math.min(120, ((ph?.dur || 28) / maxDur) * 80)) + 'px';
         seg.textContent = ph?.symbol || rawHex2(item.byte);
         const byteText = (item.rawBytes || [item.byte]).map(hex2).join(' ');
         seg.title = `${byteText} ${ph?.symbol || '??'} ${ph?.desc || ''}`.trim();
@@ -5323,11 +5343,21 @@ L8E78:
       const index = getSelectedPhraseIndex();
       const phrase = index === null ? null : importedPhrases[index];
       if (!phrase) { setStatus('Select an imported phrase first.', true); return null; }
+      const avoidPaletteFit = Boolean(options.noPaletteFit);
+      const previousSuppressPalette = suppressPaletteAutoFit;
+      if (avoidPaletteFit) {
+        preparePhraseLoadAutoFit();
+        suppressPaletteAutoFit = true;
+      }
       activeImportedPhraseIndex = index;
       sourceEl.value = formatPhraseSource(phrase);
       activeImportedPhraseSourceText = sourceEl.value;
       inputModeEl.value = phrase.mode || 'wizard';
       analyze();
+      if (avoidPaletteFit) {
+        suppressPaletteAutoFit = previousSuppressPalette;
+        schedulePhraseLoadAutoFit();
+      }
       updateSelectedPhraseInfo();
       if (!options.silent) setStatus(`Loaded "${phrase.title}" as ${phrase.mode === 'sc01' ? 'raw SC-01 ASM speech data' : 'Wizard/WoW voice data'}.`);
       return phrase;
@@ -5581,9 +5611,9 @@ L8E78:
       return nextHeight;
     }
 
-    function fitSourceEditorToContent() {
+    function fitSourceEditorToContent(force = false) {
       if (!sourceEditorPanel || !sourceEl || sourceEditorPanel.classList.contains('isHidden')) return;
-      if (sourceEditorPanel.dataset.userSized === 'true') return;
+      if (!force && sourceEditorPanel.dataset.userSized === 'true') return;
       autoFitTextarea(sourceEl, 44);
       const wrap = sourceEditorPanel.querySelector('.sourceTextWrap');
       const handle = sourceEditorPanel.querySelector('.paneResizeHandle');
@@ -5595,9 +5625,36 @@ L8E78:
       sourceEditorPanel.style.height = total + 'px';
     }
 
-    function fitPaletteToContent() {
+    function fitTimelineToContent(force = false) {
+      const panel = document.querySelector('[data-pane-name="timeline"]');
+      if (!panel || (!force && panel.dataset.userSized === 'true')) return;
+      const wrap = panel.querySelector('.timelineWrap');
+      const line = panel.querySelector('.timeline');
+      const handle = panel.querySelector('.paneResizeHandle');
+      if (!wrap || !line) return;
+
+      const oldPanelHeight = panel.style.height;
+      const oldWrapHeight = wrap.style.height;
+      const oldLineHeight = line.style.height;
+      panel.style.height = 'auto';
+      wrap.style.height = 'auto';
+      line.style.height = 'auto';
+
+      const timelineHeight = Math.ceil(Math.max(64, line.scrollHeight + 2));
+      const handleHeight = handle ? Math.max(14, handle.getBoundingClientRect().height) : 14;
+      const total = Math.ceil(timelineHeight + handleHeight + 6);
+
+      wrap.style.height = oldWrapHeight;
+      line.style.height = oldLineHeight;
+      panel.style.height = oldPanelHeight;
+      panel.style.setProperty('--timeline-pane-height', total + 'px');
+      panel.style.setProperty('--timeline-pane-height-mobile', total + 'px');
+      panel.style.height = total + 'px';
+    }
+
+    function fitPaletteToContent(force = false) {
       const panel = document.querySelector('[data-pane-name="palette"]');
-      if (!panel || panel.dataset.userSized === 'true') return;
+      if (!panel || (!force && panel.dataset.userSized === 'true')) return;
       const tabBar = panel.querySelector('.tabBar');
       const activePane = panel.querySelector('.tabPane.active');
       const activeWrap = panel.querySelector('.tabPane.active .phonemePaletteWrap');
@@ -5616,20 +5673,55 @@ L8E78:
       autoFitTextarea(exportText, 48);
     }
 
+    let suppressPaletteAutoFit = false;
     let contentFitFrame = 0;
-    function scheduleContentFit() {
+    function scheduleContentFit(options = {}) {
+      const request = {
+        source: options.source !== false,
+        timeline: options.timeline !== false,
+        palette: options.palette !== false && !suppressPaletteAutoFit,
+        export: options.export !== false,
+        forceSource: Boolean(options.forceSource),
+        forceTimeline: Boolean(options.forceTimeline),
+        forcePalette: Boolean(options.forcePalette)
+      };
       if (contentFitFrame) cancelAnimationFrame(contentFitFrame);
       contentFitFrame = requestAnimationFrame(() => {
         contentFitFrame = 0;
-        fitSourceEditorToContent();
-        fitPaletteToContent();
-        fitExportToContent();
+        if (request.source) fitSourceEditorToContent(request.forceSource);
+        if (request.timeline) fitTimelineToContent(request.forceTimeline);
+        if (request.palette) fitPaletteToContent(request.forcePalette);
+        if (request.export) fitExportToContent();
       });
+    }
+
+    function clearPaneUserSizedState(name) {
+      const pane = document.querySelector(`[data-pane-name="${name}"]`);
+      if (pane) delete pane.dataset.userSized;
+      const storageSuffix = {
+        source: 'sourcePaneHeight',
+        timeline: 'timelinePaneHeight',
+        palette: 'palettePaneHeight',
+        decode: 'decodePaneHeight',
+        settings: 'settingsPaneHeight'
+      }[name];
+      try {
+        if (storageSuffix) localStorage.removeItem(VOTRAX_UI_STORAGE_PREFIX + storageSuffix);
+      } catch (_) { }
+    }
+
+    function preparePhraseLoadAutoFit() {
+      clearPaneUserSizedState('source');
+      clearPaneUserSizedState('timeline');
+    }
+
+    function schedulePhraseLoadAutoFit() {
+      scheduleContentFit({ palette: false, forceSource: true, forceTimeline: true });
     }
 
 
 
-    const VOTRAX_UI_BUILD = 'sample-menu-imports-no-autoload-20260702';
+    const VOTRAX_UI_BUILD = 'aligned-load-autofit-20260702';
     const VOTRAX_UI_STORAGE_PREFIX = 'votrax.' + VOTRAX_UI_BUILD + '.';
 
     function resetPaneCacheForThisBuild() {
@@ -5862,6 +5954,9 @@ L8E78:
     }
 
     function loadBuiltInSample(sampleKey, label = '') {
+      const previousSuppressPalette = suppressPaletteAutoFit;
+      preparePhraseLoadAutoFit();
+      suppressPaletteAutoFit = true;
       sourceEl.value = SAMPLES[sampleKey] || DEFAULT_SOURCE;
       sourceInsertPos = sourceEl.value.length;
       activeImportedPhraseIndex = null;
@@ -5872,6 +5967,8 @@ L8E78:
       }
       inputModeEl.value = sampleKey === 'wowrawhey' ? 'wowraw' : 'sc01';
       analyze();
+      suppressPaletteAutoFit = previousSuppressPalette;
+      schedulePhraseLoadAutoFit();
       setSampleMenuVisible(false);
       setStatus(`Loaded sample: ${label || sampleKey}.`);
     }
@@ -5884,7 +5981,7 @@ L8E78:
         return;
       }
       phraseSelect.value = String(n);
-      loadSelectedPhrase({ silent: false });
+      loadSelectedPhrase({ silent: false, noPaletteFit: true });
       setSampleMenuVisible(false);
     }
 
@@ -6111,5 +6208,5 @@ L8E78:
   </script>
 </body>
 
-<!-- cache-bust: sample-menu-imports-no-autoload-20260702 -->
+<!-- cache-bust: aligned-load-autofit-20260702 -->
 </html>
