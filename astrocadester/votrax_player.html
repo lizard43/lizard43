@@ -1624,6 +1624,165 @@
       user-select: none;
     }
 
+
+    /* Phoneme add palette: a timeline-like bank of available phones under the editable timeline. */
+    .phonemePalettePanel {
+      margin-top: 4px;
+      min-height: 92px;
+      overflow: hidden;
+    }
+
+    .phonemePaletteHeader {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      padding: 0 6px 3px;
+      min-width: 0;
+    }
+
+    .phonemePaletteHeader h3 {
+      margin: 0;
+      white-space: nowrap;
+    }
+
+    .phonemePaletteMode {
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .04em;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .phonemePaletteWrap {
+      max-height: 174px;
+      overflow: auto;
+      padding: 6px;
+      background: #0f1218;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      scrollbar-color: var(--border) #0f1218;
+      scrollbar-width: thin;
+    }
+
+    .phonemePalette {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      align-content: flex-start;
+      min-width: 0;
+    }
+
+    .phonemePalettePill {
+      flex: 0 0 auto;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      min-height: 30px;
+      padding: 4px 8px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, .12);
+      background: var(--panel2);
+      color: var(--muted);
+      font: 800 12px/1 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      cursor: grab;
+      user-select: none;
+      touch-action: none;
+      appearance: none;
+      -webkit-appearance: none;
+    }
+
+    .phonemePalettePill:hover,
+    .phonemePalettePill:focus-visible,
+    .phonemePalettePill.timelineDragHold {
+      border-color: var(--accent);
+      color: var(--text);
+      outline: none;
+      box-shadow: 0 0 0 2px rgba(94, 224, 131, .14);
+    }
+
+    .phonemePalettePill:active {
+      cursor: grabbing;
+    }
+
+    .phonemePalettePill.vowel {
+      background: rgba(94, 224, 131, .13);
+      color: var(--accent);
+    }
+
+    .phonemePalettePill.consonant {
+      background: rgba(114, 216, 255, .12);
+      color: var(--cyan);
+    }
+
+    .phonemePalettePill.pause {
+      background: rgba(255, 209, 102, .10);
+      color: var(--gold);
+    }
+
+    .phonemePalettePill.stop {
+      background: rgba(255, 107, 107, .12);
+      color: var(--danger);
+    }
+
+    .phonemePaletteByte {
+      color: var(--text);
+      opacity: .88;
+      font-size: 11px;
+      padding: 2px 5px;
+      border-radius: 999px;
+      background: rgba(0, 0, 0, .18);
+      border: 1px solid rgba(255, 255, 255, .10);
+    }
+
+    .phonemePaletteSymbol {
+      white-space: nowrap;
+    }
+
+    .phonemePalettePill.timelineDragGhost {
+      border-radius: 999px;
+      writing-mode: horizontal-tb;
+      text-orientation: mixed;
+    }
+
+    .phonemeInfoTip {
+      position: fixed;
+      z-index: 10050;
+      display: none;
+      max-width: min(340px, calc(100vw - 22px));
+      padding: 8px 10px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: #0f1218;
+      color: var(--text);
+      box-shadow: 0 8px 24px rgba(0,0,0,.45);
+      font-size: 12px;
+      line-height: 1.35;
+      pointer-events: none;
+      white-space: normal;
+    }
+
+    .phonemeInfoTip .mono {
+      color: var(--gold);
+      font-weight: 900;
+    }
+
+    @media (max-width: 520px) {
+      .phonemePaletteWrap {
+        max-height: 142px;
+      }
+
+      .phonemePalettePill {
+        min-height: 28px;
+        padding: 4px 7px;
+        gap: 5px;
+        font-size: 11px;
+      }
+    }
+
   </style>
 </head>
 
@@ -1773,6 +1932,12 @@
         </div>
         <div class="paneResizeHandle" role="separator" tabindex="0" aria-orientation="horizontal" aria-label="Resize timeline pane" title="Drag to resize timeline pane" data-resize-pane="timeline"></div>
       </section>
+
+      <section class="panel stack phonemePalettePanel" aria-label="Add phonemes to timeline">
+        <div class="phonemePaletteWrap">
+          <div class="phonemePalette" id="phonemePalette" aria-label="Available phonemes. Drag a pill into the timeline to insert it."></div>
+        </div>
+      </section>
     </div>
 
     <section class="panel stack rightPanel resizablePanel" data-pane-name="decode" style="--decode-pane-height: 420px; --decode-pane-height-mobile: 360px;">
@@ -1833,6 +1998,8 @@
       <div class="paneResizeHandle" role="separator" tabindex="0" aria-orientation="horizontal" aria-label="Resize decoded tabs pane" title="Drag to resize decoded tabs pane" data-resize-pane="decode"></div>
     </section>
   </div>
+
+  <div id="phonemeInfoTip" class="phonemeInfoTip" role="tooltip" aria-hidden="true"></div>
 
   <section class="panel footerPanel">
     <textarea id="exportText" readonly wrap="off" style="min-height:150px"></textarea>
@@ -2538,6 +2705,9 @@ L8E78:
     const tableBody = document.getElementById('phonemeTableBody');
     const tokenTableBody = document.getElementById('tokenTableBody');
     const timeline = document.getElementById('timeline');
+    const phonemePalette = document.getElementById('phonemePalette');
+    const phonemePaletteMode = document.getElementById('phonemePaletteMode');
+    const phonemeInfoTip = document.getElementById('phonemeInfoTip');
     const statusEl = document.getElementById('status');
     const playBtn = document.getElementById('playBtn');
     const stopBtn = document.getElementById('stopBtn');
@@ -3016,6 +3186,7 @@ L8E78:
       };
       renderDecoded(currentAnalysis);
       renderTimeline(currentAnalysis);
+      renderPhonemePalette(currentAnalysis);
       exportText.value = formatDb(used);
       document.getElementById('metricBytes').textContent = normalizedInput.rawPhrase ? `${parsedBytes.length} → ${bytes.length}` : String(parsedBytes.length);
       document.getElementById('metricPhonemes').textContent = String(decoded.filter(x => x.ph && !x.skipAudio && x.ph.kind !== 'stop').length);
@@ -3162,9 +3333,10 @@ L8E78:
       if (timelineDragState?.ghost) timelineDragState.ghost.remove();
       if (timelineDragState?.gap) timelineDragState.gap.remove();
       if (timelineDragState?.sourceEl) timelineDragState.sourceEl.classList.remove('timelineDragHold', 'timelineDragSource');
-      document.querySelectorAll('.timelineSegment.timelineDragHold,.timelineSegment.timelineDragSource').forEach(el => {
+      document.querySelectorAll('.timelineSegment.timelineDragHold,.timelineSegment.timelineDragSource,.phonemePalettePill.timelineDragHold,.phonemePalettePill.timelineDragSource').forEach(el => {
         el.classList.remove('timelineDragHold', 'timelineDragSource');
       });
+      hidePhonemeInfoTip();
       document.body.classList.remove('isTimelineDragging');
       timelineDragState = null;
     }
@@ -3260,13 +3432,180 @@ L8E78:
 
       if (drag.active && !wasCanceled) {
         const slot = Number.isFinite(drag.slotIndex) ? drag.slotIndex : timelineSlotFromPoint(ev.clientX, ev.clientY, drag.sourceEl);
-        const moved = rebuildSourceFromTimelineSlot(drag.fromIndex, slot);
+        let changed = false;
+        if (drag.kind === 'insert') {
+          changed = insertPaletteBytesIntoTimelineSlot(drag.bytes || [], slot, drag.mode || 'sc01', drag.label || 'phoneme');
+        } else {
+          changed = rebuildSourceFromTimelineSlot(drag.fromIndex, slot);
+        }
         timelineSuppressClickUntil = Date.now() + 400;
-        if (!moved) setStatus('Timeline reorder unchanged.');
+        if (!changed) setStatus(drag.kind === 'insert' ? 'Phoneme insert canceled.' : 'Timeline reorder unchanged.');
       } else if (!drag.active && !wasCanceled) {
         timelineSuppressClickUntil = 0;
       }
       clearTimelineDragState();
+    }
+
+    function insertPaletteBytesIntoTimelineSlot(bytes, slotIndex, mode = 'sc01', label = 'phoneme') {
+      const insertBytes = (bytes || []).map(byte => byte & 0xFF).filter(byte => Number.isFinite(byte));
+      if (!insertBytes.length) return false;
+      const normalizedMode = mode === 'wizard' ? 'wizard' : 'sc01';
+      const rows = currentAnalysis?.decoded ? currentAnalysis.decoded.slice() : [];
+      const insertAt = Math.max(0, Math.min(rows.length, Number(slotIndex) || 0));
+      const before = rows.slice(0, insertAt).flatMap(item => item.rawBytes || [item.byte]).map(byte => byte & 0xFF);
+      const after = rows.slice(insertAt).flatMap(item => item.rawBytes || [item.byte]).map(byte => byte & 0xFF);
+      const nextBytes = before.concat(insertBytes, after);
+
+      clearActiveImportedPhraseSelection();
+      inputModeEl.value = normalizedMode;
+      sourceEl.value = formatDb(nextBytes, normalizedMode);
+      sourceEl.focus();
+      sourceEl.selectionStart = sourceEl.selectionEnd = sourceEl.value.length;
+      sourceInsertPos = sourceEl.value.length;
+      analyze();
+      setStatus(`Inserted ${label} at timeline position ${insertAt + 1}; source updated.`);
+      return true;
+    }
+
+    function paletteModeFromAnalysis(analysis = currentAnalysis) {
+      return analysis?.mode === 'wizard' ? 'wizard' : 'sc01';
+    }
+
+    function paletteItemsForMode(mode) {
+      if (mode === 'wizard') {
+        return WIZARD_PHONEMES.map(ph => ({ ph, bytes: [ph.byte], mode: 'wizard', label: `\\${ph.symbol}`, byteText: hex2(ph.byte) }));
+      }
+      return PHONEMES.map(ph => ({ ph, bytes: [ph.byte], mode: 'sc01', label: ph.symbol, byteText: ph.hex || hex2(ph.byte) }));
+    }
+
+    function phonemeTipHtml(item) {
+      const ph = item.ph;
+      const kind = classifyForUi(ph);
+      const bytes = (item.bytes || [ph.byte]).map(hex2).join(' ');
+      const modeLabel = item.mode === 'wizard' ? 'Wizard/WoW' : romDisplayName(activeRomModel());
+      return `<span class="mono">${escapeHtml(bytes)}</span> <b>${escapeHtml(item.label || ph.symbol)}</b><br>${escapeHtml(ph.desc || '')}<br><span class="small">${escapeHtml(modeLabel)} · ${escapeHtml(kind)} · drag into timeline to insert</span>`;
+    }
+
+    function showPhonemeInfoTip(html, ev) {
+      if (!phonemeInfoTip || !html) return;
+      phonemeInfoTip.innerHTML = html;
+      phonemeInfoTip.style.display = 'block';
+      phonemeInfoTip.setAttribute('aria-hidden', 'false');
+      movePhonemeInfoTip(ev);
+    }
+
+    function movePhonemeInfoTip(ev) {
+      if (!phonemeInfoTip || phonemeInfoTip.style.display === 'none') return;
+      const pad = 11;
+      const rect = phonemeInfoTip.getBoundingClientRect();
+      let left = (ev?.clientX ?? 0) + 14;
+      let top = (ev?.clientY ?? 0) + 14;
+      if (left + rect.width + pad > window.innerWidth) left = Math.max(pad, window.innerWidth - rect.width - pad);
+      if (top + rect.height + pad > window.innerHeight) top = Math.max(pad, (ev?.clientY ?? 0) - rect.height - 14);
+      phonemeInfoTip.style.left = `${left}px`;
+      phonemeInfoTip.style.top = `${top}px`;
+    }
+
+    function hidePhonemeInfoTip() {
+      if (!phonemeInfoTip) return;
+      phonemeInfoTip.style.display = 'none';
+      phonemeInfoTip.setAttribute('aria-hidden', 'true');
+    }
+
+    function renderPhonemePalette(analysis = currentAnalysis) {
+      if (!phonemePalette) return;
+      const mode = paletteModeFromAnalysis(analysis);
+      const items = paletteItemsForMode(mode);
+      phonemePalette.innerHTML = '';
+      if (phonemePaletteMode) {
+        phonemePaletteMode.textContent = mode === 'wizard'
+          ? `Wizard/WoW phonemes · ${items.length}`
+          : `${romDisplayName(activeRomModel())} phonemes · ${items.length}`;
+      }
+
+      for (const item of items) {
+        const ph = item.ph;
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = `phonemePalettePill ${classifyForUi(ph)}`;
+        btn.dataset.byte = String(ph.byte & 0xFF);
+        btn.dataset.mode = item.mode;
+        btn.dataset.tip = phonemeTipHtml(item);
+        btn.innerHTML = `<span class="phonemePaletteByte">${escapeHtml(item.byteText)}</span><span class="phonemePaletteSymbol">${escapeHtml(item.label)}</span>`;
+        btn.title = `${item.byteText} ${item.label}: ${ph.desc}`;
+        btn.setAttribute('aria-label', `Drag ${item.label} into timeline. ${ph.desc}`);
+
+        btn.addEventListener('mouseenter', ev => showPhonemeInfoTip(btn.dataset.tip, ev));
+        btn.addEventListener('mousemove', movePhonemeInfoTip);
+        btn.addEventListener('mouseleave', hidePhonemeInfoTip);
+        btn.addEventListener('focus', ev => showPhonemeInfoTip(btn.dataset.tip, ev));
+        btn.addEventListener('blur', hidePhonemeInfoTip);
+
+        btn.addEventListener('pointerdown', ev => {
+          if (ev.button !== undefined && ev.button !== 0) return;
+          timelineDragState = {
+            pointerId: ev.pointerId,
+            kind: 'insert',
+            bytes: item.bytes.slice(),
+            mode: item.mode,
+            label: item.label,
+            startX: ev.clientX,
+            startY: ev.clientY,
+            sourceEl: btn,
+            active: false,
+            ghost: null,
+            gap: null,
+            slotIndex: null,
+            offsetX: 0,
+            offsetY: 0
+          };
+          btn.classList.add('timelineDragHold');
+          try { btn.setPointerCapture(ev.pointerId); } catch (_) { }
+        });
+
+        btn.addEventListener('pointermove', ev => {
+          const drag = timelineDragState;
+          if (!drag || drag.pointerId !== ev.pointerId || drag.sourceEl !== btn) return;
+          const moved = Math.hypot(ev.clientX - drag.startX, ev.clientY - drag.startY);
+          if (!drag.active && moved >= 5) startTimelineDrag(btn, ev);
+          if (drag.active) {
+            ev.preventDefault();
+            hidePhonemeInfoTip();
+            updateTimelineGhost(ev);
+            placeTimelineDropGap(timelineSlotFromPoint(ev.clientX, ev.clientY, btn));
+          }
+        });
+
+        btn.addEventListener('pointerup', ev => {
+          const drag = timelineDragState;
+          if (!drag || drag.pointerId !== ev.pointerId || drag.sourceEl !== btn) return;
+          finishTimelineDrag(ev, false);
+        });
+
+        btn.addEventListener('pointercancel', ev => {
+          const drag = timelineDragState;
+          if (drag && drag.pointerId === ev.pointerId && drag.sourceEl === btn) finishTimelineDrag(ev, true);
+        });
+
+        btn.addEventListener('keydown', ev => {
+          if (ev.key === 'Escape' && timelineDragState?.sourceEl === btn) {
+            ev.preventDefault();
+            clearTimelineDragState();
+          }
+        });
+
+        btn.addEventListener('click', ev => {
+          if (Date.now() < timelineSuppressClickUntil) {
+            ev.preventDefault();
+            ev.stopPropagation();
+            return;
+          }
+          playBytes(item.bytes, { single: true, mode: item.mode });
+          setStatus(`Playing ${item.label} (${item.bytes.map(hex2).join(' ')}). Drag it into the timeline to insert.`);
+        });
+
+        phonemePalette.appendChild(btn);
+      }
     }
 
     function renderTimeline(analysis) {
@@ -4850,6 +5189,7 @@ L8E78:
     installPaneResizers();
     renderPhonemeTable();
     renderWizardTokenTable();
+    renderPhonemePalette();
     updateSliderLabels();
     installBuiltInSc01Rom('sc01');
     sourceEl.value = DEFAULT_SOURCE;
