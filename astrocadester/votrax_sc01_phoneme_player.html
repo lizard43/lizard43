@@ -1180,13 +1180,27 @@
     }
 
 
-    /* Sticky toolbar restore: keep ONLY the top control bar frozen while scrolling. */
+    /* Fixed top toolbar: keep ONLY the top control bar frozen while the page scrolls.
+       Use fixed instead of sticky so grid/overflow changes cannot accidentally break it. */
+    :root {
+      --fixed-toolbar-top: 5px;
+      --fixed-toolbar-height: 40px;
+    }
+
+    body {
+      padding-top: calc(var(--fixed-toolbar-top) + var(--fixed-toolbar-height) + 4px);
+    }
+
     .topToolbar {
-      position: sticky !important;
-      position: -webkit-sticky !important;
-      top: 5px !important;
-      align-self: start;
-      z-index: 5000;
+      position: fixed !important;
+      top: var(--fixed-toolbar-top) !important;
+      left: 5px !important;
+      right: 5px !important;
+      width: auto !important;
+      max-width: calc(100vw - 10px) !important;
+      align-self: auto !important;
+      z-index: 9999 !important;
+      margin: 0 !important;
     }
 
     .toolbarSampleRow {
@@ -1194,19 +1208,16 @@
       z-index: 1;
     }
 
-    @media (max-width: 1280px) {
-      .topToolbar {
-        position: sticky !important;
-        position: -webkit-sticky !important;
-        top: 4px !important;
-      }
-    }
-
     @media (max-width: 520px) {
+      :root {
+        --fixed-toolbar-top: 4px;
+        --fixed-toolbar-height: 38px;
+      }
+
       .topToolbar {
-        position: sticky !important;
-        position: -webkit-sticky !important;
-        top: 4px !important;
+        left: 4px !important;
+        right: 4px !important;
+        max-width: calc(100vw - 8px) !important;
       }
     }
 
