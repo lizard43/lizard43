@@ -624,6 +624,21 @@
       margin: 8px 0;
     }
 
+    .romModelLabel {
+      margin: 0;
+      display: grid;
+      gap: 3px;
+      color: var(--muted);
+      font-size: 12px;
+      min-width: 120px;
+    }
+
+    .romModelLabel select {
+      min-height: 32px;
+      padding: 5px 8px;
+      font-size: 12px;
+    }
+
     .romStatus {
       min-width: 0;
       color: var(--muted);
@@ -850,9 +865,15 @@
           </div>
         </div>
         <div class="romTools">
-          <div class="romStatus" id="sc01RomStatus">Embedded default SC-01 ROM active.</div>
+          <div class="romStatus" id="sc01RomStatus">Built-in SC-01 ROM table active.</div>
           <div class="buttons">
-            <button class="action" id="clearSc01RomBtn" type="button" disabled>Reset ROM</button>
+            <label class="romModelLabel" for="builtInRomSelect">Built-in ROM
+              <select id="builtInRomSelect">
+                <option value="sc01" selected>SC-01</option>
+                <option value="sc01a">SC-01A</option>
+              </select>
+            </label>
+            <button class="action" id="clearSc01RomBtn" type="button">Reset ROM</button>
           </div>
         </div>
         <textarea id="source" spellcheck="false" wrap="off"></textarea>
@@ -983,8 +1004,8 @@
         <div class="small" style="margin-top:10px;">
           The SC-01 chip internally contains its own phoneme timing and articulation behavior. This browser version
           approximates phoneme length, voiced/unvoiced consonants, glides, fricatives, plosives, and pauses using
-          simplified envelopes. Loading <span class="mono">sc01.bin</span> or MAME's <span
-            class="mono">votrsc01.zip</span> lets the tool decode the 64-entry internal phone ROM and use those
+          simplified envelopes. Built-in SC-01 / SC-01A ROM tables are available immediately. Loading <span class="mono">sc01.bin</span> or MAME's <span
+            class="mono">votrsc01.zip</span> still lets the tool override the active 64-entry internal phone ROM and use those
           parameter fields to bias duration, amplitude, formants, noise, and closures.
         </div>
       </div>
@@ -995,8 +1016,6 @@
     <h2>Normalized .DB export</h2>
     <textarea id="exportText" readonly wrap="off" style="min-height:150px"></textarea>
   </section>
-
-  <script src="voltrax-processor.js"></script>
 
   <script>
     'use strict';
@@ -1153,11 +1172,154 @@
 
 
     const SC01_ROM_SHA1 = '268b5884dce04e49e2376df3e2dc82e852b708c1';
+    const SC01A_ROM_SHA1 = '1d6da90b1807a01b5e186ef08476119a862b5e6d';
     const SC01_ROM_SIZE = 0x200;
-    // Embedded from the user's supplied votrsc01.zip/sc01.bin so the utility
-    // starts with the same 64-phone parameter ROM that MAME declares for SC-01.
-    const EMBEDDED_SC01_BIN_HEX = 'a450a0f0e0000003a450a000230a003ea458a030f000003fa38169b0c10c003d26d34990a109003c27816894210a003b82c34824a108003aa4003818680100392052e188630a003822c1e89061040037a283601066030036a2c1e880a1090035a2c1e834610a0034a381c9b4210a0033a381c9e4a1070032a381c95463010031a381696061040030a781e874a007002fa781e874200a002e22c16014660a002d26d34970200a002c824308546304002be03211e87201002a26530164a107002922c1e880210a0028a6916180210a0027a2c1e884210a0026a8241363b2070025a3c1e984c10c0024a381c954e30000232612a064610a002226d3697061050021a6c1c984210a0020e03291486804001f2691e8007c0b001ea82c8365a207001d26c141e07301001cac0422fd6201001b2c347bdbe800001a2c642311720a0019a2d009f4a107001823814920210a001723814930a1070016a3c1e984a1080015364b08d4a0090014a3816970a00800136058d19c630100126c548bfba20900116c548bfb630100102864d3f76301000f2291e1907301000e361924e6610a000d3288a566a307000ca6916190a109000ba6916190610a000aa6916180610b0009a3c1e9c4610100086c54cbf363040007a6c1c934a1070006a6c1c96461010005e8160361fb000004278168c4a1090002278168d4610100012781687461030000';
-    const EMBEDDED_SC01_SOURCE_NAME = 'embedded sc01.bin';
+    // Built-in ROM words imported from votrax-processor.js. These are the 64
+    // decoded 64-bit rows for the SC-01 / SC-01A internal phoneme parameter ROMs.
+    // They replace the older embedded hex string, but ZIP/BIN overrides still work.
+    const VOTRAX_ROM_WORDS = {
+        sc01: [
+            0x030000e0f0a050a4n, // Phoneme Index 0
+            0x3e000a2300a050a4n, // Phoneme Index 1
+            0x3f0000f030a058a4n, // Phoneme Index 2
+            0x3d000cc1b06981a3n, // Phoneme Index 3
+            0x3c0009a19049d326n, // Phoneme Index 4
+            0x3b000a2194688127n, // Phoneme Index 5
+            0x3a0008a12448c382n, // Phoneme Index 6
+            0x39000168183800a4n, // Phoneme Index 7
+            0x38000a6388e15220n, // Phoneme Index 8
+            0x3700046190e8c122n, // Phoneme Index 9
+            0x36000366106083a2n, // Phoneme Index 10
+            0x350009a180e8c1a2n, // Phoneme Index 11
+            0x34000a6134e8c1a2n, // Phoneme Index 12
+            0x33000a21b4c981a3n, // Phoneme Index 13
+            0x320007a1e4c981a3n, // Phoneme Index 14
+            0x3100016354c981a3n, // Phoneme Index 15
+            0x30000461606981a3n, // Phoneme Index 16
+            0x2f0007a074e881a7n, // Phoneme Index 17
+            0x2e000a2074e881a7n, // Phoneme Index 18
+            0x2d000a661460c122n, // Phoneme Index 19
+            0x2c000a207049d326n, // Phoneme Index 20
+            0x2b00046354084382n, // Phoneme Index 21
+            0x2a000172e81132e0n, // Phoneme Index 22
+            0x290007a164015326n, // Phoneme Index 23
+            0x28000a2180e8c122n, // Phoneme Index 24
+            0x27000a21806191a6n, // Phoneme Index 25
+            0x26000a2184e8c1a2n, // Phoneme Index 26
+            0x250007b2631324a8n, // Phoneme Index 27
+            0x24000cc184e9c1a3n, // Phoneme Index 28
+            0x230000e354c981a3n, // Phoneme Index 29
+            0x22000a6164a01226n, // Phoneme Index 30
+            0x210005617069d326n, // Phoneme Index 31
+            0x20000a2184c9c1a6n, // Phoneme Index 32
+            0x1f000468489132e0n, // Phoneme Index 33
+            0x1e000b7c00e89126n, // Phoneme Index 34
+            0x1d0007a265832ca8n, // Phoneme Index 35
+            0x1c000173e041c126n, // Phoneme Index 36
+            0x1b000162fd2204acn, // Phoneme Index 37
+            0x1a0000e8db7b342cn, // Phoneme Index 38
+            0x19000a721123642cn, // Phoneme Index 39
+            0x180007a1f409d0a2n, // Phoneme Index 40
+            0x17000a2120498123n, // Phoneme Index 41
+            0x160007a130498123n, // Phoneme Index 42
+            0x150008a184e9c1a3n, // Phoneme Index 43
+            0x140009a0d4084b36n, // Phoneme Index 44
+            0x130008a0706981a3n, // Phoneme Index 45
+            0x120001639cd15860n, // Phoneme Index 46
+            0x110009a2fb8b546cn, // Phoneme Index 47
+            0x10000163fb8b546cn, // Phoneme Index 48
+            0x0f000163f7d36428n, // Phoneme Index 49
+            0x0e00017390e19122n, // Phoneme Index 50
+            0x0d000a61e6241936n, // Phoneme Index 51
+            0x0c0007a366a58832n, // Phoneme Index 52
+            0x0b0009a1906191a6n, // Phoneme Index 53
+            0x0a000a61906191a6n, // Phoneme Index 54
+            0x09000b61806191a6n, // Phoneme Index 55
+            0x08000161c4e9c1a3n, // Phoneme Index 56
+            0x07000463f3cb546cn, // Phoneme Index 57
+            0x060007a134c9c1a6n, // Phoneme Index 58
+            0x0500016164c9c1a6n, // Phoneme Index 59
+            0x040000fb610316e8n, // Phoneme Index 60
+            0x020009a1c4688127n, // Phoneme Index 61
+            0x01000161d4688127n, // Phoneme Index 62
+            0x0000036174688127n, // Phoneme Index 63
+        ],
+        sc01a: [
+            0x030000e0f0a050a4n, // Phoneme Index 0
+            0x3e000a2300a050a4n, // Phoneme Index 1
+            0x3f0000f030a058a4n, // Phoneme Index 2
+            0x3d000cc1b06980a3n, // Phoneme Index 3
+            0x3c0009a19049d326n, // Phoneme Index 4
+            0x3b000a2194688127n, // Phoneme Index 5
+            0x3a0008a12448c382n, // Phoneme Index 6
+            0x39000168183800a4n, // Phoneme Index 7
+            0x38000a6388e15220n, // Phoneme Index 8
+            0x3700046190e8c122n, // Phoneme Index 9
+            0x36000366106083a2n, // Phoneme Index 10
+            0x350009a180e8c1a2n, // Phoneme Index 11
+            0x34000a6134e8c1a2n, // Phoneme Index 12
+            0x33000a21b48981a3n, // Phoneme Index 13
+            0x320007a1e48981a3n, // Phoneme Index 14
+            0x31000163548981a3n, // Phoneme Index 15
+            0x30000461606980a3n, // Phoneme Index 16
+            0x2f0007a074e880a7n, // Phoneme Index 17
+            0x2e000a2074e880a7n, // Phoneme Index 18
+            0x2d000a661460c122n, // Phoneme Index 19
+            0x2c000a207049d326n, // Phoneme Index 20
+            0x2b00046354084382n, // Phoneme Index 21
+            0x2a000172e81132e0n, // Phoneme Index 22
+            0x290007a164015326n, // Phoneme Index 23
+            0x28000a2180e8c122n, // Phoneme Index 24
+            0x27000a21806191a6n, // Phoneme Index 25
+            0x26000a2184e8c1a2n, // Phoneme Index 26
+            0x250007b2631324a8n, // Phoneme Index 27
+            0x24000cc184e940a3n, // Phoneme Index 28
+            0x230000e3548981a3n, // Phoneme Index 29
+            0x22000a6164a01226n, // Phoneme Index 30
+            0x210005617069d326n, // Phoneme Index 31
+            0x20000a2184c9c1a6n, // Phoneme Index 32
+            0x1f000468489132e0n, // Phoneme Index 33
+            0x1e000b7c00e89126n, // Phoneme Index 34
+            0x1d0007a265832ca8n, // Phoneme Index 35
+            0x1c000173e041c126n, // Phoneme Index 36
+            0x1b000162fd2204acn, // Phoneme Index 37
+            0x1a0000e8db7b342cn, // Phoneme Index 38
+            0x19000a721123642cn, // Phoneme Index 39
+            0x180007a1f409d0a2n, // Phoneme Index 40
+            0x17000a2120498123n, // Phoneme Index 41
+            0x160007a130498123n, // Phoneme Index 42
+            0x150008a184e940a3n, // Phoneme Index 43
+            0x140009a0d4084b36n, // Phoneme Index 44
+            0x130008a0706980a3n, // Phoneme Index 45
+            0x120001639cd15860n, // Phoneme Index 46
+            0x110009a2fb8b546cn, // Phoneme Index 47
+            0x10000163fb8b546cn, // Phoneme Index 48
+            0x0f000163f7d36428n, // Phoneme Index 49
+            0x0e00017390e19122n, // Phoneme Index 50
+            0x0d000a61e6241936n, // Phoneme Index 51
+            0x0c0007a366a58832n, // Phoneme Index 52
+            0x0b0009a1906191a6n, // Phoneme Index 53
+            0x0a000a61906191a6n, // Phoneme Index 54
+            0x09000b61806191a6n, // Phoneme Index 55
+            0x08000161c4e940a3n, // Phoneme Index 56
+            0x07000463f3cb546cn, // Phoneme Index 57
+            0x060007a134c9c1a6n, // Phoneme Index 58
+            0x0500016164c9c1a6n, // Phoneme Index 59
+            0x040000fb610316e8n, // Phoneme Index 60
+            0x020009a1c4688127n, // Phoneme Index 61
+            0x01000161d4688127n, // Phoneme Index 62
+            0x0000036174688127n, // Phoneme Index 63
+        ]
+    };
+
+    const BUILTIN_ROM_LABELS = {
+      sc01: 'built-in SC-01 ROM table',
+      sc01a: 'built-in SC-01A ROM table'
+    };
+    const BUILTIN_ROM_HASHES = {
+      sc01: SC01_ROM_SHA1,
+      sc01a: SC01A_ROM_SHA1
+    };
     const SC01_PHONE_NAMES = PHONEMES.map(ph => ph.symbol);
     let sc01RomState = null;
 
@@ -1509,6 +1671,7 @@ L8E78:
     const voxFileInput = document.getElementById('voxFileInput');
     const loadSc01RomBtn = document.getElementById('loadSc01RomBtn');
     const clearSc01RomBtn = document.getElementById('clearSc01RomBtn');
+    const builtInRomSelect = document.getElementById('builtInRomSelect');
     const sc01RomFileInput = document.getElementById('sc01RomFileInput');
     const sc01RomStatus = document.getElementById('sc01RomStatus');
 
@@ -1524,24 +1687,38 @@ L8E78:
     function hex2(n) { return '$' + (n & 0xFF).toString(16).toUpperCase().padStart(2, '0'); }
     function rawHex2(n) { return (n & 0xFF).toString(16).toUpperCase().padStart(2, '0'); }
 
-    function hexToBytes(hex) {
-      const clean = String(hex || '').replace(/[^0-9a-fA-F]/g, '');
-      const out = new Uint8Array(Math.floor(clean.length / 2));
-      for (let i = 0; i < out.length; i++) out[i] = parseInt(clean.slice(i * 2, i * 2 + 2), 16) & 0xFF;
+    function romWordsToBytes(words) {
+      const out = new Uint8Array((words || []).length * 8);
+      for (let i = 0; i < (words || []).length; i++) {
+        let value = BigInt(words[i]);
+        for (let b = 0; b < 8; b++) {
+          out[i * 8 + b] = Number((value >> BigInt(b * 8)) & 0xffn);
+        }
+      }
       return out;
     }
 
-    function installDefaultSc01Rom() {
+    function installBuiltInSc01Rom(model = (builtInRomSelect?.value || 'sc01')) {
+      const key = VOTRAX_ROM_WORDS[model] ? model : 'sc01';
       try {
-        const bytes = hexToBytes(EMBEDDED_SC01_BIN_HEX);
-        sc01RomState = decodeSc01RomBytes(bytes, EMBEDDED_SC01_SOURCE_NAME, SC01_ROM_SHA1);
+        const words = VOTRAX_ROM_WORDS[key];
+        const bytes = romWordsToBytes(words);
+        sc01RomState = decodeSc01RomBytes(bytes, BUILTIN_ROM_LABELS[key], BUILTIN_ROM_HASHES[key]);
         sc01RomState.embeddedDefault = true;
+        sc01RomState.builtInModel = key;
+        sc01RomState.words = words.slice();
+        if (builtInRomSelect) builtInRomSelect.value = key;
         updateRomUi();
       } catch (err) {
         sc01RomState = null;
         updateRomUi();
-        setStatus(`Embedded SC-01 ROM init failed: ${err.message || err}`, true);
+        setStatus(`Built-in ${key.toUpperCase()} ROM init failed: ${err.message || err}`, true);
       }
+    }
+
+    // Backward-compatible name used by the reset button.
+    function installDefaultSc01Rom() {
+      installBuiltInSc01Rom(builtInRomSelect?.value || 'sc01');
     }
 
     function setStatus(msg, isError = false) {
@@ -1563,15 +1740,16 @@ L8E78:
 
     function updateRomUi() {
       if (!sc01RomState) {
-        setRomStatus('Embedded default SC-01 ROM active.');
+        setRomStatus('Built-in SC-01 ROM table active.');
         if (clearSc01RomBtn) clearSc01RomBtn.disabled = true;
         return;
       }
       const hashText = sc01RomState.sha1 ? ` SHA-1 <span class="mono">${sc01RomState.sha1.slice(0, 8)}…</span>` : '';
-      const matchText = sc01RomState.sha1 === SC01_ROM_SHA1 ? ' · MAME SC-01 hash match' : (sc01RomState.sha1 ? ' · non-MAME/unknown hash' : '');
+      const knownHashModel = Object.keys(BUILTIN_ROM_HASHES).find(key => BUILTIN_ROM_HASHES[key] === sc01RomState.sha1);
+      const matchText = knownHashModel ? ` · ${knownHashModel.toUpperCase()} hash match` : (sc01RomState.sha1 ? ' · non-MAME/unknown hash' : '');
       const sample = sc01RomState.byPhone.get(0x2d) || sc01RomState.entries[0];
       setRomStatus(
-        `${sc01RomState.embeddedDefault ? 'Using default ' : 'Loaded override '}<span class="mono">${escapeHtml(sc01RomState.sourceName)}</span>: ${sc01RomState.bytes.length} bytes, 64 phone rows.${hashText}${matchText}` +
+        `${sc01RomState.embeddedDefault ? 'Using ' : 'Loaded override '}<span class="mono">${escapeHtml(sc01RomState.sourceName)}</span>: ${sc01RomState.bytes.length} bytes, 64 phone rows.${hashText}${matchText}` +
         `<div class="romParamGrid">` +
         `<div class="romParam">W dur ${sample.duration}</div>` +
         `<div class="romParam">f1 ${sample.f1}</div>` +
@@ -1580,7 +1758,7 @@ L8E78:
         `<div class="romParam">va ${sample.va}</div>` +
         `<div class="romParam">fa ${sample.fa}</div>` +
         `</div>`,
-        sc01RomState.sha1 && sc01RomState.sha1 !== SC01_ROM_SHA1 ? 'warn' : 'loaded'
+        sc01RomState.sha1 && !Object.values(BUILTIN_ROM_HASHES).includes(sc01RomState.sha1) ? 'warn' : 'loaded'
       );
       if (clearSc01RomBtn) clearSc01RomBtn.disabled = false;
       renderPhonemeTable();
@@ -1658,7 +1836,8 @@ L8E78:
         sc01RomState = decodeSc01RomBytes(romBytes, sourceName, hash);
         sc01RomState.embeddedDefault = false;
         updateRomUi();
-        const match = hash === SC01_ROM_SHA1 ? ' MAME SC-01 hash matches.' : (hash ? ` SHA-1 ${hash}.` : '');
+        const knownModel = Object.keys(BUILTIN_ROM_HASHES).find(key => BUILTIN_ROM_HASHES[key] === hash);
+        const match = knownModel ? ` ${knownModel.toUpperCase()} hash matches.` : (hash ? ` SHA-1 ${hash}.` : '');
         setStatus(`Loaded SC-01 ROM ${sourceName}.${match}`);
       } catch (err) {
         sc01RomState = null;
@@ -3094,7 +3273,11 @@ L8E78:
     sc01RomFileInput.addEventListener('change', () => loadSc01RomFromFile(sc01RomFileInput.files[0]));
     clearSc01RomBtn.addEventListener('click', () => {
       installDefaultSc01Rom();
-      setStatus('Reset to embedded default sc01.bin ROM.');
+      setStatus(`Reset to ${BUILTIN_ROM_LABELS[builtInRomSelect?.value || 'sc01']}.`);
+    });
+    if (builtInRomSelect) builtInRomSelect.addEventListener('change', () => {
+      installBuiltInSc01Rom(builtInRomSelect.value);
+      setStatus(`Switched to ${BUILTIN_ROM_LABELS[builtInRomSelect.value]}.`);
     });
     importVoxBtn.addEventListener('click', importPhrasesFromSource);
     loadPhraseBtn.addEventListener('click', loadSelectedPhrase);
@@ -3184,32 +3367,10 @@ L8E78:
     renderPhonemeTable();
     renderWizardTokenTable();
     updateSliderLabels();
-    installDefaultSc01Rom();
+    installBuiltInSc01Rom('sc01');
     sourceEl.value = DEFAULT_SOURCE;
     analyze();
-    setStatus('Ready. Embedded sc01.bin is active; paste bytes, import Wizard/ASM data, or load an SC-01/SC-01A override ZIP/BIN.');
-
-    async function initVotrax() {
-      const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-
-      // Load the processor file
-      await audioCtx.audioWorklet.addModule('votrax-processor.js');
-
-      const votraxNode = new AudioWorkletNode(audioCtx, 'votrax-processor');
-      votraxNode.connect(audioCtx.destination);
-
-      // Example function to stream a phoneme string
-      function sayPhoneme(phoneCode, inflection = 0) {
-        if (audioCtx.state === 'suspended') audioCtx.resume();
-
-        votraxNode.port.postMessage({ type: 'SET_INFLECTION', inflection });
-        votraxNode.port.postMessage({ type: 'WRITE_PHONE', phone: phoneCode });
-      }
-
-      // Expose control globally for testing
-      window.sayPhoneme = sayPhoneme;
-    }
-
+    setStatus('Ready. Built-in SC-01 ROM table is active; paste bytes, import Wizard/ASM data, switch to SC-01A, or load an override ZIP/BIN.');
   </script>
 </body>
 
