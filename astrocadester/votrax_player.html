@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Astrocade Votrax SC-01 Phoneme Player</title>
+  <title>Votrax Player</title>
   <style>
     :root {
       --bg: #14171c;
@@ -1242,27 +1242,27 @@
           <path fill="currentColor" d="M10 4l2 2h8c1.1 0 2 .9 2 2v1H2V6c0-1.1.9-2 2-2h6Zm12 7v7c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2v-7h20Zm-7 2v2h-2v2h-2v-2H9v-2h2v-2h2v2h2Z" />
         </svg>
       </button>
-      <button class="action iconButton danger" id="clearBtn" title="Clear phrase source" aria-label="Clear phrase source">
-        <svg viewBox="0 0 24 24" aria-hidden="true">
-          <path fill="currentColor" d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12ZM8 4l1-1h6l1 1h4v2H4V4h4Zm2 5h2v9h-2V9Zm4 0h2v9h-2V9Z" />
-        </svg>
-      </button>
       <button class="action iconButton" id="wavBtn" title="Download WAV render" aria-label="Download WAV">
         <svg viewBox="0 0 24 24" aria-hidden="true">
           <path fill="currentColor" d="M5 20h14v-2H5v2ZM12 3v10.2l-4-4-1.4 1.4L12 16l5.4-5.4L16 9.2l-4 4V3h0Z" />
         </svg>
       </button>
+      <button class="action iconButton danger" id="clearBtn" title="Clear phrase source" aria-label="Clear phrase source">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path fill="currentColor" d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12ZM8 4l1-1h6l1 1h4v2H4V4h4Zm2 5h2v9h-2V9Zm4 0h2v9h-2V9Z" />
+        </svg>
+      </button>
       <input id="voxFileInput" type="file" accept=".txt,.asm,.inc,text/plain" hidden />
       <span class="toolDivider" aria-hidden="true"></span>
+      <select id="builtInRomSelect" class="toolbarRomSelect" title="Select built-in Votrax ROM model" aria-label="Select built-in Votrax ROM model">
+        <option value="sc01" selected>SC-01</option>
+        <option value="sc01a">SC-01A</option>
+      </select>
       <select id="inputMode" class="toolbarModeSelect" title="Decode mode" aria-label="Decode mode">
         <option value="auto">Auto</option>
         <option value="sc01">SC-01 raw</option>
         <option value="wizard">Wizard/WoW</option>
         <option value="wowraw">WoW raw</option>
-      </select>
-      <select id="builtInRomSelect" class="toolbarRomSelect" title="Select built-in Votrax ROM model" aria-label="Select built-in Votrax ROM model">
-        <option value="sc01" selected>SC-01</option>
-        <option value="sc01a">SC-01A</option>
       </select>
     </div>
 
@@ -1421,8 +1421,8 @@
 
   <section class="panel footerPanel">
     <div class="sectionHeader">
-      <h2>Normalized .DB export</h2>
-      <button class="action iconButton smallIconButton" id="exportCopyBtn" title="Copy normalized .DB" aria-label="Copy normalized .DB">
+      <h2>.DB export</h2>
+      <button class="action iconButton smallIconButton" id="exportCopyBtn" title="Copy .DB" aria-label="Copy .DB">
         <svg viewBox="0 0 24 24" aria-hidden="true">
           <path fill="currentColor" d="M16 1H4c-1.1 0-2 .9-2 2v12h2V3h12V1Zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2Zm0 16H8V7h11v14Z" />
         </svg>
@@ -3905,7 +3905,7 @@ L8E78:
       const analysis = analyze();
       const text = formatDb(analysis.bytes, analysis.mode);
       exportText.value = text;
-      try { await navigator.clipboard.writeText(text); setStatus('Normalized .DB copied to clipboard.'); }
+      try { await navigator.clipboard.writeText(text); setStatus('.DB copied to clipboard.'); }
       catch (_) { exportText.focus(); exportText.select(); setStatus('Clipboard failed; export text selected for manual copy.', true); }
     });
     document.getElementById('clearBtn').addEventListener('click', () => {
