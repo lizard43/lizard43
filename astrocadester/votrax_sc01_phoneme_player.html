@@ -889,6 +889,112 @@
         margin-left: 0;
       }
     }
+
+    /* Responsive hardening: keep the uploaded UI state, but stop intermediate widths from overflowing. */
+    html,
+    body {
+      width: 100%;
+      max-width: 100%;
+      overflow-x: hidden;
+    }
+
+    .topLayout,
+    .topLayout > *,
+    .panel,
+    .stack,
+    .footerPanel,
+    .rightPanel,
+    .tabPane,
+    .phonemeTableWrap {
+      min-width: 0;
+      max-width: 100%;
+    }
+
+    .topToolbar,
+    .toolbarSampleRow {
+      width: 100%;
+      max-width: 100%;
+      min-width: 0;
+    }
+
+    .toolbarSampleRow {
+      overflow-x: hidden;
+    }
+
+    .toolbarPhraseLabel {
+      min-width: 0;
+      max-width: 100%;
+    }
+
+    .toolbarPhraseSelect {
+      min-width: 0;
+      max-width: 100%;
+    }
+
+    .row {
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 230px), 1fr));
+    }
+
+    .statusGrid {
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 180px), 1fr));
+    }
+
+    .controlValue > b {
+      flex: 0 0 auto;
+      white-space: nowrap;
+    }
+
+    #source,
+    #exportText {
+      display: block;
+      width: 100%;
+      max-width: 100%;
+    }
+
+    @media (max-width: 1500px) {
+      .topLayout {
+        grid-template-columns: 1fr;
+      }
+
+      .rightPanel {
+        min-height: 420px;
+      }
+    }
+
+    @media (max-width: 1280px) {
+      .row,
+      .statusGrid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .topToolbar {
+        left: 5px;
+        right: 5px;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .row,
+      .statusGrid,
+      .modeTools {
+        grid-template-columns: 1fr;
+      }
+
+      .toolbarPhraseLabel {
+        flex: 1 0 100%;
+        margin-left: 0;
+      }
+
+      .toolbarRomLabel {
+        gap: 4px;
+      }
+
+      .toolbarRomSelect {
+        min-width: 82px;
+        max-width: 96px;
+      }
+    }
+
   </style>
 </head>
 
@@ -2806,6 +2912,80 @@ L8E78:
       return samples;
     }
 
+    function samplePeak(samples, start = 0, end = samples.length) {
+      let peak = 0;
+      const a = Math.max(0, Math.floor(start));
+      const b = Math.min(samples.length, Math.max(a, Math.ceil(end)));
+      for (let i = a; i < b; i++) peak = Math.max(peak, Math.abs(samples[i] || 0));
+      return peak;
+    }
+
+    function shouldReinforceSc01Phone(ph, peak) {
+      if (!ph || ph.kind === 'pause' || ph.kind === 'stop') return false;
+      if (['plosive', 'affricate'].includes(ph.kind)) return peak < 0.055;
+      if (['fricative', 'breath'].includes(ph.kind)) return peak < 0.040;
+      return false;
+    }
+
+    function makeReinforcedSc01Phoneme(ph) {
+      const romPh = applySc01RomToPhoneme(ph);
+      const reinforced = { ...romPh };
+      if (reinforced.kind === 'plosive') {
+        reinforced.amp = Math.max(reinforced.amp || 0, ph.voiced ? 0.58 : 0.50);
+        reinforced.burst = Math.max(reinforced.burst || 0, ph.burst || 1700);
+        reinforced.leadVoice = Math.max(reinforced.leadVoice || 0, ph.voiced ? 0.42 : 0.12);
+        reinforced.dur = Math.max(34, Math.min(reinforced.dur || ph.dur || 70, 95));
+      } else if (reinforced.kind === 'affricate') {
+        reinforced.amp = Math.max(reinforced.amp || 0, 0.50);
+        reinforced.burst = Math.max(reinforced.burst || 0, ph.burst || 2400);
+        reinforced.dur = Math.max(55, Math.min(reinforced.dur || ph.dur || 110, 130));
+      } else if (reinforced.kind === 'fricative' || reinforced.kind === 'breath') {
+        reinforced.amp = Math.max(reinforced.amp || 0, ph.voiced ? 0.36 : 0.32);
+        reinforced.fric = Math.max(reinforced.fric || 0, ph.fric || 1400);
+        reinforced.leadVoice = Math.max(reinforced.leadVoice || 0, ph.voiced ? 0.22 : 0.04);
+        reinforced.soft = Math.max(reinforced.soft || 0, ph.soft || 0.35);
+        reinforced.dur = Math.max(50, Math.min(reinforced.dur || ph.dur || 95, 145));
+      }
+      return reinforced;
+    }
+
+    function mixSc01AudibilityReinforcement(samples, events, options = {}) {
+      const baseRate = Number(rateEl.value) || 1;
+      const pitch = Number(pitchEl.value) || 115;
+      const buzz = (Number(buzzEl.value) || 0) / 100;
+      let reinforcedCount = 0;
+
+      for (const ev of events) {
+        const ph = ev.ph || PHONEME_BY_BYTE.get(ev.byte & 0x3f);
+        const start = Math.max(0, Math.floor((ev.start || 0) * SAMPLE_RATE));
+        const end = Math.max(start + 1, Math.floor((ev.end || ev.start || 0) * SAMPLE_RATE));
+        const peak = samplePeak(samples, start, end);
+        if (!shouldReinforceSc01Phone(ph, peak)) continue;
+
+        const reinforcedPh = makeReinforcedSc01Phoneme(ph);
+        const overlay = synthesizePhoneme(reinforcedPh, {
+          rate: baseRate,
+          pitch,
+          buzz,
+          gain: 1,
+          normalize: false,
+          ...options
+        }, (0x51f15e ^ ((ev.byte & 0xff) * 0x9e3779b9) ^ reinforcedCount) >>> 0);
+        const overlayPeak = samplePeak(overlay);
+        if (overlayPeak <= 0.0001) continue;
+
+        const targetPeak = ph.kind === 'plosive' || ph.kind === 'affricate' ? 0.085 : 0.060;
+        const mixGain = Math.max(0.02, Math.min(0.22, (targetPeak - peak) / overlayPeak));
+        const maxLen = Math.min(overlay.length, samples.length - start);
+        for (let i = 0; i < maxLen; i++) {
+          const x = samples[start + i] + overlay[i] * mixGain;
+          samples[start + i] = Math.tanh(x * 1.12) / Math.tanh(1.12);
+        }
+        reinforcedCount++;
+      }
+      return reinforcedCount;
+    }
+
     function synthesizeMameSc01(bytes, options = {}) {
       const decoded = decodeSc01Stream(bytes);
       const gain = ((Number(gainEl.value) || 90) / 100) * (options.gain ?? 1);
@@ -2824,6 +3004,7 @@ L8E78:
         if (stopAtStopEl.checked && phone === 0x3f) break;
       }
       const samples = postProcessMameSamples(concatFloatChunks(chunks, total), gain, normalizeAudioEl.checked);
+      mixSc01AudibilityReinforcement(samples, events, options);
       return { samples, events, duration: samples.length / SAMPLE_RATE };
     }
 
