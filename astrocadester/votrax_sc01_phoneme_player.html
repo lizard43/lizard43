@@ -73,7 +73,7 @@
     .topToolbar {
       grid-column: 1 / -1;
       display: flex;
-      flex-wrap: wrap;
+      flex-wrap: nowrap;
       align-items: center;
       gap: 6px;
       padding: 4px 6px;
@@ -84,6 +84,10 @@
       top: 5px;
       z-index: 1000;
       box-shadow: 0 2px 12px rgba(0, 0, 0, .35);
+      overflow-x: auto;
+      overflow-y: hidden;
+      scrollbar-color: var(--border) #0f1218;
+      scrollbar-width: thin;
     }
 
     .toolbarLabel {
@@ -113,21 +117,57 @@
       flex: 0 0 auto;
     }
 
-    .topToolbar [data-sample] {
+    .toolbarSampleRow [data-sample] {
       padding-inline: 10px;
     }
 
     .toolbarSampleRow {
-      flex: 1 0 100%;
+      grid-column: 1 / -1;
       display: flex;
       flex-wrap: wrap;
       gap: 6px;
       align-items: center;
       min-width: 0;
+      padding: 4px 6px;
+      background: var(--toolbar);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      position: static;
+      z-index: 1;
     }
 
     .toolbarSampleRow .action {
       flex: 0 0 auto;
+    }
+
+    .toolbarPhraseLabel {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin: 0 0 0 auto;
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .04em;
+      flex: 1 1 300px;
+      min-width: min(100%, 240px);
+      max-width: 520px;
+    }
+
+    .toolbarPhraseLabel.isHidden {
+      display: none;
+    }
+
+    .toolbarPhraseLabel span {
+      flex: 0 0 auto;
+      white-space: nowrap;
+    }
+
+    .toolbarPhraseSelect {
+      min-height: 32px;
+      padding: 5px 8px;
+      font-size: 12px;
     }
 
     .toolbarRomLabel {
@@ -291,7 +331,7 @@
 
     .modeTools {
       display: grid;
-      grid-template-columns: minmax(0, 220px) minmax(0, 1fr);
+      grid-template-columns: minmax(0, 320px);
       gap: 8px;
       align-items: end;
       margin: 8px 0;
@@ -842,6 +882,12 @@
       .toolDivider {
         display: none;
       }
+
+      .toolbarPhraseLabel {
+        flex: 1 0 100%;
+        max-width: none;
+        margin-left: 0;
+      }
     }
   </style>
 </head>
@@ -882,24 +928,24 @@
           <option value="sc01a">SC-01A</option>
         </select>
       </label>
-      <div class="toolbarSampleRow" aria-label="Sample phrases">
-        <button class="action" data-sample="wor">WOR</button>
-        <button class="action" data-sample="wizard">Wizard</button>
-        <button class="action" data-sample="pressstart">Press Start</button>
-        <button class="action" data-sample="wowrawhey">WoW Raw Hey</button>
-        <button class="action" data-sample="allbase">All Your Base</button>
-      </div>
+    </div>
+
+    <div class="toolbarSampleRow" aria-label="Sample phrases">
+      <button class="action" data-sample="wor">WOR</button>
+      <button class="action" data-sample="wizard">Wizard</button>
+      <button class="action" data-sample="pressstart">Press Start</button>
+      <button class="action" data-sample="wowrawhey">WoW Raw Hey</button>
+      <button class="action" data-sample="allbase">All Your Base</button>
+      <label class="toolbarPhraseLabel isHidden" id="toolbarPhraseWrap" for="phraseSelect"><span>Imported phrase</span>
+        <select id="phraseSelect" class="toolbarPhraseSelect" disabled>
+          <option value="">No imported phrases</option>
+        </select>
+      </label>
     </div>
 
     <section class="panel stack">
       <div>
         <h2>Byte dump / phrase source</h2>
-        <label for="source">Paste Wizard of Wor / Gorf-style voice bytes. Parser accepts <span class="mono">.DB</span>,
-          <span class="mono">DEFB</span>, <span class="mono">$3F</span>, <span class="mono">0x3F</span>, <span
-            class="mono">3FH</span>, binary <span class="mono">00111111B</span>, raw decimal CSV lines, Wizard
-          voice-symbol lines such as <span class="mono">\NTB2 \HE</span>, a whole Vox Data text file, known raw WoW
-          disassembly speech strings such as <span class="mono">L8E78</span>, or direct SC-01 ASM phrase blocks such as
-          <span class="mono">ALLBSE</span>.</label>
         <div class="modeTools">
           <label for="inputMode">Decode mode
             <select id="inputMode">
@@ -909,13 +955,8 @@
               <option value="wowraw">Arcade WoW disassembly bytes</option>
             </select>
           </label>
-          <label for="phraseSelect">Imported phrase
-            <select id="phraseSelect" disabled>
-              <option value="">No imported phrases</option>
-            </select>
-          </label>
         </div>
-        <textarea id="source" spellcheck="false" wrap="off"></textarea>
+        <textarea id="source" aria-label="Byte dump / phrase source" spellcheck="false" wrap="off"></textarea>
       </div>
 
       <div class="row">
@@ -1033,6 +1074,13 @@
       <div class="tabPane" id="notesPane" role="tabpanel">
         <h2>Playback notes</h2>
         <div class="callout cyan">
+          Parser accepts <span class="mono">.DB</span>, <span class="mono">DEFB</span>, <span class="mono">$3F</span>,
+          <span class="mono">0x3F</span>, <span class="mono">3FH</span>, binary <span class="mono">00111111B</span>,
+          raw decimal CSV lines, Wizard voice-symbol lines such as <span class="mono">\NTB2 \HE</span>, whole Vox Data
+          text files, known raw WoW disassembly speech strings such as <span class="mono">L8E78</span>, and direct SC-01 ASM
+          phrase blocks such as <span class="mono">ALLBSE</span>.
+        </div>
+        <div class="callout cyan" style="margin-top:8px;">
           This page uses the browser <span class="mono">AudioContext</span> and a small formant/noise synthesizer. It is
           meant for fast Astrocade phrase prototyping from ROM byte streams, not cycle-accurate Votrax SC-01 emulation.
         </div>
@@ -1707,6 +1755,7 @@ L8E78:
     const normalizeAudioEl = document.getElementById('normalizeAudio');
     const inputModeEl = document.getElementById('inputMode');
     const phraseSelect = document.getElementById('phraseSelect');
+    const toolbarPhraseWrap = document.getElementById('toolbarPhraseWrap');
     const phraseInfo = document.getElementById('phraseInfo');
     const loadPhraseBtn = document.getElementById('loadPhraseBtn');
     const playPhraseBtn = document.getElementById('playPhraseBtn');
@@ -3064,6 +3113,7 @@ L8E78:
         opt.textContent = 'No imported phrases';
         phraseSelect.appendChild(opt);
         phraseSelect.disabled = true;
+        if (toolbarPhraseWrap) toolbarPhraseWrap.classList.add('isHidden');
         if (loadPhraseBtn) loadPhraseBtn.disabled = true;
         if (playPhraseBtn) playPhraseBtn.disabled = true;
         setPhraseInfo('Load Vox/ASM imports phrases automatically. Pasted text is parsed directly.');
@@ -3085,6 +3135,7 @@ L8E78:
       });
 
       phraseSelect.disabled = false;
+      if (toolbarPhraseWrap) toolbarPhraseWrap.classList.remove('isHidden');
       if (loadPhraseBtn) loadPhraseBtn.disabled = false;
       if (playPhraseBtn) playPhraseBtn.disabled = false;
       setPhraseInfo(`Imported ${importedPhrases.length} phrase stream(s). Select a phrase to load it into the editor; samples do not clear this list.`);
