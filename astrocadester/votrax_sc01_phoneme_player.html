@@ -116,6 +116,19 @@
       padding-inline: 10px;
     }
 
+    .toolbarSampleRow {
+      flex: 1 0 100%;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      align-items: center;
+      min-width: 0;
+    }
+
+    .toolbarSampleRow .action {
+      flex: 0 0 auto;
+    }
+
     .toolbarRomLabel {
       display: inline-flex;
       align-items: center;
@@ -844,11 +857,22 @@
           <path fill="currentColor" d="M6 6h12v12H6V6Z" />
         </svg>
       </button>
+      <button class="action iconButton" id="loadVoxBtn" title="Open Vox/ASM file" aria-label="Open Vox/ASM file">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path fill="currentColor" d="M10 4l2 2h8c1.1 0 2 .9 2 2v1H2V6c0-1.1.9-2 2-2h6Zm12 7v7c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2v-7h20Zm-7 2v2h-2v2h-2v-2H9v-2h2v-2h2v2h2Z" />
+        </svg>
+      </button>
+      <button class="action iconButton danger" id="clearBtn" title="Clear phrase source" aria-label="Clear phrase source">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path fill="currentColor" d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12ZM8 4l1-1h6l1 1h4v2H4V4h4Zm2 5h2v9h-2V9Zm4 0h2v9h-2V9Z" />
+        </svg>
+      </button>
       <button class="action iconButton" id="wavBtn" title="Download WAV render" aria-label="Download WAV">
         <svg viewBox="0 0 24 24" aria-hidden="true">
           <path fill="currentColor" d="M5 20h14v-2H5v2ZM12 3v10.2l-4-4-1.4 1.4L12 16l5.4-5.4L16 9.2l-4 4V3h0Z" />
         </svg>
       </button>
+      <input id="voxFileInput" type="file" accept=".txt,.asm,.inc,text/plain" hidden />
       <span class="toolDivider" aria-hidden="true"></span>
       <label class="toolbarRomLabel" for="builtInRomSelect"><span>ROM</span>
         <select id="builtInRomSelect" class="toolbarRomSelect" title="Select built-in Votrax ROM model">
@@ -856,16 +880,13 @@
           <option value="sc01a">SC-01A</option>
         </select>
       </label>
-      <span class="toolDivider" aria-hidden="true"></span>
-      <button class="action" id="loadVoxBtn">Load Vox/ASM</button>
-      <button class="action" id="clearBtn">Clear</button>
-      <input id="voxFileInput" type="file" accept=".txt,.asm,.inc,text/plain" hidden />
-      <span class="toolDivider" aria-hidden="true"></span>
-      <button class="action" data-sample="wor">WOR</button>
-      <button class="action" data-sample="wizard">Wizard</button>
-      <button class="action" data-sample="pressstart">Press Start</button>
-      <button class="action" data-sample="wowrawhey">WoW Raw Hey</button>
-      <button class="action" data-sample="allbase">All Your Base</button>
+      <div class="toolbarSampleRow" aria-label="Sample phrases">
+        <button class="action" data-sample="wor">WOR</button>
+        <button class="action" data-sample="wizard">Wizard</button>
+        <button class="action" data-sample="pressstart">Press Start</button>
+        <button class="action" data-sample="wowrawhey">WoW Raw Hey</button>
+        <button class="action" data-sample="allbase">All Your Base</button>
+      </div>
     </div>
 
     <section class="panel stack">
