@@ -113,6 +113,39 @@
       min-width: 12px;
     }
 
+
+    .settingsButton {
+      margin-left: auto;
+      flex: 0 0 auto;
+    }
+
+    .settingsButton.active {
+      border-color: var(--accent);
+      background: #174528;
+      color: var(--text);
+    }
+
+    .toolbarPlaybackPanel {
+      grid-column: 1 / -1;
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 8px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, .2);
+      min-width: 0;
+      max-width: 100%;
+      overflow: hidden;
+    }
+
+    .toolbarPlaybackPanel.isHidden {
+      display: none !important;
+    }
+
+    .toolbarPlaybackPanel .collapsibleControlsInner {
+      border-top: 0;
+      padding: 0;
+    }
+
     .topToolbar .action {
       flex: 0 0 auto;
     }
@@ -1264,6 +1297,11 @@
         <option value="wizard">Wizard/WoW</option>
         <option value="wowraw">WoW raw</option>
       </select>
+      <button class="action iconButton settingsButton" id="settingsBtn" title="Show playback controls / stats" aria-label="Show playback controls / stats" aria-expanded="false">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path fill="currentColor" d="M19.43 12.98c.04-.32.07-.65.07-.98s-.02-.66-.07-.98l2.11-1.65c.19-.15.24-.42.12-.64l-2-3.46c-.12-.22-.37-.31-.6-.22l-2.49 1a7.3 7.3 0 0 0-1.69-.98L14.5 2.42A.5.5 0 0 0 14.01 2h-4c-.25 0-.46.18-.5.42L9.13 5.07c-.61.24-1.18.56-1.69.98l-2.49-1c-.23-.08-.48 0-.6.22l-2 3.46c-.13.22-.07.49.12.64l2.11 1.65c-.04.32-.08.65-.08.98s.03.66.08.98l-2.11 1.65c-.19.15-.24.42-.12.64l2 3.46c.12.22.37.31.6.22l2.49-1c.51.4 1.08.73 1.69.98l.38 2.65c.04.24.25.42.5.42h4c.25 0 .46-.18.49-.42l.38-2.65c.61-.24 1.18-.56 1.69-.98l2.49 1c.23.08.48 0 .6-.22l2-3.46c.12-.22.07-.49-.12-.64l-2.11-1.65ZM12 15.5A3.5 3.5 0 1 1 12 8a3.5 3.5 0 0 1 0 7.5Z" />
+        </svg>
+      </button>
     </div>
 
     <div class="toolbarSampleRow" aria-label="Sample phrases">
@@ -1278,65 +1316,66 @@
       </label>
     </div>
 
+    <section class="toolbarPlaybackPanel isHidden" id="playbackControls" aria-label="Playback controls and stats" aria-hidden="true">
+      <div class="collapsibleControlsInner">
+        <div class="row">
+          <div class="controlBox">
+            <div class="controlValue"><span>Speech rate</span><b id="rateValue">1.00×</b></div>
+            <input id="rate" type="range" min="0.45" max="1.80" step="0.05" value="1.00" />
+          </div>
+          <div class="controlBox">
+            <div class="controlValue"><span>Pitch</span><b id="pitchValue">115 Hz</b></div>
+            <input id="pitch" type="range" min="70" max="180" step="1" value="115" />
+          </div>
+          <div class="controlBox">
+            <div class="controlValue"><span>Robotic buzz</span><b id="buzzValue">62%</b></div>
+            <input id="buzz" type="range" min="0" max="100" step="1" value="62" />
+          </div>
+          <div class="controlBox">
+            <div class="controlValue"><span>Output gain</span><b id="gainValue">90%</b></div>
+            <input id="gain" type="range" min="20" max="100" step="1" value="90" />
+          </div>
+        </div>
+
+        <div class="buttons">
+          <label class="checkLabel" title="Stop parsing/playback when byte $3F is encountered."><input id="stopAtStop"
+              type="checkbox" checked /> Stop at <span class="mono">$3F</span></label>
+          <label class="checkLabel"
+            title="Insert a tiny guard gap between phonemes to exaggerate SC-01-style articulation."><input
+              id="gapBetween" type="checkbox" checked /> SC-01-ish gaps</label>
+          <label class="checkLabel" title="Normalize generated PCM to avoid clipping."><input id="normalizeAudio"
+              type="checkbox" checked /> Normalize</label>
+        </div>
+
+        <div class="statusGrid">
+          <div class="metric">
+            <div class="metricLabel">Bytes</div>
+            <div class="metricValue" id="metricBytes">0</div>
+          </div>
+          <div class="metric">
+            <div class="metricLabel">Phonemes</div>
+            <div class="metricValue" id="metricPhonemes">0</div>
+          </div>
+          <div class="metric">
+            <div class="metricLabel">Duration</div>
+            <div class="metricValue" id="metricDuration">0.00s</div>
+          </div>
+          <div class="metric">
+            <div class="metricLabel">Last byte</div>
+            <div class="metricValue" id="metricLast">--</div>
+          </div>
+        </div>
+
+        <div id="status"></div>
+      </div>
+    </section>
+
     <section class="panel stack">
       <div>
         <textarea id="source" aria-label="Byte dump / phrase source" spellcheck="false" wrap="off"></textarea>
       </div>
 
-      <details class="collapsibleControls" id="playbackControls">
-        <summary>Playback controls / stats</summary>
-        <div class="collapsibleControlsInner">
-          <div class="row">
-            <div class="controlBox">
-              <div class="controlValue"><span>Speech rate</span><b id="rateValue">1.00×</b></div>
-              <input id="rate" type="range" min="0.45" max="1.80" step="0.05" value="1.00" />
-            </div>
-            <div class="controlBox">
-              <div class="controlValue"><span>Pitch</span><b id="pitchValue">115 Hz</b></div>
-              <input id="pitch" type="range" min="70" max="180" step="1" value="115" />
-            </div>
-            <div class="controlBox">
-              <div class="controlValue"><span>Robotic buzz</span><b id="buzzValue">62%</b></div>
-              <input id="buzz" type="range" min="0" max="100" step="1" value="62" />
-            </div>
-            <div class="controlBox">
-              <div class="controlValue"><span>Output gain</span><b id="gainValue">90%</b></div>
-              <input id="gain" type="range" min="20" max="100" step="1" value="90" />
-            </div>
-          </div>
 
-          <div class="buttons">
-            <label class="checkLabel" title="Stop parsing/playback when byte $3F is encountered."><input id="stopAtStop"
-                type="checkbox" checked /> Stop at <span class="mono">$3F</span></label>
-            <label class="checkLabel"
-              title="Insert a tiny guard gap between phonemes to exaggerate SC-01-style articulation."><input
-                id="gapBetween" type="checkbox" checked /> SC-01-ish gaps</label>
-            <label class="checkLabel" title="Normalize generated PCM to avoid clipping."><input id="normalizeAudio"
-                type="checkbox" checked /> Normalize</label>
-          </div>
-
-          <div class="statusGrid">
-            <div class="metric">
-              <div class="metricLabel">Bytes</div>
-              <div class="metricValue" id="metricBytes">0</div>
-            </div>
-            <div class="metric">
-              <div class="metricLabel">Phonemes</div>
-              <div class="metricValue" id="metricPhonemes">0</div>
-            </div>
-            <div class="metric">
-              <div class="metricLabel">Duration</div>
-              <div class="metricValue" id="metricDuration">0.00s</div>
-            </div>
-            <div class="metric">
-              <div class="metricLabel">Last byte</div>
-              <div class="metricValue" id="metricLast">--</div>
-            </div>
-          </div>
-
-          <div id="status"></div>
-        </div>
-      </details>
     </section>
 
     <section class="panel stack rightPanel">
@@ -2098,6 +2137,8 @@ L8E78:
     const exportCopyBtn = document.getElementById('exportCopyBtn');
     const voxFileInput = document.getElementById('voxFileInput');
     const builtInRomSelect = document.getElementById('builtInRomSelect');
+    const settingsBtn = document.getElementById('settingsBtn');
+    const playbackControls = document.getElementById('playbackControls');
     const sc01RomStatus = document.getElementById('sc01RomStatus');
 
     let importedPhrases = [];
@@ -2183,7 +2224,8 @@ L8E78:
         `${sc01RomState.embeddedDefault ? 'Using built-in ' : 'Loaded override '}<span class="mono">${escapeHtml(sc01RomState.sourceName)}</span>: ${sc01RomState.bytes.length} bytes, 64 phone rows.${hashText}${matchText}`,
         sc01RomState.sha1 && !Object.values(BUILTIN_ROM_HASHES).includes(sc01RomState.sha1) ? 'warn' : 'loaded'
       );
-      renderPhonemeTable();
+      setPlaybackControlsVisible(false);
+    renderPhonemeTable();
       analyze();
     }
 
@@ -3868,6 +3910,17 @@ L8E78:
       document.getElementById(name + 'Pane').classList.add('active');
     }
 
+
+    function setPlaybackControlsVisible(visible) {
+      if (!playbackControls || !settingsBtn) return;
+      playbackControls.classList.toggle('isHidden', !visible);
+      playbackControls.setAttribute('aria-hidden', visible ? 'false' : 'true');
+      settingsBtn.classList.toggle('active', visible);
+      settingsBtn.setAttribute('aria-expanded', visible ? 'true' : 'false');
+      settingsBtn.title = visible ? 'Hide playback controls / stats' : 'Show playback controls / stats';
+      settingsBtn.setAttribute('aria-label', settingsBtn.title);
+    }
+
     ['click', 'keyup', 'select', 'focus', 'mouseup'].forEach(evt => {
       sourceEl.addEventListener(evt, rememberSourceInsertPos);
     });
@@ -3929,6 +3982,9 @@ L8E78:
       stopPlayback();
       installBuiltInSc01Rom(builtInRomSelect.value);
       setStatus(`Switched/reloaded ${BUILTIN_ROM_LABELS[builtInRomSelect.value]}. Re-render and playback now use ${builtInRomSelect.value.toUpperCase()}.`);
+    });
+    if (settingsBtn && playbackControls) settingsBtn.addEventListener('click', () => {
+      setPlaybackControlsVisible(playbackControls.classList.contains('isHidden'));
     });
     if (loadPhraseBtn) loadPhraseBtn.addEventListener('click', loadSelectedPhrase);
     if (playPhraseBtn) playPhraseBtn.addEventListener('click', playSelectedPhrase);
