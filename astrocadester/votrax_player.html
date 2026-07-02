@@ -1669,11 +1669,29 @@
     }
 
     .phonemePalette {
+      display: grid;
+      gap: 7px;
+      align-content: flex-start;
+      min-width: 0;
+    }
+
+    .phonemePaletteGroup {
       display: flex;
       flex-wrap: wrap;
       gap: 5px;
       align-content: flex-start;
       min-width: 0;
+    }
+
+    .phonemePaletteGroupHeader {
+      flex: 0 0 100%;
+      margin: 1px 0 -1px;
+      color: var(--muted);
+      font: 900 10px/1.2 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      opacity: .88;
+      user-select: none;
     }
 
     .phonemePalettePill {
@@ -1768,6 +1786,31 @@
     .phonemeInfoTip .mono {
       color: var(--gold);
       font-weight: 900;
+    }
+
+    .phonemeInfoTip .tipTopline {
+      color: var(--text);
+      font: 900 12px/1.35 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      white-space: nowrap;
+    }
+
+    .phonemeInfoTip .tipName {
+      color: var(--accent);
+    }
+
+    .phonemeInfoTip .tipType {
+      color: var(--muted);
+    }
+
+    .phonemeInfoTip .tipDesc {
+      margin-top: 4px;
+      color: var(--text);
+    }
+
+    .phonemeInfoTip .tipRom {
+      margin-top: 4px;
+      color: var(--muted);
+      font: 11px/1.35 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
     }
 
     @media (max-width: 520px) {
@@ -3471,19 +3514,150 @@ L8E78:
       return analysis?.mode === 'wizard' ? 'wizard' : 'sc01';
     }
 
+    const SC01_PALETTE_ORDER = {
+      vowels: [
+        'I1', 'I2', 'I3', 'I',
+        'E1', 'E', 'EH1', 'EH2', 'EH3', 'EH',
+        'AE1', 'AE', 'A1', 'A2', 'A', 'AY',
+        'AH1', 'AH2', 'AH', 'AW1', 'AW2', 'AW',
+        'O1', 'O2', 'O', 'OO1', 'OO', 'U1', 'U', 'IU',
+        'UH1', 'UH2', 'UH3', 'UH', 'ER'
+      ],
+      consonants: [
+        'P', 'B', 'T', 'DT', 'D', 'K', 'G', 'CH', 'J',
+        'F', 'V', 'S', 'Z', 'SH', 'ZH', 'TH', 'THV', 'H',
+        'M', 'N', 'NG', 'L', 'R', 'W', 'Y', 'Y1'
+      ],
+      controls: ['PA0', 'PA1', 'STOP']
+    };
+
+    const WIZARD_PALETTE_ORDER = {
+      vowels: [
+        'IY', 'IH', 'EY', 'EH', 'AY', 'AX', 'UX', 'AW', 'OH', 'OW', 'UH',
+        'EYRR', 'AXRR', 'AWRR', 'OWRR',
+        'EYIY', 'OHIY', 'OWIY', 'OHIH', 'EHLE', 'IYUW', 'IHWW', 'AYWW', 'OWWW'
+      ],
+      consonants: [
+        'PE', 'PO', 'BE', 'EB', 'OB', 'TT', 'DE', 'DO', 'ED', 'OD',
+        'KE', 'KO', 'EK', 'OK', 'GE', 'GO', 'CH', 'JH',
+        'FF', 'VV', 'SE', 'SO', 'ZZ', 'SH', 'TH', 'DH', 'HE', 'HO',
+        'MM', 'NE', 'NO', 'NGE', 'NGO', 'LE', 'LO', 'RR', 'WW'
+      ],
+      controls: [
+        'P0', 'P1', 'P2', 'P3', 'P4', 'P5',
+        'FAST', 'SLOW', 'STRESS', 'RELAX', 'REPEAT', '2',
+        'NTA2', 'NTB2', 'NTC3', 'NTE2', 'CMD20', 'CMD21', 'CMD23', 'W'
+      ]
+    };
+
+    function makePaletteItemFromPhoneme(ph, mode) {
+      return {
+        ph,
+        bytes: [ph.byte],
+        mode,
+        label: ph.symbol,
+        byteText: ph.hex || hex2(ph.byte)
+      };
+    }
+
+    function paletteItemsFromSymbolOrder(symbolOrder, sourceItems, mode) {
+      const bySymbol = new Map(sourceItems.map(ph => [ph.symbol, ph]));
+      const used = new Set();
+      const ordered = [];
+      for (const symbol of symbolOrder) {
+        const ph = bySymbol.get(symbol);
+        if (!ph) continue;
+        used.add(symbol);
+        ordered.push(makePaletteItemFromPhoneme(ph, mode));
+      }
+      const fallback = sourceItems
+        .filter(ph => !used.has(ph.symbol))
+        .sort((a, b) => a.symbol.localeCompare(b.symbol))
+        .map(ph => makePaletteItemFromPhoneme(ph, mode));
+      return ordered.concat(fallback);
+    }
+
+    function wizardControlPaletteItems() {
+      const byToken = new Map(WIZARD_TOKEN_CATALOG
+        .filter(item => item.type !== 'voice')
+        .map(item => [item.token, item]));
+      const used = new Set();
+      const ordered = [];
+      for (const token of WIZARD_PALETTE_ORDER.controls) {
+        const cat = byToken.get(token);
+        if (!cat) continue;
+        used.add(token);
+        const ph = cat.ph || WIZARD_CONTROL_BY_BYTE.get(cat.bytes?.[0]) || cph(cat.bytes?.[0] || 0, cat.token, cat.desc || cat.type || 'control');
+        ordered.push({
+          ph,
+          bytes: (cat.bytes || [ph.byte]).slice(),
+          mode: 'wizard',
+          label: cat.token,
+          byteText: (cat.bytes || [ph.byte]).map(hex2).join(' '),
+          tipType: cat.type || ph.kind || 'control'
+        });
+      }
+      return ordered.concat(
+        Array.from(byToken.values())
+          .filter(cat => !used.has(cat.token))
+          .sort((a, b) => a.token.localeCompare(b.token))
+          .map(cat => {
+            const ph = cat.ph || WIZARD_CONTROL_BY_BYTE.get(cat.bytes?.[0]) || cph(cat.bytes?.[0] || 0, cat.token, cat.desc || cat.type || 'control');
+            return {
+              ph,
+              bytes: (cat.bytes || [ph.byte]).slice(),
+              mode: 'wizard',
+              label: cat.token,
+              byteText: (cat.bytes || [ph.byte]).map(hex2).join(' '),
+              tipType: cat.type || ph.kind || 'control'
+            };
+          })
+      );
+    }
+
     function paletteItemsForMode(mode) {
       if (mode === 'wizard') {
-        return WIZARD_PHONEMES.map(ph => ({ ph, bytes: [ph.byte], mode: 'wizard', label: `\\${ph.symbol}`, byteText: hex2(ph.byte) }));
+        const vowelItems = paletteItemsFromSymbolOrder(WIZARD_PALETTE_ORDER.vowels, WIZARD_PHONEMES.filter(ph => classifyForUi(ph) === 'vowel'), 'wizard');
+        const consonantItems = paletteItemsFromSymbolOrder(WIZARD_PALETTE_ORDER.consonants, WIZARD_PHONEMES.filter(ph => classifyForUi(ph) === 'consonant'), 'wizard');
+        const controlItems = wizardControlPaletteItems();
+        return [
+          { key: 'vowels', label: 'Vowels', items: vowelItems },
+          { key: 'consonants', label: 'Consonants', items: consonantItems },
+          { key: 'controls', label: 'Controls', items: controlItems }
+        ].filter(group => group.items.length);
       }
-      return PHONEMES.map(ph => ({ ph, bytes: [ph.byte], mode: 'sc01', label: ph.symbol, byteText: ph.hex || hex2(ph.byte) }));
+
+      const vowelItems = paletteItemsFromSymbolOrder(SC01_PALETTE_ORDER.vowels, PHONEMES.filter(ph => classifyForUi(ph) === 'vowel'), 'sc01');
+      const consonantItems = paletteItemsFromSymbolOrder(SC01_PALETTE_ORDER.consonants, PHONEMES.filter(ph => classifyForUi(ph) === 'consonant'), 'sc01');
+      const controlItems = paletteItemsFromSymbolOrder(SC01_PALETTE_ORDER.controls, PHONEMES.filter(ph => ['pause', 'stop', 'control'].includes(classifyForUi(ph))), 'sc01');
+      return [
+        { key: 'vowels', label: 'Vowels', items: vowelItems },
+        { key: 'consonants', label: 'Consonants', items: consonantItems },
+        { key: 'controls', label: 'Controls', items: controlItems }
+      ].filter(group => group.items.length);
+    }
+
+    function phonemeRomInfo(item) {
+      const ph = item?.ph;
+      if (!ph) return 'ROM info unavailable.';
+      if (item.mode === 'wizard') {
+        return `Wizard/WoW token stream · byte ${hex2(ph.byte)} · browser phoneme table`;
+      }
+      const entry = sc01RomState?.byPhone?.get(ph.byte & 0x3F);
+      if (!entry) return `${romDisplayName(activeRomModel())} ROM info unavailable.`;
+      const diff = romDifferenceInfo(ph.byte, entry);
+      const diffText = diff?.changed ? ` · differs from ${romDisplayName(diff.otherModel)}` : '';
+      return `${romDisplayName(activeRomModel())} · ${romSummary(entry)}${diffText}`;
     }
 
     function phonemeTipHtml(item) {
       const ph = item.ph;
-      const kind = classifyForUi(ph);
-      const bytes = (item.bytes || [ph.byte]).map(hex2).join(' ');
-      const modeLabel = item.mode === 'wizard' ? 'Wizard/WoW' : romDisplayName(activeRomModel());
-      return `<span class="mono">${escapeHtml(bytes)}</span> <b>${escapeHtml(item.label || ph.symbol)}</b><br>${escapeHtml(ph.desc || '')}<br><span class="small">${escapeHtml(modeLabel)} · ${escapeHtml(kind)} · drag into timeline to insert</span>`;
+      const typeLabel = item.tipType || ph?.kind || classifyForUi(ph);
+      const opcode = (item.bytes || [ph.byte]).map(hex2).join(' ');
+      const name = item.label || ph.symbol || '??';
+      return `<div class="tipTopline"><span class="mono">${escapeHtml(opcode)}</span> <span class="tipName">${escapeHtml(name)}</span> <span class="tipType">${escapeHtml(typeLabel)}</span></div>` +
+        `<div class="tipDesc">${escapeHtml(ph.desc || '')}</div>` +
+        `<div class="tipRom">${escapeHtml(phonemeRomInfo(item))}</div>`;
     }
 
     function showPhonemeInfoTip(html, ev) {
@@ -3512,99 +3686,113 @@ L8E78:
       phonemeInfoTip.setAttribute('aria-hidden', 'true');
     }
 
+    function buildPhonemePaletteButton(item) {
+      const ph = item.ph;
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = `phonemePalettePill ${classifyForUi(ph)}`;
+      btn.dataset.byte = String(ph.byte & 0xFF);
+      btn.dataset.mode = item.mode;
+      btn.dataset.tip = phonemeTipHtml(item);
+      btn.innerHTML = `<span class="phonemePaletteSymbol">${escapeHtml(item.label)}</span>`;
+      btn.removeAttribute('title');
+      btn.setAttribute('aria-label', `Drag ${item.label} (${item.byteText}) into timeline. ${ph.desc}`);
+
+      btn.addEventListener('mouseenter', ev => showPhonemeInfoTip(btn.dataset.tip, ev));
+      btn.addEventListener('mousemove', movePhonemeInfoTip);
+      btn.addEventListener('mouseleave', hidePhonemeInfoTip);
+      btn.addEventListener('focus', ev => showPhonemeInfoTip(btn.dataset.tip, ev));
+      btn.addEventListener('blur', hidePhonemeInfoTip);
+
+      btn.addEventListener('pointerdown', ev => {
+        if (ev.button !== undefined && ev.button !== 0) return;
+        timelineDragState = {
+          pointerId: ev.pointerId,
+          kind: 'insert',
+          bytes: item.bytes.slice(),
+          mode: item.mode,
+          label: item.label,
+          startX: ev.clientX,
+          startY: ev.clientY,
+          sourceEl: btn,
+          active: false,
+          ghost: null,
+          gap: null,
+          slotIndex: null,
+          offsetX: 0,
+          offsetY: 0
+        };
+        btn.classList.add('timelineDragHold');
+        try { btn.setPointerCapture(ev.pointerId); } catch (_) { }
+      });
+
+      btn.addEventListener('pointermove', ev => {
+        const drag = timelineDragState;
+        if (!drag || drag.pointerId !== ev.pointerId || drag.sourceEl !== btn) return;
+        const moved = Math.hypot(ev.clientX - drag.startX, ev.clientY - drag.startY);
+        if (!drag.active && moved >= 5) startTimelineDrag(btn, ev);
+        if (drag.active) {
+          ev.preventDefault();
+          hidePhonemeInfoTip();
+          updateTimelineGhost(ev);
+          placeTimelineDropGap(timelineSlotFromPoint(ev.clientX, ev.clientY, btn));
+        }
+      });
+
+      btn.addEventListener('pointerup', ev => {
+        const drag = timelineDragState;
+        if (!drag || drag.pointerId !== ev.pointerId || drag.sourceEl !== btn) return;
+        finishTimelineDrag(ev, false);
+      });
+
+      btn.addEventListener('pointercancel', ev => {
+        const drag = timelineDragState;
+        if (drag && drag.pointerId === ev.pointerId && drag.sourceEl === btn) finishTimelineDrag(ev, true);
+      });
+
+      btn.addEventListener('keydown', ev => {
+        if (ev.key === 'Escape' && timelineDragState?.sourceEl === btn) {
+          ev.preventDefault();
+          clearTimelineDragState();
+        }
+      });
+
+      btn.addEventListener('click', ev => {
+        if (Date.now() < timelineSuppressClickUntil) {
+          ev.preventDefault();
+          ev.stopPropagation();
+          return;
+        }
+        playBytes(item.bytes, { single: true, mode: item.mode });
+        setStatus(`Playing ${item.label} (${item.bytes.map(hex2).join(' ')}). Drag it into the timeline to insert.`);
+      });
+
+      return btn;
+    }
+
     function renderPhonemePalette(analysis = currentAnalysis) {
       if (!phonemePalette) return;
       const mode = paletteModeFromAnalysis(analysis);
-      const items = paletteItemsForMode(mode);
+      const groups = paletteItemsForMode(mode);
+      const total = groups.reduce((sum, group) => sum + group.items.length, 0);
       phonemePalette.innerHTML = '';
       if (phonemePaletteMode) {
         phonemePaletteMode.textContent = mode === 'wizard'
-          ? `Wizard/WoW phonemes · ${items.length}`
-          : `${romDisplayName(activeRomModel())} phonemes · ${items.length}`;
+          ? `Wizard/WoW phonemes · ${total}`
+          : `${romDisplayName(activeRomModel())} phonemes · ${total}`;
       }
 
-      for (const item of items) {
-        const ph = item.ph;
-        const btn = document.createElement('button');
-        btn.type = 'button';
-        btn.className = `phonemePalettePill ${classifyForUi(ph)}`;
-        btn.dataset.byte = String(ph.byte & 0xFF);
-        btn.dataset.mode = item.mode;
-        btn.dataset.tip = phonemeTipHtml(item);
-        btn.innerHTML = `<span class="phonemePaletteByte">${escapeHtml(item.byteText)}</span><span class="phonemePaletteSymbol">${escapeHtml(item.label)}</span>`;
-        btn.title = `${item.byteText} ${item.label}: ${ph.desc}`;
-        btn.setAttribute('aria-label', `Drag ${item.label} into timeline. ${ph.desc}`);
+      for (const group of groups) {
+        const groupEl = document.createElement('div');
+        groupEl.className = `phonemePaletteGroup phonemePaletteGroup-${group.key}`;
 
-        btn.addEventListener('mouseenter', ev => showPhonemeInfoTip(btn.dataset.tip, ev));
-        btn.addEventListener('mousemove', movePhonemeInfoTip);
-        btn.addEventListener('mouseleave', hidePhonemeInfoTip);
-        btn.addEventListener('focus', ev => showPhonemeInfoTip(btn.dataset.tip, ev));
-        btn.addEventListener('blur', hidePhonemeInfoTip);
+        const heading = document.createElement('div');
+        heading.className = 'phonemePaletteGroupHeader';
+        heading.textContent = group.label;
+        groupEl.appendChild(heading);
 
-        btn.addEventListener('pointerdown', ev => {
-          if (ev.button !== undefined && ev.button !== 0) return;
-          timelineDragState = {
-            pointerId: ev.pointerId,
-            kind: 'insert',
-            bytes: item.bytes.slice(),
-            mode: item.mode,
-            label: item.label,
-            startX: ev.clientX,
-            startY: ev.clientY,
-            sourceEl: btn,
-            active: false,
-            ghost: null,
-            gap: null,
-            slotIndex: null,
-            offsetX: 0,
-            offsetY: 0
-          };
-          btn.classList.add('timelineDragHold');
-          try { btn.setPointerCapture(ev.pointerId); } catch (_) { }
-        });
-
-        btn.addEventListener('pointermove', ev => {
-          const drag = timelineDragState;
-          if (!drag || drag.pointerId !== ev.pointerId || drag.sourceEl !== btn) return;
-          const moved = Math.hypot(ev.clientX - drag.startX, ev.clientY - drag.startY);
-          if (!drag.active && moved >= 5) startTimelineDrag(btn, ev);
-          if (drag.active) {
-            ev.preventDefault();
-            hidePhonemeInfoTip();
-            updateTimelineGhost(ev);
-            placeTimelineDropGap(timelineSlotFromPoint(ev.clientX, ev.clientY, btn));
-          }
-        });
-
-        btn.addEventListener('pointerup', ev => {
-          const drag = timelineDragState;
-          if (!drag || drag.pointerId !== ev.pointerId || drag.sourceEl !== btn) return;
-          finishTimelineDrag(ev, false);
-        });
-
-        btn.addEventListener('pointercancel', ev => {
-          const drag = timelineDragState;
-          if (drag && drag.pointerId === ev.pointerId && drag.sourceEl === btn) finishTimelineDrag(ev, true);
-        });
-
-        btn.addEventListener('keydown', ev => {
-          if (ev.key === 'Escape' && timelineDragState?.sourceEl === btn) {
-            ev.preventDefault();
-            clearTimelineDragState();
-          }
-        });
-
-        btn.addEventListener('click', ev => {
-          if (Date.now() < timelineSuppressClickUntil) {
-            ev.preventDefault();
-            ev.stopPropagation();
-            return;
-          }
-          playBytes(item.bytes, { single: true, mode: item.mode });
-          setStatus(`Playing ${item.label} (${item.bytes.map(hex2).join(' ')}). Drag it into the timeline to insert.`);
-        });
-
-        phonemePalette.appendChild(btn);
+        for (const item of group.items) groupEl.appendChild(buildPhonemePaletteButton(item));
+        phonemePalette.appendChild(groupEl);
       }
     }
 
