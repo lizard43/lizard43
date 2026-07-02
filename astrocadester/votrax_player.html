@@ -119,10 +119,40 @@
       flex: 0 0 auto;
     }
 
-    .settingsButton.active {
-      border-color: var(--accent);
-      background: #174528;
+    .settingsButton.active,
+    .settingsButton.active:hover,
+    .settingsButton.active:focus-visible {
+      border-color: #d7dee9;
+      background: var(--panel2);
       color: var(--text);
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .18);
+      outline: none;
+    }
+
+    .sampleToggleButton {
+      border-color: var(--border);
+      background: var(--panel2);
+      color: var(--text);
+      box-shadow: none;
+    }
+
+    .sampleToggleButton:hover:not(.active),
+    .sampleToggleButton:focus-visible:not(.active) {
+      border-color: var(--border);
+      background: var(--panel2);
+      color: var(--text);
+      box-shadow: none;
+      outline: none;
+    }
+
+    .sampleToggleButton.active,
+    .sampleToggleButton.active:hover,
+    .sampleToggleButton.active:focus-visible {
+      border-color: #d7dee9;
+      background: var(--panel2);
+      color: var(--text);
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .18);
+      outline: none;
     }
 
     .toolbarPlaybackPanel {
@@ -167,6 +197,10 @@
       border-radius: 10px;
       position: static;
       z-index: 1;
+    }
+
+    .toolbarSampleRow.isHidden {
+      display: none !important;
     }
 
     .toolbarSampleRow .action {
@@ -1166,11 +1200,7 @@
       flex: 0 1 auto;
     }
 
-    .toolbarModeSelect {
-      min-width: 118px;
-      max-width: 176px;
-    }
-
+    .toolbarModeSelect,
     .toolbarRomSelect {
       min-width: 82px;
       max-width: 96px;
@@ -1201,11 +1231,7 @@
         font-size: 11px;
       }
 
-      .toolbarModeSelect {
-        min-width: 104px;
-        max-width: 128px;
-      }
-
+      .toolbarModeSelect,
       .toolbarRomSelect {
         min-width: 76px;
         max-width: 82px;
@@ -1273,6 +1299,11 @@
       <button class="action iconButton" id="loadVoxBtn" title="Open Vox/ASM file" aria-label="Open Vox/ASM file">
         <svg viewBox="0 0 24 24" aria-hidden="true">
           <path fill="currentColor" d="M10 4l2 2h8c1.1 0 2 .9 2 2v1H2V6c0-1.1.9-2 2-2h6Zm12 7v7c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2v-7h20Zm-7 2v2h-2v2h-2v-2H9v-2h2v-2h2v2h2Z" />
+        </svg>
+      </button>
+      <button class="action iconButton sampleToggleButton active" id="sampleToggleBtn" title="Hide sample phrases" aria-label="Hide sample phrases" aria-expanded="true">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path fill="currentColor" d="M4 5h16v3H4V5Zm0 5h16v3H4v-3Zm0 5h16v3H4v-3Z" />
         </svg>
       </button>
       <button class="action iconButton" id="wavBtn" title="Download WAV render" aria-label="Download WAV">
@@ -1382,7 +1413,7 @@
       <div class="tabBar" role="tablist" aria-label="right side tabs">
         <button class="tabButton active" type="button" data-tab="decoded">Decoded</button>
         <button class="tabButton" type="button" data-tab="table">64 Phonemes</button>
-        <button class="tabButton" type="button" data-tab="tokens">Wizard Tokens</button>
+        <button class="tabButton" type="button" data-tab="tokens">tokens</button>
         <button class="tabButton" type="button" data-tab="notes">Notes</button>
       </div>
 
@@ -1410,13 +1441,7 @@
       </div>
 
       <div class="tabPane" id="tokensPane" role="tabpanel">
-        <h2>Wizard/WoW voice-token table</h2>
-        <div class="callout cyan tokenHelp">
-          This is the Wizard of Wor script layer, not the raw 64-entry SC-01 table. Tokens such as <span
-            class="mono">\SLOW</span>, <span class="mono">\FAST</span>, <span class="mono">\Stress</span>, and <span
-            class="mono">\NTB2</span> become control bytes that shape the following voice tokens. Green voice-token
-          pills are playable; controls are insertable but do not make sound by themselves.
-        </div>
+        <h2>voice-token table</h2>
         <div class="phonemeTableWrap">
           <table>
             <thead>
@@ -1427,7 +1452,7 @@
                 <th>Effect / description</th>
               </tr>
             </thead>
-            <tbody id="wizardTokenTableBody"></tbody>
+            <tbody id="tokenTableBody"></tbody>
           </table>
         </div>
       </div>
@@ -1437,7 +1462,7 @@
         <div class="callout cyan">
           Parser accepts <span class="mono">.DB</span>, <span class="mono">DEFB</span>, <span class="mono">$3F</span>,
           <span class="mono">0x3F</span>, <span class="mono">3FH</span>, binary <span class="mono">00111111B</span>,
-          raw decimal CSV lines, Wizard voice-symbol lines such as <span class="mono">\NTB2 \HE</span>, whole Vox Data
+          raw decimal CSV lines,  voice-symbol lines such as <span class="mono">\NTB2 \HE</span>, whole Vox Data
           text files, known raw WoW disassembly speech strings such as <span class="mono">L8E78</span>, and direct SC-01 ASM
           phrase blocks such as <span class="mono">ALLBSE</span>.
         </div>
@@ -1446,8 +1471,8 @@
           meant for fast Astrocade phrase prototyping from ROM byte streams, not cycle-accurate Votrax SC-01 emulation.
         </div>
         <div class="callout gold" style="margin-top:8px;">
-          Click any green phoneme pill in the Decoded, 64 Phonemes, or Wizard Tokens tabs to audition it. Use Add when
-          you want to append raw SC-01 phonemes or Wizard script-layer tokens to the phrase.
+          Click any green phoneme pill in the Decoded, 64 Phonemes, or tokens tabs to audition it. Use Add when
+          you want to append raw SC-01 phonemes or  script-layer tokens to the phrase.
         </div>
         <div class="small" style="margin-top:10px;">
           The SC-01 chip internally contains its own phoneme timing and articulation behavior. This browser version
@@ -1474,12 +1499,12 @@
     'use strict';
 
     const SAMPLE_RATE = 40000;
-    const DEFAULT_SOURCE = `PhonicPhrase_Wizard:
+    const DEFAULT_SOURCE = `Wizard:
     db $2D,$27,$12,$3A,$1E    ; W I Z ER D
 Of:
     db $13                     ; AW1
     db $0F                     ; V
-PhonicPhrase_Wor:
+Wor:
     db $2D                  ; W
     db $35                  ; O1
     db $34                  ; O2
@@ -1908,81 +1933,81 @@ PhonicPhrase_Wor:
     }
 
     const WIZARD_CONTROL_BY_BYTE = new Map([
-      [0, p(0x00, 'P0', 'Wizard short pause', { kind: 'pause', dur: 55, amp: 0 })],
-      [1, p(0x01, 'P1', 'Wizard pause 1', { kind: 'pause', dur: 95, amp: 0 })],
-      [2, p(0x02, 'P2', 'Wizard pause 2', { kind: 'pause', dur: 145, amp: 0 })],
-      [3, p(0x03, 'P3', 'Wizard pause 3', { kind: 'pause', dur: 210, amp: 0 })],
-      [4, p(0x04, 'P4', 'Wizard pause 4', { kind: 'pause', dur: 280, amp: 0 })],
-      [5, p(0x05, 'P5', 'Wizard long pause', { kind: 'pause', dur: 360, amp: 0 })],
-      [7, cph(0x07, 'FAST', 'Wizard speed control: fast')],
-      [8, cph(0x08, 'SLOW', 'Wizard speed control: slow')],
-      [14, cph(0x0E, 'STRESS', 'Wizard articulation control: stress')],
-      [15, cph(0x0F, 'RELAX', 'Wizard articulation control: relax')],
-      [26, cph(0x1A, 'REPEAT', 'Wizard repeat control')]
+      [0, p(0x00, 'P0', ' short pause', { kind: 'pause', dur: 55, amp: 0 })],
+      [1, p(0x01, 'P1', ' pause 1', { kind: 'pause', dur: 95, amp: 0 })],
+      [2, p(0x02, 'P2', ' pause 2', { kind: 'pause', dur: 145, amp: 0 })],
+      [3, p(0x03, 'P3', ' pause 3', { kind: 'pause', dur: 210, amp: 0 })],
+      [4, p(0x04, 'P4', ' pause 4', { kind: 'pause', dur: 280, amp: 0 })],
+      [5, p(0x05, 'P5', ' long pause', { kind: 'pause', dur: 360, amp: 0 })],
+      [7, cph(0x07, 'FAST', ' speed control: fast')],
+      [8, cph(0x08, 'SLOW', ' speed control: slow')],
+      [14, cph(0x0E, 'STRESS', ' articulation control: stress')],
+      [15, cph(0x0F, 'RELAX', ' articulation control: relax')],
+      [26, cph(0x1A, 'REPEAT', ' repeat control')]
     ]);
 
     const WIZARD_PHONEMES = [
-      p(128, 'IY', 'Wizard vowel: ee / y', { formants: FORMANTS.E, dur: 120 }),
-      p(129, 'IH', 'Wizard vowel: ih', { formants: FORMANTS.I, dur: 95 }),
-      p(130, 'EY', 'Wizard vowel: ay', { formants: FORMANTS.E, toFormants: FORMANTS.I, dur: 130 }),
-      p(131, 'EH', 'Wizard vowel: eh', { formants: FORMANTS.EH, dur: 105 }),
-      p(132, 'AY', 'Wizard vowel: eye', { formants: FORMANTS.AY, toFormants: FORMANTS.I, dur: 145 }),
-      p(133, 'AX', 'Wizard vowel: schwa', { formants: FORMANTS.UH, dur: 95 }),
-      p(134, 'UX', 'Wizard vowel: uh', { formants: FORMANTS.UH, dur: 95 }),
-      p(135, 'AW', 'Wizard vowel: aw', { formants: FORMANTS.AW, dur: 120 }),
-      p(136, 'OH', 'Wizard vowel: oh', { formants: FORMANTS.O, dur: 120 }),
-      p(137, 'OW', 'Wizard vowel: ow', { formants: FORMANTS.O, toFormants: FORMANTS.OO, dur: 135 }),
-      p(138, 'UH', 'Wizard vowel: uh/oo', { formants: FORMANTS.OO, dur: 110 }),
-      p(140, 'MM', 'Wizard m', { kind: 'nasal', formants: FORMANTS.M, dur: 105, nasal: true, amp: .58 }),
-      p(141, 'NE', 'Wizard n', { kind: 'nasal', formants: FORMANTS.N, dur: 96, nasal: true, amp: .58 }),
-      p(142, 'NO', 'Wizard n/o', { kind: 'nasal', formants: FORMANTS.N, toFormants: FORMANTS.O, dur: 120, nasal: true, amp: .58 }),
-      p(143, 'NGE', 'Wizard ng', { kind: 'nasal', formants: FORMANTS.NG, dur: 118, nasal: true, amp: .55 }),
-      p(144, 'NGO', 'Wizard ng/o', { kind: 'nasal', formants: FORMANTS.NG, toFormants: FORMANTS.O, dur: 126, nasal: true, amp: .55 }),
-      p(145, 'LE', 'Wizard l', { kind: 'liquid', formants: FORMANTS.L, dur: 100, amp: .60 }),
-      p(146, 'LO', 'Wizard l/o', { kind: 'liquid', formants: FORMANTS.L, toFormants: FORMANTS.O, dur: 116, amp: .60 }),
-      p(147, 'WW', 'Wizard w', { kind: 'glide', formants: FORMANTS.W, toFormants: FORMANTS.O, dur: 92, amp: .56 }),
-      p(148, 'RR', 'Wizard r', { kind: 'liquid', formants: FORMANTS.R, dur: 110, amp: .62 }),
-      p(150, 'EYRR', 'Wizard ay+r', { formants: FORMANTS.E, toFormants: FORMANTS.R, dur: 145 }),
-      p(151, 'AXRR', 'Wizard schwa+r', { formants: FORMANTS.UH, toFormants: FORMANTS.R, dur: 135 }),
-      p(152, 'AWRR', 'Wizard aw+r', { formants: FORMANTS.AW, toFormants: FORMANTS.R, dur: 150 }),
-      p(153, 'OWRR', 'Wizard ow+r', { formants: FORMANTS.O, toFormants: FORMANTS.R, dur: 150 }),
-      p(154, 'EYIY', 'Wizard ay/ee glide', { formants: FORMANTS.E, toFormants: FORMANTS.I, dur: 145 }),
-      p(155, 'OHIY', 'Wizard oh/ee glide', { formants: FORMANTS.O, toFormants: FORMANTS.E, dur: 140 }),
-      p(156, 'OWIY', 'Wizard ow/ee glide', { formants: FORMANTS.O, toFormants: FORMANTS.I, dur: 150 }),
-      p(157, 'OHIH', 'Wizard oh/ih glide', { formants: FORMANTS.O, toFormants: FORMANTS.I, dur: 135 }),
-      p(159, 'EHLE', 'Wizard eh+l', { formants: FORMANTS.EH, toFormants: FORMANTS.L, dur: 140 }),
-      p(160, 'IYUW', 'Wizard you / ew', { formants: FORMANTS.IU, toFormants: FORMANTS.OO, dur: 150 }),
-      p(162, 'IHWW', 'Wizard ih+w', { kind: 'glide', formants: FORMANTS.I, toFormants: FORMANTS.W, dur: 125, amp: .62 }),
-      p(163, 'AYWW', 'Wizard eye+w', { formants: FORMANTS.AY, toFormants: FORMANTS.W, dur: 145 }),
-      p(164, 'OWWW', 'Wizard ow+w', { formants: FORMANTS.O, toFormants: FORMANTS.W, dur: 145 }),
-      p(165, 'JH', 'Wizard j', { kind: 'affricate', dur: 112, voiced: true, fric: 2300, burst: 2000, amp: .58 }),
-      p(166, 'VV', 'Wizard v', { kind: 'fricative', dur: 92, voiced: true, fric: 1500, amp: .45 }),
-      p(167, 'ZZ', 'Wizard z', { kind: 'fricative', dur: 92, voiced: true, fric: 3200, amp: .46 }),
-      p(169, 'DH', 'Wizard voiced th', { kind: 'fricative', dur: 95, voiced: true, fric: 1250, amp: .42 }),
-      p(170, 'BE', 'Wizard b', { kind: 'plosive', dur: 58, voiced: true, burst: 650, amp: .55 }),
-      p(172, 'EB', 'Wizard final b', { kind: 'plosive', dur: 62, voiced: true, burst: 650, amp: .55 }),
-      p(173, 'OB', 'Wizard o+b', { kind: 'plosive', formants: FORMANTS.O, dur: 74, voiced: true, burst: 650, amp: .55 }),
-      p(174, 'DE', 'Wizard d', { kind: 'plosive', dur: 66, voiced: true, burst: 1700, amp: .55 }),
-      p(175, 'DO', 'Wizard d/o', { kind: 'plosive', formants: FORMANTS.O, dur: 76, voiced: true, burst: 1700, amp: .55 }),
-      p(176, 'ED', 'Wizard final d', { kind: 'plosive', dur: 66, voiced: true, burst: 1700, amp: .55 }),
-      p(177, 'OD', 'Wizard o+d', { kind: 'plosive', formants: FORMANTS.O, dur: 76, voiced: true, burst: 1700, amp: .55 }),
-      p(178, 'GE', 'Wizard g', { kind: 'plosive', dur: 70, voiced: true, burst: 1050, amp: .55 }),
-      p(179, 'GO', 'Wizard g/o', { kind: 'plosive', formants: FORMANTS.O, dur: 78, voiced: true, burst: 1050, amp: .55 }),
-      p(182, 'CH', 'Wizard ch', { kind: 'affricate', dur: 115, voiced: false, fric: 2800, burst: 3000, amp: .62 }),
-      p(183, 'HE', 'Wizard h/hey', { kind: 'breath', formants: FORMANTS.H, dur: 105, voiced: true, fric: 1050, amp: .38, soft: .72, leadVoice: .50 }),
-      p(184, 'HO', 'Wizard h/o', { kind: 'breath', formants: FORMANTS.H, toFormants: FORMANTS.O, dur: 112, voiced: true, fric: 1050, amp: .40, soft: .72, leadVoice: .52 }),
-      p(186, 'FF', 'Wizard f', { kind: 'fricative', dur: 105, voiced: false, fric: 1450, amp: .45 }),
-      p(187, 'SE', 'Wizard s', { kind: 'fricative', formants: FORMANTS.EH, dur: 112, voiced: false, fric: 3300, amp: .40, soft: .62, leadVoice: .18 }),
-      p(188, 'SO', 'Wizard s/o', { kind: 'fricative', formants: FORMANTS.O, dur: 122, voiced: false, fric: 3200, amp: .42, soft: .62, leadVoice: .22 }),
-      p(189, 'SH', 'Wizard sh', { kind: 'fricative', dur: 118, voiced: false, fric: 2500, amp: .55 }),
-      p(190, 'TH', 'Wizard unvoiced th', { kind: 'fricative', dur: 102, voiced: false, fric: 1300, amp: .44 }),
-      p(191, 'TT', 'Wizard t', { kind: 'plosive', dur: 58, voiced: false, burst: 2800, amp: .58 }),
-      p(194, 'KE', 'Wizard k', { kind: 'plosive', formants: FORMANTS.EH, dur: 78, voiced: false, burst: 2550, amp: .50, leadVoice: .18 }),
-      p(195, 'KO', 'Wizard k/o', { kind: 'plosive', formants: FORMANTS.O, dur: 92, voiced: false, burst: 2450, amp: .50, leadVoice: .34 }),
-      p(196, 'EK', 'Wizard final k', { kind: 'plosive', formants: FORMANTS.EH, dur: 82, voiced: false, burst: 2500, amp: .48, leadVoice: .30 }),
-      p(197, 'OK', 'Wizard o+k', { kind: 'plosive', formants: FORMANTS.O, dur: 98, voiced: false, burst: 2400, amp: .48, leadVoice: .58 }),
-      p(198, 'PE', 'Wizard p', { kind: 'plosive', formants: FORMANTS.EH, dur: 76, voiced: false, burst: 1750, amp: .50, leadVoice: .18 }),
-      p(199, 'PO', 'Wizard p/o', { kind: 'plosive', formants: FORMANTS.O, dur: 90, voiced: false, burst: 1750, amp: .50, leadVoice: .34 })
+      p(128, 'IY', ' vowel: ee / y', { formants: FORMANTS.E, dur: 120 }),
+      p(129, 'IH', ' vowel: ih', { formants: FORMANTS.I, dur: 95 }),
+      p(130, 'EY', ' vowel: ay', { formants: FORMANTS.E, toFormants: FORMANTS.I, dur: 130 }),
+      p(131, 'EH', ' vowel: eh', { formants: FORMANTS.EH, dur: 105 }),
+      p(132, 'AY', ' vowel: eye', { formants: FORMANTS.AY, toFormants: FORMANTS.I, dur: 145 }),
+      p(133, 'AX', ' vowel: schwa', { formants: FORMANTS.UH, dur: 95 }),
+      p(134, 'UX', ' vowel: uh', { formants: FORMANTS.UH, dur: 95 }),
+      p(135, 'AW', ' vowel: aw', { formants: FORMANTS.AW, dur: 120 }),
+      p(136, 'OH', ' vowel: oh', { formants: FORMANTS.O, dur: 120 }),
+      p(137, 'OW', ' vowel: ow', { formants: FORMANTS.O, toFormants: FORMANTS.OO, dur: 135 }),
+      p(138, 'UH', ' vowel: uh/oo', { formants: FORMANTS.OO, dur: 110 }),
+      p(140, 'MM', ' m', { kind: 'nasal', formants: FORMANTS.M, dur: 105, nasal: true, amp: .58 }),
+      p(141, 'NE', ' n', { kind: 'nasal', formants: FORMANTS.N, dur: 96, nasal: true, amp: .58 }),
+      p(142, 'NO', ' n/o', { kind: 'nasal', formants: FORMANTS.N, toFormants: FORMANTS.O, dur: 120, nasal: true, amp: .58 }),
+      p(143, 'NGE', ' ng', { kind: 'nasal', formants: FORMANTS.NG, dur: 118, nasal: true, amp: .55 }),
+      p(144, 'NGO', ' ng/o', { kind: 'nasal', formants: FORMANTS.NG, toFormants: FORMANTS.O, dur: 126, nasal: true, amp: .55 }),
+      p(145, 'LE', ' l', { kind: 'liquid', formants: FORMANTS.L, dur: 100, amp: .60 }),
+      p(146, 'LO', ' l/o', { kind: 'liquid', formants: FORMANTS.L, toFormants: FORMANTS.O, dur: 116, amp: .60 }),
+      p(147, 'WW', ' w', { kind: 'glide', formants: FORMANTS.W, toFormants: FORMANTS.O, dur: 92, amp: .56 }),
+      p(148, 'RR', ' r', { kind: 'liquid', formants: FORMANTS.R, dur: 110, amp: .62 }),
+      p(150, 'EYRR', ' ay+r', { formants: FORMANTS.E, toFormants: FORMANTS.R, dur: 145 }),
+      p(151, 'AXRR', ' schwa+r', { formants: FORMANTS.UH, toFormants: FORMANTS.R, dur: 135 }),
+      p(152, 'AWRR', ' aw+r', { formants: FORMANTS.AW, toFormants: FORMANTS.R, dur: 150 }),
+      p(153, 'OWRR', ' ow+r', { formants: FORMANTS.O, toFormants: FORMANTS.R, dur: 150 }),
+      p(154, 'EYIY', ' ay/ee glide', { formants: FORMANTS.E, toFormants: FORMANTS.I, dur: 145 }),
+      p(155, 'OHIY', ' oh/ee glide', { formants: FORMANTS.O, toFormants: FORMANTS.E, dur: 140 }),
+      p(156, 'OWIY', ' ow/ee glide', { formants: FORMANTS.O, toFormants: FORMANTS.I, dur: 150 }),
+      p(157, 'OHIH', ' oh/ih glide', { formants: FORMANTS.O, toFormants: FORMANTS.I, dur: 135 }),
+      p(159, 'EHLE', ' eh+l', { formants: FORMANTS.EH, toFormants: FORMANTS.L, dur: 140 }),
+      p(160, 'IYUW', ' you / ew', { formants: FORMANTS.IU, toFormants: FORMANTS.OO, dur: 150 }),
+      p(162, 'IHWW', ' ih+w', { kind: 'glide', formants: FORMANTS.I, toFormants: FORMANTS.W, dur: 125, amp: .62 }),
+      p(163, 'AYWW', ' eye+w', { formants: FORMANTS.AY, toFormants: FORMANTS.W, dur: 145 }),
+      p(164, 'OWWW', ' ow+w', { formants: FORMANTS.O, toFormants: FORMANTS.W, dur: 145 }),
+      p(165, 'JH', ' j', { kind: 'affricate', dur: 112, voiced: true, fric: 2300, burst: 2000, amp: .58 }),
+      p(166, 'VV', ' v', { kind: 'fricative', dur: 92, voiced: true, fric: 1500, amp: .45 }),
+      p(167, 'ZZ', ' z', { kind: 'fricative', dur: 92, voiced: true, fric: 3200, amp: .46 }),
+      p(169, 'DH', ' voiced th', { kind: 'fricative', dur: 95, voiced: true, fric: 1250, amp: .42 }),
+      p(170, 'BE', ' b', { kind: 'plosive', dur: 58, voiced: true, burst: 650, amp: .55 }),
+      p(172, 'EB', ' final b', { kind: 'plosive', dur: 62, voiced: true, burst: 650, amp: .55 }),
+      p(173, 'OB', ' o+b', { kind: 'plosive', formants: FORMANTS.O, dur: 74, voiced: true, burst: 650, amp: .55 }),
+      p(174, 'DE', ' d', { kind: 'plosive', dur: 66, voiced: true, burst: 1700, amp: .55 }),
+      p(175, 'DO', ' d/o', { kind: 'plosive', formants: FORMANTS.O, dur: 76, voiced: true, burst: 1700, amp: .55 }),
+      p(176, 'ED', ' final d', { kind: 'plosive', dur: 66, voiced: true, burst: 1700, amp: .55 }),
+      p(177, 'OD', ' o+d', { kind: 'plosive', formants: FORMANTS.O, dur: 76, voiced: true, burst: 1700, amp: .55 }),
+      p(178, 'GE', ' g', { kind: 'plosive', dur: 70, voiced: true, burst: 1050, amp: .55 }),
+      p(179, 'GO', ' g/o', { kind: 'plosive', formants: FORMANTS.O, dur: 78, voiced: true, burst: 1050, amp: .55 }),
+      p(182, 'CH', ' ch', { kind: 'affricate', dur: 115, voiced: false, fric: 2800, burst: 3000, amp: .62 }),
+      p(183, 'HE', ' h/hey', { kind: 'breath', formants: FORMANTS.H, dur: 105, voiced: true, fric: 1050, amp: .38, soft: .72, leadVoice: .50 }),
+      p(184, 'HO', ' h/o', { kind: 'breath', formants: FORMANTS.H, toFormants: FORMANTS.O, dur: 112, voiced: true, fric: 1050, amp: .40, soft: .72, leadVoice: .52 }),
+      p(186, 'FF', ' f', { kind: 'fricative', dur: 105, voiced: false, fric: 1450, amp: .45 }),
+      p(187, 'SE', ' s', { kind: 'fricative', formants: FORMANTS.EH, dur: 112, voiced: false, fric: 3300, amp: .40, soft: .62, leadVoice: .18 }),
+      p(188, 'SO', ' s/o', { kind: 'fricative', formants: FORMANTS.O, dur: 122, voiced: false, fric: 3200, amp: .42, soft: .62, leadVoice: .22 }),
+      p(189, 'SH', ' sh', { kind: 'fricative', dur: 118, voiced: false, fric: 2500, amp: .55 }),
+      p(190, 'TH', ' unvoiced th', { kind: 'fricative', dur: 102, voiced: false, fric: 1300, amp: .44 }),
+      p(191, 'TT', ' t', { kind: 'plosive', dur: 58, voiced: false, burst: 2800, amp: .58 }),
+      p(194, 'KE', ' k', { kind: 'plosive', formants: FORMANTS.EH, dur: 78, voiced: false, burst: 2550, amp: .50, leadVoice: .18 }),
+      p(195, 'KO', ' k/o', { kind: 'plosive', formants: FORMANTS.O, dur: 92, voiced: false, burst: 2450, amp: .50, leadVoice: .34 }),
+      p(196, 'EK', ' final k', { kind: 'plosive', formants: FORMANTS.EH, dur: 82, voiced: false, burst: 2500, amp: .48, leadVoice: .30 }),
+      p(197, 'OK', ' o+k', { kind: 'plosive', formants: FORMANTS.O, dur: 98, voiced: false, burst: 2400, amp: .48, leadVoice: .58 }),
+      p(198, 'PE', ' p', { kind: 'plosive', formants: FORMANTS.EH, dur: 76, voiced: false, burst: 1750, amp: .50, leadVoice: .18 }),
+      p(199, 'PO', ' p/o', { kind: 'plosive', formants: FORMANTS.O, dur: 90, voiced: false, burst: 1750, amp: .50, leadVoice: .34 })
     ];
 
     const WIZARD_PHONEME_BY_BYTE = new Map(WIZARD_PHONEMES.map(item => [item.byte, item]));
@@ -2002,22 +2027,22 @@ PhonicPhrase_Wor:
 
 
     const WIZARD_TOKEN_CATALOG = [
-      { token: 'P0', bytes: [0], type: 'pause', desc: 'Shortest Wizard pause.', playable: false },
-      { token: 'P1', bytes: [1], type: 'pause', desc: 'Wizard pause 1.', playable: false },
-      { token: 'P2', bytes: [2], type: 'pause', desc: 'Wizard pause 2.', playable: false },
-      { token: 'P3', bytes: [3], type: 'pause', desc: 'Wizard pause 3.', playable: false },
-      { token: 'P4', bytes: [4], type: 'pause', desc: 'Wizard pause 4. Not seen in the current text file, but reserved by the utility.', playable: false },
-      { token: 'P5', bytes: [5], type: 'pause', desc: 'Longest Wizard pause used by the text file.', playable: false },
-      { token: 'FAST', bytes: [7], type: 'control', desc: 'Speed control. The utility speeds up the next playable Wizard token.', playable: false },
-      { token: 'SLOW', bytes: [8], type: 'control', desc: 'Speed control. The utility slows the next playable Wizard token.', playable: false },
-      { token: 'STRESS', bytes: [14], type: 'control', desc: 'Emphasis control. The utility boosts the next playable Wizard token.', playable: false },
-      { token: 'RELAX', bytes: [15], type: 'control', desc: 'Emphasis control. The utility softens the next playable Wizard token.', playable: false },
+      { token: 'P0', bytes: [0], type: 'pause', desc: 'Shortest  pause.', playable: false },
+      { token: 'P1', bytes: [1], type: 'pause', desc: ' pause 1.', playable: false },
+      { token: 'P2', bytes: [2], type: 'pause', desc: ' pause 2.', playable: false },
+      { token: 'P3', bytes: [3], type: 'pause', desc: ' pause 3.', playable: false },
+      { token: 'P4', bytes: [4], type: 'pause', desc: ' pause 4. Not seen in the current text file, but reserved by the utility.', playable: false },
+      { token: 'P5', bytes: [5], type: 'pause', desc: 'Longest  pause used by the text file.', playable: false },
+      { token: 'FAST', bytes: [7], type: 'control', desc: 'Speed control. The utility speeds up the next playable token.', playable: false },
+      { token: 'SLOW', bytes: [8], type: 'control', desc: 'Speed control. The utility slows the next playable token.', playable: false },
+      { token: 'STRESS', bytes: [14], type: 'control', desc: 'Emphasis control. The utility boosts the next playable token.', playable: false },
+      { token: 'RELAX', bytes: [15], type: 'control', desc: 'Emphasis control. The utility softens the next playable token.', playable: false },
       { token: 'REPEAT', bytes: [26], type: 'control', desc: 'Repeat command prefix. Usually followed by a numeric argument token such as \\2.', playable: false },
       { token: '2', bytes: [2], type: 'argument', desc: 'Numeric argument used after \\Repeat in the source notes.', playable: false },
-      { token: 'NTA2', bytes: [22, 110], type: 'note', desc: 'Two-byte note/pitch command used by Wizard voice data.', playable: false },
-      { token: 'NTB2', bytes: [22, 123], type: 'note', desc: 'Two-byte note/pitch command used by Wizard voice data.', playable: false },
-      { token: 'NTC3', bytes: [22, 131], type: 'note', desc: 'Two-byte note/pitch command used by Wizard voice data.', playable: false },
-      { token: 'NTE2', bytes: [22, 82], type: 'note', desc: 'Two-byte note/pitch command used by Wizard voice data.', playable: false },
+      { token: 'NTA2', bytes: [22, 110], type: 'note', desc: 'Two-byte note/pitch command used by  voice data.', playable: false },
+      { token: 'NTB2', bytes: [22, 123], type: 'note', desc: 'Two-byte note/pitch command used by  voice data.', playable: false },
+      { token: 'NTC3', bytes: [22, 131], type: 'note', desc: 'Two-byte note/pitch command used by  voice data.', playable: false },
+      { token: 'NTE2', bytes: [22, 82], type: 'note', desc: 'Two-byte note/pitch command used by  voice data.', playable: false },
       { token: 'CMD20', bytes: [20, 96], type: 'note', desc: 'Generic two-byte command prefix $14. Seen in some streams before phrase phonemes.', playable: false },
       { token: 'CMD21', bytes: [21, 114], type: 'note', desc: 'Generic two-byte command prefix $15. Seen in some streams before phrase phonemes.', playable: false },
       { token: 'CMD23', bytes: [23, 5], type: 'note', desc: 'Generic two-byte command prefix $17. Treated as a mild pitch/bend control by the utility.', playable: false },
@@ -2056,7 +2081,7 @@ PhonicPhrase_Wor:
           mode: 'wizard',
           sourceMode: 'wowraw',
           rawPhrase: exactRaw,
-          message: `WoW raw ${exactRaw.label.replace(/^WoW\s+/i, '')} recognized → ${exactRaw.name}; expanded to Wizard tokens.`
+          message: `WoW raw ${exactRaw.label.replace(/^WoW\s+/i, '')} recognized → ${exactRaw.name}; expanded to tokens.`
         };
       }
 
@@ -2082,18 +2107,18 @@ PhonicPhrase_Wor:
     }
 
     const SAMPLES = {
-      wor: `PhonicPhrase_Wizard:
+      wor: `Wizard:
     db $2D,$27,$12,$3A,$1E    ; W I Z ER D
 Of:
     db $13                     ; AW1
     db $0F                     ; V
-PhonicPhrase_Wor:
+Wor:
     db $2D                  ; W
     db $35                  ; O1
     db $34                  ; O2
     db $2B                  ; R
     db $3F                  ; STOP`,
-      pressstart: `PhonicPhrase_PressStart:
+      pressstart: `PressStart:
     db $25,$2B,$01,$1F,$03        ; P R EH2 S short-pause
     db $1F,$2A,$24,$2B,$2A,$3F    ; S T AH R T STOP`,
       wowrawhey: `; Speech string "Hey, Insert coin!" for $13 ($19) bytes
@@ -2114,7 +2139,7 @@ L8E78:
     const exportText = document.getElementById('exportText');
     const decodedList = document.getElementById('decodedList');
     const tableBody = document.getElementById('phonemeTableBody');
-    const tokenTableBody = document.getElementById('wizardTokenTableBody');
+    const tokenTableBody = document.getElementById('tokenTableBody');
     const timeline = document.getElementById('timeline');
     const statusEl = document.getElementById('status');
     const playBtn = document.getElementById('playBtn');
@@ -2139,6 +2164,8 @@ L8E78:
     const builtInRomSelect = document.getElementById('builtInRomSelect');
     const settingsBtn = document.getElementById('settingsBtn');
     const playbackControls = document.getElementById('playbackControls');
+    const sampleToggleBtn = document.getElementById('sampleToggleBtn');
+    const toolbarSampleRow = document.querySelector('.toolbarSampleRow');
     const sc01RomStatus = document.getElementById('sc01RomStatus');
 
     let importedPhrases = [];
@@ -2437,7 +2464,7 @@ L8E78:
 
     function formatDb(bytes, mode = guessDecodeMode(bytes)) {
       if (!bytes.length) return '';
-      const lines = [mode === 'wizard' ? 'WizardVoicePhrase_Custom:' : 'PhonicPhrase_Custom:'];
+      const lines = [mode === 'wizard' ? 'WizardVoicePhrase_Custom:' : 'Custom:'];
       const decoded = decodeStream(bytes, mode);
       const symbolBySource = new Map();
       for (const item of decoded) {
@@ -2471,11 +2498,11 @@ L8E78:
     }
 
     function wizardPairControlType(prefix) {
-      if (prefix === 20) return { type: 'pitchBase', label: 'CMD20', desc: 'Wizard pitch/setup command' };
-      if (prefix === 21) return { type: 'pitchTarget', label: 'CMD21', desc: 'Wizard pitch/setup command' };
-      if (prefix === 22) return { type: 'note', label: 'NOTE', desc: 'Wizard note/pitch command' };
-      if (prefix === 23) return { type: 'bend', label: 'BEND', desc: 'Wizard bend/control command' };
-      return { type: 'control', label: 'CMD', desc: 'Wizard control command' };
+      if (prefix === 20) return { type: 'pitchBase', label: 'CMD20', desc: ' pitch/setup command' };
+      if (prefix === 21) return { type: 'pitchTarget', label: 'CMD21', desc: ' pitch/setup command' };
+      if (prefix === 22) return { type: 'note', label: 'NOTE', desc: ' note/pitch command' };
+      if (prefix === 23) return { type: 'bend', label: 'BEND', desc: ' bend/control command' };
+      return { type: 'control', label: 'CMD', desc: ' control command' };
     }
 
     function controlPhoneme(prefix, value) {
@@ -2524,7 +2551,7 @@ L8E78:
             value,
             index: decoded.length,
             sourceIndex: i,
-            ph: cph(byte, `REPEAT:${value}`, `Wizard repeat control, count ${value}`),
+            ph: cph(byte, `REPEAT:${value}`, ` repeat control, count ${value}`),
             skipAudio: true,
             controlType: 'repeat'
           });
@@ -2629,7 +2656,7 @@ L8E78:
       if (!analysis.decoded.length) {
         const empty = document.createElement('div');
         empty.className = 'callout gold';
-        empty.textContent = 'No bytes parsed yet. Paste .DB data, Wizard Vox text, or click a sample phrase.';
+        empty.textContent = 'No bytes parsed yet. Paste .DB data, Vox text, or click a sample phrase.';
         decodedList.appendChild(empty);
         return;
       }
@@ -2683,7 +2710,7 @@ L8E78:
 
         if (!item.ph || item.skipAudio) {
           symbolButton.disabled = true;
-          symbolButton.title = item.ph ? `${item.ph.symbol} is a Wizard control event; no direct audio.` : 'Unknown byte';
+          symbolButton.title = item.ph ? `${item.ph.symbol} is a  control event; no direct audio.` : 'Unknown byte';
         } else {
           symbolButton.title = `Play ${item.ph.symbol} (${byteText})`;
           symbolButton.addEventListener('click', ev => {
@@ -2723,7 +2750,7 @@ L8E78:
         const byteText = (item.rawBytes || [item.byte]).map(hex2).join(' ');
         seg.title = `${byteText} ${ph?.symbol || '??'} ${ph?.desc || ''}`.trim();
         seg.addEventListener('click', () => {
-          if (item.skipAudio) { setStatus(`${ph?.symbol || 'Control'} is a Wizard control event; no direct audio.`); return; }
+          if (item.skipAudio) { setStatus(`${ph?.symbol || 'Control'} is a  control event; no direct audio.`); return; }
           playBytes(item.rawBytes || [item.byte], { single: true, mode: analysis.mode });
         });
         timeline.appendChild(seg);
@@ -2839,7 +2866,7 @@ L8E78:
     }
 
     function pitchFromWizardNote(value, basePitch) {
-      // Wizard voice data carries note/control pairs. This is a musical-ish
+      //  voice data carries note/control pairs. This is a musical-ish
       // approximation: lower note values drop the formant source pitch, higher
       // ones brighten it. It is intentionally mild so the phrase stays intelligible.
       const normalized = Math.max(0, Math.min(1, (Number(value) || 0) / 127));
@@ -3660,7 +3687,7 @@ L8E78:
         return;
       }
       loadFirstImportedPhrase({ silent: true });
-      const kind = importedPhrases[0].mode === 'sc01' ? 'SC-01 ASM speech' : 'Wizard Vox';
+      const kind = importedPhrases[0].mode === 'sc01' ? 'SC-01 ASM speech' : ' Vox';
       setStatus(`Imported ${importedPhrases.length} ${kind} phrase stream(s). Showing phrase 1, not the whole file.`);
     }
 
@@ -3794,7 +3821,7 @@ L8E78:
       return Math.max(0, Math.min(sourceEl.value.length, sourceInsertPos));
     }
 
-    function insertDbLineAtCurrentEditLine(line, defaultLabel = 'PhonicPhrase_Custom:') {
+    function insertDbLineAtCurrentEditLine(line, defaultLabel = 'Custom:') {
       const insertLine = String(line || '').replace(/\r?\n/g, ' ');
       let value = sourceEl.value || '';
       let newPos = 0;
@@ -3837,7 +3864,7 @@ L8E78:
       if (!bytes || !bytes.length) return;
       clearActiveImportedPhraseSelection();
       inputModeEl.value = mode === 'wizard' ? 'wizard' : 'sc01';
-      const label = mode === 'wizard' ? 'WizardVoicePhrase_Custom:' : 'PhonicPhrase_Custom:';
+      const label = mode === 'wizard' ? 'WizardVoicePhrase_Custom:' : 'Custom:';
       const line = '    .DB ' + bytes.map(hex2).join(',').padEnd(39, ' ') + ' ; ' + comment;
       insertDbLineAtCurrentEditLine(line, label);
       analyze();
@@ -3845,7 +3872,7 @@ L8E78:
 
     function appendWizardToken(tokenDef) {
       appendBytesToSource(tokenDef.bytes, '\\' + tokenDef.token + ' · ' + tokenDef.type, 'wizard');
-      setStatus(`Added Wizard token \\${tokenDef.token} as ${formatTokenBytes(tokenDef.bytes)}.`);
+      setStatus(`Added token \\${tokenDef.token} as ${formatTokenBytes(tokenDef.bytes)}.`);
     }
 
     function renderWizardTokenTable() {
@@ -3892,7 +3919,7 @@ L8E78:
       inputModeEl.value = 'sc01';
       const ph = PHONEME_BY_BYTE.get(byte);
       const line = '    db ' + hex2(byte).padEnd(23, ' ') + ' ; ' + (ph?.symbol || '??');
-      insertDbLineAtCurrentEditLine(line, 'PhonicPhrase_Custom:');
+      insertDbLineAtCurrentEditLine(line, 'Custom:');
       analyze();
       setStatus(`Added ${hex2(byte)} ${ph?.symbol || ''} at current edit line.`);
     }
@@ -3919,6 +3946,16 @@ L8E78:
       settingsBtn.setAttribute('aria-expanded', visible ? 'true' : 'false');
       settingsBtn.title = visible ? 'Hide playback controls / stats' : 'Show playback controls / stats';
       settingsBtn.setAttribute('aria-label', settingsBtn.title);
+    }
+
+    function setSampleRowVisible(visible) {
+      if (!toolbarSampleRow || !sampleToggleBtn) return;
+      toolbarSampleRow.classList.toggle('isHidden', !visible);
+      toolbarSampleRow.setAttribute('aria-hidden', visible ? 'false' : 'true');
+      sampleToggleBtn.classList.toggle('active', visible);
+      sampleToggleBtn.setAttribute('aria-expanded', visible ? 'true' : 'false');
+      sampleToggleBtn.title = visible ? 'Hide sample phrases' : 'Show sample phrases';
+      sampleToggleBtn.setAttribute('aria-label', sampleToggleBtn.title);
     }
 
     ['click', 'keyup', 'select', 'focus', 'mouseup'].forEach(evt => {
@@ -3986,6 +4023,9 @@ L8E78:
     if (settingsBtn && playbackControls) settingsBtn.addEventListener('click', () => {
       setPlaybackControlsVisible(playbackControls.classList.contains('isHidden'));
     });
+    if (sampleToggleBtn && toolbarSampleRow) sampleToggleBtn.addEventListener('click', () => {
+      setSampleRowVisible(toolbarSampleRow.classList.contains('isHidden'));
+    });
     if (loadPhraseBtn) loadPhraseBtn.addEventListener('click', loadSelectedPhrase);
     if (playPhraseBtn) playPhraseBtn.addEventListener('click', playSelectedPhrase);
     phraseSelect.addEventListener('change', () => {
@@ -4052,7 +4092,7 @@ L8E78:
         const tokenDef = WIZARD_TOKEN_CATALOG[Number(playPill.dataset.tokenPlay)];
         if (!tokenDef) return;
         playBytes(tokenDef.bytes, { single: true, mode: 'wizard' });
-        setStatus(`Playing Wizard token \\${tokenDef.token} (${formatTokenBytes(tokenDef.bytes)}).`);
+        setStatus(`Playing token \\${tokenDef.token} (${formatTokenBytes(tokenDef.bytes)}).`);
         return;
       }
 
@@ -4076,6 +4116,7 @@ L8E78:
       }
     });
 
+    setSampleRowVisible(true);
     renderPhonemeTable();
     renderWizardTokenTable();
     updateSliderLabels();
