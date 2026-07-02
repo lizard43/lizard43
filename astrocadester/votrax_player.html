@@ -1447,9 +1447,9 @@
     }
 
     .paneResizeHandle {
-      flex: 0 0 0px;
-      height: 14px;/
-      /* min-height: 14px; */
+      flex: 0 0 14px;
+      height: 14px;
+      min-height: 14px;
       /* margin: 7px -6px -6px; */
       /* border-radius: 0 0 8px 8px; */
       /* border-top: 1px solid var(--border); */
@@ -1924,10 +1924,9 @@
 
 
     /* Content-fit defaults: the editor, palette, and export areas expand to their
-       contents instead of showing their own scrollbars. The page can scroll; the
-       section internals should not need to. */
-    .sourceEditorPanel.resizablePanel,
-    .phonemePalettePanel.resizablePanel {
+       contents on first render. If a pane is manually resized smaller, its own
+       content area scrolls instead of painting through the next section. */
+    .sourceEditorPanel.resizablePanel {
       overflow: visible;
     }
 
@@ -1944,14 +1943,33 @@
       resize: none;
     }
 
+    .phonemePalettePanel.resizablePanel {
+      overflow: hidden !important;
+      contain: paint;
+      isolation: isolate;
+      background: var(--bg);
+    }
+
     .phonemePalettePanel .tabPane.active {
-      overflow: visible;
+      overflow: hidden !important;
+      min-height: 0;
     }
 
     .phonemePalettePanel .phonemePaletteWrap,
     .phonemePaletteWrap {
       max-height: none !important;
-      overflow: visible !important;
+      min-height: 0;
+      overflow: auto !important;
+      scrollbar-color: var(--border) #0f1218;
+      scrollbar-width: thin;
+    }
+
+    .phonemePalettePanel .paneResizeHandle {
+      flex: 0 0 14px;
+      min-height: 14px;
+      position: relative;
+      z-index: 2;
+      background: var(--bg);
     }
 
     .footerPanel {
@@ -5463,11 +5481,12 @@ L8E78:
 
     function fitSourceEditorToContent() {
       if (!sourceEditorPanel || !sourceEl || sourceEditorPanel.classList.contains('isHidden')) return;
+      if (sourceEditorPanel.dataset.userSized === 'true') return;
       autoFitTextarea(sourceEl, 44);
       const wrap = sourceEditorPanel.querySelector('.sourceTextWrap');
       const handle = sourceEditorPanel.querySelector('.paneResizeHandle');
       const wrapHeight = wrap ? wrap.getBoundingClientRect().height : sourceEl.getBoundingClientRect().height;
-      const handleHeight = handle ? handle.getBoundingClientRect().height : 14;
+      const handleHeight = handle ? Math.max(14, handle.getBoundingClientRect().height) : 14;
       const total = Math.ceil(wrapHeight + handleHeight + 6);
       sourceEditorPanel.style.setProperty('--source-pane-height', total + 'px');
       sourceEditorPanel.style.setProperty('--source-pane-height-mobile', total + 'px');
@@ -5476,14 +5495,16 @@ L8E78:
 
     function fitPaletteToContent() {
       const panel = document.querySelector('[data-pane-name="palette"]');
-      if (!panel) return;
+      if (!panel || panel.dataset.userSized === 'true') return;
       const tabBar = panel.querySelector('.tabBar');
+      const activePane = panel.querySelector('.tabPane.active');
       const activeWrap = panel.querySelector('.tabPane.active .phonemePaletteWrap');
       const handle = panel.querySelector('.paneResizeHandle');
       const tabHeight = tabBar ? tabBar.getBoundingClientRect().height : 0;
-      const wrapHeight = activeWrap ? Math.max(activeWrap.scrollHeight, activeWrap.getBoundingClientRect().height) : 0;
-      const handleHeight = handle ? handle.getBoundingClientRect().height : 14;
-      const total = Math.ceil(tabHeight + wrapHeight + handleHeight + 12);
+      const paneBorderPad = activePane ? (activePane.offsetHeight - activePane.clientHeight) : 0;
+      const wrapHeight = activeWrap ? Math.max(activeWrap.scrollHeight, activeWrap.offsetHeight, activeWrap.getBoundingClientRect().height) : 0;
+      const handleHeight = handle ? Math.max(14, handle.getBoundingClientRect().height) : 14;
+      const total = Math.ceil(tabHeight + paneBorderPad + wrapHeight + handleHeight + 14);
       panel.style.setProperty('--palette-pane-height', total + 'px');
       panel.style.setProperty('--palette-pane-height-mobile', total + 'px');
       panel.style.height = total + 'px';
@@ -5506,13 +5527,31 @@ L8E78:
 
 
 
+    const VOTRAX_UI_BUILD = 'palette-overflow-clip-20260702b';
+    const VOTRAX_UI_STORAGE_PREFIX = 'votrax.' + VOTRAX_UI_BUILD + '.';
+
+    function resetPaneCacheForThisBuild() {
+      try {
+        const markerKey = 'votrax.uiBuildMarker';
+        if (localStorage.getItem(markerKey) === VOTRAX_UI_BUILD) return;
+        [
+          'votrax.settingsPaneHeight',
+          'votrax.sourcePaneHeight',
+          'votrax.timelinePaneHeight',
+          'votrax.palettePaneHeight',
+          'votrax.decodePaneHeight'
+        ].forEach(key => localStorage.removeItem(key));
+        localStorage.setItem(markerKey, VOTRAX_UI_BUILD);
+      } catch (_) { }
+    }
+
     function installPaneResizers() {
       const configs = {
         settings: {
           selector: '[data-pane-name="settings"]',
           cssVar: '--settings-pane-height',
           mobileCssVar: '--settings-pane-height-mobile',
-          storageKey: 'votrax.settingsPaneHeight',
+          storageKey: VOTRAX_UI_STORAGE_PREFIX + 'settingsPaneHeight',
           min: 190,
           maxRatio: 0.90
         },
@@ -5520,7 +5559,7 @@ L8E78:
           selector: '[data-pane-name="source"]',
           cssVar: '--source-pane-height',
           mobileCssVar: '--source-pane-height-mobile',
-          storageKey: 'votrax.sourcePaneHeight',
+          storageKey: VOTRAX_UI_STORAGE_PREFIX + 'sourcePaneHeight',
           min: 150,
           maxRatio: 0.82
         },
@@ -5528,7 +5567,7 @@ L8E78:
           selector: '[data-pane-name="timeline"]',
           cssVar: '--timeline-pane-height',
           mobileCssVar: '--timeline-pane-height-mobile',
-          storageKey: 'votrax.timelinePaneHeight',
+          storageKey: VOTRAX_UI_STORAGE_PREFIX + 'timelinePaneHeight',
           min: 76,
           maxRatio: 0.60
         },
@@ -5536,7 +5575,7 @@ L8E78:
           selector: '[data-pane-name="palette"]',
           cssVar: '--palette-pane-height',
           mobileCssVar: '--palette-pane-height-mobile',
-          storageKey: 'votrax.palettePaneHeight',
+          storageKey: VOTRAX_UI_STORAGE_PREFIX + 'palettePaneHeight',
           min: 88,
           maxRatio: 0.60
         },
@@ -5544,7 +5583,7 @@ L8E78:
           selector: '[data-pane-name="decode"]',
           cssVar: '--decode-pane-height',
           mobileCssVar: '--decode-pane-height-mobile',
-          storageKey: 'votrax.decodePaneHeight',
+          storageKey: VOTRAX_UI_STORAGE_PREFIX + 'decodePaneHeight',
           min: 180,
           maxRatio: 0.86
         }
@@ -5560,12 +5599,13 @@ L8E78:
         return Math.max(cfg.min, Math.floor(window.innerHeight * cfg.maxRatio));
       }
 
-      function setPaneHeight(pane, cfg, height) {
+      function setPaneHeight(pane, cfg, height, opts = {}) {
         const max = paneMaxHeight(cfg);
         const h = Math.max(cfg.min, Math.min(max, Math.round(height)));
         pane.style.setProperty(cfg.cssVar, h + 'px');
         pane.style.setProperty(cfg.mobileCssVar, h + 'px');
         pane.style.height = h + 'px';
+        if (opts.userSized) pane.dataset.userSized = 'true';
         try { localStorage.setItem(cfg.storageKey, String(h)); } catch (_) { }
       }
 
@@ -5580,7 +5620,7 @@ L8E78:
 
         try {
           const saved = Number(localStorage.getItem(cfg.storageKey));
-          if (Number.isFinite(saved) && saved > 0) setPaneHeight(pane, cfg, saved);
+          if (Number.isFinite(saved) && saved > 0) setPaneHeight(pane, cfg, saved, { userSized: true });
         } catch (_) { }
 
         let startY = 0;
@@ -5601,7 +5641,7 @@ L8E78:
         const moveDrag = ev => {
           if (pointerId === null) return;
           ev.preventDefault();
-          setPaneHeight(pane, cfg, startHeight + (ev.clientY - startY));
+          setPaneHeight(pane, cfg, startHeight + (ev.clientY - startY), { userSized: true });
         };
 
         const endDrag = ev => {
@@ -5621,13 +5661,13 @@ L8E78:
           const step = ev.shiftKey ? 40 : 12;
           if (ev.key === 'ArrowUp') {
             ev.preventDefault();
-            setPaneHeight(pane, cfg, getPaneHeight(pane, cfg) - step);
+            setPaneHeight(pane, cfg, getPaneHeight(pane, cfg) - step, { userSized: true });
           } else if (ev.key === 'ArrowDown') {
             ev.preventDefault();
-            setPaneHeight(pane, cfg, getPaneHeight(pane, cfg) + step);
+            setPaneHeight(pane, cfg, getPaneHeight(pane, cfg) + step, { userSized: true });
           } else if (ev.key === 'Home') {
             ev.preventDefault();
-            setPaneHeight(pane, cfg, cfg.min);
+            setPaneHeight(pane, cfg, cfg.min, { userSized: true });
           }
         });
       }
@@ -5840,6 +5880,7 @@ L8E78:
     setSampleRowVisible(true);
     setSourceEditorVisible(false);
     showTab('notes');
+    resetPaneCacheForThisBuild();
     installPaneResizers();
     renderPhonemeTable();
     renderWizardTokenTable();
@@ -5855,5 +5896,5 @@ L8E78:
   </script>
 </body>
 
-<!-- cache-bust: tabs-removed-fit-panes-20260702 -->
+<!-- cache-bust: palette-overflow-clip-fix-20260702b -->
 </html>
