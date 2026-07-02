@@ -225,6 +225,21 @@
       display: none !important;
     }
 
+
+    .sourceEditorPanel.isHidden {
+      display: none !important;
+    }
+
+    .sourceToggleButton.active,
+    .sourceToggleButton.active:hover,
+    .sourceToggleButton.active:focus-visible {
+      border-color: #d7dee9;
+      background: var(--panel2);
+      color: var(--text);
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .18);
+      outline: none;
+    }
+
     .toolbarSampleRow .action {
       flex: 0 0 auto;
     }
@@ -1932,6 +1947,11 @@
           <path fill="currentColor" d="M4 5h16v3H4V5Zm0 5h16v3H4v-3Zm0 5h16v3H4v-3Z" />
         </svg>
       </button>
+      <button class="action iconButton sourceToggleButton" id="sourceToggleBtn" title="Show source editor" aria-label="Show source editor" aria-expanded="false">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path fill="currentColor" d="M3 17.25V21h3.75L17.8 9.95l-3.75-3.75L3 17.25Zm17.7-10.2c.4-.4.4-1 0-1.4l-2.35-2.35c-.4-.4-1-.4-1.4 0l-1.85 1.85 3.75 3.75 1.85-1.85Z" />
+        </svg>
+      </button>
       <button class="action iconButton" id="wavBtn" title="Download WAV render" aria-label="Download WAV">
         <svg viewBox="0 0 24 24" aria-hidden="true">
           <path fill="currentColor" d="M5 20h14v-2H5v2ZM12 3v10.2l-4-4-1.4 1.4L12 16l5.4-5.4L16 9.2l-4 4V3h0Z" />
@@ -2042,7 +2062,7 @@
     </section>
 
     <div class="sourceTimelineStack">
-      <section class="panel stack sourceEditorPanel resizablePanel" data-pane-name="source" style="--source-pane-height: 332px; --source-pane-height-mobile: 280px;">
+      <section class="panel stack sourceEditorPanel resizablePanel isHidden" id="sourceEditorPanel" data-pane-name="source" aria-hidden="true" style="--source-pane-height: 332px; --source-pane-height-mobile: 280px;">
         <div class="sourceTextWrap">
           <textarea id="source" aria-label="Byte dump / phrase source" spellcheck="false" wrap="off"></textarea>
         </div>
@@ -2872,6 +2892,8 @@ L8E78:
     const playbackControls = document.getElementById('playbackControls');
     const sampleToggleBtn = document.getElementById('sampleToggleBtn');
     const toolbarSampleRow = document.querySelector('.toolbarSampleRow');
+    const sourceToggleBtn = document.getElementById('sourceToggleBtn');
+    const sourceEditorPanel = document.getElementById('sourceEditorPanel');
     const sc01RomStatus = document.getElementById('sc01RomStatus');
 
     let importedPhrases = [];
@@ -5532,6 +5554,22 @@ L8E78:
       sampleToggleBtn.setAttribute('aria-label', sampleToggleBtn.title);
     }
 
+
+    function setSourceEditorVisible(visible) {
+      if (!sourceEditorPanel || !sourceToggleBtn) return;
+      sourceEditorPanel.classList.toggle('isHidden', !visible);
+      sourceEditorPanel.setAttribute('aria-hidden', visible ? 'false' : 'true');
+      sourceToggleBtn.classList.toggle('active', visible);
+      sourceToggleBtn.setAttribute('aria-expanded', visible ? 'true' : 'false');
+      sourceToggleBtn.title = visible ? 'Hide source editor' : 'Show source editor';
+      sourceToggleBtn.setAttribute('aria-label', sourceToggleBtn.title);
+      if (visible) {
+        sourceEl.focus();
+        if (sourceInsertPos === null || sourceInsertPos === undefined) sourceInsertPos = sourceEl.value.length;
+        try { sourceEl.setSelectionRange(sourceInsertPos, sourceInsertPos); } catch (_) { }
+      }
+    }
+
     ['click', 'keyup', 'select', 'focus', 'mouseup'].forEach(evt => {
       sourceEl.addEventListener(evt, rememberSourceInsertPos);
     });
@@ -5601,6 +5639,9 @@ L8E78:
     });
     if (sampleToggleBtn && toolbarSampleRow) sampleToggleBtn.addEventListener('click', () => {
       setSampleRowVisible(toolbarSampleRow.classList.contains('isHidden'));
+    });
+    if (sourceToggleBtn && sourceEditorPanel) sourceToggleBtn.addEventListener('click', () => {
+      setSourceEditorVisible(sourceEditorPanel.classList.contains('isHidden'));
     });
     if (loadPhraseBtn) loadPhraseBtn.addEventListener('click', loadSelectedPhrase);
     if (playPhraseBtn) playPhraseBtn.addEventListener('click', playSelectedPhrase);
@@ -5697,6 +5738,7 @@ L8E78:
     });
 
     setSampleRowVisible(true);
+    setSourceEditorVisible(false);
     installPaneResizers();
     renderPhonemeTable();
     renderWizardTokenTable();
@@ -5711,4 +5753,5 @@ L8E78:
   </script>
 </body>
 
+<!-- cache-bust: source-pencil-toggle-20260702 -->
 </html>
