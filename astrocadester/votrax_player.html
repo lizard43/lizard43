@@ -3923,7 +3923,7 @@ L8E78:
         const rom = sc01RomState?.byPhone.get(ph.byte);
         const romText = rom ? `<span class="romInline" title="${escapeHtml(romSummary(rom))}">${escapeHtml(romSummary(rom))}</span>` : '—';
         tr.innerHTML =
-          `<td class="mono">${ph.hex}</td>` +
+          `<td class="bytePill">${ph.hex}</td>` +
           `<td class="mono accent phonemeSymbolCell"><span class="symbolAddCell"><button class="symbolPill symbolPillButton" type="button" data-play-byte="${ph.byte}" title="Play ${escapeHtml(ph.symbol)}">${escapeHtml(ph.symbol)}</button><button class="action plusIconButton" type="button" data-append="${ph.byte}" title="Insert ${escapeHtml(ph.symbol)} at current edit line" aria-label="Insert ${escapeHtml(ph.symbol)}">+</button></span></td>` +
           `<td>${escapeHtml(ph.desc)}</td>` +
           `<td><span class="kindPill">${classifyForUi(ph)}</span></td>` +
