@@ -1696,6 +1696,7 @@ L8E78:
     let importedPhrases = [];
     let voxLibrarySourceText = '';
     let suppressPhraseAutoLoad = false;
+    let activeImportedPhraseIndex = null;
 
     let audioCtx = null;
     let currentSource = null;
@@ -1745,7 +1746,7 @@ L8E78:
     }
 
     function setPhraseInfo(msg) {
-      if (phraseInfo) setPhraseInfo(msg);
+      if (phraseInfo) phraseInfo.textContent = msg;
     }
 
     async function sha1Hex(bytes) {
@@ -3034,6 +3035,7 @@ L8E78:
     function populatePhraseSelect() {
       phraseSelect.innerHTML = '';
       if (!importedPhrases.length) {
+        activeImportedPhraseIndex = null;
         const opt = document.createElement('option');
         opt.value = '';
         opt.textContent = 'No imported phrases';
@@ -3044,6 +3046,11 @@ L8E78:
         setPhraseInfo('Load Vox/ASM imports phrases automatically. Pasted text is parsed directly.');
         return;
       }
+
+      const emptyOpt = document.createElement('option');
+      emptyOpt.value = '';
+      emptyOpt.textContent = 'Select imported phrase…';
+      phraseSelect.appendChild(emptyOpt);
 
       importedPhrases.forEach((phrase, index) => {
         const opt = document.createElement('option');
@@ -3057,7 +3064,7 @@ L8E78:
       phraseSelect.disabled = false;
       if (loadPhraseBtn) loadPhraseBtn.disabled = false;
       if (playPhraseBtn) playPhraseBtn.disabled = false;
-      setPhraseInfo(`Imported ${importedPhrases.length} phrase stream(s). Selecting a phrase loads only that phrase into the editor.`);
+      setPhraseInfo(`Imported ${importedPhrases.length} phrase stream(s). Select a phrase to load it into the editor; samples do not clear this list.`);
     }
 
     function importPhrasesFromSource() {
@@ -3074,8 +3081,20 @@ L8E78:
       setStatus(`Imported ${importedPhrases.length} ${kind} phrase stream(s). Showing phrase 1, not the whole file.`);
     }
 
-    function getSelectedPhrase() {
+    function getSelectedPhraseIndex() {
       const index = Number(phraseSelect.value);
+      if (!Number.isFinite(index) || index < 0 || index >= importedPhrases.length) return null;
+      return index;
+    }
+
+    function getSelectedPhrase() {
+      const index = getSelectedPhraseIndex();
+      return index === null ? null : importedPhrases[index];
+    }
+
+    function getActiveImportedPhrase() {
+      if (activeImportedPhraseIndex === null || activeImportedPhraseIndex === undefined) return null;
+      const index = Number(activeImportedPhraseIndex);
       if (!Number.isFinite(index) || index < 0 || index >= importedPhrases.length) return null;
       return importedPhrases[index];
     }
@@ -3088,8 +3107,10 @@ L8E78:
     }
 
     function loadSelectedPhrase(options = {}) {
-      const phrase = getSelectedPhrase();
+      const index = getSelectedPhraseIndex();
+      const phrase = index === null ? null : importedPhrases[index];
       if (!phrase) { setStatus('Select an imported phrase first.', true); return null; }
+      activeImportedPhraseIndex = index;
       sourceEl.value = formatPhraseSource(phrase);
       inputModeEl.value = phrase.mode || 'wizard';
       analyze();
@@ -3102,14 +3123,22 @@ L8E78:
       if (!importedPhrases.length) return null;
       suppressPhraseAutoLoad = true;
       phraseSelect.value = '0';
+      activeImportedPhraseIndex = 0;
       suppressPhraseAutoLoad = false;
       return loadSelectedPhrase(options);
     }
 
     function currentPlaybackAnalysis() {
-      // The editor should be the source of truth for normal hand-edited data.
+      // If the user selected/imported a phrase, toolbar Play uses that exact
+      // phrase byte stream instead of reparsing whatever display text is in the editor.
+      const activePhrase = getActiveImportedPhrase();
+      if (activePhrase) {
+        return { bytes: activePhrase.bytes.slice(), mode: activePhrase.mode || 'wizard', phrase: activePhrase };
+      }
+
+      // The editor remains the source of truth for samples and hand-edited data.
       // If a full Vox library is still sitting in the editor, do not play every
-      // decimal stream in that library. Use the selected imported phrase instead.
+      // decimal stream in that library. Fall back to the dropdown selection or phrase 1.
       if (importedPhrases.length && voxLibrarySourceText && sourceEl.value === voxLibrarySourceText) {
         const phrase = getSelectedPhrase() || importedPhrases[0];
         return { bytes: phrase.bytes.slice(), mode: phrase.mode || 'wizard', phrase };
@@ -3234,6 +3263,8 @@ L8E78:
     }
 
     sourceEl.addEventListener('input', () => {
+      activeImportedPhraseIndex = null;
+      if (importedPhrases.length && phraseSelect) phraseSelect.value = '';
       analyze();
       setStatus('Parsed source text.');
     });
@@ -3266,6 +3297,7 @@ L8E78:
       sourceEl.value = '';
       importedPhrases = [];
       voxLibrarySourceText = '';
+      activeImportedPhraseIndex = null;
       populatePhraseSelect();
       stopPlayback();
       analyze();
@@ -3285,6 +3317,11 @@ L8E78:
     if (playPhraseBtn) playPhraseBtn.addEventListener('click', playSelectedPhrase);
     phraseSelect.addEventListener('change', () => {
       if (suppressPhraseAutoLoad) return;
+      if (phraseSelect.value === '') {
+        activeImportedPhraseIndex = null;
+        setPhraseInfo(importedPhrases.length ? 'Imported phrase list preserved. Select a phrase to load/play it.' : 'No imported phrases.');
+        return;
+      }
       loadSelectedPhrase({ silent: false });
     });
 
@@ -3303,9 +3340,11 @@ L8E78:
     document.querySelectorAll('[data-sample]').forEach(btn => {
       btn.addEventListener('click', () => {
         sourceEl.value = SAMPLES[btn.dataset.sample] || DEFAULT_SOURCE;
-        importedPhrases = [];
-        voxLibrarySourceText = '';
-        populatePhraseSelect();
+        activeImportedPhraseIndex = null;
+        if (importedPhrases.length && phraseSelect) {
+          phraseSelect.value = '';
+          setPhraseInfo(`Sample loaded. Imported phrase list preserved (${importedPhrases.length} phrase stream(s)).`);
+        }
         inputModeEl.value = btn.dataset.sample === 'wowrawhey' ? 'wowraw' : 'sc01';
         analyze();
         setStatus(`Loaded sample: ${btn.textContent}.`);
