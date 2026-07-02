@@ -1120,6 +1120,8 @@
     .footerPanel,
     .timelinePanel,
     .timelineWrap,
+    .phonemePalettePanel,
+    .phonemePaletteWrap,
     .rightPanel,
     .tabPane,
     .phonemeTableWrap {
@@ -1381,6 +1383,7 @@
     .toolbarPlaybackPanel.resizablePanel,
     .sourceEditorPanel,
     .timelinePanel.resizablePanel,
+    .phonemePalettePanel.resizablePanel,
     .rightPanel.resizablePanel {
       position: relative;
       display: flex;
@@ -1632,6 +1635,30 @@
       overflow: hidden;
     }
 
+    .phonemePalettePanel.resizablePanel {
+      height: var(--palette-pane-height, 214px);
+      min-height: 88px;
+    }
+
+    .phonemePalettePanel .tabBar {
+      flex: 0 0 auto;
+      margin-bottom: 4px;
+      padding: 0 6px;
+    }
+
+    .phonemePalettePanel .tabPane.active {
+      display: flex;
+      flex: 1 1 auto;
+      min-height: 0;
+      overflow: hidden;
+    }
+
+    .phonemePalettePanel .phonemePaletteWrap {
+      flex: 1 1 auto;
+      max-height: none;
+      min-height: 0;
+    }
+
     .phonemePaletteHeader {
       display: flex;
       align-items: center;
@@ -1814,8 +1841,12 @@
     }
 
     @media (max-width: 520px) {
+      .phonemePalettePanel.resizablePanel {
+        height: var(--palette-pane-height-mobile, 180px);
+      }
+
       .phonemePaletteWrap {
-        max-height: 142px;
+        max-height: none;
       }
 
       .phonemePalettePill {
@@ -1976,10 +2007,18 @@
         <div class="paneResizeHandle" role="separator" tabindex="0" aria-orientation="horizontal" aria-label="Resize timeline pane" title="Drag to resize timeline pane" data-resize-pane="timeline"></div>
       </section>
 
-      <section class="panel stack phonemePalettePanel" aria-label="Add phonemes to timeline">
-        <div class="phonemePaletteWrap">
-          <div class="phonemePalette" id="phonemePalette" aria-label="Available phonemes. Drag a pill into the timeline to insert it."></div>
+      <section class="panel stack phonemePalettePanel resizablePanel" aria-label="Add phonemes to timeline" data-pane-name="palette" style="--palette-pane-height: 214px; --palette-pane-height-mobile: 180px;">
+        <div class="tabBar phonemePaletteTabBar" role="tablist" aria-label="phoneme palette tabs">
+          <button class="tabButton active" type="button" data-palette-tab="phonemes">phonemes</button>
         </div>
+
+        <div class="tabPane active" id="palettePhonemesPane" role="tabpanel">
+          <div class="phonemePaletteWrap">
+            <div class="phonemePalette" id="phonemePalette" aria-label="Available phonemes. Drag a pill into the timeline to insert it."></div>
+          </div>
+        </div>
+
+        <div class="paneResizeHandle" role="separator" tabindex="0" aria-orientation="horizontal" aria-label="Resize phoneme palette pane" title="Drag to resize phoneme palette pane" data-resize-pane="palette"></div>
       </section>
     </div>
 
@@ -5059,9 +5098,10 @@ L8E78:
     }
 
     function showTab(name) {
-      document.querySelectorAll('.tabButton').forEach(btn => btn.classList.toggle('active', btn.dataset.tab === name));
-      document.querySelectorAll('.tabPane').forEach(pane => pane.classList.remove('active'));
-      document.getElementById(name + 'Pane').classList.add('active');
+      document.querySelectorAll('.rightPanel .tabButton').forEach(btn => btn.classList.toggle('active', btn.dataset.tab === name));
+      document.querySelectorAll('.rightPanel .tabPane').forEach(pane => pane.classList.remove('active'));
+      const pane = document.getElementById(name + 'Pane');
+      if (pane) pane.classList.add('active');
     }
 
 
@@ -5101,6 +5141,14 @@ L8E78:
           mobileCssVar: '--timeline-pane-height-mobile',
           storageKey: 'votrax.timelinePaneHeight',
           min: 76,
+          maxRatio: 0.60
+        },
+        palette: {
+          selector: '[data-pane-name="palette"]',
+          cssVar: '--palette-pane-height',
+          mobileCssVar: '--palette-pane-height-mobile',
+          storageKey: 'votrax.palettePaneHeight',
+          min: 88,
           maxRatio: 0.60
         },
         decode: {
@@ -5359,7 +5407,7 @@ L8E78:
       if (tokenDef) appendWizardToken(tokenDef);
     });
 
-    document.querySelectorAll('.tabButton').forEach(btn => btn.addEventListener('click', () => showTab(btn.dataset.tab)));
+    document.querySelectorAll('.rightPanel .tabButton').forEach(btn => btn.addEventListener('click', () => showTab(btn.dataset.tab)));
 
     document.addEventListener('keydown', ev => {
       if (ev.target && ['TEXTAREA', 'INPUT', 'SELECT'].includes(ev.target.tagName)) return;
