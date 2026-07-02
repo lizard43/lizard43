@@ -45,7 +45,7 @@
     }
 
     h2 {
-      margin: 0 0 10px;
+      margin: 0 0 8px;
       font-size: 16px;
     }
 
@@ -61,6 +61,11 @@
       grid-template-columns: minmax(340px, .9fr) minmax(420px, 1.1fr);
       gap: 8px;
       align-items: stretch;
+      min-width: 0;
+    }
+
+    .topLayout > * {
+      min-width: 0;
     }
 
     .topToolbar {
@@ -108,6 +113,7 @@
       padding: 12px;
       box-shadow: 0 2px 10px rgba(0, 0, 0, .2);
       min-width: 0;
+      overflow: hidden;
     }
 
     .stack {
@@ -121,12 +127,20 @@
     input[type="text"],
     select {
       width: 100%;
+      min-width: 0;
+      max-width: 100%;
       background: var(--black);
       color: var(--text);
       border: 1px solid var(--border);
       border-radius: 8px;
       padding: 10px;
       font: 13px/1.35 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    }
+
+    select {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
     }
 
     textarea {
@@ -214,10 +228,11 @@
 
     .modeTools {
       display: grid;
-      grid-template-columns: minmax(160px, 220px) minmax(180px, 1fr);
+      grid-template-columns: minmax(0, 220px) minmax(0, 1fr);
       gap: 8px;
       align-items: end;
       margin: 8px 0;
+      min-width: 0;
     }
 
     .decodedRow.control {
@@ -302,8 +317,7 @@
     }
 
     .decodedList {
-      display: grid;
-      gap: 4px;
+      display: block;
       max-height: 360px;
       overflow: auto;
       padding-right: 2px;
@@ -311,12 +325,22 @@
       scrollbar-width: thin;
     }
 
+    .decodedList > * + * {
+      margin-top: 4px;
+    }
+
+    .decodedList .callout {
+      margin-bottom: 4px;
+      overflow-wrap: anywhere;
+      white-space: normal;
+    }
+
     .decodedRow {
       display: grid;
       grid-template-columns: 52px 62px minmax(0, 1fr) 70px;
       gap: 8px;
       align-items: center;
-      padding: 7px 8px;
+      padding: 5px 8px;
       background: #0f1218;
       border: 1px solid var(--border);
       border-radius: 8px;
@@ -578,6 +602,7 @@
       display: flex;
       flex-direction: column;
       min-height: 0;
+      overflow: hidden;
     }
 
     .rightPanel .tabBar {
@@ -614,7 +639,7 @@
 
     .romTools {
       display: grid;
-      grid-template-columns: minmax(180px, 1fr) auto;
+      grid-template-columns: minmax(0, 1fr) auto;
       gap: 8px;
       align-items: center;
       padding: 8px;
@@ -622,6 +647,7 @@
       border: 1px solid var(--border);
       border-radius: 8px;
       margin: 8px 0;
+      min-width: 0;
     }
 
     .romModelLabel {
@@ -644,6 +670,7 @@
       color: var(--muted);
       font-size: 12px;
       line-height: 1.35;
+      overflow-wrap: anywhere;
     }
 
     .romStatus.loaded {
@@ -873,7 +900,7 @@
                 <option value="sc01a">SC-01A</option>
               </select>
             </label>
-            <button class="action" id="clearSc01RomBtn" type="button">Reset ROM</button>
+            <button class="action" id="clearSc01RomBtn" type="button" title="Reload the ROM model selected in the dropdown and clear any external override.">Use Selected ROM</button>
           </div>
         </div>
         <textarea id="source" spellcheck="false" wrap="off"></textarea>
@@ -1593,7 +1620,7 @@
           mode: 'wizard',
           sourceMode: 'wowraw',
           rawPhrase: exactRaw,
-          message: `Recognized ${exactRaw.label}; expanded to Wizard/WoW token stream for "${exactRaw.name}".`
+          message: `WoW raw ${exactRaw.label.replace(/^WoW\s+/i, '')} recognized → ${exactRaw.name}; expanded to Wizard tokens.`
         };
       }
 
@@ -1747,17 +1774,8 @@ L8E78:
       const hashText = sc01RomState.sha1 ? ` SHA-1 <span class="mono">${sc01RomState.sha1.slice(0, 8)}…</span>` : '';
       const knownHashModel = Object.keys(BUILTIN_ROM_HASHES).find(key => BUILTIN_ROM_HASHES[key] === sc01RomState.sha1);
       const matchText = knownHashModel ? ` · ${knownHashModel.toUpperCase()} hash match` : (sc01RomState.sha1 ? ' · non-MAME/unknown hash' : '');
-      const sample = sc01RomState.byPhone.get(0x2d) || sc01RomState.entries[0];
       setRomStatus(
-        `${sc01RomState.embeddedDefault ? 'Using ' : 'Loaded override '}<span class="mono">${escapeHtml(sc01RomState.sourceName)}</span>: ${sc01RomState.bytes.length} bytes, 64 phone rows.${hashText}${matchText}` +
-        `<div class="romParamGrid">` +
-        `<div class="romParam">W dur ${sample.duration}</div>` +
-        `<div class="romParam">f1 ${sample.f1}</div>` +
-        `<div class="romParam">f2 ${sample.f2}</div>` +
-        `<div class="romParam">f3 ${sample.f3}</div>` +
-        `<div class="romParam">va ${sample.va}</div>` +
-        `<div class="romParam">fa ${sample.fa}</div>` +
-        `</div>`,
+        `${sc01RomState.embeddedDefault ? 'Using built-in ' : 'Loaded override '}<span class="mono">${escapeHtml(sc01RomState.sourceName)}</span>: ${sc01RomState.bytes.length} bytes, 64 phone rows.${hashText}${matchText}`,
         sc01RomState.sha1 && !Object.values(BUILTIN_ROM_HASHES).includes(sc01RomState.sha1) ? 'warn' : 'loaded'
       );
       if (clearSc01RomBtn) clearSc01RomBtn.disabled = false;
@@ -3273,7 +3291,7 @@ L8E78:
     sc01RomFileInput.addEventListener('change', () => loadSc01RomFromFile(sc01RomFileInput.files[0]));
     clearSc01RomBtn.addEventListener('click', () => {
       installDefaultSc01Rom();
-      setStatus(`Reset to ${BUILTIN_ROM_LABELS[builtInRomSelect?.value || 'sc01']}.`);
+      setStatus(`Using selected built-in ROM: ${BUILTIN_ROM_LABELS[builtInRomSelect?.value || 'sc01']}.`);
     });
     if (builtInRomSelect) builtInRomSelect.addEventListener('change', () => {
       installBuiltInSc01Rom(builtInRomSelect.value);
@@ -3308,7 +3326,9 @@ L8E78:
     document.querySelectorAll('[data-sample]').forEach(btn => {
       btn.addEventListener('click', () => {
         sourceEl.value = SAMPLES[btn.dataset.sample] || DEFAULT_SOURCE;
+        importedPhrases = [];
         voxLibrarySourceText = '';
+        populatePhraseSelect();
         inputModeEl.value = btn.dataset.sample === 'wowrawhey' ? 'wowraw' : 'sc01';
         analyze();
         setStatus(`Loaded sample: ${btn.textContent}.`);
