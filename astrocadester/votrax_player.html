@@ -1981,13 +1981,17 @@
     .sampleMenu {
       position: fixed;
       z-index: 10060;
-      min-width: 190px;
-      max-width: min(280px, calc(100vw - 16px));
+      min-width: 210px;
+      max-width: min(360px, calc(100vw - 16px));
+      max-height: min(520px, calc(100vh - 60px));
+      overflow: auto;
       padding: 6px;
       border: 1px solid var(--border);
       border-radius: 10px;
       background: #0f1218;
       box-shadow: 0 10px 30px rgba(0,0,0,.55);
+      scrollbar-color: var(--border) #0f1218;
+      scrollbar-width: thin;
     }
 
     .sampleMenu.isHidden {
@@ -1997,8 +2001,9 @@
     .sampleMenuItem {
       width: 100%;
       display: flex;
-      align-items: center;
-      justify-content: flex-start;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
       min-height: 34px;
       padding: 7px 10px;
       border: 1px solid transparent;
@@ -2008,7 +2013,7 @@
       font: 800 13px/1.15 system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
       text-align: left;
       cursor: pointer;
-      white-space: nowrap;
+      white-space: normal;
     }
 
     .sampleMenuItem:hover,
@@ -2021,6 +2026,41 @@
 
     .sampleMenuItem + .sampleMenuItem {
       margin-top: 3px;
+    }
+
+    .sampleMenuHeader {
+      padding: 5px 8px 4px;
+      color: var(--muted);
+      font: 900 10px/1.2 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      user-select: none;
+    }
+
+    .sampleMenuDivider {
+      height: 1px;
+      margin: 6px 2px;
+      background: var(--border);
+      opacity: .8;
+    }
+
+    .sampleMenuItemMain {
+      display: block;
+      max-width: 100%;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .sampleMenuItemMeta {
+      display: block;
+      margin-top: 2px;
+      color: var(--muted);
+      font: 700 11px/1.2 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      max-width: 100%;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
     }
 
   </style>
@@ -2077,12 +2117,7 @@
       </button>
     </div>
 
-    <div id="sampleMenu" class="sampleMenu isHidden" role="menu" aria-label="Sample phrases" aria-hidden="true">
-      <button class="sampleMenuItem" type="button" role="menuitem" data-sample="wor">WoW</button>
-      <button class="sampleMenuItem" type="button" role="menuitem" data-sample="pressstart">Press Start</button>
-      <button class="sampleMenuItem" type="button" role="menuitem" data-sample="wowrawhey">WoW Raw Hey</button>
-      <button class="sampleMenuItem" type="button" role="menuitem" data-sample="allbase">All Your Base</button>
-    </div>
+    <div id="sampleMenu" class="sampleMenu isHidden" role="menu" aria-label="Sample phrases" aria-hidden="true"></div>
 
     <div id="hiddenPhraseControls" hidden>
       <label class="toolbarPhraseLabel isHidden" id="toolbarPhraseWrap" for="phraseSelect"><span>Imported phrase</span>
@@ -2958,6 +2993,14 @@ L8E78:
     DB  $32,$32,$1F,$03          ; "us"
     DB  $3F                      ; <STOP>`
     };
+
+
+    const BUILT_IN_SAMPLE_MENU = [
+      { key: 'wor', label: 'WoW', meta: 'Built-in SC-01 sample' },
+      { key: 'pressstart', label: 'Press Start', meta: 'Built-in SC-01 sample' },
+      { key: 'wowrawhey', label: 'WoW Raw Hey', meta: 'WoW raw/disassembly sample' },
+      { key: 'allbase', label: 'All Your Base', meta: 'Built-in SC-01 ASM sample' }
+    ];
 
     const sourceEl = document.getElementById('source');
     const exportText = document.getElementById('exportText');
@@ -5208,7 +5251,8 @@ L8E78:
         if (toolbarPhraseWrap) toolbarPhraseWrap.classList.add('isHidden');
         if (loadPhraseBtn) loadPhraseBtn.disabled = true;
         if (playPhraseBtn) playPhraseBtn.disabled = true;
-        setPhraseInfo('Load Vox/ASM imports phrases automatically. Pasted text is parsed directly.');
+        renderSampleMenu();
+        setPhraseInfo('Load Vox/ASM imports phrases into the sample menu. Pasted text is parsed directly.');
         return;
       }
 
@@ -5230,21 +5274,24 @@ L8E78:
       if (toolbarPhraseWrap) toolbarPhraseWrap.classList.remove('isHidden');
       if (loadPhraseBtn) loadPhraseBtn.disabled = false;
       if (playPhraseBtn) playPhraseBtn.disabled = false;
-      setPhraseInfo(`Imported ${importedPhrases.length} phrase stream(s). Select a phrase to load it into the editor; samples do not clear this list.`);
+      renderSampleMenu();
+      setPhraseInfo(`Imported ${importedPhrases.length} phrase stream(s). Open the sample menu and choose a phrase to load it into the editor; built-in samples do not clear this list.`);
     }
 
     function importPhrasesFromSource() {
       voxLibrarySourceText = sourceEl.value;
       importedPhrases = parseVoxTextPhrases(voxLibrarySourceText).map(p => ({ ...p, mode: 'wizard' }));
       if (!importedPhrases.length) importedPhrases = parseAsmSpeechPhrases(voxLibrarySourceText);
+      activeImportedPhraseIndex = null;
+      activeImportedPhraseSourceText = '';
       populatePhraseSelect();
+      if (phraseSelect) phraseSelect.value = '';
       if (!importedPhrases.length) {
         setStatus('No phrase blocks found. For Vox text, look for quoted titles followed by decimal CSV lines. For ASM, look for LABEL: ; Length=N followed by DB bytes ending in $3F.', true);
         return;
       }
-      loadFirstImportedPhrase({ silent: true });
-      const kind = importedPhrases[0].mode === 'sc01' ? 'SC-01 ASM speech' : ' Vox';
-      setStatus(`Imported ${importedPhrases.length} ${kind} phrase stream(s). Showing phrase 1, not the whole file.`);
+      const kind = importedPhrases[0].mode === 'sc01' ? 'SC-01 ASM speech' : 'Vox';
+      setStatus(`Imported ${importedPhrases.length} ${kind} phrase stream(s). Added to the sample menu; choose one from the sample list.`);
     }
 
     function getSelectedPhraseIndex() {
@@ -5319,8 +5366,10 @@ L8E78:
       // If a full Vox library is still sitting in the editor, do not play every
       // decimal stream in that library. Fall back to the dropdown selection or phrase 1.
       if (importedPhrases.length && voxLibrarySourceText && sourceEl.value === voxLibrarySourceText) {
-        const phrase = getSelectedPhrase() || importedPhrases[0];
-        return { bytes: phrase.bytes.slice(), mode: phrase.mode || 'wizard', phrase };
+        const phrase = getSelectedPhrase();
+        if (phrase) return { bytes: phrase.bytes.slice(), mode: phrase.mode || 'wizard', phrase };
+        setStatus('Phrase file is imported. Open the sample menu and choose a phrase to load/play.', true);
+        return { bytes: [], mode: importedPhrases[0]?.mode || 'wizard', phrase: null };
       }
       const analysis = analyze();
       return { bytes: analysis.bytes.slice(), mode: analysis.mode, analysis };
@@ -5343,10 +5392,13 @@ L8E78:
         populatePhraseSelect();
 
         if (importedPhrases.length) {
-          inputModeEl.value = importedPhrases[0].mode || 'wizard';
-          loadFirstImportedPhrase({ silent: true });
+          activeImportedPhraseIndex = null;
+          activeImportedPhraseSourceText = '';
+          if (phraseSelect) phraseSelect.value = '';
           const kind = importedPhrases[0].mode === 'sc01' ? 'SC-01 ASM speech' : 'Wizard Vox';
-          setStatus(`Loaded ${file.name}; imported ${importedPhrases.length} ${kind} phrase stream(s). Showing phrase 1, not the whole file.`);
+          if (sourceEl.value) analyze();
+          scheduleContentFit();
+          setStatus(`Loaded ${file.name}; added ${importedPhrases.length} ${kind} phrase stream(s) to the sample menu. Choose one from the sample list.`);
         } else {
           sourceEl.value = voxLibrarySourceText;
           activeImportedPhraseIndex = null;
@@ -5577,7 +5629,7 @@ L8E78:
 
 
 
-    const VOTRAX_UI_BUILD = 'sample-menu-dropdown-20260702';
+    const VOTRAX_UI_BUILD = 'sample-menu-imports-no-autoload-20260702';
     const VOTRAX_UI_STORAGE_PREFIX = 'votrax.' + VOTRAX_UI_BUILD + '.';
 
     function resetPaneCacheForThisBuild() {
@@ -5744,6 +5796,7 @@ L8E78:
 
     function setSampleMenuVisible(visible) {
       if (!sampleMenu || !sampleToggleBtn) return;
+      if (visible) renderSampleMenu();
       sampleMenu.classList.toggle('isHidden', !visible);
       sampleMenu.setAttribute('aria-hidden', visible ? 'false' : 'true');
       sampleToggleBtn.classList.toggle('active', visible);
@@ -5751,6 +5804,88 @@ L8E78:
       sampleToggleBtn.title = visible ? 'Hide sample phrases' : 'Show sample phrases';
       sampleToggleBtn.setAttribute('aria-label', sampleToggleBtn.title);
       if (visible) requestAnimationFrame(positionSampleMenu);
+    }
+
+    function appendSampleMenuHeader(text) {
+      if (!sampleMenu) return;
+      const header = document.createElement('div');
+      header.className = 'sampleMenuHeader';
+      header.textContent = text;
+      sampleMenu.appendChild(header);
+    }
+
+    function appendSampleMenuDivider() {
+      if (!sampleMenu) return;
+      const divider = document.createElement('div');
+      divider.className = 'sampleMenuDivider';
+      divider.setAttribute('aria-hidden', 'true');
+      sampleMenu.appendChild(divider);
+    }
+
+    function appendSampleMenuButton({ label, meta = '', sampleKey = '', importedIndex = null }) {
+      if (!sampleMenu) return;
+      const btn = document.createElement('button');
+      btn.className = 'sampleMenuItem';
+      btn.type = 'button';
+      btn.setAttribute('role', 'menuitem');
+      if (sampleKey) btn.dataset.sample = sampleKey;
+      if (importedIndex !== null && importedIndex !== undefined) btn.dataset.importedPhrase = String(importedIndex);
+      btn.innerHTML = `<span class="sampleMenuItemMain">${escapeHtml(label)}</span>` +
+        (meta ? `<span class="sampleMenuItemMeta">${escapeHtml(meta)}</span>` : '');
+      sampleMenu.appendChild(btn);
+    }
+
+    function renderSampleMenu() {
+      if (!sampleMenu) return;
+      sampleMenu.innerHTML = '';
+      appendSampleMenuHeader('Samples');
+      for (const sample of BUILT_IN_SAMPLE_MENU) appendSampleMenuButton({
+        label: sample.label,
+        meta: sample.meta,
+        sampleKey: sample.key
+      });
+
+      if (importedPhrases.length) {
+        appendSampleMenuDivider();
+        appendSampleMenuHeader(`Imported phrases · ${importedPhrases.length}`);
+        importedPhrases.forEach((phrase, index) => {
+          const prefix = phrase.section ? `${phrase.section} · ` : '';
+          const modeLabel = phrase.mode === 'sc01' ? 'SC-01' : 'Wizard';
+          appendSampleMenuButton({
+            label: `${index + 1}. ${prefix}${phrase.title}`,
+            meta: `${modeLabel} · ${phrase.bytes.length} byte${phrase.bytes.length === 1 ? '' : 's'}`,
+            importedIndex: index
+          });
+        });
+      }
+      requestAnimationFrame(positionSampleMenu);
+    }
+
+    function loadBuiltInSample(sampleKey, label = '') {
+      sourceEl.value = SAMPLES[sampleKey] || DEFAULT_SOURCE;
+      sourceInsertPos = sourceEl.value.length;
+      activeImportedPhraseIndex = null;
+      activeImportedPhraseSourceText = '';
+      if (importedPhrases.length && phraseSelect) {
+        phraseSelect.value = '';
+        setPhraseInfo(`Sample loaded. Imported phrase list preserved (${importedPhrases.length} phrase stream(s)).`);
+      }
+      inputModeEl.value = sampleKey === 'wowrawhey' ? 'wowraw' : 'sc01';
+      analyze();
+      setSampleMenuVisible(false);
+      setStatus(`Loaded sample: ${label || sampleKey}.`);
+    }
+
+    function loadImportedPhraseFromMenu(index) {
+      const n = Number(index);
+      if (!Number.isFinite(n) || n < 0 || n >= importedPhrases.length) {
+        setStatus('Imported phrase is no longer available.', true);
+        setSampleMenuVisible(false);
+        return;
+      }
+      phraseSelect.value = String(n);
+      loadSelectedPhrase({ silent: false });
+      setSampleMenuVisible(false);
     }
 
 
@@ -5881,21 +6016,20 @@ L8E78:
       loadVoxTextFile(file);
     });
 
-    document.querySelectorAll('[data-sample]').forEach(btn => {
-      btn.addEventListener('click', () => {
-        sourceEl.value = SAMPLES[btn.dataset.sample] || DEFAULT_SOURCE;
-        sourceInsertPos = sourceEl.value.length;
-        activeImportedPhraseIndex = null;
-        activeImportedPhraseSourceText = '';
-        if (importedPhrases.length && phraseSelect) {
-          phraseSelect.value = '';
-          setPhraseInfo(`Sample loaded. Imported phrase list preserved (${importedPhrases.length} phrase stream(s)).`);
-        }
-        inputModeEl.value = btn.dataset.sample === 'wowrawhey' ? 'wowraw' : 'sc01';
-        analyze();
-        setSampleMenuVisible(false);
-        setStatus(`Loaded sample: ${btn.textContent}.`);
-      });
+    if (sampleMenu) sampleMenu.addEventListener('click', ev => {
+      const importedBtn = ev.target.closest('[data-imported-phrase]');
+      if (importedBtn && sampleMenu.contains(importedBtn)) {
+        ev.preventDefault();
+        loadImportedPhraseFromMenu(importedBtn.dataset.importedPhrase);
+        return;
+      }
+
+      const sampleBtn = ev.target.closest('[data-sample]');
+      if (sampleBtn && sampleMenu.contains(sampleBtn)) {
+        ev.preventDefault();
+        const label = sampleBtn.querySelector('.sampleMenuItemMain')?.textContent || sampleBtn.textContent || sampleBtn.dataset.sample;
+        loadBuiltInSample(sampleBtn.dataset.sample, label.trim());
+      }
     });
 
     if (tableBody) tableBody.addEventListener('click', ev => {
@@ -5957,6 +6091,7 @@ L8E78:
       }
     });
 
+    renderSampleMenu();
     setSampleMenuVisible(false);
     setSourceEditorVisible(false);
     showTab('notes');
@@ -5976,5 +6111,5 @@ L8E78:
   </script>
 </body>
 
-<!-- cache-bust: sample-menu-dropdown-20260702 -->
+<!-- cache-bust: sample-menu-imports-no-autoload-20260702 -->
 </html>
