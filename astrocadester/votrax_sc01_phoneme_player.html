@@ -931,8 +931,7 @@
     </div>
 
     <div class="toolbarSampleRow" aria-label="Sample phrases">
-      <button class="action" data-sample="wor">WOR</button>
-      <button class="action" data-sample="wizard">Wizard</button>
+      <button class="action" data-sample="wor">WoW</button>
       <button class="action" data-sample="pressstart">Press Start</button>
       <button class="action" data-sample="wowrawhey">WoW Raw Hey</button>
       <button class="action" data-sample="allbase">All Your Base</button>
@@ -1113,7 +1112,17 @@
     'use strict';
 
     const SAMPLE_RATE = 40000;
-    const DEFAULT_SOURCE = `; =====================================================================\n; EXAMPLE STRING DATA (Wizard of Wor Voice Data Layout Example)\n; =====================================================================\n; Phrase Construction for "WOR" (Approximate Phonetic Mix)\n; Uses W + O1 + O2 + R + STOP\nPhonicPhrase_Wor:\n    db $2D                  ; W\n    db $35                  ; O1\n    db $34                  ; O2\n    db $2B                  ; R\n    db $3F                  ; custom termination character ($3F / STOP)`;
+    const DEFAULT_SOURCE = `PhonicPhrase_Wizard:
+    db $2D,$27,$12,$3A,$1E    ; W I Z ER D
+Of:
+    db $13                     ; AW1
+    db $0F                     ; V
+PhonicPhrase_Wor:
+    db $2D                  ; W
+    db $35                  ; O1
+    db $34                  ; O2
+    db $2B                  ; R
+    db $3F                  ; STOP`;
 
     const FORMANTS = {
       EH: [530, 1840, 2480],
@@ -1711,14 +1720,17 @@
     }
 
     const SAMPLES = {
-      wor: `PhonicPhrase_Wor:
+      wor: `PhonicPhrase_Wizard:
+    db $2D,$27,$12,$3A,$1E    ; W I Z ER D
+Of:
+    db $13                     ; AW1
+    db $0F                     ; V
+PhonicPhrase_Wor:
     db $2D                  ; W
     db $35                  ; O1
     db $34                  ; O2
     db $2B                  ; R
     db $3F                  ; STOP`,
-      wizard: `PhonicPhrase_Wizard:
-    db $2D,$27,$12,$3A,$1E,$3F    ; W I Z ER D STOP`,
       pressstart: `PhonicPhrase_PressStart:
     db $25,$2B,$01,$1F,$03        ; P R EH2 S short-pause
     db $1F,$2A,$24,$2B,$2A,$3F    ; S T AH R T STOP`,
@@ -3408,8 +3420,9 @@ L8E78:
     });
     voxFileInput.addEventListener('change', () => loadVoxTextFile(voxFileInput.files[0]));
     if (builtInRomSelect) builtInRomSelect.addEventListener('change', () => {
+      stopPlayback();
       installBuiltInSc01Rom(builtInRomSelect.value);
-      setStatus(`Switched to ${BUILTIN_ROM_LABELS[builtInRomSelect.value]}.`);
+      setStatus(`Switched/reloaded ${BUILTIN_ROM_LABELS[builtInRomSelect.value]}. Re-render and playback now use ${builtInRomSelect.value.toUpperCase()}.`);
     });
     if (loadPhraseBtn) loadPhraseBtn.addEventListener('click', loadSelectedPhrase);
     if (playPhraseBtn) playPhraseBtn.addEventListener('click', playSelectedPhrase);
