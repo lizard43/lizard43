@@ -289,10 +289,10 @@
     }
 
     .panel {
-      background: var(--panel);
-      border: 1px solid var(--border);
+      /* background: var(--panel); */
+      /* border: 1px solid var(--border); */
       border-radius: 10px;
-      padding: 12px;
+      padding: 2px;
       box-shadow: 0 2px 10px rgba(0, 0, 0, .2);
       min-width: 0;
       max-width: 100%;
@@ -1374,7 +1374,8 @@
     }
 
 
-    /* Pane resizing: source editor and decoded/tab area get their own vertical grabbers. */
+    /* Pane resizing: settings, source editor, and decoded/tab area get their own vertical grabbers. */
+    .toolbarPlaybackPanel.resizablePanel,
     .sourceEditorPanel,
     .rightPanel.resizablePanel {
       position: relative;
@@ -1383,6 +1384,20 @@
       align-content: stretch;
       overflow: hidden;
       min-height: 150px;
+    }
+
+    .toolbarPlaybackPanel.resizablePanel {
+      height: var(--settings-pane-height, 500px);
+      min-height: 190px;
+    }
+
+    .toolbarPlaybackPanel.resizablePanel .collapsibleControlsInner {
+      flex: 1 1 auto;
+      min-height: 0;
+      overflow: auto;
+      padding-right: 2px;
+      scrollbar-color: var(--border) #0f1218;
+      scrollbar-width: thin;
     }
 
     .sourceEditorPanel {
@@ -1483,6 +1498,10 @@
     }
 
     @media (max-width: 520px) {
+      .toolbarPlaybackPanel.resizablePanel {
+        height: var(--settings-pane-height-mobile, 420px);
+      }
+
       .sourceEditorPanel {
         height: var(--source-pane-height-mobile, 280px);
       }
@@ -1548,7 +1567,7 @@
       </label>
     </div>
 
-    <section class="toolbarPlaybackPanel isHidden" id="playbackControls" aria-label="Playback controls and stats" aria-hidden="true">
+    <section class="toolbarPlaybackPanel resizablePanel isHidden" id="playbackControls" aria-label="Playback controls and stats" aria-hidden="true" data-pane-name="settings" style="--settings-pane-height: 500px; --settings-pane-height-mobile: 420px;">
       <div class="collapsibleControlsInner">
 <div class="settingsSelectRow" aria-label="ROM and decode settings">
           <div class="controlBox settingSelectBox">
@@ -1619,6 +1638,7 @@
 
         <div id="status"></div>
       </div>
+      <div class="paneResizeHandle" role="separator" tabindex="0" aria-orientation="horizontal" aria-label="Resize settings pane" title="Drag to resize settings pane" data-resize-pane="settings"></div>
     </section>
 
     <section class="panel stack sourceEditorPanel resizablePanel" data-pane-name="source" style="--source-pane-height: 332px; --source-pane-height-mobile: 280px;">
@@ -1691,7 +1711,6 @@
 
   <section class="panel footerPanel">
     <div class="sectionHeader">
-      <h2>.DB export</h2>
       <button class="action iconButton smallIconButton" id="exportCopyBtn" title="Copy .DB" aria-label="Copy .DB">
         <svg viewBox="0 0 24 24" aria-hidden="true">
           <path fill="currentColor" d="M16 1H4c-1.1 0-2 .9-2 2v12h2V3h12V1Zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2Zm0 16H8V7h11v14Z" />
@@ -4218,6 +4237,14 @@ L8E78:
 
     function installPaneResizers() {
       const configs = {
+        settings: {
+          selector: '[data-pane-name="settings"]',
+          cssVar: '--settings-pane-height',
+          mobileCssVar: '--settings-pane-height-mobile',
+          storageKey: 'votrax.settingsPaneHeight',
+          min: 190,
+          maxRatio: 0.90
+        },
         source: {
           selector: '[data-pane-name="source"]',
           cssVar: '--source-pane-height',
