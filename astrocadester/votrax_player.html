@@ -1976,6 +1976,53 @@
       overflow: visible;
     }
 
+
+    /* Sample menu: replaces the old always-visible sample toolbar row. */
+    .sampleMenu {
+      position: fixed;
+      z-index: 10060;
+      min-width: 190px;
+      max-width: min(280px, calc(100vw - 16px));
+      padding: 6px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      background: #0f1218;
+      box-shadow: 0 10px 30px rgba(0,0,0,.55);
+    }
+
+    .sampleMenu.isHidden {
+      display: none !important;
+    }
+
+    .sampleMenuItem {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      min-height: 34px;
+      padding: 7px 10px;
+      border: 1px solid transparent;
+      border-radius: 8px;
+      background: transparent;
+      color: var(--text);
+      font: 800 13px/1.15 system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      text-align: left;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    .sampleMenuItem:hover,
+    .sampleMenuItem:focus-visible {
+      border-color: var(--accent);
+      background: rgba(94, 224, 131, .10);
+      color: var(--accent);
+      outline: none;
+    }
+
+    .sampleMenuItem + .sampleMenuItem {
+      margin-top: 3px;
+    }
+
   </style>
 </head>
 
@@ -1997,7 +2044,7 @@
           <path fill="currentColor" d="M10 4l2 2h8c1.1 0 2 .9 2 2v1H2V6c0-1.1.9-2 2-2h6Zm12 7v7c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2v-7h20Zm-7 2v2h-2v2h-2v-2H9v-2h2v-2h2v2h2Z" />
         </svg>
       </button>
-      <button class="action iconButton sampleToggleButton active" id="sampleToggleBtn" title="Hide sample phrases" aria-label="Hide sample phrases" aria-expanded="true">
+      <button class="action iconButton sampleToggleButton" id="sampleToggleBtn" title="Show sample phrases" aria-label="Show sample phrases" aria-expanded="false">
         <svg viewBox="0 0 24 24" aria-hidden="true">
           <path fill="currentColor" d="M4 5h16v3H4V5Zm0 5h16v3H4v-3Zm0 5h16v3H4v-3Z" />
         </svg>
@@ -2030,11 +2077,14 @@
       </button>
     </div>
 
-    <div class="toolbarSampleRow" aria-label="Sample phrases">
-      <button class="action" data-sample="wor">WoW</button>
-      <button class="action" data-sample="pressstart">Press Start</button>
-      <button class="action" data-sample="wowrawhey">WoW Raw Hey</button>
-      <button class="action" data-sample="allbase">All Your Base</button>
+    <div id="sampleMenu" class="sampleMenu isHidden" role="menu" aria-label="Sample phrases" aria-hidden="true">
+      <button class="sampleMenuItem" type="button" role="menuitem" data-sample="wor">WoW</button>
+      <button class="sampleMenuItem" type="button" role="menuitem" data-sample="pressstart">Press Start</button>
+      <button class="sampleMenuItem" type="button" role="menuitem" data-sample="wowrawhey">WoW Raw Hey</button>
+      <button class="sampleMenuItem" type="button" role="menuitem" data-sample="allbase">All Your Base</button>
+    </div>
+
+    <div id="hiddenPhraseControls" hidden>
       <label class="toolbarPhraseLabel isHidden" id="toolbarPhraseWrap" for="phraseSelect"><span>Imported phrase</span>
         <select id="phraseSelect" class="toolbarPhraseSelect" disabled>
           <option value="">No imported phrases</option>
@@ -2943,7 +2993,7 @@ L8E78:
     const settingsBtn = document.getElementById('settingsBtn');
     const playbackControls = document.getElementById('playbackControls');
     const sampleToggleBtn = document.getElementById('sampleToggleBtn');
-    const toolbarSampleRow = document.querySelector('.toolbarSampleRow');
+    const sampleMenu = document.getElementById('sampleMenu');
     const sourceToggleBtn = document.getElementById('sourceToggleBtn');
     const sourceEditorPanel = document.getElementById('sourceEditorPanel');
     const sc01RomStatus = document.getElementById('sc01RomStatus');
@@ -5527,7 +5577,7 @@ L8E78:
 
 
 
-    const VOTRAX_UI_BUILD = 'palette-overflow-clip-20260702b';
+    const VOTRAX_UI_BUILD = 'sample-menu-dropdown-20260702';
     const VOTRAX_UI_STORAGE_PREFIX = 'votrax.' + VOTRAX_UI_BUILD + '.';
 
     function resetPaneCacheForThisBuild() {
@@ -5681,14 +5731,26 @@ L8E78:
       });
     }
 
-    function setSampleRowVisible(visible) {
-      if (!toolbarSampleRow || !sampleToggleBtn) return;
-      toolbarSampleRow.classList.toggle('isHidden', !visible);
-      toolbarSampleRow.setAttribute('aria-hidden', visible ? 'false' : 'true');
+    function positionSampleMenu() {
+      if (!sampleMenu || !sampleToggleBtn || sampleMenu.classList.contains('isHidden')) return;
+      const buttonRect = sampleToggleBtn.getBoundingClientRect();
+      const menuRect = sampleMenu.getBoundingClientRect();
+      const pad = 6;
+      const left = Math.max(pad, Math.min(buttonRect.left, window.innerWidth - menuRect.width - pad));
+      const top = Math.max(pad, Math.min(buttonRect.bottom + 6, window.innerHeight - menuRect.height - pad));
+      sampleMenu.style.left = left + 'px';
+      sampleMenu.style.top = top + 'px';
+    }
+
+    function setSampleMenuVisible(visible) {
+      if (!sampleMenu || !sampleToggleBtn) return;
+      sampleMenu.classList.toggle('isHidden', !visible);
+      sampleMenu.setAttribute('aria-hidden', visible ? 'false' : 'true');
       sampleToggleBtn.classList.toggle('active', visible);
       sampleToggleBtn.setAttribute('aria-expanded', visible ? 'true' : 'false');
       sampleToggleBtn.title = visible ? 'Hide sample phrases' : 'Show sample phrases';
       sampleToggleBtn.setAttribute('aria-label', sampleToggleBtn.title);
+      if (visible) requestAnimationFrame(positionSampleMenu);
     }
 
 
@@ -5777,9 +5839,20 @@ L8E78:
     if (settingsBtn && playbackControls) settingsBtn.addEventListener('click', () => {
       setPlaybackControlsVisible(playbackControls.classList.contains('isHidden'));
     });
-    if (sampleToggleBtn && toolbarSampleRow) sampleToggleBtn.addEventListener('click', () => {
-      setSampleRowVisible(toolbarSampleRow.classList.contains('isHidden'));
+    if (sampleToggleBtn && sampleMenu) sampleToggleBtn.addEventListener('click', ev => {
+      ev.preventDefault();
+      ev.stopPropagation();
+      setSampleMenuVisible(sampleMenu.classList.contains('isHidden'));
     });
+
+    document.addEventListener('pointerdown', ev => {
+      if (!sampleMenu || sampleMenu.classList.contains('isHidden')) return;
+      if (sampleMenu.contains(ev.target) || sampleToggleBtn?.contains(ev.target)) return;
+      setSampleMenuVisible(false);
+    });
+
+    window.addEventListener('resize', positionSampleMenu);
+    window.addEventListener('scroll', positionSampleMenu, true);
     if (sourceToggleBtn && sourceEditorPanel) sourceToggleBtn.addEventListener('click', () => {
       setSourceEditorVisible(sourceEditorPanel.classList.contains('isHidden'));
     });
@@ -5820,6 +5893,7 @@ L8E78:
         }
         inputModeEl.value = btn.dataset.sample === 'wowrawhey' ? 'wowraw' : 'sc01';
         analyze();
+        setSampleMenuVisible(false);
         setStatus(`Loaded sample: ${btn.textContent}.`);
       });
     });
@@ -5866,6 +5940,12 @@ L8E78:
     document.querySelectorAll('.rightPanel .tabButton').forEach(btn => btn.addEventListener('click', () => showTab(btn.dataset.tab)));
 
     document.addEventListener('keydown', ev => {
+      if (ev.key === 'Escape' && sampleMenu && !sampleMenu.classList.contains('isHidden')) {
+        ev.preventDefault();
+        setSampleMenuVisible(false);
+        sampleToggleBtn?.focus();
+        return;
+      }
       if (ev.target && ['TEXTAREA', 'INPUT', 'SELECT'].includes(ev.target.tagName)) return;
       if (ev.code === 'Space') {
         ev.preventDefault();
@@ -5877,7 +5957,7 @@ L8E78:
       }
     });
 
-    setSampleRowVisible(true);
+    setSampleMenuVisible(false);
     setSourceEditorVisible(false);
     showTab('notes');
     resetPaneCacheForThisBuild();
@@ -5896,5 +5976,5 @@ L8E78:
   </script>
 </body>
 
-<!-- cache-bust: palette-overflow-clip-fix-20260702b -->
+<!-- cache-bust: sample-menu-dropdown-20260702 -->
 </html>
