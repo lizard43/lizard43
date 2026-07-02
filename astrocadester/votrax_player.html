@@ -1969,16 +1969,18 @@ Wor:
     }
 
     function romDifferenceInfo(phone, entry) {
-      if (!entry) return { changed: false, note: '' };
+      if (!entry) return { changed: false, note: '', otherModel: '', otherEntry: null };
       const model = activeRomModel();
       const otherModel = model === 'sc01a' ? 'sc01' : 'sc01a';
       const other = getBuiltInRomState(otherModel)?.byPhone.get(phone & 0x3f);
-      if (!other) return { changed: false, note: '' };
+      if (!other) return { changed: false, note: '', otherModel, otherEntry: null };
       const changedFields = ROM_VISIBLE_COMPARE_FIELDS.filter(field => Number(entry[field]) !== Number(other[field]));
-      if (!changedFields.length) return { changed: false, note: `same as ${romDisplayName(otherModel)}` };
+      if (!changedFields.length) return { changed: false, note: `same as ${romDisplayName(otherModel)}`, otherModel, otherEntry: other };
       return {
         changed: true,
-        note: `diff vs ${romDisplayName(otherModel)}: ` + changedFields.map(field => `${field} ${other[field]}→${entry[field]}`).join(', ')
+        otherModel,
+        otherEntry: other,
+        note: `${romDisplayName(otherModel)}:\n${romSummary(other)}`
       };
     }
 
@@ -3986,9 +3988,12 @@ L8E78:
         const tr = document.createElement('tr');
         const rom = sc01RomState?.byPhone.get(ph.byte);
         const romInfo = romDifferenceInfo(ph.byte, rom);
-        const romTitle = rom ? `${romSummaryWithModel(rom)} · ${romInfo.note}` : '—';
+        const romTitle = rom ? (romInfo.changed ? romInfo.note : romSummary(rom)) : '—';
+        const diffMark = romInfo.changed
+          ? `<span class="romDiffMark" title="${escapeHtml(romInfo.note)}">*</span>`
+          : '';
         const romText = rom ?
-          `<span class="romInline ${romInfo.changed ? 'romDiff' : 'romSame'}" data-rom-model="${escapeHtml(activeRomModel())}" title="${escapeHtml(romTitle)}"><span class="romModelTag">${escapeHtml(romDisplayName(activeRomModel()))}</span><span class="romNumbers">${escapeHtml(romSummary(rom))}</span>${romInfo.changed ? '<span class="romDiffMark" title="Differs from the other built-in ROM">*</span>' : ''}</span>` :
+          `<span class="romInline ${romInfo.changed ? 'romDiff' : 'romSame'}" data-rom-model="${escapeHtml(activeRomModel())}" title="${escapeHtml(romTitle)}"><span class="romNumbers">${escapeHtml(romSummary(rom))}</span>${diffMark}</span>` :
           '—';
         tr.innerHTML =
           `<td class="bytePill">${ph.hex}</td>` +
