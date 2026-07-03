@@ -5,7 +5,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Votrax Player</title>
-  <!-- cache-bust-head: source-inner-only-border-20260702-8c2f9a -->
+  <!-- cache-bust-head: wav-zoom-pane-20260702-233307 -->
   <style>
     :root {
       --bg: #14171c;
@@ -2413,6 +2413,117 @@
       border: 0 !important;
     }
 
+
+
+    /* Generated WAV zoom pane: wav-zoom-pane-20260702-233307
+       Single zoom-window view borrowed from the Bally WAV decoder UI, adapted
+       for the Votrax phrase renderer. Wheel zooms; click/drag pans. */
+    .wavViewToggleButton.active,
+    .wavViewToggleButton.active:hover,
+    .wavViewToggleButton.active:focus-visible {
+      border-color: #d7dee9;
+      background: var(--panel2);
+      color: var(--text);
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .18);
+      outline: none;
+    }
+
+    .wavViewPanel {
+      margin-top: 4px;
+      min-height: 148px;
+      overflow: hidden;
+    }
+
+    .wavViewPanel.isHidden {
+      display: none !important;
+    }
+
+    .wavViewHeader {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 8px;
+      padding: 0 6px 4px;
+      min-width: 0;
+    }
+
+    .wavViewHeader h3 {
+      margin: 0;
+      white-space: nowrap;
+    }
+
+    .wavViewCaption {
+      color: var(--muted);
+      font: 700 11px/1.2 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      text-align: right;
+    }
+
+    .wavViewCanvasWrap {
+      height: 142px;
+      overflow: hidden;
+      background: #0f1218;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      min-width: 0;
+      position: relative;
+    }
+
+    #waveformCanvas {
+      display: block;
+      width: 100%;
+      height: 100%;
+      background: #081018;
+      cursor: grab;
+      touch-action: none;
+    }
+
+    #waveformCanvas:active {
+      cursor: grabbing;
+    }
+
+    .wavSignalKey {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px 10px;
+      align-items: center;
+      margin: 4px 6px 0;
+      color: var(--muted);
+      font: 11px/1.2 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    }
+
+    .wavSignalKey .key-line {
+      width: 18px;
+      height: 3px;
+      display: inline-block;
+      border-radius: 999px;
+      margin-right: -4px;
+      background: rgba(96, 165, 250, .95);
+    }
+
+    .wavSignalKey .key-zero {
+      background: rgba(255, 209, 102, .88);
+    }
+
+    @media (max-width: 520px) {
+      .wavViewCanvasWrap {
+        height: 118px;
+      }
+
+      .wavViewHeader {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 2px;
+      }
+
+      .wavViewCaption {
+        text-align: left;
+        width: 100%;
+      }
+    }
+
   </style>
 </head>
 
@@ -2442,6 +2553,11 @@
       <button class="action iconButton sourceToggleButton" id="sourceToggleBtn" title="Show source editor" aria-label="Show source editor" aria-expanded="false">
         <svg viewBox="0 0 24 24" aria-hidden="true">
           <path fill="currentColor" d="M3 17.25V21h3.75L17.8 9.95l-3.75-3.75L3 17.25Zm17.7-10.2c.4-.4.4-1 0-1.4l-2.35-2.35c-.4-.4-1-.4-1.4 0l-1.85 1.85 3.75 3.75 1.85-1.85Z" />
+        </svg>
+      </button>
+      <button class="action iconButton wavViewToggleButton active" id="waveViewToggleBtn" title="Hide WAV zoom view" aria-label="Hide WAV zoom view" aria-expanded="true">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path fill="currentColor" d="M3 13h2.1l1.3-5.2c.2-.8 1.3-.8 1.5 0l2.2 9.1 2.2-12.2c.1-.9 1.4-1 1.6-.1l2.2 8.4H21v2h-5.6c-.4 0-.7-.3-.8-.6l-1.2-4.6-2.2 12c-.2.9-1.4.9-1.6 0L7.2 11.5l-.7 2.8c-.1.4-.4.7-.8.7H3v-2Z" />
         </svg>
       </button>
       <button class="action iconButton" id="wavBtn" title="Download WAV render" aria-label="Download WAV">
@@ -2622,6 +2738,17 @@
           <div class="timeline" id="timeline" aria-label="Decoded phoneme timeline"></div>
         </div>
         <div class="paneResizeHandle" role="separator" tabindex="0" aria-orientation="horizontal" aria-label="Resize timeline pane" title="Drag to resize timeline pane" data-resize-pane="timeline"></div>
+      </section>
+
+      <section class="panel stack wavViewPanel" id="waveformPanel" aria-label="Generated WAV zoom window">
+        <div class="wavViewHeader">
+          <h3>WAV zoom window</h3>
+          <span class="wavViewCaption" id="waveformCaption">Render preview updates as the phrase changes · wheel zoom · click/drag pan</span>
+        </div>
+        <div class="wavViewCanvasWrap">
+          <canvas id="waveformCanvas" width="1200" height="220" aria-label="Generated WAV zoom waveform"></canvas>
+        </div>
+        <div class="wavSignalKey"><span class="key-line key-pcm"></span>PCM waveform <span class="key-line key-zero"></span>zero line <span>wheel zoom · click/drag pan from start to end</span></div>
       </section>
 
       <section class="panel stack phonemePalettePanel resizablePanel" aria-label="Add phonemes to timeline" data-pane-name="palette" style="--palette-pane-height: 214px; --palette-pane-height-mobile: 180px;">
@@ -3393,6 +3520,10 @@ L8E78:
     const sampleMenu = document.getElementById('sampleMenu');
     const sourceToggleBtn = document.getElementById('sourceToggleBtn');
     const sourceEditorPanel = document.getElementById('sourceEditorPanel');
+    const waveViewToggleBtn = document.getElementById('waveViewToggleBtn');
+    const waveformPanel = document.getElementById('waveformPanel');
+    const waveformCanvas = document.getElementById('waveformCanvas');
+    const waveformCaption = document.getElementById('waveformCaption');
     const notesToggleBtn = document.getElementById('notesToggleBtn');
     const notesPanel = document.getElementById('notesPanel');
     const sc01RomStatus = document.getElementById('sc01RomStatus');
@@ -3411,6 +3542,19 @@ L8E78:
     let decodedDragIndex = null;
     let timelineDragState = null;
     let timelineSuppressClickUntil = 0;
+    let waveformRenderFrame = 0;
+    let waveformSamples = null;
+    let waveformEvents = [];
+    let waveformRenderError = '';
+    const waveformView = {
+      startSample: 0,
+      spanSamples: 0,
+      totalSamples: 0,
+      dragPointerId: null,
+      dragStartX: 0,
+      dragStartSample: 0,
+      dragMoved: false
+    };
 
     function hex2(n) { return '$' + (n & 0xFF).toString(16).toUpperCase().padStart(2, '0'); }
     function rawHex2(n) { return (n & 0xFF).toString(16).toUpperCase().padStart(2, '0'); }
@@ -3856,6 +4000,7 @@ L8E78:
       document.getElementById('metricPhonemes').textContent = String(decoded.filter(x => x.ph && !x.skipAudio && x.ph.kind !== 'stop').length);
       document.getElementById('metricDuration').textContent = (durationMs / 1000).toFixed(2) + 's';
       document.getElementById('metricLast').textContent = used.length ? hex2(used[used.length - 1]) : '--';
+      scheduleWaveformRender();
       return currentAnalysis;
     }
 
@@ -5411,6 +5556,279 @@ L8E78:
       URL.revokeObjectURL(url);
     }
 
+
+    function clampNumber(value, lo, hi) {
+      return Math.max(lo, Math.min(hi, value));
+    }
+
+    function setWaveformVisible(visible) {
+      if (!waveformPanel || !waveViewToggleBtn) return;
+      waveformPanel.classList.toggle('isHidden', !visible);
+      waveformPanel.setAttribute('aria-hidden', visible ? 'false' : 'true');
+      waveViewToggleBtn.classList.toggle('active', visible);
+      waveViewToggleBtn.setAttribute('aria-expanded', visible ? 'true' : 'false');
+      waveViewToggleBtn.title = visible ? 'Hide WAV zoom view' : 'Show WAV zoom view';
+      waveViewToggleBtn.setAttribute('aria-label', waveViewToggleBtn.title);
+      if (visible) {
+        scheduleWaveformRender();
+        requestAnimationFrame(drawWaveformPreview);
+      }
+    }
+
+    function scheduleWaveformRender() {
+      if (!waveformPanel || waveformPanel.classList.contains('isHidden')) return;
+      if (waveformRenderFrame) cancelAnimationFrame(waveformRenderFrame);
+      waveformRenderFrame = requestAnimationFrame(() => {
+        waveformRenderFrame = 0;
+        refreshWaveformPreview();
+      });
+    }
+
+    function currentWaveformPlaybackSnapshot() {
+      const activePhrase = getActiveImportedPhrase();
+      if (activePhrase && activeImportedPhraseSourceText && sourceEl.value === activeImportedPhraseSourceText) {
+        return { bytes: activePhrase.bytes.slice(), mode: activePhrase.mode || 'wizard', label: activePhrase.title || 'imported phrase' };
+      }
+      if (importedPhrases.length && voxLibrarySourceText && sourceEl.value === voxLibrarySourceText) {
+        const phrase = getSelectedPhrase() || importedPhrases[0];
+        if (phrase) return { bytes: phrase.bytes.slice(), mode: phrase.mode || 'wizard', label: phrase.title || 'imported phrase' };
+      }
+      const analysis = currentAnalysis;
+      if (!analysis) return { bytes: [], mode: inputModeEl?.value || 'auto', label: 'empty' };
+      return { bytes: analysis.bytes.slice(), mode: analysis.mode, label: makeFilename() };
+    }
+
+    function refreshWaveformPreview() {
+      if (!waveformPanel || waveformPanel.classList.contains('isHidden')) return;
+      const playback = currentWaveformPlaybackSnapshot();
+      if (!playback.bytes.length) {
+        waveformSamples = null;
+        waveformEvents = [];
+        waveformRenderError = '';
+        waveformView.startSample = 0;
+        waveformView.spanSamples = 0;
+        waveformView.totalSamples = 0;
+        updateWaveformCaption('No bytes to render.');
+        drawWaveformPreview();
+        return;
+      }
+
+      try {
+        const render = synthesize(playback.bytes, { mode: playback.mode });
+        waveformSamples = render.samples;
+        waveformEvents = render.events || [];
+        waveformRenderError = '';
+        const total = waveformSamples ? waveformSamples.length : 0;
+        const oldTotal = waveformView.totalSamples;
+        waveformView.totalSamples = total;
+        if (!total) {
+          waveformView.startSample = 0;
+          waveformView.spanSamples = 0;
+        } else if (!oldTotal || !waveformView.spanSamples) {
+          waveformView.startSample = 0;
+          waveformView.spanSamples = total;
+        } else {
+          waveformView.spanSamples = clampNumber(waveformView.spanSamples, Math.min(total, 64), total);
+          waveformView.startSample = clampNumber(waveformView.startSample, 0, Math.max(0, total - waveformView.spanSamples));
+        }
+        updateWaveformCaption();
+        drawWaveformPreview();
+      } catch (err) {
+        waveformSamples = null;
+        waveformEvents = [];
+        waveformRenderError = err?.message || String(err);
+        updateWaveformCaption('WAV preview failed: ' + waveformRenderError);
+        drawWaveformPreview();
+      }
+    }
+
+    function updateWaveformCaption(text = '') {
+      if (!waveformCaption) return;
+      if (text) {
+        waveformCaption.textContent = text;
+        return;
+      }
+      const total = waveformView.totalSamples || (waveformSamples ? waveformSamples.length : 0);
+      if (!total) {
+        waveformCaption.textContent = 'No waveform rendered.';
+        return;
+      }
+      const start = waveformView.startSample / SAMPLE_RATE;
+      const end = (waveformView.startSample + waveformView.spanSamples) / SAMPLE_RATE;
+      const dur = total / SAMPLE_RATE;
+      const zoomMs = waveformView.spanSamples / SAMPLE_RATE * 1000;
+      waveformCaption.textContent = `${start.toFixed(4)}s–${end.toFixed(4)}s · ${zoomMs.toFixed(0)} ms visible · ${dur.toFixed(2)}s total`;
+    }
+
+    function resizeWaveformCanvasToCssPixels(canvas) {
+      if (!canvas) return null;
+      const rect = canvas.getBoundingClientRect();
+      const cssW = Math.max(1, Math.floor(rect.width || 1));
+      const cssH = Math.max(1, Math.floor(rect.height || 1));
+      const dpr = Math.max(1, window.devicePixelRatio || 1);
+      const wantW = Math.max(1, Math.floor(cssW * dpr));
+      const wantH = Math.max(1, Math.floor(cssH * dpr));
+      if (canvas.width !== wantW || canvas.height !== wantH) {
+        canvas.width = wantW;
+        canvas.height = wantH;
+      }
+      const ctx = canvas.getContext('2d');
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      return { ctx, w: cssW, h: cssH };
+    }
+
+    function drawWaveformPreview() {
+      if (!waveformCanvas) return;
+      const sized = resizeWaveformCanvasToCssPixels(waveformCanvas);
+      if (!sized) return;
+      const { ctx, w, h } = sized;
+      const css = getComputedStyle(document.documentElement);
+      const border = css.getPropertyValue('--border').trim() || '#3a4350';
+      const panel = css.getPropertyValue('--black').trim() || '#0f1218';
+      const cyan = css.getPropertyValue('--cyan').trim() || '#72d8ff';
+      const gold = css.getPropertyValue('--gold').trim() || '#ffd166';
+      const muted = css.getPropertyValue('--muted').trim() || '#9ba7b6';
+      ctx.clearRect(0, 0, w, h);
+      ctx.fillStyle = panel;
+      ctx.fillRect(0, 0, w, h);
+
+      ctx.strokeStyle = 'rgba(255,255,255,.045)';
+      ctx.lineWidth = 1;
+      for (let x = 0; x <= w; x += Math.max(28, w / 16)) {
+        ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, h); ctx.stroke();
+      }
+      for (let y = 0; y <= h; y += Math.max(26, h / 4)) {
+        ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(w, y); ctx.stroke();
+      }
+
+      const mid = h / 2;
+      ctx.strokeStyle = gold;
+      ctx.globalAlpha = 0.72;
+      ctx.beginPath(); ctx.moveTo(0, mid); ctx.lineTo(w, mid); ctx.stroke();
+      ctx.globalAlpha = 1;
+
+      if (!waveformSamples || !waveformSamples.length) {
+        ctx.fillStyle = muted;
+        ctx.font = '700 13px ui-monospace, SFMono-Regular, Menlo, Consolas, monospace';
+        const msg = waveformRenderError ? `Preview error: ${waveformRenderError}` : 'No generated WAV preview yet.';
+        ctx.fillText(msg.slice(0, 120), 12, Math.max(22, mid - 4));
+        return;
+      }
+
+      const total = waveformSamples.length;
+      const span = clampNumber(waveformView.spanSamples || total, 1, total);
+      const start = clampNumber(waveformView.startSample || 0, 0, Math.max(0, total - span));
+      waveformView.startSample = start;
+      waveformView.spanSamples = span;
+
+      let peak = 0;
+      const peakStep = Math.max(1, Math.floor(span / Math.min(span, 5000)));
+      for (let i = start; i < Math.min(total, start + span); i += peakStep) peak = Math.max(peak, Math.abs(waveformSamples[i] || 0));
+      peak = Math.max(0.04, Math.min(1, peak));
+      const ampScale = (h * 0.46) / peak;
+
+      ctx.strokeStyle = cyan;
+      ctx.lineWidth = 1.35;
+      ctx.beginPath();
+      const cols = Math.max(1, Math.floor(w));
+      for (let x = 0; x < cols; x++) {
+        const s0 = Math.floor(start + (x / cols) * span);
+        const s1 = Math.max(s0 + 1, Math.floor(start + ((x + 1) / cols) * span));
+        let lo = 1, hi = -1;
+        for (let i = s0; i < Math.min(total, s1); i++) {
+          const v = waveformSamples[i] || 0;
+          if (v < lo) lo = v;
+          if (v > hi) hi = v;
+        }
+        if (lo > hi) { lo = hi = waveformSamples[s0] || 0; }
+        const y1 = mid - hi * ampScale;
+        const y2 = mid - lo * ampScale;
+        ctx.moveTo(x + .5, y1);
+        ctx.lineTo(x + .5, y2);
+      }
+      ctx.stroke();
+
+      if (waveformEvents && waveformEvents.length) {
+        ctx.strokeStyle = border;
+        ctx.globalAlpha = 0.55;
+        for (const ev of waveformEvents) {
+          const sx = ((ev.start * SAMPLE_RATE) - start) / span * w;
+          if (sx < 0 || sx > w) continue;
+          ctx.beginPath(); ctx.moveTo(sx, 0); ctx.lineTo(sx, h); ctx.stroke();
+        }
+        ctx.globalAlpha = 1;
+      }
+    }
+
+    function waveformPointerX(ev) {
+      const rect = waveformCanvas.getBoundingClientRect();
+      return clampNumber(ev.clientX - rect.left, 0, Math.max(1, rect.width));
+    }
+
+    function waveformPanToFullRangeX(x) {
+      if (!waveformSamples || !waveformSamples.length) return;
+      const rect = waveformCanvas.getBoundingClientRect();
+      const total = waveformSamples.length;
+      const span = clampNumber(waveformView.spanSamples || total, 1, total);
+      const center = (x / Math.max(1, rect.width)) * total;
+      waveformView.startSample = clampNumber(Math.round(center - span / 2), 0, Math.max(0, total - span));
+      updateWaveformCaption();
+      drawWaveformPreview();
+    }
+
+    function installWaveformCanvasInteractions() {
+      if (!waveformCanvas) return;
+      waveformCanvas.addEventListener('wheel', ev => {
+        if (!waveformSamples || !waveformSamples.length) return;
+        ev.preventDefault();
+        const total = waveformSamples.length;
+        const rect = waveformCanvas.getBoundingClientRect();
+        const x = waveformPointerX(ev);
+        const frac = x / Math.max(1, rect.width);
+        const oldSpan = clampNumber(waveformView.spanSamples || total, 1, total);
+        const minSpan = Math.min(total, Math.max(32, Math.round(SAMPLE_RATE * 0.006)));
+        const factor = ev.deltaY < 0 ? 0.72 : 1.38;
+        const newSpan = clampNumber(Math.round(oldSpan * factor), minSpan, total);
+        const sampleAtCursor = (waveformView.startSample || 0) + frac * oldSpan;
+        waveformView.spanSamples = newSpan;
+        waveformView.startSample = clampNumber(Math.round(sampleAtCursor - frac * newSpan), 0, Math.max(0, total - newSpan));
+        updateWaveformCaption();
+        drawWaveformPreview();
+      }, { passive: false });
+
+      waveformCanvas.addEventListener('pointerdown', ev => {
+        if (!waveformSamples || !waveformSamples.length) return;
+        waveformView.dragPointerId = ev.pointerId;
+        waveformView.dragStartX = ev.clientX;
+        waveformView.dragStartSample = waveformView.startSample || 0;
+        waveformView.dragMoved = false;
+        waveformCanvas.setPointerCapture(ev.pointerId);
+      });
+
+      waveformCanvas.addEventListener('pointermove', ev => {
+        if (waveformView.dragPointerId !== ev.pointerId || !waveformSamples || !waveformSamples.length) return;
+        const rect = waveformCanvas.getBoundingClientRect();
+        const dx = ev.clientX - waveformView.dragStartX;
+        if (Math.abs(dx) > 2) waveformView.dragMoved = true;
+        const total = waveformSamples.length;
+        const span = clampNumber(waveformView.spanSamples || total, 1, total);
+        waveformView.startSample = clampNumber(Math.round(waveformView.dragStartSample - (dx / Math.max(1, rect.width)) * span), 0, Math.max(0, total - span));
+        updateWaveformCaption();
+        drawWaveformPreview();
+      });
+
+      const finishPointer = ev => {
+        if (waveformView.dragPointerId !== ev.pointerId) return;
+        const wasClick = !waveformView.dragMoved;
+        waveformView.dragPointerId = null;
+        try { waveformCanvas.releasePointerCapture(ev.pointerId); } catch (_) { }
+        if (wasClick) waveformPanToFullRangeX(waveformPointerX(ev));
+      };
+      waveformCanvas.addEventListener('pointerup', finishPointer);
+      waveformCanvas.addEventListener('pointercancel', ev => { if (waveformView.dragPointerId === ev.pointerId) waveformView.dragPointerId = null; });
+      waveformCanvas.addEventListener('lostpointercapture', ev => { if (waveformView.dragPointerId === ev.pointerId) waveformView.dragPointerId = null; });
+    }
+
     function makeFilename() {
       const label = (sourceEl.value.match(/^\s*([A-Za-z_.$?@][A-Za-z0-9_.$?@]*)\s*:/m)?.[1] || 'sc01_phrase');
       return label.replace(/[^A-Za-z0-9_.-]+/g, '_') || 'sc01_phrase';
@@ -6070,7 +6488,7 @@ L8E78:
 
 
 
-    const VOTRAX_UI_BUILD = 'source-inner-only-border-20260702-8c2f9a';
+    const VOTRAX_UI_BUILD = 'wav-zoom-pane-20260702-233307';
     const VOTRAX_UI_STORAGE_PREFIX = 'votrax.' + VOTRAX_UI_BUILD + '.';
 
     function resetPaneCacheForThisBuild() {
@@ -6434,6 +6852,11 @@ L8E78:
     if (settingsBtn && playbackControls) settingsBtn.addEventListener('click', () => {
       setPlaybackControlsVisible(playbackControls.classList.contains('isHidden'));
     });
+    if (waveViewToggleBtn && waveformPanel) waveViewToggleBtn.addEventListener('click', () => {
+      setWaveformVisible(waveformPanel.classList.contains('isHidden'));
+    });
+    installWaveformCanvasInteractions();
+    window.addEventListener('resize', () => requestAnimationFrame(drawWaveformPreview));
     if (notesToggleBtn && notesPanel) notesToggleBtn.addEventListener('click', () => {
       setNotesVisible(notesPanel.classList.contains('isHidden'));
     });
@@ -6564,6 +6987,7 @@ L8E78:
     setSampleMenuVisible(false);
     setSourceEditorVisible(false);
     // Source editor is intentionally default-off; the pencil button toggles it on.
+    setWaveformVisible(true);
     setNotesVisible(false);
     showTab('notes');
     resetPaneCacheForThisBuild();
@@ -6582,5 +7006,5 @@ L8E78:
   </script>
 </body>
 
-<!-- cache-bust: source-inner-only-border-20260702-8c2f9a -->
+<!-- cache-bust: wav-zoom-pane-20260702-233307 -->
 </html>
