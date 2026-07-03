@@ -5,7 +5,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Votrax Player</title>
-  <!-- cache-bust-head: samples-nested-wow-20260703-180956 -->
+  <!-- cache-bust-head: words-az-tabs-pill-shape-20260703-193028 -->
   <style>
     :root {
       --bg: #14171c;
@@ -2844,6 +2844,55 @@
       max-height: none;
     }
 
+    /* Words nested tabs: A-Z tabs live only inside the words palette pane. */
+    #paletteWordsPane.active {
+      display: flex !important;
+      flex-direction: column;
+      min-height: 0;
+      overflow: hidden;
+    }
+
+    .wordSubTabBar {
+      flex: 0 0 auto;
+      margin: 0 0 6px;
+      padding: 0 6px;
+      border-bottom: 1px solid var(--border);
+      gap: 4px;
+      flex-wrap: wrap;
+    }
+
+    .wordSubTabBar .tabButton {
+      min-width: 24px;
+      padding: 4px 6px;
+      text-align: center;
+    }
+
+    .wordSubPanes {
+      display: flex;
+      flex: 1 1 auto;
+      flex-direction: column;
+      min-height: 0;
+      overflow: hidden;
+    }
+
+    .wordSubPane {
+      display: none;
+      flex: 1 1 auto;
+      min-height: 0;
+      overflow: hidden;
+    }
+
+    .wordSubPane.active {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .wordSubPane .phonemePaletteWrap {
+      flex: 1 1 auto;
+      min-height: 0;
+      max-height: none;
+    }
+
   </style>
 </head>
 
@@ -3115,11 +3164,8 @@
         </div>
 
         <div class="tabPane active" id="paletteWordsPane" role="tabpanel">
-          <div class="phonemePaletteWrap">
-            <div class="phonemePalette wordPalette" id="wordPalette"
-              aria-label="Available Votrax speech dictionary words. Drag a pill into the timeline to insert its separate SC-01 phonemes.">
-            </div>
-          </div>
+          <div class="tabBar wordSubTabBar" id="wordSubTabBar" role="tablist" aria-label="word palette letter tabs"></div>
+          <div class="wordSubPanes" id="wordSubPanes"></div>
         </div>
 
         <div class="tabPane" id="paletteDiphthongsPane" role="tabpanel">
@@ -3372,6 +3418,7 @@
       .sort((a, b) => a.word.localeCompare(b.word));
 
     let wordPaletteRenderedForRom = '';
+    let activeWordPaletteLetter = 'A';
 
     const WOW_SPEECH_SAMPLES_URL = 'wow_speech_samples.json?v=20260703-180956';
     let wowSpeechSamples = [];
@@ -4027,7 +4074,8 @@ Wor:
     const timeline = document.getElementById('timeline');
     const phonemePalette = document.getElementById('phonemePalette');
     const diphthongPalette = document.getElementById('diphthongPalette');
-    const wordPalette = document.getElementById('wordPalette');
+    const wordSubTabBar = document.getElementById('wordSubTabBar');
+    const wordSubPanes = document.getElementById('wordSubPanes');
     const wowPalette = document.getElementById('wowPalette');
     const userPalette = document.getElementById('userPalette');
     const samplePalette = document.getElementById('samplePalette');
@@ -5474,20 +5522,21 @@ Wor:
     }
 
     function wordPaletteGroups() {
-      const groups = [];
       const byLetter = new Map();
+      for (const key of 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') byLetter.set(key, []);
       for (const item of SC01_WORD_PALETTE) {
-        const first = (item.word || '#').charAt(0).toUpperCase();
+        const first = (item.word || '').charAt(0).toUpperCase();
         const key = /^[A-Z]$/.test(first) ? first : '#';
         if (!byLetter.has(key)) byLetter.set(key, []);
         byLetter.get(key).push(item);
       }
-      for (const key of 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') {
-        const items = byLetter.get(key) || [];
-        if (items.length) groups.push({ key, label: `${key} words`, items });
-      }
+      const groups = Array.from('ABCDEFGHIJKLMNOPQRSTUVWXYZ', key => ({
+        key,
+        label: key,
+        items: byLetter.get(key) || []
+      }));
       const other = byLetter.get('#') || [];
-      if (other.length) groups.push({ key: 'other', label: 'Other words', items: other });
+      if (other.length) groups.push({ key: 'other', label: '#', items: other });
       return groups;
     }
 
@@ -5595,22 +5644,76 @@ Wor:
       return btn;
     }
 
+    function showWordPaletteSubTab(name) {
+      const letters = wordPaletteGroups().map(group => group.key);
+      const selected = letters.includes(name) ? name : (letters.includes(activeWordPaletteLetter) ? activeWordPaletteLetter : 'A');
+      activeWordPaletteLetter = selected;
+      if (wordSubTabBar) {
+        wordSubTabBar.querySelectorAll('[data-word-palette-tab]').forEach(btn => {
+          btn.classList.toggle('active', btn.dataset.wordPaletteTab === selected);
+          btn.setAttribute('aria-selected', btn.dataset.wordPaletteTab === selected ? 'true' : 'false');
+        });
+      }
+      if (wordSubPanes) {
+        wordSubPanes.querySelectorAll('.wordSubPane').forEach(pane => {
+          pane.classList.toggle('active', pane.dataset.wordPalettePane === selected);
+        });
+      }
+      hidePhonemeInfoTip();
+      scheduleContentFit({ palette: true, forcePalette: true });
+    }
+
     function renderWordsPalette() {
-      if (!wordPalette) return;
+      if (!wordSubTabBar || !wordSubPanes) return;
       const renderKey = `${activeRomModel()}-${SC01_WORD_PALETTE.length}`;
-      if (wordPaletteRenderedForRom === renderKey && wordPalette.childElementCount) return;
+      if (wordPaletteRenderedForRom === renderKey && wordSubPanes.childElementCount) {
+        showWordPaletteSubTab(activeWordPaletteLetter);
+        return;
+      }
       wordPaletteRenderedForRom = renderKey;
-      wordPalette.innerHTML = '';
-      for (const group of wordPaletteGroups()) {
+      wordSubTabBar.innerHTML = '';
+      wordSubPanes.innerHTML = '';
+
+      const groups = wordPaletteGroups();
+      if (!groups.some(group => group.key === activeWordPaletteLetter)) activeWordPaletteLetter = 'A';
+
+      for (const group of groups) {
+        const tab = document.createElement('button');
+        tab.type = 'button';
+        tab.className = 'tabButton';
+        tab.dataset.wordPaletteTab = group.key;
+        tab.textContent = group.label;
+        tab.setAttribute('role', 'tab');
+        tab.setAttribute('aria-selected', 'false');
+        tab.setAttribute('aria-label', `Show ${group.label} words`);
+        tab.addEventListener('click', ev => {
+          ev.stopPropagation();
+          showWordPaletteSubTab(group.key);
+        });
+        wordSubTabBar.appendChild(tab);
+
+        const pane = document.createElement('div');
+        pane.className = 'wordSubPane';
+        pane.dataset.wordPalettePane = group.key;
+        pane.setAttribute('role', 'tabpanel');
+
+        const wrap = document.createElement('div');
+        wrap.className = 'phonemePaletteWrap';
+
+        const palette = document.createElement('div');
+        palette.className = `phonemePalette wordPalette wordPalette-${group.key}`;
+        palette.setAttribute('aria-label', `${group.label} Votrax speech dictionary words. Drag a pill into the timeline to insert its separate SC-01 phonemes.`);
+
         const groupEl = document.createElement('div');
         groupEl.className = `phonemePaletteGroup wordPaletteGroup wordPaletteGroup-${group.key}`;
-        const heading = document.createElement('div');
-        heading.className = 'phonemePaletteGroupHeader';
-        heading.textContent = `${group.label} · ${group.items.length}`;
-        groupEl.appendChild(heading);
         for (const item of group.items) groupEl.appendChild(buildWordPaletteButton(item));
-        wordPalette.appendChild(groupEl);
+        palette.appendChild(groupEl);
+        wrap.appendChild(palette);
+        pane.appendChild(wrap);
+        wordSubPanes.appendChild(pane);
       }
+
+      showWordPaletteSubTab(activeWordPaletteLetter);
     }
 
     function diphthongTipHtml(item) {
@@ -9292,6 +9395,6 @@ Wor:
   </script>
 </body>
 
-<!-- cache-bust: samples-nested-wow-20260703-180956 -->
+<!-- cache-bust: words-az-subtabs-20260703-191442 -->
 
 </html>
