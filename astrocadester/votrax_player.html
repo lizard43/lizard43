@@ -5,7 +5,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Votrax Player</title>
-  <!-- cache-bust-head: user-palette-trash-delete-20260703-1859 -->
+  <!-- cache-bust-head: user-json-export-20260703-1937 -->
   <style>
     :root {
       --bg: #14171c;
@@ -418,6 +418,17 @@
       flex-wrap: wrap;
       gap: 8px;
       align-items: center;
+    }
+
+    .settingsUserExportButton {
+      margin-left: auto;
+      flex: 0 0 auto;
+    }
+
+    @media (max-width: 520px) {
+      .settingsUserExportButton {
+        margin-left: 0;
+      }
     }
 
     .sectionHeader {
@@ -3128,6 +3139,14 @@
               id="gapBetween" type="checkbox" checked /> SC-01-ish gaps</label>
           <label class="checkLabel" title="Normalize generated PCM to avoid clipping."><input id="normalizeAudio"
               type="checkbox" checked /> Normalize</label>
+          <button class="action iconButton smallIconButton settingsUserExportButton" id="userJsonExportBtn"
+            title="Download saved user phrases and words as voltrax_user.json"
+            aria-label="Download saved user phrases and words JSON">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path fill="currentColor"
+                d="M17 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V7l-4-4ZM12 19a3 3 0 1 1 0-6 3 3 0 0 1 0 6ZM6 5h9v5H6V5Zm8 1.5H8v2h6v-2Z" />
+            </svg>
+          </button>
         </div>
 
         <div id="status"></div>
@@ -3455,6 +3474,7 @@
     let wowSpeechSamplesError = '';
 
     const USER_PHRASES_STORAGE_KEY = 'votrax.sc01.userPhrases.v1';
+    const USER_JSON_EXPORT_FILENAME = 'voltrax_user.json';
     let userPhraseStoreCache = null;
 
     // The ASM demo strings in wow.asm are direct SC-01 phoneme bytes sent to
@@ -4130,6 +4150,7 @@ Wor:
     const loadVoxBtn = document.getElementById('loadVoxBtn');
     const exportCopyBtn = document.getElementById('exportCopyBtn');
     const savePhraseBtn = document.getElementById('savePhraseBtn');
+    const userJsonExportBtn = document.getElementById('userJsonExportBtn');
     const clearBtn = document.getElementById('clearBtn');
     const savePhraseDialog = document.getElementById('savePhraseDialog');
     const savePhraseNameInput = document.getElementById('savePhraseNameInput');
@@ -5983,6 +6004,89 @@ Wor:
       }
       localStorage.setItem(USER_PHRASES_STORAGE_KEY, JSON.stringify(cleanStore));
       userPhraseStoreCache = cleanStore;
+      updateUserJsonExportButtonState();
+    }
+
+    function userStorageExportRecords() {
+      const store = loadUserPhraseStore(true);
+      const romModel = activeRomModel();
+      const romLabel = romDisplayName(romModel);
+      return Object.entries(store || {})
+        .map(([name, value]) => {
+          const cleanName = sanitizeUserPhraseName(name);
+          const entry = normalizeUserPhraseStoreEntry(value);
+          const bytes = entry.bytes.slice();
+          if (!cleanName || !bytes.length) return null;
+          const kind = normalizeUserPhraseKind(entry.kind);
+          const symbols = sampleSymbolSequence(bytes, 'sc01');
+          const byteHex = bytes.map(hex2);
+          const byteDec = bytes.map(byte => byte & 0xFF);
+          const stopIncluded = bytes.some(byte => (byte & 0xFF) === 0x3F);
+          return {
+            name: cleanName,
+            label: cleanName,
+            kind,
+            source: 'local browser storage',
+            mode: 'SC-01 raw',
+            storageKey: USER_PHRASES_STORAGE_KEY,
+            bytes: byteDec,
+            bytesHex: byteHex,
+            dec: byteDec,
+            phonemes: symbols,
+            phonemeCount: symbols.length,
+            byteCount: bytes.length,
+            stopIncluded,
+            durationPreviewMs: Math.round(sampleDurationMs(bytes, 'sc01')),
+            durationPreview: `${romLabel} preview ${tipMs(sampleDurationMs(bytes, 'sc01'))}`,
+            description: kind === 'word' ? 'Saved user word from local browser storage.' : 'Saved user phrase from local browser storage.',
+            use: kind === 'word' ? 'drag inserts the saved word as separate phonemes' : 'drag inserts the saved phrase as separate phonemes',
+            import: {
+              localStorageKey: USER_PHRASES_STORAGE_KEY,
+              name: cleanName,
+              value: { kind, bytes: byteDec }
+            }
+          };
+        })
+        .filter(Boolean)
+        .sort((a, b) => (a.kind === b.kind ? a.name.localeCompare(b.name) : a.kind.localeCompare(b.kind)));
+    }
+
+    function userStorageExportPayload() {
+      const records = userStorageExportRecords();
+      return {
+        dataset: 'votrax_user',
+        description: 'Saved Votrax user phrases and words exported from browser local storage.',
+        formatVersion: 1,
+        storageKey: USER_PHRASES_STORAGE_KEY,
+        generatedAt: new Date().toISOString(),
+        recordCount: records.length,
+        records
+      };
+    }
+
+    function updateUserJsonExportButtonState() {
+      if (!userJsonExportBtn) return;
+      const count = Object.keys(loadUserPhraseStore(true) || {}).length;
+      userJsonExportBtn.disabled = count < 1;
+      userJsonExportBtn.setAttribute('aria-disabled', count < 1 ? 'true' : 'false');
+      userJsonExportBtn.title = count < 1
+        ? 'No saved user phrases or words to download'
+        : `Download ${count} saved user item${count === 1 ? '' : 's'} as ${USER_JSON_EXPORT_FILENAME}`;
+      userJsonExportBtn.setAttribute('aria-label', count < 1
+        ? 'Download saved user phrases and words JSON disabled because there are no saved user items'
+        : `Download ${count} saved user item${count === 1 ? '' : 's'} JSON`);
+    }
+
+    function downloadUserJsonExport() {
+      const payload = userStorageExportPayload();
+      if (!payload.records.length) {
+        updateUserJsonExportButtonState();
+        setStatus('No saved user phrases or words to download.', true);
+        return;
+      }
+      const text = JSON.stringify(payload, null, 2) + '\n';
+      downloadBlob(new Blob([text], { type: 'application/json' }), USER_JSON_EXPORT_FILENAME);
+      setStatus(`Downloaded ${USER_JSON_EXPORT_FILENAME} with ${payload.records.length} saved user item${payload.records.length === 1 ? '' : 's'}.`);
     }
 
     function deleteUserStoredItem(name, kind) {
@@ -9349,6 +9453,13 @@ Wor:
       }
       openSavePhraseDialog();
     });
+    if (userJsonExportBtn) userJsonExportBtn.addEventListener('click', () => {
+      if (userJsonExportBtn.disabled) {
+        setStatus('No saved user phrases or words to download.', true);
+        return;
+      }
+      downloadUserJsonExport();
+    });
     if (savePhraseCancelBtn) savePhraseCancelBtn.addEventListener('click', closeSavePhraseDialog);
     if (savePhraseOkBtn) savePhraseOkBtn.addEventListener('click', commitSavePhraseDialog);
     if (savePhraseSaveStop) savePhraseSaveStop.addEventListener('change', updateSavePhraseDialogPreview);
@@ -9577,6 +9688,7 @@ Wor:
     renderDiphthongPalette();
     renderWowPalette();
     renderUserPalette();
+    updateUserJsonExportButtonState();
     renderSamplesPalette();
     renderTokenPalette();
     loadWowSpeechSamples();
@@ -9593,6 +9705,6 @@ Wor:
   </script>
 </body>
 
-<!-- cache-bust: words-az-subtabs-20260703-191442 -->
+<!-- cache-bust: user-json-export-20260703-1937 -->
 
 </html>
