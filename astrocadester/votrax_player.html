@@ -5,7 +5,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Votrax Player</title>
-  <!-- cache-bust-head: autofit-min-no-scroll-hardfix-20260702-224105 -->
+  <!-- cache-bust-head: sample-counts-mobile-timeline-drag-20260702-225930 -->
   <style>
     :root {
       --bg: #14171c;
@@ -707,6 +707,9 @@
       /* writing-mode: vertical-rl; */
       text-orientation: mixed;
       cursor: pointer;
+      touch-action: none;
+      user-select: none;
+      -webkit-user-select: none;
     }
 
     .timelineSegment.vowel {
@@ -2555,10 +2558,17 @@
           <path fill="currentColor" d="M6 6h12v12H6V6Z" />
         </svg>
       </button>
-      <button class="action iconButton" id="loadVoxBtn" title="Open Vox/ASM file" aria-label="Open Vox/ASM file">
+      <button class="action iconButton sourceToggleButton" id="sourceToggleBtn" title="Show source editor"
+        aria-label="Show source editor" aria-expanded="false">
         <svg viewBox="0 0 24 24" aria-hidden="true">
           <path fill="currentColor"
-            d="M10 4l2 2h8c1.1 0 2 .9 2 2v1H2V6c0-1.1.9-2 2-2h6Zm12 7v7c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2v-7h20Zm-7 2v2h-2v2h-2v-2H9v-2h2v-2h2v2h2Z" />
+            d="M3 17.25V21h3.75L17.8 9.95l-3.75-3.75L3 17.25Zm17.7-10.2c.4-.4.4-1 0-1.4l-2.35-2.35c-.4-.4-1-.4-1.4 0l-1.85 1.85 3.75 3.75 1.85-1.85Z" />
+        </svg>
+      </button>
+      <button class="action iconButton" id="exportCopyBtn" title="Copy .DB" aria-label="Copy .DB">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path fill="currentColor"
+            d="M16 1H4c-1.1 0-2 .9-2 2v12h2V3h12V1Zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2Zm0 16H8V7h11v14Z" />
         </svg>
       </button>
       <button class="action iconButton sampleToggleButton" id="sampleToggleBtn" title="Show sample phrases"
@@ -2567,18 +2577,10 @@
           <path fill="currentColor" d="M4 5h16v3H4V5Zm0 5h16v3H4v-3Zm0 5h16v3H4v-3Z" />
         </svg>
       </button>
-      <button class="action iconButton sourceToggleButton" id="sourceToggleBtn" title="Show source editor"
-        aria-label="Show source editor" aria-expanded="false">
+      <button class="action iconButton" id="loadVoxBtn" title="Open Vox/ASM file" aria-label="Open Vox/ASM file">
         <svg viewBox="0 0 24 24" aria-hidden="true">
           <path fill="currentColor"
-            d="M3 17.25V21h3.75L17.8 9.95l-3.75-3.75L3 17.25Zm17.7-10.2c.4-.4.4-1 0-1.4l-2.35-2.35c-.4-.4-1-.4-1.4 0l-1.85 1.85 3.75 3.75 1.85-1.85Z" />
-        </svg>
-      </button>
-      <button class="action iconButton wavViewToggleButton active" id="waveViewToggleBtn" title="Hide WAV zoom view"
-        aria-label="Hide WAV zoom view" aria-expanded="true">
-        <svg viewBox="0 0 24 24" aria-hidden="true">
-          <path fill="currentColor"
-            d="M3 13h2.1l1.3-5.2c.2-.8 1.3-.8 1.5 0l2.2 9.1 2.2-12.2c.1-.9 1.4-1 1.6-.1l2.2 8.4H21v2h-5.6c-.4 0-.7-.3-.8-.6l-1.2-4.6-2.2 12c-.2.9-1.4.9-1.6 0L7.2 11.5l-.7 2.8c-.1.4-.4.7-.8.7H3v-2Z" />
+            d="M10 4l2 2h8c1.1 0 2 .9 2 2v1H2V6c0-1.1.9-2 2-2h6Zm12 7v7c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2v-7h20Zm-7 2v2h-2v2h-2v-2H9v-2h2v-2h2v2h2Z" />
         </svg>
       </button>
       <button class="action iconButton" id="wavBtn" title="Download WAV render" aria-label="Download WAV">
@@ -2587,10 +2589,11 @@
             d="M19 20H5c-1.1 0-2-.9-2-2v-4h2v4h14v-4h2v4c0 1.1-.9 2-2 2ZM13 4v8.17l3.59-3.58L18 10l-6 6-6-6 1.41-1.41L11 12.17V4h2Z" />
         </svg>
       </button>
-      <button class="action iconButton" id="exportCopyBtn" title="Copy .DB" aria-label="Copy .DB">
+      <button class="action iconButton wavViewToggleButton active" id="waveViewToggleBtn" title="Hide WAV zoom view"
+        aria-label="Hide WAV zoom view" aria-expanded="true">
         <svg viewBox="0 0 24 24" aria-hidden="true">
           <path fill="currentColor"
-            d="M16 1H4c-1.1 0-2 .9-2 2v12h2V3h12V1Zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2Zm0 16H8V7h11v14Z" />
+            d="M3 13h2.1l1.3-5.2c.2-.8 1.3-.8 1.5 0l2.2 9.1 2.2-12.2c.1-.9 1.4-1 1.6-.1l2.2 8.4H21v2h-5.6c-.4 0-.7-.3-.8-.6l-1.2-4.6-2.2 12c-.2.9-1.4.9-1.6 0L7.2 11.5l-.7 2.8c-.1.4-.4.7-.8.7H3v-2Z" />
         </svg>
       </button>
       <button class="action iconButton danger" id="clearBtn" title="Clear phrase source"
@@ -3569,7 +3572,6 @@ L8E78:
 
 
     const BUILT_IN_SAMPLE_MENU = [
-      { key: 'lizard', label: 'Lizard', mode: 'sc01' },
       { key: 'wor', label: 'Wizard of Wor', mode: 'sc01' },
       { key: 'pressstart', label: 'Press Start', mode: 'sc01' },
       { key: 'wowrawhey', label: 'Hey, Insert Coin! · WoW raw', mode: 'wowraw' },
@@ -3584,6 +3586,7 @@ L8E78:
     ];
 
     const BUILT_IN_SAMPLE_BY_KEY = new Map(BUILT_IN_SAMPLE_MENU.map(sample => [sample.key, sample]));
+    BUILT_IN_SAMPLE_BY_KEY.set('lizard', { key: 'lizard', label: 'Lizard', mode: 'sc01', hidden: true });
 
     function builtInSampleByteCount(sampleKey) {
       const source = SAMPLES[sampleKey];
@@ -7533,6 +7536,31 @@ L8E78:
 
     document.querySelectorAll('.rightPanel .tabButton').forEach(btn => btn.addEventListener('click', () => showTab(btn.dataset.tab)));
 
+    function handleDocumentTimelineDragPointerMove(ev) {
+      const drag = timelineDragState;
+      if (!drag || drag.pointerId !== ev.pointerId || !drag.sourceEl) return;
+      if (!drag.sourceEl.classList?.contains('timelineSegment') && !drag.sourceEl.classList?.contains('phonemePalettePill')) return;
+      const moved = Math.hypot(ev.clientX - drag.startX, ev.clientY - drag.startY);
+      if (!drag.active && moved >= 5) startTimelineDrag(drag.sourceEl, ev);
+      if (drag.active) {
+        ev.preventDefault();
+        hidePhonemeInfoTip();
+        updateTimelineGhost(ev);
+        updateTimelineDropPlacement(ev);
+      }
+    }
+
+    function handleDocumentTimelineDragPointerEnd(ev, canceled = false) {
+      const drag = timelineDragState;
+      if (!drag || drag.pointerId !== ev.pointerId || !drag.sourceEl) return;
+      if (!drag.sourceEl.classList?.contains('timelineSegment') && !drag.sourceEl.classList?.contains('phonemePalettePill')) return;
+      finishTimelineDrag(ev, canceled);
+    }
+
+    document.addEventListener('pointermove', handleDocumentTimelineDragPointerMove, { passive: false });
+    document.addEventListener('pointerup', ev => handleDocumentTimelineDragPointerEnd(ev, false));
+    document.addEventListener('pointercancel', ev => handleDocumentTimelineDragPointerEnd(ev, true));
+
     document.addEventListener('keydown', ev => {
       if (ev.key === 'Escape' && sampleMenu && !sampleMenu.classList.contains('isHidden')) {
         ev.preventDefault();
@@ -7582,6 +7610,6 @@ L8E78:
   </script>
 </body>
 
-<!-- cache-bust: autofit-min-no-scroll-hardfix-20260702-224105 -->
+<!-- cache-bust: sample-counts-mobile-timeline-drag-20260702-225930 -->
 
 </html>
