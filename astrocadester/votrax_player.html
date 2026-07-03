@@ -5,7 +5,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Votrax Player</title>
-  <!-- cache-bust-head: wowasm-direct-sc01-samples-20260702-201820 -->
+  <!-- cache-bust-head: lizard-sample-picker-fix-20260702-211620 -->
   <style>
     :root {
       --bg: #14171c;
@@ -2667,7 +2667,9 @@
         <div class="callout gold" style="margin-top:8px;">
           Hardware/export rule: audio preview code is never written into the exported <span class="mono">.DB</span>.
           For the current WoW/Gorf hardware workflow, export is the same direct SC-01 bytes shown in the editor.
-          No Wizard/WoW token proxy, no raw-ROM expansion, and no browser-only rewrite is used for the built-in samples.
+          The tokens tab stays visible for reference and audition. Direct SC-01 hardware phrases still use the phoneme
+          palette for bytes sent to port <span class="mono">$17</span>. Dragging Wizard/WoW tokens into a direct
+          SC-01 phrase is guarded until the original WoW encoded-string decoder is implemented.
         </div>
         <div class="small" style="margin-top:10px;">
           The SC-01 chip internally contains its own phoneme timing and articulation behavior. This browser version
@@ -2832,10 +2834,9 @@
     'use strict';
 
     const SAMPLE_RATE = 40000;
-    const DEFAULT_SOURCE = `wor:                            ; Length=14
-    DB    $1B,$02,$23,$18,$23,$35,$37,$03        ; "Hello"
-    DB    $2D,$3A,$2B,$18,$1E            ; "World"
-    DB    $3F                    ; <STOP>`;
+    const DEFAULT_SOURCE = `Lizard:
+    db $18,$27,$12,$3A,$1E,$1D,$34,$2B  ; L I Z ER D F O2 R
+    db $2A,$2C,$39,$2B,$2C,$3F          ; T E TH R E STOP`;
 
     const FORMANTS = {
       EH: [530, 1840, 2480],
@@ -3489,6 +3490,7 @@
     }
 
     const SAMPLES = {
+      lizard: DEFAULT_SOURCE,
       wor: `Wizard:
     db $2D,$27,$12,$3A,$1E    ; W I Z ER D
 Of:
@@ -3584,6 +3586,7 @@ L8E78:
 
 
     const BUILT_IN_SAMPLE_MENU = [
+      { key: 'lizard', label: 'Lizard', meta: '14 bytes', mode: 'sc01' },
       { key: 'wor', label: 'Wizard of Wor', meta: '14 bytes', mode: 'sc01' },
       { key: 'hlowld', label: 'Hello World', meta: '14 bytes', mode: 'sc01' },
       { key: 'allbse', label: 'All Your Base', meta: '33 bytes', mode: 'sc01' },
@@ -4112,6 +4115,7 @@ L8E78:
       renderTimeline(currentAnalysis);
       renderPhonemePalette(currentAnalysis);
       renderTokenPalette(currentAnalysis);
+      updateTokenPaletteAvailability(currentAnalysis);
       exportText.value = formatDb(used);
       scheduleContentFit();
       document.getElementById('metricBytes').textContent = normalizedInput.rawPhrase ? `${parsedBytes.length} → ${bytes.length}` : String(parsedBytes.length);
@@ -4259,7 +4263,7 @@ L8E78:
           symbolButton.addEventListener('click', ev => {
             ev.preventDefault();
             ev.stopPropagation();
-            playBytes(item.rawBytes || [item.byte], { single: true, mode: analysis.mode });
+            playBytes(item.rawBytes || [item.byte], { single: true, mode: analysis.mode, previewIndex: item.index, preserveWaveform: true });
           });
         }
 
@@ -4440,10 +4444,38 @@ L8E78:
       clearTimelineDragState();
     }
 
+    function currentAuthoringMode(analysis = currentAnalysis) {
+      return analysis?.mode === 'wizard' ? 'wizard' : 'sc01';
+    }
+
+    function wizardTokensAllowedForAnalysis(analysis = currentAnalysis) {
+      return currentAuthoringMode(analysis) === 'wizard';
+    }
+
+    function showSc01TokenBlockStatus() {
+      setStatus('Token drag into direct SC-01 hardware phrases is blocked. The tokens tab stays visible for reference/preview, but port-$17 samples must be edited with the SC-01 phoneme palette until the original WoW encoded-string decoder is implemented.', true);
+    }
+
+    function updateTokenPaletteAvailability(analysis = currentAnalysis) {
+      const allowed = wizardTokensAllowedForAnalysis(analysis);
+      const tokenTab = document.querySelector('.phonemePalettePanel [data-palette-tab="tokens"]');
+      if (tokenTab) {
+        tokenTab.disabled = false;
+        tokenTab.hidden = false;
+        tokenTab.title = allowed
+          ? 'Wizard/WoW token palette'
+          : 'Wizard/WoW token reference / preview. Drag insert is guarded while editing direct SC-01 hardware phrases.';
+      }
+    }
+
     function insertPaletteBytesIntoTimelineSlot(bytes, slotIndex, mode = 'sc01', label = 'phoneme') {
       const insertBytes = (bytes || []).map(byte => byte & 0xFF).filter(byte => Number.isFinite(byte));
       if (!insertBytes.length) return false;
       const normalizedMode = mode === 'wizard' ? 'wizard' : 'sc01';
+      if (normalizedMode === 'wizard' && !wizardTokensAllowedForAnalysis()) {
+        showSc01TokenBlockStatus();
+        return false;
+      }
       const rows = currentAnalysis?.decoded ? currentAnalysis.decoded.slice() : [];
       const insertAt = Math.max(0, Math.min(rows.length, Number(slotIndex) || 0));
       const before = rows.slice(0, insertAt).flatMap(item => item.rawBytes || [item.byte]).map(byte => byte & 0xFF);
@@ -4786,7 +4818,7 @@ L8E78:
           ev.stopPropagation();
           return;
         }
-        playBytes(item.bytes, { single: true, mode: item.mode });
+        playBytes(item.bytes, { single: true, mode: item.mode, preserveWaveform: true });
         setStatus(`Playing ${item.label} (${item.bytes.map(hex2).join(' ')}). Drag it into the timeline to insert.`);
       });
 
@@ -4862,7 +4894,7 @@ L8E78:
       btn.dataset.tip = tokenTipHtml(tok);
       btn.innerHTML = `<span class="phonemePaletteSymbol">\\${escapeHtml(tok.token)}</span>`;
       btn.removeAttribute('title');
-      btn.setAttribute('aria-label', `Drag token \\${tok.token} (${formatTokenBytes(tok.bytes)}) into timeline. ${tok.desc || ''}`);
+      btn.setAttribute('aria-label', `Drag token \${tok.token} (${formatTokenBytes(tok.bytes)}) into timeline. ${tok.desc || ''}`);
 
       btn.addEventListener('mouseenter', ev => showPhonemeInfoTip(btn.dataset.tip, ev));
       btn.addEventListener('mousemove', movePhonemeInfoTip);
@@ -4872,6 +4904,11 @@ L8E78:
 
       btn.addEventListener('pointerdown', ev => {
         if (ev.button !== undefined && ev.button !== 0) return;
+        if (!wizardTokensAllowedForAnalysis()) {
+          ev.preventDefault();
+          showSc01TokenBlockStatus();
+          return;
+        }
         timelineDragState = {
           pointerId: ev.pointerId,
           kind: 'insert',
@@ -4930,19 +4967,32 @@ L8E78:
           return;
         }
         if (tok.playable) {
-          playBytes(tok.bytes, { single: true, mode: 'wizard' });
-          setStatus(`Playing token \\${tok.token} (${formatTokenBytes(tok.bytes)}). Drag it into the timeline to insert.`);
+          playBytes(tok.bytes, { single: true, mode: 'wizard', preserveWaveform: true });
+          const insertNote = wizardTokensAllowedForAnalysis()
+            ? 'Drag it into the timeline to insert.'
+            : 'Preview only in direct SC-01 mode; drag insert is blocked so the hardware phrase is not corrupted.';
+          setStatus(`Playing token ${tok.token} (${formatTokenBytes(tok.bytes)}). ${insertNote}`);
         } else {
-          setStatus(`Token \\${tok.token} (${formatTokenBytes(tok.bytes)}) is a ${tok.type} event. Drag it into the timeline to insert.`);
+          const insertNote = wizardTokensAllowedForAnalysis()
+            ? 'Drag it into the timeline to insert.'
+            : 'Reference only in direct SC-01 mode; drag insert is blocked so the hardware phrase is not corrupted.';
+          setStatus(`Token ${tok.token} (${formatTokenBytes(tok.bytes)}) is a ${tok.type} event. ${insertNote}`);
         }
       });
 
       return btn;
     }
 
-    function renderTokenPalette() {
+    function renderTokenPalette(analysis = currentAnalysis) {
       if (!tokenPalette) return;
       tokenPalette.innerHTML = '';
+      updateTokenPaletteAvailability(analysis);
+      if (!wizardTokensAllowedForAnalysis(analysis)) {
+        const warning = document.createElement('div');
+        warning.className = 'callout gold';
+        warning.textContent = 'Token tab is visible for reference and single-token preview. Drag insert is blocked while the current phrase is direct SC-01 hardware bytes, because mixing Wizard/WoW tokens into a port-$17 SC-01 phrase corrupts the sample.';
+        tokenPalette.appendChild(warning);
+      }
       for (const group of tokenPaletteGroups()) {
         const groupEl = document.createElement('div');
         groupEl.className = `phonemePaletteGroup tokenPaletteGroup tokenPaletteGroup-${group.key}`;
@@ -5080,7 +5130,7 @@ L8E78:
             return;
           }
           if (item.skipAudio) { setStatus(`${ph?.symbol || 'Control'} is a  control event; no direct audio.`); return; }
-          playBytes(item.rawBytes || [item.byte], { single: true, mode: analysis.mode });
+          playBytes(item.rawBytes || [item.byte], { single: true, mode: analysis.mode, previewIndex: item.index, preserveWaveform: true });
         });
         timeline.appendChild(seg);
       }
@@ -5734,7 +5784,14 @@ L8E78:
       if (!bytes.length) { setStatus('No phoneme bytes to play.', true); return; }
       const ctx = await ensureAudioContext();
       const render = synthesize(bytes, playOptions);
-      applyPlaybackRenderToWaveformPreview(render);
+      // Single-phoneme auditions must not replace the full phrase waveform.
+      // The WAV zoom pane is the current edited phrase/sample; hover/click only
+      // highlights portions of that phrase unless a full phrase playback starts.
+      if (!playOptions.single && !playOptions.preserveWaveform) {
+        applyPlaybackRenderToWaveformPreview(render);
+      } else if (!waveformSamples || !waveformSamples.length) {
+        scheduleWaveformRender();
+      }
       const buffer = ctx.createBuffer(1, render.samples.length, SAMPLE_RATE);
       buffer.getChannelData(0).set(render.samples);
       const node = ctx.createBufferSource();
@@ -5755,7 +5812,10 @@ L8E78:
       const startTime = ctx.currentTime;
       node.start();
       clearHighlights();
-      if (!playOptions.single) {
+      if (playOptions.single && playOptions.previewIndex !== undefined && playOptions.previewIndex !== null) {
+        const previewIndex = Number(playOptions.previewIndex);
+        if (Number.isFinite(previewIndex)) highlightIndex(previewIndex);
+      } else if (!playOptions.single) {
         render.events.forEach((ev, i) => {
           const timer = setTimeout(() => highlightIndex(ev.index ?? i), Math.max(0, (ev.start - .005) * 1000));
           highlightTimers.push(timer);
@@ -6550,6 +6610,10 @@ L8E78:
     }
 
     function appendWizardToken(tokenDef) {
+      if (!wizardTokensAllowedForAnalysis()) {
+        showSc01TokenBlockStatus();
+        return;
+      }
       appendBytesToSource(tokenDef.bytes, '\\' + tokenDef.token + ' · ' + tokenDef.type, 'wizard');
       setStatus(`Added token \\${tokenDef.token} as ${formatTokenBytes(tokenDef.bytes)}.`);
     }
@@ -6595,7 +6659,7 @@ L8E78:
           `<td class="phonemeRomCell">${romText}</td>`;
         tr.addEventListener('dblclick', ev => {
           if (ev.target.closest('button')) return;
-          playBytes([ph.byte], { single: true, mode: 'sc01' });
+          playBytes([ph.byte], { single: true, mode: 'sc01', preserveWaveform: true });
         });
         tableBody.appendChild(tr);
       }
@@ -7022,7 +7086,8 @@ L8E78:
       const previousSuppressPalette = suppressPaletteAutoFit;
       preparePhraseLoadAutoFit();
       suppressPaletteAutoFit = true;
-      sourceEl.value = SAMPLES[sampleKey] || DEFAULT_SOURCE;
+      const sampleSource = Object.prototype.hasOwnProperty.call(SAMPLES, sampleKey) ? SAMPLES[sampleKey] : DEFAULT_SOURCE;
+      sourceEl.value = sampleSource;
       sourceInsertPos = sourceEl.value.length;
       activeImportedPhraseIndex = null;
       activeImportedPhraseSourceText = '';
@@ -7224,7 +7289,7 @@ L8E78:
         ev.stopPropagation();
         const byte = Number(playPill.dataset.playByte) & 0xFF;
         const ph = PHONEME_BY_BYTE.get(byte);
-        playBytes([byte], { single: true, mode: 'sc01' });
+        playBytes([byte], { single: true, mode: 'sc01', preserveWaveform: true });
         setStatus(`Playing ${hex2(byte)} ${ph?.symbol || ''}.`);
         return;
       }
@@ -7241,7 +7306,7 @@ L8E78:
         ev.stopPropagation();
         const tokenDef = WIZARD_TOKEN_CATALOG[Number(playPill.dataset.tokenPlay)];
         if (!tokenDef) return;
-        playBytes(tokenDef.bytes, { single: true, mode: 'wizard' });
+        playBytes(tokenDef.bytes, { single: true, mode: 'wizard', preserveWaveform: true });
         setStatus(`Playing token \\${tokenDef.token} (${formatTokenBytes(tokenDef.bytes)}).`);
         return;
       }
@@ -7298,14 +7363,15 @@ L8E78:
     updateSliderLabels();
     installBuiltInSc01Rom('sc01');
     sourceEl.value = DEFAULT_SOURCE;
+    inputModeEl.value = 'sc01';
     sourceInsertPos = sourceEl.value.length;
     requestWaveformFullViewOnNextRender();
     analyze();
     scheduleContentFit();
-    setStatus('Ready. Built-in wow.asm hardware samples are direct SC-01 bytes for the $17 speech port; paste bytes, load ASM data, or switch to SC-01A.');
+    setStatus('Ready. Default sample is Lizard. Sample picker loads the selected phrase. Single-phoneme auditions preserve the full phrase waveform.');
   </script>
 </body>
 
-<!-- cache-bust: wowasm-direct-sc01-samples-20260702-201820 -->
+<!-- cache-bust: lizard-sample-picker-fix-20260702-211620 -->
 
 </html>
