@@ -5,7 +5,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Votrax Player</title>
-  <!-- cache-bust-head: timeline-tooltip-position-20260703-002044 -->
+  <!-- cache-bust-head: wowraw-sc01-proxy-palette-mode-20260702-193900 -->
   <style>
     :root {
       --bg: #14171c;
@@ -2429,7 +2429,7 @@
 
 
 
-    /* Generated WAV zoom pane: timeline-tooltip-position-20260703-002044
+    /* Generated WAV zoom pane: waveform-play-highlight-fullview-20260703-003812
        Single zoom-window view borrowed from the Bally WAV decoder UI, adapted
        for the Votrax phrase renderer. Wheel zooms; click/drag pans. */
     .wavViewToggleButton.active,
@@ -2639,8 +2639,9 @@
           phrase blocks such as <span class="mono">ALLBSE</span>.
         </div>
         <div class="callout cyan" style="margin-top:8px;">
-          This page uses the browser <span class="mono">AudioContext</span> and a small formant/noise synthesizer. It is
-          meant for fast Astrocade phrase prototyping from ROM byte streams, not cycle-accurate Votrax SC-01 emulation.
+          This page uses the browser <span class="mono">AudioContext</span>, a MAME-derived SC-01 renderer for direct phone bytes,
+          and an SC-01 proxy renderer for expanded Wizard/WoW token streams. It is meant for fast Astrocade phrase prototyping
+          from ROM byte streams, not cycle-accurate Votrax SC-01 emulation.
         </div>
         <div class="callout gold" style="margin-top:8px;">
           Click any green phoneme pill in the Decoded, phonemes, or tokens tabs to audition it. Use Add when
@@ -2754,6 +2755,10 @@
       </section>
 
       <section class="panel stack phonemePalettePanel resizablePanel" aria-label="Add phonemes to timeline" data-pane-name="palette" style="--palette-pane-height: 214px; --palette-pane-height-mobile: 180px;">
+        <div class="phonemePaletteHeader">
+          <h3>Palette</h3>
+          <div class="phonemePaletteMode" id="phonemePaletteMode">SC-01 phonemes</div>
+        </div>
         <div class="tabBar phonemePaletteTabBar" role="tablist" aria-label="phoneme palette tabs">
           <button class="tabButton active" type="button" data-palette-tab="phonemes">phonemes</button>
           <button class="tabButton" type="button" data-palette-tab="tokens">tokens</button>
@@ -3549,6 +3554,8 @@ L8E78:
     let waveformEvents = [];
     let waveformRenderError = '';
     let waveformHoverIndex = null;
+    let waveformActiveIndex = null;
+    let waveformResetViewOnNextRender = true;
     const waveformView = {
       startSample: 0,
       spanSamples: 0,
@@ -4532,6 +4539,18 @@ L8E78:
       drawWaveformPreview();
     }
 
+    function setWaveformActiveIndex(index) {
+      const next = (index === null || index === undefined) ? null : Number(index);
+      const normalized = Number.isFinite(next) ? next : null;
+      if (waveformActiveIndex === normalized) return;
+      waveformActiveIndex = normalized;
+      drawWaveformPreview();
+    }
+
+    function requestWaveformFullViewOnNextRender() {
+      waveformResetViewOnNextRender = true;
+    }
+
     function showPhonemeInfoTip(html, ev) {
       if (!phonemeInfoTip || !html) return;
       phonemeInfoTip.innerHTML = html;
@@ -4674,8 +4693,8 @@ L8E78:
       phonemePalette.innerHTML = '';
       if (phonemePaletteMode) {
         phonemePaletteMode.textContent = mode === 'wizard'
-          ? `Wizard/WoW phonemes · ${total}`
-          : `${romDisplayName(activeRomModel())} phonemes · ${total}`;
+          ? `Wizard/WoW token phonemes · ${total} · SC-01 proxy playback`
+          : `${romDisplayName(activeRomModel())} direct phonemes · ${total}`;
       }
 
       for (const group of groups) {
@@ -5551,10 +5570,114 @@ L8E78:
       return { samples, events, duration: samples.length / SAMPLE_RATE };
     }
 
+    const WIZARD_TO_SC01_PROXY_BYTES = {
+      IY: [0x2C], IH: [0x27], EY: [0x20], EH: [0x3B], AY: [0x21], AX: [0x33], UX: [0x33],
+      AW: [0x3D], OH: [0x26], OW: [0x35], UH: [0x28],
+      MM: [0x0C], NE: [0x0D], NO: [0x0D, 0x26], NGE: [0x14], NGO: [0x14, 0x26],
+      LE: [0x18], LO: [0x18, 0x26], WW: [0x2D], RR: [0x2B],
+      EYRR: [0x20, 0x2B], AXRR: [0x33, 0x2B], AWRR: [0x3D, 0x2B], OWRR: [0x35, 0x2B],
+      EYIY: [0x20, 0x27], OHIY: [0x26, 0x27], OWIY: [0x35, 0x27], OHIH: [0x26, 0x27],
+      EHLE: [0x3B, 0x18], IYUW: [0x36], IHWW: [0x27, 0x2D], AYWW: [0x21, 0x2D], OWWW: [0x35, 0x2D],
+      JH: [0x1A], VV: [0x0F], ZZ: [0x12], DH: [0x38],
+      BE: [0x0E], EB: [0x0E], OB: [0x26, 0x0E],
+      DE: [0x1E], DO: [0x1E, 0x26], ED: [0x1E], OD: [0x26, 0x1E],
+      GE: [0x1C], GO: [0x1C, 0x26], CH: [0x10], HE: [0x1B, 0x20], HO: [0x1B, 0x26],
+      FF: [0x1D], SE: [0x1F], SO: [0x1F, 0x26], SH: [0x11], TH: [0x39], TT: [0x2A],
+      KE: [0x19], KO: [0x19, 0x26], EK: [0x2C, 0x19], OK: [0x19], PE: [0x25], PO: [0x25, 0x26]
+    };
+
+    function sc01ProxyBytesForWizardItem(item) {
+      const ph = item?.ph;
+      if (!ph) return [];
+      if (ph.kind === 'pause') {
+        const symbol = String(ph.symbol || '').toUpperCase();
+        if (symbol === 'P0' || symbol === 'P1' || symbol === 'P2' || symbol === 'PA0') return [0x03];
+        return [0x3E];
+      }
+      if (ph.kind === 'stop') return [0x3F];
+      const mapped = WIZARD_TO_SC01_PROXY_BYTES[String(ph.symbol || '').toUpperCase()];
+      if (mapped) return mapped.slice();
+      if ((item.byte & 0xff) <= 0x3f) return [item.byte & 0x3f];
+      return [];
+    }
+
+    function resampleFloatChunk(chunk, ratio) {
+      const r = Number(ratio);
+      if (!chunk || !chunk.length || !Number.isFinite(r) || Math.abs(r - 1) < 0.01) return chunk;
+      const newLen = Math.max(1, Math.round(chunk.length / Math.max(0.25, Math.min(3.0, r))));
+      const out = new Float32Array(newLen);
+      if (newLen === 1) { out[0] = chunk[0] || 0; return out; }
+      const maxSrc = Math.max(1, chunk.length - 1);
+      for (let i = 0; i < newLen; i++) {
+        const pos = (i / Math.max(1, newLen - 1)) * maxSrc;
+        const a = Math.floor(pos);
+        const b = Math.min(chunk.length - 1, a + 1);
+        const t = pos - a;
+        out[i] = (chunk[a] || 0) * (1 - t) + (chunk[b] || 0) * t;
+      }
+      return out;
+    }
+
+    function synthesizeWizardSc01Proxy(bytes, options = {}) {
+      if (!sc01RomState) return synthesizeLegacy(bytes, options);
+      const baseGain = ((Number(gainEl.value) || 90) / 100) * (options.gain ?? 1);
+      const decoded = decodeWizardStream(bytes);
+      const renderer = new MameSc01Renderer(sc01RomState, { clock: MAME_SC01_MAINCLOCK, inflection: options.inflection || 0 });
+      const chunks = [];
+      const events = [];
+      let total = 0;
+      let rateModifier = 1;
+      let ampModifier = 1;
+
+      for (const item of decoded) {
+        const ph = item.ph;
+        if (!ph) continue;
+
+        if (item.skipAudio) {
+          if (item.controlType === 'fast') rateModifier = 1.30;
+          else if (item.controlType === 'slow') rateModifier = 0.78;
+          else if (item.controlType === 'stress') ampModifier = 1.20;
+          else if (item.controlType === 'relax') ampModifier = 0.86;
+          continue;
+        }
+
+        const proxyBytes = sc01ProxyBytesForWizardItem(item);
+        if (!proxyBytes.length) continue;
+        const start = total;
+
+        for (const phone of proxyBytes) {
+          let chunk = renderer.renderPhone(phone & 0x3f);
+          if (rateModifier !== 1) chunk = resampleFloatChunk(chunk, rateModifier);
+          if (ampModifier !== 1) {
+            const adjusted = new Float32Array(chunk.length);
+            for (let i = 0; i < chunk.length; i++) adjusted[i] = chunk[i] * ampModifier;
+            chunk = adjusted;
+          }
+          chunks.push(chunk);
+          total += chunk.length;
+        }
+
+        if (gapBetweenEl.checked && ph.kind !== 'pause' && ph.kind !== 'stop') {
+          const gap = new Float32Array(Math.floor(SAMPLE_RATE * 0.0025));
+          chunks.push(gap);
+          total += gap.length;
+        }
+
+        events.push({ byte: item.byte, ph, index: item.index, start: start / SAMPLE_RATE, end: total / SAMPLE_RATE, proxyBytes });
+        rateModifier = 1;
+        ampModifier = 1;
+        if (shouldStopPlaybackAtItem(item, ph)) break;
+      }
+
+      const samples = postProcessMameSamples(concatFloatChunks(chunks, total), baseGain, normalizeAudioEl.checked);
+      return { samples, events, duration: samples.length / SAMPLE_RATE, proxy: true };
+    }
+
     function synthesize(bytes, options = {}) {
       const requestedMode = options.mode || guessDecodeMode(bytes);
       const normalizedInput = normalizeInputForDecode(bytes, requestedMode);
       if (normalizedInput.mode === 'sc01' && sc01RomState) return synthesizeMameSc01(normalizedInput.bytes, options);
+      if (normalizedInput.mode === 'wizard' && sc01RomState) return synthesizeWizardSc01Proxy(normalizedInput.bytes, options);
       return synthesizeLegacy(bytes, options);
     }
 
@@ -5569,11 +5692,34 @@ L8E78:
       for (const timer of highlightTimers) clearTimeout(timer);
       highlightTimers = [];
       document.querySelectorAll('.decodedRow.active,.timelineSegment.active').forEach(el => el.classList.remove('active'));
+      setWaveformActiveIndex(null);
     }
 
     function highlightIndex(index) {
       document.querySelectorAll('.decodedRow.active,.timelineSegment.active').forEach(el => el.classList.remove('active'));
       document.querySelectorAll(`[data-index="${index}"]`).forEach(el => el.classList.add('active'));
+      setWaveformActiveIndex(index);
+    }
+
+    function applyPlaybackRenderToWaveformPreview(render) {
+      if (!render || !waveformPanel || waveformPanel.classList.contains('isHidden')) return;
+      waveformSamples = render.samples || null;
+      waveformEvents = render.events || [];
+      waveformRenderError = '';
+      const total = waveformSamples ? waveformSamples.length : 0;
+      waveformView.totalSamples = total;
+      if (!total) {
+        waveformView.startSample = 0;
+        waveformView.spanSamples = 0;
+      } else if (!waveformView.spanSamples) {
+        waveformView.startSample = 0;
+        waveformView.spanSamples = total;
+      } else {
+        waveformView.spanSamples = clampNumber(waveformView.spanSamples, Math.min(total, 64), total);
+        waveformView.startSample = clampNumber(waveformView.startSample, 0, Math.max(0, total - waveformView.spanSamples));
+      }
+      updateWaveformCaption();
+      drawWaveformPreview();
     }
 
     async function playBytes(bytes, playOptions = {}) {
@@ -5581,6 +5727,7 @@ L8E78:
       if (!bytes.length) { setStatus('No phoneme bytes to play.', true); return; }
       const ctx = await ensureAudioContext();
       const render = synthesize(bytes, playOptions);
+      applyPlaybackRenderToWaveformPreview(render);
       const buffer = ctx.createBuffer(1, render.samples.length, SAMPLE_RATE);
       buffer.getChannelData(0).set(render.samples);
       const node = ctx.createBufferSource();
@@ -5707,6 +5854,7 @@ L8E78:
         waveformSamples = null;
         waveformEvents = [];
         waveformRenderError = '';
+        waveformResetViewOnNextRender = false;
         waveformView.startSample = 0;
         waveformView.spanSamples = 0;
         waveformView.totalSamples = 0;
@@ -5726,9 +5874,11 @@ L8E78:
         if (!total) {
           waveformView.startSample = 0;
           waveformView.spanSamples = 0;
-        } else if (!oldTotal || !waveformView.spanSamples) {
+          waveformResetViewOnNextRender = false;
+        } else if (waveformResetViewOnNextRender || !oldTotal || !waveformView.spanSamples) {
           waveformView.startSample = 0;
           waveformView.spanSamples = total;
+          waveformResetViewOnNextRender = false;
         } else {
           waveformView.spanSamples = clampNumber(waveformView.spanSamples, Math.min(total, 64), total);
           waveformView.startSample = clampNumber(waveformView.startSample, 0, Math.max(0, total - waveformView.spanSamples));
@@ -5823,28 +5973,31 @@ L8E78:
       waveformView.startSample = start;
       waveformView.spanSamples = span;
 
-      const hoverEvent = waveformEventForTimelineIndex(waveformHoverIndex);
-      if (hoverEvent && Number.isFinite(hoverEvent.start) && Number.isFinite(hoverEvent.end)) {
-        const hs = hoverEvent.start * SAMPLE_RATE;
-        const he = Math.max(hs + 1, hoverEvent.end * SAMPLE_RATE);
+      const drawWaveformEventHighlight = (timelineIndex, alpha = .18) => {
+        const event = waveformEventForTimelineIndex(timelineIndex);
+        if (!event || !Number.isFinite(event.start) || !Number.isFinite(event.end)) return;
+        const hs = event.start * SAMPLE_RATE;
+        const he = Math.max(hs + 1, event.end * SAMPLE_RATE);
         const x1 = clampNumber(((hs - start) / span) * w, 0, w);
         const x2 = clampNumber(((he - start) / span) * w, 0, w);
-        if (x2 > 0 && x1 < w && x2 - x1 >= 1) {
-          ctx.save();
-          ctx.fillStyle = 'rgba(255, 209, 102, .18)';
-          ctx.fillRect(x1, 0, Math.max(1, x2 - x1), h);
-          ctx.strokeStyle = gold;
-          ctx.globalAlpha = 0.92;
-          ctx.lineWidth = 1.5;
-          ctx.beginPath();
-          ctx.moveTo(x1 + .5, 0);
-          ctx.lineTo(x1 + .5, h);
-          ctx.moveTo(x2 + .5, 0);
-          ctx.lineTo(x2 + .5, h);
-          ctx.stroke();
-          ctx.restore();
-        }
-      }
+        if (x2 <= 0 || x1 >= w || x2 - x1 < 1) return;
+        ctx.save();
+        ctx.fillStyle = `rgba(255, 209, 102, ${alpha})`;
+        ctx.fillRect(x1, 0, Math.max(1, x2 - x1), h);
+        ctx.strokeStyle = gold;
+        ctx.globalAlpha = 0.92;
+        ctx.lineWidth = 1.5;
+        ctx.beginPath();
+        ctx.moveTo(x1 + .5, 0);
+        ctx.lineTo(x1 + .5, h);
+        ctx.moveTo(x2 + .5, 0);
+        ctx.lineTo(x2 + .5, h);
+        ctx.stroke();
+        ctx.restore();
+      };
+
+      drawWaveformEventHighlight(waveformActiveIndex, .20);
+      if (waveformHoverIndex !== waveformActiveIndex) drawWaveformEventHighlight(waveformHoverIndex, .18);
 
       let peak = 0;
       const peakStep = Math.max(1, Math.floor(span / Math.min(span, 5000)));
@@ -6232,6 +6385,7 @@ L8E78:
       sourceEl.value = formatPhraseSource(phrase);
       activeImportedPhraseSourceText = sourceEl.value;
       inputModeEl.value = phrase.mode || 'wizard';
+      requestWaveformFullViewOnNextRender();
       analyze();
       if (avoidPaletteFit) {
         suppressPaletteAutoFit = previousSuppressPalette;
@@ -6312,6 +6466,7 @@ L8E78:
           sourceEl.value = voxLibrarySourceText;
           activeImportedPhraseIndex = null;
           activeImportedPhraseSourceText = '';
+          requestWaveformFullViewOnNextRender();
           analyze();
           setStatus(`Loaded ${file.name}; no phrase blocks found yet.`, true);
         }
@@ -6614,7 +6769,7 @@ L8E78:
 
 
 
-    const VOTRAX_UI_BUILD = 'wav-zoom-bottomstats-resize-20260702-234859';
+    const VOTRAX_UI_BUILD = 'waveform-play-highlight-fullview-20260703-003812';
     const VOTRAX_UI_STORAGE_PREFIX = 'votrax.' + VOTRAX_UI_BUILD + '.';
 
     function resetPaneCacheForThisBuild() {
@@ -6869,11 +7024,16 @@ L8E78:
         setPhraseInfo(`Sample loaded. Imported phrase list preserved (${importedPhrases.length} phrase stream(s)).`);
       }
       inputModeEl.value = sampleKey === 'wowrawhey' ? 'wowraw' : 'sc01';
+      requestWaveformFullViewOnNextRender();
       analyze();
       suppressPaletteAutoFit = previousSuppressPalette;
       schedulePhraseLoadAutoFit();
       setSampleMenuVisible(false);
-      setStatus(`Loaded sample: ${label || sampleKey}.`);
+      if (sampleKey === 'wowrawhey') {
+        setStatus(`Loaded sample: ${label || sampleKey}. WoW raw bytes recognized and expanded to Wizard/WoW tokens; playback uses SC-01 proxy render.`);
+      } else {
+        setStatus(`Loaded sample: ${label || sampleKey}.`);
+      }
     }
 
     function loadImportedPhraseFromMenu(index) {
@@ -7136,11 +7296,12 @@ L8E78:
     installBuiltInSc01Rom('sc01');
     sourceEl.value = DEFAULT_SOURCE;
     sourceInsertPos = sourceEl.value.length;
+    requestWaveformFullViewOnNextRender();
     analyze();
     scheduleContentFit();
     setStatus('Ready. Built-in SC-01 ROM table is active; paste bytes, load Wizard/ASM data, or switch to SC-01A.');
   </script>
 </body>
 
-<!-- cache-bust: wav-zoom-pane-20260702-233307 -->
+<!-- cache-bust: waveform-play-highlight-fullview-20260703-003812 -->
 </html>
