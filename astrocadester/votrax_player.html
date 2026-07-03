@@ -5,7 +5,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Votrax Player</title>
-  <!-- cache-bust-head: waveform-edge-time-legend-20260703-002220 -->
+  <!-- cache-bust-head: common-tooltip-a1a2-fix-20260703-121333 -->
   <style>
     :root {
       --bg: #14171c;
@@ -1876,7 +1876,7 @@
       position: fixed;
       z-index: 10050;
       display: none;
-      max-width: min(340px, calc(100vw - 22px));
+      max-width: min(520px, calc(100vw - 22px));
       padding: 8px 10px;
       border: 1px solid var(--border);
       border-radius: 8px;
@@ -1923,6 +1923,34 @@
       margin-top: 4px;
       color: var(--text);
       font: inherit;
+    }
+
+    .phonemeInfoTip .tipMeta {
+      display: grid;
+      grid-template-columns: auto minmax(0, 1fr);
+      gap: 2px 8px;
+      margin-top: 6px;
+      font: 11px/1.35 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    }
+
+    .phonemeInfoTip .tipK {
+      color: var(--muted);
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .phonemeInfoTip .tipV {
+      color: var(--text);
+      min-width: 0;
+      overflow-wrap: anywhere;
+    }
+
+    .phonemeInfoTip .tipV.goldText {
+      color: var(--gold);
+    }
+
+    .phonemeInfoTip .tipV.cyanText {
+      color: var(--cyan);
     }
 
     @media (max-width: 520px) {
@@ -2917,8 +2945,8 @@
       p(0x02, 'EH1', 'e in jet (long)', { formants: FORMANTS.EH, dur: 175 }),
       p(0x03, 'PA0', 'Short Pause', { kind: 'pause', dur: 90, amp: 0 }),
       p(0x04, 'DT', 'd in door (release)', { kind: 'plosive', dur: 45, voiced: true, burst: 1800, amp: .50 }),
-      p(0x05, 'A1', 'a in past', { formants: FORMANTS.A, dur: 120 }),
-      p(0x06, 'A2', 'a in past (longer)', { formants: FORMANTS.A, dur: 170 }),
+      p(0x05, 'A2', 'a in past', { formants: FORMANTS.A, dur: 120 }),
+      p(0x06, 'A1', 'a in past (longer)', { formants: FORMANTS.A, dur: 170 }),
       p(0x07, 'ZH', 'z in azure', { kind: 'fricative', dur: 115, voiced: true, fric: 2100, amp: .45 }),
       p(0x08, 'AH2', 'o in hot', { formants: FORMANTS.AH, dur: 120 }),
       p(0x09, 'I3', 'i in pin (short)', { formants: FORMANTS.I, dur: 70 }),
@@ -4521,7 +4549,7 @@ L8E78:
       vowels: [
         'I1', 'I2', 'I3', 'I',
         'E1', 'E', 'EH1', 'EH2', 'EH3', 'EH',
-        'AE1', 'AE', 'A1', 'A2', 'A', 'AY',
+        'AE1', 'AE', 'A2', 'A1', 'A', 'AY',
         'AH1', 'AH2', 'AH', 'AW1', 'AW2', 'AW',
         'O1', 'O2', 'O', 'OO1', 'OO', 'U1', 'U', 'IU',
         'UH1', 'UH2', 'UH3', 'UH', 'ER'
@@ -4640,27 +4668,157 @@ L8E78:
       ].filter(group => group.items.length);
     }
 
+    function tipValueNumber(value, digits = 2) {
+      const n = Number(value);
+      if (!Number.isFinite(n)) return '—';
+      if (Object.is(n, -0)) return '0';
+      const fixed = Math.abs(n) >= 10 ? n.toFixed(0) : n.toFixed(digits);
+      return fixed.replace(/\.0+$/, '').replace(/(\.\d*?)0+$/, '$1');
+    }
+
+    function tipMs(value) {
+      const n = Number(value);
+      return Number.isFinite(n) ? `${Math.round(n)}ms` : '—';
+    }
+
+    function tipHz(value) {
+      const n = Number(value);
+      return Number.isFinite(n) ? `${Math.round(n)}Hz` : '—';
+    }
+
+    function tipBool(value) {
+      return value ? 'yes' : 'no';
+    }
+
+    function tipFormants(forms) {
+      if (!Array.isArray(forms) || !forms.length) return '—';
+      return forms.map(v => Math.round(Number(v) || 0)).join('/') + 'Hz';
+    }
+
+    function tipRow(label, value, className = '') {
+      if (value === undefined || value === null || value === '') return '';
+      return `<span class="tipK">${escapeHtml(label)}</span><span class="tipV${className ? ' ' + className : ''}">${escapeHtml(String(value))}</span>`;
+    }
+
+    function tipMeta(rows) {
+      const body = rows.filter(Boolean).join('');
+      return body ? `<div class="tipMeta">${body}</div>` : '';
+    }
+
+    function tipRomWord(entry) {
+      if (!entry || entry.word === undefined || entry.word === null) return '';
+      try {
+        return '0x' + BigInt(entry.word).toString(16).toUpperCase().padStart(16, '0');
+      } catch (_) {
+        return String(entry.word);
+      }
+    }
+
+    function tooltipModeLabel(mode) {
+      if (mode === 'wizard') return 'Wizard/WoW';
+      if (mode === 'wowraw') return 'WoW raw';
+      return 'SC-01 raw';
+    }
+
     function phonemeRomInfo(item) {
       const ph = item?.ph;
       if (!ph) return 'ROM info unavailable.';
-      if (item.mode === 'wizard') {
-        return `Wizard/WoW token stream · byte ${hex2(ph.byte)} · browser phoneme table`;
+      const mode = item.mode || currentAuthoringMode();
+      if (mode === 'wizard' || ph.byte > 0x3f) {
+        return `${tooltipModeLabel(mode)} · browser table`;
       }
       const entry = sc01RomState?.byPhone?.get(ph.byte & 0x3F);
       if (!entry) return `${romDisplayName(activeRomModel())} ROM info unavailable.`;
       const diff = romDifferenceInfo(ph.byte, entry);
-      const diffText = diff?.changed ? ` · differs from ${romDisplayName(diff.otherModel)}` : '';
-      return `${romDisplayName(activeRomModel())} · ${romSummary(entry)}${diffText}`;
+      const diffText = diff?.changed ? ` · differs from ${romDisplayName(diff.otherModel)}` : ` · ${romDisplayName(diff.otherModel)} same`;
+      return `${romDisplayName(activeRomModel())} · row ${entry.row} · ${romSummary(entry)}${diffText}`;
+    }
+
+    function tooltipItemFromTimelineItem(item, analysis = currentAnalysis) {
+      const ph = item?.ph;
+      return {
+        ph,
+        bytes: item?.rawBytes || [item?.byte ?? 0],
+        mode: analysis?.mode || currentAuthoringMode(analysis),
+        label: ph?.symbol || '??',
+        tipType: item?.controlType || ph?.kind || classifyForUi(ph),
+        timeline: {
+          index: item?.index,
+          sourceIndex: item?.sourceIndex,
+          lengthSeconds: timelineItemLengthSeconds(item, analysis),
+          skipAudio: Boolean(item?.skipAudio),
+          controlType: item?.controlType || ''
+        }
+      };
+    }
+
+    function phonemeTooltipHtml(item, context = {}) {
+      const ph = item?.ph;
+      const bytes = item?.bytes || (ph ? [ph.byte] : [0]);
+      const opcode = bytes.map(hex2).join(' ');
+      const decBytes = bytes.map(b => String(b & 0xFF)).join(' ');
+      const name = item?.label || ph?.symbol || '??';
+      const mode = item?.mode || context.mode || currentAuthoringMode();
+      const typeLabel = item?.tipType || ph?.kind || classifyForUi(ph);
+
+      if (!ph) {
+        return `<div class="tipTopline"><span class="mono">${escapeHtml(opcode)}</span> <span class="tipName">??</span> <span class="tipType">unknown</span></div>` +
+          tipMeta([tipRow('Code', `${opcode} · dec ${decBytes}`), tipRow('Mode', tooltipModeLabel(mode))]);
+      }
+
+      const baseRows = [
+        tipRow('Code', `${opcode} · dec ${decBytes}`, 'goldText'),
+        tipRow('Mode', tooltipModeLabel(mode)),
+        tipRow('Base', `${ph.kind || 'vowel'} / ${ph.family || classifyForUi(ph)} · ${tipMs(ph.dur)} · amp ${tipValueNumber(ph.amp)}`),
+        tipRow('Voice', `voiced ${tipBool(ph.voiced)} · nasal ${tipBool(ph.nasal)} · soft ${tipValueNumber(ph.soft)} · lead ${tipValueNumber(ph.leadVoice)}`),
+        tipRow('Form', `${tipFormants(ph.formants)}${ph.toFormants ? ' → ' + tipFormants(ph.toFormants) : ''}`),
+        tipRow('Noise', `fric ${tipHz(ph.fric)} · burst ${tipHz(ph.burst)}`)
+      ];
+
+      const rows = [...baseRows];
+
+      if (context.timeline || item.timeline) {
+        const tl = context.timeline || item.timeline;
+        const tlParts = [];
+        if (tl.index !== undefined) tlParts.push(`idx ${tl.index}`);
+        if (tl.sourceIndex !== undefined) tlParts.push(`src ${tl.sourceIndex}`);
+        if (Number.isFinite(Number(tl.lengthSeconds))) tlParts.push(`len ${Number(tl.lengthSeconds).toFixed(3)}s`);
+        if (tl.skipAudio) tlParts.push('no audio');
+        if (tl.controlType) tlParts.push(tl.controlType);
+        rows.push(tipRow('Timeline', tlParts.join(' · ')));
+      }
+
+      const canUseRom = mode === 'sc01' && ph.byte >= 0 && ph.byte <= 0x3f;
+      if (canUseRom) {
+        const entry = sc01RomState?.byPhone?.get(ph.byte & 0x3F);
+        const preview = applySc01RomToPhoneme(ph);
+        rows.push(tipRow('Preview', `dur ${tipMs(preview.dur)} · amp ${tipValueNumber(preview.amp)} · form ${tipFormants(preview.formants)} · fric ${tipHz(preview.fric)} · burst ${tipHz(preview.burst)}`, 'cyanText'));
+        if (entry) {
+          const diff = romDifferenceInfo(ph.byte, entry);
+          rows.push(tipRow('ROM', `${romDisplayName(activeRomModel())} row ${entry.row} · phone ${hex2(entry.phone)} · dur ${entry.duration}→${romDurationMs(entry, ph.dur)}ms`, 'goldText'));
+          rows.push(tipRow('Fld', `f1 ${entry.f1} va ${entry.va} f2 ${entry.f2} fc ${entry.fc} q ${entry.f2q} f3 ${entry.f3} fa ${entry.fa}`));
+          rows.push(tipRow('Ctrl', `cld ${entry.cld} vd ${entry.vd} close ${entry.closure}`));
+          rows.push(tipRow('Word', tipRomWord(entry)));
+          if (diff?.changed && diff.otherEntry) rows.push(tipRow('Other', `${romDisplayName(diff.otherModel)} · ${romSummary(diff.otherEntry)}`));
+          else if (diff?.otherModel) rows.push(tipRow('Other', `${romDisplayName(diff.otherModel)} same`));
+        } else {
+          rows.push(tipRow('ROM', `${romDisplayName(activeRomModel())} unavailable`));
+        }
+      } else {
+        rows.push(tipRow('Table', phonemeRomInfo(item)));
+      }
+
+      return `<div class="tipTopline"><span class="mono">${escapeHtml(opcode)}</span> <span class="tipName">${escapeHtml(name)}</span> <span class="tipType">${escapeHtml(typeLabel)}</span></div>` +
+        `<div class="tipDesc">${escapeHtml(ph.desc || '')}</div>` +
+        tipMeta(rows);
     }
 
     function phonemeTipHtml(item) {
-      const ph = item.ph;
-      const typeLabel = item.tipType || ph?.kind || classifyForUi(ph);
-      const opcode = (item.bytes || [ph.byte]).map(hex2).join(' ');
-      const name = item.label || ph.symbol || '??';
-      return `<div class="tipTopline"><span class="mono">${escapeHtml(opcode)}</span> <span class="tipName">${escapeHtml(name)}</span> <span class="tipType">${escapeHtml(typeLabel)}</span></div>` +
-        `<div class="tipDesc">${escapeHtml(ph.desc || '')}</div>` +
-        `<div class="tipRom">${escapeHtml(phonemeRomInfo(item))}</div>`;
+      return phonemeTooltipHtml(item);
+    }
+
+    function timelineTipHtml(item, analysis = currentAnalysis) {
+      return phonemeTooltipHtml(tooltipItemFromTimelineItem(item, analysis));
     }
 
     function waveformEventForTimelineIndex(index) {
@@ -4679,17 +4837,6 @@ L8E78:
       return Math.max(0, (Number(phForTiming?.dur) || 0) / rate / 1000);
     }
 
-    function timelineTipHtml(item, analysis = currentAnalysis) {
-      const ph = item?.ph;
-      const opcode = (item?.rawBytes || [item?.byte ?? 0]).map(hex2).join(' ');
-      const name = ph?.symbol || '??';
-      const typeLabel = ph?.kind || classifyForUi(ph);
-      const desc = ph?.desc || 'Unknown / outside selected decode table';
-      const len = timelineItemLengthSeconds(item, analysis);
-      return `<div class="tipTopline"><span class="mono">${escapeHtml(opcode)}</span> <span class="tipName">${escapeHtml(name)}</span> <span class="tipType">${escapeHtml(typeLabel)}</span></div>` +
-        `<div class="tipDesc">${escapeHtml(desc)}</div>` +
-        `<div class="tipLength">Length ${len.toFixed(3)}s</div>`;
-    }
 
     function setWaveformHoverIndex(index) {
       const next = (index === null || index === undefined) ? null : Number(index);
