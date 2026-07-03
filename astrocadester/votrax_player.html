@@ -5,7 +5,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Votrax Player</title>
-  <!-- cache-bust-head: timeline-tooltip-wav-hover-20260703-000924 -->
+  <!-- cache-bust-head: timeline-tooltip-position-20260703-002044 -->
   <style>
     :root {
       --bg: #14171c;
@@ -1915,8 +1915,8 @@
 
     .phonemeInfoTip .tipLength {
       margin-top: 4px;
-      color: var(--gold);
-      font: 900 11px/1.35 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      color: var(--text);
+      font: inherit;
     }
 
     @media (max-width: 520px) {
@@ -2429,7 +2429,7 @@
 
 
 
-    /* Generated WAV zoom pane: timeline-tooltip-wav-hover-20260703-000924
+    /* Generated WAV zoom pane: timeline-tooltip-position-20260703-002044
        Single zoom-window view borrowed from the Bally WAV decoder UI, adapted
        for the Votrax phrase renderer. Wheel zooms; click/drag pans. */
     .wavViewToggleButton.active,
@@ -4552,6 +4552,30 @@ L8E78:
       phonemeInfoTip.style.top = `${top}px`;
     }
 
+    function moveTimelineInfoTip(seg, ev) {
+      if (!phonemeInfoTip || phonemeInfoTip.style.display === 'none' || !seg) return;
+      const pad = 11;
+      const tipRect = phonemeInfoTip.getBoundingClientRect();
+      const segRect = seg.getBoundingClientRect();
+      const pointerX = Number.isFinite(ev?.clientX) ? ev.clientX : segRect.left + segRect.width / 2;
+      let left = pointerX + 14;
+      if (left + tipRect.width + pad > window.innerWidth) left = Math.max(pad, window.innerWidth - tipRect.width - pad);
+      if (left < pad) left = pad;
+
+      const desiredBottom = segRect.top + segRect.height / 2;
+      let top = desiredBottom - tipRect.height;
+      if (top < pad) top = pad;
+      if (top + tipRect.height + pad > window.innerHeight) top = Math.max(pad, window.innerHeight - tipRect.height - pad);
+
+      phonemeInfoTip.style.left = `${left}px`;
+      phonemeInfoTip.style.top = `${top}px`;
+    }
+
+    function showTimelineInfoTip(html, seg, ev) {
+      showPhonemeInfoTip(html, ev);
+      moveTimelineInfoTip(seg, ev);
+    }
+
     function hidePhonemeInfoTip() {
       if (!phonemeInfoTip) return;
       phonemeInfoTip.style.display = 'none';
@@ -4841,11 +4865,11 @@ L8E78:
           if (timelineDragState?.active) return;
           seg.classList.add('timelineHover');
           setWaveformHoverIndex(item.index);
-          showPhonemeInfoTip(timelineTipHtml(item, analysis), ev);
+          showTimelineInfoTip(timelineTipHtml(item, analysis), seg, ev);
         });
         seg.addEventListener('mousemove', ev => {
           if (timelineDragState?.active) return;
-          movePhonemeInfoTip(ev);
+          moveTimelineInfoTip(seg, ev);
         });
         seg.addEventListener('mouseleave', () => {
           seg.classList.remove('timelineHover');
@@ -4859,7 +4883,7 @@ L8E78:
           const rect = seg.getBoundingClientRect();
           seg.classList.add('timelineHover');
           setWaveformHoverIndex(item.index);
-          showPhonemeInfoTip(timelineTipHtml(item, analysis), { clientX: rect.left, clientY: rect.bottom });
+          showTimelineInfoTip(timelineTipHtml(item, analysis), seg, { clientX: rect.left + rect.width / 2, clientY: rect.top + rect.height / 2 });
         });
         seg.addEventListener('blur', () => {
           seg.classList.remove('timelineHover');
