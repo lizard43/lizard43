@@ -5,7 +5,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Votrax Player</title>
-  <!-- cache-bust-head: lizard-sample-picker-fix-20260702-211620 -->
+  <!-- cache-bust-head: single-audition-soft-bytecounts-20260702-212940 -->
   <style>
     :root {
       --bg: #14171c;
@@ -3522,25 +3522,6 @@ L8E78:
     DB    $2A,$37,$37,$03                ; "to"
     DB    $32,$32,$1F,$03                ; "us"
     DB    $3F                    ; <STOP>`,
-      rollq: `ROLLQ:                            ; Length=70
-    DB    $0B,$09,$12                ; "Is"
-    DB    $38,$02,$00,$2A                ; "that"
-    DB    $21                    ; "a "
-    DB    $2B,$35,$35,$37,$18,$18            ; "roll"
-    DB    $32,$23,$0F                ; "of"
-    DB    $19,$2D,$35,$2B,$2A,$3A,$1F        ; "quarters"
-    DB    $0B,$09,$0D                ; "in"
-    DB    $29,$34,$34,$2B,$03            ; "your"
-    DB    $25,$15,$23,$19,$00,$2A            ; "pocket"
-    DB    $34,$34,$2B                ; "or"
-    DB    $15,$31,$3A                ; "are"
-    DB    $22,$36,$37,$37                ; "you"
-    DB    $1E,$1A,$32,$31,$1F,$2A            ; "just"
-    DB    $1B,$2F,$00,$25,$29            ; "happy"
-    DB    $2A,$37,$37,$03                ; "to"
-    DB    $1F,$3C,$29                ; "see"
-    DB    $0C,$02,$29                ; "me"
-    DB    $3F                    ; <STOP>`,
       ialrt: `IALRT:                            ; Length=16
     DB    $0B,$09,$0D,$2A,$2B,$36,$37,$37,$1E,$3A    ; "Intruder"
     DB    $32,$18,$3A,$2B,$2A            ; "alert"
@@ -3576,28 +3557,38 @@ L8E78:
     DB    $29,$34,$34,$2B,$03            ; "your"
     DB    $19,$31,$0C,$2E,$00,$0D,$1E        ; "command"
     DB    $3F                    ; <STOP>`,
-      cmdr: `CMDR:                            ; Length=27
-    DB    $25,$2B,$35,$1C,$2B,$2F,$00,$0C        ; "Program"
-    DB    $0E,$15,$00,$09,$29            ; "by"
-    DB    $19,$31,$0C,$2E,$00,$0D,$1E,$3A        ; "Commander"
-    DB    $1E,$06,$21,$29,$0F            ; "Dave"
-    DB    $3F                    ; <STOP>`
     };
 
 
     const BUILT_IN_SAMPLE_MENU = [
-      { key: 'lizard', label: 'Lizard', meta: '14 bytes', mode: 'sc01' },
-      { key: 'wor', label: 'Wizard of Wor', meta: '14 bytes', mode: 'sc01' },
-      { key: 'hlowld', label: 'Hello World', meta: '14 bytes', mode: 'sc01' },
-      { key: 'allbse', label: 'All Your Base', meta: '33 bytes', mode: 'sc01' },
-      { key: 'ialrt', label: 'Intruder Alert', meta: '16 bytes', mode: 'sc01' },
-      { key: 'humesc', label: 'Humanoid Escape', meta: '34 bytes', mode: 'sc01' },
-      { key: 'borg1', label: 'We Are the Borg', meta: '15 bytes', mode: 'sc01' },
-      { key: 'borg2', label: 'Prepare to Be Assimilated', meta: '28 bytes', mode: 'sc01' },
-      { key: 'borg3', label: 'Resistance Is Futile', meta: '24 bytes', mode: 'sc01' },
+      { key: 'lizard', label: 'Lizard', mode: 'sc01' },
+      { key: 'wor', label: 'Wizard of Wor', mode: 'sc01' },
+      { key: 'pressstart', label: 'Press Start', mode: 'sc01' },
+      { key: 'wowrawhey', label: 'Hey, Insert Coin! · WoW raw', mode: 'wowraw' },
+      { key: 'hlowld', label: 'Hello World', mode: 'sc01' },
+      { key: 'allbse', label: 'All Your Base', mode: 'sc01' },
+      { key: 'ialrt', label: 'Intruder Alert', mode: 'sc01' },
+      { key: 'humesc', label: 'Humanoid Escape', mode: 'sc01' },
+      { key: 'borg1', label: 'We Are the Borg', mode: 'sc01' },
+      { key: 'borg2', label: 'Prepare to Be Assimilated', mode: 'sc01' },
+      { key: 'borg3', label: 'Resistance Is Futile', mode: 'sc01' },
+      { key: 'glacta', label: 'By Your Command', mode: 'sc01' }
     ];
 
     const BUILT_IN_SAMPLE_BY_KEY = new Map(BUILT_IN_SAMPLE_MENU.map(sample => [sample.key, sample]));
+
+    function builtInSampleByteCount(sampleKey) {
+      const source = SAMPLES[sampleKey];
+      if (typeof source !== 'string') return 0;
+      return parseBytes(source).length;
+    }
+
+    function builtInSampleMeta(sample) {
+      const count = builtInSampleByteCount(sample.key);
+      const unit = count === 1 ? 'byte' : 'bytes';
+      if (sample.mode === 'wowraw') return `${count} raw ${unit}`;
+      return `${count} ${unit}`;
+    }
 
     const sourceEl = document.getElementById('source');
     const exportText = document.getElementById('exportText');
@@ -5724,7 +5715,7 @@ L8E78:
         if (stopAtStopEl.checked && phone === 0x3f) break;
       }
       const samples = postProcessMameSamples(concatFloatChunks(chunks, total), gain, normalizeAudioEl.checked);
-      mixSc01AudibilityReinforcement(samples, events, options);
+      if (!options.single) mixSc01AudibilityReinforcement(samples, events, options);
       return { samples, events, duration: samples.length / SAMPLE_RATE };
     }
 
@@ -5779,11 +5770,89 @@ L8E78:
       drawWaveformPreview();
     }
 
+    function fadeSamplesInPlace(samples, fadeMs = 5) {
+      if (!samples || !samples.length) return samples;
+      const fade = Math.max(1, Math.min(samples.length >> 1, Math.floor(SAMPLE_RATE * fadeMs / 1000)));
+      for (let i = 0; i < fade; i++) {
+        const k = i / fade;
+        const s = k * k * (3 - 2 * k);
+        samples[i] *= s;
+        samples[samples.length - 1 - i] *= s;
+      }
+      return samples;
+    }
+
+    function softenSingleAuditionSamples(samples) {
+      if (!samples || !samples.length) return samples || new Float32Array(1);
+      const out = new Float32Array(samples.length);
+      let lp = 0;
+      let prev = 0;
+      let peak = 0;
+      for (let i = 0; i < samples.length; i++) {
+        const x = samples[i] || 0;
+        // Light smoothing only for one-phone auditions. Full phrase render is untouched.
+        lp += (x - lp) * 0.58;
+        const y = (lp + x * 0.42 + prev * 0.18) / 1.60;
+        prev = x;
+        out[i] = y;
+        peak = Math.max(peak, Math.abs(y));
+      }
+      if (peak > 0.62) {
+        const scale = 0.62 / peak;
+        for (let i = 0; i < out.length; i++) out[i] *= scale;
+      }
+      fadeSamplesInPlace(out, 6);
+      return out;
+    }
+
+    function padSingleAuditionRender(render, padMs = 14) {
+      if (!render || !render.samples) return render;
+      const pad = Math.max(0, Math.floor(SAMPLE_RATE * padMs / 1000));
+      const shaped = softenSingleAuditionSamples(render.samples);
+      if (!pad) return { ...render, samples: shaped, duration: shaped.length / SAMPLE_RATE };
+      const out = new Float32Array(shaped.length + pad * 2);
+      out.set(shaped, pad);
+      const shift = pad / SAMPLE_RATE;
+      const events = (render.events || []).map(ev => ({ ...ev, start: (ev.start || 0) + shift, end: (ev.end || 0) + shift }));
+      return { ...render, samples: out, events, duration: out.length / SAMPLE_RATE };
+    }
+
+    function makeTimelineAuditionRender(previewIndex) {
+      if (!waveformSamples || !waveformSamples.length || !waveformEvents || !waveformEvents.length) return null;
+      const wanted = Number(previewIndex);
+      if (!Number.isFinite(wanted)) return null;
+      const ev = waveformEvents.find(item => Number(item.index) === wanted);
+      if (!ev || !Number.isFinite(ev.start) || !Number.isFinite(ev.end) || ev.end <= ev.start) return null;
+      const pad = Math.floor(SAMPLE_RATE * 0.014);
+      const eventStart = Math.max(0, Math.floor(ev.start * SAMPLE_RATE));
+      const eventEnd = Math.min(waveformSamples.length, Math.ceil(ev.end * SAMPLE_RATE));
+      const sliceStart = Math.max(0, eventStart - pad);
+      const sliceEnd = Math.min(waveformSamples.length, eventEnd + pad);
+      if (sliceEnd <= sliceStart) return null;
+      const out = waveformSamples.slice(sliceStart, sliceEnd);
+      fadeSamplesInPlace(out, 4);
+      const startOffset = (eventStart - sliceStart) / SAMPLE_RATE;
+      const endOffset = (eventEnd - sliceStart) / SAMPLE_RATE;
+      return {
+        samples: out,
+        events: [{ ...ev, start: startOffset, end: endOffset }],
+        duration: out.length / SAMPLE_RATE,
+        source: 'waveform-slice'
+      };
+    }
+
     async function playBytes(bytes, playOptions = {}) {
       stopPlayback();
       if (!bytes.length) { setStatus('No phoneme bytes to play.', true); return; }
       const ctx = await ensureAudioContext();
-      const render = synthesize(bytes, playOptions);
+      let render = null;
+      if (playOptions.single && playOptions.previewIndex !== undefined && playOptions.previewIndex !== null && playOptions.preserveWaveform) {
+        render = makeTimelineAuditionRender(playOptions.previewIndex);
+      }
+      if (!render) {
+        render = synthesize(bytes, playOptions);
+        if (playOptions.single) render = padSingleAuditionRender(render);
+      }
       // Single-phoneme auditions must not replace the full phrase waveform.
       // The WAV zoom pane is the current edited phrase/sample; hover/click only
       // highlights portions of that phrase unless a full phrase playback starts.
@@ -7059,10 +7128,9 @@ L8E78:
     function renderSampleMenu() {
       if (!sampleMenu) return;
       sampleMenu.innerHTML = '';
-      appendSampleMenuHeader('wow.asm hardware samples');
       for (const sample of BUILT_IN_SAMPLE_MENU) appendSampleMenuButton({
         label: sample.label,
-        meta: sample.meta,
+        meta: builtInSampleMeta(sample),
         sampleKey: sample.key
       });
 
@@ -7101,7 +7169,7 @@ L8E78:
       suppressPaletteAutoFit = previousSuppressPalette;
       schedulePhraseLoadAutoFit();
       setSampleMenuVisible(false);
-      setStatus(`Loaded sample: ${label || sampleKey}.`);
+      setStatus(`Loaded sample: ${label || sampleKey} (${builtInSampleByteCount(sampleKey)} byte${builtInSampleByteCount(sampleKey) === 1 ? '' : 's'}).`);
     }
 
     function loadImportedPhraseFromMenu(index) {
@@ -7372,6 +7440,6 @@ L8E78:
   </script>
 </body>
 
-<!-- cache-bust: lizard-sample-picker-fix-20260702-211620 -->
+<!-- cache-bust: single-audition-soft-bytecounts-20260702-212940 -->
 
 </html>
