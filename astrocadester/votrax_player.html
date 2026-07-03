@@ -5,7 +5,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Votrax Player</title>
-  <!-- cache-bust-head: timeline-halfsize-pills-20260703-001155 -->
+  <!-- cache-bust-head: waveform-edge-time-legend-20260703-002220 -->
   <style>
     :root {
       --bg: #14171c;
@@ -2476,10 +2476,26 @@
       color: var(--muted);
       font: 700 11px/1.2 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
       overflow: hidden;
-      text-overflow: ellipsis;
       white-space: nowrap;
       text-align: left;
       min-width: 0;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .wavViewCaptionEdge {
+      flex: 0 0 auto;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .wavViewCaptionEdgeRight {
+      margin-left: auto;
+      text-align: right;
     }
 
     .wavViewCanvasWrap {
@@ -2659,7 +2675,7 @@
       </div>
 
       <div class="tabPane active" id="notesPane" role="tabpanel">
-        <h2>Playback notes</h2>
+        <h3>v20260702</h3><br>
         <div class="callout cyan">
           Primary target: real Wizard of Wor / Gorf-style arcade hardware. The built-in samples now come from
           <span class="mono">wow.asm</span> phrase blocks where <span class="mono">SAYPH</span> outputs each direct
@@ -2682,7 +2698,7 @@
           palette for bytes sent to port <span class="mono">$17</span>. Dragging Wizard/WoW tokens into a direct
           SC-01 phrase is guarded until the original WoW encoded-string decoder is implemented.
         </div>
-        <div class="small" style="margin-top:10px;">
+        <div class="callout cyan" style="margin-top:8px;">
           The SC-01 chip internally contains its own phoneme timing and articulation behavior. This browser version
           approximates phoneme length, voiced/unvoiced consonants, glides, fricatives, plosives, and pauses using
           simplified envelopes. Built-in SC-01 / SC-01A ROM tables are available immediately; use the toolbar ROM
@@ -2800,8 +2816,9 @@
         <div class="wavViewCanvasWrap">
           <canvas id="waveformCanvas" width="1200" height="220" aria-label="Generated WAV zoom waveform"></canvas>
         </div>
-        <div class="wavViewStatsLine"><span class="wavViewCaption" id="waveformCaption">Render preview updates as the
-            phrase changes · wheel zoom · click/drag pan</span></div>
+        <div class="wavViewStatsLine"><span class="wavViewCaption" id="waveformCaption"><span
+              class="wavViewCaptionEdge">0.0000s</span><span
+              class="wavViewCaptionEdge wavViewCaptionEdgeRight">0.0000s</span></span></div>
         <div class="paneResizeHandle" role="separator" tabindex="0" aria-orientation="horizontal"
           aria-label="Resize WAV zoom pane" title="Drag to resize WAV zoom pane" data-resize-pane="waveform"></div>
       </section>
@@ -4990,12 +5007,12 @@ L8E78:
       if (!tokenPalette) return;
       tokenPalette.innerHTML = '';
       updateTokenPaletteAvailability(analysis);
-      if (!wizardTokensAllowedForAnalysis(analysis)) {
-        const warning = document.createElement('div');
-        warning.className = 'callout gold';
-        warning.textContent = 'Token tab is visible for reference and single-token preview. Drag insert is blocked while the current phrase is direct SC-01 hardware bytes, because mixing Wizard/WoW tokens into a port-$17 SC-01 phrase corrupts the sample.';
-        tokenPalette.appendChild(warning);
-      }
+      // if (!wizardTokensAllowedForAnalysis(analysis)) {
+      //   const warning = document.createElement('div');
+      //   warning.className = 'callout gold';
+      //   warning.textContent = 'Token tab is visible for reference and single-token preview. Drag insert is blocked while the current phrase is direct SC-01 hardware bytes, because mixing Wizard/WoW tokens into a port-$17 SC-01 phrase corrupts the sample.';
+      //   tokenPalette.appendChild(warning);
+      // }
       for (const group of tokenPaletteGroups()) {
         const groupEl = document.createElement('div');
         groupEl.className = `phonemePaletteGroup tokenPaletteGroup tokenPaletteGroup-${group.key}`;
@@ -6049,6 +6066,16 @@ L8E78:
       }
     }
 
+    function formatWaveformEdgeTime(seconds) {
+      const value = Number.isFinite(seconds) ? Math.max(0, seconds) : 0;
+      return `${value.toFixed(4)}s`;
+    }
+
+    function setWaveformCaptionEdges(leftText, rightText) {
+      if (!waveformCaption) return;
+      waveformCaption.innerHTML = `<span class="wavViewCaptionEdge">${escapeHtml(leftText)}</span><span class="wavViewCaptionEdge wavViewCaptionEdgeRight">${escapeHtml(rightText)}</span>`;
+    }
+
     function updateWaveformCaption(text = '') {
       if (!waveformCaption) return;
       if (text) {
@@ -6060,11 +6087,11 @@ L8E78:
         waveformCaption.textContent = 'No waveform rendered.';
         return;
       }
-      const start = waveformView.startSample / SAMPLE_RATE;
-      const end = (waveformView.startSample + waveformView.spanSamples) / SAMPLE_RATE;
-      const dur = total / SAMPLE_RATE;
-      const zoomMs = waveformView.spanSamples / SAMPLE_RATE * 1000;
-      waveformCaption.textContent = `${start.toFixed(4)}s–${end.toFixed(4)}s · ${zoomMs.toFixed(0)} ms visible · ${dur.toFixed(2)}s total`;
+      const span = clampNumber(waveformView.spanSamples || total, 1, total);
+      const startSample = clampNumber(waveformView.startSample || 0, 0, Math.max(0, total - span));
+      const start = startSample / SAMPLE_RATE;
+      const end = (startSample + span) / SAMPLE_RATE;
+      setWaveformCaptionEdges(formatWaveformEdgeTime(start), formatWaveformEdgeTime(end));
     }
 
     function resizeWaveformCanvasToCssPixels(canvas) {
