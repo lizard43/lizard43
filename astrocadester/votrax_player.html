@@ -5,7 +5,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Votrax Player</title>
-  <!-- cache-bust-head: words-tab-speech-dict-20260703-132244 -->
+  <!-- cache-bust-head: user-phrase-storage-20260703-145532 -->
   <style>
     :root {
       --bg: #14171c;
@@ -1862,6 +1862,16 @@
       color: var(--cyan);
     }
 
+    .phonemePalettePill.sample {
+      background: rgba(255, 209, 102, .10);
+      color: var(--gold);
+    }
+
+    .phonemePalettePill.user {
+      background: rgba(94, 224, 131, .12);
+      color: var(--accent);
+    }
+
     .phonemePaletteByte {
       color: var(--text);
       opacity: .88;
@@ -2596,6 +2606,106 @@
       min-height: 58px !important;
     }
 
+
+    /* User phrase save dialog and local-storage palette tab. */
+    .savePhraseButton.active,
+    .savePhraseButton.active:hover,
+    .savePhraseButton.active:focus-visible {
+      border-color: #d7dee9;
+      background: var(--panel2);
+      color: var(--text);
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .18);
+      outline: none;
+    }
+
+    .savePhraseDialogOverlay {
+      position: fixed;
+      inset: 0;
+      z-index: 10080;
+      display: grid;
+      place-items: center;
+      padding: 16px;
+      background: rgba(0, 0, 0, .58);
+      backdrop-filter: blur(2px);
+    }
+
+    .savePhraseDialogOverlay.isHidden {
+      display: none !important;
+    }
+
+    .savePhraseDialogBox {
+      width: min(430px, calc(100vw - 28px));
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: #0f1218;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, .62);
+      padding: 14px;
+    }
+
+    .savePhraseDialogTitle {
+      margin: 0 0 8px;
+      color: var(--text);
+      font: 900 15px/1.25 system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    }
+
+    .savePhraseDialogHint {
+      margin: 0 0 12px;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.35;
+    }
+
+    .savePhraseDialogMeta {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 6px;
+      margin: 10px 0 12px;
+    }
+
+    .savePhraseDialogMetric {
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, .035);
+      padding: 7px 8px;
+      min-width: 0;
+    }
+
+    .savePhraseDialogMetric span {
+      display: block;
+      color: var(--muted);
+      font-size: 10px;
+      font-weight: 900;
+      letter-spacing: .05em;
+      text-transform: uppercase;
+    }
+
+    .savePhraseDialogMetric b {
+      display: block;
+      margin-top: 3px;
+      color: var(--gold);
+      font: 900 12px/1.2 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .savePhraseDialogActions {
+      display: flex;
+      justify-content: flex-end;
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    .savePhraseDialogActions .action {
+      min-width: 74px;
+    }
+
+    @media (max-width: 520px) {
+      .savePhraseDialogMeta {
+        grid-template-columns: 1fr;
+      }
+    }
+
   </style>
 </head>
 
@@ -2625,18 +2735,21 @@
             d="M16 1H4c-1.1 0-2 .9-2 2v12h2V3h12V1Zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2Zm0 16H8V7h11v14Z" />
         </svg>
       </button>
-      <button class="action iconButton sampleToggleButton" id="sampleToggleBtn" title="Show sample phrases"
-        aria-label="Show sample phrases" aria-expanded="false">
+      <button class="action iconButton savePhraseButton" id="savePhraseBtn" title="Save current phrase" aria-label="Save current phrase">
         <svg viewBox="0 0 24 24" aria-hidden="true">
-          <path fill="currentColor" d="M4 5h16v3H4V5Zm0 5h16v3H4v-3Zm0 5h16v3H4v-3Z" />
+          <path fill="currentColor"
+            d="M17 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V7l-4-4ZM7 5h8v5H7V5Zm10 14H7v-6h10v6Z" />
         </svg>
       </button>
+      <!-- Sample phrases moved from toolbar icon/menu into the palette samples tab. -->
+      <!-- Open Vox/ASM toolbar icon paused for now; file input and loader code stay in place.
       <button class="action iconButton" id="loadVoxBtn" title="Open Vox/ASM file" aria-label="Open Vox/ASM file">
         <svg viewBox="0 0 24 24" aria-hidden="true">
           <path fill="currentColor"
             d="M10 4l2 2h8c1.1 0 2 .9 2 2v1H2V6c0-1.1.9-2 2-2h6Zm12 7v7c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2v-7h20Zm-7 2v2h-2v2h-2v-2H9v-2h2v-2h2v2h2Z" />
         </svg>
       </button>
+      -->
       <button class="action iconButton" id="wavBtn" title="Download WAV render" aria-label="Download WAV">
         <svg viewBox="0 0 24 24" aria-hidden="true">
           <path fill="currentColor"
@@ -2867,6 +2980,8 @@
           <button class="tabButton active" type="button" data-palette-tab="phonemes">phonemes</button>
           <button class="tabButton" type="button" data-palette-tab="words">words</button>
           <button class="tabButton" type="button" data-palette-tab="diphthongs">dipthong</button>
+          <button class="tabButton" type="button" data-palette-tab="user" hidden aria-hidden="true">user</button>
+          <button class="tabButton" type="button" data-palette-tab="samples">samples</button>
           <button class="tabButton" type="button" data-palette-tab="tokens" hidden aria-hidden="true">tokens</button>
         </div>
 
@@ -2891,6 +3006,20 @@
           </div>
         </div>
 
+        <div class="tabPane" id="paletteUserPane" role="tabpanel">
+          <div class="phonemePaletteWrap">
+            <div class="phonemePalette userPalette" id="userPalette"
+              aria-label="Saved user phrases from local browser storage. Drag a pill into the timeline to insert its separate phonemes."></div>
+          </div>
+        </div>
+
+        <div class="tabPane" id="paletteSamplesPane" role="tabpanel">
+          <div class="phonemePaletteWrap">
+            <div class="phonemePalette samplePalette" id="samplePalette"
+              aria-label="Available built-in and imported samples. Drag a pill into the timeline to insert its separate phonemes."></div>
+          </div>
+        </div>
+
         <div class="tabPane" id="paletteTokensPane" role="tabpanel">
           <div class="phonemePaletteWrap">
             <div class="phonemePalette tokenPalette" id="tokenPalette"
@@ -2907,6 +3036,24 @@
   </div>
 
   <div id="phonemeInfoTip" class="phonemeInfoTip" role="tooltip" aria-hidden="true"></div>
+
+  <div id="savePhraseDialog" class="savePhraseDialogOverlay isHidden" aria-hidden="true">
+    <div class="savePhraseDialogBox" role="dialog" aria-modal="true" aria-labelledby="savePhraseDialogTitle">
+      <h2 class="savePhraseDialogTitle" id="savePhraseDialogTitle">Save phrase</h2>
+      <p class="savePhraseDialogHint">Name this timeline phrase. It will be saved in this browser and appear in the palette user tab.</p>
+      <label for="savePhraseNameInput">Phrase name</label>
+      <input id="savePhraseNameInput" type="text" autocomplete="off" spellcheck="false" placeholder="My phrase" />
+      <div class="savePhraseDialogMeta" aria-live="polite">
+        <div class="savePhraseDialogMetric"><span>Bytes</span><b id="savePhraseByteCount">0</b></div>
+        <div class="savePhraseDialogMetric"><span>Phones</span><b id="savePhrasePhonePreview">--</b></div>
+      </div>
+      <div class="small" id="savePhraseDialogMessage">Existing names are overwritten.</div>
+      <div class="savePhraseDialogActions">
+        <button class="action" type="button" id="savePhraseCancelBtn">Cancel</button>
+        <button class="action primary" type="button" id="savePhraseOkBtn">OK</button>
+      </div>
+    </div>
+  </div>
 
   <section class="panel footerPanel">
     <textarea id="exportText" readonly wrap="off"></textarea>
@@ -3084,6 +3231,9 @@
       .sort((a, b) => a.word.localeCompare(b.word));
 
     let wordPaletteRenderedForRom = '';
+
+    const USER_PHRASES_STORAGE_KEY = 'votrax.sc01.userPhrases.v1';
+    let userPhraseStoreCache = null;
 
     // The ASM demo strings in wow.asm are direct SC-01 phoneme bytes sent to
     // the speech port. They sound better on hardware because the chip has its
@@ -3731,6 +3881,8 @@ Wor:
     const phonemePalette = document.getElementById('phonemePalette');
     const diphthongPalette = document.getElementById('diphthongPalette');
     const wordPalette = document.getElementById('wordPalette');
+    const userPalette = document.getElementById('userPalette');
+    const samplePalette = document.getElementById('samplePalette');
     const tokenPalette = document.getElementById('tokenPalette');
     const phonemePaletteMode = document.getElementById('phonemePaletteMode');
     const phonemeInfoTip = document.getElementById('phonemeInfoTip');
@@ -3753,6 +3905,14 @@ Wor:
     const playPhraseBtn = document.getElementById('playPhraseBtn');
     const loadVoxBtn = document.getElementById('loadVoxBtn');
     const exportCopyBtn = document.getElementById('exportCopyBtn');
+    const savePhraseBtn = document.getElementById('savePhraseBtn');
+    const savePhraseDialog = document.getElementById('savePhraseDialog');
+    const savePhraseNameInput = document.getElementById('savePhraseNameInput');
+    const savePhraseByteCount = document.getElementById('savePhraseByteCount');
+    const savePhrasePhonePreview = document.getElementById('savePhrasePhonePreview');
+    const savePhraseDialogMessage = document.getElementById('savePhraseDialogMessage');
+    const savePhraseOkBtn = document.getElementById('savePhraseOkBtn');
+    const savePhraseCancelBtn = document.getElementById('savePhraseCancelBtn');
     const voxFileInput = document.getElementById('voxFileInput');
     const builtInRomSelect = document.getElementById('builtInRomSelect');
     const settingsBtn = document.getElementById('settingsBtn');
@@ -4242,6 +4402,8 @@ Wor:
       renderPhonemePalette(currentAnalysis);
       renderWordsPalette(currentAnalysis);
       renderDiphthongPalette(currentAnalysis);
+      renderUserPalette(currentAnalysis);
+      renderSamplesPalette(currentAnalysis);
       renderTokenPalette(currentAnalysis);
       updateTokenPaletteAvailability(currentAnalysis);
       exportText.value = formatDb(used);
@@ -5359,6 +5521,481 @@ Wor:
       diphthongPalette.appendChild(groupEl);
     }
 
+
+    function sanitizeUserPhraseName(name) {
+      return String(name || '').replace(/[\r\n\t]+/g, ' ').replace(/\s+/g, ' ').trim().slice(0, 80);
+    }
+
+    function storageAvailable() {
+      try {
+        const key = '__votrax_storage_test__';
+        localStorage.setItem(key, '1');
+        localStorage.removeItem(key);
+        return true;
+      } catch (_) {
+        return false;
+      }
+    }
+
+    function loadUserPhraseStore(force = false) {
+      if (!force && userPhraseStoreCache) return userPhraseStoreCache;
+      const store = {};
+      try {
+        const raw = localStorage.getItem(USER_PHRASES_STORAGE_KEY);
+        const parsed = raw ? JSON.parse(raw) : {};
+        if (parsed && typeof parsed === 'object' && !Array.isArray(parsed)) {
+          for (const [name, value] of Object.entries(parsed)) {
+            const cleanName = sanitizeUserPhraseName(name);
+            const arr = Array.isArray(value) ? value : [];
+            const bytes = arr.map(byte => Number(byte) & 0xFF).filter(byte => Number.isFinite(byte) && byte >= 0 && byte <= 0xFF);
+            if (cleanName && bytes.length) store[cleanName] = bytes;
+          }
+        }
+      } catch (_) {
+        // Broken local storage data should not break the player.
+      }
+      userPhraseStoreCache = store;
+      return store;
+    }
+
+    function saveUserPhraseStore(store) {
+      localStorage.setItem(USER_PHRASES_STORAGE_KEY, JSON.stringify(store || {}));
+      userPhraseStoreCache = { ...(store || {}) };
+    }
+
+    function userPhraseItems() {
+      const store = loadUserPhraseStore(true);
+      return Object.entries(store)
+        .map(([name, bytes]) => ({
+          key: name,
+          label: name,
+          source: 'user',
+          mode: 'sc01',
+          bytes: (bytes || []).slice(),
+          words: name,
+          tipType: 'user'
+        }))
+        .filter(item => item.bytes.length)
+        .sort((a, b) => a.label.localeCompare(b.label));
+    }
+
+    function updateUserPaletteTabVisibility(hasUserPhrases = userPhraseItems().length > 0) {
+      const tab = document.querySelector('.phonemePalettePanel [data-palette-tab="user"]');
+      if (!tab) return;
+      tab.hidden = !hasUserPhrases;
+      tab.setAttribute('aria-hidden', hasUserPhrases ? 'false' : 'true');
+      if (!hasUserPhrases && tab.classList.contains('active')) showPaletteTab('samples');
+    }
+
+    function userPhraseTipHtml(item) {
+      const bytes = item.bytes || [];
+      const mode = 'sc01';
+      const symbols = sampleSymbolSequence(bytes, mode);
+      const seq = symbols.length > 48 ? symbols.slice(0, 48).join(' ') + ' …' : symbols.join(' ');
+      const bytePreview = bytes.length > 32 ? `${bytes.slice(0, 32).map(hex2).join(' ')} …` : bytes.map(hex2).join(' ');
+      const decPreview = bytes.length <= 24 ? bytes.map(b => String(b & 0xFF)).join(' ') : `${bytes.slice(0, 24).map(b => String(b & 0xFF)).join(' ')} …`;
+      const rows = [
+        tipRow('Phrase', item.label, 'goldText'),
+        tipRow('Source', 'local browser storage'),
+        tipRow('Mode', tooltipModeLabel(mode)),
+        tipRow('Bytes', `${bytes.length} · ${bytePreview}`),
+        tipRow('Dec', decPreview),
+        tipRow('Phones', `${symbols.length} · ${seq}`),
+        tipRow('Dur', `${romDisplayName(activeRomModel())} preview ${tipMs(sampleDurationMs(bytes, mode))}`),
+        tipRow('Use', 'drag inserts the saved phrase as separate phonemes')
+      ];
+      return `<div class="tipTopline"><span class="mono">${escapeHtml(bytes.length + ' bytes')}</span> <span class="tipName">${escapeHtml(item.label)}</span> <span class="tipType">user</span></div>` +
+        `<div class="tipDesc">Saved user phrase from local browser storage.</div>` +
+        tipMeta(rows);
+    }
+
+    function buildUserPaletteButton(item) {
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'phonemePalettePill user';
+      btn.dataset.mode = 'sc01';
+      btn.dataset.tip = userPhraseTipHtml(item);
+      btn.innerHTML = `<span class="phonemePaletteSymbol">${escapeHtml(item.label)}</span>`;
+      btn.removeAttribute('title');
+      btn.setAttribute('aria-label', `Drag saved phrase ${item.label} (${item.bytes.length} bytes) into timeline.`);
+
+      btn.addEventListener('mouseenter', ev => showPhonemeInfoTip(btn.dataset.tip, ev));
+      btn.addEventListener('mousemove', movePhonemeInfoTip);
+      btn.addEventListener('mouseleave', hidePhonemeInfoTip);
+      btn.addEventListener('blur', hidePhonemeInfoTip);
+
+      btn.addEventListener('pointerdown', ev => {
+        if (ev.button !== undefined && ev.button !== 0) return;
+        timelineDragState = {
+          pointerId: ev.pointerId,
+          kind: 'insert',
+          bytes: item.bytes.slice(),
+          mode: 'sc01',
+          label: item.label,
+          startX: ev.clientX,
+          startY: ev.clientY,
+          sourceEl: btn,
+          active: false,
+          ghost: null,
+          gap: null,
+          slotIndex: null,
+          offsetX: 0,
+          offsetY: 0
+        };
+        btn.classList.add('timelineDragHold');
+        try { btn.setPointerCapture(ev.pointerId); } catch (_) { }
+      });
+
+      btn.addEventListener('pointermove', ev => {
+        const drag = timelineDragState;
+        if (!drag || drag.pointerId !== ev.pointerId || drag.sourceEl !== btn) return;
+        const moved = Math.hypot(ev.clientX - drag.startX, ev.clientY - drag.startY);
+        if (!drag.active && moved >= 5) startTimelineDrag(btn, ev);
+        if (drag.active) {
+          ev.preventDefault();
+          hidePhonemeInfoTip();
+          updateTimelineGhost(ev);
+          updateTimelineDropPlacement(ev);
+        }
+      });
+
+      btn.addEventListener('pointerup', ev => {
+        const drag = timelineDragState;
+        if (!drag || drag.pointerId !== ev.pointerId || drag.sourceEl !== btn) return;
+        finishTimelineDrag(ev, false);
+      });
+
+      btn.addEventListener('pointercancel', ev => {
+        const drag = timelineDragState;
+        if (drag && drag.pointerId === ev.pointerId && drag.sourceEl === btn) finishTimelineDrag(ev, true);
+      });
+
+      btn.addEventListener('keydown', ev => {
+        if (ev.key === 'Escape' && timelineDragState?.sourceEl === btn) {
+          ev.preventDefault();
+          clearTimelineDragState();
+        }
+      });
+
+      btn.addEventListener('click', ev => {
+        hidePhonemeInfoTip();
+        if (Date.now() < timelineSuppressClickUntil) {
+          ev.preventDefault();
+          ev.stopPropagation();
+          return;
+        }
+        playBytes(item.bytes, { single: true, mode: 'sc01', preserveWaveform: true });
+        setStatus(`Playing saved phrase ${item.label} (${item.bytes.length} byte${item.bytes.length === 1 ? '' : 's'}). Drag it into the timeline to insert separate phonemes.`);
+      });
+
+      return btn;
+    }
+
+    function renderUserPalette() {
+      const items = userPhraseItems();
+      updateUserPaletteTabVisibility(items.length > 0);
+      if (!userPalette) return;
+      userPalette.innerHTML = '';
+      if (!items.length) return;
+      const groupEl = document.createElement('div');
+      groupEl.className = 'phonemePaletteGroup userPaletteGroup userPaletteGroup-local';
+      const heading = document.createElement('div');
+      heading.className = 'phonemePaletteGroupHeader';
+      heading.textContent = `Saved user phrases · ${items.length}`;
+      groupEl.appendChild(heading);
+      for (const item of items) groupEl.appendChild(buildUserPaletteButton(item));
+      userPalette.appendChild(groupEl);
+    }
+
+    function currentPhraseBytesForSave() {
+      const analysis = analyze();
+      const bytes = (analysis?.bytes || []).map(byte => byte & 0xFF).filter(byte => Number.isFinite(byte));
+      return bytes;
+    }
+
+    function defaultUserPhraseName() {
+      const text = String(sourceEl?.value || '');
+      const labelMatch = text.match(/^\s*([A-Za-z_.$?@][A-Za-z0-9_.$?@ -]{0,48})\s*:/m);
+      if (labelMatch) return sanitizeUserPhraseName(labelMatch[1].replace(/[_-]+/g, ' '));
+      const commentMatch = text.match(/;\s*([^\r\n]{2,48})/);
+      if (commentMatch) return sanitizeUserPhraseName(commentMatch[1].replace(/<STOP>/ig, '').trim());
+      return 'User phrase';
+    }
+
+    function openSavePhraseDialog() {
+      if (!savePhraseDialog || !savePhraseNameInput) return;
+      if (!storageAvailable()) {
+        setStatus('Local browser storage is not available for saved phrases.', true);
+        return;
+      }
+      const bytes = currentPhraseBytesForSave();
+      if (!bytes.length) {
+        setStatus('No phrase bytes to save.', true);
+        return;
+      }
+      const symbols = sampleSymbolSequence(bytes, 'sc01');
+      savePhraseNameInput.value = defaultUserPhraseName();
+      if (savePhraseByteCount) savePhraseByteCount.textContent = String(bytes.length);
+      if (savePhrasePhonePreview) savePhrasePhonePreview.textContent = symbols.length > 10 ? symbols.slice(0, 10).join(' ') + ' …' : (symbols.join(' ') || '--');
+      if (savePhraseDialogMessage) savePhraseDialogMessage.textContent = 'Existing names are overwritten.';
+      savePhraseDialog.dataset.bytes = JSON.stringify(bytes);
+      savePhraseDialog.classList.remove('isHidden');
+      savePhraseDialog.setAttribute('aria-hidden', 'false');
+      savePhraseBtn?.classList.add('active');
+      setTimeout(() => {
+        savePhraseNameInput.focus();
+        savePhraseNameInput.select();
+      }, 0);
+    }
+
+    function closeSavePhraseDialog() {
+      if (!savePhraseDialog) return;
+      savePhraseDialog.classList.add('isHidden');
+      savePhraseDialog.setAttribute('aria-hidden', 'true');
+      savePhraseBtn?.classList.remove('active');
+      savePhraseDialog.dataset.bytes = '';
+    }
+
+    function commitSavePhraseDialog() {
+      if (!savePhraseDialog || !savePhraseNameInput) return;
+      const name = sanitizeUserPhraseName(savePhraseNameInput.value);
+      if (!name) {
+        if (savePhraseDialogMessage) savePhraseDialogMessage.textContent = 'Enter a phrase name.';
+        savePhraseNameInput.focus();
+        return;
+      }
+      let bytes = [];
+      try { bytes = JSON.parse(savePhraseDialog.dataset.bytes || '[]'); } catch (_) { bytes = []; }
+      bytes = (bytes || []).map(byte => Number(byte) & 0xFF).filter(byte => Number.isFinite(byte));
+      if (!bytes.length) {
+        closeSavePhraseDialog();
+        setStatus('No phrase bytes to save.', true);
+        return;
+      }
+      try {
+        const store = loadUserPhraseStore(true);
+        store[name] = bytes;
+        saveUserPhraseStore(store);
+        closeSavePhraseDialog();
+        renderUserPalette();
+        showPaletteTab('user');
+        scheduleContentFit({ palette: true, forcePalette: true });
+        setStatus(`Saved user phrase "${name}" (${bytes.length} byte${bytes.length === 1 ? '' : 's'}) to this browser.`);
+      } catch (err) {
+        setStatus(`Could not save phrase: ${err.message || err}`, true);
+      }
+    }
+
+    function sampleSourceWordHints(sourceText) {
+      const hints = [];
+      const seen = new Set();
+      const text = String(sourceText || '');
+      for (const match of text.matchAll(/"([^"]+)"/g)) {
+        const clean = (match[1] || '').trim();
+        if (!clean || seen.has(clean.toLowerCase())) continue;
+        seen.add(clean.toLowerCase());
+        hints.push(clean);
+      }
+      if (hints.length) return hints.join(' · ');
+      const commentWords = [];
+      for (const rawLine of text.split(/\r?\n/)) {
+        const comment = (rawLine.match(/;\s*(.*)$/) || [])[1] || '';
+        const clean = comment.replace(/<STOP>/ig, '').replace(/Length\s*=\s*\d+/ig, '').replace(/[^A-Za-z0-9' -]+/g, ' ').trim();
+        if (!clean || /^stop$/i.test(clean)) continue;
+        if (clean.length <= 28 && !seen.has(clean.toLowerCase())) {
+          seen.add(clean.toLowerCase());
+          commentWords.push(clean);
+        }
+        if (commentWords.length >= 10) break;
+      }
+      return commentWords.join(' · ');
+    }
+
+    function sampleSymbolSequence(bytes, mode) {
+      return decodeStream(bytes || [], mode === 'wizard' ? 'wizard' : 'sc01')
+        .map(item => item?.ph?.symbol || rawHex2(item?.byte || 0));
+    }
+
+    function sampleDurationMs(bytes, mode) {
+      const decoded = decodeStream(bytes || [], mode === 'wizard' ? 'wizard' : 'sc01');
+      let total = 0;
+      const rate = Number(rateEl?.value) || 1;
+      for (const item of decoded) {
+        if (!item.ph || item.skipAudio) continue;
+        const ph = mode === 'sc01' ? applySc01RomToPhoneme(item.ph) : item.ph;
+        if (ph.kind === 'stop') continue;
+        total += (Number(ph.dur) || 0) / rate;
+        if (gapBetweenEl?.checked && ph.kind !== 'pause') total += 8 / rate;
+      }
+      return total;
+    }
+
+    function samplePaletteItems() {
+      const builtIns = BUILT_IN_SAMPLE_MENU
+        .map(sample => {
+          const source = Object.prototype.hasOwnProperty.call(SAMPLES, sample.key) ? SAMPLES[sample.key] : '';
+          const bytes = parseBytes(source);
+          return {
+            key: sample.key,
+            label: sample.label,
+            source: 'built-in',
+            sourceText: source,
+            mode: sample.mode || 'sc01',
+            bytes,
+            words: sampleSourceWordHints(source),
+            tipType: 'sample'
+          };
+        })
+        .filter(item => item.bytes.length);
+
+      const imported = importedPhrases.map((phrase, index) => ({
+        key: `imported-${index}`,
+        label: `${index + 1}. ${phrase.section ? phrase.section + ' · ' : ''}${phrase.title}`,
+        source: 'imported',
+        sourceText: formatPhraseSource(phrase),
+        mode: phrase.mode || 'wizard',
+        bytes: (phrase.bytes || []).slice(),
+        words: (phrase.tokens || []).join(' · '),
+        section: phrase.section || '',
+        index,
+        tipType: 'sample'
+      })).filter(item => item.bytes.length);
+
+      const groups = [];
+      if (builtIns.length) groups.push({ key: 'built-in', label: `Built-in samples · ${builtIns.length}`, items: builtIns });
+      if (imported.length) groups.push({ key: 'imported', label: `Imported samples · ${imported.length}`, items: imported });
+      return groups;
+    }
+
+    function sampleTipHtml(item) {
+      const bytes = item.bytes || [];
+      const opcode = bytes.map(hex2).join(' ');
+      const decBytes = bytes.map(b => String(b & 0xFF)).join(' ');
+      const mode = item.mode === 'wizard' ? 'wizard' : 'sc01';
+      const symbols = sampleSymbolSequence(bytes, mode);
+      const seq = symbols.length > 48 ? symbols.slice(0, 48).join(' ') + ' …' : symbols.join(' ');
+      const bytePreview = bytes.length > 32 ? `${bytes.slice(0, 32).map(hex2).join(' ')} …` : opcode;
+      const rows = [
+        tipRow('Sample', item.label, 'goldText'),
+        tipRow('Source', item.source === 'imported' ? 'imported phrase' : 'built-in sample'),
+        tipRow('Mode', tooltipModeLabel(mode)),
+        tipRow('Words', item.words || '' , 'cyanText'),
+        tipRow('Bytes', `${bytes.length} · ${bytePreview}`),
+        tipRow('Dec', bytes.length <= 24 ? decBytes : `${bytes.slice(0, 24).map(b => String(b & 0xFF)).join(' ')} …`),
+        tipRow('Phones', `${symbols.length} · ${seq}`),
+        tipRow('Dur', `${romDisplayName(activeRomModel())} preview ${tipMs(sampleDurationMs(bytes, mode))}`),
+        tipRow('Use', 'drag inserts the sample as separate phonemes')
+      ];
+      return `<div class="tipTopline"><span class="mono">${escapeHtml(bytes.length + ' bytes')}</span> <span class="tipName">${escapeHtml(item.label)}</span> <span class="tipType">sample</span></div>` +
+        `<div class="tipDesc">${escapeHtml(item.source === 'imported' ? 'Imported phrase sample.' : 'Built-in phrase sample.')}</div>` +
+        tipMeta(rows);
+    }
+
+    function buildSamplePaletteButton(item) {
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'phonemePalettePill sample';
+      btn.dataset.mode = item.mode === 'wizard' ? 'wizard' : 'sc01';
+      btn.dataset.tip = sampleTipHtml(item);
+      btn.innerHTML = `<span class="phonemePaletteSymbol">${escapeHtml(item.label)}</span>`;
+      btn.removeAttribute('title');
+      btn.setAttribute('aria-label', `Drag sample ${item.label} (${item.bytes.length} bytes) into timeline.`);
+
+      btn.addEventListener('mouseenter', ev => showPhonemeInfoTip(btn.dataset.tip, ev));
+      btn.addEventListener('mousemove', movePhonemeInfoTip);
+      btn.addEventListener('mouseleave', hidePhonemeInfoTip);
+      btn.addEventListener('blur', hidePhonemeInfoTip);
+
+      btn.addEventListener('pointerdown', ev => {
+        if (ev.button !== undefined && ev.button !== 0) return;
+        timelineDragState = {
+          pointerId: ev.pointerId,
+          kind: 'insert',
+          bytes: item.bytes.slice(),
+          mode: item.mode === 'wizard' ? 'wizard' : 'sc01',
+          label: item.label,
+          startX: ev.clientX,
+          startY: ev.clientY,
+          sourceEl: btn,
+          active: false,
+          ghost: null,
+          gap: null,
+          slotIndex: null,
+          offsetX: 0,
+          offsetY: 0
+        };
+        btn.classList.add('timelineDragHold');
+        try { btn.setPointerCapture(ev.pointerId); } catch (_) { }
+      });
+
+      btn.addEventListener('pointermove', ev => {
+        const drag = timelineDragState;
+        if (!drag || drag.pointerId !== ev.pointerId || drag.sourceEl !== btn) return;
+        const moved = Math.hypot(ev.clientX - drag.startX, ev.clientY - drag.startY);
+        if (!drag.active && moved >= 5) startTimelineDrag(btn, ev);
+        if (drag.active) {
+          ev.preventDefault();
+          hidePhonemeInfoTip();
+          updateTimelineGhost(ev);
+          updateTimelineDropPlacement(ev);
+        }
+      });
+
+      btn.addEventListener('pointerup', ev => {
+        const drag = timelineDragState;
+        if (!drag || drag.pointerId !== ev.pointerId || drag.sourceEl !== btn) return;
+        finishTimelineDrag(ev, false);
+      });
+
+      btn.addEventListener('pointercancel', ev => {
+        const drag = timelineDragState;
+        if (drag && drag.pointerId === ev.pointerId && drag.sourceEl === btn) finishTimelineDrag(ev, true);
+      });
+
+      btn.addEventListener('keydown', ev => {
+        if (ev.key === 'Escape' && timelineDragState?.sourceEl === btn) {
+          ev.preventDefault();
+          clearTimelineDragState();
+        }
+      });
+
+      btn.addEventListener('click', ev => {
+        hidePhonemeInfoTip();
+        if (Date.now() < timelineSuppressClickUntil) {
+          ev.preventDefault();
+          ev.stopPropagation();
+          return;
+        }
+        playBytes(item.bytes, { single: true, mode: item.mode === 'wizard' ? 'wizard' : 'sc01', preserveWaveform: true });
+        setStatus(`Playing sample ${item.label} (${item.bytes.length} byte${item.bytes.length === 1 ? '' : 's'}). Drag it into the timeline to insert separate phonemes.`);
+      });
+
+      return btn;
+    }
+
+    function renderSamplesPalette() {
+      if (!samplePalette) return;
+      samplePalette.innerHTML = '';
+      const groups = samplePaletteItems();
+      if (!groups.length) {
+        const empty = document.createElement('div');
+        empty.className = 'callout gold';
+        empty.textContent = 'No samples available yet.';
+        samplePalette.appendChild(empty);
+        return;
+      }
+      for (const group of groups) {
+        const groupEl = document.createElement('div');
+        groupEl.className = `phonemePaletteGroup samplePaletteGroup samplePaletteGroup-${group.key}`;
+        const heading = document.createElement('div');
+        heading.className = 'phonemePaletteGroupHeader';
+        heading.textContent = group.label;
+        groupEl.appendChild(heading);
+        for (const item of group.items) groupEl.appendChild(buildSamplePaletteButton(item));
+        samplePalette.appendChild(groupEl);
+      }
+    }
+
     function tokenTypeKindLabel(tok) {
       const type = tok?.type || 'token';
       const kind = tok?.ph?.kind || tok?.ph?.family || '';
@@ -5516,12 +6153,12 @@ Wor:
     }
 
     function showPaletteTab(name) {
-      const selected = name === 'tokens' ? 'tokens' : (name === 'words' ? 'words' : (name === 'diphthongs' ? 'diphthongs' : 'phonemes'));
+      const selected = name === 'tokens' ? 'tokens' : (name === 'samples' ? 'samples' : (name === 'user' ? 'user' : (name === 'words' ? 'words' : (name === 'diphthongs' ? 'diphthongs' : 'phonemes'))));
       document.querySelectorAll('.phonemePalettePanel [data-palette-tab]').forEach(btn => {
         btn.classList.toggle('active', btn.dataset.paletteTab === selected);
       });
       document.querySelectorAll('.phonemePalettePanel > .tabPane').forEach(pane => pane.classList.remove('active'));
-      const paneId = selected === 'tokens' ? 'paletteTokensPane' : (selected === 'words' ? 'paletteWordsPane' : (selected === 'diphthongs' ? 'paletteDiphthongsPane' : 'palettePhonemesPane'));
+      const paneId = selected === 'tokens' ? 'paletteTokensPane' : (selected === 'samples' ? 'paletteSamplesPane' : (selected === 'user' ? 'paletteUserPane' : (selected === 'words' ? 'paletteWordsPane' : (selected === 'diphthongs' ? 'paletteDiphthongsPane' : 'palettePhonemesPane'))));
       const pane = document.getElementById(paneId);
       if (pane) pane.classList.add('active');
       hidePhonemeInfoTip();
@@ -6974,8 +7611,8 @@ Wor:
         if (toolbarPhraseWrap) toolbarPhraseWrap.classList.add('isHidden');
         if (loadPhraseBtn) loadPhraseBtn.disabled = true;
         if (playPhraseBtn) playPhraseBtn.disabled = true;
-        renderSampleMenu();
-        setPhraseInfo('Load Vox/ASM imports phrases into the sample menu. Pasted text is parsed directly.');
+        renderSamplesPalette();
+        setPhraseInfo('Load Vox/ASM imports phrases into the samples tab. Pasted text is parsed directly.');
         return;
       }
 
@@ -6997,8 +7634,8 @@ Wor:
       if (toolbarPhraseWrap) toolbarPhraseWrap.classList.remove('isHidden');
       if (loadPhraseBtn) loadPhraseBtn.disabled = false;
       if (playPhraseBtn) playPhraseBtn.disabled = false;
-      renderSampleMenu();
-      setPhraseInfo(`Imported ${importedPhrases.length} phrase stream(s). Open the sample menu and choose a phrase to load it into the editor; built-in samples do not clear this list.`);
+      renderSamplesPalette();
+      setPhraseInfo(`Imported ${importedPhrases.length} phrase stream(s). Open the samples tab to drag or audition imported phrases; built-in samples do not clear this list.`);
     }
 
     function importPhrasesFromSource() {
@@ -7014,7 +7651,7 @@ Wor:
         return;
       }
       const kind = importedPhrases[0].mode === 'sc01' ? 'SC-01 ASM speech' : 'Vox';
-      setStatus(`Imported ${importedPhrases.length} ${kind} phrase stream(s). Added to the sample menu; choose one from the sample list.`);
+      setStatus(`Imported ${importedPhrases.length} ${kind} phrase stream(s). Added to the samples tab; drag one into the timeline or audition it there.`);
     }
 
     function getSelectedPhraseIndex() {
@@ -7095,7 +7732,7 @@ Wor:
       if (importedPhrases.length && voxLibrarySourceText && sourceEl.value === voxLibrarySourceText) {
         const phrase = getSelectedPhrase();
         if (phrase) return { bytes: phrase.bytes.slice(), mode: phrase.mode || 'wizard', phrase };
-        setStatus('Phrase file is imported. Open the sample menu and choose a phrase to load/play.', true);
+        setStatus('Phrase file is imported. Open the samples tab and choose a phrase to load/play.', true);
         return { bytes: [], mode: importedPhrases[0]?.mode || 'wizard', phrase: null };
       }
       const analysis = analyze();
@@ -7125,7 +7762,7 @@ Wor:
           const kind = importedPhrases[0].mode === 'sc01' ? 'SC-01 ASM speech' : 'Wizard Vox';
           if (sourceEl.value) analyze();
           scheduleContentFit();
-          setStatus(`Loaded ${file.name}; added ${importedPhrases.length} ${kind} phrase stream(s) to the sample menu. Choose one from the sample list.`);
+          setStatus(`Loaded ${file.name}; added ${importedPhrases.length} ${kind} phrase stream(s) to the samples tab.`);
         } else {
           sourceEl.value = voxLibrarySourceText;
           activeImportedPhraseIndex = null;
@@ -7919,6 +8556,21 @@ Wor:
       try { await navigator.clipboard.writeText(text); setStatus('.DB copied to clipboard.'); }
       catch (_) { exportText.focus(); exportText.select(); setStatus('Clipboard failed; export text selected for manual copy.', true); }
     });
+    if (savePhraseBtn) savePhraseBtn.addEventListener('click', openSavePhraseDialog);
+    if (savePhraseCancelBtn) savePhraseCancelBtn.addEventListener('click', closeSavePhraseDialog);
+    if (savePhraseOkBtn) savePhraseOkBtn.addEventListener('click', commitSavePhraseDialog);
+    if (savePhraseNameInput) savePhraseNameInput.addEventListener('keydown', ev => {
+      if (ev.key === 'Enter') {
+        ev.preventDefault();
+        commitSavePhraseDialog();
+      } else if (ev.key === 'Escape') {
+        ev.preventDefault();
+        closeSavePhraseDialog();
+      }
+    });
+    if (savePhraseDialog) savePhraseDialog.addEventListener('pointerdown', ev => {
+      if (ev.target === savePhraseDialog) closeSavePhraseDialog();
+    });
     document.getElementById('clearBtn').addEventListener('click', () => {
       sourceEl.value = '';
       importedPhrases = [];
@@ -7931,11 +8583,11 @@ Wor:
       setStatus('Cleared phrase.');
     });
 
-    loadVoxBtn.addEventListener('click', () => {
+    if (loadVoxBtn) loadVoxBtn.addEventListener('click', () => {
       voxFileInput.value = '';
       voxFileInput.click();
     });
-    voxFileInput.addEventListener('change', () => loadVoxTextFile(voxFileInput.files[0]));
+    if (voxFileInput) voxFileInput.addEventListener('change', () => loadVoxTextFile(voxFileInput.files[0]));
     if (builtInRomSelect) builtInRomSelect.addEventListener('change', () => {
       stopPlayback();
       installBuiltInSc01Rom(builtInRomSelect.value);
@@ -8114,7 +8766,10 @@ Wor:
     renderPhonemeTable();
     renderWizardTokenTable();
     renderPhonemePalette();
+    renderWordsPalette();
     renderDiphthongPalette();
+    renderUserPalette();
+    renderSamplesPalette();
     renderTokenPalette();
     updateSliderLabels();
     installBuiltInSc01Rom('sc01');
