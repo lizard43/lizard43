@@ -5,7 +5,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Votrax Player</title>
-  <!-- cache-bust-head: save-dialog-dirty-load-clean-20260703-152040 -->
+  <!-- cache-bust-head: save-stop-dialog-20260703-153620 -->
   <style>
     :root {
       --bg: #14171c;
@@ -2701,6 +2701,19 @@
 
     .savePhraseDialogMetricPhonemes b {
       max-width: 100%;
+      white-space: normal;
+      overflow: visible;
+      text-overflow: clip;
+      overflow-wrap: anywhere;
+    }
+
+    .savePhraseStopRow {
+      margin: 2px 0 6px;
+      min-height: 26px;
+    }
+
+    .savePhraseStopRow.isHidden {
+      display: none !important;
     }
 
     .savePhraseDialogActions {
@@ -3119,6 +3132,7 @@
         <div class="savePhraseDialogMetric"><span>Bytes</span><b id="savePhraseByteCount">0</b></div>
         <div class="savePhraseDialogMetric savePhraseDialogMetricPhonemes"><span>Phonemes</span><b id="savePhrasePhonePreview">--</b></div>
       </div>
+      <label class="checkLabel savePhraseStopRow isHidden" id="savePhraseStopRow" title="Include STOP $3F in the saved user phrase."><input id="savePhraseSaveStop" type="checkbox" checked /> Save Stop <span class="mono">$3F</span></label>
       <div class="small" id="savePhraseDialogMessage">Existing names are overwritten.</div>
       <div class="savePhraseDialogActions">
         <button class="action" type="button" id="savePhraseCancelBtn">Cancel</button>
@@ -3982,6 +3996,8 @@ Wor:
     const savePhraseNameInput = document.getElementById('savePhraseNameInput');
     const savePhraseByteCount = document.getElementById('savePhraseByteCount');
     const savePhrasePhonePreview = document.getElementById('savePhrasePhonePreview');
+    const savePhraseStopRow = document.getElementById('savePhraseStopRow');
+    const savePhraseSaveStop = document.getElementById('savePhraseSaveStop');
     const savePhraseDialogMessage = document.getElementById('savePhraseDialogMessage');
     const savePhraseOkBtn = document.getElementById('savePhraseOkBtn');
     const savePhraseCancelBtn = document.getElementById('savePhraseCancelBtn');
@@ -5852,6 +5868,37 @@ Wor:
       return 'User phrase';
     }
 
+
+    function readSavePhraseDialogBytes() {
+      if (!savePhraseDialog) return [];
+      try {
+        const bytes = JSON.parse(savePhraseDialog.dataset.bytes || '[]');
+        return (bytes || []).map(byte => Number(byte) & 0xFF).filter(byte => Number.isFinite(byte));
+      } catch (_) {
+        return [];
+      }
+    }
+
+    function savePhraseDialogEffectiveBytes() {
+      const bytes = readSavePhraseDialogBytes();
+      const saveStop = !savePhraseSaveStop || savePhraseSaveStop.checked;
+      return saveStop ? bytes : bytes.filter(byte => (byte & 0xFF) !== 0x3F);
+    }
+
+    function updateSavePhraseDialogPreview() {
+      const bytes = readSavePhraseDialogBytes();
+      const hasStop = bytes.some(byte => (byte & 0xFF) === 0x3F);
+      if (savePhraseStopRow) {
+        savePhraseStopRow.classList.toggle('isHidden', !hasStop);
+        savePhraseStopRow.setAttribute('aria-hidden', hasStop ? 'false' : 'true');
+      }
+      if (savePhraseSaveStop && !hasStop) savePhraseSaveStop.checked = false;
+      const previewBytes = savePhraseDialogEffectiveBytes();
+      const symbols = sampleSymbolSequence(previewBytes, 'sc01');
+      if (savePhraseByteCount) savePhraseByteCount.textContent = String(previewBytes.length);
+      if (savePhrasePhonePreview) savePhrasePhonePreview.textContent = symbols.join(' ') || '--';
+    }
+
     function openSavePhraseDialog() {
       if (!savePhraseDialog || !savePhraseNameInput) return;
       if (!storageAvailable()) {
@@ -5868,12 +5915,11 @@ Wor:
         setStatus('No unsaved phrase changes to save.', true);
         return;
       }
-      const symbols = sampleSymbolSequence(bytes, 'sc01');
       savePhraseNameInput.value = defaultUserPhraseName();
-      if (savePhraseByteCount) savePhraseByteCount.textContent = String(bytes.length);
-      if (savePhrasePhonePreview) savePhrasePhonePreview.textContent = symbols.length > 18 ? symbols.slice(0, 18).join(' ') + ' …' : (symbols.join(' ') || '--');
       if (savePhraseDialogMessage) savePhraseDialogMessage.textContent = 'Existing names are overwritten.';
       savePhraseDialog.dataset.bytes = JSON.stringify(bytes);
+      if (savePhraseSaveStop) savePhraseSaveStop.checked = true;
+      updateSavePhraseDialogPreview();
       savePhraseDialog.classList.remove('isHidden');
       savePhraseDialog.setAttribute('aria-hidden', 'false');
       savePhraseBtn?.classList.add('active');
@@ -5889,6 +5935,11 @@ Wor:
       savePhraseDialog.setAttribute('aria-hidden', 'true');
       savePhraseBtn?.classList.remove('active');
       savePhraseDialog.dataset.bytes = '';
+      if (savePhraseSaveStop) savePhraseSaveStop.checked = true;
+      if (savePhraseStopRow) {
+        savePhraseStopRow.classList.add('isHidden');
+        savePhraseStopRow.setAttribute('aria-hidden', 'true');
+      }
     }
 
     function commitSavePhraseDialog() {
@@ -5899,12 +5950,9 @@ Wor:
         savePhraseNameInput.focus();
         return;
       }
-      let bytes = [];
-      try { bytes = JSON.parse(savePhraseDialog.dataset.bytes || '[]'); } catch (_) { bytes = []; }
-      bytes = (bytes || []).map(byte => Number(byte) & 0xFF).filter(byte => Number.isFinite(byte));
+      let bytes = savePhraseDialogEffectiveBytes();
       if (!bytes.length) {
-        closeSavePhraseDialog();
-        setStatus('No phrase bytes to save.', true);
+        if (savePhraseDialogMessage) savePhraseDialogMessage.textContent = 'No phrase bytes to save.';
         return;
       }
       try {
@@ -8713,6 +8761,7 @@ Wor:
     });
     if (savePhraseCancelBtn) savePhraseCancelBtn.addEventListener('click', closeSavePhraseDialog);
     if (savePhraseOkBtn) savePhraseOkBtn.addEventListener('click', commitSavePhraseDialog);
+    if (savePhraseSaveStop) savePhraseSaveStop.addEventListener('change', updateSavePhraseDialogPreview);
     if (savePhraseNameInput) savePhraseNameInput.addEventListener('keydown', ev => {
       if (ev.key === 'Enter') {
         ev.preventDefault();
