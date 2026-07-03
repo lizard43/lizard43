@@ -5,7 +5,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Votrax Player</title>
-  <!-- cache-bust-head: wow-json-palette-20260703-171820 -->
+  <!-- cache-bust-head: samples-nested-wow-20260703-180956 -->
   <style>
     :root {
       --bg: #14171c;
@@ -2809,6 +2809,41 @@
       }
     }
 
+
+    /* Samples nested tabs: misc + wow only appear inside the samples palette pane. */
+    #paletteSamplesPane.active {
+      display: flex !important;
+      flex-direction: column;
+      min-height: 0;
+      overflow: hidden;
+    }
+
+    .sampleSubTabBar {
+      flex: 0 0 auto;
+      margin: 0 0 6px;
+      padding: 0 6px;
+      border-bottom: 1px solid var(--border);
+      gap: 6px;
+    }
+
+    .sampleSubPane {
+      display: none;
+      flex: 1 1 auto;
+      min-height: 0;
+      overflow: hidden;
+    }
+
+    .sampleSubPane.active {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .sampleSubPane .phonemePaletteWrap {
+      flex: 1 1 auto;
+      min-height: 0;
+      max-height: none;
+    }
+
   </style>
 </head>
 
@@ -3068,7 +3103,6 @@
           <button class="tabButton active" type="button" data-palette-tab="words">words</button>
           <button class="tabButton" type="button" data-palette-tab="phonemes">phonemes</button>
           <button class="tabButton" type="button" data-palette-tab="diphthongs">dipthong</button>
-          <button class="tabButton" type="button" data-palette-tab="wow">wow</button>
           <button class="tabButton" type="button" data-palette-tab="samples">samples</button>
           <button class="tabButton" type="button" data-palette-tab="tokens" hidden aria-hidden="true">tokens</button>
         </div>
@@ -3096,14 +3130,6 @@
           </div>
         </div>
 
-        <div class="tabPane" id="paletteWowPane" role="tabpanel">
-          <div class="phonemePaletteWrap">
-            <div class="phonemePalette wowPalette" id="wowPalette"
-              aria-label="Wizard of Wor decoded speech dictionary entries. Drag a pill into the timeline to insert its separate SC-01 phonemes.">
-            </div>
-          </div>
-        </div>
-
         <div class="tabPane" id="paletteUserPane" role="tabpanel">
           <div class="phonemePaletteWrap">
             <div class="phonemePalette userPalette" id="userPalette"
@@ -3113,9 +3139,24 @@
         </div>
 
         <div class="tabPane" id="paletteSamplesPane" role="tabpanel">
-          <div class="phonemePaletteWrap">
-            <div class="phonemePalette samplePalette" id="samplePalette"
-              aria-label="Available built-in and imported samples. Drag a pill into the timeline to insert its separate phonemes.">
+          <div class="tabBar sampleSubTabBar" role="tablist" aria-label="sample palette tabs">
+            <button class="tabButton active" type="button" data-sample-palette-tab="misc">misc</button>
+            <button class="tabButton" type="button" data-sample-palette-tab="wow">wow</button>
+          </div>
+
+          <div class="sampleSubPane active" id="paletteSamplesMiscPane" role="tabpanel">
+            <div class="phonemePaletteWrap">
+              <div class="phonemePalette samplePalette" id="samplePalette"
+                aria-label="Available built-in and imported misc samples. Drag a pill into the timeline to insert its separate phonemes.">
+              </div>
+            </div>
+          </div>
+
+          <div class="sampleSubPane" id="paletteSamplesWowPane" role="tabpanel">
+            <div class="phonemePaletteWrap">
+              <div class="phonemePalette wowPalette" id="wowPalette"
+                aria-label="Wizard of Wor decoded speech dictionary entries. Drag a pill into the timeline to insert its separate SC-01 phonemes.">
+              </div>
             </div>
           </div>
         </div>
@@ -3332,7 +3373,7 @@
 
     let wordPaletteRenderedForRom = '';
 
-    const WOW_SPEECH_SAMPLES_URL = 'wow_speech_samples.json?v=20260703-171820';
+    const WOW_SPEECH_SAMPLES_URL = 'wow_speech_samples.json?v=20260703-180956';
     let wowSpeechSamples = [];
     let wowSpeechSamplesLoaded = false;
     let wowSpeechSamplesLoading = false;
@@ -6569,15 +6610,32 @@ Wor:
       }
     }
 
+    function showSamplePaletteSubTab(name) {
+      const selected = name === 'wow' ? 'wow' : 'misc';
+      document.querySelectorAll('.phonemePalettePanel [data-sample-palette-tab]').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.samplePaletteTab === selected);
+      });
+      document.querySelectorAll('#paletteSamplesPane .sampleSubPane').forEach(pane => {
+        pane.classList.toggle('active', pane.id === (selected === 'wow' ? 'paletteSamplesWowPane' : 'paletteSamplesMiscPane'));
+      });
+      if (selected === 'wow') loadWowSpeechSamples();
+      hidePhonemeInfoTip();
+      scheduleContentFit({ palette: true, forcePalette: true });
+    }
+
     function showPaletteTab(name) {
-      const selected = name === 'tokens' ? 'tokens' : (name === 'samples' ? 'samples' : (name === 'wow' ? 'wow' : (name === 'user' ? 'user' : (name === 'words' ? 'words' : (name === 'diphthongs' ? 'diphthongs' : 'phonemes')))));
+      const selected = name === 'tokens' ? 'tokens' : (name === 'samples' ? 'samples' : (name === 'user' ? 'user' : (name === 'words' ? 'words' : (name === 'diphthongs' ? 'diphthongs' : 'phonemes'))));
       document.querySelectorAll('.phonemePalettePanel [data-palette-tab]').forEach(btn => {
         btn.classList.toggle('active', btn.dataset.paletteTab === selected);
       });
       document.querySelectorAll('.phonemePalettePanel > .tabPane').forEach(pane => pane.classList.remove('active'));
-      const paneId = selected === 'tokens' ? 'paletteTokensPane' : (selected === 'samples' ? 'paletteSamplesPane' : (selected === 'wow' ? 'paletteWowPane' : (selected === 'user' ? 'paletteUserPane' : (selected === 'words' ? 'paletteWordsPane' : (selected === 'diphthongs' ? 'paletteDiphthongsPane' : 'palettePhonemesPane')))));
+      const paneId = selected === 'tokens' ? 'paletteTokensPane' : (selected === 'samples' ? 'paletteSamplesPane' : (selected === 'user' ? 'paletteUserPane' : (selected === 'words' ? 'paletteWordsPane' : (selected === 'diphthongs' ? 'paletteDiphthongsPane' : 'palettePhonemesPane'))));
       const pane = document.getElementById(paneId);
       if (pane) pane.classList.add('active');
+      if (selected === 'samples') {
+        const activeSub = document.querySelector('.phonemePalettePanel [data-sample-palette-tab].active')?.dataset.samplePaletteTab || 'misc';
+        showSamplePaletteSubTab(activeSub);
+      }
       hidePhonemeInfoTip();
       scheduleContentFit();
     }
@@ -9144,6 +9202,13 @@ Wor:
       btn.addEventListener('click', () => showPaletteTab(btn.dataset.paletteTab));
     });
 
+    document.querySelectorAll('.phonemePalettePanel [data-sample-palette-tab]').forEach(btn => {
+      btn.addEventListener('click', ev => {
+        ev.stopPropagation();
+        showSamplePaletteSubTab(btn.dataset.samplePaletteTab);
+      });
+    });
+
     document.querySelectorAll('.rightPanel .tabButton').forEach(btn => btn.addEventListener('click', () => showTab(btn.dataset.tab)));
 
     function handleDocumentTimelineDragPointerMove(ev) {
@@ -9227,6 +9292,6 @@ Wor:
   </script>
 </body>
 
-<!-- cache-bust: wow-json-palette-20260703-171820 -->
+<!-- cache-bust: samples-nested-wow-20260703-180956 -->
 
 </html>
