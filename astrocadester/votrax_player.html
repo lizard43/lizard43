@@ -5,7 +5,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Votrax Player</title>
-  <!-- cache-bust-head: common-tooltip-a1a2-fix-20260703-121333 -->
+  <!-- cache-bust-head: phoneme-table-seq-note-20260703-125800 -->
   <style>
     :root {
       --bg: #14171c;
@@ -2919,18 +2919,25 @@
     };
 
     function p(hex, symbol, desc, opts = {}) {
+      const kind = opts.kind || 'vowel';
+      const family = opts.family || (kind === 'pause' || kind === 'stop' || kind === 'control' ? kind : (kind === 'vowel' ? 'vowel' : 'consonant'));
       return {
         byte: hex,
         hex: hex2(hex),
         symbol,
+        manualSymbol: opts.manualSymbol || symbol,
         desc,
-        kind: opts.kind || 'vowel',
-        family: opts.family || (opts.kind === 'pause' || opts.kind === 'stop' ? opts.kind : (opts.kind === 'vowel' ? 'vowel' : 'consonant')),
+        example: opts.example || '',
+        note: opts.note || '',
+        sequence: opts.sequence || '',
+        kind,
+        family,
         formants: opts.formants || FORMANTS.EH,
         toFormants: opts.toFormants || null,
         dur: opts.dur || 105,
+        officialDur: opts.officialDur ?? opts.dur ?? 105,
         amp: opts.amp ?? .72,
-        voiced: opts.voiced ?? (opts.kind !== 'fricative' && opts.kind !== 'plosive' && opts.kind !== 'pause' && opts.kind !== 'stop'),
+        voiced: opts.voiced ?? (kind !== 'fricative' && kind !== 'plosive' && kind !== 'pause' && kind !== 'stop'),
         fric: opts.fric || 2600,
         burst: opts.burst || 0,
         nasal: opts.nasal || false,
@@ -2940,70 +2947,73 @@
     }
 
     const PHONEMES = [
-      p(0x00, 'EH3', 'e in jet (short)', { formants: FORMANTS.EH, dur: 70 }),
-      p(0x01, 'EH2', 'e in jet (medium)', { formants: FORMANTS.EH, dur: 115 }),
-      p(0x02, 'EH1', 'e in jet (long)', { formants: FORMANTS.EH, dur: 175 }),
-      p(0x03, 'PA0', 'Short Pause', { kind: 'pause', dur: 90, amp: 0 }),
-      p(0x04, 'DT', 'd in door (release)', { kind: 'plosive', dur: 45, voiced: true, burst: 1800, amp: .50 }),
-      p(0x05, 'A2', 'a in past', { formants: FORMANTS.A, dur: 120 }),
-      p(0x06, 'A1', 'a in past (longer)', { formants: FORMANTS.A, dur: 170 }),
-      p(0x07, 'ZH', 'z in azure', { kind: 'fricative', dur: 115, voiced: true, fric: 2100, amp: .45 }),
-      p(0x08, 'AH2', 'o in hot', { formants: FORMANTS.AH, dur: 120 }),
-      p(0x09, 'I3', 'i in pin (short)', { formants: FORMANTS.I, dur: 70 }),
-      p(0x0A, 'I2', 'i in pin (medium)', { formants: FORMANTS.I, dur: 105 }),
-      p(0x0B, 'I1', 'i in pin (long)', { formants: FORMANTS.I, dur: 165 }),
-      p(0x0C, 'M', 'm in mat', { kind: 'nasal', formants: FORMANTS.M, dur: 105, nasal: true, amp: .58 }),
-      p(0x0D, 'N', 'n in net', { kind: 'nasal', formants: FORMANTS.N, dur: 100, nasal: true, amp: .58 }),
-      p(0x0E, 'B', 'b in bag', { kind: 'plosive', dur: 58, voiced: true, burst: 650, amp: .55 }),
-      p(0x0F, 'V', 'v in van', { kind: 'fricative', dur: 95, voiced: true, fric: 1500, amp: .45 }),
-      p(0x10, 'CH', 'ch in chip', { kind: 'affricate', dur: 115, voiced: false, fric: 2800, burst: 3000, amp: .62 }),
-      p(0x11, 'SH', 'sh in ship', { kind: 'fricative', dur: 120, voiced: false, fric: 2500, amp: .55 }),
-      p(0x12, 'Z', 'z in zoo', { kind: 'fricative', dur: 95, voiced: true, fric: 3200, amp: .46 }),
-      p(0x13, 'AW1', 'aw in law (long)', { formants: FORMANTS.AW, dur: 190 }),
-      p(0x14, 'NG', 'ng in thing', { kind: 'nasal', formants: FORMANTS.NG, dur: 120, nasal: true, amp: .55 }),
-      p(0x15, 'AH1', 'o in hot (long)', { formants: FORMANTS.AH, dur: 180 }),
-      p(0x16, 'OO1', 'oo in look (long)', { formants: FORMANTS.OO, dur: 175 }),
-      p(0x17, 'OO', 'oo in look', { formants: FORMANTS.OO, dur: 110 }),
-      p(0x18, 'L', 'l in lam', { kind: 'liquid', formants: FORMANTS.L, dur: 105, amp: .60 }),
-      p(0x19, 'K', 'k in kick', { kind: 'plosive', dur: 64, voiced: false, burst: 3300, amp: .58 }),
-      p(0x1A, 'J', 'j in jet', { kind: 'affricate', dur: 120, voiced: true, fric: 2300, burst: 2000, amp: .58 }),
-      p(0x1B, 'H', 'h in hello', { kind: 'breath', formants: FORMANTS.H, dur: 95, voiced: false, fric: 1300, amp: .42 }),
-      p(0x1C, 'G', 'g in get', { kind: 'plosive', dur: 70, voiced: true, burst: 1050, amp: .55 }),
-      p(0x1D, 'F', 'f in fit', { kind: 'fricative', dur: 105, voiced: false, fric: 1450, amp: .45 }),
-      p(0x1E, 'D', 'd in door', { kind: 'plosive', dur: 72, voiced: true, burst: 1700, amp: .55 }),
-      p(0x1F, 'S', 's in sit', { kind: 'fricative', dur: 105, voiced: false, fric: 4300, amp: .55 }),
-      p(0x20, 'A', 'a in day', { formants: FORMANTS.E, toFormants: FORMANTS.I, dur: 150 }),
-      p(0x21, 'AY', 'y in sky', { formants: FORMANTS.AY, toFormants: FORMANTS.I, dur: 175 }),
-      p(0x22, 'Y1', 'y in yes', { kind: 'glide', formants: FORMANTS.Y, toFormants: FORMANTS.EH, dur: 95, amp: .55 }),
-      p(0x23, 'UH3', 'u in turn (short)', { formants: FORMANTS.ER, dur: 75 }),
-      p(0x24, 'AH', 'o in mop', { formants: FORMANTS.AH, dur: 115 }),
-      p(0x25, 'P', 'p in past', { kind: 'plosive', dur: 62, voiced: false, burst: 1900, amp: .58 }),
-      p(0x26, 'O', 'o in cold', { formants: FORMANTS.O, toFormants: FORMANTS.OO, dur: 150 }),
-      p(0x27, 'I', 'i in pin', { formants: FORMANTS.I, dur: 110 }),
-      p(0x28, 'U', 'oo in moov', { formants: FORMANTS.OO, dur: 145 }),
-      p(0x29, 'Y', 'y in yet', { kind: 'glide', formants: FORMANTS.Y, toFormants: FORMANTS.EH, dur: 80, amp: .52 }),
-      p(0x2A, 'T', 't in tap', { kind: 'plosive', dur: 58, voiced: false, burst: 2800, amp: .58 }),
-      p(0x2B, 'R', 'r in red', { kind: 'liquid', formants: FORMANTS.R, dur: 115, amp: .62 }),
-      p(0x2C, 'E', 'e in me', { formants: FORMANTS.E, dur: 135 }),
-      p(0x2D, 'W', 'w in win', { kind: 'glide', formants: FORMANTS.W, toFormants: FORMANTS.O, dur: 105, amp: .56 }),
-      p(0x2E, 'AE', 'a in dad', { formants: FORMANTS.AE, dur: 125 }),
-      p(0x2F, 'AE1', 'a in dad (long)', { formants: FORMANTS.AE, dur: 185 }),
-      p(0x30, 'AW2', 'aw in law (short)', { formants: FORMANTS.AW, dur: 105 }),
-      p(0x31, 'UH2', 'u in turn (medium)', { formants: FORMANTS.ER, dur: 120 }),
-      p(0x32, 'UH1', 'u in turn (long)', { formants: FORMANTS.ER, dur: 185 }),
-      p(0x33, 'UH', 'u in up', { formants: FORMANTS.UH, dur: 105 }),
-      p(0x34, 'O2', 'o in for', { formants: FORMANTS.O, dur: 120 }),
-      p(0x35, 'O1', 'o in aboard', { formants: FORMANTS.O, dur: 175 }),
-      p(0x36, 'IU', 'ew in few', { formants: FORMANTS.IU, toFormants: FORMANTS.OO, dur: 170 }),
-      p(0x37, 'U1', 'oo in yoo', { formants: FORMANTS.OO, dur: 190 }),
-      p(0x38, 'THV', 'th in the (voiced)', { kind: 'fricative', dur: 95, voiced: true, fric: 1250, amp: .42 }),
-      p(0x39, 'TH', 'th in thin (unvoiced)', { kind: 'fricative', dur: 105, voiced: false, fric: 1300, amp: .44 }),
-      p(0x3A, 'ER', 'er in bird', { formants: FORMANTS.ER, dur: 155 }),
-      p(0x3B, 'EH', 'e in get', { formants: FORMANTS.EH, dur: 110 }),
-      p(0x3C, 'E1', 'e in be (long)', { formants: FORMANTS.E, dur: 190 }),
-      p(0x3D, 'AW', 'aw in caught', { formants: FORMANTS.AW, dur: 145 }),
-      p(0x3E, 'PA1', 'Long Pause', { kind: 'pause', dur: 260, amp: 0 }),
-      p(0x3F, 'STOP', 'Full Halt / Idle State', { kind: 'stop', dur: 1, amp: 0 })
+      // Votrax SC-01 Table 1 phoneme chart. Durations/examples are the official
+      // table values; browser synth tweaks and the active SC-01/SC-01A ROM may
+      // still adjust the audible preview.
+      p(0x00, 'EH3', 'e in jacket', { formants: FORMANTS.EH, dur: 59, example: 'jacket' }),
+      p(0x01, 'EH2', 'e in enlist', { formants: FORMANTS.EH, dur: 71, example: 'enlist' }),
+      p(0x02, 'EH1', 'e in heavy', { formants: FORMANTS.EH, dur: 121, example: 'heavy' }),
+      p(0x03, 'PA0', 'no sound', { kind: 'pause', dur: 47, amp: 0, example: 'no sound' }),
+      p(0x04, 'DT', 't/d release in butter', { kind: 'plosive', dur: 47, voiced: true, burst: 1800, amp: .50, example: 'butter' }),
+      p(0x05, 'A2', 'a in made', { formants: FORMANTS.A, dur: 71, example: 'made' }),
+      p(0x06, 'A1', 'a in made', { formants: FORMANTS.A, dur: 103, example: 'made' }),
+      p(0x07, 'ZH', 'z in azure', { kind: 'fricative', dur: 90, voiced: true, fric: 2100, amp: .45, example: 'azure' }),
+      p(0x08, 'AH2', 'h/o in honest', { formants: FORMANTS.AH, dur: 71, example: 'honest' }),
+      p(0x09, 'I3', 'i in inhibit', { formants: FORMANTS.I, dur: 55, example: 'inhibit' }),
+      p(0x0A, 'I2', 'i in inhibit', { formants: FORMANTS.I, dur: 80, example: 'inhibit' }),
+      p(0x0B, 'I1', 'i in inhibit', { formants: FORMANTS.I, dur: 121, example: 'inhibit' }),
+      p(0x0C, 'M', 'm in mat', { kind: 'nasal', formants: FORMANTS.M, dur: 103, nasal: true, amp: .58, example: 'mat' }),
+      p(0x0D, 'N', 'n in sun', { kind: 'nasal', formants: FORMANTS.N, dur: 80, nasal: true, amp: .58, example: 'sun' }),
+      p(0x0E, 'B', 'b in bag', { kind: 'plosive', dur: 71, voiced: true, burst: 650, amp: .55, example: 'bag' }),
+      p(0x0F, 'V', 'v in van', { kind: 'fricative', dur: 71, voiced: true, fric: 1500, amp: .45, example: 'van' }),
+      p(0x10, 'CH', 'ch tail in chip', { kind: 'affricate', dur: 71, voiced: false, fric: 2800, burst: 3000, amp: .62, example: 'chip', note: 'Manual: use T + CH for the full CH sound.', sequence: '$2A $10' }),
+      p(0x11, 'SH', 'sh in shop', { kind: 'fricative', dur: 121, voiced: false, fric: 2500, amp: .55, example: 'shop' }),
+      p(0x12, 'Z', 'z in zoo', { kind: 'fricative', dur: 71, voiced: true, fric: 3200, amp: .46, example: 'zoo' }),
+      p(0x13, 'AW1', 'aw in lawful', { formants: FORMANTS.AW, dur: 146, example: 'lawful' }),
+      p(0x14, 'NG', 'ng in thing', { kind: 'nasal', formants: FORMANTS.NG, dur: 121, nasal: true, amp: .55, example: 'thing' }),
+      p(0x15, 'AH1', 'a in father', { formants: FORMANTS.AH, dur: 146, example: 'father' }),
+      p(0x16, 'OO1', 'oo in looking', { formants: FORMANTS.OO, dur: 103, example: 'looking' }),
+      p(0x17, 'OO', 'oo in book', { formants: FORMANTS.OO, dur: 185, example: 'book' }),
+      p(0x18, 'L', 'l in land', { kind: 'liquid', formants: FORMANTS.L, dur: 103, amp: .60, example: 'land' }),
+      p(0x19, 'K', 'k in trick', { kind: 'plosive', dur: 80, voiced: false, burst: 3300, amp: .58, example: 'trick' }),
+      p(0x1A, 'J', 'j tail in judge', { kind: 'affricate', dur: 47, voiced: true, fric: 2300, burst: 2000, amp: .58, example: 'judge', note: 'Manual: use D + J for the full J sound.', sequence: '$1E $1A' }),
+      p(0x1B, 'H', 'h in hello', { kind: 'breath', formants: FORMANTS.H, dur: 71, voiced: false, fric: 1300, amp: .42, example: 'hello' }),
+      p(0x1C, 'G', 'g in get', { kind: 'plosive', dur: 71, voiced: true, burst: 1050, amp: .55, example: 'get' }),
+      p(0x1D, 'F', 'f in fast', { kind: 'fricative', dur: 103, voiced: false, fric: 1450, amp: .45, example: 'fast' }),
+      p(0x1E, 'D', 'd in paid', { kind: 'plosive', dur: 55, voiced: true, burst: 1700, amp: .55, example: 'paid', note: 'Manual pair: D + J gives the full J sound.', sequence: '$1E $1A' }),
+      p(0x1F, 'S', 's in pass', { kind: 'fricative', dur: 90, voiced: false, fric: 4300, amp: .55, example: 'pass' }),
+      p(0x20, 'A', 'a in day', { formants: FORMANTS.E, toFormants: FORMANTS.I, dur: 185, example: 'day' }),
+      p(0x21, 'AY', 'y in day', { formants: FORMANTS.AY, toFormants: FORMANTS.I, dur: 65, example: 'day' }),
+      p(0x22, 'Y1', 'y in yard', { kind: 'glide', formants: FORMANTS.Y, toFormants: FORMANTS.EH, dur: 80, amp: .55, example: 'yard' }),
+      p(0x23, 'UH3', 'i/o in mission', { formants: FORMANTS.ER, dur: 47, example: 'mission' }),
+      p(0x24, 'AH', 'o in mop', { formants: FORMANTS.AH, dur: 250, example: 'mop' }),
+      p(0x25, 'P', 'p in past', { kind: 'plosive', dur: 103, voiced: false, burst: 1900, amp: .58, example: 'past' }),
+      p(0x26, 'O', 'o in cold', { formants: FORMANTS.O, toFormants: FORMANTS.OO, dur: 185, example: 'cold' }),
+      p(0x27, 'I', 'i in pin', { formants: FORMANTS.I, dur: 185, example: 'pin' }),
+      p(0x28, 'U', 'u in move', { formants: FORMANTS.OO, dur: 185, example: 'move' }),
+      p(0x29, 'Y', 'y in any', { kind: 'glide', formants: FORMANTS.Y, toFormants: FORMANTS.EH, dur: 103, amp: .52, example: 'any' }),
+      p(0x2A, 'T', 't in tap', { kind: 'plosive', dur: 71, voiced: false, burst: 2800, amp: .58, example: 'tap', note: 'Manual pair: T + CH gives the full CH sound.', sequence: '$2A $10' }),
+      p(0x2B, 'R', 'r in red', { kind: 'liquid', formants: FORMANTS.R, dur: 90, amp: .62, example: 'red' }),
+      p(0x2C, 'E', 'e in meet', { formants: FORMANTS.E, dur: 185, example: 'meet' }),
+      p(0x2D, 'W', 'w in win', { kind: 'glide', formants: FORMANTS.W, toFormants: FORMANTS.O, dur: 80, amp: .56, example: 'win' }),
+      p(0x2E, 'AE', 'a in dad', { formants: FORMANTS.AE, dur: 185, example: 'dad' }),
+      p(0x2F, 'AE1', 'a in after', { formants: FORMANTS.AE, dur: 103, example: 'after' }),
+      p(0x30, 'AW2', 'aw in salty', { formants: FORMANTS.AW, dur: 90, example: 'salty' }),
+      p(0x31, 'UH2', 'u in about', { formants: FORMANTS.ER, dur: 71, example: 'about' }),
+      p(0x32, 'UH1', 'u in uncle', { formants: FORMANTS.ER, dur: 103, example: 'uncle' }),
+      p(0x33, 'UH', 'u in cup', { formants: FORMANTS.UH, dur: 185, example: 'cup' }),
+      p(0x34, 'O2', 'o in for', { formants: FORMANTS.O, dur: 80, example: 'for' }),
+      p(0x35, 'O1', 'o in aboard', { formants: FORMANTS.O, dur: 121, example: 'aboard' }),
+      p(0x36, 'IU', 'you / ew', { formants: FORMANTS.IU, toFormants: FORMANTS.OO, dur: 59, example: 'you' }),
+      p(0x37, 'U1', 'you / long u', { formants: FORMANTS.OO, dur: 90, example: 'you' }),
+      p(0x38, 'THV', 'th in the', { kind: 'fricative', dur: 80, voiced: true, fric: 1250, amp: .42, example: 'the' }),
+      p(0x39, 'TH', 'th in thin', { kind: 'fricative', dur: 71, voiced: false, fric: 1300, amp: .44, example: 'thin' }),
+      p(0x3A, 'ER', 'er in bird', { formants: FORMANTS.ER, dur: 146, example: 'bird' }),
+      p(0x3B, 'EH', 'e in get', { formants: FORMANTS.EH, dur: 185, example: 'get' }),
+      p(0x3C, 'E1', 'e in be', { formants: FORMANTS.E, dur: 121, example: 'be' }),
+      p(0x3D, 'AW', 'aw in call', { formants: FORMANTS.AW, dur: 253, example: 'call' }),
+      p(0x3E, 'PA1', 'no sound', { kind: 'pause', dur: 185, amp: 0, example: 'no sound' }),
+      p(0x3F, 'STOP', 'no sound', { kind: 'stop', dur: 47, amp: 0, example: 'no sound' })
     ];
 
     const PHONEME_BY_BYTE = new Map(PHONEMES.map(item => [item.byte, item]));
@@ -4766,16 +4776,20 @@ L8E78:
           tipMeta([tipRow('Code', `${opcode} · dec ${decBytes}`), tipRow('Mode', tooltipModeLabel(mode))]);
       }
 
-      const baseRows = [
+      const rows = [
         tipRow('Code', `${opcode} · dec ${decBytes}`, 'goldText'),
         tipRow('Mode', tooltipModeLabel(mode)),
-        tipRow('Base', `${ph.kind || 'vowel'} / ${ph.family || classifyForUi(ph)} · ${tipMs(ph.dur)} · amp ${tipValueNumber(ph.amp)}`),
-        tipRow('Voice', `voiced ${tipBool(ph.voiced)} · nasal ${tipBool(ph.nasal)} · soft ${tipValueNumber(ph.soft)} · lead ${tipValueNumber(ph.leadVoice)}`),
-        tipRow('Form', `${tipFormants(ph.formants)}${ph.toFormants ? ' → ' + tipFormants(ph.toFormants) : ''}`),
-        tipRow('Noise', `fric ${tipHz(ph.fric)} · burst ${tipHz(ph.burst)}`)
+        tipRow('Table', `${ph.kind || classifyForUi(ph)} · ${tipMs(ph.officialDur ?? ph.dur)} · ${ph.example || ph.desc || ''}`),
+        tipRow('Synth', `amp ${tipValueNumber(ph.amp)} · voiced ${tipBool(ph.voiced)} · nasal ${tipBool(ph.nasal)}${ph.soft ? ' · soft ' + tipValueNumber(ph.soft) : ''}${ph.leadVoice ? ' · lead ' + tipValueNumber(ph.leadVoice) : ''}`),
+        tipRow('Form', `${tipFormants(ph.formants)}${ph.toFormants ? ' → ' + tipFormants(ph.toFormants) : ''}`)
       ];
 
-      const rows = [...baseRows];
+      if (ph.note) rows.push(tipRow('Note', ph.sequence ? `${ph.note}  Seq ${ph.sequence}` : ph.note, 'cyanText'));
+
+      const hasNoise = Number(ph.fric) || Number(ph.burst);
+      if (hasNoise && ph.kind !== 'vowel' && ph.kind !== 'pause' && ph.kind !== 'stop') {
+        rows.push(tipRow('Noise', `fric ${tipHz(ph.fric)} · burst ${tipHz(ph.burst)}`));
+      }
 
       if (context.timeline || item.timeline) {
         const tl = context.timeline || item.timeline;
@@ -4792,13 +4806,12 @@ L8E78:
       if (canUseRom) {
         const entry = sc01RomState?.byPhone?.get(ph.byte & 0x3F);
         const preview = applySc01RomToPhoneme(ph);
-        rows.push(tipRow('Preview', `dur ${tipMs(preview.dur)} · amp ${tipValueNumber(preview.amp)} · form ${tipFormants(preview.formants)} · fric ${tipHz(preview.fric)} · burst ${tipHz(preview.burst)}`, 'cyanText'));
+        rows.push(tipRow('Preview', `${tipMs(preview.dur)} · amp ${tipValueNumber(preview.amp)} · form ${tipFormants(preview.formants)}${preview.fric ? ' · fric ' + tipHz(preview.fric) : ''}${preview.burst ? ' · burst ' + tipHz(preview.burst) : ''}`, 'cyanText'));
         if (entry) {
           const diff = romDifferenceInfo(ph.byte, entry);
           rows.push(tipRow('ROM', `${romDisplayName(activeRomModel())} row ${entry.row} · phone ${hex2(entry.phone)} · dur ${entry.duration}→${romDurationMs(entry, ph.dur)}ms`, 'goldText'));
-          rows.push(tipRow('Fld', `f1 ${entry.f1} va ${entry.va} f2 ${entry.f2} fc ${entry.fc} q ${entry.f2q} f3 ${entry.f3} fa ${entry.fa}`));
-          rows.push(tipRow('Ctrl', `cld ${entry.cld} vd ${entry.vd} close ${entry.closure}`));
-          rows.push(tipRow('Word', tipRomWord(entry)));
+          rows.push(tipRow('Fld', `f ${entry.f1}/${entry.f2}/${entry.f3} · va/fa ${entry.va}/${entry.fa} · fc/q ${entry.fc}/${entry.f2q}`));
+          rows.push(tipRow('Ctrl', `cld/vd/close ${entry.cld}/${entry.vd}/${entry.closure} · ${tipRomWord(entry)}`));
           if (diff?.changed && diff.otherEntry) rows.push(tipRow('Other', `${romDisplayName(diff.otherModel)} · ${romSummary(diff.otherEntry)}`));
           else if (diff?.otherModel) rows.push(tipRow('Other', `${romDisplayName(diff.otherModel)} same`));
         } else {
