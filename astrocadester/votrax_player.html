@@ -5,7 +5,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Votrax Player</title>
-  <!-- cache-bust-head: single-audition-soft-bytecounts-20260702-212940 -->
+  <!-- cache-bust-head: autofit-min-no-scroll-hardfix-20260702-224105 -->
   <style>
     :root {
       --bg: #14171c;
@@ -2531,6 +2531,14 @@
         width: 100%;
       }
     }
+
+    /* Auto-fit hard stop: the source editor must be allowed to shrink to its
+       measured text content. The older generic resizablePanel min-height forced
+       a large blank editor even after source auto-fit calculated a smaller size. */
+    .sourceEditorPanel.resizablePanel {
+      min-height: 58px !important;
+    }
+
   </style>
 </head>
 
@@ -4747,7 +4755,6 @@ L8E78:
       btn.addEventListener('mouseenter', ev => showPhonemeInfoTip(btn.dataset.tip, ev));
       btn.addEventListener('mousemove', movePhonemeInfoTip);
       btn.addEventListener('mouseleave', hidePhonemeInfoTip);
-      btn.addEventListener('focus', ev => showPhonemeInfoTip(btn.dataset.tip, ev));
       btn.addEventListener('blur', hidePhonemeInfoTip);
 
       btn.addEventListener('pointerdown', ev => {
@@ -4804,6 +4811,7 @@ L8E78:
       });
 
       btn.addEventListener('click', ev => {
+        hidePhonemeInfoTip();
         if (Date.now() < timelineSuppressClickUntil) {
           ev.preventDefault();
           ev.stopPropagation();
@@ -4890,7 +4898,6 @@ L8E78:
       btn.addEventListener('mouseenter', ev => showPhonemeInfoTip(btn.dataset.tip, ev));
       btn.addEventListener('mousemove', movePhonemeInfoTip);
       btn.addEventListener('mouseleave', hidePhonemeInfoTip);
-      btn.addEventListener('focus', ev => showPhonemeInfoTip(btn.dataset.tip, ev));
       btn.addEventListener('blur', hidePhonemeInfoTip);
 
       btn.addEventListener('pointerdown', ev => {
@@ -4952,6 +4959,7 @@ L8E78:
       });
 
       btn.addEventListener('click', ev => {
+        hidePhonemeInfoTip();
         if (Date.now() < timelineSuppressClickUntil) {
           ev.preventDefault();
           ev.stopPropagation();
@@ -5048,10 +5056,9 @@ L8E78:
         });
         seg.addEventListener('focus', () => {
           if (timelineDragState?.active) return;
-          const rect = seg.getBoundingClientRect();
           seg.classList.add('timelineHover');
           setWaveformHoverIndex(item.index);
-          showTimelineInfoTip(timelineTipHtml(item, analysis), seg, { clientX: rect.left + rect.width / 2, clientY: rect.top + rect.height / 2 });
+          hidePhonemeInfoTip();
         });
         seg.addEventListener('blur', () => {
           seg.classList.remove('timelineHover');
@@ -5715,7 +5722,10 @@ L8E78:
         if (stopAtStopEl.checked && phone === 0x3f) break;
       }
       const samples = postProcessMameSamples(concatFloatChunks(chunks, total), gain, normalizeAudioEl.checked);
-      if (!options.single) mixSc01AudibilityReinforcement(samples, events, options);
+      // Keep SC-01 consonants audible for both full phrases and single-phone palette previews.
+      // The palette preview path passes options.single, and skipping reinforcement there
+      // caused many consonants/plosives to sound silent or only buzz.
+      mixSc01AudibilityReinforcement(samples, events, options);
       return { samples, events, duration: samples.length / SAMPLE_RATE };
     }
 
@@ -5805,10 +5815,14 @@ L8E78:
       return out;
     }
 
-    function padSingleAuditionRender(render, padMs = 14) {
+    function padSingleAuditionRender(render, padMs = 10) {
       if (!render || !render.samples) return render;
       const pad = Math.max(0, Math.floor(SAMPLE_RATE * padMs / 1000));
-      const shaped = softenSingleAuditionSamples(render.samples);
+      // Do not low-pass or re-shape single phoneme previews. Consonants depend on
+      // short noise bursts/frication; the previous smoothing made many palette
+      // consonants disappear or turn into a dull buzz.
+      const shaped = new Float32Array(render.samples);
+      fadeSamplesInPlace(shaped, 3);
       if (!pad) return { ...render, samples: shaped, duration: shaped.length / SAMPLE_RATE };
       const out = new Float32Array(shaped.length + pad * 2);
       out.set(shaped, pad);
@@ -5843,6 +5857,7 @@ L8E78:
 
     async function playBytes(bytes, playOptions = {}) {
       stopPlayback();
+      hidePhonemeInfoTip();
       if (!bytes.length) { setStatus('No phoneme bytes to play.', true); return; }
       const ctx = await ensureAudioContext();
       let render = null;
@@ -6511,22 +6526,15 @@ L8E78:
       const index = getSelectedPhraseIndex();
       const phrase = index === null ? null : importedPhrases[index];
       if (!phrase) { setStatus('Select an imported phrase first.', true); return null; }
-      const avoidPaletteFit = Boolean(options.noPaletteFit);
-      const previousSuppressPalette = suppressPaletteAutoFit;
-      if (avoidPaletteFit) {
-        preparePhraseLoadAutoFit();
-        suppressPaletteAutoFit = true;
-      }
+      const shouldAutoFit = options.autoFit !== false;
+      if (shouldAutoFit) preparePhraseLoadAutoFit();
       activeImportedPhraseIndex = index;
       sourceEl.value = formatPhraseSource(phrase);
       activeImportedPhraseSourceText = sourceEl.value;
       inputModeEl.value = phrase.mode || 'wizard';
       requestWaveformFullViewOnNextRender();
       analyze();
-      if (avoidPaletteFit) {
-        suppressPaletteAutoFit = previousSuppressPalette;
-        schedulePhraseLoadAutoFit();
-      }
+      if (shouldAutoFit) schedulePhraseLoadAutoFit();
       updateSelectedPhraseInfo();
       if (!options.silent) setStatus(`Loaded "${phrase.title}" as ${phrase.mode === 'sc01' ? 'raw SC-01 ASM speech data' : 'Wizard/WoW voice data'}.`);
       return phrase;
@@ -6777,39 +6785,108 @@ L8E78:
       settingsBtn.setAttribute('aria-label', settingsBtn.title);
     }
 
+    function restoreStyleProperty(el, name, value, priority = '') {
+      if (!el) return;
+      if (value) el.style.setProperty(name, value, priority || '');
+      else el.style.removeProperty(name);
+    }
+
+    function cssVerticalExtras(el) {
+      if (!el) return 0;
+      const cs = getComputedStyle(el);
+      return ['borderTopWidth', 'borderBottomWidth', 'paddingTop', 'paddingBottom']
+        .reduce((sum, key) => sum + (parseFloat(cs[key]) || 0), 0);
+    }
+
     function autoFitTextarea(el, minHeight = 0) {
       if (!el) return 0;
-      el.style.height = 'auto';
-      const nextHeight = Math.max(minHeight, el.scrollHeight + 2);
-      el.style.height = nextHeight + 'px';
+      const oldHeight = el.style.getPropertyValue('height');
+      const oldHeightPriority = el.style.getPropertyPriority('height');
+      const oldOverflowY = el.style.getPropertyValue('overflow-y');
+      const oldOverflowYPriority = el.style.getPropertyPriority('overflow-y');
+      el.style.setProperty('height', 'auto', 'important');
+      el.style.setProperty('overflow-y', 'hidden', 'important');
+      const nextHeight = Math.ceil(Math.max(minHeight, el.scrollHeight + 6));
+      el.style.setProperty('height', nextHeight + 'px', 'important');
+      restoreStyleProperty(el, 'overflow-y', oldOverflowY, oldOverflowYPriority);
       return nextHeight;
     }
 
     function measureTextareaContentHeight(el, minHeight = 0) {
       if (!el) return minHeight;
-      const oldHeight = el.style.height;
-      const oldOverflowY = el.style.overflowY;
-      el.style.height = 'auto';
-      el.style.overflowY = 'hidden';
-      const nextHeight = Math.max(minHeight, el.scrollHeight + 2);
-      el.style.height = oldHeight;
-      el.style.overflowY = oldOverflowY;
+      const cs = getComputedStyle(el);
+      const width = Math.max(120, Math.ceil(el.getBoundingClientRect().width || el.clientWidth || 600));
+      const clone = document.createElement('textarea');
+      clone.value = el.value || '';
+      clone.setAttribute('wrap', el.getAttribute('wrap') || 'soft');
+      clone.setAttribute('spellcheck', 'false');
+      clone.style.position = 'absolute';
+      clone.style.left = '-10000px';
+      clone.style.top = '0';
+      clone.style.visibility = 'hidden';
+      clone.style.pointerEvents = 'none';
+      clone.style.boxSizing = cs.boxSizing;
+      clone.style.width = width + 'px';
+      clone.style.minHeight = '0';
+      clone.style.height = 'auto';
+      clone.style.maxHeight = 'none';
+      clone.style.overflow = 'hidden';
+      clone.style.resize = 'none';
+      clone.style.whiteSpace = cs.whiteSpace;
+      clone.style.font = cs.font;
+      clone.style.lineHeight = cs.lineHeight;
+      clone.style.letterSpacing = cs.letterSpacing;
+      clone.style.paddingTop = cs.paddingTop;
+      clone.style.paddingRight = cs.paddingRight;
+      clone.style.paddingBottom = cs.paddingBottom;
+      clone.style.paddingLeft = cs.paddingLeft;
+      clone.style.borderTopWidth = cs.borderTopWidth;
+      clone.style.borderRightWidth = cs.borderRightWidth;
+      clone.style.borderBottomWidth = cs.borderBottomWidth;
+      clone.style.borderLeftWidth = cs.borderLeftWidth;
+      clone.style.borderStyle = cs.borderStyle;
+      document.body.appendChild(clone);
+      const nextHeight = Math.ceil(Math.max(minHeight, clone.scrollHeight + 8));
+      clone.remove();
       return nextHeight;
     }
 
+    function withPaneTemporarilyMeasurable(pane, callback) {
+      if (!pane) return callback();
+      const wasHidden = pane.classList.contains('isHidden');
+      const oldVisibility = pane.style.visibility;
+      const oldPointerEvents = pane.style.pointerEvents;
+      if (wasHidden) {
+        pane.classList.remove('isHidden');
+        pane.style.visibility = 'hidden';
+        pane.style.pointerEvents = 'none';
+      }
+      try {
+        return callback();
+      } finally {
+        if (wasHidden) pane.classList.add('isHidden');
+        pane.style.visibility = oldVisibility;
+        pane.style.pointerEvents = oldPointerEvents;
+      }
+    }
+
     function fitSourceEditorToContent(force = false) {
-      if (!sourceEditorPanel || !sourceEl || sourceEditorPanel.classList.contains('isHidden')) return;
+      if (!sourceEditorPanel || !sourceEl) return;
       if (!force && sourceEditorPanel.dataset.userSized === 'true') return;
-      const handle = sourceEditorPanel.querySelector('.paneResizeHandle');
-      const textHeight = measureTextareaContentHeight(sourceEl, 44);
-      const handleHeight = handle ? Math.max(14, handle.getBoundingClientRect().height) : 14;
-      const borderPad = Math.max(0, sourceEditorPanel.offsetHeight - sourceEditorPanel.clientHeight);
-      const total = Math.ceil(textHeight + handleHeight + borderPad + 8);
-      sourceEditorPanel.style.setProperty('--source-pane-height', total + 'px');
-      sourceEditorPanel.style.setProperty('--source-pane-height-mobile', total + 'px');
-      sourceEditorPanel.style.height = total + 'px';
-      sourceEl.style.height = '';
-      sourceEl.style.overflowY = '';
+      withPaneTemporarilyMeasurable(sourceEditorPanel, () => {
+        const wrap = sourceEditorPanel.querySelector('.sourceTextWrap');
+        const handle = sourceEditorPanel.querySelector('.paneResizeHandle');
+        const textHeight = measureTextareaContentHeight(sourceEl, 44);
+        const handleHeight = handle ? Math.max(14, Math.ceil(handle.getBoundingClientRect().height || handle.offsetHeight || 14)) : 14;
+        const wrapChrome = cssVerticalExtras(wrap);
+        const panelChrome = cssVerticalExtras(sourceEditorPanel);
+        const total = Math.ceil(textHeight + wrapChrome + handleHeight + panelChrome + 8);
+        sourceEditorPanel.style.setProperty('--source-pane-height', total + 'px');
+        sourceEditorPanel.style.setProperty('--source-pane-height-mobile', total + 'px');
+        sourceEditorPanel.style.setProperty('height', total + 'px', 'important');
+        sourceEl.style.removeProperty('height');
+        sourceEl.style.removeProperty('overflow-y');
+      });
     }
 
     function fitTimelineToContent(force = false) {
@@ -6820,23 +6897,49 @@ L8E78:
       const handle = panel.querySelector('.paneResizeHandle');
       if (!wrap || !line) return;
 
-      const oldPanelHeight = panel.style.height;
-      const oldWrapHeight = wrap.style.height;
-      const oldLineHeight = line.style.height;
-      panel.style.height = 'auto';
-      wrap.style.height = 'auto';
-      line.style.height = 'auto';
+      const oldPanelHeight = panel.style.getPropertyValue('height');
+      const oldPanelHeightPriority = panel.style.getPropertyPriority('height');
+      const oldPanelOverflow = panel.style.getPropertyValue('overflow');
+      const oldPanelOverflowPriority = panel.style.getPropertyPriority('overflow');
+      const oldWrapHeight = wrap.style.getPropertyValue('height');
+      const oldWrapHeightPriority = wrap.style.getPropertyPriority('height');
+      const oldWrapOverflow = wrap.style.getPropertyValue('overflow');
+      const oldWrapOverflowPriority = wrap.style.getPropertyPriority('overflow');
+      const oldLineHeight = line.style.getPropertyValue('height');
+      const oldLineHeightPriority = line.style.getPropertyPriority('height');
+      const oldLineOverflow = line.style.getPropertyValue('overflow');
+      const oldLineOverflowPriority = line.style.getPropertyPriority('overflow');
+      const oldLineMaxHeight = line.style.getPropertyValue('max-height');
+      const oldLineMaxHeightPriority = line.style.getPropertyPriority('max-height');
 
-      const timelineHeight = Math.ceil(Math.max(64, line.scrollHeight + 2));
-      const handleHeight = handle ? Math.max(14, handle.getBoundingClientRect().height) : 14;
-      const total = Math.ceil(timelineHeight + handleHeight + 6);
+      panel.style.setProperty('height', 'auto', 'important');
+      panel.style.setProperty('overflow', 'visible', 'important');
+      wrap.style.setProperty('height', 'auto', 'important');
+      wrap.style.setProperty('overflow', 'hidden', 'important');
+      line.style.setProperty('height', 'auto', 'important');
+      line.style.setProperty('max-height', 'none', 'important');
+      line.style.setProperty('overflow', 'hidden', 'important');
 
-      wrap.style.height = oldWrapHeight;
-      line.style.height = oldLineHeight;
-      panel.style.height = oldPanelHeight;
+      const lineHeight = Math.ceil(Math.max(
+        line.scrollHeight || 0,
+        line.offsetHeight || 0,
+        line.getBoundingClientRect().height || 0
+      ));
+      const handleHeight = handle ? Math.max(14, Math.ceil(handle.getBoundingClientRect().height || handle.offsetHeight || 14)) : 14;
+      const panelChrome = cssVerticalExtras(panel);
+      const total = Math.ceil(lineHeight + handleHeight + panelChrome + 18);
+
+      restoreStyleProperty(line, 'height', oldLineHeight, oldLineHeightPriority);
+      restoreStyleProperty(line, 'max-height', oldLineMaxHeight, oldLineMaxHeightPriority);
+      restoreStyleProperty(line, 'overflow', oldLineOverflow, oldLineOverflowPriority);
+      restoreStyleProperty(wrap, 'height', oldWrapHeight, oldWrapHeightPriority);
+      restoreStyleProperty(wrap, 'overflow', oldWrapOverflow, oldWrapOverflowPriority);
+      restoreStyleProperty(panel, 'height', oldPanelHeight, oldPanelHeightPriority);
+      restoreStyleProperty(panel, 'overflow', oldPanelOverflow, oldPanelOverflowPriority);
+
       panel.style.setProperty('--timeline-pane-height', total + 'px');
       panel.style.setProperty('--timeline-pane-height-mobile', total + 'px');
-      panel.style.height = total + 'px';
+      panel.style.setProperty('height', total + 'px', 'important');
     }
 
     function fitPaletteToContent(force = false) {
@@ -6848,8 +6951,32 @@ L8E78:
       const handle = panel.querySelector('.paneResizeHandle');
       const tabHeight = tabBar ? tabBar.getBoundingClientRect().height : 0;
       const paneBorderPad = activePane ? (activePane.offsetHeight - activePane.clientHeight) : 0;
-      const wrapHeight = activeWrap ? Math.max(activeWrap.scrollHeight, activeWrap.offsetHeight, activeWrap.getBoundingClientRect().height) : 0;
       const handleHeight = handle ? Math.max(14, handle.getBoundingClientRect().height) : 14;
+
+      const oldPanelHeight = panel.style.height;
+      const oldWrapHeight = activeWrap ? activeWrap.style.height : '';
+      const oldWrapOverflowY = activeWrap ? activeWrap.style.overflowY : '';
+      const oldWrapMaxHeight = activeWrap ? activeWrap.style.maxHeight : '';
+      panel.style.height = 'auto';
+      if (activeWrap) {
+        activeWrap.style.height = 'auto';
+        activeWrap.style.maxHeight = 'none';
+        activeWrap.style.overflowY = 'hidden';
+      }
+
+      const wrapContent = activeWrap?.firstElementChild || activeWrap;
+      const wrapHeight = activeWrap ? Math.ceil(Math.max(
+        activeWrap.scrollHeight || 0,
+        wrapContent ? wrapContent.getBoundingClientRect().height : 0
+      ) + 2) : 0;
+
+      if (activeWrap) {
+        activeWrap.style.height = oldWrapHeight;
+        activeWrap.style.maxHeight = oldWrapMaxHeight;
+        activeWrap.style.overflowY = oldWrapOverflowY;
+      }
+      panel.style.height = oldPanelHeight;
+
       const total = Math.ceil(tabHeight + paneBorderPad + wrapHeight + handleHeight + 14);
       panel.style.setProperty('--palette-pane-height', total + 'px');
       panel.style.setProperty('--palette-pane-height-mobile', total + 'px');
@@ -6862,11 +6989,22 @@ L8E78:
 
     let suppressPaletteAutoFit = false;
     let contentFitFrame = 0;
+    function runContentFitRequest(request) {
+      if (request.source) fitSourceEditorToContent(request.forceSource);
+      if (request.timeline) fitTimelineToContent(request.forceTimeline);
+      if (request.palette) fitPaletteToContent(request.forcePalette);
+      if (request.export) fitExportToContent();
+    }
+
     function scheduleContentFit(options = {}) {
+      // Auto-size is deliberately gated. It is only allowed by init/sample-load
+      // paths that pass autoFit:true. Normal edit, drag, tab, play, and hover
+      // paths must not resize panes.
+      if (!options || options.autoFit !== true) return;
       const request = {
         source: options.source !== false,
         timeline: options.timeline !== false,
-        palette: options.palette !== false && !suppressPaletteAutoFit,
+        palette: options.palette !== false && (options.forcePalette || !suppressPaletteAutoFit),
         export: options.export !== false,
         forceSource: Boolean(options.forceSource),
         forceTimeline: Boolean(options.forceTimeline),
@@ -6875,10 +7013,9 @@ L8E78:
       if (contentFitFrame) cancelAnimationFrame(contentFitFrame);
       contentFitFrame = requestAnimationFrame(() => {
         contentFitFrame = 0;
-        if (request.source) fitSourceEditorToContent(request.forceSource);
-        if (request.timeline) fitTimelineToContent(request.forceTimeline);
-        if (request.palette) fitPaletteToContent(request.forcePalette);
-        if (request.export) fitExportToContent();
+        runContentFitRequest(request);
+        requestAnimationFrame(() => runContentFitRequest(request));
+        setTimeout(() => runContentFitRequest(request), 60);
       });
     }
 
@@ -6899,17 +7036,25 @@ L8E78:
     }
 
     function preparePhraseLoadAutoFit() {
-      clearPaneUserSizedState('source');
-      clearPaneUserSizedState('timeline');
+      ['source', 'timeline', 'palette', 'decode', 'settings'].forEach(clearPaneUserSizedState);
     }
 
     function schedulePhraseLoadAutoFit() {
-      scheduleContentFit({ palette: false, forceSource: true, forceTimeline: true });
+      scheduleContentFit({
+        autoFit: true,
+        source: true,
+        timeline: true,
+        palette: true,
+        export: true,
+        forceSource: true,
+        forceTimeline: true,
+        forcePalette: true
+      });
     }
 
 
 
-    const VOTRAX_UI_BUILD = 'waveform-play-highlight-fullview-20260703-003812';
+    const VOTRAX_UI_BUILD = 'autofit-min-no-scroll-hardfix-20260702-224105';
     const VOTRAX_UI_STORAGE_PREFIX = 'votrax.' + VOTRAX_UI_BUILD + '.';
 
     function resetPaneCacheForThisBuild() {
@@ -7151,9 +7296,7 @@ L8E78:
     }
 
     function loadBuiltInSample(sampleKey, label = '') {
-      const previousSuppressPalette = suppressPaletteAutoFit;
       preparePhraseLoadAutoFit();
-      suppressPaletteAutoFit = true;
       const sampleSource = Object.prototype.hasOwnProperty.call(SAMPLES, sampleKey) ? SAMPLES[sampleKey] : DEFAULT_SOURCE;
       sourceEl.value = sampleSource;
       sourceInsertPos = sourceEl.value.length;
@@ -7166,7 +7309,6 @@ L8E78:
       inputModeEl.value = BUILT_IN_SAMPLE_BY_KEY.get(sampleKey)?.mode || 'sc01';
       requestWaveformFullViewOnNextRender();
       analyze();
-      suppressPaletteAutoFit = previousSuppressPalette;
       schedulePhraseLoadAutoFit();
       setSampleMenuVisible(false);
       setStatus(`Loaded sample: ${label || sampleKey} (${builtInSampleByteCount(sampleKey)} byte${builtInSampleByteCount(sampleKey) === 1 ? '' : 's'}).`);
@@ -7435,11 +7577,11 @@ L8E78:
     sourceInsertPos = sourceEl.value.length;
     requestWaveformFullViewOnNextRender();
     analyze();
-    scheduleContentFit();
+    scheduleContentFit({ autoFit: true, forceSource: true, forceTimeline: true, forcePalette: true });
     setStatus('Ready. Default sample is Lizard. Sample picker loads the selected phrase. Single-phoneme auditions preserve the full phrase waveform.');
   </script>
 </body>
 
-<!-- cache-bust: single-audition-soft-bytecounts-20260702-212940 -->
+<!-- cache-bust: autofit-min-no-scroll-hardfix-20260702-224105 -->
 
 </html>
