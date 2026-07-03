@@ -5,7 +5,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Votrax Player</title>
-  <!-- cache-bust-head: wav-zoom-pane-20260702-233307 -->
+  <!-- cache-bust-head: wav-zoom-bottomstats-resize-20260702-234859 -->
   <style>
     :root {
       --bg: #14171c;
@@ -1399,6 +1399,7 @@
     .toolbarPlaybackPanel.resizablePanel,
     .sourceEditorPanel,
     .timelinePanel.resizablePanel,
+    .wavViewPanel.resizablePanel,
     .phonemePalettePanel.resizablePanel,
     .rightPanel.resizablePanel {
       position: relative;
@@ -2415,7 +2416,7 @@
 
 
 
-    /* Generated WAV zoom pane: wav-zoom-pane-20260702-233307
+    /* Generated WAV zoom pane: wav-zoom-bottomstats-resize-20260702-234859
        Single zoom-window view borrowed from the Bally WAV decoder UI, adapted
        for the Votrax phrase renderer. Wheel zooms; click/drag pans. */
     .wavViewToggleButton.active,
@@ -2430,7 +2431,17 @@
 
     .wavViewPanel {
       margin-top: 4px;
-      min-height: 148px;
+      min-height: 116px;
+      overflow: hidden;
+    }
+
+    .wavViewPanel.resizablePanel {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-content: stretch;
+      height: var(--waveform-pane-height, 190px);
+      min-height: 116px;
       overflow: hidden;
     }
 
@@ -2439,17 +2450,7 @@
     }
 
     .wavViewHeader {
-      display: flex;
-      align-items: baseline;
-      justify-content: space-between;
-      gap: 8px;
-      padding: 0 6px 4px;
-      min-width: 0;
-    }
-
-    .wavViewHeader h3 {
-      margin: 0;
-      white-space: nowrap;
+      display: none;
     }
 
     .wavViewCaption {
@@ -2458,11 +2459,14 @@
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap;
-      text-align: right;
+      text-align: left;
+      min-width: 0;
     }
 
     .wavViewCanvasWrap {
-      height: 142px;
+      flex: 1 1 auto;
+      min-height: 70px;
+      height: auto;
       overflow: hidden;
       background: #0f1218;
       border: 1px solid var(--border);
@@ -2484,42 +2488,30 @@
       cursor: grabbing;
     }
 
-    .wavSignalKey {
+    .wavViewStatsLine {
+      flex: 0 0 auto;
       display: flex;
-      flex-wrap: wrap;
-      gap: 6px 10px;
       align-items: center;
+      min-height: 18px;
       margin: 4px 6px 0;
-      color: var(--muted);
-      font: 11px/1.2 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      min-width: 0;
     }
 
-    .wavSignalKey .key-line {
-      width: 18px;
-      height: 3px;
-      display: inline-block;
-      border-radius: 999px;
-      margin-right: -4px;
-      background: rgba(96, 165, 250, .95);
-    }
-
-    .wavSignalKey .key-zero {
-      background: rgba(255, 209, 102, .88);
+    .wavViewPanel.resizablePanel .paneResizeHandle {
+      flex: 0 0 14px;
+      min-height: 14px;
+      margin: 0;
+      background: transparent;
+      border: 0;
     }
 
     @media (max-width: 520px) {
-      .wavViewCanvasWrap {
-        height: 118px;
-      }
-
-      .wavViewHeader {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 2px;
+      .wavViewPanel.resizablePanel {
+        height: var(--waveform-pane-height-mobile, 166px);
+        min-height: 106px;
       }
 
       .wavViewCaption {
-        text-align: left;
         width: 100%;
       }
     }
@@ -2740,15 +2732,12 @@
         <div class="paneResizeHandle" role="separator" tabindex="0" aria-orientation="horizontal" aria-label="Resize timeline pane" title="Drag to resize timeline pane" data-resize-pane="timeline"></div>
       </section>
 
-      <section class="panel stack wavViewPanel" id="waveformPanel" aria-label="Generated WAV zoom window">
-        <div class="wavViewHeader">
-          <h3>WAV zoom window</h3>
-          <span class="wavViewCaption" id="waveformCaption">Render preview updates as the phrase changes · wheel zoom · click/drag pan</span>
-        </div>
+      <section class="panel stack wavViewPanel resizablePanel" id="waveformPanel" aria-label="Generated WAV zoom window" data-pane-name="waveform" style="--waveform-pane-height: 190px; --waveform-pane-height-mobile: 166px;">
         <div class="wavViewCanvasWrap">
           <canvas id="waveformCanvas" width="1200" height="220" aria-label="Generated WAV zoom waveform"></canvas>
         </div>
-        <div class="wavSignalKey"><span class="key-line key-pcm"></span>PCM waveform <span class="key-line key-zero"></span>zero line <span>wheel zoom · click/drag pan from start to end</span></div>
+        <div class="wavViewStatsLine"><span class="wavViewCaption" id="waveformCaption">Render preview updates as the phrase changes · wheel zoom · click/drag pan</span></div>
+        <div class="paneResizeHandle" role="separator" tabindex="0" aria-orientation="horizontal" aria-label="Resize WAV zoom pane" title="Drag to resize WAV zoom pane" data-resize-pane="waveform"></div>
       </section>
 
       <section class="panel stack phonemePalettePanel resizablePanel" aria-label="Add phonemes to timeline" data-pane-name="palette" style="--palette-pane-height: 214px; --palette-pane-height-mobile: 180px;">
@@ -6468,6 +6457,7 @@ L8E78:
       const storageSuffix = {
         source: 'sourcePaneHeight',
         timeline: 'timelinePaneHeight',
+        waveform: 'waveformPaneHeight',
         palette: 'palettePaneHeight',
         decode: 'decodePaneHeight',
         settings: 'settingsPaneHeight'
@@ -6488,7 +6478,7 @@ L8E78:
 
 
 
-    const VOTRAX_UI_BUILD = 'wav-zoom-pane-20260702-233307';
+    const VOTRAX_UI_BUILD = 'wav-zoom-bottomstats-resize-20260702-234859';
     const VOTRAX_UI_STORAGE_PREFIX = 'votrax.' + VOTRAX_UI_BUILD + '.';
 
     function resetPaneCacheForThisBuild() {
@@ -6499,6 +6489,7 @@ L8E78:
           'votrax.settingsPaneHeight',
           'votrax.sourcePaneHeight',
           'votrax.timelinePaneHeight',
+          'votrax.waveformPaneHeight',
           'votrax.palettePaneHeight',
           'votrax.decodePaneHeight'
         ].forEach(key => localStorage.removeItem(key));
@@ -6531,6 +6522,14 @@ L8E78:
           storageKey: VOTRAX_UI_STORAGE_PREFIX + 'timelinePaneHeight',
           min: 76,
           maxRatio: 0.60
+        },
+        waveform: {
+          selector: '[data-pane-name="waveform"]',
+          cssVar: '--waveform-pane-height',
+          mobileCssVar: '--waveform-pane-height-mobile',
+          storageKey: VOTRAX_UI_STORAGE_PREFIX + 'waveformPaneHeight',
+          min: 116,
+          maxRatio: 0.58
         },
         palette: {
           selector: '[data-pane-name="palette"]',
@@ -6568,6 +6567,7 @@ L8E78:
         pane.style.height = h + 'px';
         if (opts.userSized) pane.dataset.userSized = 'true';
         try { localStorage.setItem(cfg.storageKey, String(h)); } catch (_) { }
+        if (pane.id === 'waveformPanel') requestAnimationFrame(drawWaveformPreview);
       }
 
       function getPaneHeight(pane, cfg) {
