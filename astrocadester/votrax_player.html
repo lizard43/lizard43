@@ -5,7 +5,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Votrax Player</title>
-  <!-- cache-bust-head: seq-note-target-only-20260703-131640 -->
+  <!-- cache-bust-head: diphthong-tab-11-reset-20260703-131307 -->
   <style>
     :root {
       --bg: #14171c;
@@ -1852,6 +1852,11 @@
       color: var(--gold);
     }
 
+    .phonemePalettePill.diphthong {
+      background: rgba(94, 224, 131, .11);
+      color: var(--accent);
+    }
+
     .phonemePaletteByte {
       color: var(--text);
       opacity: .88;
@@ -2855,6 +2860,7 @@
         data-pane-name="palette" style="--palette-pane-height: 214px; --palette-pane-height-mobile: 180px;">
         <div class="tabBar phonemePaletteTabBar" role="tablist" aria-label="phoneme palette tabs">
           <button class="tabButton active" type="button" data-palette-tab="phonemes">phonemes</button>
+          <button class="tabButton" type="button" data-palette-tab="diphthongs">dipthong</button>
           <button class="tabButton" type="button" data-palette-tab="tokens">tokens</button>
         </div>
 
@@ -2862,6 +2868,13 @@
           <div class="phonemePaletteWrap">
             <div class="phonemePalette" id="phonemePalette"
               aria-label="Available phonemes. Drag a pill into the timeline to insert it."></div>
+          </div>
+        </div>
+
+        <div class="tabPane" id="paletteDiphthongsPane" role="tabpanel">
+          <div class="phonemePaletteWrap">
+            <div class="phonemePalette diphthongPalette" id="diphthongPalette"
+              aria-label="Available Votrax Table 2 diphthongs. Drag a pill into the timeline to insert its separate SC-01 phonemes."></div>
           </div>
         </div>
 
@@ -3017,6 +3030,31 @@
     ];
 
     const PHONEME_BY_BYTE = new Map(PHONEMES.map(item => [item.byte, item]));
+    const PHONEME_BY_SYMBOL = new Map(PHONEMES.map(item => [item.symbol, item]));
+
+    function sc01BytesForSymbols(symbols) {
+      return (symbols || []).map(symbol => PHONEME_BY_SYMBOL.get(symbol)?.byte).filter(byte => Number.isFinite(byte));
+    }
+
+    const SC01_DIPHTHONGS = [
+      { combo: 'A1-AY-Y', symbols: ['A1', 'AY', 'Y'], keys: ['fate', 'maid'] },
+      { combo: 'AH1-EH3-Y', symbols: ['AH1', 'EH3', 'Y'], keys: ['find', 'wide'] },
+      { combo: 'UH3-AH2-Y', symbols: ['UH3', 'AH2', 'Y'], keys: ['fight', 'white'] },
+      { combo: 'AH1-I3-UH3-L', symbols: ['AH1', 'I3', 'UH3', 'L'], keys: ['file', 'smile'] },
+      { combo: 'O1-UH3-Y', symbols: ['O1', 'UH3', 'Y'], keys: ['foy', 'boy'] },
+      { combo: 'O1-I3-UH3-L', symbols: ['O1', 'I3', 'UH3', 'L'], keys: ['foil', 'spoil'] },
+      { combo: 'AH1-O2-U1', symbols: ['AH1', 'O2', 'U1'], keys: ['found', 'cow'] },
+      { combo: 'UH3-AH2-U1', symbols: ['UH3', 'AH2', 'U1'], keys: ['foust', 'house'] },
+      { combo: 'O1-U1', symbols: ['O1', 'U1'], keys: ['float', 'note'] },
+      { combo: 'Y1-IU-U1', symbols: ['Y1', 'IU', 'U1'], keys: ['few', 'you', 'music'] },
+      { combo: 'AY-I1', symbols: ['AY', 'I1'], keys: ['fear', 'beer'] }
+    ].map(item => ({
+      ...item,
+      bytes: sc01BytesForSymbols(item.symbols),
+      mode: 'sc01',
+      label: item.combo,
+      tipType: 'diphthong'
+    }));
 
     // The ASM demo strings in wow.asm are direct SC-01 phoneme bytes sent to
     // the speech port. They sound better on hardware because the chip has its
@@ -3663,6 +3701,7 @@ L8E78:
     const tokenTableBody = document.getElementById('tokenTableBody');
     const timeline = document.getElementById('timeline');
     const phonemePalette = document.getElementById('phonemePalette');
+    const diphthongPalette = document.getElementById('diphthongPalette');
     const tokenPalette = document.getElementById('tokenPalette');
     const phonemePaletteMode = document.getElementById('phonemePaletteMode');
     const phonemeInfoTip = document.getElementById('phonemeInfoTip');
@@ -4172,6 +4211,7 @@ L8E78:
       renderDecoded(currentAnalysis);
       renderTimeline(currentAnalysis);
       renderPhonemePalette(currentAnalysis);
+      renderDiphthongPalette(currentAnalysis);
       renderTokenPalette(currentAnalysis);
       updateTokenPaletteAvailability(currentAnalysis);
       exportText.value = formatDb(used);
@@ -5031,6 +5071,123 @@ L8E78:
       }
     }
 
+    function diphthongTipHtml(item) {
+      const bytes = item.bytes || [];
+      const opcode = bytes.map(hex2).join(' ');
+      const decBytes = bytes.map(b => String(b & 0xFF)).join(' ');
+      const phones = (item.symbols || []).map(symbol => PHONEME_BY_SYMBOL.get(symbol)).filter(Boolean);
+      const phoneBrief = phones.map(ph => `${ph.hex} ${ph.symbol} ${tipMs(ph.officialDur ?? ph.dur)} ${ph.example || ph.desc || ''}`.trim()).join(' · ');
+      const tableDur = phones.reduce((sum, ph) => sum + (Number(ph.officialDur ?? ph.dur) || 0), 0);
+      const previewDur = phones.reduce((sum, ph) => sum + (Number(applySc01RomToPhoneme(ph)?.dur) || 0), 0);
+      const rows = [
+        tipRow('Combo', item.combo, 'goldText'),
+        tipRow('Keys', (item.keys || []).join(' · '), 'cyanText'),
+        tipRow('Bytes', `${opcode} · dec ${decBytes}`),
+        tipRow('Phones', phoneBrief),
+        tipRow('Dur', `table ${tipMs(tableDur)} · ${romDisplayName(activeRomModel())} preview ${tipMs(previewDur)}`),
+        tipRow('Use', 'drag inserts these as separate SC-01 phonemes')
+      ];
+      return `<div class="tipTopline"><span class="mono">${escapeHtml(opcode)}</span> <span class="tipName">${escapeHtml(item.combo)}</span> <span class="tipType">diphthong</span></div>` +
+        `<div class="tipDesc">Manual Table 2 diphthong sequence for ${escapeHtml((item.keys || []).join(', '))}.</div>` +
+        tipMeta(rows);
+    }
+
+    function buildDiphthongPaletteButton(item) {
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'phonemePalettePill diphthong';
+      btn.dataset.mode = 'sc01';
+      btn.dataset.tip = diphthongTipHtml(item);
+      btn.innerHTML = `<span class="phonemePaletteSymbol">${escapeHtml(item.combo)}</span>`;
+      btn.removeAttribute('title');
+      btn.setAttribute('aria-label', `Drag diphthong ${item.combo} (${item.bytes.map(hex2).join(' ')}) into timeline.`);
+
+      btn.addEventListener('mouseenter', ev => showPhonemeInfoTip(btn.dataset.tip, ev));
+      btn.addEventListener('mousemove', movePhonemeInfoTip);
+      btn.addEventListener('mouseleave', hidePhonemeInfoTip);
+      btn.addEventListener('blur', hidePhonemeInfoTip);
+
+      btn.addEventListener('pointerdown', ev => {
+        if (ev.button !== undefined && ev.button !== 0) return;
+        timelineDragState = {
+          pointerId: ev.pointerId,
+          kind: 'insert',
+          bytes: item.bytes.slice(),
+          mode: 'sc01',
+          label: item.combo,
+          startX: ev.clientX,
+          startY: ev.clientY,
+          sourceEl: btn,
+          active: false,
+          ghost: null,
+          gap: null,
+          slotIndex: null,
+          offsetX: 0,
+          offsetY: 0
+        };
+        btn.classList.add('timelineDragHold');
+        try { btn.setPointerCapture(ev.pointerId); } catch (_) { }
+      });
+
+      btn.addEventListener('pointermove', ev => {
+        const drag = timelineDragState;
+        if (!drag || drag.pointerId !== ev.pointerId || drag.sourceEl !== btn) return;
+        const moved = Math.hypot(ev.clientX - drag.startX, ev.clientY - drag.startY);
+        if (!drag.active && moved >= 5) startTimelineDrag(btn, ev);
+        if (drag.active) {
+          ev.preventDefault();
+          hidePhonemeInfoTip();
+          updateTimelineGhost(ev);
+          updateTimelineDropPlacement(ev);
+        }
+      });
+
+      btn.addEventListener('pointerup', ev => {
+        const drag = timelineDragState;
+        if (!drag || drag.pointerId !== ev.pointerId || drag.sourceEl !== btn) return;
+        finishTimelineDrag(ev, false);
+      });
+
+      btn.addEventListener('pointercancel', ev => {
+        const drag = timelineDragState;
+        if (drag && drag.pointerId === ev.pointerId && drag.sourceEl === btn) finishTimelineDrag(ev, true);
+      });
+
+      btn.addEventListener('keydown', ev => {
+        if (ev.key === 'Escape' && timelineDragState?.sourceEl === btn) {
+          ev.preventDefault();
+          clearTimelineDragState();
+        }
+      });
+
+      btn.addEventListener('click', ev => {
+        hidePhonemeInfoTip();
+        if (Date.now() < timelineSuppressClickUntil) {
+          ev.preventDefault();
+          ev.stopPropagation();
+          return;
+        }
+        playBytes(item.bytes, { single: true, mode: 'sc01', preserveWaveform: true });
+        setStatus(`Playing diphthong ${item.combo} (${item.bytes.map(hex2).join(' ')}). Drag it into the timeline to insert separate phonemes.`);
+      });
+
+      return btn;
+    }
+
+    function renderDiphthongPalette() {
+      if (!diphthongPalette) return;
+      diphthongPalette.innerHTML = '';
+      const groupEl = document.createElement('div');
+      groupEl.className = 'phonemePaletteGroup phonemePaletteGroup-diphthongs';
+      const heading = document.createElement('div');
+      heading.className = 'phonemePaletteGroupHeader';
+      heading.textContent = 'Table 2 diphthongs';
+      groupEl.appendChild(heading);
+
+      for (const item of SC01_DIPHTHONGS) groupEl.appendChild(buildDiphthongPaletteButton(item));
+      diphthongPalette.appendChild(groupEl);
+    }
+
     function tokenTypeKindLabel(tok) {
       const type = tok?.type || 'token';
       const kind = tok?.ph?.kind || tok?.ph?.family || '';
@@ -5188,12 +5345,13 @@ L8E78:
     }
 
     function showPaletteTab(name) {
-      const selected = name === 'tokens' ? 'tokens' : 'phonemes';
+      const selected = name === 'tokens' ? 'tokens' : (name === 'diphthongs' ? 'diphthongs' : 'phonemes');
       document.querySelectorAll('.phonemePalettePanel [data-palette-tab]').forEach(btn => {
         btn.classList.toggle('active', btn.dataset.paletteTab === selected);
       });
       document.querySelectorAll('.phonemePalettePanel > .tabPane').forEach(pane => pane.classList.remove('active'));
-      const pane = document.getElementById(selected === 'tokens' ? 'paletteTokensPane' : 'palettePhonemesPane');
+      const paneId = selected === 'tokens' ? 'paletteTokensPane' : (selected === 'diphthongs' ? 'paletteDiphthongsPane' : 'palettePhonemesPane');
+      const pane = document.getElementById(paneId);
       if (pane) pane.classList.add('active');
       hidePhonemeInfoTip();
       scheduleContentFit();
@@ -7785,6 +7943,7 @@ L8E78:
     renderPhonemeTable();
     renderWizardTokenTable();
     renderPhonemePalette();
+    renderDiphthongPalette();
     renderTokenPalette();
     updateSliderLabels();
     installBuiltInSc01Rom('sc01');
@@ -7798,6 +7957,6 @@ L8E78:
   </script>
 </body>
 
-<!-- cache-bust: sample-counts-mobile-timeline-drag-20260702-225930 -->
+<!-- cache-bust: diphthong-tab-11-reset-20260703-131307 -->
 
 </html>
