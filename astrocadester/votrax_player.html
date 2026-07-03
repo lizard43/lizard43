@@ -5,7 +5,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Votrax Player</title>
-  <!-- cache-bust-head: wowraw-sc01-proxy-palette-mode-20260702-193900 -->
+  <!-- cache-bust-head: wowasm-direct-sc01-samples-20260702-201820 -->
   <style>
     :root {
       --bg: #14171c;
@@ -67,7 +67,7 @@
       overflow: visible;
     }
 
-    .topLayout > * {
+    .topLayout>* {
       min-width: 0;
     }
 
@@ -537,7 +537,7 @@
       scrollbar-width: thin;
     }
 
-    .decodedList > * + * {
+    .decodedList>*+* {
       margin-top: 4px;
     }
 
@@ -1136,7 +1136,7 @@
     }
 
     .topLayout,
-    .topLayout > *,
+    .topLayout>*,
     .panel,
     .stack,
     .sourceTimelineStack,
@@ -1181,7 +1181,7 @@
       grid-template-columns: repeat(auto-fit, minmax(min(100%, 180px), 1fr));
     }
 
-    .controlValue > b {
+    .controlValue>b {
       flex: 0 0 auto;
       white-space: nowrap;
     }
@@ -1204,6 +1204,7 @@
     }
 
     @media (max-width: 1280px) {
+
       .row,
       .statusGrid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1216,6 +1217,7 @@
     }
 
     @media (max-width: 760px) {
+
       .row,
       .statusGrid,
       .modeTools {
@@ -1604,7 +1606,8 @@
 
     /* Timeline drag reorder: click/hold a pill, drag a ghost, and show the exact drop gap. */
     .timelineSegment.timelineDragHold {
-      outline: 2px solid #566a62;;
+      outline: 2px solid #566a62;
+      ;
       outline-offset: -2px;
       color: var(--text);
       box-shadow: 0 0 0 2px rgba(75, 84, 78, 0.18);
@@ -1629,7 +1632,7 @@
       pointer-events: none;
       opacity: .92;
       transform: rotate(-2deg) scale(1.04);
-      box-shadow: 0 8px 24px rgba(0,0,0,.45), 0 0 0 2px rgba(77, 87, 80, 0.32);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, .45), 0 0 0 2px rgba(77, 87, 80, 0.32);
       cursor: grabbing;
     }
 
@@ -1637,7 +1640,7 @@
       border-color: rgba(255, 107, 107, .95) !important;
       color: var(--danger) !important;
       background: rgba(255, 107, 107, .14) !important;
-      box-shadow: 0 8px 24px rgba(0,0,0,.45), 0 0 0 2px rgba(255, 107, 107, .42) !important;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, .45), 0 0 0 2px rgba(255, 107, 107, .42) !important;
       opacity: .96;
     }
 
@@ -1662,7 +1665,7 @@
     .timelineDragGhost.timelineCancelGhost {
       border-color: rgba(155, 167, 182, .65) !important;
       opacity: .48;
-      box-shadow: 0 8px 24px rgba(0,0,0,.30), 0 0 0 2px rgba(155, 167, 182, .18) !important;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, .30), 0 0 0 2px rgba(155, 167, 182, .18) !important;
     }
 
     .timelineDropGap {
@@ -1876,7 +1879,7 @@
       border-radius: 8px;
       background: #0f1218;
       color: var(--text);
-      box-shadow: 0 8px 24px rgba(0,0,0,.45);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, .45);
       font-size: 12px;
       line-height: 1.35;
       pointer-events: none;
@@ -2004,7 +2007,7 @@
       border: 1px solid var(--border);
       border-radius: 10px;
       background: #0f1218;
-      box-shadow: 0 10px 30px rgba(0,0,0,.55);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, .55);
       scrollbar-color: var(--border) #0f1218;
       scrollbar-width: thin;
     }
@@ -2039,7 +2042,7 @@
       outline: none;
     }
 
-    .sampleMenuItem + .sampleMenuItem {
+    .sampleMenuItem+.sampleMenuItem {
       margin-top: 3px;
     }
 
@@ -2528,7 +2531,6 @@
         width: 100%;
       }
     }
-
   </style>
 </head>
 
@@ -2547,45 +2549,59 @@
       </button>
       <button class="action iconButton" id="loadVoxBtn" title="Open Vox/ASM file" aria-label="Open Vox/ASM file">
         <svg viewBox="0 0 24 24" aria-hidden="true">
-          <path fill="currentColor" d="M10 4l2 2h8c1.1 0 2 .9 2 2v1H2V6c0-1.1.9-2 2-2h6Zm12 7v7c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2v-7h20Zm-7 2v2h-2v2h-2v-2H9v-2h2v-2h2v2h2Z" />
+          <path fill="currentColor"
+            d="M10 4l2 2h8c1.1 0 2 .9 2 2v1H2V6c0-1.1.9-2 2-2h6Zm12 7v7c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2v-7h20Zm-7 2v2h-2v2h-2v-2H9v-2h2v-2h2v2h2Z" />
         </svg>
       </button>
-      <button class="action iconButton sampleToggleButton" id="sampleToggleBtn" title="Show sample phrases" aria-label="Show sample phrases" aria-expanded="false">
+      <button class="action iconButton sampleToggleButton" id="sampleToggleBtn" title="Show sample phrases"
+        aria-label="Show sample phrases" aria-expanded="false">
         <svg viewBox="0 0 24 24" aria-hidden="true">
           <path fill="currentColor" d="M4 5h16v3H4V5Zm0 5h16v3H4v-3Zm0 5h16v3H4v-3Z" />
         </svg>
       </button>
-      <button class="action iconButton sourceToggleButton" id="sourceToggleBtn" title="Show source editor" aria-label="Show source editor" aria-expanded="false">
+      <button class="action iconButton sourceToggleButton" id="sourceToggleBtn" title="Show source editor"
+        aria-label="Show source editor" aria-expanded="false">
         <svg viewBox="0 0 24 24" aria-hidden="true">
-          <path fill="currentColor" d="M3 17.25V21h3.75L17.8 9.95l-3.75-3.75L3 17.25Zm17.7-10.2c.4-.4.4-1 0-1.4l-2.35-2.35c-.4-.4-1-.4-1.4 0l-1.85 1.85 3.75 3.75 1.85-1.85Z" />
+          <path fill="currentColor"
+            d="M3 17.25V21h3.75L17.8 9.95l-3.75-3.75L3 17.25Zm17.7-10.2c.4-.4.4-1 0-1.4l-2.35-2.35c-.4-.4-1-.4-1.4 0l-1.85 1.85 3.75 3.75 1.85-1.85Z" />
         </svg>
       </button>
-      <button class="action iconButton wavViewToggleButton active" id="waveViewToggleBtn" title="Hide WAV zoom view" aria-label="Hide WAV zoom view" aria-expanded="true">
+      <button class="action iconButton wavViewToggleButton active" id="waveViewToggleBtn" title="Hide WAV zoom view"
+        aria-label="Hide WAV zoom view" aria-expanded="true">
         <svg viewBox="0 0 24 24" aria-hidden="true">
-          <path fill="currentColor" d="M3 13h2.1l1.3-5.2c.2-.8 1.3-.8 1.5 0l2.2 9.1 2.2-12.2c.1-.9 1.4-1 1.6-.1l2.2 8.4H21v2h-5.6c-.4 0-.7-.3-.8-.6l-1.2-4.6-2.2 12c-.2.9-1.4.9-1.6 0L7.2 11.5l-.7 2.8c-.1.4-.4.7-.8.7H3v-2Z" />
+          <path fill="currentColor"
+            d="M3 13h2.1l1.3-5.2c.2-.8 1.3-.8 1.5 0l2.2 9.1 2.2-12.2c.1-.9 1.4-1 1.6-.1l2.2 8.4H21v2h-5.6c-.4 0-.7-.3-.8-.6l-1.2-4.6-2.2 12c-.2.9-1.4.9-1.6 0L7.2 11.5l-.7 2.8c-.1.4-.4.7-.8.7H3v-2Z" />
         </svg>
       </button>
       <button class="action iconButton" id="wavBtn" title="Download WAV render" aria-label="Download WAV">
         <svg viewBox="0 0 24 24" aria-hidden="true">
-          <path fill="currentColor" d="M19 20H5c-1.1 0-2-.9-2-2v-4h2v4h14v-4h2v4c0 1.1-.9 2-2 2ZM13 4v8.17l3.59-3.58L18 10l-6 6-6-6 1.41-1.41L11 12.17V4h2Z" /></svg>
+          <path fill="currentColor"
+            d="M19 20H5c-1.1 0-2-.9-2-2v-4h2v4h14v-4h2v4c0 1.1-.9 2-2 2ZM13 4v8.17l3.59-3.58L18 10l-6 6-6-6 1.41-1.41L11 12.17V4h2Z" />
+        </svg>
       </button>
       <button class="action iconButton" id="exportCopyBtn" title="Copy .DB" aria-label="Copy .DB">
         <svg viewBox="0 0 24 24" aria-hidden="true">
-          <path fill="currentColor" d="M16 1H4c-1.1 0-2 .9-2 2v12h2V3h12V1Zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2Zm0 16H8V7h11v14Z" />
+          <path fill="currentColor"
+            d="M16 1H4c-1.1 0-2 .9-2 2v12h2V3h12V1Zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2Zm0 16H8V7h11v14Z" />
         </svg>
       </button>
-      <button class="action iconButton danger" id="clearBtn" title="Clear phrase source" aria-label="Clear phrase source">
+      <button class="action iconButton danger" id="clearBtn" title="Clear phrase source"
+        aria-label="Clear phrase source">
         <svg viewBox="0 0 24 24" aria-hidden="true">
-          <path fill="currentColor" d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12ZM8 4l1-1h6l1 1h4v2H4V4h4Zm2 5h2v9h-2V9Zm4 0h2v9h-2V9Z" />
+          <path fill="currentColor"
+            d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12ZM8 4l1-1h6l1 1h4v2H4V4h4Zm2 5h2v9h-2V9Zm4 0h2v9h-2V9Z" />
         </svg>
       </button>
-      <button class="action iconButton notesToggleButton" id="notesToggleBtn" title="Show notes" aria-label="Show notes" aria-expanded="false">
+      <button class="action iconButton notesToggleButton" id="notesToggleBtn" title="Show notes" aria-label="Show notes"
+        aria-expanded="false">
         <span class="questionGlyph" aria-hidden="true">?</span>
       </button>
       <input id="voxFileInput" type="file" accept=".txt,.asm,.inc,text/plain" hidden />
-      <button class="action iconButton settingsButton" id="settingsBtn" title="Show playback controls / stats" aria-label="Show playback controls / stats" aria-expanded="false">
+      <button class="action iconButton settingsButton" id="settingsBtn" title="Show playback controls / stats"
+        aria-label="Show playback controls / stats" aria-expanded="false">
         <svg viewBox="0 0 24 24" aria-hidden="true">
-          <path fill="currentColor" d="M19.43 12.98c.04-.32.07-.65.07-.98s-.02-.66-.07-.98l2.11-1.65c.19-.15.24-.42.12-.64l-2-3.46c-.12-.22-.37-.31-.6-.22l-2.49 1a7.3 7.3 0 0 0-1.69-.98L14.5 2.42A.5.5 0 0 0 14.01 2h-4c-.25 0-.46.18-.5.42L9.13 5.07c-.61.24-1.18.56-1.69.98l-2.49-1c-.23-.08-.48 0-.6.22l-2 3.46c-.13.22-.07.49.12.64l2.11 1.65c-.04.32-.08.65-.08.98s.03.66.08.98l-2.11 1.65c-.19.15-.24.42-.12.64l2 3.46c.12.22.37.31.6.22l2.49-1c.51.4 1.08.73 1.69.98l.38 2.65c.04.24.25.42.5.42h4c.25 0 .46-.18.49-.42l.38-2.65c.61-.24 1.18-.56 1.69-.98l2.49 1c.23.08.48 0 .6-.22l2-3.46c.12-.22.07-.49-.12-.64l-2.11-1.65ZM12 15.5A3.5 3.5 0 1 1 12 8a3.5 3.5 0 0 1 0 7.5Z" />
+          <path fill="currentColor"
+            d="M19.43 12.98c.04-.32.07-.65.07-.98s-.02-.66-.07-.98l2.11-1.65c.19-.15.24-.42.12-.64l-2-3.46c-.12-.22-.37-.31-.6-.22l-2.49 1a7.3 7.3 0 0 0-1.69-.98L14.5 2.42A.5.5 0 0 0 14.01 2h-4c-.25 0-.46.18-.5.42L9.13 5.07c-.61.24-1.18.56-1.69.98l-2.49-1c-.23-.08-.48 0-.6.22l-2 3.46c-.13.22-.07.49.12.64l2.11 1.65c-.04.32-.08.65-.08.98s.03.66.08.98l-2.11 1.65c-.19.15-.24.42-.12.64l2 3.46c.12.22.37.31.6.22l2.49-1c.51.4 1.08.73 1.69.98l.38 2.65c.04.24.25.42.5.42h4c.25 0 .46-.18.49-.42l.38-2.65c.61-.24 1.18-.56 1.69-.98l2.49 1c.23.08.48 0 .6-.22l2-3.46c.12-.22.07-.49-.12-.64l-2.11-1.65ZM12 15.5A3.5 3.5 0 1 1 12 8a3.5 3.5 0 0 1 0 7.5Z" />
         </svg>
       </button>
     </div>
@@ -2600,7 +2616,9 @@
       </label>
     </div>
 
-    <section class="panel stack rightPanel notesPanel resizablePanel isHidden" id="notesPanel" aria-label="Playback notes" aria-hidden="true" data-pane-name="decode" style="--decode-pane-height: 420px; --decode-pane-height-mobile: 360px;">
+    <section class="panel stack rightPanel notesPanel resizablePanel isHidden" id="notesPanel"
+      aria-label="Playback notes" aria-hidden="true" data-pane-name="decode"
+      style="--decode-pane-height: 420px; --decode-pane-height-mobile: 360px;">
       <div class="tabBar" role="tablist" aria-label="right side tabs">
         <button class="tabButton active" type="button" data-tab="notes">notes</button>
       </div>
@@ -2632,37 +2650,47 @@
       <div class="tabPane active" id="notesPane" role="tabpanel">
         <h2>Playback notes</h2>
         <div class="callout cyan">
-          Parser accepts <span class="mono">.DB</span>, <span class="mono">DEFB</span>, <span class="mono">$3F</span>,
-          <span class="mono">0x3F</span>, <span class="mono">3FH</span>, binary <span class="mono">00111111B</span>,
-          raw decimal CSV lines,  voice-symbol lines such as <span class="mono">\NTB2 \HE</span>, whole Vox Data
-          text files, known raw WoW disassembly speech strings such as <span class="mono">L8E78</span>, and direct SC-01 ASM
-          phrase blocks such as <span class="mono">ALLBSE</span>.
+          Primary target: real Wizard of Wor / Gorf-style arcade hardware. The built-in samples now come from
+          <span class="mono">wow.asm</span> phrase blocks where <span class="mono">SAYPH</span> outputs each direct
+          SC-01 byte to speech port <span class="mono">$17</span> and <span class="mono">GSPST</span> waits on
+          input <span class="mono">$12</span> bit 7. Built and exported phrases should be direct SC-01
+          <span class="mono">$00-$3F</span> byte streams ending with <span class="mono">$3F</span> STOP.
         </div>
         <div class="callout cyan" style="margin-top:8px;">
-          This page uses the browser <span class="mono">AudioContext</span>, a MAME-derived SC-01 renderer for direct phone bytes,
-          and an SC-01 proxy renderer for expanded Wizard/WoW token streams. It is meant for fast Astrocade phrase prototyping
-          from ROM byte streams, not cycle-accurate Votrax SC-01 emulation.
+          This page uses the browser <span class="mono">AudioContext</span> and a small formant/noise synthesizer. It is
+          meant for fast Astrocade phrase prototyping from ROM byte streams, not cycle-accurate Votrax SC-01 emulation.
         </div>
         <div class="callout gold" style="margin-top:8px;">
-          Click any green phoneme pill in the Decoded, phonemes, or tokens tabs to audition it. Use Add when
-          you want to append raw SC-01 phonemes or  script-layer tokens to the phrase.
+          Click any green phoneme pill in the Decoded or phonemes tab to audition it. Use Add when
+          you want to append raw SC-01 phonemes to the phrase.
+        </div>
+        <div class="callout gold" style="margin-top:8px;">
+          Hardware/export rule: audio preview code is never written into the exported <span class="mono">.DB</span>.
+          For the current WoW/Gorf hardware workflow, export is the same direct SC-01 bytes shown in the editor.
+          No Wizard/WoW token proxy, no raw-ROM expansion, and no browser-only rewrite is used for the built-in samples.
         </div>
         <div class="small" style="margin-top:10px;">
           The SC-01 chip internally contains its own phoneme timing and articulation behavior. This browser version
           approximates phoneme length, voiced/unvoiced consonants, glides, fricatives, plosives, and pauses using
-          simplified envelopes. Built-in SC-01 / SC-01A ROM tables are available immediately; use the toolbar ROM dropdown to switch the active 64-entry internal phone ROM used for duration, amplitude, formants, noise, and closures.
+          simplified envelopes. Built-in SC-01 / SC-01A ROM tables are available immediately; use the toolbar ROM
+          dropdown to switch the active 64-entry internal phone ROM used for duration, amplitude, formants, noise, and
+          closures.
         </div>
       </div>
-      <div class="paneResizeHandle" role="separator" tabindex="0" aria-orientation="horizontal" aria-label="Resize decoded tabs pane" title="Drag to resize decoded tabs pane" data-resize-pane="decode"></div>
+      <div class="paneResizeHandle" role="separator" tabindex="0" aria-orientation="horizontal"
+        aria-label="Resize decoded tabs pane" title="Drag to resize decoded tabs pane" data-resize-pane="decode"></div>
     </section>
 
 
-    <section class="toolbarPlaybackPanel resizablePanel isHidden" id="playbackControls" aria-label="Playback controls and stats" aria-hidden="true" data-pane-name="settings" style="--settings-pane-height: 500px; --settings-pane-height-mobile: 420px;">
+    <section class="toolbarPlaybackPanel resizablePanel isHidden" id="playbackControls"
+      aria-label="Playback controls and stats" aria-hidden="true" data-pane-name="settings"
+      style="--settings-pane-height: 500px; --settings-pane-height-mobile: 420px;">
       <div class="collapsibleControlsInner">
-<div class="settingsSelectRow" aria-label="ROM and decode settings">
+        <div class="settingsSelectRow" aria-label="ROM and decode settings">
           <div class="controlBox settingSelectBox">
             <label for="builtInRomSelect">ROM</label>
-            <select id="builtInRomSelect" class="settingsSelect" title="Select built-in Votrax ROM model" aria-label="Select built-in Votrax ROM model">
+            <select id="builtInRomSelect" class="settingsSelect" title="Select built-in Votrax ROM model"
+              aria-label="Select built-in Votrax ROM model">
               <option value="sc01" selected>SC-01</option>
               <option value="sc01a">SC-01A</option>
             </select>
@@ -2678,7 +2706,7 @@
           </div>
         </div>
 
-                <div class="row">
+        <div class="row">
           <div class="controlBox">
             <div class="controlValue"><span>Speech rate</span><b id="rateValue">1.00×</b></div>
             <input id="rate" type="range" min="0.45" max="1.80" step="0.05" value="1.00" />
@@ -2698,8 +2726,9 @@
         </div>
 
         <div class="buttons">
-          <label class="checkLabel" title="Stop playback when byte $3F is encountered; keep $3F visible/editable in the source, decoded rows, timeline, and export."><input id="stopAtStop"
-              type="checkbox" checked /> Stop at <span class="mono">$3F</span></label>
+          <label class="checkLabel"
+            title="Stop playback when byte $3F is encountered; keep $3F visible/editable in the source, decoded rows, timeline, and export."><input
+              id="stopAtStop" type="checkbox" checked /> Stop at <span class="mono">$3F</span></label>
           <label class="checkLabel"
             title="Insert a tiny guard gap between phonemes to exaggerate SC-01-style articulation."><input
               id="gapBetween" type="checkbox" checked /> SC-01-ish gaps</label>
@@ -2728,37 +2757,44 @@
 
         <div id="status"></div>
       </div>
-      <div class="paneResizeHandle" role="separator" tabindex="0" aria-orientation="horizontal" aria-label="Resize settings pane" title="Drag to resize settings pane" data-resize-pane="settings"></div>
+      <div class="paneResizeHandle" role="separator" tabindex="0" aria-orientation="horizontal"
+        aria-label="Resize settings pane" title="Drag to resize settings pane" data-resize-pane="settings"></div>
     </section>
 
     <div class="sourceTimelineStack">
-      <section class="panel stack sourceEditorPanel resizablePanel isHidden" id="sourceEditorPanel" data-pane-name="source" aria-hidden="true" style="--source-pane-height: 332px; --source-pane-height-mobile: 280px;">
+      <section class="panel stack sourceEditorPanel resizablePanel isHidden" id="sourceEditorPanel"
+        data-pane-name="source" aria-hidden="true"
+        style="--source-pane-height: 332px; --source-pane-height-mobile: 280px;">
         <div class="sourceTextWrap">
           <textarea id="source" aria-label="Byte dump / phrase source" spellcheck="false" wrap="off"></textarea>
         </div>
-        <div class="paneResizeHandle" role="separator" tabindex="0" aria-orientation="horizontal" aria-label="Resize source editor pane" title="Drag to resize source editor pane" data-resize-pane="source"></div>
+        <div class="paneResizeHandle" role="separator" tabindex="0" aria-orientation="horizontal"
+          aria-label="Resize source editor pane" title="Drag to resize source editor pane" data-resize-pane="source">
+        </div>
       </section>
 
-      <section class="panel stack timelinePanel resizablePanel" data-pane-name="timeline" style="--timeline-pane-height: 112px; --timeline-pane-height-mobile: 104px;">
+      <section class="panel stack timelinePanel resizablePanel" data-pane-name="timeline"
+        style="--timeline-pane-height: 112px; --timeline-pane-height-mobile: 104px;">
         <div class="timelineWrap">
           <div class="timeline" id="timeline" aria-label="Decoded phoneme timeline"></div>
         </div>
-        <div class="paneResizeHandle" role="separator" tabindex="0" aria-orientation="horizontal" aria-label="Resize timeline pane" title="Drag to resize timeline pane" data-resize-pane="timeline"></div>
+        <div class="paneResizeHandle" role="separator" tabindex="0" aria-orientation="horizontal"
+          aria-label="Resize timeline pane" title="Drag to resize timeline pane" data-resize-pane="timeline"></div>
       </section>
 
-      <section class="panel stack wavViewPanel resizablePanel" id="waveformPanel" aria-label="Generated WAV zoom window" data-pane-name="waveform" style="--waveform-pane-height: 190px; --waveform-pane-height-mobile: 166px;">
+      <section class="panel stack wavViewPanel resizablePanel" id="waveformPanel" aria-label="Generated WAV zoom window"
+        data-pane-name="waveform" style="--waveform-pane-height: 190px; --waveform-pane-height-mobile: 166px;">
         <div class="wavViewCanvasWrap">
           <canvas id="waveformCanvas" width="1200" height="220" aria-label="Generated WAV zoom waveform"></canvas>
         </div>
-        <div class="wavViewStatsLine"><span class="wavViewCaption" id="waveformCaption">Render preview updates as the phrase changes · wheel zoom · click/drag pan</span></div>
-        <div class="paneResizeHandle" role="separator" tabindex="0" aria-orientation="horizontal" aria-label="Resize WAV zoom pane" title="Drag to resize WAV zoom pane" data-resize-pane="waveform"></div>
+        <div class="wavViewStatsLine"><span class="wavViewCaption" id="waveformCaption">Render preview updates as the
+            phrase changes · wheel zoom · click/drag pan</span></div>
+        <div class="paneResizeHandle" role="separator" tabindex="0" aria-orientation="horizontal"
+          aria-label="Resize WAV zoom pane" title="Drag to resize WAV zoom pane" data-resize-pane="waveform"></div>
       </section>
 
-      <section class="panel stack phonemePalettePanel resizablePanel" aria-label="Add phonemes to timeline" data-pane-name="palette" style="--palette-pane-height: 214px; --palette-pane-height-mobile: 180px;">
-        <div class="phonemePaletteHeader">
-          <h3>Palette</h3>
-          <div class="phonemePaletteMode" id="phonemePaletteMode">SC-01 phonemes</div>
-        </div>
+      <section class="panel stack phonemePalettePanel resizablePanel" aria-label="Add phonemes to timeline"
+        data-pane-name="palette" style="--palette-pane-height: 214px; --palette-pane-height-mobile: 180px;">
         <div class="tabBar phonemePaletteTabBar" role="tablist" aria-label="phoneme palette tabs">
           <button class="tabButton active" type="button" data-palette-tab="phonemes">phonemes</button>
           <button class="tabButton" type="button" data-palette-tab="tokens">tokens</button>
@@ -2766,17 +2802,21 @@
 
         <div class="tabPane active" id="palettePhonemesPane" role="tabpanel">
           <div class="phonemePaletteWrap">
-            <div class="phonemePalette" id="phonemePalette" aria-label="Available phonemes. Drag a pill into the timeline to insert it."></div>
+            <div class="phonemePalette" id="phonemePalette"
+              aria-label="Available phonemes. Drag a pill into the timeline to insert it."></div>
           </div>
         </div>
 
         <div class="tabPane" id="paletteTokensPane" role="tabpanel">
           <div class="phonemePaletteWrap">
-            <div class="phonemePalette tokenPalette" id="tokenPalette" aria-label="Available Wizard/WoW tokens. Drag a pill into the timeline to insert it."></div>
+            <div class="phonemePalette tokenPalette" id="tokenPalette"
+              aria-label="Available Wizard/WoW tokens. Drag a pill into the timeline to insert it."></div>
           </div>
         </div>
 
-        <div class="paneResizeHandle" role="separator" tabindex="0" aria-orientation="horizontal" aria-label="Resize phoneme palette pane" title="Drag to resize phoneme palette pane" data-resize-pane="palette"></div>
+        <div class="paneResizeHandle" role="separator" tabindex="0" aria-orientation="horizontal"
+          aria-label="Resize phoneme palette pane" title="Drag to resize phoneme palette pane"
+          data-resize-pane="palette"></div>
       </section>
     </div>
 
@@ -2792,17 +2832,10 @@
     'use strict';
 
     const SAMPLE_RATE = 40000;
-    const DEFAULT_SOURCE = `Wizard:
-    db $2D,$27,$12,$3A,$1E    ; W I Z ER D
-Of:
-    db $13                     ; AW1
-    db $0F                     ; V
-Wor:
-    db $2D                  ; W
-    db $35                  ; O1
-    db $34                  ; O2
-    db $2B                  ; R
-    db $3F                  ; STOP`;
+    const DEFAULT_SOURCE = `wor:                            ; Length=14
+    DB    $1B,$02,$23,$18,$23,$35,$37,$03        ; "Hello"
+    DB    $2D,$3A,$2B,$18,$1E            ; "World"
+    DB    $3F                    ; <STOP>`;
 
     const FORMANTS = {
       EH: [530, 1840, 2480],
@@ -2959,138 +2992,138 @@ Wor:
     // decoded 64-bit rows for the SC-01 / SC-01A internal phoneme parameter ROMs.
     // They replace the older embedded hex string; the current UI uses only these built-in ROMs.
     const VOTRAX_ROM_WORDS = {
-        sc01: [
-            0x030000e0f0a050a4n, // Phoneme Index 0
-            0x3e000a2300a050a4n, // Phoneme Index 1
-            0x3f0000f030a058a4n, // Phoneme Index 2
-            0x3d000cc1b06981a3n, // Phoneme Index 3
-            0x3c0009a19049d326n, // Phoneme Index 4
-            0x3b000a2194688127n, // Phoneme Index 5
-            0x3a0008a12448c382n, // Phoneme Index 6
-            0x39000168183800a4n, // Phoneme Index 7
-            0x38000a6388e15220n, // Phoneme Index 8
-            0x3700046190e8c122n, // Phoneme Index 9
-            0x36000366106083a2n, // Phoneme Index 10
-            0x350009a180e8c1a2n, // Phoneme Index 11
-            0x34000a6134e8c1a2n, // Phoneme Index 12
-            0x33000a21b4c981a3n, // Phoneme Index 13
-            0x320007a1e4c981a3n, // Phoneme Index 14
-            0x3100016354c981a3n, // Phoneme Index 15
-            0x30000461606981a3n, // Phoneme Index 16
-            0x2f0007a074e881a7n, // Phoneme Index 17
-            0x2e000a2074e881a7n, // Phoneme Index 18
-            0x2d000a661460c122n, // Phoneme Index 19
-            0x2c000a207049d326n, // Phoneme Index 20
-            0x2b00046354084382n, // Phoneme Index 21
-            0x2a000172e81132e0n, // Phoneme Index 22
-            0x290007a164015326n, // Phoneme Index 23
-            0x28000a2180e8c122n, // Phoneme Index 24
-            0x27000a21806191a6n, // Phoneme Index 25
-            0x26000a2184e8c1a2n, // Phoneme Index 26
-            0x250007b2631324a8n, // Phoneme Index 27
-            0x24000cc184e9c1a3n, // Phoneme Index 28
-            0x230000e354c981a3n, // Phoneme Index 29
-            0x22000a6164a01226n, // Phoneme Index 30
-            0x210005617069d326n, // Phoneme Index 31
-            0x20000a2184c9c1a6n, // Phoneme Index 32
-            0x1f000468489132e0n, // Phoneme Index 33
-            0x1e000b7c00e89126n, // Phoneme Index 34
-            0x1d0007a265832ca8n, // Phoneme Index 35
-            0x1c000173e041c126n, // Phoneme Index 36
-            0x1b000162fd2204acn, // Phoneme Index 37
-            0x1a0000e8db7b342cn, // Phoneme Index 38
-            0x19000a721123642cn, // Phoneme Index 39
-            0x180007a1f409d0a2n, // Phoneme Index 40
-            0x17000a2120498123n, // Phoneme Index 41
-            0x160007a130498123n, // Phoneme Index 42
-            0x150008a184e9c1a3n, // Phoneme Index 43
-            0x140009a0d4084b36n, // Phoneme Index 44
-            0x130008a0706981a3n, // Phoneme Index 45
-            0x120001639cd15860n, // Phoneme Index 46
-            0x110009a2fb8b546cn, // Phoneme Index 47
-            0x10000163fb8b546cn, // Phoneme Index 48
-            0x0f000163f7d36428n, // Phoneme Index 49
-            0x0e00017390e19122n, // Phoneme Index 50
-            0x0d000a61e6241936n, // Phoneme Index 51
-            0x0c0007a366a58832n, // Phoneme Index 52
-            0x0b0009a1906191a6n, // Phoneme Index 53
-            0x0a000a61906191a6n, // Phoneme Index 54
-            0x09000b61806191a6n, // Phoneme Index 55
-            0x08000161c4e9c1a3n, // Phoneme Index 56
-            0x07000463f3cb546cn, // Phoneme Index 57
-            0x060007a134c9c1a6n, // Phoneme Index 58
-            0x0500016164c9c1a6n, // Phoneme Index 59
-            0x040000fb610316e8n, // Phoneme Index 60
-            0x020009a1c4688127n, // Phoneme Index 61
-            0x01000161d4688127n, // Phoneme Index 62
-            0x0000036174688127n, // Phoneme Index 63
-        ],
-        sc01a: [
-            0x030000e0f0a050a4n, // Phoneme Index 0
-            0x3e000a2300a050a4n, // Phoneme Index 1
-            0x3f0000f030a058a4n, // Phoneme Index 2
-            0x3d000cc1b06980a3n, // Phoneme Index 3
-            0x3c0009a19049d326n, // Phoneme Index 4
-            0x3b000a2194688127n, // Phoneme Index 5
-            0x3a0008a12448c382n, // Phoneme Index 6
-            0x39000168183800a4n, // Phoneme Index 7
-            0x38000a6388e15220n, // Phoneme Index 8
-            0x3700046190e8c122n, // Phoneme Index 9
-            0x36000366106083a2n, // Phoneme Index 10
-            0x350009a180e8c1a2n, // Phoneme Index 11
-            0x34000a6134e8c1a2n, // Phoneme Index 12
-            0x33000a21b48981a3n, // Phoneme Index 13
-            0x320007a1e48981a3n, // Phoneme Index 14
-            0x31000163548981a3n, // Phoneme Index 15
-            0x30000461606980a3n, // Phoneme Index 16
-            0x2f0007a074e880a7n, // Phoneme Index 17
-            0x2e000a2074e880a7n, // Phoneme Index 18
-            0x2d000a661460c122n, // Phoneme Index 19
-            0x2c000a207049d326n, // Phoneme Index 20
-            0x2b00046354084382n, // Phoneme Index 21
-            0x2a000172e81132e0n, // Phoneme Index 22
-            0x290007a164015326n, // Phoneme Index 23
-            0x28000a2180e8c122n, // Phoneme Index 24
-            0x27000a21806191a6n, // Phoneme Index 25
-            0x26000a2184e8c1a2n, // Phoneme Index 26
-            0x250007b2631324a8n, // Phoneme Index 27
-            0x24000cc184e940a3n, // Phoneme Index 28
-            0x230000e3548981a3n, // Phoneme Index 29
-            0x22000a6164a01226n, // Phoneme Index 30
-            0x210005617069d326n, // Phoneme Index 31
-            0x20000a2184c9c1a6n, // Phoneme Index 32
-            0x1f000468489132e0n, // Phoneme Index 33
-            0x1e000b7c00e89126n, // Phoneme Index 34
-            0x1d0007a265832ca8n, // Phoneme Index 35
-            0x1c000173e041c126n, // Phoneme Index 36
-            0x1b000162fd2204acn, // Phoneme Index 37
-            0x1a0000e8db7b342cn, // Phoneme Index 38
-            0x19000a721123642cn, // Phoneme Index 39
-            0x180007a1f409d0a2n, // Phoneme Index 40
-            0x17000a2120498123n, // Phoneme Index 41
-            0x160007a130498123n, // Phoneme Index 42
-            0x150008a184e940a3n, // Phoneme Index 43
-            0x140009a0d4084b36n, // Phoneme Index 44
-            0x130008a0706980a3n, // Phoneme Index 45
-            0x120001639cd15860n, // Phoneme Index 46
-            0x110009a2fb8b546cn, // Phoneme Index 47
-            0x10000163fb8b546cn, // Phoneme Index 48
-            0x0f000163f7d36428n, // Phoneme Index 49
-            0x0e00017390e19122n, // Phoneme Index 50
-            0x0d000a61e6241936n, // Phoneme Index 51
-            0x0c0007a366a58832n, // Phoneme Index 52
-            0x0b0009a1906191a6n, // Phoneme Index 53
-            0x0a000a61906191a6n, // Phoneme Index 54
-            0x09000b61806191a6n, // Phoneme Index 55
-            0x08000161c4e940a3n, // Phoneme Index 56
-            0x07000463f3cb546cn, // Phoneme Index 57
-            0x060007a134c9c1a6n, // Phoneme Index 58
-            0x0500016164c9c1a6n, // Phoneme Index 59
-            0x040000fb610316e8n, // Phoneme Index 60
-            0x020009a1c4688127n, // Phoneme Index 61
-            0x01000161d4688127n, // Phoneme Index 62
-            0x0000036174688127n, // Phoneme Index 63
-        ]
+      sc01: [
+        0x030000e0f0a050a4n, // Phoneme Index 0
+        0x3e000a2300a050a4n, // Phoneme Index 1
+        0x3f0000f030a058a4n, // Phoneme Index 2
+        0x3d000cc1b06981a3n, // Phoneme Index 3
+        0x3c0009a19049d326n, // Phoneme Index 4
+        0x3b000a2194688127n, // Phoneme Index 5
+        0x3a0008a12448c382n, // Phoneme Index 6
+        0x39000168183800a4n, // Phoneme Index 7
+        0x38000a6388e15220n, // Phoneme Index 8
+        0x3700046190e8c122n, // Phoneme Index 9
+        0x36000366106083a2n, // Phoneme Index 10
+        0x350009a180e8c1a2n, // Phoneme Index 11
+        0x34000a6134e8c1a2n, // Phoneme Index 12
+        0x33000a21b4c981a3n, // Phoneme Index 13
+        0x320007a1e4c981a3n, // Phoneme Index 14
+        0x3100016354c981a3n, // Phoneme Index 15
+        0x30000461606981a3n, // Phoneme Index 16
+        0x2f0007a074e881a7n, // Phoneme Index 17
+        0x2e000a2074e881a7n, // Phoneme Index 18
+        0x2d000a661460c122n, // Phoneme Index 19
+        0x2c000a207049d326n, // Phoneme Index 20
+        0x2b00046354084382n, // Phoneme Index 21
+        0x2a000172e81132e0n, // Phoneme Index 22
+        0x290007a164015326n, // Phoneme Index 23
+        0x28000a2180e8c122n, // Phoneme Index 24
+        0x27000a21806191a6n, // Phoneme Index 25
+        0x26000a2184e8c1a2n, // Phoneme Index 26
+        0x250007b2631324a8n, // Phoneme Index 27
+        0x24000cc184e9c1a3n, // Phoneme Index 28
+        0x230000e354c981a3n, // Phoneme Index 29
+        0x22000a6164a01226n, // Phoneme Index 30
+        0x210005617069d326n, // Phoneme Index 31
+        0x20000a2184c9c1a6n, // Phoneme Index 32
+        0x1f000468489132e0n, // Phoneme Index 33
+        0x1e000b7c00e89126n, // Phoneme Index 34
+        0x1d0007a265832ca8n, // Phoneme Index 35
+        0x1c000173e041c126n, // Phoneme Index 36
+        0x1b000162fd2204acn, // Phoneme Index 37
+        0x1a0000e8db7b342cn, // Phoneme Index 38
+        0x19000a721123642cn, // Phoneme Index 39
+        0x180007a1f409d0a2n, // Phoneme Index 40
+        0x17000a2120498123n, // Phoneme Index 41
+        0x160007a130498123n, // Phoneme Index 42
+        0x150008a184e9c1a3n, // Phoneme Index 43
+        0x140009a0d4084b36n, // Phoneme Index 44
+        0x130008a0706981a3n, // Phoneme Index 45
+        0x120001639cd15860n, // Phoneme Index 46
+        0x110009a2fb8b546cn, // Phoneme Index 47
+        0x10000163fb8b546cn, // Phoneme Index 48
+        0x0f000163f7d36428n, // Phoneme Index 49
+        0x0e00017390e19122n, // Phoneme Index 50
+        0x0d000a61e6241936n, // Phoneme Index 51
+        0x0c0007a366a58832n, // Phoneme Index 52
+        0x0b0009a1906191a6n, // Phoneme Index 53
+        0x0a000a61906191a6n, // Phoneme Index 54
+        0x09000b61806191a6n, // Phoneme Index 55
+        0x08000161c4e9c1a3n, // Phoneme Index 56
+        0x07000463f3cb546cn, // Phoneme Index 57
+        0x060007a134c9c1a6n, // Phoneme Index 58
+        0x0500016164c9c1a6n, // Phoneme Index 59
+        0x040000fb610316e8n, // Phoneme Index 60
+        0x020009a1c4688127n, // Phoneme Index 61
+        0x01000161d4688127n, // Phoneme Index 62
+        0x0000036174688127n, // Phoneme Index 63
+      ],
+      sc01a: [
+        0x030000e0f0a050a4n, // Phoneme Index 0
+        0x3e000a2300a050a4n, // Phoneme Index 1
+        0x3f0000f030a058a4n, // Phoneme Index 2
+        0x3d000cc1b06980a3n, // Phoneme Index 3
+        0x3c0009a19049d326n, // Phoneme Index 4
+        0x3b000a2194688127n, // Phoneme Index 5
+        0x3a0008a12448c382n, // Phoneme Index 6
+        0x39000168183800a4n, // Phoneme Index 7
+        0x38000a6388e15220n, // Phoneme Index 8
+        0x3700046190e8c122n, // Phoneme Index 9
+        0x36000366106083a2n, // Phoneme Index 10
+        0x350009a180e8c1a2n, // Phoneme Index 11
+        0x34000a6134e8c1a2n, // Phoneme Index 12
+        0x33000a21b48981a3n, // Phoneme Index 13
+        0x320007a1e48981a3n, // Phoneme Index 14
+        0x31000163548981a3n, // Phoneme Index 15
+        0x30000461606980a3n, // Phoneme Index 16
+        0x2f0007a074e880a7n, // Phoneme Index 17
+        0x2e000a2074e880a7n, // Phoneme Index 18
+        0x2d000a661460c122n, // Phoneme Index 19
+        0x2c000a207049d326n, // Phoneme Index 20
+        0x2b00046354084382n, // Phoneme Index 21
+        0x2a000172e81132e0n, // Phoneme Index 22
+        0x290007a164015326n, // Phoneme Index 23
+        0x28000a2180e8c122n, // Phoneme Index 24
+        0x27000a21806191a6n, // Phoneme Index 25
+        0x26000a2184e8c1a2n, // Phoneme Index 26
+        0x250007b2631324a8n, // Phoneme Index 27
+        0x24000cc184e940a3n, // Phoneme Index 28
+        0x230000e3548981a3n, // Phoneme Index 29
+        0x22000a6164a01226n, // Phoneme Index 30
+        0x210005617069d326n, // Phoneme Index 31
+        0x20000a2184c9c1a6n, // Phoneme Index 32
+        0x1f000468489132e0n, // Phoneme Index 33
+        0x1e000b7c00e89126n, // Phoneme Index 34
+        0x1d0007a265832ca8n, // Phoneme Index 35
+        0x1c000173e041c126n, // Phoneme Index 36
+        0x1b000162fd2204acn, // Phoneme Index 37
+        0x1a0000e8db7b342cn, // Phoneme Index 38
+        0x19000a721123642cn, // Phoneme Index 39
+        0x180007a1f409d0a2n, // Phoneme Index 40
+        0x17000a2120498123n, // Phoneme Index 41
+        0x160007a130498123n, // Phoneme Index 42
+        0x150008a184e940a3n, // Phoneme Index 43
+        0x140009a0d4084b36n, // Phoneme Index 44
+        0x130008a0706980a3n, // Phoneme Index 45
+        0x120001639cd15860n, // Phoneme Index 46
+        0x110009a2fb8b546cn, // Phoneme Index 47
+        0x10000163fb8b546cn, // Phoneme Index 48
+        0x0f000163f7d36428n, // Phoneme Index 49
+        0x0e00017390e19122n, // Phoneme Index 50
+        0x0d000a61e6241936n, // Phoneme Index 51
+        0x0c0007a366a58832n, // Phoneme Index 52
+        0x0b0009a1906191a6n, // Phoneme Index 53
+        0x0a000a61906191a6n, // Phoneme Index 54
+        0x09000b61806191a6n, // Phoneme Index 55
+        0x08000161c4e940a3n, // Phoneme Index 56
+        0x07000463f3cb546cn, // Phoneme Index 57
+        0x060007a134c9c1a6n, // Phoneme Index 58
+        0x0500016164c9c1a6n, // Phoneme Index 59
+        0x040000fb610316e8n, // Phoneme Index 60
+        0x020009a1c4688127n, // Phoneme Index 61
+        0x01000161d4688127n, // Phoneme Index 62
+        0x0000036174688127n, // Phoneme Index 63
+      ]
     };
 
     const BUILTIN_ROM_LABELS = {
@@ -3361,42 +3394,42 @@ Wor:
       TH: [190], TT: [191], KE: [194], KO: [195], EK: [196], OK: [197], PE: [198], PO: [199], W: [186], 2: [2]
     };
 
-const WIZARD_TOKEN_CATALOG = [
-  ...WIZARD_PHONEMES.map(ph => ({
-    token: ph.symbol,
-    bytes: [ph.byte],
-    type: 'voice',
-    desc: ph.desc,
-    playable: true,
-    ph
-  })),
+    const WIZARD_TOKEN_CATALOG = [
+      ...WIZARD_PHONEMES.map(ph => ({
+        token: ph.symbol,
+        bytes: [ph.byte],
+        type: 'voice',
+        desc: ph.desc,
+        playable: true,
+        ph
+      })),
 
-  { token: 'P0', bytes: [0], type: 'pause', desc: 'Shortest pause.', playable: false },
-  { token: 'P1', bytes: [1], type: 'pause', desc: ' pause 1.', playable: false },
-  { token: 'P2', bytes: [2], type: 'pause', desc: ' pause 2.', playable: false },
-  { token: 'P3', bytes: [3], type: 'pause', desc: ' pause 3.', playable: false },
-  { token: 'P4', bytes: [4], type: 'pause', desc: ' pause 4. Not seen in the current text file, but reserved by the utility.', playable: false },
-  { token: 'P5', bytes: [5], type: 'pause', desc: 'Longest pause used by the text file.', playable: false },
+      { token: 'P0', bytes: [0], type: 'pause', desc: 'Shortest pause.', playable: false },
+      { token: 'P1', bytes: [1], type: 'pause', desc: ' pause 1.', playable: false },
+      { token: 'P2', bytes: [2], type: 'pause', desc: ' pause 2.', playable: false },
+      { token: 'P3', bytes: [3], type: 'pause', desc: ' pause 3.', playable: false },
+      { token: 'P4', bytes: [4], type: 'pause', desc: ' pause 4. Not seen in the current text file, but reserved by the utility.', playable: false },
+      { token: 'P5', bytes: [5], type: 'pause', desc: 'Longest pause used by the text file.', playable: false },
 
-  { token: 'FAST', bytes: [7], type: 'control', desc: 'Speed control. The utility speeds up the next playable token.', playable: false },
-  { token: 'SLOW', bytes: [8], type: 'control', desc: 'Speed control. The utility slows the next playable token.', playable: false },
-  { token: 'STRESS', bytes: [14], type: 'control', desc: 'Emphasis control. The utility boosts the next playable token.', playable: false },
-  { token: 'RELAX', bytes: [15], type: 'control', desc: 'Emphasis control. The utility softens the next playable token.', playable: false },
-  { token: 'REPEAT', bytes: [26], type: 'control', desc: 'Repeat command prefix. Usually followed by a numeric argument token such as \\2.', playable: false },
+      { token: 'FAST', bytes: [7], type: 'control', desc: 'Speed control. The utility speeds up the next playable token.', playable: false },
+      { token: 'SLOW', bytes: [8], type: 'control', desc: 'Speed control. The utility slows the next playable token.', playable: false },
+      { token: 'STRESS', bytes: [14], type: 'control', desc: 'Emphasis control. The utility boosts the next playable token.', playable: false },
+      { token: 'RELAX', bytes: [15], type: 'control', desc: 'Emphasis control. The utility softens the next playable token.', playable: false },
+      { token: 'REPEAT', bytes: [26], type: 'control', desc: 'Repeat command prefix. Usually followed by a numeric argument token such as \\2.', playable: false },
 
-  { token: '2', bytes: [2], type: 'argument', desc: 'Numeric argument used after \\Repeat in the source notes.', playable: false },
+      { token: '2', bytes: [2], type: 'argument', desc: 'Numeric argument used after \\Repeat in the source notes.', playable: false },
 
-  { token: 'NTA2', bytes: [22, 110], type: 'note', desc: 'Two-byte note/pitch command used by voice data.', playable: false },
-  { token: 'NTB2', bytes: [22, 123], type: 'note', desc: 'Two-byte note/pitch command used by voice data.', playable: false },
-  { token: 'NTC3', bytes: [22, 131], type: 'note', desc: 'Two-byte note/pitch command used by voice data.', playable: false },
-  { token: 'NTE2', bytes: [22, 82], type: 'note', desc: 'Two-byte note/pitch command used by voice data.', playable: false },
+      { token: 'NTA2', bytes: [22, 110], type: 'note', desc: 'Two-byte note/pitch command used by voice data.', playable: false },
+      { token: 'NTB2', bytes: [22, 123], type: 'note', desc: 'Two-byte note/pitch command used by voice data.', playable: false },
+      { token: 'NTC3', bytes: [22, 131], type: 'note', desc: 'Two-byte note/pitch command used by voice data.', playable: false },
+      { token: 'NTE2', bytes: [22, 82], type: 'note', desc: 'Two-byte note/pitch command used by voice data.', playable: false },
 
-  { token: 'CMD20', bytes: [20, 96], type: 'note', desc: 'Generic two-byte command prefix $14. Seen in some streams before phrase phonemes.', playable: false },
-  { token: 'CMD21', bytes: [21, 114], type: 'note', desc: 'Generic two-byte command prefix $15. Seen in some streams before phrase phonemes.', playable: false },
-  { token: 'CMD23', bytes: [23, 5], type: 'note', desc: 'Generic two-byte command prefix $17. Treated as a mild pitch/bend control by the utility.', playable: false },
+      { token: 'CMD20', bytes: [20, 96], type: 'note', desc: 'Generic two-byte command prefix $14. Seen in some streams before phrase phonemes.', playable: false },
+      { token: 'CMD21', bytes: [21, 114], type: 'note', desc: 'Generic two-byte command prefix $15. Seen in some streams before phrase phonemes.', playable: false },
+      { token: 'CMD23', bytes: [23, 5], type: 'note', desc: 'Generic two-byte command prefix $17. Treated as a mild pitch/bend control by the utility.', playable: false },
 
-  { token: 'W', bytes: [186], type: 'alias', desc: 'Alias found in the source notes. The numeric stream represents this position with byte $BA, same as \\FF in this utility.', playable: true }
-];
+      { token: 'W', bytes: [186], type: 'alias', desc: 'Alias found in the source notes. The numeric stream represents this position with byte $BA, same as \\FF in this utility.', playable: true }
+    ];
 
 
     const WOW_RAW_PHRASE_LIBRARY = [
@@ -3405,7 +3438,7 @@ const WIZARD_TOKEN_CATALOG = [
         label: 'WoW L8E78 raw disassembly speech string',
         raw: [0x1B, 0x60, 0x4B, 0x62, 0x3E, 0x3E, 0x27, 0x0D, 0x1F, 0x7A, 0x6A, 0x3E, 0x59, 0x75, 0x34, 0x09, 0x22, 0x0D, 0x3E, 0x0A],
         wizard: [22, 123, 183, 8, 130, 128, 3, 8, 129, 8, 141, 187, 148, 191, 1, 14, 197, 8, 156, 141],
-        note: 'The arcade ROM bytes are an encoded WoW speech string. This expands to the already-decoded Wizard/WoW token stream used by the Vox TXT file.'
+        note: 'The arcade ROM bytes are an encoded WoW speech string. This expands to the editable Wizard/WoW hardware token stream used by the Vox TXT file. Browser playback is only a preview; export emits the editable hardware bytes, never audio-preview proxy bytes.'
       }
     ];
 
@@ -3420,19 +3453,21 @@ const WIZARD_TOKEN_CATALOG = [
     }
 
     function normalizeInputForDecode(bytes, requestedMode) {
-      const exactRaw = lookupWowRawPhrase(bytes);
-      if (exactRaw) {
-        return {
-          rawBytes: bytes.slice(),
-          bytes: exactRaw.wizard.slice(),
-          mode: 'wizard',
-          sourceMode: 'wowraw',
-          rawPhrase: exactRaw,
-          message: `WoW raw ${exactRaw.label.replace(/^WoW\s+/i, '')} recognized → ${exactRaw.name}; expanded to tokens.`
-        };
-      }
-
+      // Hardware-safe default: never auto-expand a raw ROM/disassembly string.
+      // Expansion is only allowed when the user explicitly selects WoW raw mode.
+      // The wow.asm/Gorf demo path sends direct SC-01 bytes ($00-$3F) to port $17.
       if (requestedMode === 'wowraw') {
+        const exactRaw = lookupWowRawPhrase(bytes);
+        if (exactRaw) {
+          return {
+            rawBytes: bytes.slice(),
+            bytes: exactRaw.wizard.slice(),
+            mode: 'wizard',
+            sourceMode: 'wowraw',
+            rawPhrase: exactRaw,
+            message: `WoW raw ${exactRaw.label.replace(/^WoW\s+/i, '')} recognized → ${exactRaw.name}; explicit WoW raw decode only. Export uses the expanded bytes shown in the editor.`
+          };
+        }
         return {
           rawBytes: bytes.slice(),
           bytes: bytes.slice(),
@@ -3471,24 +3506,95 @@ Wor:
       wowrawhey: `; Speech string "Hey, Insert coin!" for $13 ($19) bytes
 L8E78:
     .db $1B,$60,$4B,$62,$3E,$3E,$27,$0D,$1F,$7A,$6A,$3E,$59,$75,$34,$09,$22,$0D,$3E,$0A`,
-      allbase: `ALLBSE:                         ; Length=33
-    DB  $3D,$18,$03              ; "All"
-    DB  $29,$34,$34,$2B,$03      ; "your"
-    DB  $0E,$06,$21,$29,$1F,$03  ; "base"
-    DB  $15,$31,$3A              ; "are"
-    DB  $0E,$3C,$29,$18,$3D,$14,$03 ; "belong"
-    DB  $2A,$37,$37,$03          ; "to"
-    DB  $32,$32,$1F,$03          ; "us"
-    DB  $3F                      ; <STOP>`
+
+      hlowld: `HLOWLD:                            ; Length=14
+    DB    $1B,$02,$23,$18,$23,$35,$37,$03        ; "Hello"
+    DB    $2D,$3A,$2B,$18,$1E            ; "World"
+    DB    $3F                    ; <STOP>`,
+      allbse: `ALLBSE:                            ; Length=33
+    DB    $3D,$18,$03                ; "All"
+    DB    $29,$34,$34,$2B,$03            ; "your"
+    DB    $0E,$06,$21,$29,$1F,$03            ; "base"
+    DB    $15,$31,$3A                ; "are"
+    DB    $0E,$3C,$29,$18,$3D,$14,$03        ; "belong"
+    DB    $2A,$37,$37,$03                ; "to"
+    DB    $32,$32,$1F,$03                ; "us"
+    DB    $3F                    ; <STOP>`,
+      rollq: `ROLLQ:                            ; Length=70
+    DB    $0B,$09,$12                ; "Is"
+    DB    $38,$02,$00,$2A                ; "that"
+    DB    $21                    ; "a "
+    DB    $2B,$35,$35,$37,$18,$18            ; "roll"
+    DB    $32,$23,$0F                ; "of"
+    DB    $19,$2D,$35,$2B,$2A,$3A,$1F        ; "quarters"
+    DB    $0B,$09,$0D                ; "in"
+    DB    $29,$34,$34,$2B,$03            ; "your"
+    DB    $25,$15,$23,$19,$00,$2A            ; "pocket"
+    DB    $34,$34,$2B                ; "or"
+    DB    $15,$31,$3A                ; "are"
+    DB    $22,$36,$37,$37                ; "you"
+    DB    $1E,$1A,$32,$31,$1F,$2A            ; "just"
+    DB    $1B,$2F,$00,$25,$29            ; "happy"
+    DB    $2A,$37,$37,$03                ; "to"
+    DB    $1F,$3C,$29                ; "see"
+    DB    $0C,$02,$29                ; "me"
+    DB    $3F                    ; <STOP>`,
+      ialrt: `IALRT:                            ; Length=16
+    DB    $0B,$09,$0D,$2A,$2B,$36,$37,$37,$1E,$3A    ; "Intruder"
+    DB    $32,$18,$3A,$2B,$2A            ; "alert"
+    DB    $3F                    ; <STOP>`,
+      humesc: `HUMESC:                            ; Length=34
+    DB    $38,$32,$23                ; "The"
+    DB    $1B,$22,$36,$37,$37,$0C            ; "humanoid" P1
+    DB    $01,$0D,$35,$23,$09,$21,$1E        ; "humanoid" P2
+    DB    $0C,$32,$31,$1F,$2A            ; "must"
+    DB    $0D,$15,$23,$2A                ; "not"
+    DB    $02,$00,$1F,$19,$06,$21,$29,$25        ; "escape"
+    DB    $3F                    ; <STOP>`,
+      borg1: `BORG1:                            ; Length=15
+    DB    $2D,$3C,$29                ; "We"
+    DB    $15,$31,$3A                ; "are"
+    DB    $38,$32,$23                ; "the"
+    DB    $0E,$34,$34,$2B,$1C            ; "Borg"
+    DB    $3F                    ; <STOP>`,
+      borg2: `BORG2:                            ; Length=28
+    DB    $25,$2B,$3C,$25,$02,$00,$2B        ; "Prepare"
+    DB    $2A,$37,$37,$03                ; "to"
+    DB    $0E,$02,$29                ; "be"
+    DB    $32,$1F,$02,$00,$0C,$32,$18,$06,$21,$29    ; "assimilated" P1
+    DB    $2A,$0A,$1E                ; "assimilated" P2
+    DB    $3F                    ; <STOP>`,
+      borg3: `BORG3:                            ; Length=24
+    DB    $2B,$3C,$12,$0B,$1F,$2A,$00,$0D,$2A,$1F    ; "Resistance"
+    DB    $0B,$09,$12                ; "is"
+    DB    $1D,$36,$37,$37,$2A,$15,$00,$09,$23,$18    ; "futile" (Pronounced few-tile)
+    DB    $3F                    ; <STOP>`,
+      glacta: `GLACTA:                            ; Length=18
+    DB    $0E,$15,$00,$09,$29            ; "By"
+    DB    $29,$34,$34,$2B,$03            ; "your"
+    DB    $19,$31,$0C,$2E,$00,$0D,$1E        ; "command"
+    DB    $3F                    ; <STOP>`,
+      cmdr: `CMDR:                            ; Length=27
+    DB    $25,$2B,$35,$1C,$2B,$2F,$00,$0C        ; "Program"
+    DB    $0E,$15,$00,$09,$29            ; "by"
+    DB    $19,$31,$0C,$2E,$00,$0D,$1E,$3A        ; "Commander"
+    DB    $1E,$06,$21,$29,$0F            ; "Dave"
+    DB    $3F                    ; <STOP>`
     };
 
 
     const BUILT_IN_SAMPLE_MENU = [
-      { key: 'wor', label: 'WoW', meta: 'Built-in SC-01 sample' },
-      { key: 'pressstart', label: 'Press Start', meta: 'Built-in SC-01 sample' },
-      { key: 'wowrawhey', label: 'WoW Raw Hey', meta: 'WoW raw/disassembly sample' },
-      { key: 'allbase', label: 'All Your Base', meta: 'Built-in SC-01 ASM sample' }
+      { key: 'wor', label: 'Wizard of Wor', meta: '14 bytes', mode: 'sc01' },
+      { key: 'hlowld', label: 'Hello World', meta: '14 bytes', mode: 'sc01' },
+      { key: 'allbse', label: 'All Your Base', meta: '33 bytes', mode: 'sc01' },
+      { key: 'ialrt', label: 'Intruder Alert', meta: '16 bytes', mode: 'sc01' },
+      { key: 'humesc', label: 'Humanoid Escape', meta: '34 bytes', mode: 'sc01' },
+      { key: 'borg1', label: 'We Are the Borg', meta: '15 bytes', mode: 'sc01' },
+      { key: 'borg2', label: 'Prepare to Be Assimilated', meta: '28 bytes', mode: 'sc01' },
+      { key: 'borg3', label: 'Resistance Is Futile', meta: '24 bytes', mode: 'sc01' },
     ];
+
+    const BUILT_IN_SAMPLE_BY_KEY = new Map(BUILT_IN_SAMPLE_MENU.map(sample => [sample.key, sample]));
 
     const sourceEl = document.getElementById('source');
     const exportText = document.getElementById('exportText');
@@ -3878,10 +3984,12 @@ L8E78:
 
     function guessDecodeMode(bytes, sourceText = (sourceEl ? sourceEl.value : '')) {
       const selected = inputModeEl ? inputModeEl.value : 'auto';
-      if (lookupWowRawPhrase(bytes || [])) return 'wowraw';
+      if (selected === 'sc01' || selected === 'wizard' || selected === 'wowraw') return selected;
       if (looksLikeSc01AsmSource(sourceText, bytes || [])) return 'sc01';
-      if (selected !== 'auto') return selected;
-      return bytes.some(byte => (byte & 0xFF) > 0x3F) ? 'wizard' : 'sc01';
+      // For this hardware-targeted workflow, Auto means direct SC-01. Bytes above
+      // $3F are shown as invalid/unknown unless the user explicitly selects a
+      // higher-level Wizard/WoW decode mode.
+      return 'sc01';
     }
 
     function wizardPairControlType(prefix) {
@@ -4693,8 +4801,8 @@ L8E78:
       phonemePalette.innerHTML = '';
       if (phonemePaletteMode) {
         phonemePaletteMode.textContent = mode === 'wizard'
-          ? `Wizard/WoW token phonemes · ${total} · SC-01 proxy playback`
-          : `${romDisplayName(activeRomModel())} direct phonemes · ${total}`;
+          ? `Wizard/WoW phonemes · ${total}`
+          : `${romDisplayName(activeRomModel())} phonemes · ${total}`;
       }
 
       for (const group of groups) {
@@ -5570,115 +5678,14 @@ L8E78:
       return { samples, events, duration: samples.length / SAMPLE_RATE };
     }
 
-    const WIZARD_TO_SC01_PROXY_BYTES = {
-      IY: [0x2C], IH: [0x27], EY: [0x20], EH: [0x3B], AY: [0x21], AX: [0x33], UX: [0x33],
-      AW: [0x3D], OH: [0x26], OW: [0x35], UH: [0x28],
-      MM: [0x0C], NE: [0x0D], NO: [0x0D, 0x26], NGE: [0x14], NGO: [0x14, 0x26],
-      LE: [0x18], LO: [0x18, 0x26], WW: [0x2D], RR: [0x2B],
-      EYRR: [0x20, 0x2B], AXRR: [0x33, 0x2B], AWRR: [0x3D, 0x2B], OWRR: [0x35, 0x2B],
-      EYIY: [0x20, 0x27], OHIY: [0x26, 0x27], OWIY: [0x35, 0x27], OHIH: [0x26, 0x27],
-      EHLE: [0x3B, 0x18], IYUW: [0x36], IHWW: [0x27, 0x2D], AYWW: [0x21, 0x2D], OWWW: [0x35, 0x2D],
-      JH: [0x1A], VV: [0x0F], ZZ: [0x12], DH: [0x38],
-      BE: [0x0E], EB: [0x0E], OB: [0x26, 0x0E],
-      DE: [0x1E], DO: [0x1E, 0x26], ED: [0x1E], OD: [0x26, 0x1E],
-      GE: [0x1C], GO: [0x1C, 0x26], CH: [0x10], HE: [0x1B, 0x20], HO: [0x1B, 0x26],
-      FF: [0x1D], SE: [0x1F], SO: [0x1F, 0x26], SH: [0x11], TH: [0x39], TT: [0x2A],
-      KE: [0x19], KO: [0x19, 0x26], EK: [0x2C, 0x19], OK: [0x19], PE: [0x25], PO: [0x25, 0x26]
-    };
-
-    function sc01ProxyBytesForWizardItem(item) {
-      const ph = item?.ph;
-      if (!ph) return [];
-      if (ph.kind === 'pause') {
-        const symbol = String(ph.symbol || '').toUpperCase();
-        if (symbol === 'P0' || symbol === 'P1' || symbol === 'P2' || symbol === 'PA0') return [0x03];
-        return [0x3E];
-      }
-      if (ph.kind === 'stop') return [0x3F];
-      const mapped = WIZARD_TO_SC01_PROXY_BYTES[String(ph.symbol || '').toUpperCase()];
-      if (mapped) return mapped.slice();
-      if ((item.byte & 0xff) <= 0x3f) return [item.byte & 0x3f];
-      return [];
-    }
-
-    function resampleFloatChunk(chunk, ratio) {
-      const r = Number(ratio);
-      if (!chunk || !chunk.length || !Number.isFinite(r) || Math.abs(r - 1) < 0.01) return chunk;
-      const newLen = Math.max(1, Math.round(chunk.length / Math.max(0.25, Math.min(3.0, r))));
-      const out = new Float32Array(newLen);
-      if (newLen === 1) { out[0] = chunk[0] || 0; return out; }
-      const maxSrc = Math.max(1, chunk.length - 1);
-      for (let i = 0; i < newLen; i++) {
-        const pos = (i / Math.max(1, newLen - 1)) * maxSrc;
-        const a = Math.floor(pos);
-        const b = Math.min(chunk.length - 1, a + 1);
-        const t = pos - a;
-        out[i] = (chunk[a] || 0) * (1 - t) + (chunk[b] || 0) * t;
-      }
-      return out;
-    }
-
-    function synthesizeWizardSc01Proxy(bytes, options = {}) {
-      if (!sc01RomState) return synthesizeLegacy(bytes, options);
-      const baseGain = ((Number(gainEl.value) || 90) / 100) * (options.gain ?? 1);
-      const decoded = decodeWizardStream(bytes);
-      const renderer = new MameSc01Renderer(sc01RomState, { clock: MAME_SC01_MAINCLOCK, inflection: options.inflection || 0 });
-      const chunks = [];
-      const events = [];
-      let total = 0;
-      let rateModifier = 1;
-      let ampModifier = 1;
-
-      for (const item of decoded) {
-        const ph = item.ph;
-        if (!ph) continue;
-
-        if (item.skipAudio) {
-          if (item.controlType === 'fast') rateModifier = 1.30;
-          else if (item.controlType === 'slow') rateModifier = 0.78;
-          else if (item.controlType === 'stress') ampModifier = 1.20;
-          else if (item.controlType === 'relax') ampModifier = 0.86;
-          continue;
-        }
-
-        const proxyBytes = sc01ProxyBytesForWizardItem(item);
-        if (!proxyBytes.length) continue;
-        const start = total;
-
-        for (const phone of proxyBytes) {
-          let chunk = renderer.renderPhone(phone & 0x3f);
-          if (rateModifier !== 1) chunk = resampleFloatChunk(chunk, rateModifier);
-          if (ampModifier !== 1) {
-            const adjusted = new Float32Array(chunk.length);
-            for (let i = 0; i < chunk.length; i++) adjusted[i] = chunk[i] * ampModifier;
-            chunk = adjusted;
-          }
-          chunks.push(chunk);
-          total += chunk.length;
-        }
-
-        if (gapBetweenEl.checked && ph.kind !== 'pause' && ph.kind !== 'stop') {
-          const gap = new Float32Array(Math.floor(SAMPLE_RATE * 0.0025));
-          chunks.push(gap);
-          total += gap.length;
-        }
-
-        events.push({ byte: item.byte, ph, index: item.index, start: start / SAMPLE_RATE, end: total / SAMPLE_RATE, proxyBytes });
-        rateModifier = 1;
-        ampModifier = 1;
-        if (shouldStopPlaybackAtItem(item, ph)) break;
-      }
-
-      const samples = postProcessMameSamples(concatFloatChunks(chunks, total), baseGain, normalizeAudioEl.checked);
-      return { samples, events, duration: samples.length / SAMPLE_RATE, proxy: true };
-    }
-
     function synthesize(bytes, options = {}) {
       const requestedMode = options.mode || guessDecodeMode(bytes);
       const normalizedInput = normalizeInputForDecode(bytes, requestedMode);
+      // Hardware/export safety: only direct SC-01 streams use the MAME-derived
+      // SC-01 renderer. Wizard/WoW token streams stay in the Wizard/WoW token
+      // preview renderer; do not convert them to browser-only SC-01 proxy bytes.
       if (normalizedInput.mode === 'sc01' && sc01RomState) return synthesizeMameSc01(normalizedInput.bytes, options);
-      if (normalizedInput.mode === 'wizard' && sc01RomState) return synthesizeWizardSc01Proxy(normalizedInput.bytes, options);
-      return synthesizeLegacy(bytes, options);
+      return synthesizeLegacy(normalizedInput.bytes, { ...options, mode: normalizedInput.mode });
     }
 
 
@@ -6988,7 +6995,7 @@ L8E78:
     function renderSampleMenu() {
       if (!sampleMenu) return;
       sampleMenu.innerHTML = '';
-      appendSampleMenuHeader('Samples');
+      appendSampleMenuHeader('wow.asm hardware samples');
       for (const sample of BUILT_IN_SAMPLE_MENU) appendSampleMenuButton({
         label: sample.label,
         meta: sample.meta,
@@ -7023,17 +7030,13 @@ L8E78:
         phraseSelect.value = '';
         setPhraseInfo(`Sample loaded. Imported phrase list preserved (${importedPhrases.length} phrase stream(s)).`);
       }
-      inputModeEl.value = sampleKey === 'wowrawhey' ? 'wowraw' : 'sc01';
+      inputModeEl.value = BUILT_IN_SAMPLE_BY_KEY.get(sampleKey)?.mode || 'sc01';
       requestWaveformFullViewOnNextRender();
       analyze();
       suppressPaletteAutoFit = previousSuppressPalette;
       schedulePhraseLoadAutoFit();
       setSampleMenuVisible(false);
-      if (sampleKey === 'wowrawhey') {
-        setStatus(`Loaded sample: ${label || sampleKey}. WoW raw bytes recognized and expanded to Wizard/WoW tokens; playback uses SC-01 proxy render.`);
-      } else {
-        setStatus(`Loaded sample: ${label || sampleKey}.`);
-      }
+      setStatus(`Loaded sample: ${label || sampleKey}.`);
     }
 
     function loadImportedPhraseFromMenu(index) {
@@ -7299,9 +7302,10 @@ L8E78:
     requestWaveformFullViewOnNextRender();
     analyze();
     scheduleContentFit();
-    setStatus('Ready. Built-in SC-01 ROM table is active; paste bytes, load Wizard/ASM data, or switch to SC-01A.');
+    setStatus('Ready. Built-in wow.asm hardware samples are direct SC-01 bytes for the $17 speech port; paste bytes, load ASM data, or switch to SC-01A.');
   </script>
 </body>
 
-<!-- cache-bust: waveform-play-highlight-fullview-20260703-003812 -->
+<!-- cache-bust: wowasm-direct-sc01-samples-20260702-201820 -->
+
 </html>
