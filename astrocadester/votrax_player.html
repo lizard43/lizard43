@@ -1,4 +1,4 @@
-<!doctype html>
+Save user words and phrases to json<!doctype html>
 <html lang="en">
 
 <head>
@@ -3051,7 +3051,7 @@
       </div>
 
       <div class="tabPane active" id="notesPane" role="tabpanel">
-        <h3>v20260703.2</h3><br>
+        <h3>v20260703.3</h3><br>
         <div class="callout cyan">
           Primary target: real Wizard of Wor / Gorf-style arcade hardware. The built-in samples now come from
           <span class="mono">wow.asm</span> phrase blocks where <span class="mono">SAYPH</span> outputs each direct
@@ -3140,8 +3140,8 @@
           <label class="checkLabel" title="Normalize generated PCM to avoid clipping."><input id="normalizeAudio"
               type="checkbox" checked /> Normalize</label>
           <button class="action iconButton smallIconButton settingsUserExportButton" id="userJsonExportBtn"
-            title="Download saved user phrases and words as voltrax_user.json"
-            aria-label="Download saved user phrases and words JSON">
+            title="Save user words and phrases to json"
+            aria-label="Save user words and phrases to json">
             <svg viewBox="0 0 24 24" aria-hidden="true">
               <path fill="currentColor"
                 d="M17 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V7l-4-4ZM12 19a3 3 0 1 1 0-6 3 3 0 0 1 0 6ZM6 5h9v5H6V5Zm8 1.5H8v2h6v-2Z" />
@@ -3474,7 +3474,7 @@
     let wowSpeechSamplesError = '';
 
     const USER_PHRASES_STORAGE_KEY = 'votrax.sc01.userPhrases.v1';
-    const USER_JSON_EXPORT_FILENAME = 'voltrax_user.json';
+    const USER_JSON_EXPORT_FILENAME = 'votrax_user.json';
     let userPhraseStoreCache = null;
 
     // The ASM demo strings in wow.asm are direct SC-01 phoneme bytes sent to
