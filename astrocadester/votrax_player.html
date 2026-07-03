@@ -5,7 +5,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Votrax Player</title>
-  <!-- cache-bust-head: save-dirty-confirm-20260703-153842 -->
+  <!-- cache-bust-head: save-dialog-dirty-load-clean-20260703-152040 -->
   <style>
     :root {
       --bg: #14171c;
@@ -2634,7 +2634,7 @@
     }
 
     .savePhraseDialogBox {
-      width: min(430px, calc(100vw - 28px));
+      width: min(540px, calc(100vw - 28px));
       border: 1px solid var(--border);
       border-radius: 12px;
       background: #0f1218;
@@ -2657,8 +2657,8 @@
 
     .savePhraseDialogMeta {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 6px;
+      grid-template-columns: 74px minmax(0, 1fr);
+      gap: 8px;
       margin: 10px 0 12px;
     }
 
@@ -2689,6 +2689,20 @@
       white-space: nowrap;
     }
 
+    .savePhraseDialogMeta .savePhraseDialogMetric:first-child {
+      text-align: center;
+      padding-left: 6px;
+      padding-right: 6px;
+    }
+
+    .savePhraseDialogMeta .savePhraseDialogMetric:first-child b {
+      font-size: 14px;
+    }
+
+    .savePhraseDialogMetricPhonemes b {
+      max-width: 100%;
+    }
+
     .savePhraseDialogActions {
       display: flex;
       justify-content: flex-end;
@@ -2702,7 +2716,7 @@
 
     @media (max-width: 520px) {
       .savePhraseDialogMeta {
-        grid-template-columns: 1fr;
+        grid-template-columns: 64px minmax(0, 1fr);
       }
     }
 
@@ -2809,9 +2823,10 @@
       <button class="action iconButton savePhraseButton" id="savePhraseBtn" title="Save disabled: no unsaved phrase changes"
         aria-label="Save current phrase" disabled>
         <svg viewBox="0 0 24 24" aria-hidden="true">
-          <path fill="currentColor"
-            d="M12 3C7.58 3 4 4.35 4 6.5v9C4 17.65 7.58 19 12 19s8-1.35 8-3.5v-9C20 4.35 16.42 3 12 3Zm0 2c3.72 0 5.72.93 6 1.5-.28.57-2.28 1.5-6 1.5s-5.72-.93-6-1.5C6.28 5.93 8.28 5 12 5Zm6 4.1v2.4c0 .57-2.28 1.5-6 1.5s-6-.93-6-1.5V9.1C7.45 9.68 9.52 10 12 10s4.55-.32 6-.9Zm0 5v1.4c0 .57-2.28 1.5-6 1.5s-6-.93-6-1.5v-1.4c1.45.58 3.52.9 6 .9s4.55-.32 6-.9Z" />
-          <path fill="currentColor" d="M13 10V6h-2v4H8.5L12 13.5 15.5 10H13Z" />
+          <path fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"
+            d="M6 3.5h8.2L19 8.3V19a1.5 1.5 0 0 1-1.5 1.5h-11A1.5 1.5 0 0 1 5 19V5a1.5 1.5 0 0 1 1-1.5Z" />
+          <path fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"
+            d="M14 3.7V8h4.3M12 10.5v6.2M9.5 14.4 12 16.9l2.5-2.5M8.2 19h7.6" />
         </svg>
       </button>
       <!-- Sample phrases moved from toolbar icon/menu into the palette samples tab. -->
@@ -3098,13 +3113,11 @@
   <div id="savePhraseDialog" class="savePhraseDialogOverlay isHidden" aria-hidden="true">
     <div class="savePhraseDialogBox" role="dialog" aria-modal="true" aria-labelledby="savePhraseDialogTitle">
       <h2 class="savePhraseDialogTitle" id="savePhraseDialogTitle">Save phrase</h2>
-      <p class="savePhraseDialogHint">Name this timeline phrase. It will be saved in this browser and appear in the
-        palette user tab.</p>
       <label for="savePhraseNameInput">Phrase name</label>
       <input id="savePhraseNameInput" type="text" autocomplete="off" spellcheck="false" placeholder="My phrase" />
       <div class="savePhraseDialogMeta" aria-live="polite">
         <div class="savePhraseDialogMetric"><span>Bytes</span><b id="savePhraseByteCount">0</b></div>
-        <div class="savePhraseDialogMetric"><span>Phones</span><b id="savePhrasePhonePreview">--</b></div>
+        <div class="savePhraseDialogMetric savePhraseDialogMetricPhonemes"><span>Phonemes</span><b id="savePhrasePhonePreview">--</b></div>
       </div>
       <div class="small" id="savePhraseDialogMessage">Existing names are overwritten.</div>
       <div class="savePhraseDialogActions">
@@ -5858,7 +5871,7 @@ Wor:
       const symbols = sampleSymbolSequence(bytes, 'sc01');
       savePhraseNameInput.value = defaultUserPhraseName();
       if (savePhraseByteCount) savePhraseByteCount.textContent = String(bytes.length);
-      if (savePhrasePhonePreview) savePhrasePhonePreview.textContent = symbols.length > 10 ? symbols.slice(0, 10).join(' ') + ' …' : (symbols.join(' ') || '--');
+      if (savePhrasePhonePreview) savePhrasePhonePreview.textContent = symbols.length > 18 ? symbols.slice(0, 18).join(' ') + ' …' : (symbols.join(' ') || '--');
       if (savePhraseDialogMessage) savePhraseDialogMessage.textContent = 'Existing names are overwritten.';
       savePhraseDialog.dataset.bytes = JSON.stringify(bytes);
       savePhraseDialog.classList.remove('isHidden');
@@ -7813,7 +7826,7 @@ Wor:
       activeImportedPhraseSourceText = sourceEl.value;
       inputModeEl.value = phrase.mode || 'wizard';
       requestWaveformFullViewOnNextRender();
-      markPhraseDirty();
+      setPhraseDirty(false);
       analyze();
       if (shouldAutoFit) schedulePhraseLoadAutoFit();
       updateSelectedPhraseInfo();
@@ -7892,7 +7905,7 @@ Wor:
           activeImportedPhraseIndex = null;
           activeImportedPhraseSourceText = '';
           requestWaveformFullViewOnNextRender();
-          markPhraseDirty();
+          setPhraseDirty(false);
           analyze();
           setStatus(`Loaded ${file.name}; no phrase blocks found yet.`, true);
         }
@@ -8597,7 +8610,7 @@ Wor:
       }
       inputModeEl.value = BUILT_IN_SAMPLE_BY_KEY.get(sampleKey)?.mode || 'sc01';
       requestWaveformFullViewOnNextRender();
-      markPhraseDirty();
+      setPhraseDirty(false);
       analyze();
       schedulePhraseLoadAutoFit();
       setSampleMenuVisible(false);
@@ -8924,12 +8937,12 @@ Wor:
     sourceInsertPos = sourceEl.value.length;
     requestWaveformFullViewOnNextRender();
     analyze();
-    setPhraseDirty(true);
+    setPhraseDirty(false);
     scheduleContentFit({ autoFit: true, forceSource: true, forceTimeline: true, forcePalette: true });
     setStatus('Ready. Default sample is Lizard. Sample picker loads the selected phrase. Single-phoneme auditions preserve the full phrase waveform.');
   </script>
 </body>
 
-<!-- cache-bust: save-dirty-confirm-20260703-153842 -->
+<!-- cache-bust: save-dialog-dirty-load-clean-20260703-152040 -->
 
 </html>
