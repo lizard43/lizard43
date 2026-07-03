@@ -5,7 +5,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Votrax Player</title>
-  <!-- cache-bust-head: muted-palette-green-20260703-2008 -->
+  <!-- cache-bust-head: user-palette-trash-delete-20260703-1859 -->
   <style>
     :root {
       --bg: #14171c;
@@ -386,6 +386,16 @@
 
     button.danger:hover {
       border-color: var(--danger);
+    }
+
+    #clearBtn.userStorageDeleteTarget,
+    #clearBtn.userStorageDeleteTarget:hover,
+    #clearBtn.userStorageDeleteTarget:focus-visible {
+      border-color: var(--danger);
+      background: rgba(255, 107, 107, .16);
+      color: var(--danger);
+      box-shadow: inset 0 0 0 1px rgba(255, 107, 107, .32), 0 0 0 2px rgba(255, 107, 107, .14);
+      outline: none;
     }
 
     .iconButton {
@@ -1693,7 +1703,7 @@
 
     /* Phoneme add palette: a timeline-like bank of available phones under the editable timeline. */
     .phonemePalettePanel {
-      margin-top: 4px;
+      /* margin-top: 4px; */
       min-height: 92px;
       overflow: hidden;
     }
@@ -4120,6 +4130,7 @@ Wor:
     const loadVoxBtn = document.getElementById('loadVoxBtn');
     const exportCopyBtn = document.getElementById('exportCopyBtn');
     const savePhraseBtn = document.getElementById('savePhraseBtn');
+    const clearBtn = document.getElementById('clearBtn');
     const savePhraseDialog = document.getElementById('savePhraseDialog');
     const savePhraseNameInput = document.getElementById('savePhraseNameInput');
     const savePhraseByteCount = document.getElementById('savePhraseByteCount');
@@ -4847,6 +4858,7 @@ Wor:
       hidePhonemeInfoTip();
       setWaveformHoverIndex(null);
       document.body.classList.remove('isTimelineDragging');
+      clearBtn?.classList.remove('userStorageDeleteTarget');
       timelineDragState = null;
     }
 
@@ -4916,6 +4928,27 @@ Wor:
       return clientX >= rect.left && clientX <= rect.right && clientY >= rect.top && clientY <= rect.bottom;
     }
 
+    function isPointInClearTrashcan(clientX, clientY) {
+      if (!clearBtn || clearBtn.disabled) return false;
+      const rect = clearBtn.getBoundingClientRect();
+      if (!rect || rect.width <= 0 || rect.height <= 0) return false;
+      const pad = 8;
+      return clientX >= rect.left - pad && clientX <= rect.right + pad && clientY >= rect.top - pad && clientY <= rect.bottom + pad;
+    }
+
+    function canDeleteUserStorageDrag(drag) {
+      if (!drag || drag.kind !== 'insert') return false;
+      const storageKind = normalizeUserPhraseKind(drag.userStorageKind);
+      return !!drag.userStorageName && (storageKind === 'phrase' || storageKind === 'word');
+    }
+
+    function updateClearTrashDropTarget(overTrash) {
+      if (!clearBtn) return;
+      clearBtn.classList.toggle('userStorageDeleteTarget', !!overTrash);
+      if (overTrash) clearBtn.title = 'Drop to delete saved user item';
+      else clearBtn.title = 'Clear phrase source';
+    }
+
     function updateTimelineGhost(ev) {
       const drag = timelineDragState;
       if (!drag?.ghost) return;
@@ -4926,6 +4959,17 @@ Wor:
     function updateTimelineDropPlacement(ev) {
       const drag = timelineDragState;
       if (!drag?.active) return;
+      const overClearTrash = canDeleteUserStorageDrag(drag) && isPointInClearTrashcan(ev.clientX, ev.clientY);
+      drag.overClearTrash = overClearTrash;
+      updateClearTrashDropTarget(overClearTrash);
+      if (overClearTrash) {
+        drag.overTimeline = false;
+        drag.ghost?.classList.add('timelineDeleteGhost');
+        drag.ghost?.classList.remove('timelineCancelGhost');
+        removeTimelineDropGap();
+        return;
+      }
+
       const inTimeline = isPointInTimelineSection(ev.clientX, ev.clientY);
       drag.overTimeline = inTimeline;
       drag.ghost?.classList.toggle('timelineDeleteGhost', drag.kind !== 'insert' && !inTimeline);
@@ -4983,10 +5027,14 @@ Wor:
       try { drag.sourceEl?.releasePointerCapture(drag.pointerId); } catch (_) { }
 
       if (drag.active && !wasCanceled) {
-        const droppedInTimeline = isPointInTimelineSection(ev.clientX, ev.clientY);
+        const droppedOnClearTrash = canDeleteUserStorageDrag(drag) && isPointInClearTrashcan(ev.clientX, ev.clientY);
+        const droppedInTimeline = !droppedOnClearTrash && isPointInTimelineSection(ev.clientX, ev.clientY);
         let changed = false;
 
-        if (!droppedInTimeline) {
+        if (droppedOnClearTrash) {
+          changed = deleteUserStorageItemFromDrag(drag);
+          if (!changed) setStatus(`Delete canceled; user ${normalizeUserPhraseKind(drag.userStorageKind)} "${drag.userStorageName}" kept.`);
+        } else if (!droppedInTimeline) {
           if (drag.kind === 'insert') {
             setStatus(`${drag.label || 'Palette item'} insert canceled.`);
           } else {
@@ -5616,6 +5664,8 @@ Wor:
           bytes: item.bytes.slice(),
           mode: 'sc01',
           label: item.word,
+          userStorageName: item.source === 'user' ? item.word : '',
+          userStorageKind: item.source === 'user' ? 'word' : '',
           startX: ev.clientX,
           startY: ev.clientY,
           sourceEl: btn,
@@ -5935,6 +5985,50 @@ Wor:
       userPhraseStoreCache = cleanStore;
     }
 
+    function deleteUserStoredItem(name, kind) {
+      const cleanName = sanitizeUserPhraseName(name);
+      const cleanKind = normalizeUserPhraseKind(kind);
+      if (!cleanName) return false;
+      if (!storageAvailable()) {
+        setStatus('Local browser storage is not available for deleting saved user items.', true);
+        return false;
+      }
+
+      const store = loadUserPhraseStore(true);
+      const existing = normalizeUserPhraseStoreEntry(store[cleanName]);
+      if (!store[cleanName] || existing.kind !== cleanKind) {
+        setStatus(`Saved user ${cleanKind} "${cleanName}" was not found.`, true);
+        wordPaletteRenderedForRom = '';
+        renderWordsPalette();
+        renderUserPalette();
+        scheduleContentFit({ palette: true, forcePalette: true });
+        return false;
+      }
+
+      const ok = window.confirm(`Delete user ${cleanKind} "${cleanName}" from local browser storage?`);
+      if (!ok) return false;
+
+      delete store[cleanName];
+      saveUserPhraseStore(store);
+      wordPaletteRenderedForRom = '';
+      renderWordsPalette();
+      renderUserPalette();
+      if (cleanKind === 'word') {
+        showPaletteTab('words');
+        showWordPaletteSubTab(wordPaletteLetterForText(cleanName));
+      } else if (userPhraseItems().length) {
+        showPaletteTab('user');
+      }
+      scheduleContentFit({ palette: true, forcePalette: true });
+      setStatus(`Deleted user ${cleanKind} "${cleanName}" from this browser.`);
+      return true;
+    }
+
+    function deleteUserStorageItemFromDrag(drag) {
+      if (!canDeleteUserStorageDrag(drag)) return false;
+      return deleteUserStoredItem(drag.userStorageName, drag.userStorageKind);
+    }
+
     function userPhraseItems() {
       const store = loadUserPhraseStore(true);
       return Object.entries(store)
@@ -6027,6 +6121,8 @@ Wor:
           bytes: item.bytes.slice(),
           mode: 'sc01',
           label: item.label,
+          userStorageName: item.key || item.label,
+          userStorageKind: 'phrase',
           startX: ev.clientX,
           startY: ev.clientY,
           sourceEl: btn,
@@ -9270,7 +9366,7 @@ Wor:
     if (savePhraseDialog) savePhraseDialog.addEventListener('pointerdown', ev => {
       if (ev.target === savePhraseDialog) closeSavePhraseDialog();
     });
-    document.getElementById('clearBtn').addEventListener('click', () => {
+    if (clearBtn) clearBtn.addEventListener('click', () => {
       if (!confirmDiscardDirtyPhrase('clear the current phrase')) {
         setStatus('Clear canceled; unsaved phrase changes kept.');
         return;
