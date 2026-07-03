@@ -5,7 +5,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Votrax Player</title>
-  <!-- cache-bust-head: save-stop-dialog-20260703-153620 -->
+  <!-- cache-bust-head: wow-json-palette-20260703-171820 -->
   <style>
     :root {
       --bg: #14171c;
@@ -1867,6 +1867,11 @@
       color: var(--gold);
     }
 
+    .phonemePalettePill.wow {
+      background: rgba(114, 216, 255, .10);
+      color: var(--cyan);
+    }
+
     .phonemePalettePill.user {
       background: rgba(94, 224, 131, .12);
       color: var(--accent);
@@ -3063,6 +3068,7 @@
           <button class="tabButton active" type="button" data-palette-tab="words">words</button>
           <button class="tabButton" type="button" data-palette-tab="phonemes">phonemes</button>
           <button class="tabButton" type="button" data-palette-tab="diphthongs">dipthong</button>
+          <button class="tabButton" type="button" data-palette-tab="wow">wow</button>
           <button class="tabButton" type="button" data-palette-tab="samples">samples</button>
           <button class="tabButton" type="button" data-palette-tab="tokens" hidden aria-hidden="true">tokens</button>
         </div>
@@ -3086,6 +3092,14 @@
           <div class="phonemePaletteWrap">
             <div class="phonemePalette diphthongPalette" id="diphthongPalette"
               aria-label="Votrax diphthongs. Drag a pill into the timeline to insert its separate SC-01 phonemes.">
+            </div>
+          </div>
+        </div>
+
+        <div class="tabPane" id="paletteWowPane" role="tabpanel">
+          <div class="phonemePaletteWrap">
+            <div class="phonemePalette wowPalette" id="wowPalette"
+              aria-label="Wizard of Wor decoded speech dictionary entries. Drag a pill into the timeline to insert its separate SC-01 phonemes.">
             </div>
           </div>
         </div>
@@ -3317,6 +3331,12 @@
       .sort((a, b) => a.word.localeCompare(b.word));
 
     let wordPaletteRenderedForRom = '';
+
+    const WOW_SPEECH_SAMPLES_URL = 'wow_speech_samples.json?v=20260703-171820';
+    let wowSpeechSamples = [];
+    let wowSpeechSamplesLoaded = false;
+    let wowSpeechSamplesLoading = false;
+    let wowSpeechSamplesError = '';
 
     const USER_PHRASES_STORAGE_KEY = 'votrax.sc01.userPhrases.v1';
     let userPhraseStoreCache = null;
@@ -3967,6 +3987,7 @@ Wor:
     const phonemePalette = document.getElementById('phonemePalette');
     const diphthongPalette = document.getElementById('diphthongPalette');
     const wordPalette = document.getElementById('wordPalette');
+    const wowPalette = document.getElementById('wowPalette');
     const userPalette = document.getElementById('userPalette');
     const samplePalette = document.getElementById('samplePalette');
     const tokenPalette = document.getElementById('tokenPalette');
@@ -4528,6 +4549,7 @@ Wor:
       renderPhonemePalette(currentAnalysis);
       renderWordsPalette(currentAnalysis);
       renderDiphthongPalette(currentAnalysis);
+      renderWowPalette(currentAnalysis);
       renderUserPalette(currentAnalysis);
       renderSamplesPalette(currentAnalysis);
       renderTokenPalette(currentAnalysis);
@@ -6014,6 +6036,217 @@ Wor:
       return total;
     }
 
+    function normalizeWowSpeechSampleBytes(entry) {
+      const src = Array.isArray(entry?.bytes) ? entry.bytes : (Array.isArray(entry?.phonemeOnly) ? entry.phonemeOnly : []);
+      return src.map(byte => Number(byte) & 0xFF).filter(byte => Number.isFinite(byte));
+    }
+
+    function normalizeWowSpeechSamplePayload(payload) {
+      const rawSamples = Array.isArray(payload?.samples) ? payload.samples : (Array.isArray(payload?.tokens) ? payload.tokens : []);
+      return rawSamples.map((entry, index) => {
+        const tokenNumber = Number.isFinite(Number(entry?.tokenNumber)) ? Number(entry.tokenNumber) : index;
+        const token = entry?.token || `$${tokenNumber.toString(16).toUpperCase().padStart(2, '0')}`;
+        const bytes = normalizeWowSpeechSampleBytes(entry);
+        const symbols = Array.isArray(entry?.phonemeSymbols)
+          ? entry.phonemeSymbols.map(symbol => String(symbol))
+          : sampleSymbolSequence(bytes, 'sc01');
+        const group = entry?.group || `$${(Math.floor(tokenNumber / 16) * 16).toString(16).toUpperCase().padStart(2, '0')}-$${Math.min(Math.floor(tokenNumber / 16) * 16 + 15, 0x4E).toString(16).toUpperCase().padStart(2, '0')}`;
+        return {
+          id: entry?.id || `wow-token-${tokenNumber.toString(16).toUpperCase().padStart(2, '0')}`,
+          label: entry?.label || token,
+          token,
+          tokenNumber,
+          address: entry?.address || '',
+          byteCount: Number(entry?.byteCount) || bytes.length,
+          group,
+          bytes,
+          symbols,
+          note: entry?.note || '',
+          remapNote: entry?.remapNote || '',
+          source: 'wow-json',
+          mode: 'sc01',
+          tipType: 'wow'
+        };
+      }).filter(item => item.bytes.length).sort((a, b) => a.tokenNumber - b.tokenNumber);
+    }
+
+    async function loadWowSpeechSamples() {
+      if (!wowPalette || wowSpeechSamplesLoading || wowSpeechSamplesLoaded) return;
+      wowSpeechSamplesLoading = true;
+      wowSpeechSamplesError = '';
+      renderWowPalette();
+      try {
+        const response = await fetch(WOW_SPEECH_SAMPLES_URL, { cache: 'no-store' });
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        const payload = await response.json();
+        wowSpeechSamples = normalizeWowSpeechSamplePayload(payload);
+        wowSpeechSamplesLoaded = true;
+        wowSpeechSamplesError = '';
+      } catch (err) {
+        wowSpeechSamples = [];
+        wowSpeechSamplesLoaded = false;
+        wowSpeechSamplesError = err?.message || String(err || 'unknown error');
+      } finally {
+        wowSpeechSamplesLoading = false;
+        renderWowPalette();
+        scheduleContentFit({ palette: true, forcePalette: true });
+      }
+    }
+
+    function wowSpeechSampleGroups() {
+      const byGroup = new Map();
+      for (const item of wowSpeechSamples) {
+        const key = item.group || 'other';
+        if (!byGroup.has(key)) byGroup.set(key, []);
+        byGroup.get(key).push(item);
+      }
+      return Array.from(byGroup.entries()).map(([key, items]) => ({ key: key.replace(/[^A-Za-z0-9_-]+/g, '-'), label: `tokens ${key} · ${items.length}`, items }));
+    }
+
+    function wowSampleTipHtml(item) {
+      const bytes = item.bytes || [];
+      const opcode = bytes.map(hex2).join(' ');
+      const decBytes = bytes.map(b => String(b & 0xFF)).join(' ');
+      const symbols = item.symbols?.length ? item.symbols : sampleSymbolSequence(bytes, 'sc01');
+      const seq = symbols.length > 64 ? symbols.slice(0, 64).join(' ') + ' …' : symbols.join(' ');
+      const bytePreview = bytes.length > 40 ? `${bytes.slice(0, 40).map(hex2).join(' ')} …` : opcode;
+      const rows = [
+        tipRow('Token', item.token, 'cyanText'),
+        tipRow('Address', item.address),
+        tipRow('Group', item.group),
+        tipRow('Bytes', `${bytes.length} · ${bytePreview}`),
+        tipRow('Dec', bytes.length <= 28 ? decBytes : `${bytes.slice(0, 28).map(b => String(b & 0xFF)).join(' ')} …`),
+        tipRow('Phones', `${symbols.length} · ${seq}`, 'goldText'),
+        tipRow('Dur', `${romDisplayName(activeRomModel())} preview ${tipMs(sampleDurationMs(bytes, 'sc01'))}`),
+        tipRow('Remap', item.remapNote || item.note, 'cyanText'),
+        tipRow('Use', 'drag inserts this decoded WoW entry as separate SC-01 phonemes')
+      ];
+      return `<div class="tipTopline"><span class="mono">${escapeHtml(item.token)}</span> <span class="tipName">WoW ${escapeHtml(item.label)}</span> <span class="tipType">speech entry</span></div>` +
+        `<div class="tipDesc">Decoded Wizard of Wor speech dictionary entry from the reduced JSON file.</div>` +
+        tipMeta(rows);
+    }
+
+    function buildWowPaletteButton(item) {
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'phonemePalettePill wow';
+      btn.dataset.mode = 'sc01';
+      btn.dataset.tip = wowSampleTipHtml(item);
+      btn.innerHTML = `<span class="phonemePaletteSymbol">${escapeHtml(item.label)}</span>`;
+      btn.removeAttribute('title');
+      btn.setAttribute('aria-label', `Drag Wizard of Wor speech entry ${item.label} (${item.bytes.length} bytes) into timeline.`);
+
+      btn.addEventListener('mouseenter', ev => showPhonemeInfoTip(btn.dataset.tip, ev));
+      btn.addEventListener('mousemove', movePhonemeInfoTip);
+      btn.addEventListener('mouseleave', hidePhonemeInfoTip);
+      btn.addEventListener('blur', hidePhonemeInfoTip);
+
+      btn.addEventListener('pointerdown', ev => {
+        if (ev.button !== undefined && ev.button !== 0) return;
+        timelineDragState = {
+          pointerId: ev.pointerId,
+          kind: 'insert',
+          bytes: item.bytes.slice(),
+          mode: 'sc01',
+          label: `WoW ${item.label}`,
+          startX: ev.clientX,
+          startY: ev.clientY,
+          sourceEl: btn,
+          active: false,
+          ghost: null,
+          gap: null,
+          slotIndex: null,
+          offsetX: 0,
+          offsetY: 0
+        };
+        btn.classList.add('timelineDragHold');
+      });
+
+      btn.addEventListener('pointermove', ev => {
+        const drag = timelineDragState;
+        if (!drag || drag.pointerId !== ev.pointerId || drag.sourceEl !== btn) return;
+        const moved = Math.hypot(ev.clientX - drag.startX, ev.clientY - drag.startY);
+        if (!drag.active && moved >= 5) startTimelineDrag(btn, ev);
+        if (drag.active) {
+          ev.preventDefault();
+          hidePhonemeInfoTip();
+          updateTimelineGhost(ev);
+          updateTimelineDropPlacement(ev);
+        }
+      });
+
+      btn.addEventListener('pointerup', ev => {
+        const drag = timelineDragState;
+        if (!drag || drag.pointerId !== ev.pointerId || drag.sourceEl !== btn) return;
+        finishTimelineDrag(ev, false);
+      });
+
+      btn.addEventListener('pointercancel', ev => {
+        const drag = timelineDragState;
+        if (drag && drag.pointerId === ev.pointerId && drag.sourceEl === btn) finishTimelineDrag(ev, true);
+      });
+
+      btn.addEventListener('keydown', ev => {
+        if (ev.key === 'Escape' && timelineDragState?.sourceEl === btn) {
+          ev.preventDefault();
+          clearTimelineDragState();
+        }
+      });
+
+      btn.addEventListener('click', ev => {
+        hidePhonemeInfoTip();
+        if (Date.now() < timelineSuppressClickUntil) {
+          ev.preventDefault();
+          ev.stopPropagation();
+          return;
+        }
+        playBytes(item.bytes, { single: true, mode: 'sc01', preserveWaveform: true });
+        setStatus(`Playing WoW speech entry ${item.label} (${item.bytes.length} byte${item.bytes.length === 1 ? '' : 's'}). Drag it into the timeline to insert separate phonemes.`);
+      });
+
+      return btn;
+    }
+
+    function renderWowPalette() {
+      if (!wowPalette) return;
+      wowPalette.innerHTML = '';
+
+      if (wowSpeechSamplesLoading) {
+        const loading = document.createElement('div');
+        loading.className = 'callout cyan';
+        loading.textContent = 'Loading wow_speech_samples.json…';
+        wowPalette.appendChild(loading);
+        return;
+      }
+
+      if (wowSpeechSamplesError) {
+        const warning = document.createElement('div');
+        warning.className = 'callout gold';
+        warning.textContent = `Could not load wow_speech_samples.json. Put it next to this HTML file when hosting the player. ${wowSpeechSamplesError}`;
+        wowPalette.appendChild(warning);
+        return;
+      }
+
+      if (!wowSpeechSamples.length) {
+        const empty = document.createElement('div');
+        empty.className = 'callout gold';
+        empty.textContent = 'No WoW speech samples loaded yet.';
+        wowPalette.appendChild(empty);
+        return;
+      }
+
+      for (const group of wowSpeechSampleGroups()) {
+        const groupEl = document.createElement('div');
+        groupEl.className = `phonemePaletteGroup wowPaletteGroup wowPaletteGroup-${group.key}`;
+        const heading = document.createElement('div');
+        heading.className = 'phonemePaletteGroupHeader';
+        heading.textContent = group.label;
+        groupEl.appendChild(heading);
+        for (const item of group.items) groupEl.appendChild(buildWowPaletteButton(item));
+        wowPalette.appendChild(groupEl);
+      }
+    }
+
     function samplePaletteItems() {
       const builtIns = BUILT_IN_SAMPLE_MENU
         .map(sample => {
@@ -6337,12 +6570,12 @@ Wor:
     }
 
     function showPaletteTab(name) {
-      const selected = name === 'tokens' ? 'tokens' : (name === 'samples' ? 'samples' : (name === 'user' ? 'user' : (name === 'words' ? 'words' : (name === 'diphthongs' ? 'diphthongs' : 'phonemes'))));
+      const selected = name === 'tokens' ? 'tokens' : (name === 'samples' ? 'samples' : (name === 'wow' ? 'wow' : (name === 'user' ? 'user' : (name === 'words' ? 'words' : (name === 'diphthongs' ? 'diphthongs' : 'phonemes')))));
       document.querySelectorAll('.phonemePalettePanel [data-palette-tab]').forEach(btn => {
         btn.classList.toggle('active', btn.dataset.paletteTab === selected);
       });
       document.querySelectorAll('.phonemePalettePanel > .tabPane').forEach(pane => pane.classList.remove('active'));
-      const paneId = selected === 'tokens' ? 'paletteTokensPane' : (selected === 'samples' ? 'paletteSamplesPane' : (selected === 'user' ? 'paletteUserPane' : (selected === 'words' ? 'paletteWordsPane' : (selected === 'diphthongs' ? 'paletteDiphthongsPane' : 'palettePhonemesPane'))));
+      const paneId = selected === 'tokens' ? 'paletteTokensPane' : (selected === 'samples' ? 'paletteSamplesPane' : (selected === 'wow' ? 'paletteWowPane' : (selected === 'user' ? 'paletteUserPane' : (selected === 'words' ? 'paletteWordsPane' : (selected === 'diphthongs' ? 'paletteDiphthongsPane' : 'palettePhonemesPane')))));
       const pane = document.getElementById(paneId);
       if (pane) pane.classList.add('active');
       hidePhonemeInfoTip();
@@ -8976,9 +9209,11 @@ Wor:
     renderPhonemePalette();
     renderWordsPalette();
     renderDiphthongPalette();
+    renderWowPalette();
     renderUserPalette();
     renderSamplesPalette();
     renderTokenPalette();
+    loadWowSpeechSamples();
     updateSliderLabels();
     installBuiltInSc01Rom('sc01');
     sourceEl.value = DEFAULT_SOURCE;
@@ -8992,6 +9227,6 @@ Wor:
   </script>
 </body>
 
-<!-- cache-bust: save-dialog-dirty-load-clean-20260703-152040 -->
+<!-- cache-bust: wow-json-palette-20260703-171820 -->
 
 </html>
