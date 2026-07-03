@@ -5,7 +5,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Votrax Player</title>
-  <!-- cache-bust-head: user-json-export-20260703-1937 -->
+  <!-- cache-bust-head: user-json-export-compact-20260703-1958 -->
   <style>
     :root {
       --bg: #14171c;
@@ -6009,8 +6009,6 @@ Wor:
 
     function userStorageExportRecords() {
       const store = loadUserPhraseStore(true);
-      const romModel = activeRomModel();
-      const romLabel = romDisplayName(romModel);
       return Object.entries(store || {})
         .map(([name, value]) => {
           const cleanName = sanitizeUserPhraseName(name);
@@ -6019,32 +6017,15 @@ Wor:
           if (!cleanName || !bytes.length) return null;
           const kind = normalizeUserPhraseKind(entry.kind);
           const symbols = sampleSymbolSequence(bytes, 'sc01');
-          const byteHex = bytes.map(hex2);
-          const byteDec = bytes.map(byte => byte & 0xFF);
-          const stopIncluded = bytes.some(byte => (byte & 0xFF) === 0x3F);
           return {
             name: cleanName,
             label: cleanName,
             kind,
             source: 'local browser storage',
             mode: 'SC-01 raw',
-            storageKey: USER_PHRASES_STORAGE_KEY,
-            bytes: byteDec,
-            bytesHex: byteHex,
-            dec: byteDec,
-            phonemes: symbols,
-            phonemeCount: symbols.length,
             byteCount: bytes.length,
-            stopIncluded,
-            durationPreviewMs: Math.round(sampleDurationMs(bytes, 'sc01')),
-            durationPreview: `${romLabel} preview ${tipMs(sampleDurationMs(bytes, 'sc01'))}`,
-            description: kind === 'word' ? 'Saved user word from local browser storage.' : 'Saved user phrase from local browser storage.',
-            use: kind === 'word' ? 'drag inserts the saved word as separate phonemes' : 'drag inserts the saved phrase as separate phonemes',
-            import: {
-              localStorageKey: USER_PHRASES_STORAGE_KEY,
-              name: cleanName,
-              value: { kind, bytes: byteDec }
-            }
+            phonemes: symbols,
+            description: kind === 'word' ? 'Saved user word from local browser storage.' : 'Saved user phrase from local browser storage.'
           };
         })
         .filter(Boolean)
@@ -6055,9 +6036,8 @@ Wor:
       const records = userStorageExportRecords();
       return {
         dataset: 'votrax_user',
-        description: 'Saved Votrax user phrases and words exported from browser local storage.',
-        formatVersion: 1,
-        storageKey: USER_PHRASES_STORAGE_KEY,
+        description: 'Saved Votrax user phrases and words exported from browser local storage. Import can rebuild byte arrays from each record phonemes array.',
+        formatVersion: 2,
         generatedAt: new Date().toISOString(),
         recordCount: records.length,
         records

@@ -1,0 +1,120 @@
+{
+  "dataset": "votrax_user",
+  "description": "Saved Votrax user phrases and words exported from browser local storage. Import can rebuild byte arrays from each record phonemes array.",
+  "formatVersion": 2,
+  "generatedAt": "2026-07-03T19:42:40.440Z",
+  "recordCount": 5,
+  "records": [
+    {
+      "name": "hey, insert coin",
+      "label": "hey, insert coin",
+      "kind": "phrase",
+      "source": "local browser storage",
+      "mode": "SC-01 raw",
+      "byteCount": 20,
+      "phonemes": [
+        "H",
+        "A",
+        "I1",
+        "Y1",
+        "PA1",
+        "PA1",
+        "I",
+        "N",
+        "S",
+        "ER",
+        "T",
+        "PA1",
+        "K",
+        "O1",
+        "O2",
+        "I3",
+        "Y1",
+        "N",
+        "PA1",
+        "STOP"
+      ],
+      "description": "Saved user phrase from local browser storage."
+    },
+    {
+      "name": "Lizard43",
+      "label": "Lizard43",
+      "kind": "phrase",
+      "source": "local browser storage",
+      "mode": "SC-01 raw",
+      "byteCount": 14,
+      "phonemes": [
+        "L",
+        "I",
+        "Z",
+        "ER",
+        "D",
+        "F",
+        "O2",
+        "R",
+        "T",
+        "E",
+        "TH",
+        "R",
+        "E",
+        "STOP"
+      ],
+      "description": "Saved user phrase from local browser storage."
+    },
+    {
+      "name": "PHRASE",
+      "label": "PHRASE",
+      "kind": "phrase",
+      "source": "local browser storage",
+      "mode": "SC-01 raw",
+      "byteCount": 12,
+      "phonemes": [
+        "L",
+        "I",
+        "Z",
+        "D",
+        "F",
+        "O2",
+        "R",
+        "T",
+        "E",
+        "TH",
+        "R",
+        "E"
+      ],
+      "description": "Saved user phrase from local browser storage."
+    },
+    {
+      "name": "war",
+      "label": "war",
+      "kind": "phrase",
+      "source": "local browser storage",
+      "mode": "SC-01 raw",
+      "byteCount": 4,
+      "phonemes": [
+        "W",
+        "O1",
+        "O2",
+        "R"
+      ],
+      "description": "Saved user phrase from local browser storage."
+    },
+    {
+      "name": "warrior",
+      "label": "warrior",
+      "kind": "phrase",
+      "source": "local browser storage",
+      "mode": "SC-01 raw",
+      "byteCount": 6,
+      "phonemes": [
+        "W",
+        "O1",
+        "O2",
+        "R",
+        "E",
+        "ER"
+      ],
+      "description": "Saved user phrase from local browser storage."
+    }
+  ]
+}
