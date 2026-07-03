@@ -5,7 +5,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Votrax Player</title>
-  <!-- cache-bust-head: wav-zoom-bottomstats-resize-20260702-234859 -->
+  <!-- cache-bust-head: timeline-tooltip-wav-hover-20260703-000924 -->
   <style>
     :root {
       --bg: #14171c;
@@ -733,6 +733,13 @@
       outline: 2px solid var(--accent);
       outline-offset: -2px;
       color: var(--text);
+    }
+
+    .timelineSegment.timelineHover {
+      outline: 2px solid rgba(255, 209, 102, .82);
+      outline-offset: -2px;
+      color: var(--text);
+      box-shadow: 0 0 0 2px rgba(255, 209, 102, .12), 0 0 16px rgba(255, 209, 102, .10);
     }
 
     .phonemeTableWrap {
@@ -1906,6 +1913,12 @@
       font: 11px/1.35 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
     }
 
+    .phonemeInfoTip .tipLength {
+      margin-top: 4px;
+      color: var(--gold);
+      font: 900 11px/1.35 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    }
+
     @media (max-width: 520px) {
       .phonemePalettePanel.resizablePanel {
         height: var(--palette-pane-height-mobile, 180px);
@@ -2416,7 +2429,7 @@
 
 
 
-    /* Generated WAV zoom pane: wav-zoom-bottomstats-resize-20260702-234859
+    /* Generated WAV zoom pane: timeline-tooltip-wav-hover-20260703-000924
        Single zoom-window view borrowed from the Bally WAV decoder UI, adapted
        for the Votrax phrase renderer. Wheel zooms; click/drag pans. */
     .wavViewToggleButton.active,
@@ -3535,6 +3548,7 @@ L8E78:
     let waveformSamples = null;
     let waveformEvents = [];
     let waveformRenderError = '';
+    let waveformHoverIndex = null;
     const waveformView = {
       startSample: 0,
       spanSamples: 0,
@@ -4151,10 +4165,11 @@ L8E78:
       if (timelineDragState?.ghost) timelineDragState.ghost.remove();
       if (timelineDragState?.gap) timelineDragState.gap.remove();
       if (timelineDragState?.sourceEl) timelineDragState.sourceEl.classList.remove('timelineDragHold', 'timelineDragSource');
-      document.querySelectorAll('.timelineSegment.timelineDragHold,.timelineSegment.timelineDragSource,.phonemePalettePill.timelineDragHold,.phonemePalettePill.timelineDragSource').forEach(el => {
-        el.classList.remove('timelineDragHold', 'timelineDragSource');
+      document.querySelectorAll('.timelineSegment.timelineDragHold,.timelineSegment.timelineDragSource,.timelineSegment.timelineHover,.phonemePalettePill.timelineDragHold,.phonemePalettePill.timelineDragSource').forEach(el => {
+        el.classList.remove('timelineDragHold', 'timelineDragSource', 'timelineHover');
       });
       hidePhonemeInfoTip();
+      setWaveformHoverIndex(null);
       document.body.classList.remove('isTimelineDragging');
       timelineDragState = null;
     }
@@ -4271,6 +4286,8 @@ L8E78:
       timelineDragState.offsetY = ev.clientY - rect.top;
       seg.classList.add('timelineDragSource');
       document.body.classList.add('isTimelineDragging');
+      hidePhonemeInfoTip();
+      setWaveformHoverIndex(null);
       updateTimelineGhost(ev);
       updateTimelineDropPlacement(ev);
     }
@@ -4477,6 +4494,42 @@ L8E78:
       return `<div class="tipTopline"><span class="mono">${escapeHtml(opcode)}</span> <span class="tipName">${escapeHtml(name)}</span> <span class="tipType">${escapeHtml(typeLabel)}</span></div>` +
         `<div class="tipDesc">${escapeHtml(ph.desc || '')}</div>` +
         `<div class="tipRom">${escapeHtml(phonemeRomInfo(item))}</div>`;
+    }
+
+    function waveformEventForTimelineIndex(index) {
+      if (index === null || index === undefined) return null;
+      const wanted = Number(index);
+      if (!Number.isFinite(wanted)) return null;
+      return (waveformEvents || []).find(ev => Number(ev.index) === wanted) || null;
+    }
+
+    function timelineItemLengthSeconds(item, analysis = currentAnalysis) {
+      const ev = waveformEventForTimelineIndex(item?.index);
+      if (ev && Number.isFinite(ev.start) && Number.isFinite(ev.end)) return Math.max(0, ev.end - ev.start);
+      if (!item || !item.ph || item.skipAudio) return 0;
+      const rate = Number(rateEl?.value) || 1;
+      const phForTiming = analysis?.mode === 'sc01' ? applySc01RomToPhoneme(item.ph) : item.ph;
+      return Math.max(0, (Number(phForTiming?.dur) || 0) / rate / 1000);
+    }
+
+    function timelineTipHtml(item, analysis = currentAnalysis) {
+      const ph = item?.ph;
+      const opcode = (item?.rawBytes || [item?.byte ?? 0]).map(hex2).join(' ');
+      const name = ph?.symbol || '??';
+      const typeLabel = ph?.kind || classifyForUi(ph);
+      const desc = ph?.desc || 'Unknown / outside selected decode table';
+      const len = timelineItemLengthSeconds(item, analysis);
+      return `<div class="tipTopline"><span class="mono">${escapeHtml(opcode)}</span> <span class="tipName">${escapeHtml(name)}</span> <span class="tipType">${escapeHtml(typeLabel)}</span></div>` +
+        `<div class="tipDesc">${escapeHtml(desc)}</div>` +
+        `<div class="tipLength">Length ${len.toFixed(3)}s</div>`;
+    }
+
+    function setWaveformHoverIndex(index) {
+      const next = (index === null || index === undefined) ? null : Number(index);
+      const normalized = Number.isFinite(next) ? next : null;
+      if (waveformHoverIndex === normalized) return;
+      waveformHoverIndex = normalized;
+      drawWaveformPreview();
     }
 
     function showPhonemeInfoTip(html, ev) {
@@ -4781,9 +4834,45 @@ L8E78:
         seg.style.width = Math.max(30, Math.min(120, ((ph?.dur || 28) / maxDur) * 80)) + 'px';
         seg.textContent = ph?.symbol || rawHex2(item.byte);
         const byteText = (item.rawBytes || [item.byte]).map(hex2).join(' ');
-        seg.title = `${byteText} ${ph?.symbol || '??'} ${ph?.desc || ''}`.trim();
+        seg.removeAttribute('title');
+        seg.setAttribute('aria-label', `${byteText} ${ph?.symbol || '??'} ${ph?.desc || ''}`.trim());
+
+        seg.addEventListener('mouseenter', ev => {
+          if (timelineDragState?.active) return;
+          seg.classList.add('timelineHover');
+          setWaveformHoverIndex(item.index);
+          showPhonemeInfoTip(timelineTipHtml(item, analysis), ev);
+        });
+        seg.addEventListener('mousemove', ev => {
+          if (timelineDragState?.active) return;
+          movePhonemeInfoTip(ev);
+        });
+        seg.addEventListener('mouseleave', () => {
+          seg.classList.remove('timelineHover');
+          if (!timelineDragState?.active) {
+            setWaveformHoverIndex(null);
+            hidePhonemeInfoTip();
+          }
+        });
+        seg.addEventListener('focus', () => {
+          if (timelineDragState?.active) return;
+          const rect = seg.getBoundingClientRect();
+          seg.classList.add('timelineHover');
+          setWaveformHoverIndex(item.index);
+          showPhonemeInfoTip(timelineTipHtml(item, analysis), { clientX: rect.left, clientY: rect.bottom });
+        });
+        seg.addEventListener('blur', () => {
+          seg.classList.remove('timelineHover');
+          if (!timelineDragState?.active) {
+            setWaveformHoverIndex(null);
+            hidePhonemeInfoTip();
+          }
+        });
 
         seg.addEventListener('pointerdown', ev => {
+          seg.classList.remove('timelineHover');
+          setWaveformHoverIndex(null);
+          hidePhonemeInfoTip();
           if (ev.button !== undefined && ev.button !== 0) return;
           if (ev.target.closest('.paneResizeHandle')) return;
           timelineDragState = {
@@ -5709,6 +5798,29 @@ L8E78:
       const start = clampNumber(waveformView.startSample || 0, 0, Math.max(0, total - span));
       waveformView.startSample = start;
       waveformView.spanSamples = span;
+
+      const hoverEvent = waveformEventForTimelineIndex(waveformHoverIndex);
+      if (hoverEvent && Number.isFinite(hoverEvent.start) && Number.isFinite(hoverEvent.end)) {
+        const hs = hoverEvent.start * SAMPLE_RATE;
+        const he = Math.max(hs + 1, hoverEvent.end * SAMPLE_RATE);
+        const x1 = clampNumber(((hs - start) / span) * w, 0, w);
+        const x2 = clampNumber(((he - start) / span) * w, 0, w);
+        if (x2 > 0 && x1 < w && x2 - x1 >= 1) {
+          ctx.save();
+          ctx.fillStyle = 'rgba(255, 209, 102, .18)';
+          ctx.fillRect(x1, 0, Math.max(1, x2 - x1), h);
+          ctx.strokeStyle = gold;
+          ctx.globalAlpha = 0.92;
+          ctx.lineWidth = 1.5;
+          ctx.beginPath();
+          ctx.moveTo(x1 + .5, 0);
+          ctx.lineTo(x1 + .5, h);
+          ctx.moveTo(x2 + .5, 0);
+          ctx.lineTo(x2 + .5, h);
+          ctx.stroke();
+          ctx.restore();
+        }
+      }
 
       let peak = 0;
       const peakStep = Math.max(1, Math.floor(span / Math.min(span, 5000)));
