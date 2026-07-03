@@ -5,7 +5,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Votrax Player</title>
-  <!-- cache-bust-head: words-az-tabs-pill-shape-20260703-193028 -->
+  <!-- cache-bust-head: user-save-kind-word-phrase-20260703-194705 -->
   <style>
     :root {
       --bg: #14171c;
@@ -477,7 +477,8 @@
       accent-color: var(--accent);
     }
 
-    input[type="checkbox"] {
+    input[type="checkbox"],
+    input[type="radio"] {
       accent-color: var(--accent);
     }
 
@@ -2712,6 +2713,19 @@
       overflow-wrap: anywhere;
     }
 
+    .savePhraseKindRow {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+      margin: 9px 0 2px;
+      min-height: 28px;
+    }
+
+    .savePhraseKindRow .checkLabel {
+      min-height: 28px;
+    }
+
     .savePhraseStopRow {
       margin: 2px 0 6px;
       min-height: 26px;
@@ -3229,6 +3243,10 @@
       <h2 class="savePhraseDialogTitle" id="savePhraseDialogTitle">Save phrase</h2>
       <label for="savePhraseNameInput">Phrase name</label>
       <input id="savePhraseNameInput" type="text" autocomplete="off" spellcheck="false" placeholder="My phrase" />
+      <div class="savePhraseKindRow" role="radiogroup" aria-label="Saved item kind">
+        <label class="checkLabel" title="Save as a reusable phrase in the user tab."><input id="savePhraseKindPhrase" name="savePhraseKind" type="radio" value="phrase" checked /> phrase</label>
+        <label class="checkLabel" title="Save as a reusable word in the words A-Z tabs."><input id="savePhraseKindWord" name="savePhraseKind" type="radio" value="word" /> word</label>
+      </div>
       <div class="savePhraseDialogMeta" aria-live="polite">
         <div class="savePhraseDialogMetric"><span>Bytes</span><b id="savePhraseByteCount">0</b></div>
         <div class="savePhraseDialogMetric savePhraseDialogMetricPhonemes"><span>Phonemes</span><b id="savePhrasePhonePreview">--</b></div>
@@ -4108,6 +4126,8 @@ Wor:
     const savePhrasePhonePreview = document.getElementById('savePhrasePhonePreview');
     const savePhraseStopRow = document.getElementById('savePhraseStopRow');
     const savePhraseSaveStop = document.getElementById('savePhraseSaveStop');
+    const savePhraseKindPhrase = document.getElementById('savePhraseKindPhrase');
+    const savePhraseKindWord = document.getElementById('savePhraseKindWord');
     const savePhraseDialogMessage = document.getElementById('savePhraseDialogMessage');
     const savePhraseOkBtn = document.getElementById('savePhraseOkBtn');
     const savePhraseCancelBtn = document.getElementById('savePhraseCancelBtn');
@@ -5521,12 +5541,19 @@ Wor:
       }
     }
 
+    function wordPaletteLetterForText(text) {
+      const first = String(text || '').trim().charAt(0).toUpperCase();
+      return /^[A-Z]$/.test(first) ? first : '#';
+    }
+
     function wordPaletteGroups() {
       const byLetter = new Map();
       for (const key of 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') byLetter.set(key, []);
-      for (const item of SC01_WORD_PALETTE) {
-        const first = (item.word || '').charAt(0).toUpperCase();
-        const key = /^[A-Z]$/.test(first) ? first : '#';
+      byLetter.set('#', []);
+      const items = SC01_WORD_PALETTE.concat(userWordItems())
+        .sort((a, b) => String(a.word || a.label || '').localeCompare(String(b.word || b.label || '')));
+      for (const item of items) {
+        const key = wordPaletteLetterForText(item.word || item.label);
         if (!byLetter.has(key)) byLetter.set(key, []);
         byLetter.get(key).push(item);
       }
@@ -5548,8 +5575,12 @@ Wor:
       const phoneBrief = phones.map(ph => `${ph.hex} ${ph.symbol} ${tipMs(ph.officialDur ?? ph.dur)} ${ph.example || ph.desc || ''}`.trim()).join(' · ');
       const tableDur = phones.reduce((sum, ph) => sum + (Number(ph.officialDur ?? ph.dur) || 0), 0);
       const previewDur = phones.reduce((sum, ph) => sum + (Number(applySc01RomToPhoneme(ph)?.dur) || 0), 0);
+      const sourceLabel = item.source === 'user' ? 'local browser storage' : 'built-in dictionary';
+      const typeLabel = item.source === 'user' ? 'user word' : 'word';
+      const descLabel = item.source === 'user' ? 'Saved user word from local browser storage.' : 'Votrax speech dictionary word entry.';
       const rows = [
-        tipRow('Word', item.word, 'cyanText'),
+        tipRow('Word', item.word, item.source === 'user' ? 'goldText' : 'cyanText'),
+        tipRow('Source', sourceLabel),
         tipRow('Phones', (item.symbols || []).join(' '), 'goldText'),
         tipRow('Bytes', `${opcode} · dec ${decBytes}`),
         tipRow('Count', `${bytes.length} phonemes`),
@@ -5557,15 +5588,15 @@ Wor:
         tipRow('Parts', phoneBrief),
         tipRow('Use', 'drag inserts these as separate SC-01 phonemes')
       ];
-      return `<div class="tipTopline"><span class="mono">${escapeHtml(opcode)}</span> <span class="tipName">${escapeHtml(item.word)}</span> <span class="tipType">word</span></div>` +
-        `<div class="tipDesc">Votrax speech dictionary word entry.</div>` +
+      return `<div class="tipTopline"><span class="mono">${escapeHtml(opcode)}</span> <span class="tipName">${escapeHtml(item.word)}</span> <span class="tipType">${escapeHtml(typeLabel)}</span></div>` +
+        `<div class="tipDesc">${escapeHtml(descLabel)}</div>` +
         tipMeta(rows);
     }
 
     function buildWordPaletteButton(item) {
       const btn = document.createElement('button');
       btn.type = 'button';
-      btn.className = 'phonemePalettePill word';
+      btn.className = item.source === 'user' ? 'phonemePalettePill word user' : 'phonemePalettePill word';
       btn.dataset.mode = 'sc01';
       btn.dataset.tip = wordTipHtml(item);
       btn.innerHTML = `<span class="phonemePaletteSymbol">${escapeHtml(item.label)}</span>`;
@@ -5665,7 +5696,8 @@ Wor:
 
     function renderWordsPalette() {
       if (!wordSubTabBar || !wordSubPanes) return;
-      const renderKey = `${activeRomModel()}-${SC01_WORD_PALETTE.length}`;
+      const userWordSignature = userWordItems().map(item => `${item.label}:${item.bytes.join(',')}`).join('|');
+      const renderKey = `${activeRomModel()}-${SC01_WORD_PALETTE.length}-${userWordSignature}`;
       if (wordPaletteRenderedForRom === renderKey && wordSubPanes.childElementCount) {
         showWordPaletteSubTab(activeWordPaletteLetter);
         return;
@@ -5849,6 +5881,27 @@ Wor:
       }
     }
 
+    function normalizeUserPhraseKind(kind) {
+      return String(kind || '').toLowerCase() === 'word' ? 'word' : 'phrase';
+    }
+
+    function normalizeUserPhraseStoreEntry(value) {
+      let kind = 'phrase';
+      let arr = [];
+      if (Array.isArray(value)) {
+        arr = value;
+      } else if (value && typeof value === 'object') {
+        kind = normalizeUserPhraseKind(value.kind);
+        if (Array.isArray(value.bytes)) arr = value.bytes;
+        else if (Array.isArray(value.phonemes)) arr = value.phonemes;
+        else if (Array.isArray(value.value)) arr = value.value;
+      }
+      const bytes = arr
+        .map(byte => Number(byte) & 0xFF)
+        .filter(byte => Number.isFinite(byte) && byte >= 0 && byte <= 0xFF);
+      return { kind, bytes };
+    }
+
     function loadUserPhraseStore(force = false) {
       if (!force && userPhraseStoreCache) return userPhraseStoreCache;
       const store = {};
@@ -5858,9 +5911,8 @@ Wor:
         if (parsed && typeof parsed === 'object' && !Array.isArray(parsed)) {
           for (const [name, value] of Object.entries(parsed)) {
             const cleanName = sanitizeUserPhraseName(name);
-            const arr = Array.isArray(value) ? value : [];
-            const bytes = arr.map(byte => Number(byte) & 0xFF).filter(byte => Number.isFinite(byte) && byte >= 0 && byte <= 0xFF);
-            if (cleanName && bytes.length) store[cleanName] = bytes;
+            const entry = normalizeUserPhraseStoreEntry(value);
+            if (cleanName && entry.bytes.length) store[cleanName] = entry;
           }
         }
       } catch (_) {
@@ -5871,24 +5923,55 @@ Wor:
     }
 
     function saveUserPhraseStore(store) {
-      localStorage.setItem(USER_PHRASES_STORAGE_KEY, JSON.stringify(store || {}));
-      userPhraseStoreCache = { ...(store || {}) };
+      const cleanStore = {};
+      for (const [name, value] of Object.entries(store || {})) {
+        const cleanName = sanitizeUserPhraseName(name);
+        const entry = normalizeUserPhraseStoreEntry(value);
+        if (cleanName && entry.bytes.length) {
+          cleanStore[cleanName] = { kind: normalizeUserPhraseKind(entry.kind), bytes: entry.bytes.slice() };
+        }
+      }
+      localStorage.setItem(USER_PHRASES_STORAGE_KEY, JSON.stringify(cleanStore));
+      userPhraseStoreCache = cleanStore;
     }
 
     function userPhraseItems() {
       const store = loadUserPhraseStore(true);
       return Object.entries(store)
-        .map(([name, bytes]) => ({
+        .map(([name, entry]) => ({ name, entry: normalizeUserPhraseStoreEntry(entry) }))
+        .filter(item => item.entry.kind !== 'word')
+        .map(({ name, entry }) => ({
           key: name,
           label: name,
           source: 'user',
+          kind: 'phrase',
           mode: 'sc01',
-          bytes: (bytes || []).slice(),
+          bytes: entry.bytes.slice(),
           words: name,
           tipType: 'user'
         }))
         .filter(item => item.bytes.length)
         .sort((a, b) => a.label.localeCompare(b.label));
+    }
+
+    function userWordItems() {
+      const store = loadUserPhraseStore(true);
+      return Object.entries(store)
+        .map(([name, entry]) => ({ name, entry: normalizeUserPhraseStoreEntry(entry) }))
+        .filter(item => item.entry.kind === 'word')
+        .map(({ name, entry }) => ({
+          key: `user:${name}`,
+          word: name,
+          label: name,
+          source: 'user',
+          kind: 'word',
+          symbols: sampleSymbolSequence(entry.bytes, 'sc01'),
+          bytes: entry.bytes.slice(),
+          mode: 'sc01',
+          tipType: 'word'
+        }))
+        .filter(item => item.bytes.length)
+        .sort((a, b) => a.word.localeCompare(b.word));
     }
 
     function updateUserPaletteTabVisibility(hasUserPhrases = userPhraseItems().length > 0) {
@@ -6051,6 +6134,10 @@ Wor:
       return saveStop ? bytes : bytes.filter(byte => (byte & 0xFF) !== 0x3F);
     }
 
+    function savePhraseDialogKind() {
+      return savePhraseKindWord && savePhraseKindWord.checked ? 'word' : 'phrase';
+    }
+
     function updateSavePhraseDialogPreview() {
       const bytes = readSavePhraseDialogBytes();
       const hasStop = bytes.some(byte => (byte & 0xFF) === 0x3F);
@@ -6082,6 +6169,8 @@ Wor:
         return;
       }
       savePhraseNameInput.value = defaultUserPhraseName();
+      if (savePhraseKindPhrase) savePhraseKindPhrase.checked = true;
+      if (savePhraseKindWord) savePhraseKindWord.checked = false;
       if (savePhraseDialogMessage) savePhraseDialogMessage.textContent = 'Existing names are overwritten.';
       savePhraseDialog.dataset.bytes = JSON.stringify(bytes);
       if (savePhraseSaveStop) savePhraseSaveStop.checked = true;
@@ -6101,6 +6190,8 @@ Wor:
       savePhraseDialog.setAttribute('aria-hidden', 'true');
       savePhraseBtn?.classList.remove('active');
       savePhraseDialog.dataset.bytes = '';
+      if (savePhraseKindPhrase) savePhraseKindPhrase.checked = true;
+      if (savePhraseKindWord) savePhraseKindWord.checked = false;
       if (savePhraseSaveStop) savePhraseSaveStop.checked = true;
       if (savePhraseStopRow) {
         savePhraseStopRow.classList.add('isHidden');
@@ -6121,16 +6212,25 @@ Wor:
         if (savePhraseDialogMessage) savePhraseDialogMessage.textContent = 'No phrase bytes to save.';
         return;
       }
+      const kind = savePhraseDialogKind();
       try {
         const store = loadUserPhraseStore(true);
-        store[name] = bytes;
+        store[name] = { kind, bytes: bytes.slice() };
         saveUserPhraseStore(store);
         closeSavePhraseDialog();
         setPhraseDirty(false);
+        wordPaletteRenderedForRom = '';
+        renderWordsPalette();
         renderUserPalette();
-        showPaletteTab('user');
+        if (kind === 'word') {
+          const letter = wordPaletteLetterForText(name);
+          showPaletteTab('words');
+          showWordPaletteSubTab(letter);
+        } else {
+          showPaletteTab('user');
+        }
         scheduleContentFit({ palette: true, forcePalette: true });
-        setStatus(`Saved user phrase "${name}" (${bytes.length} byte${bytes.length === 1 ? '' : 's'}) to this browser.`);
+        setStatus(`Saved user ${kind} "${name}" (${bytes.length} byte${bytes.length === 1 ? '' : 's'}) to this browser.`);
       } catch (err) {
         setStatus(`Could not save phrase: ${err.message || err}`, true);
       }
@@ -9156,6 +9256,8 @@ Wor:
     if (savePhraseCancelBtn) savePhraseCancelBtn.addEventListener('click', closeSavePhraseDialog);
     if (savePhraseOkBtn) savePhraseOkBtn.addEventListener('click', commitSavePhraseDialog);
     if (savePhraseSaveStop) savePhraseSaveStop.addEventListener('change', updateSavePhraseDialogPreview);
+    if (savePhraseKindPhrase) savePhraseKindPhrase.addEventListener('change', updateSavePhraseDialogPreview);
+    if (savePhraseKindWord) savePhraseKindWord.addEventListener('change', updateSavePhraseDialogPreview);
     if (savePhraseNameInput) savePhraseNameInput.addEventListener('keydown', ev => {
       if (ev.key === 'Enter') {
         ev.preventDefault();
