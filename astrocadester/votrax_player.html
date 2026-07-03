@@ -5,7 +5,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Votrax Player</title>
-  <!-- cache-bust-head: palette-scroll-bounded-20260703-151530 -->
+  <!-- cache-bust-head: save-dirty-confirm-20260703-153842 -->
   <style>
     :root {
       --bg: #14171c;
@@ -2806,11 +2806,12 @@
             d="M16 1H4c-1.1 0-2 .9-2 2v12h2V3h12V1Zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2Zm0 16H8V7h11v14Z" />
         </svg>
       </button>
-      <button class="action iconButton savePhraseButton" id="savePhraseBtn" title="Save current phrase"
-        aria-label="Save current phrase">
+      <button class="action iconButton savePhraseButton" id="savePhraseBtn" title="Save disabled: no unsaved phrase changes"
+        aria-label="Save current phrase" disabled>
         <svg viewBox="0 0 24 24" aria-hidden="true">
           <path fill="currentColor"
-            d="M17 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V7l-4-4ZM7 5h8v5H7V5Zm10 14H7v-6h10v6Z" />
+            d="M12 3C7.58 3 4 4.35 4 6.5v9C4 17.65 7.58 19 12 19s8-1.35 8-3.5v-9C20 4.35 16.42 3 12 3Zm0 2c3.72 0 5.72.93 6 1.5-.28.57-2.28 1.5-6 1.5s-5.72-.93-6-1.5C6.28 5.93 8.28 5 12 5Zm6 4.1v2.4c0 .57-2.28 1.5-6 1.5s-6-.93-6-1.5V9.1C7.45 9.68 9.52 10 12 10s4.55-.32 6-.9Zm0 5v1.4c0 .57-2.28 1.5-6 1.5s-6-.93-6-1.5v-1.4c1.45.58 3.52.9 6 .9s4.55-.32 6-.9Z" />
+          <path fill="currentColor" d="M13 10V6h-2v4H8.5L12 13.5 15.5 10H13Z" />
         </svg>
       </button>
       <!-- Sample phrases moved from toolbar icon/menu into the palette samples tab. -->
@@ -3992,6 +3993,7 @@ Wor:
     let suppressPhraseAutoLoad = false;
     let activeImportedPhraseIndex = null;
     let activeImportedPhraseSourceText = '';
+    let phraseDirty = false;
 
     let audioCtx = null;
     let currentSource = null;
@@ -4017,6 +4019,43 @@ Wor:
       dragStartSample: 0,
       dragMoved: false
     };
+
+    function currentPhraseHasSaveableBytes() {
+      const bytes = currentAnalysis?.bytes || [];
+      return Array.isArray(bytes) && bytes.length > 0;
+    }
+
+    function updateSavePhraseButtonState() {
+      if (!savePhraseBtn) return;
+      const hasBytes = currentPhraseHasSaveableBytes();
+      const canSave = Boolean(hasBytes && phraseDirty);
+      savePhraseBtn.disabled = !canSave;
+      savePhraseBtn.setAttribute('aria-disabled', canSave ? 'false' : 'true');
+      if (!hasBytes) {
+        savePhraseBtn.title = 'Save disabled: timeline is empty';
+        savePhraseBtn.setAttribute('aria-label', 'Save current phrase disabled because timeline is empty');
+      } else if (!phraseDirty) {
+        savePhraseBtn.title = 'Save disabled: no unsaved phrase changes';
+        savePhraseBtn.setAttribute('aria-label', 'Save current phrase disabled because there are no unsaved changes');
+      } else {
+        savePhraseBtn.title = 'Save current phrase to user palette';
+        savePhraseBtn.setAttribute('aria-label', 'Save current phrase');
+      }
+    }
+
+    function setPhraseDirty(isDirty = true) {
+      phraseDirty = Boolean(isDirty);
+      updateSavePhraseButtonState();
+    }
+
+    function markPhraseDirty() {
+      setPhraseDirty(true);
+    }
+
+    function confirmDiscardDirtyPhrase(actionLabel = 'clear the current phrase') {
+      if (!phraseDirty) return true;
+      return window.confirm(`You have unsaved phrase changes. ${actionLabel.charAt(0).toUpperCase() + actionLabel.slice(1)} anyway?`);
+    }
 
     function hex2(n) { return '$' + (n & 0xFF).toString(16).toUpperCase().padStart(2, '0'); }
     function rawHex2(n) { return (n & 0xFF).toString(16).toUpperCase().padStart(2, '0'); }
@@ -4465,6 +4504,7 @@ Wor:
       renderTokenPalette(currentAnalysis);
       updateTokenPaletteAvailability(currentAnalysis);
       exportText.value = formatDb(used);
+      updateSavePhraseButtonState();
       scheduleContentFit();
       // Settings no longer displays metric boxes; keep these null-safe in case
       // an older cached DOM fragment or downstream fork still includes them.
@@ -4498,6 +4538,7 @@ Wor:
       sourceEl.focus();
       sourceEl.selectionStart = sourceEl.selectionEnd = sourceEl.value.length;
       sourceInsertPos = sourceEl.value.length;
+      markPhraseDirty();
       analyze();
       setStatus(`Moved ${moved.ph?.symbol || hex2(moved.byte)} from row ${from + 1} to row ${to + 1}; source updated.`);
     }
@@ -4521,6 +4562,7 @@ Wor:
       sourceEl.focus();
       sourceEl.selectionStart = sourceEl.selectionEnd = sourceEl.value.length;
       sourceInsertPos = sourceEl.value.length;
+      markPhraseDirty();
       analyze();
       setStatus(`Moved ${moved.ph?.symbol || hex2(moved.byte)} to timeline position ${insertAt + 1}; source updated.`);
       return true;
@@ -4541,6 +4583,7 @@ Wor:
       sourceEl.focus();
       sourceEl.selectionStart = sourceEl.selectionEnd = sourceEl.value.length;
       sourceInsertPos = sourceEl.value.length;
+      markPhraseDirty();
       analyze();
       setStatus(`Deleted ${removed.ph?.symbol || hex2(removed.byte)} from timeline; source updated.`);
       return true;
@@ -4852,6 +4895,7 @@ Wor:
       sourceEl.focus();
       sourceEl.selectionStart = sourceEl.selectionEnd = sourceEl.value.length;
       sourceInsertPos = sourceEl.value.length;
+      markPhraseDirty();
       analyze();
       setStatus(`Inserted ${label} at timeline position ${insertAt + 1}; source updated.`);
       return true;
@@ -5806,6 +5850,11 @@ Wor:
         setStatus('No phrase bytes to save.', true);
         return;
       }
+      if (!phraseDirty) {
+        updateSavePhraseButtonState();
+        setStatus('No unsaved phrase changes to save.', true);
+        return;
+      }
       const symbols = sampleSymbolSequence(bytes, 'sc01');
       savePhraseNameInput.value = defaultUserPhraseName();
       if (savePhraseByteCount) savePhraseByteCount.textContent = String(bytes.length);
@@ -5850,6 +5899,7 @@ Wor:
         store[name] = bytes;
         saveUserPhraseStore(store);
         closeSavePhraseDialog();
+        setPhraseDirty(false);
         renderUserPalette();
         showPaletteTab('user');
         scheduleContentFit({ palette: true, forcePalette: true });
@@ -7763,6 +7813,7 @@ Wor:
       activeImportedPhraseSourceText = sourceEl.value;
       inputModeEl.value = phrase.mode || 'wizard';
       requestWaveformFullViewOnNextRender();
+      markPhraseDirty();
       analyze();
       if (shouldAutoFit) schedulePhraseLoadAutoFit();
       updateSelectedPhraseInfo();
@@ -7841,6 +7892,7 @@ Wor:
           activeImportedPhraseIndex = null;
           activeImportedPhraseSourceText = '';
           requestWaveformFullViewOnNextRender();
+          markPhraseDirty();
           analyze();
           setStatus(`Loaded ${file.name}; no phrase blocks found yet.`, true);
         }
@@ -7913,6 +7965,7 @@ Wor:
       const label = mode === 'wizard' ? 'WizardVoicePhrase_Custom:' : 'Custom:';
       const line = '    .DB ' + bytes.map(hex2).join(',').padEnd(39, ' ') + ' ; ' + comment;
       insertDbLineAtCurrentEditLine(line, label);
+      markPhraseDirty();
       analyze();
     }
 
@@ -7978,6 +8031,7 @@ Wor:
       const ph = PHONEME_BY_BYTE.get(byte);
       const line = '    db ' + hex2(byte).padEnd(23, ' ') + ' ; ' + (ph?.symbol || '??');
       insertDbLineAtCurrentEditLine(line, 'Custom:');
+      markPhraseDirty();
       analyze();
       setStatus(`Added ${hex2(byte)} ${ph?.symbol || ''} at current edit line.`);
     }
@@ -8543,6 +8597,7 @@ Wor:
       }
       inputModeEl.value = BUILT_IN_SAMPLE_BY_KEY.get(sampleKey)?.mode || 'sc01';
       requestWaveformFullViewOnNextRender();
+      markPhraseDirty();
       analyze();
       schedulePhraseLoadAutoFit();
       setSampleMenuVisible(false);
@@ -8600,6 +8655,7 @@ Wor:
     sourceEl.addEventListener('input', () => {
       rememberSourceInsertPos();
       clearActiveImportedPhraseSelection();
+      markPhraseDirty();
       analyze();
       scheduleContentFit();
       setStatus('Parsed source text. Playback will use the current byte window.');
@@ -8635,7 +8691,13 @@ Wor:
       try { await navigator.clipboard.writeText(text); setStatus('.DB copied to clipboard.'); }
       catch (_) { exportText.focus(); exportText.select(); setStatus('Clipboard failed; export text selected for manual copy.', true); }
     });
-    if (savePhraseBtn) savePhraseBtn.addEventListener('click', openSavePhraseDialog);
+    if (savePhraseBtn) savePhraseBtn.addEventListener('click', () => {
+      if (savePhraseBtn.disabled) {
+        setStatus(currentPhraseHasSaveableBytes() ? 'No unsaved phrase changes to save.' : 'Timeline is empty; nothing to save.', true);
+        return;
+      }
+      openSavePhraseDialog();
+    });
     if (savePhraseCancelBtn) savePhraseCancelBtn.addEventListener('click', closeSavePhraseDialog);
     if (savePhraseOkBtn) savePhraseOkBtn.addEventListener('click', commitSavePhraseDialog);
     if (savePhraseNameInput) savePhraseNameInput.addEventListener('keydown', ev => {
@@ -8651,6 +8713,10 @@ Wor:
       if (ev.target === savePhraseDialog) closeSavePhraseDialog();
     });
     document.getElementById('clearBtn').addEventListener('click', () => {
+      if (!confirmDiscardDirtyPhrase('clear the current phrase')) {
+        setStatus('Clear canceled; unsaved phrase changes kept.');
+        return;
+      }
       sourceEl.value = '';
       importedPhrases = [];
       voxLibrarySourceText = '';
@@ -8658,6 +8724,7 @@ Wor:
       activeImportedPhraseSourceText = '';
       populatePhraseSelect();
       stopPlayback();
+      setPhraseDirty(false);
       analyze();
       setStatus('Cleared phrase.');
     });
@@ -8857,11 +8924,12 @@ Wor:
     sourceInsertPos = sourceEl.value.length;
     requestWaveformFullViewOnNextRender();
     analyze();
+    setPhraseDirty(true);
     scheduleContentFit({ autoFit: true, forceSource: true, forceTimeline: true, forcePalette: true });
     setStatus('Ready. Default sample is Lizard. Sample picker loads the selected phrase. Single-phoneme auditions preserve the full phrase waveform.');
   </script>
 </body>
 
-<!-- cache-bust: diphthong-tab-11-reset-20260703-131307 -->
+<!-- cache-bust: save-dirty-confirm-20260703-153842 -->
 
 </html>
