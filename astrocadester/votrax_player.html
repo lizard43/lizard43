@@ -5,7 +5,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Votrax Player</title>
-  <!-- cache-bust-head: settings-doc-export-fit-20260703-141905 -->
+  <!-- cache-bust-head: palette-scroll-bounded-20260703-151530 -->
   <style>
     :root {
       --bg: #14171c;
@@ -2731,6 +2731,52 @@
     .toolbarPlaybackPanel .settingsSelectRow {
       margin-top: 2px;
     }
+
+    /* Palette scroll fix: keep the palette a bounded pane, and make the
+       list itself handle scrollbars, mouse wheels, and mobile finger panning. */
+    .phonemePalettePanel.resizablePanel {
+      height: var(--palette-pane-height, 260px) !important;
+      min-height: 140px !important;
+      max-height: min(42vh, 360px) !important;
+      overflow: hidden !important;
+      display: flex !important;
+      flex-direction: column !important;
+    }
+
+    .phonemePalettePanel .tabPane.active {
+      flex: 1 1 auto !important;
+      min-height: 0 !important;
+      overflow: hidden !important;
+      display: flex !important;
+    }
+
+    .phonemePalettePanel .phonemePaletteWrap,
+    .phonemePaletteWrap {
+      flex: 1 1 auto !important;
+      min-height: 0 !important;
+      max-height: none !important;
+      overflow-y: auto !important;
+      overflow-x: hidden !important;
+      -webkit-overflow-scrolling: touch;
+      overscroll-behavior: contain;
+      touch-action: pan-y;
+      scrollbar-gutter: stable;
+      scrollbar-color: var(--border) #0f1218;
+      scrollbar-width: thin;
+    }
+
+    .phonemePalettePill {
+      touch-action: pan-y !important;
+    }
+
+    @media (max-width: 520px) {
+      .phonemePalettePanel.resizablePanel {
+        height: var(--palette-pane-height-mobile, 220px) !important;
+        min-height: 170px !important;
+        max-height: min(46vh, 300px) !important;
+      }
+    }
+
   </style>
 </head>
 
@@ -2982,7 +3028,7 @@
       </section>
 
       <section class="panel stack phonemePalettePanel resizablePanel" aria-label="Add phonemes to timeline"
-        data-pane-name="palette" style="--palette-pane-height: 214px; --palette-pane-height-mobile: 180px;">
+        data-pane-name="palette" style="--palette-pane-height: 260px; --palette-pane-height-mobile: 220px;">
         <div class="tabBar phonemePaletteTabBar" role="tablist" aria-label="phoneme palette tabs">
           <button class="tabButton" type="button" data-palette-tab="user" hidden aria-hidden="true">user</button>
           <button class="tabButton active" type="button" data-palette-tab="words">words</button>
@@ -4692,6 +4738,15 @@ Wor:
 
     function startTimelineDrag(seg, ev) {
       if (!timelineDragState || timelineDragState.active) return;
+      if (seg?.classList?.contains('phonemePalettePill')) {
+        const dx = Math.abs(ev.clientX - timelineDragState.startX);
+        const dy = Math.abs(ev.clientY - timelineDragState.startY);
+        if ((ev.pointerType === 'touch' || ev.pointerType === 'pen') && dy >= 8 && dy > dx * 1.15) {
+          clearTimelineDragState();
+          return;
+        }
+      }
+      try { seg.setPointerCapture?.(timelineDragState.pointerId); } catch (_) { }
       const rect = seg.getBoundingClientRect();
       const ghost = seg.cloneNode(true);
       ghost.classList.add('timelineDragGhost');
@@ -5208,7 +5263,7 @@ Wor:
           offsetY: 0
         };
         btn.classList.add('timelineDragHold');
-        try { btn.setPointerCapture(ev.pointerId); } catch (_) { }
+        // Pointer capture starts only after a real drag begins so mobile vertical swipes can scroll this palette.
       });
 
       btn.addEventListener('pointermove', ev => {
@@ -5356,7 +5411,7 @@ Wor:
           offsetY: 0
         };
         btn.classList.add('timelineDragHold');
-        try { btn.setPointerCapture(ev.pointerId); } catch (_) { }
+        // Pointer capture starts only after a real drag begins so mobile vertical swipes can scroll this palette.
       });
 
       btn.addEventListener('pointermove', ev => {
@@ -5477,7 +5532,7 @@ Wor:
           offsetY: 0
         };
         btn.classList.add('timelineDragHold');
-        try { btn.setPointerCapture(ev.pointerId); } catch (_) { }
+        // Pointer capture starts only after a real drag begins so mobile vertical swipes can scroll this palette.
       });
 
       btn.addEventListener('pointermove', ev => {
@@ -5661,7 +5716,7 @@ Wor:
           offsetY: 0
         };
         btn.classList.add('timelineDragHold');
-        try { btn.setPointerCapture(ev.pointerId); } catch (_) { }
+        // Pointer capture starts only after a real drag begins so mobile vertical swipes can scroll this palette.
       });
 
       btn.addEventListener('pointermove', ev => {
@@ -5943,7 +5998,7 @@ Wor:
           offsetY: 0
         };
         btn.classList.add('timelineDragHold');
-        try { btn.setPointerCapture(ev.pointerId); } catch (_) { }
+        // Pointer capture starts only after a real drag begins so mobile vertical swipes can scroll this palette.
       });
 
       btn.addEventListener('pointermove', ev => {
@@ -6088,7 +6143,7 @@ Wor:
           offsetY: 0
         };
         btn.classList.add('timelineDragHold');
-        try { btn.setPointerCapture(ev.pointerId); } catch (_) { }
+        // Pointer capture starts only after a real drag begins so mobile vertical swipes can scroll this palette.
       });
 
       btn.addEventListener('pointermove', ev => {
@@ -8121,42 +8176,42 @@ Wor:
     function fitPaletteToContent(force = false) {
       const panel = document.querySelector('[data-pane-name="palette"]');
       if (!panel || (!force && panel.dataset.userSized === 'true')) return;
-      const tabBar = panel.querySelector('.tabBar');
-      const activePane = panel.querySelector('.tabPane.active');
+
       const activeWrap = panel.querySelector('.tabPane.active .phonemePaletteWrap');
-      const handle = panel.querySelector('.paneResizeHandle');
-      const tabHeight = tabBar ? tabBar.getBoundingClientRect().height : 0;
-      const paneBorderPad = activePane ? (activePane.offsetHeight - activePane.clientHeight) : 0;
-      const handleHeight = handle ? Math.max(14, handle.getBoundingClientRect().height) : 14;
+      const isMobile = window.matchMedia?.('(max-width: 520px)')?.matches || window.innerWidth <= 520;
+      const minHeight = isMobile ? 170 : 140;
+      const preferredHeight = isMobile ? 220 : 260;
+      const maxHeight = Math.max(minHeight, Math.min(isMobile ? 300 : 360, Math.floor(window.innerHeight * (isMobile ? 0.46 : 0.42))));
 
-      const oldPanelHeight = panel.style.height;
-      const oldWrapHeight = activeWrap ? activeWrap.style.height : '';
-      const oldWrapOverflowY = activeWrap ? activeWrap.style.overflowY : '';
-      const oldWrapMaxHeight = activeWrap ? activeWrap.style.maxHeight : '';
-      panel.style.height = 'auto';
+      let contentNeeds = preferredHeight;
       if (activeWrap) {
-        activeWrap.style.height = 'auto';
-        activeWrap.style.maxHeight = 'none';
-        activeWrap.style.overflowY = 'hidden';
+        const tabBar = panel.querySelector('.tabBar');
+        const handle = panel.querySelector('.paneResizeHandle');
+        const tabHeight = tabBar ? Math.ceil(tabBar.getBoundingClientRect().height || tabBar.offsetHeight || 0) : 0;
+        const handleHeight = handle ? Math.max(14, Math.ceil(handle.getBoundingClientRect().height || handle.offsetHeight || 14)) : 14;
+        const panelChrome = cssVerticalExtras(panel);
+        const wrapContent = activeWrap.firstElementChild || activeWrap;
+        const oldWrapHeight = activeWrap.style.getPropertyValue('height');
+        const oldWrapHeightPriority = activeWrap.style.getPropertyPriority('height');
+        const oldWrapMaxHeight = activeWrap.style.getPropertyValue('max-height');
+        const oldWrapMaxHeightPriority = activeWrap.style.getPropertyPriority('max-height');
+
+        activeWrap.style.setProperty('height', 'auto', 'important');
+        activeWrap.style.setProperty('max-height', 'none', 'important');
+        const wrapHeight = Math.ceil(Math.max(
+          activeWrap.scrollHeight || 0,
+          wrapContent ? wrapContent.getBoundingClientRect().height : 0
+        ) + 2);
+        restoreStyleProperty(activeWrap, 'height', oldWrapHeight, oldWrapHeightPriority);
+        restoreStyleProperty(activeWrap, 'max-height', oldWrapMaxHeight, oldWrapMaxHeightPriority);
+
+        contentNeeds = Math.ceil(tabHeight + wrapHeight + handleHeight + panelChrome + 14);
       }
 
-      const wrapContent = activeWrap?.firstElementChild || activeWrap;
-      const wrapHeight = activeWrap ? Math.ceil(Math.max(
-        activeWrap.scrollHeight || 0,
-        wrapContent ? wrapContent.getBoundingClientRect().height : 0
-      ) + 2) : 0;
-
-      if (activeWrap) {
-        activeWrap.style.height = oldWrapHeight;
-        activeWrap.style.maxHeight = oldWrapMaxHeight;
-        activeWrap.style.overflowY = oldWrapOverflowY;
-      }
-      panel.style.height = oldPanelHeight;
-
-      const total = Math.ceil(tabHeight + paneBorderPad + wrapHeight + handleHeight + 14);
-      panel.style.setProperty('--palette-pane-height', total + 'px');
-      panel.style.setProperty('--palette-pane-height-mobile', total + 'px');
-      panel.style.height = total + 'px';
+      const boundedHeight = Math.max(minHeight, Math.min(contentNeeds, maxHeight));
+      panel.style.setProperty('--palette-pane-height', boundedHeight + 'px');
+      panel.style.setProperty('--palette-pane-height-mobile', boundedHeight + 'px');
+      panel.style.setProperty('height', boundedHeight + 'px', 'important');
     }
 
     function fitExportToContent() {
