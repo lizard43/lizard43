@@ -5,7 +5,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Votrax Player</title>
-  <!-- cache-bust-head: sample-counts-mobile-timeline-drag-20260702-225930 -->
+  <!-- cache-bust-head: timeline-halfsize-pills-20260703-001155 -->
   <style>
     :root {
       --bg: #14171c;
@@ -1595,8 +1595,8 @@
     }
 
     .timelinePanel .timelineSegment {
-      height: 62px;
-      min-height: 62px;
+      height: 31px;
+      min-height: 31px;
       flex: 0 0 auto;
     }
 
@@ -1675,8 +1675,8 @@
       flex: 0 0 10px;
       width: 10px;
       min-width: 10px;
-      height: 62px;
-      min-height: 62px;
+      height: 31px;
+      min-height: 31px;
       align-self: flex-start;
       border-radius: 999px;
       border: 1px solid rgba(242, 245, 243, 0.85);
@@ -3962,16 +3962,17 @@ L8E78:
 
     function formatDb(bytes, mode = guessDecodeMode(bytes)) {
       if (!bytes.length) return '';
-      const lines = [mode === 'wizard' ? 'WizardVoicePhrase_Custom:' : 'Custom:'];
-      const decoded = decodeStream(bytes, mode);
+      const exportBytes = (bytes || []).map(byte => byte & 0xFF);
+      const lines = ['PHRASE:', `PHRASE_LEN equ ${exportBytes.length}`];
+      const decoded = decodeStream(exportBytes, mode);
       const symbolBySource = new Map();
       for (const item of decoded) {
         symbolBySource.set(item.sourceIndex, item.ph?.symbol || '??');
         const raw = item.rawBytes || [item.byte];
         for (let i = 1; i < raw.length; i++) symbolBySource.set(item.sourceIndex + i, '↳');
       }
-      for (let i = 0; i < bytes.length; i += 8) {
-        const chunk = bytes.slice(i, i + 8);
+      for (let i = 0; i < exportBytes.length; i += 8) {
+        const chunk = exportBytes.slice(i, i + 8);
         const comment = chunk.map((_, j) => symbolBySource.get(i + j) || '??').join(' ');
         lines.push('    db ' + chunk.map(hex2).join(',').padEnd(39, ' ') + ' ; ' + comment);
       }
@@ -5026,7 +5027,7 @@ L8E78:
       clearTimelineDragState();
       timeline.innerHTML = '';
       if (!analysis.decoded.length) return;
-      const maxDur = Math.max(60, ...analysis.decoded.map(item => item.ph?.dur || 60));
+      const timelinePillWidthPx = 39;
       for (const item of analysis.decoded) {
         const ph = item.ph;
         const seg = document.createElement('button');
@@ -5034,7 +5035,7 @@ L8E78:
         const cls = classifyForUi(ph);
         seg.className = 'timelineSegment ' + cls;
         seg.dataset.index = String(item.index);
-        seg.style.width = Math.max(30, Math.min(120, ((ph?.dur || 28) / maxDur) * 80)) + 'px';
+        seg.style.width = timelinePillWidthPx + 'px';
         seg.textContent = ph?.symbol || rawHex2(item.byte);
         const byteText = (item.rawBytes || [item.byte]).map(hex2).join(' ');
         seg.removeAttribute('title');
