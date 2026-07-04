@@ -19,7 +19,7 @@
     }
   </style>
 
-  <script src="fg/js/loader.js?nomenu"></script>
+  <script src="../js/loader.js?nomenu"></script>
 </head>
 
 <body class="guide-chapter">
@@ -42,9 +42,6 @@
             <div class="memmap-header">
               <div>
                 <span class="memmap-kicker">Z80 address space · Wizard of Wor</span>
-                <p>Wizard of Wor has low ROM/Magic region, framebuffer RAM, upper game ROM, tiny protected-RAM block,
-                  and scratchpad RAM for stack and runtime state
-                </p>
               </div>
             </div>
 
@@ -160,7 +157,7 @@
         start: 0xE000,
         end: 0xFFFF,
         title: 'Unmapped / Open Bus',
-        subtitle: 'This region is not mapped - Treat as open-bus behavior',
+        subtitle: 'Not mapped - Treat as open-bus behavior',
         kind: 'unmapped',
         calloutTitle: '',
         callout: '',
@@ -177,7 +174,7 @@
         start: 0xD040,
         end: 0xDFFF,
         title: 'Work RAM',
-        subtitle: 'Scratch runtime workspace. Keep structs, input snapshots, object state, buffers, stack, etc',
+        subtitle: 'Scratchpad runtime workspace for structs, input snapshots, object state, buffers, stack, etc',
         kind: 'workram',
         calloutTitle: '',
         callout: '',
@@ -212,15 +209,15 @@
         start: 0xB000,
         end: 0xCFFF,
         title: 'Unmapped / Open Bus',
-        subtitle: 'This region is not mapped - Treat as open-bus behavior',
+        subtitle: 'Not mapped - Treat as open-bus behavior',
         kind: 'unmapped',
         calloutTitle: '',
         callout: '',
         badges: ['8 KB', 'unmapped / open bus'],
         equs: [
-          'UNMAPPED1_START      equ $E000',
-          'UNMAPPED1_END        equ $FFFF',
-          'UNMAPPED1_SIZE       equ $2000'
+          'UNMAPPED_START      equ $E000',
+          'UNMAPPED_END        equ $FFFF',
+          'UNMAPPED_SIZE       equ $2000'
         ],
         weight: 8,
         minHeight: 150

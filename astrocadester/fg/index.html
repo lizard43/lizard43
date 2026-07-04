@@ -19,62 +19,68 @@
     }
   </style>
 
+  <script>
+    window.CHAPTER_NAV = {
+      back: {
+        href: "references.html",
+        title: "References",
+        aria: "Previous chapter: References"
+      },
+
+      home: {
+        href: "index.html",
+        icon: "⌂",
+        aria: "Home"
+      },
+
+      fwd: {
+        href: "machine-model.html",
+        title: "Machine Model",
+        aria: "Next chapter: Machine Model"
+      }
+    };
+  </script>
+
   <script src="js/loader.js"></script>
 </head>
 
-<body class="guide-home">
+<body class="guide-chapter">
   <div class="wrap">
     <header class="hero">
       <div class="eyebrow"><span class="lamp"></span> Astrocade Arcade Field Guide · Intro</div>
-      <h2>Astrocade Arcade Code Development<br></h2>
+      <h2>Astrocade Arcade Notes<br></h2>
 
-      <nav class="chapter-strip" aria-label="Chapter navigation">
-        <span class="prev nav-placeholder" aria-hidden="true"></span>
-
-        <a class="index" href="index.html" aria-label="Home">
-          <span class="home-icon">⌂</span>
-        </a>
-
-        <a class="next" href="machine-model.html" aria-label="Next chapter: Machine Model">
-          <span class="nav-title">Machine Model</span>
-          <span class="nav-arrow">⟶</span>
-        </a>
-      </nav>
+      <nav class="chapter-strip" data-chapter-nav aria-label="Chapter navigation"></nav>
     </header>
 
     <main>
       <div class="content">
-        <section id="overview" class="card lead-card">
-          <p>
-            This Field Guide is a notebook for understanding coding for the Bally/Midway DNA Astrocade 
-            <b>Arcade</b> Platform. Arcade games such as:
-            <br><code>Wizard of Wor</code>·<code>Gorf</code>·<code>Robby Roto</code>·<code>Space Zap</code>
-          </p>
-
-          <p>
-            These notes discuss setting up a build environment, writing new code, modifying existing rom dumps,
-            testing with MAME. A large hardware reference is also providing to understand your target platform.
-          </p>
-          
+        <section id="overview" class="card">
           <div class="grid overview-callout-grid">
-            <div class="callout red">
-              <h3>Not Astrocade Console/Cartridges</h3>
+            <div class="callout green">
               <p>
-                Arcade machines have a different memory maps, different input routing, 
-                pattern boards, protected RAM behavior, speech hardware, can't use interpretive mode,
-                and hi-res video, etc.
+                This Field Guide provides understanding and developing software for the Bally/Midway Dave Nutting
+                Associates
+                (DNA) Astrocade Arcade Platform.
+                Specifically targeting arcade titles
               </p>
+              <p>
+                <b>Wizard of Wor, Gorf, Space Zap, Robby Roto</b>
+              </p>
+
+              <p>
+                These notes discuss setting up a build environment, writing new code,
+                testing with MAME, writing to ROMs, modifying ROM dumps.
+              </p>
+
             </div>
           </div>
 
-          <p>Use the links at the top/bottom of each page to follow thru the journey or 
-            use the hamburger menu to jump around to topics.</p>
         </section>
 
-        <section id="journey" class="card">
-          <h2>why is this hard?</h2>
+        <!-- <section id="journey" class="card">
           <p>
-            Writing 8-bit Z80 is not hard, it's figuring the underlying platform 
+            Writing 8-bit Z80 is not hard, it's figuring the underlying platform
             and the details that make it tough.
           </p>
           <p>
@@ -103,7 +109,7 @@
             Robby Roto, Wizard of Wor and Gorf disassemblies tell you how commercial games coded against
             the arcade hardware.
           </p>
-        </section>
+        </section> -->
 
         <section id="hardware-family" class="card">
           <h2>Astrocade Arcade family</h2>
@@ -123,80 +129,20 @@
             <span class="tag">10 Pin Deluxe (1984)</span>
             <span class="tag">10 Pin Champ / Strikes and Spares (1985)</span>
           </div>
-          <p style="margin-top:16px">
-            This guide focuses on <code>Wizard of Wor</code> <code>Gorf</code> <code>Robby Roto</code>
-          </p>
-        </section>
-
-        <section id="source-map" class="card">
-          <h2>sources</h2>
-          <table>
-            <tbody>
-              <tr>
-                <td><a href="https://ballyalley.com">BallyAlley</a></td>
-                <td>Your first stop for learning Astrocade. Archives, scans, historical notes,
-                  console and arcade cross-links. But beware, not all aapplies to arcade hardware</td>
-              </tr>
-              <tr>
-                <td><a href="https://8bitworkshop.com/">8bitworkshop</a></td>
-                <td>Learn how classic game hardware worked. Write console code and see it run instantly.
-                  Use this to understand concepts. 
-                  Be careful, console code will not run on arcade hardware and visa-versa.
-                </td>
-              </tr>
-              <tr>
-                <td><a href="https://www.mamedev.org/">MAME</a></td>
-                <td>Read the code - Uncover memory maps, I/O maps, input definitions, emulated behavior.
-                  Sound register behavior and arcade SI/SO.</td>
-              </tr>
-              <tr>
-                <td><a href="https://arcarc.xmission.com/PDF_Arcade_Manuals_and_Schematics/">Service manuals</a></td>
-                <td>Schematics, wiring, card racks, DIP switches, edge connectors, board layouts.</td>
-              </tr>
-              <tr>
-                <td><a
-                    href="https://github.com/tinymouse42?tab=repositories">
-                    Commander Dave</a></td>
-                <td>Disassembly asm source of Gorf, Wizard of Wor, Space Zap, Robby Roto</a>
-                </td>
-              </tr>
-              <tr>
-                <td><a
-                    href="https://ballyalley.com/documentation/Arcade_Games/Reverse%20Engineering%20Robby%20Roto/Reverse%20Engineering%20Robby%20Roto%20(2005)(Stephen%20Edwards).pdf">Robby
-                    Roto paper</a></td>
-                <td>This paper is a good overview of the arcade system
-                </td>
-              </tr>
-              <tr>
-                <td><a href="https://ballyalley.com/cart_manuals/cart_manuals.html">Console Astrocade docs</a></td>
-                <td>Magic, palette, sound, Z80 conventions, original chip concepts. </td>
-              </tr>
-            </tbody>
-          </table>
         </section>
 
         <section class="card">
-          <nav class="chapter-strip" aria-label="Chapter navigation">
-            <span class="prev nav-placeholder" aria-hidden="true"></span>
 
-            <a class="index" href="index.html" aria-label="Home">
-              <span class="home-icon">⌂</span>
-            </a>
-
-            <a class="next" href="machine-model.html" aria-label="Next chapter: Machine Model">
-              <span class="nav-title">Machine Model</span>
-              <span class="nav-arrow">⟶</span>
-            </a>
-          </nav>
+          <nav class="chapter-strip" data-chapter-nav aria-label="Chapter navigation"></nav>
         </section>
 
 
       </div>
     </main>
 
-    <footer>
-      Astrocade Arcade Field Guide — a practical notebook for building new software on old Bally/Midway hardware.
-    </footer>
+    <!-- <footer>
+      Astrocade Arcade Field Guide
+    </footer> -->
   </div>
 </body>
 
