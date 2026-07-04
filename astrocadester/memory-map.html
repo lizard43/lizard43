@@ -170,6 +170,59 @@
     .memmap-callout {
       align-self: flex-start !important;
     }
+
+
+    /* Compact address gutter:
+       - remove the per-section middle range labels
+       - keep boundary labels anchored at the left edge
+       - move the axis/ticks and memory sections left toward the label ends */
+    .memory-widget .memmap-ladder {
+      padding-left: 0 !important;
+    }
+
+    .memory-widget .memmap-row {
+      grid-template-columns: 4.05rem minmax(17rem, 0.92fr) minmax(17rem, 1.08fr) !important;
+      column-gap: 0.78rem !important;
+    }
+
+    .memory-widget .memmap-address {
+      flex: 0 0 4.05rem !important;
+      width: 4.05rem !important;
+      min-width: 4.05rem !important;
+      max-width: 4.05rem !important;
+      padding-left: 0 !important;
+      padding-right: 0.28rem !important;
+    }
+
+    .memory-widget .memmap-range-label {
+      display: none !important;
+    }
+
+    .memory-widget .memmap-boundary {
+      left: 0 !important;
+      right: auto !important;
+      width: auto !important;
+      min-width: 3.9rem !important;
+      text-align: left !important;
+      transform: translateY(-50%) !important;
+    }
+
+    .memory-widget .memmap-boundary-bottom {
+      transform: translateY(50%) !important;
+    }
+
+    @media (max-width: 860px) {
+      .memory-widget .memmap-row {
+        grid-template-columns: 3.9rem minmax(0, 1fr) !important;
+      }
+
+      .memory-widget .memmap-address {
+        flex-basis: 3.9rem !important;
+        width: 3.9rem !important;
+        min-width: 3.9rem !important;
+        max-width: 3.9rem !important;
+      }
+    }
   </style>
 
   <script src="fg/js/loader.js?nomenu"></script>
@@ -180,8 +233,8 @@
   <div class="wrap">
     <header class="hero">
       <div class="eyebrow"><span class="lamp"></span>Astrocade Arcade Field Guide</div>
-      <h2>Memory Map</h2>
-      <p class="subtitle">Z80 address maps</p>
+      <h2>Memory Maps</h2>
+      <p class="subtitle"><code>Wizard of Wor</code>·<code>Gorf</code>·<code>Robby Roto</code>·<code>Space Zap</code></p>
 
     </header>
 
