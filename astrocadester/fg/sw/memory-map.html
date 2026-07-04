@@ -26,11 +26,7 @@
 
   <div class="wrap">
     <header class="hero">
-      <div class="eyebrow"><span class="lamp"></span>Astrocade Arcade Field Guide</div>
-      <h2>Memory Maps</h2>
-      <p class="subtitle"><code>Wizard of Wor</code>·<code>Gorf</code>·<code>Robby Roto</code>·<code>Space Zap</code>
-      </p>
-
+      <div class="eyebrow"><span class="lamp"></span>Astrocade Arcade Field Guide · Memory Maps</div>
     </header>
 
     <main>
@@ -41,7 +37,7 @@
           <div class="memory-widget" aria-label="Wizard of Wor vertical memory map">
             <div class="memmap-header">
               <div>
-                <span class="memmap-kicker">Z80 address space · Wizard of Wor</span>
+                <span class="memmap-kicker">Wizard of Wor</span>
               </div>
             </div>
 
@@ -233,9 +229,9 @@
         callout: '',
         badges: ['12 KB', 'ROM'],
         roms: [
-          { name: 'wow.x5', start: 0x8000, end: 0x8FFF, size: '4 KB', crc: '16912c2b' },
-          { name: 'wow.x6', start: 0x9000, end: 0x9FFF, size: '4 KB', crc: '35797f82' },
-          { name: 'wow.x7', start: 0xA000, end: 0xAFFF, size: '4 KB', crc: 'ce404305' }
+          { name: 'wow.x5', start: 0x8000, end: 0x8FFF, size: '4 KB', chip: 'TMS2532', crc: '16912c2b' },
+          { name: 'wow.x6', start: 0x9000, end: 0x9FFF, size: '4 KB', chip: 'TMS2532', crc: '35797f82' },
+          { name: 'wow.x7', start: 0xA000, end: 0xAFFF, size: '4 KB', chip: 'TMS2532', crc: 'ce404305' }
         ],
         equs: [
           'ROM_HIGH_START      equ $8000',
@@ -274,10 +270,10 @@
         callout: '',
         badges: ['16 KB', "ROM", 'magic write'],
         roms: [
-          { name: 'wow.x1', start: 0x0000, end: 0x0FFF, size: '4 KB', chip: 'TMS2532 EPROM', crc: 'c1295786' },
-          { name: 'wow.x2', start: 0x1000, end: 0x1FFF, size: '4 KB', crc: '9be93215' },
-          { name: 'wow.x3', start: 0x2000, end: 0x2FFF, size: '4 KB', crc: '75e5a22e' },
-          { name: 'wow.x4', start: 0x3000, end: 0x3FFF, size: '4 KB', crc: 'ef28eb84' }
+          { name: 'wow.x1', start: 0x0000, end: 0x0FFF, size: '4 KB', chip: 'TMS2532', crc: 'c1295786' },
+          { name: 'wow.x2', start: 0x1000, end: 0x1FFF, size: '4 KB', chip: 'TMS2532', crc: '9be93215' },
+          { name: 'wow.x3', start: 0x2000, end: 0x2FFF, size: '4 KB', chip: 'TMS2532', crc: '75e5a22e' },
+          { name: 'wow.x4', start: 0x3000, end: 0x3FFF, size: '4 KB', chip: 'TMS2532', crc: 'ef28eb84' }
         ],
         equs: [
           'ROM_LOW_START       equ $0000',
@@ -945,8 +941,8 @@
           badgeWrap.append(chip);
         });
         blockPanel.append(badgeWrap);
-        renderBlockDetails(blockPanel, region, resolveMemoryIncludeFile(dataBlockName));
         renderRomChips(blockPanel, region);
+        renderBlockDetails(blockPanel, region, resolveMemoryIncludeFile(dataBlockName));
         block.append(blockPanel);
 
         row.append(block, address);
