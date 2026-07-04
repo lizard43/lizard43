@@ -37,7 +37,16 @@
 
   // Main JS
   const js = document.createElement("script");
-  js.src = JSLOC + "../js/menu.js?v=${v}";
+  const script = document.currentScript;
+  const params = new URL(script.src).searchParams;
+  const nomenu = params.has("nomenu");
+
+  if (!nomenu) {
+    js.src = JSLOC + "../js/menu.js?v=${v}";
+  }
+  else {
+    js.src = JSLOC + "../js/menu.js?nomenu&v=${v}";
+  }
   js.defer = true;
   document.head.appendChild(js);
 

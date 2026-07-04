@@ -15,8 +15,14 @@
     - Level style:  { label: "Deep page", href: "deep.html", level: 2 }
     - Nested style: { label: "Parent", href: "parent.html", items: [ ... ] }
 */
+
+
 (function () {
   "use strict";
+
+  const script = document.currentScript;
+  const params = new URL(script.src).searchParams;
+  const nomenu = params.has("nomenu");
 
   function getJavaScriptLocation() {
     const scripts = Array.from(document.scripts || []);
@@ -67,6 +73,10 @@
   let keydownHandlerInstalled = false;
   let hashChangeHandlerInstalled = false;
   let currentManagedNav = null;
+
+  function shouldBuildFieldGuideMenu() {
+    return Boolean(document.body && document.body.classList && document.body.classList.contains("guide-chapter"));
+  }
 
   function makeElement(tagName, className, text) {
     const element = document.createElement(tagName);
@@ -344,6 +354,10 @@
   }
 
   function buildFieldGuideMenu(menu) {
+    if (!shouldBuildFieldGuideMenu()) {
+      return;
+    }
+
     const previousToggle = document.getElementById("toc-toggle");
     const wasOpen = Boolean(previousToggle && previousToggle.checked);
 
@@ -357,6 +371,11 @@
   }
 
   function init() {
+    if (!shouldBuildFieldGuideMenu()) {
+      return;
+    }
+
+    if (nomenu) FIELD_GUIDE_MENU.items = [];
     buildFieldGuideMenu(FIELD_GUIDE_MENU);
   }
 
