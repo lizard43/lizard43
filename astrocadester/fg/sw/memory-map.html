@@ -17,212 +17,6 @@
       background: #07080b;
       color: #e8edf7;
     }
-
-    .memmap-equ-block {
-      margin-top: 0.85rem;
-      padding-top: 0.75rem;
-      border-top: 1px solid rgba(134, 206, 255, 0.22);
-    }
-
-    .memmap-equ-title {
-      display: block;
-      margin-bottom: 0.38rem;
-      color: #ffd86b;
-      font-size: 0.72rem;
-      font-weight: 800;
-      letter-spacing: 0.08em;
-      text-transform: none;
-    }
-
-    .memmap-equs {
-      margin: 0;
-      padding: 0.7rem 0.8rem;
-      overflow-x: auto;
-      border: 1px solid rgba(134, 206, 255, 0.18);
-      border-radius: 12px;
-      background: rgba(2, 6, 12, 0.48);
-      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.035);
-      color: #dfeeff;
-      font-size: 0.72rem;
-      line-height: 1.42;
-      white-space: pre;
-    }
-
-    .memmap-equs code {
-      color: inherit;
-      background: transparent;
-      padding: 0;
-    }
-
-
-    .memmap-rom-stack {
-      margin-top: 0.72rem;
-      padding-top: 0.12rem;
-    }
-
-    .memmap-rom-title {
-      display: block;
-      margin-bottom: 0.55rem;
-      color: #ffd86b;
-      font-size: 0.68rem;
-      font-weight: 900;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-    }
-
-    .memmap-rom-grid {
-      display: grid;
-      grid-template-columns: minmax(11rem, 1fr);
-      gap: 0.48rem;
-      padding: 0 0.32rem;
-    }
-
-    .memmap-rom-chip {
-      position: relative;
-      min-height: 2.62rem;
-      padding: 0.4rem 0.62rem 0.36rem;
-      border: 1px solid rgba(235, 242, 255, 0.26);
-      border-radius: 8px;
-      background:
-        radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.13), transparent 1.45rem),
-        linear-gradient(180deg, #303642 0%, #171b23 48%, #07090e 100%);
-      box-shadow:
-        inset 0 1px 0 rgba(255, 255, 255, 0.16),
-        inset 0 -1px 0 rgba(0, 0, 0, 0.78),
-        0 0.5rem 1rem rgba(0, 0, 0, 0.24);
-      color: #eaf4ff;
-      font-family: "OCR A Std", "OCR A Extended", "Share Tech Mono", "IBM Plex Mono", "Fira Code", Consolas, monospace;
-      text-align: center;
-      isolation: isolate;
-    }
-
-    .memmap-rom-chip::before,
-    .memmap-rom-chip::after {
-      content: "";
-      position: absolute;
-      z-index: -1;
-      top: 0.34rem;
-      bottom: 0.34rem;
-      width: 0.48rem;
-      border-radius: 0.12rem;
-      background: repeating-linear-gradient(to bottom,
-          rgba(235, 222, 183, 0.96) 0,
-          rgba(235, 222, 183, 0.96) 0.23rem,
-          transparent 0.23rem,
-          transparent 0.47rem);
-      filter: drop-shadow(0 0 0.08rem rgba(0, 0, 0, 0.9));
-    }
-
-    .memmap-rom-chip::before {
-      left: -0.46rem;
-    }
-
-    .memmap-rom-chip::after {
-      right: -0.46rem;
-    }
-
-    .memmap-rom-notch {
-      position: absolute;
-      top: -1px;
-      left: 50%;
-      width: 1.15rem;
-      height: 0.42rem;
-      transform: translateX(-50%);
-      border-right: 1px solid rgba(235, 242, 255, 0.18);
-      border-bottom: 1px solid rgba(235, 242, 255, 0.18);
-      border-left: 1px solid rgba(235, 242, 255, 0.18);
-      border-radius: 0 0 999px 999px;
-      background: #07090e;
-      box-shadow: inset 0 -1px 0 rgba(255, 255, 255, 0.08);
-    }
-
-    .memmap-rom-name {
-      display: block;
-      margin-top: 0.06rem;
-      color: #ffffff;
-      font-size: 0.82rem;
-      font-weight: 900;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      text-shadow: 0 0 0.4rem rgba(134, 206, 255, 0.22);
-    }
-
-    .memmap-rom-range {
-      display: block;
-      margin-top: 0.12rem;
-      color: #92d7ff;
-      font-size: 0.64rem;
-      font-weight: 800;
-      letter-spacing: 0.045em;
-    }
-
-    .memmap-rom-meta {
-      display: block;
-      margin-top: 0.1rem;
-      color: rgba(232, 237, 247, 0.62);
-      font-size: 0.56rem;
-      letter-spacing: 0.035em;
-      text-transform: uppercase;
-    }
-
-    /* Keep each note/callout pinned to the top of its memory-map row.
-       This only changes the note column; block heights and row sizing stay untouched. */
-    .memmap-callout {
-      align-self: flex-start !important;
-    }
-
-
-    /* Compact address gutter:
-       - remove the per-section middle range labels
-       - keep boundary labels anchored at the left edge
-       - move the axis/ticks and memory sections left toward the label ends */
-    .memory-widget .memmap-ladder {
-      padding-left: 0 !important;
-    }
-
-    .memory-widget .memmap-row {
-      grid-template-columns: 4.05rem minmax(17rem, 0.92fr) minmax(17rem, 1.08fr) !important;
-      column-gap: 0.78rem !important;
-    }
-
-    .memory-widget .memmap-address {
-      flex: 0 0 4.05rem !important;
-      width: 4.05rem !important;
-      min-width: 4.05rem !important;
-      max-width: 4.05rem !important;
-      padding-left: 0 !important;
-      padding-right: 0.28rem !important;
-    }
-
-    .memory-widget .memmap-range-label {
-      display: none !important;
-    }
-
-    .memory-widget .memmap-boundary {
-      left: 0 !important;
-      right: auto !important;
-      width: auto !important;
-      min-width: 3.9rem !important;
-      text-align: left !important;
-      transform: translateY(-50%) !important;
-    }
-
-    .memory-widget .memmap-boundary-bottom {
-      transform: translateY(50%) !important;
-    }
-
-    @media (max-width: 860px) {
-      .memory-widget .memmap-row {
-        grid-template-columns: 3.9rem minmax(0, 1fr) !important;
-      }
-
-      .memory-widget .memmap-address {
-        flex-basis: 3.9rem !important;
-        width: 3.9rem !important;
-        min-width: 3.9rem !important;
-        max-width: 3.9rem !important;
-      }
-    }
   </style>
 
   <script src="fg/js/loader.js?nomenu"></script>
@@ -234,7 +28,8 @@
     <header class="hero">
       <div class="eyebrow"><span class="lamp"></span>Astrocade Arcade Field Guide</div>
       <h2>Memory Maps</h2>
-      <p class="subtitle"><code>Wizard of Wor</code>·<code>Gorf</code>·<code>Robby Roto</code>·<code>Space Zap</code></p>
+      <p class="subtitle"><code>Wizard of Wor</code>·<code>Gorf</code>·<code>Robby Roto</code>·<code>Space Zap</code>
+      </p>
 
     </header>
 
@@ -242,18 +37,15 @@
       <div class="content">
 
         <section class="card" id="wizard-of-wor-map">
-          <h2>Wizard of Wor</h2>
-          <p>Wizard of Wor has normal low ROM/Magic region, framebuffer RAM at <code>$4000-$7FFF</code>, fixed upper
-            game ROM, a tiny
-            protected-RAM block, and ordinary work RAM for stack and runtime state.</p>
 
           <div class="memory-widget" aria-label="Wizard of Wor vertical memory map">
             <div class="memmap-header">
               <div>
                 <span class="memmap-kicker">Z80 address space · Wizard of Wor</span>
-                <strong>Fixed upper ROM with protected RAM and work RAM near the top.</strong>
+                <p>Wizard of Wor has low ROM/Magic region, framebuffer RAM, upper game ROM, tiny protected-RAM block,
+                  and scratchpad RAM for stack and runtime state
+                </p>
               </div>
-              <span class="memmap-axis-chip">high addresses at top</span>
             </div>
 
             <div class="memmap-ladder" id="wizard-of-wor-memory-ladder" data-memory-map="wowMemoryRegions">
@@ -261,8 +53,8 @@
             </div>
 
             <div class="memmap-footnotes">
-              <span><b>Stack:</b> place SP at $E000 so pushes grow down into high work RAM</span>
-              <span><b>Protected RAM:</b> only 64 bytes, so reserve it for credits, latches, and tiny
+              <span><b>Stack:</b> set SP at $E000 so pushes grow down into high work RAM</span>
+              <span><b>Protected RAM:</b> only 64 bytes, reserve for credits, latches, and tiny
                 bookkeeping.</span>
               <span><b>Magic:</b> reads from <code>$0000-$3FFF</code> are ROM reads; writes are graphics
                 operations.</span>
@@ -271,20 +63,15 @@
         </section>
 
         <section class="card" id="gorf-map">
-          <h2>Gorf</h2>
-          <p>Gorf shares the Astrocade arcade foundation, but the upper map is more complex. The
-            <code>$8000-$BFFF</code> window is a dynamic banked region populated by the <code>91364</code> ROM/RAM
-            board, while
-            high bookkeeping and workspace move upward into the <code>$E000</code> range.
-          </p>
 
           <div class="memory-widget" aria-label="Gorf vertical memory map">
             <div class="memmap-header">
               <div>
                 <span class="memmap-kicker">Z80 address space · Gorf</span>
-                <strong>Banked mission code/data window plus high NVRAM and work RAM.</strong>
+                <p>Gorf has high NVRAM and work RAM.
+                </p>
+
               </div>
-              <span class="memmap-axis-chip">high addresses at top</span>
             </div>
 
             <div class="memmap-ladder" id="gorf-memory-ladder" data-memory-map="gorfMemoryRegions">
@@ -292,29 +79,26 @@
             </div>
 
             <div class="memmap-footnotes">
-              <span><b>Bank window:</b> the <code>$8000-$BFFF</code> slot is the big difference from Wizard of
-                Wor.</span>
+              <span><b>Stack:</b> set SP at $E800 so pushes grow down into high work RAM</span>
               <span><b>NVRAM:</b> High non-volatile/protected storage instead of the WoW-style
                 <code>$D000</code> block.</span>
-              <span><b>Port dependency:</b> bank and protected-write behavior must stay tied to the correct I/O
-                model.</span>
+              <span><b>Magic:</b> reads from <code>$0000-$3FFF</code> are ROM reads; writes are graphics
+                operations.</span>
+
             </div>
           </div>
         </section>
 
         <section class="card" id="space-zap-map">
-          <h2>Space Zap</h2>
-          <p>Space Zap is the simpler map, it does not use upper ROM expansion or dynamic
-            banking used by Wizard of Wor and Gorf, so large parts of the upper address space remain unmapped.
-          </p>
-
           <div class="memory-widget" aria-label="Space Zap memory map">
             <div class="memmap-header">
               <div>
                 <span class="memmap-kicker">Z80 address space · Space Zap</span>
-                <strong>Small work RAM with upper open-bus regions.</strong>
+                <p>Space Zap is a simple map with small work RAM and upper
+                  open-bus regions. It does not use upper ROM expansion or dynamic
+                  banking, so large parts of the upper address space remain unmapped.
+                </p>
               </div>
-              <span class="memmap-axis-chip">high addresses at top</span>
             </div>
 
             <div class="memmap-ladder" id="space-zap-memory-ladder" data-memory-map="spaceZapMemoryRegions">
@@ -322,30 +106,27 @@
             </div>
 
             <div class="memmap-footnotes">
+              <span><b>Stack:</b> set SP at $E800 so pushes grow down into high work RAM</span>
               <span><b>Protected RAM:</b> mapped at <code>$D000-$D03F</code>.</span>
-              <span><b>Stack:</b> place <code>SP</code> near <code>$D800</code> so pushes grow into
-                <code>$D040-$D7FF</code>.</span>
-              <span><b>Expansion:</b> the unused <code>$8000-$BFFF</code> area is a useful contrast against WoW and
-                Gorf.</span>
+              <span><b>Magic:</b> reads from <code>$0000-$3FFF</code> are ROM reads; writes are graphics
+                operations.</span>
+
             </div>
           </div>
         </section>
 
         <section class="card" id="robby-roto-map">
-          <h2>Robby Roto</h2>
-          <p>Keeps the standard low ROM/Magic and framebuffer regions, then uses
-            the upper half of the Z80 address space for fixed game ROM at
-            <code>$8000-$DFFF</code>, high protected/NVRAM storage at <code>$E000-$E7FF</code>,
-            and ordinary work RAM/stack space at <code>$E800-$FFFF</code>
-          </p>
-
           <div class="memory-widget" aria-label="Robby Roto memory map">
             <div class="memmap-header">
               <div>
                 <span class="memmap-kicker">Z80 address space · Robby Roto</span>
-                <strong>ROM, NVRAM, and work RAM fill the upper address space</strong>
+                <p>Robby Roto has the standard low ROM/Magic and framebuffer regions,
+                  uses the upper half of the Z80 address space for fixed game
+                  ROM at <code>$8000-$DFFF</code>, high protected/NVRAM storage
+                  at <code>$E000-$E7FF</code>, and ordinary work RAM/stack space
+                  at <code>$E800-$FFFF</code>
+                </p>
               </div>
-              <span class="memmap-axis-chip">high addresses at top</span>
             </div>
 
             <div class="memmap-ladder" id="robby-roto-memory-ladder" data-memory-map="robbyRotoMemoryRegions">
@@ -353,11 +134,13 @@
             </div>
 
             <div class="memmap-footnotes">
+              <span><b>Stack:</b> set SP at $0000 so pushes grow down into high work RAM</span>
               <span><b>Protected RAM:</b> protected window moved up to $E000-$E1FF</span>
-              <span><b>Stack:</b> ordinary RAM is $E800-$FFFF; place SP at $0000 so pushes grow down into high work
-                RAM</span>
               <span><b>NVRAM:</b> Robby Roto keeps NVRAM/protected storage at $E000-$E7FF while $8000-$DFFF is used as
                 24 KB of upper ROM</span>
+              <span><b>Magic:</b> reads from <code>$0000-$3FFF</code> are ROM reads; writes are graphics
+                operations.</span>
+
             </div>
           </div>
         </section>
@@ -376,16 +159,16 @@
       {
         start: 0xE000,
         end: 0xFFFF,
-        title: 'Unmapped / open bus',
-        subtitle: 'upper open range',
+        title: 'Unmapped / Open Bus',
+        subtitle: 'This region is not mapped - Treat as open-bus behavior',
         kind: 'unmapped',
-        calloutTitle: 'Unmapped upper range',
-        callout: 'This upper region is not ordinary RAM. Treat it as open-bus behavior.',
-        badges: ['8 KB', 'mirror/open bus'],
+        calloutTitle: '',
+        callout: '',
+        badges: ['8 KB', 'unmapped / open bus'],
         equs: [
-          'UNMAPPED_START      equ $E000',
-          'UNMAPPED_END        equ $FFFF',
-          'UNMAPPED_SIZE       equ $2000'
+          'UNMAPPED2_START      equ $E000',
+          'UNMAPPED2_END        equ $FFFF',
+          'UNMAPPED2_SIZE       equ $2000'
         ],
         weight: 8,
         minHeight: 150
@@ -393,12 +176,12 @@
       {
         start: 0xD040,
         end: 0xDFFF,
-        title: 'Ordinary work RAM',
-        subtitle: 'runtime workspace · stack lives here',
+        title: 'Work RAM',
+        subtitle: 'Scratch runtime workspace. Keep structs, input snapshots, object state, buffers, stack, etc',
         kind: 'workram',
-        calloutTitle: 'Stack and scratch space',
-        callout: 'Keep structs, input snapshots, object state, temp buffers, and the stack here. Initializing SP to $E000 lets pushes move down into $D040-$DFFF.',
-        badges: ['3.9 KB', 'SP @ $E000', 'scratchpad RAM'],
+        calloutTitle: '',
+        callout: '',
+        badges: ['3.9 KB', 'scratchpad RAM', 'SP @ $E000'],
         equs: [
           'RAM_WORK_START      equ $D040',
           'RAM_WORK_END        equ $DFFF',
@@ -412,11 +195,11 @@
         start: 0xD000,
         end: 0xD03F,
         title: 'Protected RAM',
-        subtitle: 'credits, coin latch, tiny protected state',
+        subtitle: '64 bytes - Use for credits, latches, and tiny bookkeeping only. Writes must go through the write-enable path',
         kind: 'protected',
-        calloutTitle: 'Only 64 bytes',
-        callout: 'Use this for credits, latches, and tiny bookkeeping only. Protected writes must go through the write-enable path.',
-        badges: ['64 B', 'write gated'],
+        calloutTitle: '',
+        callout: '',
+        badges: ['64 B', 'protected RAM', 'write gated'],
         equs: [
           'RAM_PROTECTED_START equ $D000',
           'RAM_PROTECTED_END   equ $D03F',
@@ -426,14 +209,32 @@
         minHeight: 150
       },
       {
-        start: 0x8000,
+        start: 0xB000,
         end: 0xCFFF,
+        title: 'Unmapped / Open Bus',
+        subtitle: 'This region is not mapped - Treat as open-bus behavior',
+        kind: 'unmapped',
+        calloutTitle: '',
+        callout: '',
+        badges: ['8 KB', 'unmapped / open bus'],
+        equs: [
+          'UNMAPPED1_START      equ $E000',
+          'UNMAPPED1_END        equ $FFFF',
+          'UNMAPPED1_SIZE       equ $2000'
+        ],
+        weight: 8,
+        minHeight: 150
+      },
+
+      {
+        start: 0x8000,
+        end: 0xAFFF,
         title: 'High ROM',
-        subtitle: 'upper game code and data',
+        subtitle: 'Normal ROM for upper game code, lookup tables, strings, sprite data, etc',
         kind: 'rom-high',
-        calloutTitle: 'High ROM in the WoW model',
-        callout: 'Normal ROM for upper game code, lookup tables, strings, sprite data, and routines that do not fit in the low $0000-$3FFF window.',
-        badges: ['20 KB', 'ROM'],
+        calloutTitle: '',
+        callout: '',
+        badges: ['12 KB', 'ROM'],
         roms: [
           { name: 'wow.x5', start: 0x8000, end: 0x8FFF, size: '4 KB', crc: '16912c2b' },
           { name: 'wow.x6', start: 0x9000, end: 0x9FFF, size: '4 KB', crc: '35797f82' },
@@ -451,11 +252,11 @@
         start: 0x4000,
         end: 0x7FFF,
         title: 'Video RAM',
-        subtitle: 'framebuffer memory',
+        subtitle: 'Writes to $4000–$7FFF directly affect the framebuffer memory',
         kind: 'video',
-        calloutTitle: 'Screen memory',
-        callout: 'Direct writes can target the framebuffer here. Magic operations also ultimately affect this side of the video system.',
-        badges: ['16 KB', 'VRAM'],
+        calloutTitle: '',
+        callout: '',
+        badges: ['16 KB', 'VRAM', 'Magic target'],
         equs: [
           'VRAM_SCREEN_START   equ $4000',
           'VRAM_SCREEN_END     equ $7FFF',
@@ -467,12 +268,14 @@
       {
         start: 0x0000,
         end: 0x3FFF,
-        title: 'Low ROM / Magic writes',
-        subtitle: 'ROM reads · Magic function-generator writes',
+        title: 'Low ROM / Magic Write',
+        subtitle: 'Reads fetch ROM bytes.' +
+          ' Writes are intercepted by the Magic function generator and' +
+          ' mirrors into VRAM (0x4000 + offset).',
         kind: 'magic-rom',
-        calloutTitle: 'Split-personality region',
-        callout: 'Reads fetch ROM bytes, including the reset vector at $0000. Writes to the same range are intercepted by the Astrocade Magic hardware instead of changing ROM.',
-        badges: ['16 KB', 'reset @ $0000', 'Magic write window'],
+        calloutTitle: '',
+        callout: '',
+        badges: ['16 KB', "ROM", 'magic write'],
         roms: [
           { name: 'wow.x1', start: 0x0000, end: 0x0FFF, size: '4 KB', crc: 'c1295786' },
           { name: 'wow.x2', start: 0x1000, end: 0x1FFF, size: '4 KB', crc: '9be93215' },
@@ -496,12 +299,12 @@
       {
         start: 0xE800,
         end: 0xFFFF,
-        title: 'Ordinary work RAM',
-        subtitle: 'runtime workspace · stack lives here',
+        title: 'Work RAM',
+        subtitle: 'Scratch runtime workspace. Keep structs, input snapshots, object state, buffers, stack, etc',
         kind: 'workram',
-        calloutTitle: 'Stack and scratch space',
-        callout: 'Keep structs, input snapshots, object state, temporary buffers, and the stack here.',
-        badges: ['6 KB', 'stack/work RAM'],
+        calloutTitle: '',
+        callout: '',
+        badges: ['6 KB', 'scratchpad RAM', 'SP @ $0000'],
         equs: [
           'RAM_WORK_START      equ $E800',
           'RAM_WORK_END        equ $FFFF',
@@ -515,10 +318,10 @@
         start: 0xE200,
         end: 0xE7FF,
         title: 'System NVRAM',
-        subtitle: 'battery-backed workspace and machine state',
+        subtitle: 'Battery-backed workspace and machine state that survives restarts',
         kind: 'nvram',
-        calloutTitle: 'Survives restarts',
-        callout: 'Gorf keeps additional non-volatile workspace/state in the high address range. Keep this separate from ordinary scratch RAM in symbols and comments.',
+        calloutTitle: '',
+        callout: '',
         badges: ['1.5 KB', 'NVRAM'],
         equs: [
           'RAM_NVRAM_START     equ $E200',
@@ -532,11 +335,11 @@
         start: 0xE000,
         end: 0xE1FF,
         title: 'Protected NVRAM',
-        subtitle: 'protected bookkeeping, audits, and high-score state',
+        subtitle: 'Protected bookkeeping, audits, and high-score state. Writes must go through the write-enable path',
         kind: 'protected',
-        calloutTitle: 'Protected high storage',
-        callout: 'Gorf moves protected bookkeeping into the $E000 area instead of using the WoW-style $D000 protected block. Protected writes still need the correct enable path.',
-        badges: ['512 B', 'write gated', 'NVRAM'],
+        calloutTitle: '',
+        callout: '',
+        badges: ['512 B', 'NVRAM', 'write gated'],
         equs: [
           'RAM_PROTECTED_START equ $E000',
           'RAM_PROTECTED_END   equ $E1FF',
@@ -548,16 +351,16 @@
       {
         start: 0xC000,
         end: 0xDFFF,
-        title: 'High game ROM',
-        subtitle: 'resident code and shared data',
-        kind: 'rom-high',
-        calloutTitle: 'Resident upper ROM',
-        callout: 'This region holds resident game code/data that remains active while the $8000 bank window changes underneath the mission system.',
-        badges: ['8 KB', 'ROM'],
+        title: 'Unmapped / Open Bus',
+        subtitle: 'This region is not mapped - Treat as open-bus behavior',
+        kind: 'unmapped',
+        calloutTitle: '',
+        callout: '',
+        badges: ['8 KB', 'unmapped / open bus'],
         equs: [
-          'ROM_HIGH_START      equ $C000',
-          'ROM_HIGH_END        equ $DFFF',
-          'ROM_HIGH_SIZE       equ $2000'
+          'UNMAPPED_START      equ $C000',
+          'UNMAPPED_END        equ $DFFF',
+          'UNMAPPED_SIZE       equ $2000'
         ],
         weight: 8,
         minHeight: 150
@@ -565,12 +368,12 @@
       {
         start: 0x8000,
         end: 0xBFFF,
-        title: 'Dynamic banked ROM / RAM window',
-        subtitle: '91364 ROM/RAM board window',
-        kind: 'rom-bank',
-        calloutTitle: 'Bank switching',
-        callout: 'Gorf uses this 16 KB window to swap mission-specific code/data into the Z80 address space. Do not model this as fixed ROM like Wizard of Wor.',
-        badges: ['16 KB', 'banked', '91364'],
+        title: 'High ROM',
+        subtitle: 'Normal ROM for upper game code, lookup tables, strings, sprite data, etc',
+        kind: 'rom-high',
+        calloutTitle: '',
+        callout: '',
+        badges: ['16 KB', 'bank8000', 'Port $5D'],
         roms: [
           { name: 'gorf-e.bin', start: 0x8000, end: 0x8FFF, size: '4 KB', crc: '2d456eb5' },
           { name: 'gorf-f.bin', start: 0x9000, end: 0x9FFF, size: '4 KB', crc: 'f7e4e155' },
@@ -589,11 +392,11 @@
         start: 0x4000,
         end: 0x7FFF,
         title: 'Video RAM',
-        subtitle: 'framebuffer memory',
+        subtitle: 'Writes to $4000–$7FFF directly affect the framebuffer memory',
         kind: 'video',
-        calloutTitle: 'Screen memory',
-        callout: 'Direct writes can target the framebuffer here. Magic operations also ultimately affect this side of the video system.',
-        badges: ['16 KB', 'VRAM'],
+        calloutTitle: '',
+        callout: '',
+        badges: ['16 KB', 'VRAM', 'Magic target'],
         equs: [
           'VRAM_SCREEN_START   equ $4000',
           'VRAM_SCREEN_END     equ $7FFF',
@@ -605,12 +408,14 @@
       {
         start: 0x0000,
         end: 0x3FFF,
-        title: 'Low ROM / Magic writes',
-        subtitle: 'ROM reads · Magic function-generator writes',
+        title: 'Low ROM / Magic Write',
+        subtitle: 'Reads fetch ROM bytes.' +
+          ' Writes are intercepted by the Magic function generator and' +
+          ' mirrors into VRAM (0x4000 + offset).',
         kind: 'magic-rom',
-        calloutTitle: 'Split-personality region',
-        callout: 'Reads fetch ROM bytes, including the reset vector at $0000. Writes to the same range are intercepted by the Astrocade Magic hardware instead of changing ROM.',
-        badges: ['16 KB', 'reset @ $0000', 'Magic write window'],
+        calloutTitle: '',
+        callout: '',
+        badges: ['16 KB', "ROM", 'magic write'],
         roms: [
           { name: 'gorf-a.bin', start: 0x0000, end: 0x0FFF, size: '4 KB', crc: '5b348321' },
           { name: 'gorf-b.bin', start: 0x1000, end: 0x1FFF, size: '4 KB', crc: '62d6de77' },
@@ -651,12 +456,12 @@
       {
         start: 0xD040,
         end: 0xD7FF,
-        title: 'Ordinary work RAM',
-        subtitle: 'runtime workspace · stack lives here',
+        title: 'Work RAM',
+        subtitle: 'Scratch runtime workspace. Keep structs, input snapshots, object state, buffers, stack, etc',
         kind: 'workram',
-        calloutTitle: 'Stack and scratch space',
-        callout: 'Holds local player flags, timers, active input snapshots, and other temporary state. Initializing SP to $D800 lets pushes grow down into this region.',
-        badges: ['1.9 KB', 'SP @ $D800', 'scratchpad RAM'],
+        calloutTitle: '',
+        callout: '',
+        badges: ['1.9 KB', 'scratchpad RAM', 'SP @ $D800'],
         equs: [
           'RAM_WORK_START      equ $D040',
           'RAM_WORK_END        equ $D7FF',
@@ -721,11 +526,11 @@
         start: 0x4000,
         end: 0x7FFF,
         title: 'Video RAM',
-        subtitle: 'framebuffer memory',
+        subtitle: 'Writes to $4000–$7FFF directly affect the framebuffer memory',
         kind: 'video',
-        calloutTitle: 'Screen memory',
-        callout: 'Holds the raw framebuffer region used by direct writes and by Magic-generated output.',
-        badges: ['16 KB', 'VRAM'],
+        calloutTitle: '',
+        callout: '',
+        badges: ['16 KB', 'VRAM', 'Magic target'],
         equs: [
           'VRAM_SCREEN_START   equ $4000',
           'VRAM_SCREEN_END     equ $7FFF',
@@ -737,12 +542,13 @@
       {
         start: 0x0000,
         end: 0x3FFF,
-        title: 'Low ROM / Magic writes',
-        subtitle: 'ROM reads · Magic function-generator writes',
+        title: 'Low ROM / Magic Write',
+        subtitle: 'Reads fetch ROM bytes.' +
+          ' Writes are intercepted by the Magic function generator and' +
+          ' mirrors into VRAM (0x4000 + offset).',
         kind: 'magic-rom',
-        calloutTitle: 'Split-personality region',
-        callout: 'Reads fetch the base game logic and reset vector from ROM. Writes to this same range are intercepted by the Astrocade Magic path.',
-        badges: ['16 KB', 'reset @ $0000', 'Magic write window'],
+        calloutTitle: '',
+        callout: '',
         roms: [
           { name: '0662.01', start: 0x0000, end: 0x0FFF, size: '4 KB', crc: 'a92de312' },
           { name: '0663.xx', start: 0x1000, end: 0x1FFF, size: '4 KB', crc: '4836ebf1' },
@@ -766,11 +572,11 @@
       {
         start: 0xE800,
         end: 0xFFFF,
-        title: 'Ordinary work RAM',
-        subtitle: 'runtime workspace · stack lives here',
+        title: 'Work RAM',
+        subtitle: 'Scratch runtime workspace. Keep structs, input snapshots, object state, buffers, stack, etc',
         kind: 'workram',
-        calloutTitle: 'Stack and scratch space',
-        callout: 'Keep structs, input snapshots, object state, temporary buffers, and the stack here.',
+        calloutTitle: '',
+        callout: '',
         badges: ['6 KB', 'stack/work RAM'],
         equs: [
           'RAM_WORK_START      equ $E800',
@@ -844,11 +650,11 @@
         start: 0x4000,
         end: 0x7FFF,
         title: 'Video RAM',
-        subtitle: 'framebuffer memory',
+        subtitle: 'Writes to $4000–$7FFF directly affect the framebuffer memory',
         kind: 'video',
-        calloutTitle: 'Screen memory',
-        callout: 'Holds the raw framebuffer region used by direct writes and by Magic-generated output.',
-        badges: ['16 KB', 'VRAM'],
+        calloutTitle: '',
+        callout: '',
+        badges: ['16 KB', 'VRAM', 'Magic target'],
         equs: [
           'VRAM_SCREEN_START   equ $4000',
           'VRAM_SCREEN_END     equ $7FFF',
@@ -860,12 +666,13 @@
       {
         start: 0x0000,
         end: 0x3FFF,
-        title: 'Low ROM / Magic writes',
-        subtitle: 'ROM reads · Magic function-generator writes',
+        title: 'Low ROM / Magic Write',
+        subtitle: 'Reads fetch ROM bytes.' +
+          ' Writes are intercepted by the Magic function generator and' +
+          ' mirrors into VRAM (0x4000 + offset).',
         kind: 'magic-rom',
-        calloutTitle: 'Split-personality region',
-        callout: 'Reads fetch the base game logic and reset vector from ROM. Writes to this same range are intercepted by the Astrocade Magic path.',
-        badges: ['16 KB', 'reset @ $0000', 'Magic write window'],
+        calloutTitle: '',
+        callout: '',
         roms: [
           { name: 'rotox1.bin', start: 0x0000, end: 0x0FFF, size: '4 KB', crc: 'a431b85a' },
           { name: 'rotox2.bin', start: 0x1000, end: 0x1FFF, size: '4 KB', crc: '33cdda83' },
@@ -930,6 +737,54 @@
 
     function resolveMemoryIncludeFile(dataBlockName) {
       return memoryMapIncludeFiles[dataBlockName] || 'memory_map.inc';
+    }
+
+
+    function renderBlockDetails(blockPanel, region, includeFileName) {
+      const hasNote = Boolean(region.calloutTitle || region.callout);
+      const hasEqus = Array.isArray(region.equs) && region.equs.length > 0;
+
+      if (!hasNote && !hasEqus) {
+        return;
+      }
+
+      if (hasNote) {
+        const note = document.createElement('div');
+        note.className = 'memmap-block-note';
+
+        if (region.calloutTitle) {
+          const title = document.createElement('b');
+          title.textContent = region.calloutTitle;
+          note.append(title);
+        }
+
+        if (region.callout) {
+          const text = document.createElement('p');
+          text.textContent = region.callout;
+          note.append(text);
+        }
+
+        blockPanel.append(note);
+      }
+
+      if (hasEqus) {
+        const equBlock = document.createElement('div');
+        equBlock.className = 'memmap-block-equ-block';
+
+        const equTitle = document.createElement('span');
+        equTitle.className = 'memmap-block-equ-title';
+        equTitle.textContent = includeFileName || 'memory_map.inc';
+
+        const equPre = document.createElement('pre');
+        equPre.className = 'memmap-block-equs';
+
+        const equCode = document.createElement('code');
+        equCode.textContent = region.equs.join('\n');
+
+        equPre.append(equCode);
+        equBlock.append(equTitle, equPre);
+        blockPanel.append(equBlock);
+      }
     }
 
     function renderEqus(callout, region, includeFileName) {
@@ -1026,23 +881,22 @@
         const address = document.createElement('div');
         address.className = 'memmap-address';
 
-        const topBoundary = document.createElement('span');
-        topBoundary.className = 'memmap-boundary memmap-boundary-top';
-        const topBoundaryValue = index === 0 ? region.end : region.end + 1;
-        topBoundary.textContent = formatHex(topBoundaryValue);
-        address.append(topBoundary);
+        if (index === 0) {
+          const topBoundary = document.createElement('span');
+          topBoundary.className = 'memmap-boundary memmap-boundary-top';
+          topBoundary.textContent = formatHex(region.end);
+          address.append(topBoundary);
+        }
 
         const range = document.createElement('span');
         range.className = 'memmap-range-label';
         range.textContent = `${formatHex(region.start)}–${formatHex(region.end)}`;
         address.append(range);
 
-        if (index === regions.length - 1) {
-          const bottomBoundary = document.createElement('span');
-          bottomBoundary.className = 'memmap-boundary memmap-boundary-bottom';
-          bottomBoundary.textContent = formatHex(region.start);
-          address.append(bottomBoundary);
-        }
+        const bottomBoundary = document.createElement('span');
+        bottomBoundary.className = 'memmap-boundary memmap-boundary-bottom';
+        bottomBoundary.textContent = formatHex(region.start);
+        address.append(bottomBoundary);
 
         const block = document.createElement('div');
         block.className = 'memmap-block';
@@ -1075,21 +929,11 @@
           badgeWrap.append(chip);
         });
         blockPanel.append(badgeWrap);
+        renderBlockDetails(blockPanel, region, resolveMemoryIncludeFile(dataBlockName));
         renderRomChips(blockPanel, region);
         block.append(blockPanel);
 
-        const callout = document.createElement('div');
-        callout.className = 'memmap-callout';
-
-        const calloutTitle = document.createElement('b');
-        calloutTitle.textContent = region.calloutTitle || region.title || '';
-
-        const calloutText = document.createElement('p');
-        calloutText.textContent = region.callout || '';
-
-        callout.append(calloutTitle, calloutText);
-        renderEqus(callout, region, resolveMemoryIncludeFile(dataBlockName));
-        row.append(address, block, callout);
+        row.append(block, address);
         root.append(row);
       });
     }

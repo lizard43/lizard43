@@ -2836,7 +2836,7 @@ body {
   padding: 3px 0 26px;
 }
 
-.toc-toggle ~ .wrap {
+.toc-toggle~.wrap {
   padding-top: 3px;
 }
 
@@ -2853,7 +2853,7 @@ header.hero,
 }
 
 header.hero h1,
-header.hero > h2,
+header.hero>h2,
 .guide-home header.hero h1,
 header.hero .hero-title {
   margin: 0 0 6px;
@@ -2890,8 +2890,8 @@ main,
 
 .content,
 .guide-home .content,
-.toc-toggle ~ .wrap .content,
-.toc-toggle ~ .wrap .guide-home .content {
+.toc-toggle~.wrap .content,
+.toc-toggle~.wrap .guide-home .content {
   gap: 6px !important;
 }
 
@@ -2927,10 +2927,10 @@ p:last-child {
 }
 
 .lead-card p,
-.card > p,
-.card > ul,
-.card > ol,
-.card > .callout {
+.card>p,
+.card>ul,
+.card>ol,
+.card>.callout {
   max-width: 110ch;
 }
 
@@ -3061,13 +3061,13 @@ td {
 
 .chapter-strip,
 .chapter-strip-card .chapter-strip,
-section.card:has(> .chapter-strip) > .chapter-strip {
+section.card:has(> .chapter-strip)>.chapter-strip {
   margin-top: 6px;
   padding-top: 5px;
 }
 
 .chapter-strip-card .chapter-strip,
-section.card:has(> .chapter-strip) > .chapter-strip {
+section.card:has(> .chapter-strip)>.chapter-strip {
   margin-top: 0;
   padding-top: 0;
 }
@@ -3162,20 +3162,21 @@ footer,
 }
 
 nav.toc a,
-.toc-toggle ~ .wrap nav.toc a,
-.toc-toggle ~ .wrap nav.toc a.toc-link-sub {
+.toc-toggle~.wrap nav.toc a,
+.toc-toggle~.wrap nav.toc a.toc-link-sub {
   padding-top: 8px;
   padding-bottom: 8px;
 }
 
 nav.toc h2,
-.toc-toggle ~ .wrap nav.toc h2,
-.toc-toggle ~ .wrap nav.toc .toc-panel-head h2 {
+.toc-toggle~.wrap nav.toc h2,
+.toc-toggle~.wrap nav.toc .toc-panel-head h2 {
   padding-top: 10px;
   padding-bottom: 8px;
 }
 
 @media (max-width: 900px) {
+
   .wrap,
   .guide-home .wrap {
     width: min(100% - 6px, 1760px);
@@ -3187,16 +3188,17 @@ nav.toc h2,
     padding: 12px 14px;
   }
 
-  .card > p,
-  .card > ul,
-  .card > ol,
-  .card > .callout,
+  .card>p,
+  .card>ul,
+  .card>ol,
+  .card>.callout,
   .lead-card p {
     max-width: none;
   }
 }
 
 @media (max-width: 700px) {
+
   header.hero,
   .guide-home header.hero {
     padding: 9px 12px 6px;
@@ -3500,11 +3502,324 @@ td a {
 }
 
 @media (max-width: 700px) {
+
   .hardware-inline-figure,
   .hardware-inline-figure.left {
     float: none;
     inline-size: min(100%, 300px);
     max-inline-size: 300px;
     margin: 8px auto 10px;
+  }
+}
+
+.memmap-equ-block {
+  margin-top: 0.85rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid rgba(134, 206, 255, 0.22);
+}
+
+.memmap-equ-title {
+  display: block;
+  margin-bottom: 0.38rem;
+  color: #ffd86b;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: none;
+}
+
+.memmap-equs {
+  margin: 0;
+  padding: 0.7rem 0.8rem;
+  overflow-x: auto;
+  border: 1px solid rgba(134, 206, 255, 0.18);
+  border-radius: 12px;
+  background: rgba(2, 6, 12, 0.48);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.035);
+  color: #dfeeff;
+  font-size: 0.72rem;
+  line-height: 1.42;
+  white-space: pre;
+}
+
+.memmap-equs code {
+  color: inherit;
+  background: transparent;
+  padding: 0;
+}
+
+
+.memmap-rom-stack {
+  margin-top: 0.72rem;
+  padding-top: 0.12rem;
+}
+
+.memmap-rom-title {
+  display: block;
+  margin-bottom: 0.55rem;
+  color: #ffd86b;
+  font-size: 0.68rem;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.memmap-rom-grid {
+  display: grid;
+  grid-template-columns: minmax(11rem, 1fr);
+  gap: 0.48rem;
+  padding: 0 0.32rem;
+}
+
+.memmap-rom-chip {
+  position: relative;
+  min-height: 2.62rem;
+  padding: 0.4rem 0.62rem 0.36rem;
+  border: 1px solid rgba(235, 242, 255, 0.26);
+  border-radius: 8px;
+  background:
+    radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.13), transparent 1.45rem),
+    linear-gradient(180deg, #303642 0%, #171b23 48%, #07090e 100%);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.16),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.78),
+    0 0.5rem 1rem rgba(0, 0, 0, 0.24);
+  color: #eaf4ff;
+  font-family: "OCR A Std", "OCR A Extended", "Share Tech Mono", "IBM Plex Mono", "Fira Code", Consolas, monospace;
+  text-align: center;
+  isolation: isolate;
+}
+
+.memmap-rom-chip::before,
+.memmap-rom-chip::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 0.34rem;
+  bottom: 0.34rem;
+  width: 0.48rem;
+  border-radius: 0.12rem;
+  background: repeating-linear-gradient(to bottom,
+      rgba(235, 222, 183, 0.96) 0,
+      rgba(235, 222, 183, 0.96) 0.23rem,
+      transparent 0.23rem,
+      transparent 0.47rem);
+  filter: drop-shadow(0 0 0.08rem rgba(0, 0, 0, 0.9));
+}
+
+.memmap-rom-chip::before {
+  left: -0.46rem;
+}
+
+.memmap-rom-chip::after {
+  right: -0.46rem;
+}
+
+.memmap-rom-notch {
+  position: absolute;
+  top: -1px;
+  left: 50%;
+  width: 1.15rem;
+  height: 0.42rem;
+  transform: translateX(-50%);
+  border-right: 1px solid rgba(235, 242, 255, 0.18);
+  border-bottom: 1px solid rgba(235, 242, 255, 0.18);
+  border-left: 1px solid rgba(235, 242, 255, 0.18);
+  border-radius: 0 0 999px 999px;
+  background: #07090e;
+  box-shadow: inset 0 -1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.memmap-rom-name {
+  display: block;
+  margin-top: 0.06rem;
+  color: #ffffff;
+  font-size: 0.82rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-shadow: 0 0 0.4rem rgba(134, 206, 255, 0.22);
+}
+
+.memmap-rom-range {
+  display: block;
+  margin-top: 0.12rem;
+  color: #92d7ff;
+  font-size: 0.64rem;
+  font-weight: 800;
+  letter-spacing: 0.045em;
+}
+
+.memmap-rom-meta {
+  display: block;
+  margin-top: 0.1rem;
+  color: rgba(232, 237, 247, 0.62);
+  font-size: 0.56rem;
+  letter-spacing: 0.035em;
+  text-transform: uppercase;
+}
+
+
+.memmap-block-note {
+  margin-top: 0.55rem;
+  padding-top: 0.52rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.13);
+  color: rgba(232, 237, 247, 0.82);
+  font-size: 0.72rem;
+  line-height: 1.34;
+}
+
+.memmap-block-note b {
+  display: block;
+  margin-bottom: 0.18rem;
+  color: #ffffff;
+  font-size: 0.82rem;
+  line-height: 1.15;
+}
+
+.memmap-block-note p {
+  margin: 0;
+}
+
+.memmap-block-equ-block {
+  margin-top: 0.55rem;
+  padding-top: 0.48rem;
+  border-top: 1px solid rgba(134, 206, 255, 0.18);
+}
+
+.memmap-block-equ-title {
+  display: block;
+  margin-bottom: 0.3rem;
+  color: #ffd86b;
+  font-family: "OCR A Std", "OCR A Extended", "Share Tech Mono", "IBM Plex Mono", "Fira Code", Consolas, monospace;
+  font-size: 0.6rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+}
+
+.memmap-block-equs {
+  margin: 0;
+  padding: 0.48rem 0.55rem;
+  overflow-x: auto;
+  border: 1px solid rgba(134, 206, 255, 0.16);
+  border-radius: 9px;
+  background: rgba(2, 6, 12, 0.42);
+  color: #dfeeff;
+  font-family: "OCR A Std", "OCR A Extended", "Share Tech Mono", "IBM Plex Mono", "Fira Code", Consolas, monospace;
+  font-size: 0.58rem;
+  line-height: 1.34;
+  white-space: pre;
+}
+
+.memmap-block-equs code {
+  color: inherit;
+  background: transparent;
+  padding: 0;
+}
+
+/* Side callouts were folded into the main memory blocks.
+       Hide any old callout/connectors supplied by the shared stylesheet. */
+.memory-widget .memmap-callout {
+  display: none !important;
+}
+
+.memory-widget .memmap-block::after {
+  display: none !important;
+}
+
+
+/* Right-side address markers:
+       - side callouts are gone, so the main memory block owns the wide column
+       - keep the address axis immediately beside the memory blocks
+       - put boundary labels to the right of each tick mark */
+.memory-widget .memmap-ladder {
+  padding-left: 0 !important;
+}
+
+.memory-widget .memmap-row {
+  grid-template-columns: minmax(0, 1fr) 4.85rem !important;
+  column-gap: 0.18rem !important;
+}
+
+.memory-widget .memmap-block {
+  grid-column: 1 !important;
+}
+
+.memory-widget .memmap-address {
+  grid-column: 2 !important;
+  position: relative !important;
+  flex: 0 0 4.85rem !important;
+  width: 4.85rem !important;
+  min-width: 4.85rem !important;
+  max-width: 4.85rem !important;
+  padding: 0 !important;
+  overflow: visible !important;
+}
+
+.memory-widget .memmap-address::before {
+  content: "" !important;
+  position: absolute !important;
+  z-index: 0 !important;
+  top: 0 !important;
+  bottom: 0 !important;
+  left: 0.18rem !important;
+  right: auto !important;
+  width: 2px !important;
+  border-radius: 999px !important;
+  background: rgba(134, 206, 255, 0.62) !important;
+  box-shadow: 0 0 0.55rem rgba(134, 206, 255, 0.16) !important;
+}
+
+.memory-widget .memmap-address::after {
+  display: none !important;
+}
+
+.memory-widget .memmap-range-label {
+  display: none !important;
+}
+
+.memory-widget .memmap-boundary {
+  left: 1.12rem !important;
+  right: auto !important;
+  z-index: 1 !important;
+  width: auto !important;
+  min-width: 3.65rem !important;
+  padding: 0 !important;
+  text-align: left !important;
+  transform: translateY(-50%) !important;
+}
+
+.memory-widget .memmap-boundary::before {
+  content: "" !important;
+  position: absolute !important;
+  top: 50% !important;
+  left: -0.94rem !important;
+  width: 0.68rem !important;
+  height: 2px !important;
+  transform: translateY(-50%) !important;
+  border-radius: 999px !important;
+  background: rgba(134, 206, 255, 0.95) !important;
+  box-shadow: 0 0 0.35rem rgba(134, 206, 255, 0.2) !important;
+}
+
+.memory-widget .memmap-boundary::after {
+  display: none !important;
+}
+
+.memory-widget .memmap-boundary-bottom {
+  transform: translateY(50%) !important;
+}
+
+@media (max-width: 860px) {
+  .memory-widget .memmap-row {
+    grid-template-columns: minmax(0, 1fr) 4.55rem !important;
+    column-gap: 0.14rem !important;
+  }
+
+  .memory-widget .memmap-address {
+    flex-basis: 4.55rem !important;
+    width: 4.55rem !important;
+    min-width: 4.55rem !important;
+    max-width: 4.55rem !important;
   }
 }
