@@ -3573,6 +3573,9 @@ td a {
 
 .memmap-rom-chip {
   position: relative;
+  justify-self: center;
+  width: 100%;
+  max-width: 225px;
   min-height: 2.62rem;
   padding: 0.4rem 3.15rem 0.36rem;
   border: 1px solid rgba(235, 242, 255, 0.26);
@@ -3667,13 +3670,19 @@ td a {
   display: block;
 }
 
-.memmap-rom-meta {
+.memmap-rom-size,
+.memmap-rom-crc {
   display: block;
   margin-top: 0.1rem;
   color: rgba(232, 237, 247, 0.62);
   font-size: 0.56rem;
   letter-spacing: 0.035em;
   text-transform: uppercase;
+}
+
+.memmap-rom-crc {
+  margin-top: 0.04rem;
+  color: rgba(232, 237, 247, 0.50);
 }
 
 @media (max-width: 520px) {
@@ -3684,7 +3693,7 @@ td a {
 
   .memmap-rom-range {
     right: 0.42rem;
-    font-size: 0.44rem;
+    font-size: 0.54rem;
   }
 }
 

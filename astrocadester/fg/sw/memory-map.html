@@ -274,7 +274,7 @@
         callout: '',
         badges: ['16 KB', "ROM", 'magic write'],
         roms: [
-          { name: 'wow.x1', start: 0x0000, end: 0x0FFF, size: '4 KB', crc: 'c1295786' },
+          { name: 'wow.x1', start: 0x0000, end: 0x0FFF, size: '4 KB', chip: 'TMS2532 EPROM', crc: 'c1295786' },
           { name: 'wow.x2', start: 0x1000, end: 0x1FFF, size: '4 KB', crc: '9be93215' },
           { name: 'wow.x3', start: 0x2000, end: 0x2FFF, size: '4 KB', crc: '75e5a22e' },
           { name: 'wow.x4', start: 0x3000, end: 0x3FFF, size: '4 KB', crc: 'ef28eb84' }
@@ -819,7 +819,12 @@
         .forEach((rom) => {
           const chip = document.createElement('div');
           chip.className = 'memmap-rom-chip';
-          chip.title = `${rom.name} maps to ${formatHex(rom.start)}-${formatHex(rom.end)}${rom.crc ? ` · CRC ${rom.crc}` : ''}`;
+          chip.title = [
+            `${rom.name} maps to ${formatHex(rom.start)}-${formatHex(rom.end)}`,
+            rom.size || '',
+            rom.chip || '',
+            rom.crc ? `CRC ${rom.crc}` : ''
+          ].filter(Boolean).join(' · ');
 
           const notch = document.createElement('span');
           notch.className = 'memmap-rom-notch';
@@ -843,11 +848,15 @@
 
           range.append(rangeTop, rangeBottom);
 
-          const meta = document.createElement('span');
-          meta.className = 'memmap-rom-meta';
-          meta.textContent = [rom.size, rom.crc ? `CRC ${rom.crc}` : ''].filter(Boolean).join(' · ');
+          const size = document.createElement('span');
+          size.className = 'memmap-rom-size';
+          size.textContent = [rom.size, rom.chip || ''].filter(Boolean).join(' · ');
 
-          chip.append(notch, name, range, meta);
+          const crc = document.createElement('span');
+          crc.className = 'memmap-rom-crc';
+          crc.textContent = rom.crc ? `CRC ${rom.crc}` : '';
+
+          chip.append(notch, name, range, size, crc);
           romGrid.append(chip);
         });
 
