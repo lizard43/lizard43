@@ -831,7 +831,17 @@
 
           const range = document.createElement('span');
           range.className = 'memmap-rom-range';
-          range.textContent = `${formatHex(rom.start)}-${formatHex(rom.end)}`;
+          range.setAttribute('aria-label', `${formatHex(rom.start)}-${formatHex(rom.end)}`);
+
+          const rangeTop = document.createElement('span');
+          rangeTop.className = 'memmap-rom-range-top';
+          rangeTop.textContent = formatHex(rom.end);
+
+          const rangeBottom = document.createElement('span');
+          rangeBottom.className = 'memmap-rom-range-bottom';
+          rangeBottom.textContent = formatHex(rom.start);
+
+          range.append(rangeTop, rangeBottom);
 
           const meta = document.createElement('span');
           meta.className = 'memmap-rom-meta';

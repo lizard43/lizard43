@@ -3574,7 +3574,7 @@ td a {
 .memmap-rom-chip {
   position: relative;
   min-height: 2.62rem;
-  padding: 0.4rem 0.62rem 0.36rem;
+  padding: 0.4rem 3.15rem 0.36rem;
   border: 1px solid rgba(235, 242, 255, 0.26);
   border-radius: 8px;
   background:
@@ -3642,12 +3642,29 @@ td a {
 }
 
 .memmap-rom-range {
-  display: block;
-  margin-top: 0.12rem;
+  position: absolute;
+  top: 0.42rem;
+  right: 0.55rem;
+  bottom: 0.42rem;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin: 0;
   color: #92d7ff;
-  font-size: 0.64rem;
+  font-size: 0.5rem;
   font-weight: 800;
+  line-height: 1;
   letter-spacing: 0.045em;
+  text-align: right;
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+.memmap-rom-range-top,
+.memmap-rom-range-bottom {
+  display: block;
 }
 
 .memmap-rom-meta {
@@ -3657,6 +3674,18 @@ td a {
   font-size: 0.56rem;
   letter-spacing: 0.035em;
   text-transform: uppercase;
+}
+
+@media (max-width: 520px) {
+  .memmap-rom-chip {
+    padding-right: 2.58rem;
+    padding-left: 2.58rem;
+  }
+
+  .memmap-rom-range {
+    right: 0.42rem;
+    font-size: 0.44rem;
+  }
 }
 
 
