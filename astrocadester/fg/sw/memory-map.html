@@ -60,9 +60,7 @@
           <div class="memory-widget" aria-label="Gorf vertical memory map">
             <div class="memmap-header">
               <div>
-                <span class="memmap-kicker">Z80 address space · Gorf</span>
-                <p>Gorf has high NVRAM and work RAM.
-                </p>
+                <span class="memmap-kicker">Gorf</span>
 
               </div>
             </div>
@@ -86,11 +84,7 @@
           <div class="memory-widget" aria-label="Space Zap memory map">
             <div class="memmap-header">
               <div>
-                <span class="memmap-kicker">Z80 address space · Space Zap</span>
-                <p>Space Zap is a simple map with small work RAM and upper
-                  open-bus regions. It does not use upper ROM expansion or dynamic
-                  banking, so large parts of the upper address space remain unmapped.
-                </p>
+                <span class="memmap-kicker">Space Zap</span>
               </div>
             </div>
 
@@ -112,13 +106,7 @@
           <div class="memory-widget" aria-label="Robby Roto memory map">
             <div class="memmap-header">
               <div>
-                <span class="memmap-kicker">Z80 address space · Robby Roto</span>
-                <p>Robby Roto has the standard low ROM/Magic and framebuffer regions,
-                  uses the upper half of the Z80 address space for fixed game
-                  ROM at <code>$8000-$DFFF</code>, high protected/NVRAM storage
-                  at <code>$E000-$E7FF</code>, and ordinary work RAM/stack space
-                  at <code>$E800-$FFFF</code>
-                </p>
+                <span class="memmap-kicker">Robby Roto</span>
               </div>
             </div>
 
@@ -159,9 +147,9 @@
         callout: '',
         badges: ['8 KB', 'unmapped / open bus'],
         equs: [
-          'UNMAPPED2_START      equ $E000',
-          'UNMAPPED2_END        equ $FFFF',
-          'UNMAPPED2_SIZE       equ $2000'
+          'UNMAPPED1_START      equ $E000',
+          'UNMAPPED1_END        equ $FFFF',
+          'UNMAPPED1_SIZE       equ $2000'
         ],
         weight: 8,
         minHeight: 150
@@ -179,7 +167,8 @@
           'RAM_WORK_START      equ $D040',
           'RAM_WORK_END        equ $DFFF',
           'RAM_WORK_SIZE       equ $0FC0',
-          'STACK_START         equ $E000'
+          '',
+          'STACK_TOP           equ $E000'
         ],
         weight: 4,
         minHeight: 150
@@ -202,18 +191,38 @@
         minHeight: 150
       },
       {
-        start: 0xB000,
+        start: 0xC000,
         end: 0xCFFF,
+        title: 'Foreign Language ROM',
+        subtitle: 'ROM for Language support. If not present - Treat as open-bus behavior',
+        kind: 'rom-language',
+        calloutTitle: '',
+        callout: '',
+        badges: ['1 KB', 'foreign', 'unmapped / open bus'],
+        roms: [
+          { name: 'wow.x11', start: 0xC000, end: 0xCFFF, size: '4 KB', chip: 'TMS2532', crc: '16f84d73' },
+        ],
+        equs: [
+          'FOREIGN_START      equ $C000',
+          'FOREIGN_END        equ $CFFF',
+          'FOREIGN_SIZE       equ $1000'
+        ],
+        weight: 20,
+        minHeight: 154
+      },
+      {
+        start: 0xB000,
+        end: 0xBFFF,
         title: 'Unmapped / Open Bus',
         subtitle: 'Not mapped - Treat as open-bus behavior',
         kind: 'unmapped',
         calloutTitle: '',
         callout: '',
-        badges: ['8 KB', 'unmapped / open bus'],
+        badges: ['1 KB', 'unmapped / open bus'],
         equs: [
-          'UNMAPPED_START      equ $E000',
-          'UNMAPPED_END        equ $FFFF',
-          'UNMAPPED_SIZE       equ $2000'
+          'UNMAPPED0_START      equ $B000',
+          'UNMAPPED0_END        equ $CFFF',
+          'UNMAPPED0_SIZE       equ $2000'
         ],
         weight: 8,
         minHeight: 150
@@ -234,9 +243,9 @@
           { name: 'wow.x7', start: 0xA000, end: 0xAFFF, size: '4 KB', chip: 'TMS2532', crc: 'ce404305' }
         ],
         equs: [
-          'ROM_HIGH_START      equ $8000',
-          'ROM_HIGH_END        equ $CFFF',
-          'ROM_HIGH_SIZE       equ $5000'
+          'ROM1_START      equ $8000',
+          'ROM1_END        equ $CFFF',
+          'ROM1_SIZE       equ $5000'
         ],
         weight: 20,
         minHeight: 154
@@ -251,9 +260,9 @@
         callout: '',
         badges: ['16 KB', 'VRAM', 'Magic target'],
         equs: [
-          'VRAM_SCREEN_START   equ $4000',
-          'VRAM_SCREEN_END     equ $7FFF',
-          'VRAM_SCREEN_SIZE    equ $4000'
+          'VRAM_START   equ $4000',
+          'VRAM_END     equ $7FFF',
+          'VRAM_SIZE    equ $4000'
         ],
         weight: 16,
         minHeight: 142
@@ -276,12 +285,13 @@
           { name: 'wow.x4', start: 0x3000, end: 0x3FFF, size: '4 KB', chip: 'TMS2532', crc: 'ef28eb84' }
         ],
         equs: [
-          'ROM_LOW_START       equ $0000',
-          'ROM_LOW_END         equ $3FFF',
-          'ROM_LOW_SIZE        equ $4000',
+          'ROM0_START       equ $0000',
+          'ROM0_END         equ $3FFF',
+          'ROM_SIZE         equ $4000',
           '',
-          'MAGIC_WRITE_START   equ $0000',
-          'MAGIC_WRITE_END     equ $3FFF'
+          'FUNCGEN_START   equ $0000',
+          'FUNCGEN_END     equ $3FFF',
+          'FUNCGEN_SIZE    equ $4000',
         ],
         weight: 16,
         minHeight: 154

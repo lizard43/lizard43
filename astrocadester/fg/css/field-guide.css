@@ -2898,7 +2898,7 @@ main,
 section.card,
 .guide-home #overview.lead-card {
   border-radius: 14px;
-    padding: 0px 5px;
+  padding: 0px 5px;
 }
 
 section.card:has(> .chapter-strip),
@@ -3575,9 +3575,9 @@ td a {
   position: relative;
   justify-self: center;
   width: 100%;
-  max-width: 225px;
+  max-width: 250px;
   min-height: 2.62rem;
-  padding: 0.4rem 3.15rem 0.36rem;
+  padding: 0.4rem 2.95rem 0.36rem 2.2rem;
   border: 1px solid rgba(235, 242, 255, 0.26);
   border-radius: 8px;
   background:
@@ -3591,6 +3591,16 @@ td a {
   font-family: "OCR A Std", "OCR A Extended", "Share Tech Mono", "IBM Plex Mono", "Fira Code", Consolas, monospace;
   text-align: center;
   isolation: isolate;
+}
+
+.memmap-rom-size {
+  display: block;
+  margin-top: 0.1rem;
+  color: rgba(232, 237, 247, 0.62);
+  font-size: 0.56rem;
+  letter-spacing: 0.035em;
+  text-transform: uppercase;
+  white-space: nowrap;
 }
 
 .memmap-rom-chip::before,
@@ -3670,7 +3680,6 @@ td a {
   display: block;
 }
 
-.memmap-rom-size,
 .memmap-rom-crc {
   display: block;
   margin-top: 0.1rem;
@@ -3687,8 +3696,9 @@ td a {
 
 @media (max-width: 520px) {
   .memmap-rom-chip {
-    padding-right: 2.58rem;
-    padding-left: 2.58rem;
+    max-width: 250px;
+    padding-right: 2.72rem;
+    padding-left: 2.05rem;
   }
 
   .memmap-rom-range {
@@ -3696,7 +3706,6 @@ td a {
     font-size: 0.54rem;
   }
 }
-
 
 .memmap-block-note {
   margin-top: 0.55rem;
@@ -3877,14 +3886,14 @@ td a {
   margin: 0;
 }
 
-#overview .overview-callout-grid > .callout {
+#overview .overview-callout-grid>.callout {
   margin: 0;
 }
 
-#overview .overview-callout-grid + .overview-callout-grid {
+#overview .overview-callout-grid+.overview-callout-grid {
   margin-top: 6px;
 }
 
-#overview .overview-callout-grid + p {
+#overview .overview-callout-grid+p {
   margin-top: 8px;
 }

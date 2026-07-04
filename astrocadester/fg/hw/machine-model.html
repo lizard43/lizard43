@@ -26,11 +26,7 @@
 
   <div class="wrap">
     <header class="hero">
-      <div class="eyebrow"><span class="lamp"></span>Astrocade Arcade Field Guide · Chapter 01</div>
-      <h2>Machine Model</h2>
-      <p class="subtitle">CPU, ROM/RAM layout, video RAM, protected RAM, scratchpad RAM, stack placement, interrupts,
-        and Magic-memory</p>
-
+      <div class="eyebrow"><span class="lamp"></span>Astrocade Arcade Field Guide · Hardware</div>
       <nav class="chapter-strip" aria-label="Chapter navigation">
         <a class="prev" href="index.html" aria-label="Intro">
           <span class="nav-arrow">⟵</span>
@@ -54,185 +50,104 @@
       <div class="content">
 
         <section class="card" id="baseline">
-          <h2>Baseline machine</h2>
-          <p>The Astrocade arcade model is a Z80-based board set built around the Bally/Midway Astrocade custom
+          <p>Z80-based board set built around the Bally/Midway Astrocade custom
             video/sound hardware designed by DNA.</p>
 
-          <h3>Interlocking "L-Shape" Stack</h3>
-          <figure class="hardware-inline-figure">
-            <img src="../images/L-shape.png" alt="Bally/Midway interlocking L-shape board stack">
-            <figcaption>Interlocking L-shape board stack.</figcaption>
-          </figure>
 
-          <p><code>Seawolf II</code> (1978) utilized a physical layout that predates the standardized card rack cage.
-            It used an interlocking horizontal/vertical stack that featured a large horizontal Motherboard
-            <code>90002</code>
-            mounted flat inside the cabinet. A secondary Logic Board <code>90700</code> connects to it at a rigid
-            90-degree angle,
-            supported structurally by heavy metal or aluminum braces. A smaller "Characterization Card" daughterboard
-            then plugs directly into a specialized socket on the assembly.
-          </p>
-          <div class="hardware-inline-clear" aria-hidden="true"></div>
-
-          <h3>Card-Rack Cage</h3>
           <figure class="hardware-inline-figure left">
             <img src="../images/pcb-cage.jpg" alt="Bally/Midway card-rack cage with vertical PCBs">
-            <figcaption>Card-rack cage with vertical plug-in boards.</figcaption>
           </figure>
 
+
+          <h3>Card-Rack Cage</h3>
           <p>
             <code>Extra Bases</code>·<code>Wizard of Wor</code>·<code>Gorf</code>·<code>Robby Roto</code>·<code>Space Zap</code>
-            used the Bally
-            Card-Rack system. Inside the bottom of the cabinet sits a metal enclosure (cage) containing a
-            backplane motherboard. The individual, rectangular boards (<code>91354</code> CPU, <code>91355</code>
-            Pattern, <code>91356</code> RAM, etc.) slide
-            vertically into card guides inside the cage and press into edge connectors on the backplane, looking very
-            much like an industrial computer rack.
+            used the Bally Card-Rack system.
+          </p>
+          <p>The bottom of the Card-Rage cage is an 100-pin backplane
+            motherboard. </p>
+          <p>Individual PCBs like the 91354 CPU, 91355 Pattern, 91356 RAM, etc. slide vertically into the cage and
+            press into edge connectors on the backplane.
           </p>
           <div class="hardware-inline-clear" aria-hidden="true"></div>
 
-          <h3>Traditional PCB Stack</h3>
-          <figure class="hardware-inline-figure">
-            <img src="../images/pcb-stack.jpg" alt="Later horizontal stacked PCB assembly">
-            <figcaption>Later horizontal stacked PCB assembly.</figcaption>
-          </figure>
+          <section class="card" id="card-rack">
 
-          <p><code>Professor Pac-Man</code>·<code>Ten Pin Deluxe</code> games completely abandoned the card rack
-            enclosure. They represent a much later (1983/1984) hardware revision called the Midway 16-Color System.
-            Instead of sliding into a cage, the <code>91465</code> CPU card, the <code>91466</code> Screen RAM board,
-            and the massive 91846 EPROM
-            board are physically stacked horizontally on top of each other using nylon spacers/standoffs, connected
-            together via multi-pin ribbon cables and pin-header interconnects.</p>
-          <div class="hardware-inline-clear" aria-hidden="true"></div>
-        </section>
-        <section class="card" id="card-rack">
+            <figure class="guide-figure">
+              <a class="guide-image-link" href="#card-rack-full" aria-label="Open card rack diagram full size">
+                <img src="../images/card-rack.png" alt="Commercial card rack assembly diagram">
+              </a>
+              <figcaption>Card-Rack</figcaption>
+            </figure>
 
+          </section>
 
-          <p>Our guide focuses on <code>Wizard of Wor</code>·<code>Gorf</code>·<code>Robby Roto</code> so we will
-            continue with the Card-Rack details</p>
+          <section class="card" id="card-rack">
+            <h2>Card-Rack PCBs</h2>
+            <p>The arcade card-rack games use a closely related board set. The CPU, Pattern, and RAM boards are common
+              across the games below; each title then adds or swaps game-specific, ROM/RAM, or memory boards.</p>
 
-          <figure class="guide-figure">
-            <a class="guide-image-link" href="#card-rack-full" aria-label="Open card rack diagram full size">
-              <img src="../images/card-rack.png" alt="Commercial card rack assembly diagram">
-            </a>
-            <figcaption>Card-Rack</figcaption>
-          </figure>
+            <div class="pcb-game-grid" aria-label="Card-rack PCB lists by game">
 
-          <!-- <div class="image-lightbox" id="card-rack-full" role="dialog" aria-label="Full-size card rack diagram">
-            <a class="image-lightbox__backdrop" href="#baseline" aria-label="Close full-size image"></a>
-            <div class="image-lightbox__panel">
-              <a class="image-lightbox__close" href="#baseline" aria-label="Close full-size image">×</a>
-              <div class="image-lightbox__scroller" tabindex="0" aria-label="Pan full-size card rack image">
-                <img src="images/card-rack.png" alt="Commercial card rack assembly diagram, full size">
-              </div>
+              <article class="pcb-game">
+                <h3>Wizard of Wor</h3>
+                <ul class="pcb-board-list">
+                  <li><a class="pcb-board-link" href="pcbs/90708.html"><code>90708</code></a><span>Game Board</span>
+                  </li>
+                  <li><a class="pcb-board-link" href="pcbs/91354.html"><code>91354</code></a><span>CPU Board</span></li>
+                  <li><a class="pcb-board-link" href="pcbs/91355.html"><code>91355</code></a><span>Pattern Board</span>
+                  </li>
+                  <li><a class="pcb-board-link" href="pcbs/91356.html"><code>91356</code></a><span>RAM Board</span></li>
+                  <li><a class="pcb-board-link" href="pcbs/91356.html"><code>91356</code></a><span>RAM Board</span></li>
+                  <li><a class="pcb-board-link" href="pcbs/91397.html"><code>91397</code></a><span>Memory Board</span>
+                  </li>
+                </ul>
+              </article>
+
+              <article class="pcb-game">
+                <h3>Gorf</h3>
+                <ul class="pcb-board-list">
+                  <li><a class="pcb-board-link" href="pcbs/90708.html"><code>90708</code></a><span>Game Board</span>
+                  </li>
+                  <li><a class="pcb-board-link" href="pcbs/91354.html"><code>91354</code></a><span>CPU Board</span></li>
+                  <li><a class="pcb-board-link" href="pcbs/91355.html"><code>91355</code></a><span>Pattern Board</span>
+                  </li>
+                  <li><a class="pcb-board-link" href="pcbs/91356.html"><code>91356</code></a><span>RAM Board</span></li>
+                  <li><a class="pcb-board-link" href="pcbs/91364.html"><code>91364</code></a><span>ROM/RAM Board</span>
+                  </li>
+                </ul>
+              </article>
+
+              <article class="pcb-game">
+                <h3>Space Zap</h3>
+                <ul class="pcb-board-list">
+                  <li><a class="pcb-board-link" href="pcbs/90708.html"><code>90708</code></a><span>Game Board</span>
+                  </li>
+                  <li><a class="pcb-board-link" href="pcbs/91354.html"><code>91354</code></a><span>CPU Board</span></li>
+                  <li><a class="pcb-board-link" href="pcbs/91355.html"><code>91355</code></a><span>Pattern Board</span>
+                  </li>
+                  <li><a class="pcb-board-link" href="pcbs/91356.html"><code>91356</code></a><span>RAM Board</span></li>
+                </ul>
+              </article>
+
+              <article class="pcb-game">
+                <h3>Robby Roto</h3>
+                <ul class="pcb-board-list">
+                  <li><a class="pcb-board-link" href="pcbs/90708.html"><code>90708</code></a><span>Game Board</span>
+                  </li>
+                  <li><a class="pcb-board-link" href="pcbs/91354.html"><code>91354</code></a><span>CPU Board</span></li>
+                  <li><a class="pcb-board-link" href="pcbs/91355.html"><code>91355</code></a><span>Pattern Board</span>
+                  </li>
+                  <li><a class="pcb-board-link" href="pcbs/91356.html"><code>91356</code></a><span>RAM Board</span></li>
+                  <li><a class="pcb-board-link" href="pcbs/91423.html"><code>91423</code></a><span>Memory Board</span>
+                  </li>
+                </ul>
+              </article>
             </div>
-          </div> -->
 
-          <!-- <table>
-            <thead>
-              <tr>
-                <th>Subsystem</th>
-                <th>Working model</th>
-                <th>Developer consequence</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Z80 CPU</td>
-                <td>Main game CPU. Reset begins at address <code>$0000</code>.</td>
-                <td>Your ROM must place a sane reset entry at <code>$0000</code>, usually a jump to real startup code.
-                </td>
-              </tr>
-              <tr>
-                <td>Low ROM</td>
-                <td>Game code/data live at low memory.</td>
-                <td>Execution and constant reads are normal Z80 memory reads.</td>
-              </tr>
-              <tr>
-                <td>Magic write window</td>
-                <td>Writes to <code>$0000-$3FFF</code> are intercepted by the function generator.</td>
-                <td>Do not treat low-memory writes as RAM writes. They are graphics operations.</td>
-              </tr>
-              <tr>
-                <td>Video RAM</td>
-                <td>Usually mapped at <code>$4000-$7FFF</code>.</td>
-                <td>Direct framebuffer writes are possible; Magic writes eventually target this area.</td>
-              </tr>
-              <tr>
-                <td>Protected RAM</td>
-                <td>Small write-protected state area.</td>
-                <td>Must enable writes first; useful for credits/accounting/state that should not be casually clobbered.
-                </td>
-              </tr>
-              <tr>
-                <td>Work RAM</td>
-                <td>Ordinary RAM near the top of address space, location varies by game.</td>
-                <td>Use this for stack, runtime variables, object tables, scratch buffers.</td>
-              </tr>
-            </tbody>
-          </table> -->
-        </section>
+          </section>
 
-        <section class="card" id="card-rack">
-          <h2>Card-Rack PCBs</h2>
-          <p>The arcade card-rack games use a closely related board set. The CPU, Pattern, and RAM boards are common
-            across the games below; each title then adds or swaps game-specific, ROM/RAM, or memory boards.</p>
-
-          <div class="pcb-game-grid" aria-label="Card-rack PCB lists by game">
-            <article class="pcb-game">
-              <h3>Space Zap</h3>
-              <ul class="pcb-board-list">
-                <li><a class="pcb-board-link" href="pcbs/90708.html"><code>90708</code></a><span>Game Board</span></li>
-                <li><a class="pcb-board-link" href="pcbs/91354.html"><code>91354</code></a><span>CPU Board</span></li>
-                <li><a class="pcb-board-link" href="pcbs/91355.html"><code>91355</code></a><span>Pattern Board</span>
-                </li>
-                <li><a class="pcb-board-link" href="pcbs/91356.html"><code>91356</code></a><span>RAM Board</span></li>
-              </ul>
-            </article>
-
-            <article class="pcb-game">
-              <h3>Wizard of Wor</h3>
-              <ul class="pcb-board-list">
-                <li><a class="pcb-board-link" href="pcbs/90708.html"><code>90708</code></a><span>Game Board</span></li>
-                <li><a class="pcb-board-link" href="pcbs/91354.html"><code>91354</code></a><span>CPU Board</span></li>
-                <li><a class="pcb-board-link" href="pcbs/91355.html"><code>91355</code></a><span>Pattern Board</span>
-                </li>
-                <li><a class="pcb-board-link" href="pcbs/91356.html"><code>91356</code></a><span>RAM Board</span></li>
-                <li><a class="pcb-board-link" href="pcbs/91397.html"><code>91397</code></a><span>Memory Board</span>
-                </li>
-              </ul>
-            </article>
-
-            <article class="pcb-game">
-              <h3>Gorf</h3>
-              <ul class="pcb-board-list">
-                <li><a class="pcb-board-link" href="pcbs/90708.html"><code>90708</code></a><span>Game Board</span></li>
-                <li><a class="pcb-board-link" href="pcbs/91354.html"><code>91354</code></a><span>CPU Board</span></li>
-                <li><a class="pcb-board-link" href="pcbs/91355.html"><code>91355</code></a><span>Pattern Board</span>
-                </li>
-                <li><a class="pcb-board-link" href="pcbs/91356.html"><code>91356</code></a><span>RAM Board</span></li>
-                <li><a class="pcb-board-link" href="pcbs/91364.html"><code>91364</code></a><span>ROM/RAM Board</span>
-                </li>
-              </ul>
-            </article>
-
-            <article class="pcb-game">
-              <h3>Robby Roto</h3>
-              <ul class="pcb-board-list">
-                <li><a class="pcb-board-link" href="pcbs/90708.html"><code>90708</code></a><span>Game Board</span></li>
-                <li><a class="pcb-board-link" href="pcbs/91354.html"><code>91354</code></a><span>CPU Board</span></li>
-                <li><a class="pcb-board-link" href="pcbs/91355.html"><code>91355</code></a><span>Pattern Board</span>
-                </li>
-                <li><a class="pcb-board-link" href="pcbs/91356.html"><code>91356</code></a><span>RAM Board</span></li>
-                <li><a class="pcb-board-link" href="pcbs/91423.html"><code>91423</code></a><span>Memory Board</span>
-                </li>
-              </ul>
-            </article>
-          </div>
-
-        </section>
-
-        <!-- <section class="card" id="wow-map">
+          <!-- <section class="card" id="wow-map">
           <h2>Wizard of Wor memory map</h2>
 
           <div class="memory-widget" aria-label="Wizard of Wor vertical memory map">
@@ -296,72 +211,75 @@
 
         </section> -->
 
-        <section class="card" id="magic-shadow">
-          <h2>The Magic shadow region</h2>
-          <p>The most important concept is that <code>$0000-$3FFF</code> is a <strong>split-personality region</strong>.
-            On reads, it behaves like ROM. On writes, the Astrocade hardware sees a write into Magic memory. The Magic
-            function generator then performs the configured operation and writes the result into the actual framebuffer
-            side of the system.</p>
+          <section class="card" id="magic-shadow">
+            <h2>The Magic shadow region</h2>
+            <p>The most important concept is that <code>$0000-$3FFF</code> is a <strong>split-personality
+                region</strong>.
+              On reads, it behaves like ROM. On writes, the Astrocade hardware sees a write into Magic memory. The Magic
+              function generator then performs the configured operation and writes the result into the actual
+              framebuffer
+              side of the system.</p>
 
-          <div class="two-col">
-            <div class="mini">
-              <h3>Read path</h3>
-              <pre><code>ld   a,($0123)
+            <div class="two-col">
+              <div class="mini">
+                <h3>Read path</h3>
+                <pre><code>ld   a,($0123)
 call $0200
 jp   $0100</code></pre>
-              <p>These are ordinary ROM fetches or reads. The CPU sees program bytes and constants.</p>
-            </div>
-            <div class="mini">
-              <h3>Write path</h3>
-              <pre><code>ld   a,$FF
+                <p>These are ordinary ROM fetches or reads. The CPU sees program bytes and constants.</p>
+              </div>
+              <div class="mini">
+                <h3>Write path</h3>
+                <pre><code>ld   a,$FF
 ld   ($0123),a</code></pre>
-              <p>This does not alter ROM. It feeds the Magic write path. The current Magic/expand/shift/OR/XOR register
-                state decides what appears in video RAM.</p>
+                <p>This does not alter ROM. It feeds the Magic write path. The current Magic/expand/shift/OR/XOR
+                  register
+                  state decides what appears in video RAM.</p>
+              </div>
             </div>
-          </div>
 
-          <div class="callout cyan">
-            <b>Developer translation</b>
-            Treat low memory writes as <em>draw commands</em>, not storage. Treat low memory reads as normal ROM. This
-            is why accidental stores through a bad pointer can visibly corrupt the screen instead of crashing
-            immediately.
-          </div>
-        </section>
+            <div class="callout cyan">
+              <b>Developer translation</b>
+              Treat low memory writes as <em>draw commands</em>, not storage. Treat low memory reads as normal ROM. This
+              is why accidental stores through a bad pointer can visibly corrupt the screen instead of crashing
+              immediately.
+            </div>
+          </section>
 
-        <section class="card" id="ram">
-          <h2>RAM, protected RAM, and stack placement</h2>
-          <p>On Wizard of Wor, MAME places protected RAM at <code>$D000-$D03F</code> and ordinary work RAM at
-            <code>$D040-$DFFF</code>. That is only 64 bytes of protected RAM, so do not waste it.
-          </p>
+          <section class="card" id="ram">
+            <h2>RAM, protected RAM, and stack placement</h2>
+            <p>On Wizard of Wor, MAME places protected RAM at <code>$D000-$D03F</code> and ordinary work RAM at
+              <code>$D040-$DFFF</code>. That is only 64 bytes of protected RAM, so do not waste it.
+            </p>
 
-          <table>
-            <thead>
-              <tr>
-                <th>Area</th>
-                <th>Use it for</th>
-                <th>Avoid</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td class="addr">$D000-$D03F</td>
-                <td>Credits, coin latch, bookkeeping, small persistent-ish state, watchdog-like sanity markers.</td>
-                <td>Large structs, sprite objects, animation tables, text buffers, stack.</td>
-              </tr>
-              <tr>
-                <td class="addr">$D040-$DFFF</td>
-                <td>Stack, runtime workspace, input snapshots, object structs, scratch buffers.</td>
-                <td>Assuming it survives reset or protected-RAM behavior.</td>
-              </tr>
-            </tbody>
-          </table>
+            <table>
+              <thead>
+                <tr>
+                  <th>Area</th>
+                  <th>Use it for</th>
+                  <th>Avoid</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="addr">$D000-$D03F</td>
+                  <td>Credits, coin latch, bookkeeping, small persistent-ish state, watchdog-like sanity markers.</td>
+                  <td>Large structs, sprite objects, animation tables, text buffers, stack.</td>
+                </tr>
+                <tr>
+                  <td class="addr">$D040-$DFFF</td>
+                  <td>Stack, runtime workspace, input snapshots, object structs, scratch buffers.</td>
+                  <td>Assuming it survives reset or protected-RAM behavior.</td>
+                </tr>
+              </tbody>
+            </table>
 
-          <h3>Protected RAM write model</h3>
-          <p>Protected RAM writes are gated. MAME models this with a write-enable latch: first write to the
-            protected-RAM-enable port, then write the target protected RAM byte. After the protected write, the enable
-            is cleared again. The mono pattern-board port map exposes the enable write at <code>$A55B</code>.</p>
+            <h3>Protected RAM write model</h3>
+            <p>Protected RAM writes are gated. MAME models this with a write-enable latch: first write to the
+              protected-RAM-enable port, then write the target protected RAM byte. After the protected write, the enable
+              is cleared again. The mono pattern-board port map exposes the enable write at <code>$A55B</code>.</p>
 
-          <pre><code>; Conceptual protected RAM write pattern
+            <pre><code>; Conceptual protected RAM write pattern
 ; Port/address form depends on assembler syntax and bus behavior.
 
 ld   a,$A5            ; convention used in our experiments
@@ -370,48 +288,52 @@ ld   a,new_value
 ld   ($D000),a        ; one protected byte write
                       ; write-enable is now consumed</code></pre>
 
-          <div class="callout">
-            <b>Stack rule</b>
-            Put the stack in ordinary RAM, typically at the high end of available work RAM. For WoW-style mapping, that
-            usually means initializing <code>SP</code> near <code>$E000</code> and growing downward into
-            <code>$D040-$DFFF</code>, while reserving explicit variable/storage areas below it.
-          </div>
-        </section>
+            <div class="callout">
+              <b>Stack rule</b>
+              Put the stack in ordinary RAM, typically at the high end of available work RAM. For WoW-style mapping,
+              that
+              usually means initializing <code>SP</code> near <code>$E000</code> and growing downward into
+              <code>$D040-$DFFF</code>, while reserving explicit variable/storage areas below it.
+            </div>
+          </section>
 
-        <section class="card" id="interrupts">
-          <h2>Interrupt model</h2>
-          <p>The Astrocade hardware supports raster/screen interrupts. For a field-guide machine model, the most useful
-            developer view is simple:</p>
-          <table>
-            <thead>
-              <tr>
-                <th>Topic</th>
-                <th>Practical meaning</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Reset</td>
-                <td>Z80 reset begins execution at <code>$0000</code>. Put a jump there.</td>
-              </tr>
-              <tr>
-                <td>Interrupt vector</td>
-                <td>The hardware has video/interrupt registers in the low I/O register block. Commercial games set up an
-                  interrupt entry and use frame/scanline timing.</td>
-              </tr>
-              <tr>
-                <td>Frame counter</td>
-                <td>A tiny interrupt handler can increment a frame byte and sample critical inputs once per frame.</td>
-              </tr>
-              <tr>
-                <td>Raster tricks</td>
-                <td>Changing palette, split, or scanline-trigger state inside interrupts is possible, but should be
-                  considered a later chapter.</td>
-              </tr>
-            </tbody>
-          </table>
+          <section class="card" id="interrupts">
+            <h2>Interrupt model</h2>
+            <p>The Astrocade hardware supports raster/screen interrupts. For a field-guide machine model, the most
+              useful
+              developer view is simple:</p>
+            <table>
+              <thead>
+                <tr>
+                  <th>Topic</th>
+                  <th>Practical meaning</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Reset</td>
+                  <td>Z80 reset begins execution at <code>$0000</code>. Put a jump there.</td>
+                </tr>
+                <tr>
+                  <td>Interrupt vector</td>
+                  <td>The hardware has video/interrupt registers in the low I/O register block. Commercial games set up
+                    an
+                    interrupt entry and use frame/scanline timing.</td>
+                </tr>
+                <tr>
+                  <td>Frame counter</td>
+                  <td>A tiny interrupt handler can increment a frame byte and sample critical inputs once per frame.
+                  </td>
+                </tr>
+                <tr>
+                  <td>Raster tricks</td>
+                  <td>Changing palette, split, or scanline-trigger state inside interrupts is possible, but should be
+                    considered a later chapter.</td>
+                </tr>
+              </tbody>
+            </table>
 
-          <pre><code>; Minimal practical startup shape
+            <pre><code>; Minimal practical startup shape
 org  $0000
     jp   START
 
@@ -432,71 +354,71 @@ MainLoop:
     call DrawFrame
     jr   MainLoop</code></pre>
 
-          <div class="callout green">
-            <b>Real-hardware caution</b>
-            MAME is the best executable reference, but timing-sensitive interrupt and video behavior should eventually
-            be tested on actual board hardware. Mark those claims separately as MAME-confirmed, ROM-observed,
-            schematic-confirmed, or real-hardware-confirmed.
-          </div>
-        </section>
-
-        <section class="card" id="rules">
-          <h2>Practical rules for writing new code</h2>
-          <div class="two-col">
-            <div class="mini">
-              <h3>Do this</h3>
-              <table>
-                <tbody>
-                  <tr>
-                    <td>Put a reset jump at <code>$0000</code>.</td>
-                  </tr>
-                  <tr>
-                    <td>Initialize <code>SP</code> before calls or interrupts.</td>
-                  </tr>
-                  <tr>
-                    <td>Keep stack and structs in ordinary work RAM.</td>
-                  </tr>
-                  <tr>
-                    <td>Use protected RAM only for tiny state.</td>
-                  </tr>
-                  <tr>
-                    <td>Separate direct VRAM writes from Magic writes in code comments and symbols.</td>
-                  </tr>
-                  <tr>
-                    <td>Tag every hardware claim by confidence/source.</td>
-                  </tr>
-                </tbody>
-              </table>
+            <div class="callout green">
+              <b>Real-hardware caution</b>
+              MAME is the best executable reference, but timing-sensitive interrupt and video behavior should eventually
+              be tested on actual board hardware. Mark those claims separately as MAME-confirmed, ROM-observed,
+              schematic-confirmed, or real-hardware-confirmed.
             </div>
-            <div class="mini">
-              <h3>Do not do this</h3>
-              <table>
-                <tbody>
-                  <tr>
-                    <td>Do not write to <code>$0000-$3FFF</code> expecting RAM.</td>
-                  </tr>
-                  <tr>
-                    <td>Do not put large data in protected RAM.</td>
-                  </tr>
-                  <tr>
-                    <td>Do not assume console Astrocade BIOS calls exist on arcade boards.</td>
-                  </tr>
-                  <tr>
-                    <td>Do not copy Robby Roto's RAM map into WoW.</td>
-                  </tr>
-                  <tr>
-                    <td>Do not enable interrupts until the vector, stack, and handler are sane.</td>
-                  </tr>
-                  <tr>
-                    <td>Do not trust MAME-only timing claims until board-tested.</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
+          </section>
 
-          <h3>Suggested symbols for WoW-targeted code</h3>
-          <pre><code>ROM_LOW_START       equ $0000
+          <section class="card" id="rules">
+            <h2>Practical rules for writing new code</h2>
+            <div class="two-col">
+              <div class="mini">
+                <h3>Do this</h3>
+                <table>
+                  <tbody>
+                    <tr>
+                      <td>Put a reset jump at <code>$0000</code>.</td>
+                    </tr>
+                    <tr>
+                      <td>Initialize <code>SP</code> before calls or interrupts.</td>
+                    </tr>
+                    <tr>
+                      <td>Keep stack and structs in ordinary work RAM.</td>
+                    </tr>
+                    <tr>
+                      <td>Use protected RAM only for tiny state.</td>
+                    </tr>
+                    <tr>
+                      <td>Separate direct VRAM writes from Magic writes in code comments and symbols.</td>
+                    </tr>
+                    <tr>
+                      <td>Tag every hardware claim by confidence/source.</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="mini">
+                <h3>Do not do this</h3>
+                <table>
+                  <tbody>
+                    <tr>
+                      <td>Do not write to <code>$0000-$3FFF</code> expecting RAM.</td>
+                    </tr>
+                    <tr>
+                      <td>Do not put large data in protected RAM.</td>
+                    </tr>
+                    <tr>
+                      <td>Do not assume console Astrocade BIOS calls exist on arcade boards.</td>
+                    </tr>
+                    <tr>
+                      <td>Do not copy Robby Roto's RAM map into WoW.</td>
+                    </tr>
+                    <tr>
+                      <td>Do not enable interrupts until the vector, stack, and handler are sane.</td>
+                    </tr>
+                    <tr>
+                      <td>Do not trust MAME-only timing claims until board-tested.</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <h3>Suggested symbols for WoW-targeted code</h3>
+            <pre><code>ROM_LOW_START       equ $0000
 ROM_LOW_END         equ $3FFF
 MAGIC_WRITE_START   equ $0000
 MAGIC_WRITE_END     equ $3FFF
@@ -513,58 +435,59 @@ RAM_PROTECTED_END   equ $D03F
 RAM_WORK_START      equ $D040
 RAM_WORK_END        equ $DFFF
 STACK_TOP           equ $E000</code></pre>
-        </section>
+          </section>
 
-        <section class="card" id="sources">
-          <h2>Source notes</h2>
-          <p>This chapter is intentionally written as a working developer model, not a museum label. The following
-            sources should be kept close while refining it:</p>
-          <div class="source-list">
-            <div class="source">
-              <b>MAME <code>src/mame/midway/astrocde.cpp</code></b>
-              <span>Primary source for the memory maps, low ROM/Magic write window, video RAM mapping, protected RAM
-                mapping, ordinary RAM ranges, I/O port maps, pattern-board ports, and protected-RAM enable
-                behavior.</span>
-              <span><a href="https://github.com/mamedev/mame/blob/master/src/mame/midway/astrocde.cpp">Open source
-                  file</a></span>
+          <section class="card" id="sources">
+            <h2>Source notes</h2>
+            <p>This chapter is intentionally written as a working developer model, not a museum label. The following
+              sources should be kept close while refining it:</p>
+            <div class="source-list">
+              <div class="source">
+                <b>MAME <code>src/mame/midway/astrocde.cpp</code></b>
+                <span>Primary source for the memory maps, low ROM/Magic write window, video RAM mapping, protected RAM
+                  mapping, ordinary RAM ranges, I/O port maps, pattern-board ports, and protected-RAM enable
+                  behavior.</span>
+                <span><a href="https://github.com/mamedev/mame/blob/master/src/mame/midway/astrocde.cpp">Open source
+                    file</a></span>
+              </div>
+              <div class="source">
+                <b>8bitworkshop Astrocade documentation</b>
+                <span>Useful console-side explanation of the Z80, Magic System, video model, and the idea that the same
+                  chip family appears in Gorf and Wizard of Wor. Treat as concept support, not an arcade memory-map
+                  authority.</span>
+                <span><a href="https://8bitworkshop.com/docs/platforms/astrocade/index.html">Open
+                    documentation</a></span>
+              </div>
+              <div class="source">
+                <b>Service manuals and schematics</b>
+                <span>Needed to reconcile emulator behavior with board wiring, connectors, DIP switches, input
+                  multiplexing, protected RAM gating, and real hardware constraints.</span>
+              </div>
+              <div class="source">
+                <b>ROM disassemblies and real hardware tests</b>
+                <span>The final authority for practical replacement-code behavior. When a claim is proven on a real WoW
+                  card rack, tag it <code>real-hardware-confirmed</code>.</span>
+              </div>
             </div>
-            <div class="source">
-              <b>8bitworkshop Astrocade documentation</b>
-              <span>Useful console-side explanation of the Z80, Magic System, video model, and the idea that the same
-                chip family appears in Gorf and Wizard of Wor. Treat as concept support, not an arcade memory-map
-                authority.</span>
-              <span><a href="https://8bitworkshop.com/docs/platforms/astrocade/index.html">Open documentation</a></span>
-            </div>
-            <div class="source">
-              <b>Service manuals and schematics</b>
-              <span>Needed to reconcile emulator behavior with board wiring, connectors, DIP switches, input
-                multiplexing, protected RAM gating, and real hardware constraints.</span>
-            </div>
-            <div class="source">
-              <b>ROM disassemblies and real hardware tests</b>
-              <span>The final authority for practical replacement-code behavior. When a claim is proven on a real WoW
-                card rack, tag it <code>real-hardware-confirmed</code>.</span>
-            </div>
-          </div>
-        </section>
+          </section>
 
-        <section class="card">
-          <nav class="chapter-strip" aria-label="Chapter navigation">
-            <a class="prev" href="index.html" aria-label="Intro">
-              <span class="nav-arrow">⟵</span>
-              <span class="nav-title">Intro</span>
-            </a>
+          <section class="card">
+            <nav class="chapter-strip" aria-label="Chapter navigation">
+              <a class="prev" href="index.html" aria-label="Intro">
+                <span class="nav-arrow">⟵</span>
+                <span class="nav-title">Intro</span>
+              </a>
 
-            <a class="index" href="index.html" aria-label="Home">
-              <span class="home-icon">⌂</span>
-            </a>
+              <a class="index" href="index.html" aria-label="Home">
+                <span class="home-icon">⌂</span>
+              </a>
 
-            <a class="next" href="io-map.html" aria-label="Next chapter: I/O Map">
-              <span class="nav-title">I/O Map</span>
-              <span class="nav-arrow">⟶</span>
-            </a>
-          </nav>
-        </section>
+              <a class="next" href="io-map.html" aria-label="Next chapter: I/O Map">
+                <span class="nav-title">I/O Map</span>
+                <span class="nav-arrow">⟶</span>
+              </a>
+            </nav>
+          </section>
       </div>
     </main>
 

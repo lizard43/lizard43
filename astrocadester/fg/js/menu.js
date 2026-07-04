@@ -50,21 +50,23 @@
       { label: "Build Environment", href: JSLOC + "../sw/build-environment.html" },
       { label: "Build Environment", href: JSLOC + "../sw/build-environment.html" },
       {
-        label: "Machine Model", href: JSLOC + "../hw/machine-model.html",
+        label: "Hardware", href: JSLOC + "../hw/machine-model.html",
         items: [
-          { label: "Memory Maps", href: JSLOC + "../hw/memory-map.html" },
-          { label: "I/O Maps", href: JSLOC + "../hw/memory-map.html" },
           { label: "90708 Game Board", href: JSLOC + "../hw/pcbs/90708.html" },
           { label: "91354 CPU Board", href: JSLOC + "../hw/pcbs/91354.html" },
           { label: "91355 Pattern Board", href: JSLOC + "../hw/pcbs/91355.html" },
           { label: "91363 RGB Interface Board", href: JSLOC + "../hw/pcbs/91363.html" }
         ]
       },
-      { label: "I/O Map", href: JSLOC + "../hw/io-map.html" },
-      { label: "Video System", href: JSLOC + "../hw/video-system.html" },
-      { label: "Inputs and DIP Switches", href: JSLOC + "../hw/inputs-dip-switches.html" },
-      { label: "Sound", href: JSLOC + "../hw/sound.html" },
-      { label: "Pattern Board", href: JSLOC + "../hw/pattern-board.html" },
+      {
+        label: "Software", href: JSLOC + "../hw/machine-model.html",
+        items: [
+          { label: "Memory Maps", href: JSLOC + "../sw/memory-map.html" },
+          { label: "I/O Maps", href: JSLOC + "../hw/io-map.html" },
+          { label: "Video System", href: JSLOC + "../hw/video-system.html" },
+          { label: "Sound", href: JSLOC + "../hw/sound.html" },
+        ]
+      },
       { label: "References", href: JSLOC + "../refs/references.html" },
     ]
   };

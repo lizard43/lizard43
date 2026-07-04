@@ -19,34 +19,42 @@
     }
   </style>
 
-  <script src="js/loader.js"></script>
+  <script>
+    window.CHAPTER_NAV = {
+      back: {
+        href: "sound.html",
+        title: "Sound",
+        aria: "Previous chapter: Sound"
+      },
+
+      home: {
+        href: "index.html",
+        icon: "⌂",
+        aria: "Home"
+      },
+
+      fwd: {
+        href: "hw/machine-model.html",
+        title: "Machine Model",
+        aria: "Next chapter: Machine Model"
+      }
+    };
+  </script>
+
+
+  <script src="../js/loader.js"></script>
 </head>
 
 <body class="guide-chapter">
 
   <div class="wrap">
     <header class="hero">
-      <div class="eyebrow"><span class="lamp"></span>Astrocade Arcade Field Guide · Chapter 06</div>
-      <h2>Pattern Board</h2>
+      <div class="eyebrow"><span class="lamp"></span>Astrocade Arcade Field Guide · Pattern Board</div>
       <p class="subtitle">The Wizard of Wor / Gorf pattern transfer board: the separate card-rack DMA-like mover that
         copies color-encoded patterns from ROM or screen memory into screen RAM through ports <code>$78-$7F</code>,
         temporarily taking the Z80 bus while it performs fast read/write transfers.</p>
 
-      <nav class="chapter-strip" aria-label="Chapter navigation">
-        <a class="prev" href="sound.html" aria-label="Previous chapter: Sound">
-          <span class="nav-arrow">⟵</span>
-          <span class="nav-title">Sound</span>
-        </a>
-
-        <a class="index" href="index.html" aria-label="Home">
-          <span class="home-icon">⌂</span>
-        </a>
-
-        <a class="next" href="index.html" aria-label="Intro">
-          <span class="nav-title">Intro</span>
-          <span class="nav-arrow">⟶</span>
-        </a>
-      </nav>
+      <nav class="chapter-strip" data-chapter-nav aria-label="Chapter navigation"></nav>
 
     </header>
 
@@ -633,21 +641,7 @@ PB_START_COUNT     equ scratch+7</code></pre>
           </div>
         </section>
 
-        <nav class="chapter-strip" aria-label="Chapter navigation">
-          <a class="prev" href="sound.html" aria-label="Previous chapter: Sound">
-            <span class="nav-arrow">⟵</span>
-            <span class="nav-title">Sound</span>
-          </a>
-
-          <a class="index" href="index.html" aria-label="Home">
-            <span class="home-icon">⌂</span>
-          </a>
-
-          <a class="next" href="index.html" aria-label="Intro">
-            <span class="nav-title">Intro</span>
-            <span class="nav-arrow">⟶</span>
-          </a>
-        </nav>
+      <nav class="chapter-strip" data-chapter-nav aria-label="Chapter navigation"></nav>
 
       </div>
     </main>
