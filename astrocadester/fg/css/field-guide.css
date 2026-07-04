@@ -3768,15 +3768,15 @@ td a {
 
 /* Right-side address markers:
        - side callouts are gone, so the main memory block owns the wide column
-       - keep the address axis immediately beside the memory blocks
-       - put boundary labels to the right of each tick mark */
+       - keep the address axis tight against the memory blocks
+       - right-align boundary labels so the axis column can stay narrow */
 .memory-widget .memmap-ladder {
   padding-left: 0 !important;
 }
 
 .memory-widget .memmap-row {
-  grid-template-columns: minmax(0, 1fr) 4.85rem !important;
-  column-gap: 0.18rem !important;
+  grid-template-columns: minmax(0, 1fr) 3.35rem !important;
+  column-gap: 0.06rem !important;
 }
 
 .memory-widget .memmap-block {
@@ -3786,10 +3786,10 @@ td a {
 .memory-widget .memmap-address {
   grid-column: 2 !important;
   position: relative !important;
-  flex: 0 0 4.85rem !important;
-  width: 4.85rem !important;
-  min-width: 4.85rem !important;
-  max-width: 4.85rem !important;
+  flex: 0 0 3.35rem !important;
+  width: 3.35rem !important;
+  min-width: 3.35rem !important;
+  max-width: 3.35rem !important;
   padding: 0 !important;
   overflow: visible !important;
 }
@@ -3800,7 +3800,7 @@ td a {
   z-index: 0 !important;
   top: 0 !important;
   bottom: 0 !important;
-  left: 0.18rem !important;
+  left: 0 !important;
   right: auto !important;
   width: 2px !important;
   border-radius: 999px !important;
@@ -3817,13 +3817,14 @@ td a {
 }
 
 .memory-widget .memmap-boundary {
-  left: 1.12rem !important;
-  right: auto !important;
+  left: auto !important;
+  right: 0 !important;
   z-index: 1 !important;
-  width: auto !important;
-  min-width: 3.65rem !important;
+  width: 2.86rem !important;
+  min-width: 0 !important;
   padding: 0 !important;
-  text-align: left !important;
+  text-align: right !important;
+  font-variant-numeric: tabular-nums !important;
   transform: translateY(-50%) !important;
 }
 
@@ -3831,8 +3832,8 @@ td a {
   content: "" !important;
   position: absolute !important;
   top: 50% !important;
-  left: -0.94rem !important;
-  width: 0.68rem !important;
+  left: -0.40rem !important;
+  width: 0.34rem !important;
   height: 2px !important;
   transform: translateY(-50%) !important;
   border-radius: 999px !important;
@@ -3850,15 +3851,24 @@ td a {
 
 @media (max-width: 860px) {
   .memory-widget .memmap-row {
-    grid-template-columns: minmax(0, 1fr) 4.55rem !important;
-    column-gap: 0.14rem !important;
+    grid-template-columns: minmax(0, 1fr) 3.12rem !important;
+    column-gap: 0.04rem !important;
   }
 
   .memory-widget .memmap-address {
-    flex-basis: 4.55rem !important;
-    width: 4.55rem !important;
-    min-width: 4.55rem !important;
-    max-width: 4.55rem !important;
+    flex-basis: 3.12rem !important;
+    width: 3.12rem !important;
+    min-width: 3.12rem !important;
+    max-width: 3.12rem !important;
+  }
+
+  .memory-widget .memmap-boundary {
+    width: 2.68rem !important;
+  }
+
+  .memory-widget .memmap-boundary::before {
+    left: -0.34rem !important;
+    width: 0.28rem !important;
   }
 }
 
