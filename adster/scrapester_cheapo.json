@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-05T13:18:32.296Z",
+  "generated_at": "2026-07-05T14:20:24.488Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,133 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 149,
-      "droppedPrice": 802,
+      "exported_ads": 145,
+      "droppedPrice": 805,
       "droppedMissingGeo": 0,
-      "droppedCircle": 1045
+      "droppedCircle": 1055
     }
   },
   "ads": [
+    {
+      "adID": "KLOV-462248",
+      "source": "KLOV",
+      "authorUrl": "https://forums.arcade-museum.com/members/kittybeater.35366/",
+      "author": "kittybeater",
+      "postedTime": "2026-07-05T14:09:31.000Z",
+      "title": "Konami 4 player control panels with mounting box",
+      "description": "Konami 4 player control panels with mounting box reproduced with new plexi overlay $300 each complete set up can drill for 3 or 2 buttons pictures on the bottom of this page http://thearcadeboneyard.com/upright_control_panels.php [email protected]",
+      "price": "$300",
+      "lat": 29.1871986,
+      "lon": -82.1400923,
+      "location": "Ocala, Florida",
+      "imageUrl": "/images/klov-placeholder.png",
+      "adUrl": "https://forums.arcade-museum.com/threads/462248/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-07-05 14:20:19",
+      "lastSeen": "2026-07-05T14:20:19.179Z"
+    },
+    {
+      "adID": "1477449597486565",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/1514085208/?product_id=1477449597486565",
+      "author": "Kate Banciu Pirvu",
+      "postedTime": "2026-07-04T06:59:54.000Z",
+      "title": "Geocell Caulking in Tucker, GA!",
+      "description": "Geocell 2300, 2320, problem RV, TopShield caulking for sale at $4 a tube.",
+      "price": "$4",
+      "lat": 33.8532701,
+      "lon": -84.2200729,
+      "location": "Tucker, GA",
+      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/738954240_1022653280160863_8798434835504448692_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=92e707&_nc_ohc=KZsc0SLrCk4Q7kNvwGdAI0S&_nc_oc=AdrRsa504UiRYLrj3BnRvLT2Vsy2aEW1pmD-T2IxGXkfO1biUiGZDT3mqZgRlY3io84&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=-xsada5QjWKSSPMX44ZIkQ&_nc_ss=7b2a8&oh=00_AQDqQV_hhGnpBK8I7Ov1J0Fa4fuGrEBp-Ry0mYmLpz2tzA&oe=6A503892",
+      "adUrl": "https://www.facebook.com/marketplace/item/1477449597486565/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-07-05 14:13:54",
+      "lastSeen": "2026-07-05T14:17:30.043Z"
+    },
+    {
+      "adID": "1787761082590565",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/1514085208/?product_id=1787761082590565",
+      "author": "Kate Banciu Pirvu",
+      "postedTime": "2026-07-04T06:59:54.000Z",
+      "title": "E46 330CI front bumper assembly",
+      "description": "Front bumper for sale that came off of a e46 330ci",
+      "price": "$200",
+      "lat": 33.8532701,
+      "lon": -84.2200729,
+      "location": "Tucker, GA",
+      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/736715149_1700492684539680_2115148076276806379_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=92e707&_nc_ohc=Jjx6GBRmKnoQ7kNvwH9OGaP&_nc_oc=Adrb87epoceinUXBqgZlJlbhUGGg1V8zaMaOHGxJ0IdLzyDmObeRnnl7pCSW-5UcV6w&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=oetCgsIRX0n6axt5WfJ26A&_nc_ss=7b2a8&oh=00_AQDXzyLf26C3I8p1OL6A_iIUU0MAjufuJWi9sGU0uWasKA&oe=6A50412B",
+      "adUrl": "https://www.facebook.com/marketplace/item/1787761082590565/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-07-05 14:13:54",
+      "lastSeen": "2026-07-05T14:17:30.077Z"
+    },
+    {
+      "adID": "1908794329812699",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/1246430612/?product_id=1908794329812699",
+      "author": "Marius Pirvu",
+      "postedTime": "2026-07-04T06:59:49.000Z",
+      "title": "Shingles B-grade",
+      "description": "Dual brown b grade",
+      "price": "$78",
+      "lat": 33.8532701,
+      "lon": -84.2200729,
+      "location": "Tucker, GA",
+      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/736524898_2039686253295501_7036129718715140489_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=92e707&_nc_ohc=Qi5c8MseQgAQ7kNvwHuZgS7&_nc_oc=AdqqtnVDGbhcR7Rdk2THpJJ8iJGCvpGAWXqDEwGAzYJaPLDYgOvl3wxaRAa8HTTycaU&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=UYZUHczNOFRGpmB7xDMugA&_nc_ss=7b2a8&oh=00_AQBLtrR3IqurNQPA2Se_cZcG2oPGp-Aq2BKJtKykAMXmNg&oe=6A5026C4",
+      "adUrl": "https://www.facebook.com/marketplace/item/1908794329812699/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-07-05 14:13:54",
+      "lastSeen": "2026-07-05T14:19:20.826Z"
+    },
+    {
+      "adID": "1028642676322921",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/1246430612/?product_id=1028642676322921",
+      "author": "Marius Pirvu",
+      "postedTime": "2026-07-04T06:59:49.000Z",
+      "title": "Cap sheet and base sheet",
+      "description": "Cap sheet 112$ Base sheet 100$",
+      "price": "$112",
+      "lat": 33.8532701,
+      "lon": -84.2200729,
+      "location": "Tucker, GA",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/738570818_1033809389603821_58610072570565303_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=92e707&_nc_ohc=1WzbH2cMkxUQ7kNvwH5Dj1X&_nc_oc=Adp-wLMQNgYRZemGo_AMMQHXemusO_yjhOkrmLJnF4RE8AEF8B3Fvkk53PGayVTmfv0&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=AUxc_WHygK2NbGKd8-Bfxg&_nc_ss=7b2a8&oh=00_AQDtB2MSSSoXS63VH4y13rKfvN2oRMDsZgwEhWazOjeJIw&oe=6A502CA5",
+      "adUrl": "https://www.facebook.com/marketplace/item/1028642676322921/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-07-05 14:13:54",
+      "lastSeen": "2026-07-05T14:19:21.243Z"
+    },
+    {
+      "adID": "1408768057747365",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/61572262693999/?product_id=1408768057747365",
+      "author": "Materiales Del Techo",
+      "postedTime": "2026-07-04T07:00:21.000Z",
+      "title": "SYNTHETIC FELT",
+      "description": "1st grade quality Synthetic felt paper. We also have shingles and other roofing accessories.",
+      "price": "$65",
+      "lat": 33.7544657,
+      "lon": -84.3898151,
+      "location": "Atlanta, GA",
+      "imageUrl": "https://scontent-dfw6-2.xx.fbcdn.net/v/t39.84726-6/739175430_27801916576092051_981762525632012001_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=92e707&_nc_ohc=2th9X2qAI-0Q7kNvwGbq0Ub&_nc_oc=AdqSNwr3wCuSEU-z34oqGZxzrRbUrtIuiayov39sCVG28ka7PCk9CX3ALbodIGQn47M&_nc_zt=14&_nc_ht=scontent-dfw6-2.xx&_nc_gid=PkVW8Hq4MugbxSphDWWwpg&_nc_ss=7b2a8&oh=00_AQBKUAllFlarad7-VPpk3KXjHXFhx7wD1tQ8dTzP-tfbeQ&oe=6A503E39",
+      "adUrl": "https://www.facebook.com/marketplace/item/1408768057747365/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-07-05 14:13:53",
+      "lastSeen": "2026-07-05T14:17:29.776Z"
+    },
     {
       "adID": "KLOV-495042",
       "source": "KLOV",
@@ -36,47 +156,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-05 13:18:27",
-      "lastSeen": "2026-07-05T13:18:27.000Z"
-    },
-    {
-      "adID": "855015974044459",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/1596729446/?product_id=855015974044459",
-      "author": "Devin Churchill",
-      "postedTime": "2026-07-05T02:01:46.000Z",
-      "title": "Arcana manga plus poster",
-      "description": "Arcana manga vol 1, 2, 3, 4, 5, 6, 7, 8, & 9 plus original poster in vol 1 $30 CASH ONLY no cash apps. More manga in other listings. SUNDAY - FRIDAY Old Winn Dixie (by McDonalds) 727 W Noble Ave, Williston, FL 32696 (SATURDAY ONLY) Walmart 5700 NW 23rd St, Gainesville, FL 32653",
-      "price": "$30",
-      "lat": 29.6519684,
-      "lon": -82.3249846,
-      "location": "Gainesville, FL",
-      "imageUrl": "https://scontent-dfw6-2.xx.fbcdn.net/v/t39.84726-6/739243609_978281641695915_2477334641293023324_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=109&ccb=1-7&_nc_sid=92e707&_nc_ohc=YsKa578MPxYQ7kNvwEj6XTS&_nc_oc=Adr1CnyB4U_T3Sg787_q7dZzDqq_TEVl6RAG5xLBLHZHipxuFGs1OMjieZO10YoxlC8&_nc_zt=14&_nc_ht=scontent-dfw6-2.xx&_nc_gid=vWjVK3RIbXrljO-SRAsQDw&_nc_ss=7b2a8&oh=00_AQDKn0qURX3KEHsXwU7g4yUEFqpAUVOb2AVb7kmJItOIww&oe=6A502665",
-      "adUrl": "https://www.facebook.com/marketplace/item/855015974044459/",
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-07-05 13:12:19",
-      "lastSeen": "2026-07-05T13:17:18.561Z"
-    },
-    {
-      "adID": "1326070819698320",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/100000093882140/?product_id=1326070819698320",
-      "author": "Amber Garrett",
-      "postedTime": "2026-07-04T17:13:56.000Z",
-      "title": "Vintage metal -Ball Gum Target-Game Board",
-      "description": "Vintage target, game board has a colorful illustration of a gumball machine with two children. This metal piece is approximately 13.5 inches wide and features a dark brown background with horizontal lines. It has several circular cutouts for game play and shows a variety of colorful gumballs, dice, and charms in the artwork. Dates from the 50’s-60’s!",
-      "price": "$60",
-      "lat": 32.4709761,
-      "lon": -85.0007653,
-      "location": "Phenix City, AL",
-      "imageUrl": "https://scontent-dfw6-2.xx.fbcdn.net/v/t39.84726-6/736997293_1739352780415550_4613847937638603184_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=109&ccb=1-7&_nc_sid=92e707&_nc_ohc=bsevAlzfnUsQ7kNvwG_AG9o&_nc_oc=Adp-xZeg-ajvY9qCN7_BArGgvy2ZObCJ6dKQqciyix29QsJTVMWJzOo8Lx9UFWDV3HA&_nc_zt=14&_nc_ht=scontent-dfw6-2.xx&_nc_gid=IEQ4N_4v5NoVcPRwx2Graw&_nc_ss=7b2a8&oh=00_AQAwwPU2HJlgcNSjYlOaUZH36Kzhuer2uQ9-nBwtLKGxkg&oe=6A502AF5",
-      "adUrl": "https://www.facebook.com/marketplace/item/1326070819698320/",
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-07-05 13:12:18",
-      "lastSeen": "2026-07-05T13:15:54.944Z"
+      "lastSeen": "2026-07-05T14:20:19.680Z"
     },
     {
       "adID": "2193243038189675",
@@ -96,7 +176,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-05 12:30:34",
-      "lastSeen": "2026-07-05T13:09:57.639Z"
+      "lastSeen": "2026-07-05T14:13:53.161Z"
     },
     {
       "adID": "1511673623300422",
@@ -116,7 +196,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-05 12:30:34",
-      "lastSeen": "2026-07-05T13:11:10.307Z"
+      "lastSeen": "2026-07-05T14:13:53.437Z"
     },
     {
       "adID": "1045485907926894",
@@ -136,7 +216,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-05 12:30:34",
-      "lastSeen": "2026-07-05T13:11:10.340Z"
+      "lastSeen": "2026-07-05T14:13:54.731Z"
     },
     {
       "adID": "1346064046880002",
@@ -156,7 +236,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-05 12:30:34",
-      "lastSeen": "2026-07-05T13:11:10.373Z"
+      "lastSeen": "2026-07-05T14:13:54.788Z"
     },
     {
       "adID": "1536160804960545",
@@ -176,7 +256,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-05 12:30:33",
-      "lastSeen": "2026-07-05T13:06:29.925Z"
+      "lastSeen": "2026-07-05T14:13:51.843Z"
     },
     {
       "adID": "4370342406522049",
@@ -196,7 +276,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-05 12:30:33",
-      "lastSeen": "2026-07-05T13:06:29.959Z"
+      "lastSeen": "2026-07-05T14:13:51.994Z"
     },
     {
       "adID": "1414144187401674",
@@ -206,7 +286,7 @@
       "postedTime": "2026-07-04T07:00:52.000Z",
       "title": "Dave's mobile mechanic",
       "description": "Brakes and rotors Belts and hoses Struts and shock Starters and alternators And much more",
-      "price": "$0",
+      "price": "Free",
       "lat": 27.8497857,
       "lon": -82.3817515,
       "location": "Gibsonton, FL",
@@ -216,7 +296,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-05 12:30:33",
-      "lastSeen": "2026-07-05T13:06:30.060Z"
+      "lastSeen": "2026-07-05T14:13:52.162Z"
     },
     {
       "adID": "4300017073587573",
@@ -236,7 +316,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-05 12:30:33",
-      "lastSeen": "2026-07-05T13:06:30.127Z"
+      "lastSeen": "2026-07-05T14:13:52.251Z"
     },
     {
       "adID": "1358848269512571",
@@ -256,7 +336,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-05 12:30:33",
-      "lastSeen": "2026-07-05T13:06:30.194Z"
+      "lastSeen": "2026-07-05T14:13:52.370Z"
     },
     {
       "adID": "4485428511694614",
@@ -276,7 +356,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-05 12:30:33",
-      "lastSeen": "2026-07-05T13:06:30.260Z"
+      "lastSeen": "2026-07-05T14:13:52.419Z"
     },
     {
       "adID": "824347490760000",
@@ -296,7 +376,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-05 12:30:33",
-      "lastSeen": "2026-07-05T13:09:57.171Z"
+      "lastSeen": "2026-07-05T14:13:52.470Z"
     },
     {
       "adID": "2849860692016880",
@@ -316,7 +396,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-05 12:30:33",
-      "lastSeen": "2026-07-05T13:09:57.270Z"
+      "lastSeen": "2026-07-05T14:13:52.521Z"
     },
     {
       "adID": "2439031709925747",
@@ -336,7 +416,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-05 12:30:33",
-      "lastSeen": "2026-07-05T13:09:57.305Z"
+      "lastSeen": "2026-07-05T14:13:52.572Z"
     },
     {
       "adID": "1882658635984381",
@@ -356,7 +436,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-05 12:30:33",
-      "lastSeen": "2026-07-05T13:09:57.337Z"
+      "lastSeen": "2026-07-05T14:13:52.622Z"
     },
     {
       "adID": "1661937505035821",
@@ -376,7 +456,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-05 12:30:33",
-      "lastSeen": "2026-07-05T13:09:57.507Z"
+      "lastSeen": "2026-07-05T14:13:52.673Z"
     },
     {
       "adID": "2243914766421702",
@@ -396,7 +476,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-05 12:30:32",
-      "lastSeen": "2026-07-05T13:12:26.417Z"
+      "lastSeen": "2026-07-05T14:13:50.934Z"
     },
     {
       "adID": "1704774310805163",
@@ -416,7 +496,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-05 12:30:32",
-      "lastSeen": "2026-07-05T13:02:48.603Z"
+      "lastSeen": "2026-07-05T14:13:51.573Z"
     },
     {
       "adID": "2224196065092654",
@@ -436,7 +516,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-05 12:30:32",
-      "lastSeen": "2026-07-05T13:02:48.667Z"
+      "lastSeen": "2026-07-05T14:13:51.797Z"
     },
     {
       "adID": "1873482203610059",
@@ -456,7 +536,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-05 12:30:32",
-      "lastSeen": "2026-07-05T13:06:29.825Z"
+      "lastSeen": "2026-07-05T14:13:51.708Z"
     },
     {
       "adID": "2662837897446168",
@@ -476,7 +556,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-05 12:30:32",
-      "lastSeen": "2026-07-05T13:06:29.892Z"
+      "lastSeen": "2026-07-05T14:13:51.887Z"
     },
     {
       "adID": "1722651742209497",
@@ -496,7 +576,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-05 12:30:31",
-      "lastSeen": "2026-07-05T13:02:48.254Z"
+      "lastSeen": "2026-07-05T14:13:51.663Z"
     },
     {
       "adID": "1665019351444582",
@@ -516,7 +596,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-05 12:30:30",
-      "lastSeen": "2026-07-05T13:12:26.168Z"
+      "lastSeen": "2026-07-05T14:13:50.731Z"
     },
     {
       "adID": "2098431977371053",
@@ -536,7 +616,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-05 12:30:29",
-      "lastSeen": "2026-07-05T13:12:26.042Z"
+      "lastSeen": "2026-07-05T14:13:50.597Z"
     },
     {
       "adID": "1336747738583269",
@@ -556,7 +636,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-05 12:30:29",
-      "lastSeen": "2026-07-05T13:12:25.856Z"
+      "lastSeen": "2026-07-05T14:13:50.641Z"
     },
     {
       "adID": "1578754437195804",
@@ -576,7 +656,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-05 12:30:29",
-      "lastSeen": "2026-07-05T13:12:25.981Z"
+      "lastSeen": "2026-07-05T14:13:50.552Z"
     },
     {
       "adID": "2120613935554371",
@@ -596,7 +676,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-05 12:30:28",
-      "lastSeen": "2026-07-05T13:12:25.794Z"
+      "lastSeen": "2026-07-05T14:13:50.464Z"
     },
     {
       "adID": "1047318257947704",
@@ -616,7 +696,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-05 12:30:28",
-      "lastSeen": "2026-07-05T13:12:26.106Z"
+      "lastSeen": "2026-07-05T14:13:50.687Z"
     },
     {
       "adID": "1550171066817636",
@@ -636,7 +716,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-05 12:30:27",
-      "lastSeen": "2026-07-05T13:12:25.670Z"
+      "lastSeen": "2026-07-05T14:13:50.372Z"
     },
     {
       "adID": "1006388748812111",
@@ -656,7 +736,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-05 12:30:26",
-      "lastSeen": "2026-07-05T13:12:24.995Z"
+      "lastSeen": "2026-07-05T14:13:50.191Z"
     },
     {
       "adID": "2101331570788240",
@@ -676,27 +756,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-05 12:30:26",
-      "lastSeen": "2026-07-05T13:12:25.109Z"
-    },
-    {
-      "adID": "1685886435996577",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/61573808919328/?product_id=1685886435996577",
-      "author": "Roofing ForLess",
-      "postedTime": "2026-07-04T07:01:27.000Z",
-      "title": "B grade Shingles Shadow brown",
-      "description": "Shingles B grade",
-      "price": "$75",
-      "lat": 30.8736613,
-      "lon": -84.5740953,
-      "location": "Decatur, GA",
-      "imageUrl": "https://scontent-dfw6-2.xx.fbcdn.net/v/t39.84726-6/739790409_1527630135721722_5394596310821199519_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=92e707&_nc_ohc=dPQwgA3eSqMQ7kNvwELw5A5&_nc_oc=AdpySgK0iICmscn-JGj7b03G6M6PUMr5KT9g5fM3Pkoc9ZxJPjlmFl_8z6-3LeclyNs&_nc_zt=14&_nc_ht=scontent-dfw6-2.xx&_nc_gid=NEPAeWx3RoZYWC1w_CKTgQ&_nc_ss=7b2a8&oh=00_AQDDgYuFbU20v_EQOjf9rGemimI5fPw-mXTX1kj377QYRw&oe=6A501F1B",
-      "adUrl": "https://www.facebook.com/marketplace/item/1685886435996577/",
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-07-05 12:30:26",
-      "lastSeen": "2026-07-05T13:12:25.490Z"
+      "lastSeen": "2026-07-05T14:13:50.237Z"
     },
     {
       "adID": "993312136918101",
@@ -716,27 +776,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-05 12:30:26",
-      "lastSeen": "2026-07-05T13:12:25.614Z"
-    },
-    {
-      "adID": "1427523559412423",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/61573808919328/?product_id=1427523559412423",
-      "author": "Roofing ForLess",
-      "postedTime": "2026-07-04T07:01:27.000Z",
-      "title": "B grade shingles",
-      "description": "B grade shingles $75 per sq",
-      "price": "$75",
-      "lat": 30.8736613,
-      "lon": -84.5740953,
-      "location": "Decatur, GA",
-      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/734815745_1547571660412966_8472504033390613527_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=92e707&_nc_ohc=54I8U8fSlKQQ7kNvwFchvyp&_nc_oc=Adoyq_b2ScUk7Wht_l1VjsotIxBvzzWWqJXRtGRFr5HAAyfxMsb5XpFVokZQZouxiF8&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=emJ8EkTO6wczoJ4HtSWJ4g&_nc_ss=7b2a8&oh=00_AQBZ4bSC4No_BPonqgOQpz9jAzM3S3H4s33yQZvMdXFj2g&oe=6A502371",
-      "adUrl": "https://www.facebook.com/marketplace/item/1427523559412423/",
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-07-05 12:30:25",
-      "lastSeen": "2026-07-05T13:12:24.670Z"
+      "lastSeen": "2026-07-05T14:13:50.327Z"
     },
     {
       "adID": "1764468811232346",
@@ -756,7 +796,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-05 12:30:25",
-      "lastSeen": "2026-07-05T13:12:24.883Z"
+      "lastSeen": "2026-07-05T14:13:49.962Z"
     },
     {
       "adID": "2191638385003728",
@@ -776,7 +816,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-05 12:30:25",
-      "lastSeen": "2026-07-05T13:12:24.720Z"
+      "lastSeen": "2026-07-05T14:13:50.074Z"
     },
     {
       "adID": "4673657419621840",
@@ -796,7 +836,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-05 12:30:24",
-      "lastSeen": "2026-07-05T13:12:24.263Z"
+      "lastSeen": "2026-07-05T14:13:49.529Z"
     },
     {
       "adID": "3205708233152463",
@@ -816,7 +856,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-05 12:30:24",
-      "lastSeen": "2026-07-05T13:12:24.315Z"
+      "lastSeen": "2026-07-05T14:13:49.872Z"
     },
     {
       "adID": "1328605705542137",
@@ -836,7 +876,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-05 12:30:24",
-      "lastSeen": "2026-07-05T13:12:24.618Z"
+      "lastSeen": "2026-07-05T14:13:49.647Z"
     },
     {
       "adID": "2087231755339180",
@@ -856,7 +896,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-05 12:30:24",
-      "lastSeen": "2026-07-05T13:12:24.568Z"
+      "lastSeen": "2026-07-05T14:13:49.692Z"
     },
     {
       "adID": "1051570933870731",
@@ -876,7 +916,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-05 12:30:24",
-      "lastSeen": "2026-07-05T13:12:24.466Z"
+      "lastSeen": "2026-07-05T14:13:49.603Z"
     },
     {
       "adID": "1550468216698657",
@@ -896,7 +936,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-05 12:30:24",
-      "lastSeen": "2026-07-05T13:12:24.416Z"
+      "lastSeen": "2026-07-05T14:13:49.782Z"
     },
     {
       "adID": "1354524802706177",
@@ -916,7 +956,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-05 12:30:24",
-      "lastSeen": "2026-07-05T13:12:24.364Z"
+      "lastSeen": "2026-07-05T14:13:49.827Z"
     },
     {
       "adID": "1686529645964433",
@@ -936,7 +976,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-05 12:30:23",
-      "lastSeen": "2026-07-05T13:12:23.424Z"
+      "lastSeen": "2026-07-05T14:13:48.914Z"
     },
     {
       "adID": "2499101640603940",
@@ -956,7 +996,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-05 12:30:23",
-      "lastSeen": "2026-07-05T13:12:23.321Z"
+      "lastSeen": "2026-07-05T14:13:48.981Z"
     },
     {
       "adID": "1340201738317969",
@@ -976,7 +1016,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-05 12:30:23",
-      "lastSeen": "2026-07-05T13:12:23.627Z"
+      "lastSeen": "2026-07-05T14:13:49.048Z"
     },
     {
       "adID": "2023406438280521",
@@ -996,7 +1036,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-05 12:30:23",
-      "lastSeen": "2026-07-05T13:12:23.907Z"
+      "lastSeen": "2026-07-05T14:13:49.082Z"
     },
     {
       "adID": "1025632633496449",
@@ -1016,27 +1056,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-05 12:30:23",
-      "lastSeen": "2026-07-05T13:12:23.689Z"
-    },
-    {
-      "adID": "1976223099668229",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/61573808919328/?product_id=1976223099668229",
-      "author": "Roofing ForLess",
-      "postedTime": "2026-07-04T07:01:27.000Z",
-      "title": "Shingles B grade brown",
-      "description": "B grade shingles brown",
-      "price": "$75",
-      "lat": 30.8736613,
-      "lon": -84.5740953,
-      "location": "Decatur, GA",
-      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/737550724_1013542847974348_3001715182808577204_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=92e707&_nc_ohc=zWpn91AxCJ8Q7kNvwH98Zmb&_nc_oc=Adrk1xSL3akWaHeA9m0e-hvC_w8Ta9lHHMqP_kvim5ZDmtfiom2wwJqhRvnmdSPFubE&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=zBPCmOGmk5bPwcY7LlkDLg&_nc_ss=7b2a8&oh=00_AQB9mVThhk9On2tPPO2vPgOf06HInEmLvDptx3nzmV6bEw&oe=6A503260",
-      "adUrl": "https://www.facebook.com/marketplace/item/1976223099668229/",
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-07-05 12:30:23",
-      "lastSeen": "2026-07-05T13:12:24.213Z"
+      "lastSeen": "2026-07-05T14:13:49.300Z"
     },
     {
       "adID": "3229078257481672",
@@ -1056,7 +1076,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-05 12:30:22",
-      "lastSeen": "2026-07-05T13:12:22.407Z"
+      "lastSeen": "2026-07-05T14:13:48.293Z"
     },
     {
       "adID": "1671543460737242",
@@ -1076,7 +1096,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-05 12:30:22",
-      "lastSeen": "2026-07-05T13:12:22.458Z"
+      "lastSeen": "2026-07-05T14:13:48.260Z"
     },
     {
       "adID": "1503189378253910",
@@ -1096,7 +1116,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-05 12:30:22",
-      "lastSeen": "2026-07-05T13:12:22.560Z"
+      "lastSeen": "2026-07-05T14:13:48.361Z"
     },
     {
       "adID": "1047304954399066",
@@ -1116,7 +1136,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-05 12:30:22",
-      "lastSeen": "2026-07-05T13:12:22.711Z"
+      "lastSeen": "2026-07-05T14:13:48.461Z"
     },
     {
       "adID": "1043918798066805",
@@ -1136,7 +1156,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-05 12:30:22",
-      "lastSeen": "2026-07-05T13:12:22.762Z"
+      "lastSeen": "2026-07-05T14:13:48.506Z"
     },
     {
       "adID": "856666710535932",
@@ -1156,47 +1176,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-05 12:30:22",
-      "lastSeen": "2026-07-05T13:12:23.272Z"
-    },
-    {
-      "adID": "1768154941205827",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/61573808919328/?product_id=1768154941205827",
-      "author": "Roofing ForLess",
-      "postedTime": "2026-04-26T20:59:08.000Z",
-      "title": "Shingles black gray",
-      "description": "Shingles Black $85 and Gray $75 per SQ",
-      "price": "$75",
-      "lat": 30.8736613,
-      "lon": -84.5740953,
-      "location": "Decatur, GA",
-      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/736020236_1338736597706372_2471769994663946599_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=92e707&_nc_ohc=P4UFGHh4R5oQ7kNvwFQ9rQC&_nc_oc=AdqKjiR9DL088I6Sjp_mI84bUL7HsVx5r4vwpKKWHvgaBb5TWnFFw8pgsj0igzGvs4U&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=mEKw9ElMe1MiJX6vxbvLGA&_nc_ss=7b2a8&oh=00_AQBFY8bMgReAmJIz8WAy15ygl06ibJXoiNPSqwSTmEIuSw&oe=6A501570",
-      "adUrl": "https://www.facebook.com/marketplace/item/1768154941205827/",
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-07-05 12:30:22",
-      "lastSeen": "2026-07-05T13:12:22.813Z"
-    },
-    {
-      "adID": "1342386851353715",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/61573808919328/?product_id=1342386851353715",
-      "author": "Roofing ForLess",
-      "postedTime": "2026-04-26T20:59:08.000Z",
-      "title": "Shingles B-grade",
-      "description": "Dual brown b grade",
-      "price": "$75",
-      "lat": 30.8736613,
-      "lon": -84.5740953,
-      "location": "Decatur, GA",
-      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/738625629_1354307040133836_2889826564979137409_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=92e707&_nc_ohc=Q6cQCxOW36AQ7kNvwEMm86F&_nc_oc=AdoLnEvLL0EsIycWW3KQ1ffmLy9CaZkLOq1zK6ZHrtRRZ680A4emlagSPu9nD2apG2k&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=T0g7WLxmNoBEIIGGpMfdZw&_nc_ss=7b2a8&oh=00_AQBIzADKGBw2rjN640x-Td1-nJg0S3AaUHok-AhXZG9L1A&oe=6A502CFE",
-      "adUrl": "https://www.facebook.com/marketplace/item/1342386851353715/",
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-07-05 12:30:22",
-      "lastSeen": "2026-07-05T13:12:22.913Z"
+      "lastSeen": "2026-07-05T14:13:48.847Z"
     },
     {
       "adID": "1052904280638239",
@@ -1216,27 +1196,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-05 12:30:22",
-      "lastSeen": "2026-07-05T13:12:23.576Z"
-    },
-    {
-      "adID": "1314340427581335",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/61573808919328/?product_id=1314340427581335",
-      "author": "Roofing ForLess",
-      "postedTime": "2026-07-04T07:02:26.000Z",
-      "title": "Shingles Black",
-      "description": "Shingles Black (Charcoal) $37 per bundles",
-      "price": "$37",
-      "lat": 30.8736613,
-      "lon": -84.5740953,
-      "location": "Decatur, GA",
-      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/738188537_1772087434215102_3994625138866476843_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=92e707&_nc_ohc=rZ12KprVq8oQ7kNvwEndA1J&_nc_oc=Adqm35Eo6xWIt8dmjWpKeWDa4i3RhNKD03vcOLfUl1UsfVBAWli9mwag2oMedJggHzM&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=9Ax3y76AsOKs6Iajwpd25A&_nc_ss=7b2a8&oh=00_AQCYOmhF1GfxHjG3SdIPkNwvjTtZ-rTV3-bUNwnJ3h_Qpg&oe=6A501F23",
-      "adUrl": "https://www.facebook.com/marketplace/item/1314340427581335/",
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-07-05 12:30:21",
-      "lastSeen": "2026-07-05T13:12:21.882Z"
+      "lastSeen": "2026-07-05T14:13:48.881Z"
     },
     {
       "adID": "2457761138069379",
@@ -1256,7 +1216,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-05 12:30:21",
-      "lastSeen": "2026-07-05T13:12:22.356Z"
+      "lastSeen": "2026-07-05T14:13:48.227Z"
     },
     {
       "adID": "1749323203148436",
@@ -1276,7 +1236,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-05 12:30:19",
-      "lastSeen": "2026-07-05T12:41:01.859Z"
+      "lastSeen": "2026-07-05T14:12:15.862Z"
     },
     {
       "adID": "859995550163110",
@@ -1296,7 +1256,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-05 12:30:19",
-      "lastSeen": "2026-07-05T13:12:21.269Z"
+      "lastSeen": "2026-07-05T14:13:47.536Z"
     },
     {
       "adID": "2250362632449881",
@@ -1316,7 +1276,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-05 12:30:18",
-      "lastSeen": "2026-07-05T13:12:20.530Z"
+      "lastSeen": "2026-07-05T14:13:47.068Z"
     },
     {
       "adID": "2078786456064730",
@@ -1336,47 +1296,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-05 12:30:18",
-      "lastSeen": "2026-07-05T13:12:20.877Z"
-    },
-    {
-      "adID": "1028989819635482",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/100065429146382/?product_id=1028989819635482",
-      "author": "Justin Smith",
-      "postedTime": "2026-07-05T02:20:29.000Z",
-      "title": "Electronic arcade pinball",
-      "description": "Brand new played maybe 10 min in all. No box and still have the sticker sheet for it. Works like it should",
-      "price": "$30",
-      "lat": 30.9913064,
-      "lon": -83.3726575,
-      "location": "Hahira, GA",
-      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/737561320_1370645348308753_9171327033982445790_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=104&ccb=1-7&_nc_sid=92e707&_nc_ohc=wWv7IjNHU3MQ7kNvwEgUIsH&_nc_oc=Adr0EADazJ3aRKdwbeh4Y-F6UcXWRdJ4HqsnhrdJqNw4YfWr05y-3FO4-2-5jUSqBH0&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=aaW3SEbA4fT7uvdX24Wxtg&_nc_ss=7b2a8&oh=00_AQDh60EuN8rz_xiXxnYWKE5fT8pgd3fEUe5wARtG98xrvQ&oe=6A501D88",
-      "adUrl": "https://www.facebook.com/marketplace/item/1028989819635482/",
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-07-05 12:30:16",
-      "lastSeen": "2026-07-05T13:12:18.128Z"
-    },
-    {
-      "adID": "837526806108497",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/100000196218037/?product_id=837526806108497",
-      "author": "Mark Brooks",
-      "postedTime": "2026-07-04T20:35:47.000Z",
-      "title": "Arcade Alley Laser Bowlercade",
-      "description": "Electronic Arcade Alley Laser Bowlercade is a purple tabletop bowling game. It has an electronic scoring display and includes the original assembly instructions and components.",
-      "price": "$5",
-      "lat": 33.4473361,
-      "lon": -84.1468616,
-      "location": "McDonough, GA",
-      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t15.5256-10/739983315_2045348636083346_8233774901291608268_n.jpg?stp=dst-jpg_tt6&cstp=mx720x1280&ctp=s960x960&_nc_cat=106&ccb=1-7&_nc_sid=d4195b&_nc_ohc=sLQKoW3IEJcQ7kNvwHl0IeR&_nc_oc=AdrHI2TvbPgHpOZWonXfiL8rcY3GbhtU6ALwxJmvjsUqXCMurqjexf0bZRAQNVjthfg&_nc_zt=23&_nc_ht=scontent-dfw5-1.xx&_nc_gid=AztX2imRqCLV1q8UCTayJg&_nc_ss=7b2a8&oh=00_AQBZAQ5zksKY08qQ9xa8GQn_EWS9QdL8GpZqigdknW26UA&oe=6A503678",
-      "adUrl": "https://www.facebook.com/marketplace/item/837526806108497/",
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-07-05 12:30:16",
-      "lastSeen": "2026-07-05T12:37:29.786Z"
+      "lastSeen": "2026-07-05T14:13:47.112Z"
     },
     {
       "adID": "1468814441951578",
@@ -1396,7 +1316,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-05 12:30:15",
-      "lastSeen": "2026-07-05T12:33:40.196Z"
+      "lastSeen": "2026-07-05T14:12:14.405Z"
     },
     {
       "adID": "1467047725225882",
@@ -1416,7 +1336,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-03 19:15:08",
-      "lastSeen": "2026-07-05T13:12:19.373Z"
+      "lastSeen": "2026-07-05T14:13:45.264Z"
     },
     {
       "adID": "1562814368969094",
@@ -1456,7 +1376,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-03 18:12:10",
-      "lastSeen": "2026-07-04T01:16:33.515Z"
+      "lastSeen": "2026-07-05T14:12:15.048Z"
     },
     {
       "adID": "1782500396251312",
@@ -1476,7 +1396,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-03 17:12:06",
-      "lastSeen": "2026-07-05T13:12:19.529Z"
+      "lastSeen": "2026-07-05T14:13:45.397Z"
     },
     {
       "adID": "1708882050263219",
@@ -1596,7 +1516,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-03 15:12:11",
-      "lastSeen": "2026-07-05T13:12:19.686Z"
+      "lastSeen": "2026-07-05T14:13:45.553Z"
     },
     {
       "adID": "1528157515708687",
@@ -1696,7 +1616,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-02 20:22:16",
-      "lastSeen": "2026-07-05T13:18:28.440Z"
+      "lastSeen": "2026-07-05T14:20:21.262Z"
     },
     {
       "adID": "1503847564573999",
@@ -2176,7 +2096,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-01 23:18:59",
-      "lastSeen": "2026-07-05T13:18:27.201Z"
+      "lastSeen": "2026-07-05T14:20:19.849Z"
     },
     {
       "adID": "2594159494372390",
@@ -2476,7 +2396,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-29 15:09:10",
-      "lastSeen": "2026-07-05T13:18:29.343Z"
+      "lastSeen": "2026-07-05T14:20:22.120Z"
     },
     {
       "adID": "KLOV-512184",
@@ -2670,13 +2590,13 @@
       "lat": 27.9449854,
       "lon": -82.4583107,
       "location": "TAMPA, FL",
-      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.30808-6/731253032_3541431712671266_1665902000841851541_n.jpg?stp=cp6_dst-jpg_tt6&cstp=mx1536x2048&ctp=s590x590&_nc_cat=105&ccb=1-7&_nc_sid=aa7b47&_nc_ohc=POBk5WmYHDMQ7kNvwFzJI7t&_nc_oc=AdptAiWXRkaFygXNmXc9lBzPP96X9LZQvwfnx4iOUoG97fUorYXCBd5sfQ-WmJJeQdM&_nc_zt=23&_nc_ht=scontent-dfw5-1.xx&_nc_gid=MZSqpbssLMSpFPLYEZBcWA&_nc_ss=7b2a8&oh=00_AQCOn7vU31PL7V0sUDMAn-2GEK8TLOvsbIHNqn07xIZXXg&oe=6A503962",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.30808-6/731253032_3541431712671266_1665902000841851541_n.jpg?stp=cp6_dst-jpg_tt6&cstp=mx1536x2048&ctp=s590x590&_nc_cat=105&ccb=1-7&_nc_sid=aa7b47&_nc_ohc=POBk5WmYHDMQ7kNvwFzJI7t&_nc_oc=AdptAiWXRkaFygXNmXc9lBzPP96X9LZQvwfnx4iOUoG97fUorYXCBd5sfQ-WmJJeQdM&_nc_zt=23&_nc_ht=scontent-dfw5-1.xx&_nc_gid=KoqT_vPyo85yuN2YtQ_Cdw&_nc_ss=7b2a8&oh=00_AQD51BEhfdR8NdjLzQSF_iybCo5YjCv4Dl24A1sldu5uPw&oe=6A503962",
       "adUrl": "https://www.facebook.com/commerce/listing/1024766013340116/",
       "priceChanged": 0,
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-27 12:31:56",
-      "lastSeen": "2026-07-05T12:26:51.792Z"
+      "lastSeen": "2026-07-05T14:08:54.457Z"
     },
     {
       "adID": "KLOV-545491",
@@ -2970,13 +2890,13 @@
       "lat": 32.2998686,
       "lon": -90.1830408,
       "location": "JACKSON, MS",
-      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.30808-6/689495336_2457459551439313_1413917428850761011_n.jpg?stp=dst-jpg_tt6&cstp=mx640x480&ctp=s590x590&_nc_cat=103&ccb=1-7&_nc_sid=aa7b47&_nc_ohc=p3xhzX2_FqcQ7kNvwEWiGoM&_nc_oc=Adr-ovNE2viiSeIlb8A45nvp1u03qptoBAzpqDZouumFHvRe0dBToGjWWNMdXF4UoA4&_nc_zt=23&_nc_ht=scontent-dfw6-1.xx&_nc_gid=m64L805eJJTe7sinVzD0Nw&_nc_ss=7b2a8&oh=00_AQBvIMIGB4IHBZkqh9PQWwPxv7vx_npu18_elaAY0zR4rQ&oe=6A4C43C6",
+      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.30808-6/689495336_2457459551439313_1413917428850761011_n.jpg?stp=dst-jpg_tt6&cstp=mx640x480&ctp=s590x590&_nc_cat=103&ccb=1-7&_nc_sid=aa7b47&_nc_ohc=2wNNqfnYskEQ7kNvwFMjizx&_nc_oc=AdoFOXbcPhCC0vNJqA3tIViRqujfQ63AcnIUtUQ6VVprFkglUxn5iaIQ9vYUbBRxJfs&_nc_zt=23&_nc_ht=scontent-dfw6-1.xx&_nc_gid=0uya312ed5cr-kGqOBIshw&_nc_ss=7b2a8&oh=00_AQChE47a46IwgbahwCqUGB8YI1mnWsQ3emb0HXy33YsdRQ&oe=6A503846",
       "adUrl": "https://www.facebook.com/commerce/listing/1639860653870129/",
       "priceChanged": 0,
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-25 11:19:45",
-      "lastSeen": "2026-07-02T14:08:49.304Z"
+      "lastSeen": "2026-07-05T14:08:54.659Z"
     },
     {
       "adID": "1288483403087344",
@@ -2990,13 +2910,13 @@
       "lat": 33.2442813,
       "lon": -86.8163773,
       "location": "ALABASTER, AL",
-      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.30808-6/729964610_27722897317303315_769344303372621387_n.jpg?stp=dst-jpg_tt6&cstp=mx1537x2048&ctp=s590x590&_nc_cat=102&ccb=1-7&_nc_sid=aa7b47&_nc_ohc=qQUSRgv--NQQ7kNvwGATqvL&_nc_oc=AdpW9oCbUO0zGlvcrfxYhAfU9NYFnYPuCKTwuXLifDoL7RGnA1P5Ocqh826auxiP2wA&_nc_zt=23&_nc_ht=scontent-dfw6-1.xx&_nc_gid=46cRX7zg_4eVzuiQ59nBGQ&_nc_ss=7b2a8&oh=00_AQA4a_jTWnT14APp1xDhDJ2CXal5-0UUo17wK4WLQroZ2A&oe=6A501FC1",
+      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.30808-6/729964610_27722897317303315_769344303372621387_n.jpg?stp=dst-jpg_tt6&cstp=mx1537x2048&ctp=s590x590&_nc_cat=102&ccb=1-7&_nc_sid=aa7b47&_nc_ohc=qQUSRgv--NQQ7kNvwGATqvL&_nc_oc=AdpW9oCbUO0zGlvcrfxYhAfU9NYFnYPuCKTwuXLifDoL7RGnA1P5Ocqh826auxiP2wA&_nc_zt=23&_nc_ht=scontent-dfw6-1.xx&_nc_gid=6CJQMoBRX_TvttjCE3t6KQ&_nc_ss=7b2a8&oh=00_AQC0YsfYdM9X7f-Y-hwgW2vIiW2omJi5y7-S1iDWvHDTmQ&oe=6A501FC1",
       "adUrl": "https://www.facebook.com/commerce/listing/1288483403087344/",
       "priceChanged": 0,
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-06-25 11:18:09",
-      "lastSeen": "2026-07-05T12:22:57.815Z"
+      "lastSeen": "2026-07-05T14:05:04.303Z"
     }
   ]
 }
