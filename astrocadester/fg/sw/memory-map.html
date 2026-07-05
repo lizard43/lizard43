@@ -147,8 +147,8 @@
         callout: '',
         badges: ['8 KB', 'unmapped / open bus'],
         equs: [
-          'UNMAPPED1_START      equ $E000',
           'UNMAPPED1_END        equ $FFFF',
+          'UNMAPPED1_START      equ $E000',
           'UNMAPPED1_SIZE       equ $2000'
         ],
         weight: 8,
@@ -164,9 +164,9 @@
         callout: '',
         badges: ['3.9 KB', 'scratchpad RAM', 'SP @ $E000'],
         equs: [
-          'RAM_WORK_START      equ $D040',
-          'RAM_WORK_END        equ $DFFF',
-          'RAM_WORK_SIZE       equ $0FC0',
+          'RAM0_END        equ $DFFF',
+          'RAM0_START      equ $D040',
+          'RAM0_SIZE       equ $0FC0',
           '',
           'STACK_TOP           equ $E000'
         ],
@@ -183,9 +183,9 @@
         callout: '',
         badges: ['64 B', 'protected RAM', 'write gated'],
         equs: [
-          'RAM_PROTECTED_START equ $D000',
-          'RAM_PROTECTED_END   equ $D03F',
-          'RAM_PROTECTED_SIZE  equ $0040'
+          'PROTECTED_RAM_END   equ $D03F',
+          'PROTECTED_RAM_START equ $D000',
+          'PROTECTED_RAM_SIZE  equ $0040'
         ],
         weight: 2.2,
         minHeight: 150
@@ -198,13 +198,13 @@
         kind: 'rom-language',
         calloutTitle: '',
         callout: '',
-        badges: ['1 KB', 'foreign', 'unmapped / open bus'],
+        badges: ['4 KB', 'foreign', 'unmapped / open bus'],
         roms: [
           { name: 'wow.x11', start: 0xC000, end: 0xCFFF, size: '4 KB', chip: 'TMS2532', crc: '16f84d73' },
         ],
         equs: [
-          'FOREIGN_START      equ $C000',
           'FOREIGN_END        equ $CFFF',
+          'FOREIGN_START      equ $C000',
           'FOREIGN_SIZE       equ $1000'
         ],
         weight: 20,
@@ -218,11 +218,11 @@
         kind: 'unmapped',
         calloutTitle: '',
         callout: '',
-        badges: ['1 KB', 'unmapped / open bus'],
+        badges: ['4 KB', 'unmapped / open bus'],
         equs: [
+          'UNMAPPED0_END        equ $BFFF',
           'UNMAPPED0_START      equ $B000',
-          'UNMAPPED0_END        equ $CFFF',
-          'UNMAPPED0_SIZE       equ $2000'
+          'UNMAPPED0_SIZE       equ $1000'
         ],
         weight: 8,
         minHeight: 150
@@ -243,8 +243,8 @@
           { name: 'wow.x7', start: 0xA000, end: 0xAFFF, size: '4 KB', chip: 'TMS2532', crc: 'ce404305' }
         ],
         equs: [
-          'ROM1_START      equ $8000',
           'ROM1_END        equ $CFFF',
+          'ROM1_START      equ $8000',
           'ROM1_SIZE       equ $5000'
         ],
         weight: 20,
@@ -260,8 +260,8 @@
         callout: '',
         badges: ['16 KB', 'VRAM', 'Magic target'],
         equs: [
-          'VRAM_START   equ $4000',
           'VRAM_END     equ $7FFF',
+          'VRAM_START   equ $4000',
           'VRAM_SIZE    equ $4000'
         ],
         weight: 16,
@@ -287,7 +287,7 @@
         equs: [
           'ROM0_START       equ $0000',
           'ROM0_END         equ $3FFF',
-          'ROM_SIZE         equ $4000',
+          'ROM0_SIZE        equ $4000',
           '',
           'FUNCGEN_START   equ $0000',
           'FUNCGEN_END     equ $3FFF',
@@ -352,21 +352,42 @@
         minHeight: 150
       },
       {
-        start: 0xC000,
+        start: 0xD000,
         end: 0xDFFF,
         title: 'Unmapped / Open Bus',
         subtitle: 'This region is not mapped - Treat as open-bus behavior',
         kind: 'unmapped',
         calloutTitle: '',
         callout: '',
-        badges: ['8 KB', 'unmapped / open bus'],
+        badges: ['4 KB', 'unmapped / open bus'],
         equs: [
-          'UNMAPPED_START      equ $C000',
+          'UNMAPPED_START      equ $D000',
           'UNMAPPED_END        equ $DFFF',
-          'UNMAPPED_SIZE       equ $2000'
+          'UNMAPPED_SIZE       equ $1000'
         ],
         weight: 8,
         minHeight: 150
+      },
+      {
+        start: 0xC000,
+        end: 0xCFFF,
+        title: 'Foreign Language ROM',
+        subtitle: 'ROM for Language support. If not present - Treat as open-bus behavior',
+        kind: 'rom-language',
+        calloutTitle: '',
+        callout: '',
+        badges: ['4 KB', 'foreign', 'unmapped / open bus'],
+        roms: [
+          { name: 'french_gorf.x11', start: 0xC000, end: 0xCFFF, size: '4 KB', chip: 'TMS2532', crc: '759d7f66' },
+          { name: 'german.x11', start: 0xC000, end: 0xCFFF, size: '4 KB', chip: 'TMS2532', crc: '3a3dbdcb' },
+        ],
+        equs: [
+          'FOREIGN_START      equ $C000',
+          'FOREIGN_END        equ $CFFF',
+          'FOREIGN_SIZE       equ $1000'
+        ],
+        weight: 20,
+        minHeight: 154
       },
       {
         start: 0x8000,
@@ -401,9 +422,9 @@
         callout: '',
         badges: ['16 KB', 'VRAM', 'Magic target'],
         equs: [
-          'VRAM_SCREEN_START   equ $4000',
-          'VRAM_SCREEN_END     equ $7FFF',
-          'VRAM_SCREEN_SIZE    equ $4000'
+          'VRAM_START   equ $4000',
+          'VRAM_END     equ $7FFF',
+          'VRAM_SIZE    equ $4000'
         ],
         weight: 16,
         minHeight: 142
@@ -426,12 +447,13 @@
           { name: 'gorf-d.bin', start: 0x3000, end: 0x3FFF, size: '4 KB', crc: '70046e56' }
         ],
         equs: [
-          'ROM_LOW_START       equ $0000',
-          'ROM_LOW_END         equ $3FFF',
-          'ROM_LOW_SIZE        equ $4000',
+          'ROM0_START       equ $0000',
+          'ROM0_END         equ $3FFF',
+          'ROM0_SIZE        equ $4000',
           '',
-          'MAGIC_WRITE_START   equ $0000',
-          'MAGIC_WRITE_END     equ $3FFF'
+          'FUNCGEN_START   equ $0000',
+          'FUNCGEN_END     equ $3FFF',
+          'FUNCGEN_SIZE    equ $4000',
         ],
         weight: 16,
         minHeight: 154
