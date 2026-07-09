@@ -3935,3 +3935,47 @@ td a {
   }
 }
 
+
+/* -------------------------------------------------------------------------
+   Memory map badge top-line fix
+   Keep the region badges on the same first line as the title, right aligned.
+--------------------------------------------------------------------------- */
+.memory-widget .memmap-block-panel {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) max-content !important;
+  grid-auto-rows: auto !important;
+  align-content: center !important;
+  align-items: baseline !important;
+  column-gap: 0.65rem !important;
+}
+
+.memory-widget .memmap-block-title {
+  grid-column: 1 !important;
+  grid-row: 1 !important;
+  min-width: 0 !important;
+}
+
+.memory-widget .memmap-badges {
+  grid-column: 2 !important;
+  grid-row: 1 !important;
+  justify-self: end !important;
+  align-self: center !important;
+  display: flex !important;
+  flex-wrap: nowrap !important;
+  gap: 5px !important;
+  margin-top: 0 !important;
+  white-space: nowrap !important;
+}
+
+.memory-widget .memmap-badges span {
+  flex: 0 0 auto !important;
+  white-space: nowrap !important;
+}
+
+.memory-widget .memmap-block-range,
+.memory-widget .memmap-block-subtitle,
+.memory-widget .memmap-rom-stack,
+.memory-widget .memmap-block-note,
+.memory-widget .memmap-block-equ-block {
+  grid-column: 1 / -1 !important;
+}
