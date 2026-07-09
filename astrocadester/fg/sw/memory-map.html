@@ -622,7 +622,7 @@
         kind: 'unmapped',
         calloutTitle: '',
         callout: '',
-        badges: ['8 KB', 'unmapped / open bus'],
+        badges: ['8 KB'],
         equs: [
           'UNMAPPED1_END        equ $FFFF',
           'UNMAPPED1_START      equ $E000',
@@ -639,7 +639,7 @@
         kind: 'workram',
         calloutTitle: '',
         callout: '',
-        badges: ['3.9 KB', 'scratchpad RAM', 'SP @ $E000'],
+        badges: ['3.9 KB', 'SP @ $E000'],
         equs: [
           'RAM0_END        equ $DFFF',
           'RAM0_START      equ $D040',
@@ -658,7 +658,7 @@
         kind: 'protected',
         calloutTitle: '',
         callout: '',
-        badges: ['64 B', 'protected RAM', 'write gated'],
+        badges: ['64 B', 'write gated'],
         equs: [
           'PROTECTED_RAM_END   equ $D03F',
           'PROTECTED_RAM_START equ $D000',
@@ -675,7 +675,7 @@
         kind: 'rom-language',
         calloutTitle: '',
         callout: '',
-        badges: ['4 KB', 'foreign', 'unmapped / open bus'],
+        badges: ['4 KB', 'unmapped'],
         roms: [
           { name: 'wow.x11', start: 0xC000, end: 0xCFFF, size: '4 KB', chip: 'TMS2532', crc: '16f84d73' },
         ],
@@ -695,7 +695,7 @@
         kind: 'unmapped',
         calloutTitle: '',
         callout: '',
-        badges: ['4 KB', 'unmapped / open bus'],
+        badges: ['4 KB'],
         equs: [
           'UNMAPPED0_END        equ $BFFF',
           'UNMAPPED0_START      equ $B000',
@@ -713,7 +713,7 @@
         kind: 'rom-high',
         calloutTitle: '',
         callout: '',
-        badges: ['12 KB', 'ROM'],
+        badges: ['12 KB'],
         roms: [
           { name: 'wow.x5', start: 0x8000, end: 0x8FFF, size: '4 KB', chip: 'TMS2532', crc: '16912c2b' },
           { name: 'wow.x6', start: 0x9000, end: 0x9FFF, size: '4 KB', chip: 'TMS2532', crc: '35797f82' },
@@ -735,7 +735,7 @@
         kind: 'video',
         calloutTitle: '',
         callout: '',
-        badges: ['16 KB', 'VRAM', 'Magic target'],
+        badges: ['16 KB'],
         equs: [
           'VRAM_END     equ $7FFF',
           'VRAM_START   equ $4000',
@@ -754,7 +754,7 @@
         kind: 'magic-rom',
         calloutTitle: '',
         callout: '',
-        badges: ['16 KB', "ROM", 'magic write'],
+        badges: ['16 KB', 'Magic Write'],
         roms: [
           { name: 'wow.x1', start: 0x0000, end: 0x0FFF, size: '4 KB', chip: 'TMS2532', crc: 'c1295786' },
           { name: 'wow.x2', start: 0x1000, end: 0x1FFF, size: '4 KB', chip: 'TMS2532', crc: '9be93215' },
