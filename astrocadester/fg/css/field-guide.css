@@ -3897,3 +3897,41 @@ td a {
 #overview .overview-callout-grid+p {
   margin-top: 8px;
 }
+
+/* -------------------------------------------------------------------------
+   Memory map title-bar sprite
+   Used by the Wizard of Wor map header. Keeps the source PNG aspect ratio,
+   treats it as pixel art, and lets the transparent PNG sit directly on the
+   title bar background.
+--------------------------------------------------------------------------- */
+.memmap-title-row {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  min-width: 0;
+}
+
+.memmap-title-sprite {
+  display: block;
+  flex: 0 0 auto;
+  width: auto;
+  height: clamp(2.0rem, 3.2vw, 2.45rem);
+  max-width: min(22vw, 7rem);
+  object-fit: contain;
+  object-position: center;
+  background: transparent;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+}
+
+@media (max-width: 620px) {
+  .memmap-title-row {
+    gap: 0.5rem;
+  }
+
+  .memmap-title-sprite {
+    height: 1.85rem;
+    max-width: 5.5rem;
+  }
+}
+
