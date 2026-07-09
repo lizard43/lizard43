@@ -1,6 +1,6 @@
 /*
   Astrocade Field Guide - reusable drawn PCB widget
-  RESPONSIVE CACHE-BUSTER BUILD 20260708_r6
+  RESPONSIVE CACHE-BUSTER BUILD 20260709_rombuilder
   Drop in after field-guide.css.
 
   Usage:
@@ -931,4 +931,167 @@ body.astrocade-pcb-page section.astrocade-pcb-example-card {
   transform: translateY(-50%) rotate(90deg);
   transform-origin: center;
   text-align: center;
+}
+
+
+/* -------------------------------------------------------------------------
+   Memory map ROM chip renderer styles - 20260709_rombuilder
+   Used by AstrocadePCB.renderMemoryMapRomChips(...).
+--------------------------------------------------------------------------- */
+.memmap-rom-stack {
+  margin-top: 0.72rem;
+  padding-top: 0.12rem;
+}
+
+.memmap-rom-title {
+  display: block;
+  margin-bottom: 0.55rem;
+  color: #ffd86b;
+  font-size: 0.68rem;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.memmap-rom-grid {
+  display: grid;
+  grid-template-columns: minmax(11rem, 1fr);
+  gap: 0.48rem;
+  padding: 0 0.32rem;
+}
+
+.memmap-rom-chip {
+  position: relative;
+  justify-self: center;
+  width: 100%;
+  max-width: 250px;
+  min-height: 2.62rem;
+  padding: 0.4rem 2.95rem 0.36rem 2.2rem;
+  border: 1px solid rgba(235, 242, 255, 0.26);
+  border-radius: 8px;
+  background:
+    radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.13), transparent 1.45rem),
+    linear-gradient(180deg, #303642 0%, #171b23 48%, #07090e 100%);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.16),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.78),
+    0 0.5rem 1rem rgba(0, 0, 0, 0.24);
+  color: #eaf4ff;
+  font-family: "OCR A Std", "OCR A Extended", "Share Tech Mono", "IBM Plex Mono", "Fira Code", Consolas, monospace;
+  text-align: center;
+  isolation: isolate;
+}
+
+.memmap-rom-size {
+  display: block;
+  margin-top: 0.1rem;
+  color: rgba(232, 237, 247, 0.62);
+  font-size: 0.56rem;
+  letter-spacing: 0.035em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.memmap-rom-chip::before,
+.memmap-rom-chip::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 0.34rem;
+  bottom: 0.34rem;
+  width: 0.48rem;
+  border-radius: 0.12rem;
+  background: repeating-linear-gradient(to bottom,
+      rgba(235, 222, 183, 0.96) 0,
+      rgba(235, 222, 183, 0.96) 0.23rem,
+      transparent 0.23rem,
+      transparent 0.47rem);
+  filter: drop-shadow(0 0 0.08rem rgba(0, 0, 0, 0.9));
+}
+
+.memmap-rom-chip::before {
+  left: -0.46rem;
+}
+
+.memmap-rom-chip::after {
+  right: -0.46rem;
+}
+
+.memmap-rom-notch {
+  position: absolute;
+  top: -1px;
+  left: 50%;
+  width: 1.15rem;
+  height: 0.42rem;
+  transform: translateX(-50%);
+  border-right: 1px solid rgba(235, 242, 255, 0.18);
+  border-bottom: 1px solid rgba(235, 242, 255, 0.18);
+  border-left: 1px solid rgba(235, 242, 255, 0.18);
+  border-radius: 0 0 999px 999px;
+  background: #07090e;
+  box-shadow: inset 0 -1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.memmap-rom-name {
+  display: block;
+  margin-top: 0.06rem;
+  color: #ffffff;
+  font-size: 0.82rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-shadow: 0 0 0.4rem rgba(134, 206, 255, 0.22);
+}
+
+.memmap-rom-range {
+  position: absolute;
+  top: 0.42rem;
+  right: 0.55rem;
+  bottom: 0.42rem;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin: 0;
+  color: #92d7ff;
+  font-size: 0.5rem;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: 0.045em;
+  text-align: right;
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+.memmap-rom-range-top,
+.memmap-rom-range-bottom {
+  display: block;
+}
+
+.memmap-rom-crc {
+  display: block;
+  margin-top: 0.1rem;
+  color: rgba(232, 237, 247, 0.62);
+  font-size: 0.56rem;
+  letter-spacing: 0.035em;
+  text-transform: uppercase;
+}
+
+.memmap-rom-crc {
+  margin-top: 0.04rem;
+  color: rgba(232, 237, 247, 0.50);
+}
+
+@media (max-width: 520px) {
+  .memmap-rom-chip {
+    max-width: 250px;
+    padding-right: 2.72rem;
+    padding-left: 2.05rem;
+  }
+
+  .memmap-rom-range {
+    right: 0.42rem;
+    font-size: 0.54rem;
+  }
 }

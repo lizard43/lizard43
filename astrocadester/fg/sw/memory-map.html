@@ -21,6 +21,8 @@
 
   <script src="../js/loader.js?nomenu"></script>
   <link rel="stylesheet" href="../css/wow-font.css" />
+  <link rel="stylesheet" href="../css/astrocade-pcb.css?v=20260709_rombuilder" />
+  <script src="../js/astrocade-pcb.js?v=20260709_rombuilder"></script>
 </head>
 
 <body class="guide-chapter">
@@ -1302,65 +1304,6 @@
       callout.append(equBlock);
     }
 
-    function renderRomChips(blockPanel, region) {
-      if (!Array.isArray(region.roms) || region.roms.length === 0) return;
-
-      const romStack = document.createElement('div');
-      romStack.className = 'memmap-rom-stack';
-
-      const romGrid = document.createElement('div');
-      romGrid.className = 'memmap-rom-grid';
-
-      [...region.roms]
-        .sort((a, b) => b.start - a.start)
-        .forEach((rom) => {
-          const chip = document.createElement('div');
-          chip.className = 'memmap-rom-chip';
-          chip.title = [
-            `${rom.name} maps to ${formatHex(rom.start)}-${formatHex(rom.end)}`,
-            rom.size || '',
-            rom.chip || '',
-            rom.crc ? `CRC ${rom.crc}` : ''
-          ].filter(Boolean).join(' · ');
-
-          const notch = document.createElement('span');
-          notch.className = 'memmap-rom-notch';
-          notch.setAttribute('aria-hidden', 'true');
-
-          const name = document.createElement('span');
-          name.className = 'memmap-rom-name';
-          name.textContent = rom.name;
-
-          const range = document.createElement('span');
-          range.className = 'memmap-rom-range';
-          range.setAttribute('aria-label', `${formatHex(rom.start)}-${formatHex(rom.end)}`);
-
-          const rangeTop = document.createElement('span');
-          rangeTop.className = 'memmap-rom-range-top';
-          rangeTop.textContent = formatHex(rom.end);
-
-          const rangeBottom = document.createElement('span');
-          rangeBottom.className = 'memmap-rom-range-bottom';
-          rangeBottom.textContent = formatHex(rom.start);
-
-          range.append(rangeTop, rangeBottom);
-
-          const size = document.createElement('span');
-          size.className = 'memmap-rom-size';
-          size.textContent = [rom.size, rom.chip || ''].filter(Boolean).join(' · ');
-
-          const crc = document.createElement('span');
-          crc.className = 'memmap-rom-crc';
-          crc.textContent = rom.crc ? `CRC ${rom.crc}` : '';
-
-          chip.append(notch, name, range, size, crc);
-          romGrid.append(chip);
-        });
-
-      romStack.append(romGrid);
-      blockPanel.append(romStack);
-    }
-
     function renderMemoryMap(root, dataBlockName = root?.dataset?.memoryMap) {
       if (!root) return;
 
@@ -1446,7 +1389,9 @@
           badgeWrap.append(chip);
         });
         blockPanel.append(badgeWrap);
-        renderRomChips(blockPanel, region);
+        if (window.AstrocadePCB?.renderMemoryMapRomChips) {
+          window.AstrocadePCB.renderMemoryMapRomChips(blockPanel, region, { formatHex });
+        }
         renderBlockDetails(blockPanel, region, resolveMemoryIncludeFile(dataBlockName));
         block.append(blockPanel);
 

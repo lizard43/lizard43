@@ -1,6 +1,6 @@
 /*
   Astrocade Field Guide - reusable drawn PCB widget
-  CACHE-BUSTER BUILD 20260708_r6
+  CACHE-BUSTER BUILD 20260709_rombuilder
   No canvas, no generated images. Pure HTML/CSS/SVG from data.
 */
 (function () {
@@ -507,6 +507,63 @@
     return pcb;
   }
 
+  function defaultFormatMemoryHex(value) {
+    const numeric = Number(value || 0);
+    return '$' + numeric.toString(16).toUpperCase().padStart(4, '0');
+  }
+
+  function renderMemoryMapRomChips(blockPanel, region, options = {}) {
+    if (!blockPanel || !region || !Array.isArray(region.roms) || region.roms.length === 0) {
+      return null;
+    }
+
+    const formatHex = typeof options.formatHex === 'function'
+      ? options.formatHex
+      : defaultFormatMemoryHex;
+
+    const romStack = div('memmap-rom-stack');
+    const romGrid = div('memmap-rom-grid');
+
+    [...region.roms]
+      .filter(Boolean)
+      .sort((a, b) => Number(b.start || 0) - Number(a.start || 0))
+      .forEach((rom) => {
+        const chip = div('memmap-rom-chip');
+        const romName = rom.name || rom.label || 'ROM';
+        const romStart = Number(rom.start || 0);
+        const romEnd = Number(rom.end || romStart);
+
+        chip.title = [
+          `${romName} maps to ${formatHex(romStart)}-${formatHex(romEnd)}`,
+          rom.size || '',
+          rom.chip || '',
+          rom.crc ? `CRC ${rom.crc}` : ''
+        ].filter(Boolean).join(' · ');
+
+        const notch = span('memmap-rom-notch');
+        notch.setAttribute('aria-hidden', 'true');
+
+        const name = span('memmap-rom-name', romName);
+
+        const range = span('memmap-rom-range');
+        range.setAttribute('aria-label', `${formatHex(romStart)}-${formatHex(romEnd)}`);
+        range.append(
+          span('memmap-rom-range-top', formatHex(romEnd)),
+          span('memmap-rom-range-bottom', formatHex(romStart))
+        );
+
+        const size = span('memmap-rom-size', [rom.size, rom.chip || ''].filter(Boolean).join(' · '));
+        const crc = span('memmap-rom-crc', rom.crc ? `CRC ${rom.crc}` : '');
+
+        chip.append(notch, name, range, size, crc);
+        romGrid.append(chip);
+      });
+
+    romStack.append(romGrid);
+    blockPanel.append(romStack);
+    return romStack;
+  }
+
   function normalizeBoard(board) {
     const src = board || defaultBoardData.blank;
     return {
@@ -544,7 +601,8 @@
     boards: window.astrocadePcbBoards,
     renderBoard,
     renderAll,
-    resolveBoard
+    resolveBoard,
+    renderMemoryMapRomChips
   };
 
   if (document.readyState === 'loading') {
