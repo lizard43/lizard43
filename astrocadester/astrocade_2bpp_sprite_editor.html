@@ -3929,13 +3929,16 @@
       canvas.height = Math.max(1, spriteRows * scale);
       const ctx = canvas.getContext('2d', { willReadFrequently: true });
       ctx.imageSmoothingEnabled = false;
+      const transparentColor0 = Boolean(options.transparentColor0) && !options.background;
       if (options.background) {
         ctx.fillStyle = options.background;
         ctx.fillRect(0, 0, canvas.width, canvas.height);
       }
       for (let y = 0; y < spriteRows; y++) {
         for (let x = 0; x < activeWidth; x++) {
-          ctx.fillStyle = colorForPixel(pixels[y][x] || 0);
+          const pixelValue = pixels[y][x] || 0;
+          if (transparentColor0 && pixelValue === 0) continue;
+          ctx.fillStyle = colorForPixel(pixelValue);
           ctx.fillRect(x * scale, y * scale, scale, scale);
         }
       }
@@ -4042,7 +4045,10 @@
 
     async function saveSpriteImage(format) {
       const fmt = String(format || 'png').toLowerCase();
-      const canvas = makeSpriteCanvas(8, fmt === 'jpg' || fmt === 'jpeg' ? { background: '#000000' } : {});
+      const canvasOptions = fmt === 'png'
+        ? { transparentColor0: true }
+        : (fmt === 'jpg' || fmt === 'jpeg' ? { background: '#000000' } : {});
+      const canvas = makeSpriteCanvas(8, canvasOptions);
       const base = makeSafeFilenameBase();
       let blob;
       let ext = fmt;
@@ -4052,16 +4058,16 @@
       else if (fmt === 'tif' || fmt === 'tiff') { blob = encodeTiffFromCanvas(canvas); ext = 'tif'; }
       else throw new Error(`Unsupported image format: ${format}`);
       downloadBlob(blob, `${base}.${ext}`);
-      setStatus(`Saved ${base}.${ext}.`);
+      setStatus(fmt === 'png' ? `Saved ${base}.${ext} with Color 0 transparent.` : `Saved ${base}.${ext}.`);
     }
 
     async function copySpritePngToClipboard() {
       try {
-        const canvas = makeSpriteCanvas(8);
+        const canvas = makeSpriteCanvas(8, { transparentColor0: true });
         const blob = await canvasToBlob(canvas, 'image/png');
         if (!navigator.clipboard || typeof ClipboardItem === 'undefined') throw new Error('PNG clipboard is not available in this browser/context.');
         await navigator.clipboard.write([new ClipboardItem({ 'image/png': blob })]);
-        setStatus('Copied sprite PNG to clipboard.');
+        setStatus('Copied sprite PNG to clipboard with Color 0 transparent.');
       } catch (err) {
         setStatus(`PNG copy failed: ${err.message}`, true);
       }
