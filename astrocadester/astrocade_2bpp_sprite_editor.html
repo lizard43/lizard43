@@ -3922,26 +3922,55 @@
         .replace(/^_+|_+$/g, '') || 'sprite';
     }
 
+    function normalizeSpriteImageScale(scale) {
+      const parsed = Number.parseInt(scale, 10);
+      return Number.isFinite(parsed) ? Math.max(1, parsed) : 1;
+    }
+
+    function clearColor0PixelsOnCanvas(canvas, scale = 1) {
+      const activeWidth = getActivePixelWidth();
+      const drawScale = normalizeSpriteImageScale(scale);
+      const ctx = canvas.getContext('2d', { willReadFrequently: true });
+
+      // PNG transparency is based on the sprite's pixel VALUE, not on the
+      // preview color. Color 0 may currently preview as black, gray, white,
+      // etc., but exported PNGs should still punch value-0 pixels out to
+      // alpha 0. This second pass makes the alpha channel explicit instead
+      // of relying on the canvas default transparent state.
+      for (let y = 0; y < spriteRows; y++) {
+        for (let x = 0; x < activeWidth; x++) {
+          if ((pixels[y][x] || 0) !== 0) continue;
+          ctx.clearRect(x * drawScale, y * drawScale, drawScale, drawScale);
+        }
+      }
+    }
+
     function makeSpriteCanvas(scale = 8, options = {}) {
       const activeWidth = getActivePixelWidth();
+      const drawScale = normalizeSpriteImageScale(scale);
       const canvas = document.createElement('canvas');
-      canvas.width = Math.max(1, activeWidth * scale);
-      canvas.height = Math.max(1, spriteRows * scale);
+      canvas.width = Math.max(1, activeWidth * drawScale);
+      canvas.height = Math.max(1, spriteRows * drawScale);
       const ctx = canvas.getContext('2d', { willReadFrequently: true });
       ctx.imageSmoothingEnabled = false;
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
       const transparentColor0 = Boolean(options.transparentColor0) && !options.background;
       if (options.background) {
         ctx.fillStyle = options.background;
         ctx.fillRect(0, 0, canvas.width, canvas.height);
       }
+
       for (let y = 0; y < spriteRows; y++) {
         for (let x = 0; x < activeWidth; x++) {
           const pixelValue = pixels[y][x] || 0;
           if (transparentColor0 && pixelValue === 0) continue;
           ctx.fillStyle = colorForPixel(pixelValue);
-          ctx.fillRect(x * scale, y * scale, scale, scale);
+          ctx.fillRect(x * drawScale, y * drawScale, drawScale, drawScale);
         }
       }
+
+      if (transparentColor0) clearColor0PixelsOnCanvas(canvas, drawScale);
       return canvas;
     }
 
