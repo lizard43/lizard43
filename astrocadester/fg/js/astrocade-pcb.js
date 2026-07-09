@@ -1,6 +1,6 @@
 /*
   Astrocade Field Guide - reusable drawn PCB widget
-  CACHE-BUSTER BUILD 20260708_r5
+  CACHE-BUSTER BUILD 20260708_r6
   No canvas, no generated images. Pure HTML/CSS/SVG from data.
 */
 (function () {
@@ -36,7 +36,7 @@
       width: 1000,
       height: 680,
       legend: ['bare board shell', 'fixed corner holes', 'fixed perf areas', 'explicit components only'],
-      edgeConnector: { fingers: 24 },
+      edgeConnector: { fingers: 24,   padWidthPct: 50 },
       traces: [],
       vias: [],
       components: [],
@@ -116,6 +116,12 @@
     ];
   }
 
+  function getBoardBodyRight(board) {
+    // Must match the right edge used by defaultBoardPath(). The edge connector
+    // tab starts here and extends OUTSIDE the board body.
+    return board.width - 44;
+  }
+
   function normalizeEdgeConnector(edgeConnector, board) {
     if (!edgeConnector) return null;
 
@@ -137,19 +143,33 @@
     const fingerPitch = Number(cfg.fingerPitch ?? 8.2);
     const defaultHeight = Math.max(54, fingers * fingerPitch + 18);
     const h = Number(cfg.h ?? defaultHeight);
-    const w = Number(cfg.w ?? 58);
+    const w = Number(cfg.w ?? 25);
     const bottom = Number(cfg.bottom ?? ((bottomRight?.y ?? board.height - 88) - 24));
     const minTop = 50;
     const y = Math.max(minTop, Number(cfg.y ?? (bottom - h)));
+    const boardRight = getBoardBodyRight(board);
 
     return {
       ...cfg,
       fingers,
-      x: Number(cfg.x ?? (board.width - 70)),
+      x: Number(cfg.x ?? boardRight),
       y,
       w,
       h: Number(cfg.h ?? (bottom - y))
     };
+  }
+
+  function edgeConnectorReserve(edgeConnector, board) {
+    const cfg = normalizeEdgeConnector(edgeConnector, board);
+    if (!cfg) return null;
+
+    // Reserve only the part that protrudes past the widget's coordinate box.
+    // The tab itself starts at the board body's right edge, but most of it
+    // lives in the normal right-side drawing margin. Only the overhang needs
+    // layout space so it does not clip or create a scrollbar.
+    const overhang = Math.max(0, cfg.x + cfg.w - board.width);
+    const reservePct = overhang > 0 ? (overhang / (board.width + overhang)) * 100 : 0;
+    return { cfg, reservePct };
   }
 
   function resolvePcbLabelColor(color) {
@@ -295,7 +315,7 @@
     const fingers = cfg.fingers;
     const gap = Number(cfg.gap || 2.2);
     const padH = Math.max(1, (100 - gap * (fingers + 1)) / fingers);
-    const padW = Number(cfg.padWidthPct || 88);
+    const padW = Number(cfg.padWidthPct || 100);
 
     for (let i = 0; i < fingers; i += 1) {
       const finger = div('pcb-edge-finger');
@@ -426,6 +446,7 @@
     if (!root) return null;
 
     const board = normalizeBoard(sourceBoard);
+    const edgeReserve = edgeConnectorReserve(board.edgeConnector, board);
     root.classList.add('astrocade-pcb-host');
     const renderId = ++pcbRenderId;
     root.innerHTML = '';
@@ -442,6 +463,10 @@
     const pcb = div('astrocade-pcb-board');
     pcb.style.setProperty('--pcb-aspect', `${board.width} / ${board.height}`);
     if (board.maxWidth) pcb.style.setProperty('--pcb-max-width', typeof board.maxWidth === 'number' ? px(board.maxWidth) : board.maxWidth);
+    if (edgeReserve) {
+      pcb.classList.add('has-edge-connector');
+      pcb.style.setProperty('--pcb-edge-tab-reserve', `${edgeReserve.reservePct}%`);
+    }
     pcb.setAttribute('role', 'img');
     pcb.setAttribute('aria-label', board.ariaLabel || board.title || 'Drawn PCB');
 

@@ -1,6 +1,6 @@
 /*
   Astrocade Field Guide - reusable drawn PCB widget
-  RESPONSIVE CACHE-BUSTER BUILD 20260708_r5
+  RESPONSIVE CACHE-BUSTER BUILD 20260708_r6
   Drop in after field-guide.css.
 
   Usage:
@@ -604,7 +604,7 @@
 
 
 /* -------------------------------------------------------------------------
-   RESPONSIVE PAGE + WIDGET FIX - 20260708_r5
+   RESPONSIVE PAGE + WIDGET FIX - 20260708_r6
    This section intentionally sits last and wins over field-guide.css.
 
    The bug was two-part:
@@ -681,6 +681,13 @@ body.astrocade-pcb-page section.astrocade-pcb-example-card {
   max-width: 100% !important;
   font-size: clamp(7px, 1vw, 16px);
   font-size: clamp(7px, 1.12cqi, 16px);
+}
+
+
+.astrocade-pcb-board.has-edge-connector {
+  width: min(calc(100% - var(--pcb-edge-tab-reserve, 5.5%)), var(--pcb-max-width, 1280px)) !important;
+  margin-left: 0;
+  margin-right: auto;
 }
 
 /* Scale component detail from the board/container, not the root rem size. */
@@ -847,40 +854,35 @@ body.astrocade-pcb-page section.astrocade-pcb-example-card {
 
 
 /* -------------------------------------------------------------------------
-   PCB labels + right-side tab edge connector - 20260708_r5
+   PCB labels + right-side tab edge connector - 20260708_r6
 --------------------------------------------------------------------------- */
 .astrocade-pcb-board .pcb-edge-connector {
   overflow: hidden;
   border: 1px solid rgba(232, 255, 245, .22);
-  border-radius: .38em .16em .16em .38em;
+  border-left: 0;
+  border-radius: 0 .16em .16em 0;
   background:
     linear-gradient(135deg, rgba(255, 255, 255, .09), rgba(255, 255, 255, .012)),
     linear-gradient(180deg, #06513a 0%, #087653 48%, #0a8f66 100%);
   box-shadow:
-    inset .08em 0 0 rgba(255, 255, 255, .10),
     inset -.08em 0 .18em rgba(0, 0, 0, .18),
     0 .55em .95em rgba(0, 0, 0, .28);
 }
 
 .astrocade-pcb-board .pcb-edge-connector::before {
-  content: "";
-  position: absolute;
-  inset: .35em auto .35em .22em;
-  width: .16em;
-  border-radius: 999px;
-  background: rgba(232, 255, 245, .16);
+  content: none;
+  display: none;
 }
 
 .astrocade-pcb-board .pcb-edge-finger {
-  left: 10%;
+  left: 0;
   right: auto;
-  border-radius: .08em 0 0 .08em;
+  border-radius: 0 .08em .08em 0;
   background:
     linear-gradient(90deg, var(--pcb-gold-hi), var(--pcb-gold) 55%, #906a21 100%);
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, .55),
-    inset 0 -1px 0 rgba(0, 0, 0, .38),
-    -1px 0 0 rgba(0, 0, 0, .28);
+    inset 0 -1px 0 rgba(0, 0, 0, .38);
 }
 
 .pcb-board-label {

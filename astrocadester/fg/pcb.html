@@ -5,9 +5,11 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Astrocade PCB Drawing Demo</title>
-  <!-- cache-buster build: 20260708_r5 -->
+  <!-- cache-buster build: 20260708_r7 -->
   <link rel="stylesheet" href="css/field-guide.css" />
   <link rel="stylesheet" href="css/astrocade-pcb.css" />
+  <!-- Load the PCB renderer before any inline AstrocadePCB.renderBoard(...) calls. -->
+  <script src="js/astrocade-pcb.js"></script>
 </head>
 
 <body class="guide-chapter astrocade-pcb-page">
@@ -19,37 +21,51 @@
     <main class="astrocade-pcb-main">
       <div class="content">
         <section class="card wide astrocade-pcb-demo-card">
-          <div class="astrocade-pcb-host" data-pcb-board="ramCard"></div>
+          <h2>Live custom board</h2>
+          <div id="custom-board" class="astrocade-pcb-host"></div>
+          <script>
+            AstrocadePCB.renderBoard(document.querySelector('#custom-board'), {
+              title: 'Custom Game Board',
+              width: 1000,
+              height: 680,
+              edgeConnector: { fingers: 11 },
+              pcbLabels: [
+                { position: 'top-right', text: 'Midway RAM A082-91356 DNA', color: 'green' }
+              ],
+              components: [
+                { type: 'ic', ref: 'U1', label: 'Z80 CPU', x: 420, y: 245, w: 145, h: 78, pins: 40 },
+                { type: 'resistor', ref: 'R1', x: 420, y: 360, w: 94 }
+              ]
+            });
+          </script>
         </section>
 
         <section class="card wide astrocade-pcb-example-card">
-          <h2>Customization example</h2>
-          <pre><code>&lt;div id="custom-board"&gt;&lt;/div&gt;
+          <h2>Copy/paste pattern</h2>
+          <p>The renderer script must be loaded before the inline customization call.</p>
+          <pre><code>&lt;link rel="stylesheet" href="css/astrocade-pcb.css" /&gt;
+&lt;script src="js/astrocade-pcb.js"&gt;&lt;/script&gt;
+
+&lt;div id="my-board" class="astrocade-pcb-host"&gt;&lt;/div&gt;
 &lt;script&gt;
-AstrocadePCB.renderBoard(document.querySelector('#custom-board'), {
-  title: 'Custom Game Board',
-  width: 1000,
-  height: 680,
-  edgeConnector: { fingers: 24 },
-  pcbLabels: [
-    { position: 'top-left', text: 'CPU BOARD', color: 'cyan' },
-    { position: 'top-right', text: 'A082-00000-C000', color: 'gold' },
-    { position: 'bottom', text: 'CUSTOM TEST BOARD', color: 'white' },
-    { position: 'right', text: 'MIDWAY MFG CO.', color: 'green' },
-    { position: 'bottom-left', text: 'BALLY', color: '#e8fff5' }
-  ],
-  components: [
-    { type: 'ic', ref: 'U1', label: 'Z80 CPU', x: 420, y: 245, w: 145, h: 78, pins: 40 },
-    { type: 'resistor', ref: 'R1', x: 420, y: 360, w: 94 }
-  ]
-});
+  AstrocadePCB.renderBoard(document.querySelector('#my-board'), {
+    title: 'Custom Game Board',
+    width: 1000,
+    height: 680,
+    edgeConnector: { fingers: 11 },
+    pcbLabels: [
+      { position: 'top-left', text: 'A082-91356', color: 'green' }
+    ],
+    components: [
+      { type: 'ic', ref: 'U1', label: 'Z80 CPU', x: 420, y: 245, w: 145, h: 78, pins: 40 },
+      { type: 'resistor', ref: 'R1', x: 420, y: 360, w: 94 }
+    ]
+  });
 &lt;/script&gt;</code></pre>
         </section>
       </div>
     </main>
   </div>
-
-  <script src="js/astrocade-pcb.js"></script>
 </body>
 
 </html>
