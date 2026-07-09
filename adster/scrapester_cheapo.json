@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-09T20:07:50.857Z",
+  "generated_at": "2026-07-09T21:07:55.685Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,53 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 19,
-      "droppedPrice": 201,
+      "exported_ads": 21,
+      "droppedPrice": 206,
       "droppedMissingGeo": 0,
-      "droppedCircle": 183
+      "droppedCircle": 186
     }
   },
   "ads": [
+    {
+      "adID": "2210146203157269",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/61550698397027/?product_id=2210146203157269",
+      "author": "Ramesh Shenoy",
+      "postedTime": "2026-07-09T20:54:18.000Z",
+      "title": "Gottlieb Sky Line Pinball Machine",
+      "description": "Vintage electro-mechanical pinball machine is a 1965 Gottlieb Sky Line model. Does not currently work, but probably not hard to fix for someone with know-how of these machines.",
+      "price": "$650",
+      "lat": 33.7544657,
+      "lon": -84.3898151,
+      "location": "Atlanta, GA",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/742278161_2095714141296996_1935973854222836872_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=111&ccb=1-7&_nc_sid=92e707&_nc_ohc=xtHStj9q5sIQ7kNvwETTwzB&_nc_oc=Adr_Mrjt7vETMdMDKryUQqxLQqITtEBjUfLuTl__1vYGgt8KghjTKONX1rM6LMQOADA&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=rCVkvp0swvz6Uu4WOCEwfw&_nc_ss=7b2a8&oh=00_AQBnMntyxnPl-S9rctY0KphW1phzKdINXT_qNGccsFXN4g&oe=6A55F159",
+      "adUrl": "https://www.facebook.com/marketplace/item/2210146203157269/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-07-09 21:06:19",
+      "lastSeen": "2026-07-09T21:06:45.354Z"
+    },
+    {
+      "adID": "1856859678631004",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/1060898097/?product_id=1856859678631004",
+      "author": "Sekou Miller",
+      "postedTime": "2026-07-09T20:35:33.000Z",
+      "title": "Fast furious arcade game-AVAILABLE",
+      "description": "Awesome sound and works great/would be awesome in any man cave!! There appears to be lines on the screen in this video. There are no visible lines but it appears only while recording. ATTENTION-The price have been reduced to $800 to allow for you to rent the electric stair dolly- i will not reduce price and will not accept to sell without the buyer using an electric dolly. ALSO-no more will I place item on \"hold\"/\"pending\" without a deposit",
+      "price": "$950",
+      "lat": 30.1586518,
+      "lon": -85.6602936,
+      "location": "Panama City, FL",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t15.5256-10/450566981_1516847855924631_9173339285626187213_n.jpg?stp=dst-jpg_tt6&cstp=mx1080x1920&ctp=s960x960&_nc_cat=106&ccb=1-7&_nc_sid=4f5f82&_nc_ohc=9wySABNkBf8Q7kNvwF7RA78&_nc_oc=Adq8rcqY2n5CSS9CGPYkXg6Q_BcCS6tmknHyTwjpq95YXujGUENG96bftsZ9ZfvHLzs&_nc_zt=23&_nc_ht=scontent-dfw5-1.xx&_nc_gid=ZrGxJpEpLwcJMwBBoy1y-A&_nc_ss=7b2a8&oh=00_AQDj28l_VdUPEnMQ1DS5SEzJm-drzvdRvfgKUh0bl33j2Q&oe=6A55F617",
+      "adUrl": "https://www.facebook.com/marketplace/item/1856859678631004/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-07-09 21:05:12",
+      "lastSeen": "2026-07-09T21:05:53.359Z"
+    },
     {
       "adID": "KLOV-562564",
       "source": "KLOV",
@@ -36,7 +76,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-09 19:39:34",
-      "lastSeen": "2026-07-09T20:07:48.871Z"
+      "lastSeen": "2026-07-09T21:07:53.573Z"
     },
     {
       "adID": "KLOV-563524",
@@ -56,7 +96,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-09 19:39:29",
-      "lastSeen": "2026-07-09T20:07:47.317Z"
+      "lastSeen": "2026-07-09T21:07:52.365Z"
     },
     {
       "adID": "KLOV-550044",
@@ -76,7 +116,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-09 19:39:28",
-      "lastSeen": "2026-07-09T20:07:47.148Z"
+      "lastSeen": "2026-07-09T21:07:52.197Z"
     },
     {
       "adID": "KLOV-563320",
@@ -96,7 +136,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-09 19:39:27",
-      "lastSeen": "2026-07-09T20:07:46.409Z"
+      "lastSeen": "2026-07-09T21:07:51.461Z"
     },
     {
       "adID": "KLOV-564279",
@@ -116,7 +156,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-09 19:39:27",
-      "lastSeen": "2026-07-09T20:07:46.446Z"
+      "lastSeen": "2026-07-09T21:07:51.494Z"
     },
     {
       "adID": "KLOV-563795",
@@ -136,7 +176,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-09 19:39:27",
-      "lastSeen": "2026-07-09T20:07:46.479Z"
+      "lastSeen": "2026-07-09T21:07:51.527Z"
     },
     {
       "adID": "2224231464997643",
@@ -156,7 +196,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-09 19:29:33",
-      "lastSeen": "2026-07-09T20:06:05.919Z"
+      "lastSeen": "2026-07-09T21:06:19.779Z"
     },
     {
       "adID": "3501284690048136",
@@ -176,7 +216,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-09 19:29:33",
-      "lastSeen": "2026-07-09T20:06:06.321Z"
+      "lastSeen": "2026-07-09T21:06:20.179Z"
     },
     {
       "adID": "911325375342490",
@@ -196,7 +236,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-09 19:29:32",
-      "lastSeen": "2026-07-09T20:06:05.484Z"
+      "lastSeen": "2026-07-09T21:06:19.343Z"
     },
     {
       "adID": "1387621573261640",
@@ -216,7 +256,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-09 19:29:32",
-      "lastSeen": "2026-07-09T20:06:05.585Z"
+      "lastSeen": "2026-07-09T21:06:19.443Z"
     },
     {
       "adID": "2201605183929700",
@@ -236,7 +276,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-09 19:29:32",
-      "lastSeen": "2026-07-09T20:06:05.651Z"
+      "lastSeen": "2026-07-09T21:06:19.510Z"
     },
     {
       "adID": "1467961558422856",
@@ -256,7 +296,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-09 19:23:49",
-      "lastSeen": "2026-07-09T20:05:01.479Z"
+      "lastSeen": "2026-07-09T21:05:12.788Z"
     },
     {
       "adID": "966055913127424",
@@ -276,7 +316,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-09 19:23:49",
-      "lastSeen": "2026-07-09T20:05:01.580Z"
+      "lastSeen": "2026-07-09T21:05:12.854Z"
     },
     {
       "adID": "1021709843840304",
@@ -296,7 +336,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-09 19:23:49",
-      "lastSeen": "2026-07-09T20:05:01.613Z"
+      "lastSeen": "2026-07-09T21:05:12.888Z"
     },
     {
       "adID": "1575856623994632",
@@ -316,7 +356,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-09 19:23:49",
-      "lastSeen": "2026-07-09T20:05:01.780Z"
+      "lastSeen": "2026-07-09T21:05:13.055Z"
     },
     {
       "adID": "1743068343606781",
@@ -336,7 +376,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-09 19:23:49",
-      "lastSeen": "2026-07-09T20:05:02.014Z"
+      "lastSeen": "2026-07-09T21:05:13.289Z"
     },
     {
       "adID": "1371808271544213",
@@ -363,20 +403,20 @@
       "source": "FB",
       "authorUrl": null,
       "author": "Jason Dorman",
-      "postedTime": "2026-07-09T18:04:46.431Z",
+      "postedTime": "2026-07-09T18:04:56.684Z",
       "title": "Wms bb1 bb2",
       "description": "I have about 12 of the Wms games with all different games but just for the cost of the card I can put about any game you want in there",
       "price": "$700",
       "lat": 32.3643098,
       "lon": -88.703656,
       "location": "MERIDIAN, MS",
-      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.30808-6/742502048_27148808381488619_5333684226922129441_n.jpg?stp=dst-jpg_tt6&cstp=mx960x932&ctp=p526x296&_nc_cat=107&ccb=1-7&_nc_sid=aa7b47&_nc_ohc=h4QTWrMZX4kQ7kNvwEUoXBM&_nc_oc=AdoHoPx9fiVAWBFr6eXNUfXF8Nuq314ej3JhJ-IH7ONqG_5sxEJ8kGK22FBMqY22Fl8&_nc_zt=23&_nc_ht=scontent-dfw5-2.xx&_nc_gid=D_9kMybCNa1AvVOnPofvkA&_nc_ss=7b2a8&oh=00_AQDFL36yM_0-48Vg59tX70twp6o1v-mRKT35MDv0EwpFbQ&oe=6A55E04C",
+      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.30808-6/742502048_27148808381488619_5333684226922129441_n.jpg?stp=dst-jpg_tt6&cstp=mx960x932&ctp=p526x296&_nc_cat=107&ccb=1-7&_nc_sid=aa7b47&_nc_ohc=h4QTWrMZX4kQ7kNvwEUoXBM&_nc_oc=AdoHoPx9fiVAWBFr6eXNUfXF8Nuq314ej3JhJ-IH7ONqG_5sxEJ8kGK22FBMqY22Fl8&_nc_zt=23&_nc_ht=scontent-dfw5-2.xx&_nc_gid=Vxq48NYr2JIRPHXlV_Hb9A&_nc_ss=7b2a8&oh=00_AQB76khQ7er9H-xRsh4lcsIBxwTganHe1RSvRusn5zLw6Q&oe=6A55E04C",
       "adUrl": "https://www.facebook.com/commerce/listing/2149787302248471/",
       "priceChanged": 0,
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-09 19:23:32",
-      "lastSeen": "2026-07-09T20:04:46.510Z"
+      "lastSeen": "2026-07-09T21:04:57.257Z"
     },
     {
       "adID": "1002342149435906",
