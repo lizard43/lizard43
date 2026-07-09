@@ -4024,3 +4024,55 @@ td a {
   max-width: 0 !important;
   padding: 0 !important;
 }
+
+
+/* -------------------------------------------------------------------------
+   Memory map title/range cleanup
+   - range now lives before the title on the first line
+   - include filename labels are gone
+   - remove the divider line above the EQU code block
+--------------------------------------------------------------------------- */
+.memory-widget .memmap-block-heading {
+  grid-column: 1 !important;
+  grid-row: 1 !important;
+  min-width: 0 !important;
+  display: inline-flex !important;
+  align-items: baseline !important;
+  gap: 0.42rem !important;
+  flex-wrap: wrap !important;
+}
+
+.memory-widget .memmap-block-heading .memmap-block-range {
+  display: inline !important;
+  margin-top: 0 !important;
+  color: rgba(255, 255, 255, .82) !important;
+  font-size: .82rem !important;
+  line-height: 1.1 !important;
+  white-space: nowrap !important;
+}
+
+.memory-widget .memmap-block-heading .memmap-block-title {
+  display: inline !important;
+  grid-column: auto !important;
+  grid-row: auto !important;
+  min-width: 0 !important;
+}
+
+.memory-widget .memmap-block-panel > .memmap-block-range {
+  display: none !important;
+}
+
+.memory-widget .memmap-block-equ-title,
+.memory-widget .memmap-equ-title {
+  display: none !important;
+}
+
+.memory-widget .memmap-block-equ-block,
+.memory-widget .memmap-equ-block {
+  border-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+.memory-widget .memmap-block-note {
+  border-top: 0 !important;
+}

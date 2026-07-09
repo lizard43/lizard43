@@ -641,9 +641,9 @@
         callout: '',
         badges: ['3.9 KB', 'SP @ $E000'],
         equs: [
-          'RAM0_END        equ $DFFF',
-          'RAM0_START      equ $D040',
-          'RAM0_SIZE       equ $0FC0',
+          'RAM0_END            equ $DFFF',
+          'RAM0_START          equ $D040',
+          'RAM0_SIZE           equ $0FC0',
           '',
           'STACK_TOP           equ $E000'
         ],
@@ -680,9 +680,9 @@
           { name: 'wow.x11', start: 0xC000, end: 0xCFFF, size: '4 KB', chip: 'TMS2532', crc: '16f84d73' },
         ],
         equs: [
-          'FOREIGN_END        equ $CFFF',
-          'FOREIGN_START      equ $C000',
-          'FOREIGN_SIZE       equ $1000'
+          'FOREIGN_END         equ $CFFF',
+          'FOREIGN_START       equ $C000',
+          'FOREIGN_SIZE        equ $1000'
         ],
         weight: 20,
         minHeight: 154
@@ -697,9 +697,9 @@
         callout: '',
         badges: ['4 KB'],
         equs: [
-          'UNMAPPED0_END        equ $BFFF',
-          'UNMAPPED0_START      equ $B000',
-          'UNMAPPED0_SIZE       equ $1000'
+          'UNMAPPED0_END       equ $BFFF',
+          'UNMAPPED0_START     equ $B000',
+          'UNMAPPED0_SIZE      equ $1000'
         ],
         weight: 8,
         minHeight: 150
@@ -720,9 +720,9 @@
           { name: 'wow.x7', start: 0xA000, end: 0xAFFF, size: '4 KB', chip: 'TMS2532', crc: 'ce404305' }
         ],
         equs: [
-          'ROM1_END        equ $CFFF',
-          'ROM1_START      equ $8000',
-          'ROM1_SIZE       equ $5000'
+          'ROM1_END            equ $CFFF',
+          'ROM1_START          equ $8000',
+          'ROM1_SIZE           equ $5000'
         ],
         weight: 20,
         minHeight: 154
@@ -737,9 +737,9 @@
         callout: '',
         badges: ['16 KB'],
         equs: [
-          'VRAM_END     equ $7FFF',
-          'VRAM_START   equ $4000',
-          'VRAM_SIZE    equ $4000'
+          'VRAM_END            equ $7FFF',
+          'VRAM_START          equ $4000',
+          'VRAM_SIZE           equ $4000'
         ],
         weight: 16,
         minHeight: 142
@@ -762,13 +762,13 @@
           { name: 'wow.x4', start: 0x3000, end: 0x3FFF, size: '4 KB', chip: 'TMS2532', crc: 'ef28eb84' }
         ],
         equs: [
-          'ROM0_START       equ $0000',
-          'ROM0_END         equ $3FFF',
-          'ROM0_SIZE        equ $4000',
+          'ROM0_START          equ $0000',
+          'ROM0_END            equ $3FFF',
+          'ROM0_SIZE           equ $4000',
           '',
-          'FUNCGEN_START   equ $0000',
-          'FUNCGEN_END     equ $3FFF',
-          'FUNCGEN_SIZE    equ $4000',
+          'FUNCGEN_START       equ $0000',
+          'FUNCGEN_END         equ $3FFF',
+          'FUNCGEN_SIZE        equ $4000',
         ],
         weight: 16,
         minHeight: 154
@@ -859,9 +859,9 @@
           { name: 'german.x11', start: 0xC000, end: 0xCFFF, size: '4 KB', chip: 'TMS2532', crc: '3a3dbdcb' },
         ],
         equs: [
-          'FOREIGN_START      equ $C000',
-          'FOREIGN_END        equ $CFFF',
-          'FOREIGN_SIZE       equ $1000'
+          'FOREIGN_START       equ $C000',
+          'FOREIGN_END         equ $CFFF',
+          'FOREIGN_SIZE        equ $1000'
         ],
         weight: 20,
         minHeight: 154
@@ -899,9 +899,9 @@
         callout: '',
         badges: ['16 KB', 'VRAM', 'Magic target'],
         equs: [
-          'VRAM_START   equ $4000',
-          'VRAM_END     equ $7FFF',
-          'VRAM_SIZE    equ $4000'
+          'VRAM_START          equ $4000',
+          'VRAM_END            equ $7FFF',
+          'VRAM_SIZE           equ $4000'
         ],
         weight: 16,
         minHeight: 142
@@ -924,13 +924,13 @@
           { name: 'gorf-d.bin', start: 0x3000, end: 0x3FFF, size: '4 KB', crc: '70046e56' }
         ],
         equs: [
-          'ROM0_START       equ $0000',
-          'ROM0_END         equ $3FFF',
-          'ROM0_SIZE        equ $4000',
+          'ROM0_START          equ $0000',
+          'ROM0_END            equ $3FFF',
+          'ROM0_SIZE           equ $4000',
           '',
-          'FUNCGEN_START   equ $0000',
-          'FUNCGEN_END     equ $3FFF',
-          'FUNCGEN_SIZE    equ $4000',
+          'FUNCGEN_START       equ $0000',
+          'FUNCGEN_END         equ $3FFF',
+          'FUNCGEN_SIZE        equ $4000',
         ],
         weight: 16,
         minHeight: 154
@@ -1273,10 +1273,6 @@
         const equBlock = document.createElement('div');
         equBlock.className = 'memmap-block-equ-block';
 
-        const equTitle = document.createElement('span');
-        equTitle.className = 'memmap-block-equ-title';
-        equTitle.textContent = includeFileName || 'memory_map.inc';
-
         const equPre = document.createElement('pre');
         equPre.className = 'memmap-block-equs';
 
@@ -1284,7 +1280,7 @@
         equCode.textContent = region.equs.join('\n');
 
         equPre.append(equCode);
-        equBlock.append(equTitle, equPre);
+        equBlock.append(equPre);
         blockPanel.append(equBlock);
       }
     }
@@ -1295,10 +1291,6 @@
       const equBlock = document.createElement('div');
       equBlock.className = 'memmap-equ-block';
 
-      const equTitle = document.createElement('span');
-      equTitle.className = 'memmap-equ-title';
-      equTitle.textContent = includeFileName || 'memory_map.inc';
-
       const equPre = document.createElement('pre');
       equPre.className = 'memmap-equs';
 
@@ -1306,7 +1298,7 @@
       equCode.textContent = region.equs.join('\n');
 
       equPre.append(equCode);
-      equBlock.append(equTitle, equPre);
+      equBlock.append(equPre);
       callout.append(equBlock);
     }
 
@@ -1425,15 +1417,19 @@
         const blockPanel = document.createElement('div');
         blockPanel.className = 'memmap-block-panel';
 
-        const blockTitle = document.createElement('strong');
-        blockTitle.className = 'memmap-block-title';
-        blockTitle.textContent = region.title || '';
+        const blockHeading = document.createElement('div');
+        blockHeading.className = 'memmap-block-heading';
 
         const blockRange = document.createElement('span');
         blockRange.className = 'memmap-block-range';
         blockRange.textContent = formatMemoryRange(region);
 
-        blockPanel.append(blockTitle, blockRange);
+        const blockTitle = document.createElement('strong');
+        blockTitle.className = 'memmap-block-title';
+        blockTitle.textContent = region.title || '';
+
+        blockHeading.append(blockRange, blockTitle);
+        blockPanel.append(blockHeading);
 
         if (region.subtitle) {
           const blockSubtitle = document.createElement('span');
