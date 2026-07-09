@@ -80,8 +80,7 @@
     0 0 0.11em rgba(255, 238, 64, 0.50),
     0 0.075em 0.045em rgba(0, 0, 0, 0.96);
   filter:
-    saturate(1.16)
-    drop-shadow(0 0.035em 0 rgba(0, 0, 0, 0.96));
+    saturate(1.16) drop-shadow(0 0.035em 0 rgba(0, 0, 0, 0.96));
 }
 
 #wizard-of-wor-map .wow-marquee-title::before,
@@ -156,4 +155,30 @@
   #wizard-of-wor-map .wow-marquee-title::after {
     inset: 0.13em 0.16em 0.17em;
   }
+}
+
+.gorf-title-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-width: 0;
+}
+
+.gorf-title-logo {
+  display: block;
+  height: 34px;
+  width: auto;
+  max-width: min(220px, 55vw);
+  object-fit: contain;
+  flex: 0 1 auto;
+}
+
+.gorf-title-sprite {
+  display: block;
+  height: 38px;
+  width: auto;
+  object-fit: contain;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+  flex: 0 0 auto;
 }
