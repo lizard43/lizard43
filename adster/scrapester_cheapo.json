@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-11T16:07:20.053Z",
+  "generated_at": "2026-07-11T17:11:09.581Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,193 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 23,
-      "droppedPrice": 299,
+      "exported_ads": 32,
+      "droppedPrice": 303,
       "droppedMissingGeo": 0,
-      "droppedCircle": 234
+      "droppedCircle": 240
     }
   },
   "ads": [
+    {
+      "adID": "KLOV-564999",
+      "source": "KLOV",
+      "authorUrl": "https://forums.arcade-museum.com/members/jjhudgins.80749/",
+      "author": "jjhudgins",
+      "postedTime": "2026-07-11T17:10:33.000Z",
+      "title": "Sharp XM1801 XM2001 Flyback cover for a Red Tent Nintendo Etc...",
+      "description": "$40 shipped",
+      "price": "$40",
+      "lat": 33.2588817,
+      "lon": -86.8295337,
+      "location": "Alabama",
+      "imageUrl": "/images/klov-placeholder.png",
+      "adUrl": "https://forums.arcade-museum.com/threads/564999/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-07-11 17:11:05",
+      "lastSeen": "2026-07-11T17:11:05.403Z"
+    },
+    {
+      "adID": "2069728046958288",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/1816549709/?product_id=2069728046958288",
+      "author": "Carol Cochran",
+      "postedTime": "2026-07-10T13:56:52.000Z",
+      "title": "Ms Pac-Man machine",
+      "description": "Ms Pac-Man machine for sale. This also has Digdug, Galaxian and Super Pac-Man built in. Only played once. We bought it in hopes of making a gameroom for the grandkids but plans have changed. Been sitting taking up room. Buyer must pickup in Callahan. $500 or very best offer !!",
+      "price": "$500",
+      "lat": 30.5637205,
+      "lon": -81.8297744,
+      "location": "Callahan, FL",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t15.5256-10/745144427_1785400015977777_3849444496023410218_n.jpg?stp=dst-jpg_tt6&cstp=mx720x1280&ctp=s960x960&_nc_cat=106&ccb=1-7&_nc_sid=d4195b&_nc_ohc=krogI00iBzkQ7kNvwHo6wHu&_nc_oc=AdoLfkz-uDiHkNDn06GAykyPMdrj0_z4WMBOpCtSbp6k2f_0HEu-B_iQD1CImpIeq8Y&_nc_zt=23&_nc_ht=scontent-dfw5-1.xx&_nc_gid=BP7Bc2qIGFRa4iiWGxxnsA&_nc_ss=7b2a8&oh=00_AQBAY0tzkrHI1gjqc7x5DOUK7XDl6omV-4VMYn6AP70WgQ&oe=6A5838DB",
+      "adUrl": "https://www.facebook.com/marketplace/item/2069728046958288/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-07-11 17:08:15",
+      "lastSeen": "2026-07-11T17:10:03.611Z"
+    },
+    {
+      "adID": "1538506827750006",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/61573605942239/?product_id=1538506827750006",
+      "author": "Chris Wilson",
+      "postedTime": "2026-07-11T05:36:02.000Z",
+      "title": "Quarter machine",
+      "description": "Everything works as it should just needs new locks",
+      "price": "$100",
+      "lat": 27.7712264,
+      "lon": -82.6340259,
+      "location": "St Petersburg, FL",
+      "imageUrl": "https://scontent-dfw6-2.xx.fbcdn.net/v/t39.84726-6/743186427_27830916843265158_1849506949510605520_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=108&ccb=1-7&_nc_sid=92e707&_nc_ohc=oTroKz9r4PcQ7kNvwE44ysd&_nc_oc=AdqCLmF4WmqPavIBeQ95_xhvWi9G1yY87QNiveH0Lh0XwYSueAdMC_CosVIRo0T4ZlA&_nc_zt=14&_nc_ht=scontent-dfw6-2.xx&_nc_gid=7YuIjDf5faqiqcWg2O7Yqw&_nc_ss=7b2a8&oh=00_AQBXY7xR7vygfy3yYvb115av4X6Vx3tnGyv6Ic8mMKfiwg&oe=6A584550",
+      "adUrl": "https://www.facebook.com/marketplace/item/1538506827750006/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-07-11 17:08:14",
+      "lastSeen": "2026-07-11T17:10:03.545Z"
+    },
+    {
+      "adID": "1060843006515757",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/61573287226504/?product_id=1060843006515757",
+      "author": "Victor Tauro",
+      "postedTime": "2026-07-11T16:20:50.000Z",
+      "title": "Pinball Machine Ground Shaker",
+      "description": "Call me at [hidden information]",
+      "price": "$750",
+      "lat": 29.9443549,
+      "lon": -82.1101114,
+      "location": "Starke, FL",
+      "imageUrl": "https://scontent-dfw6-2.xx.fbcdn.net/v/t39.84726-6/744662074_1503662331009777_823945567438936615_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=108&ccb=1-7&_nc_sid=92e707&_nc_ohc=6hR8iNpimGwQ7kNvwFVlkMb&_nc_oc=Adq8ZnJar9p80rQBPS2edxdKDpNz3qLGiIifFa7SZu-3-dE_aiEy5j4_lWv-4OgHbFk&_nc_zt=14&_nc_ht=scontent-dfw6-2.xx&_nc_gid=QmVh13GYSZg9Wku0NyqmRA&_nc_ss=7b2a8&oh=00_AQCATK-f0Z7nPdq5Rz0Cdhlx09nI16wa1D0DajWNcI4pRg&oe=6A585E2A",
+      "adUrl": "https://www.facebook.com/marketplace/item/1060843006515757/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-07-11 17:08:13",
+      "lastSeen": "2026-07-11T17:10:03.436Z"
+    },
+    {
+      "adID": "1580185163531055",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/597190223/?product_id=1580185163531055",
+      "author": "Montez Rice",
+      "postedTime": "2026-07-11T15:23:39.000Z",
+      "title": "Crusing USA arcade game shell",
+      "description": "Crusing USA cabinet, its none working just an empty shell, but no water damage and in good shape. Comes with the wheel and shifter as well just not in the picture. Need this gone asap!",
+      "price": "$50",
+      "lat": 30.6913462,
+      "lon": -88.0437509,
+      "location": "Mobile, AL",
+      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/744598136_1628455658847316_534930239089460595_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=101&ccb=1-7&_nc_sid=92e707&_nc_ohc=pvqt3N2gHVIQ7kNvwExucfj&_nc_oc=AdqfePUILKyRKTr5WmSOFMS4fmkd0j0qcmWBNJ07Rh1OnF-RM4L66ttzFdNFJXi9_2o&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=4UHdwJJ-AHlQHQPnpAjPaA&_nc_ss=7b2a8&oh=00_AQDdOD_nW7UzWpCPghj8mW2FLUSO5U3RLRnxD3bSBmyFtw&oe=6A585CE8",
+      "adUrl": "https://www.facebook.com/marketplace/item/1580185163531055/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-07-11 17:05:20",
+      "lastSeen": "2026-07-11T17:07:46.483Z"
+    },
+    {
+      "adID": "1026224110129397",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/2014827/?product_id=1026224110129397",
+      "author": "Ginny Switt",
+      "postedTime": "2026-07-11T16:56:41.000Z",
+      "title": "Dick shooting gallery arcade game",
+      "description": "Great condition, fun for the whole family",
+      "price": "$20",
+      "lat": 29.6519684,
+      "lon": -82.3249846,
+      "location": "Gainesville, FL",
+      "imageUrl": "https://scontent-dfw6-2.xx.fbcdn.net/v/t39.84726-6/742501390_1047533851026146_18146104466176846_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=108&ccb=1-7&_nc_sid=92e707&_nc_ohc=5-SzBzQA7GYQ7kNvwE79b7y&_nc_oc=AdobeWvwIwCNfAC65wC3sMydS9SPTvw5xCdPVkXU9qvkWOgk1pDYrYokqyMVv8HHDwA&_nc_zt=14&_nc_ht=scontent-dfw6-2.xx&_nc_gid=HNW2XQ4pJc6P3Q_xzI1Otw&_nc_ss=7b2a8&oh=00_AQCCsJyfjn5lNhnBBVMAu7Z1QtVo70gX5pr2_ubdbCD5mg&oe=6A584EB8",
+      "adUrl": "https://www.facebook.com/marketplace/item/1026224110129397/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-07-11 17:05:19",
+      "lastSeen": "2026-07-11T17:07:46.173Z"
+    },
+    {
+      "adID": "1568147228038632",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/640644881/?product_id=1568147228038632",
+      "author": "Cathy Ann Glover Reister",
+      "postedTime": "2026-07-11T16:28:56.000Z",
+      "title": "Mip arcade",
+      "description": "Has all parts and instructions. New 60.00 You get an app and you use the controls on the phone to control the robot",
+      "price": "$20",
+      "lat": 30.3262247,
+      "lon": -81.6579179,
+      "location": "Jacksonville, FL",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/743270165_2424097984734719_6023793504433856320_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=105&ccb=1-7&_nc_sid=92e707&_nc_ohc=mfeG5f0X8E0Q7kNvwGttGyP&_nc_oc=AdqLAUrAmoDB0cdSPvLhdUerm97w-QggjjPrM9BWKjH4aBCUTTjl3RaJqpo0ztX-jbw&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=kPtw5KmWEBkVl32GSUWSFA&_nc_ss=7b2a8&oh=00_AQBKRo4fq7qcYNTtLRcEHCDGJu8uiUpkgm2KtJ2lm3v2VA&oe=6A583A8F",
+      "adUrl": "https://www.facebook.com/marketplace/item/1568147228038632/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-07-11 17:05:19",
+      "lastSeen": "2026-07-11T17:07:46.218Z"
+    },
+    {
+      "adID": "1245203617631174",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100045977418901/?product_id=1245203617631174",
+      "author": "Antonio Smith Jr.",
+      "postedTime": "2026-07-11T16:32:02.000Z",
+      "title": "PAC-MAN Arcade Game Machine",
+      "description": "Awesome PAC-MAN arcade game machine. It has a classic arcade cabinet design with yellow sides and red trim. The machine has a joystick and buttons for gameplay. Does not turn on for some reason",
+      "price": "$150",
+      "lat": 27.928464,
+      "lon": -82.2880508,
+      "location": "Brandon, FL",
+      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t15.5256-10/743817313_1410967450853514_6102948432691267723_n.jpg?stp=dst-jpg_tt6&cstp=mx720x1280&ctp=s960x960&_nc_cat=104&ccb=1-7&_nc_sid=d4195b&_nc_ohc=bDZUJLkvJ2kQ7kNvwEzJdvU&_nc_oc=AdrfvO09vFYqPg4QVt7y99qRnANzrzr9onzO8vlLxFhewzbrdIw2_Q6wn2kI-pZfxlk&_nc_zt=23&_nc_ht=scontent-dfw5-2.xx&_nc_gid=jn_c94eW1aR3bdzN3RbEmg&_nc_ss=7b2a8&oh=00_AQBMuIIv2OHwBB0wxoKljUM1tyN4WBQMoeXnk3dxQ-SX3g&oe=6A584531",
+      "adUrl": "https://www.facebook.com/marketplace/item/1245203617631174/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-07-11 17:05:19",
+      "lastSeen": "2026-07-11T17:07:46.251Z"
+    },
+    {
+      "adID": "1566477825070362",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/1620710617/?product_id=1566477825070362",
+      "author": "Techy Gonzales",
+      "postedTime": "2026-07-11T01:25:46.000Z",
+      "title": "ARCADE PAC MAN",
+      "description": "Only used few time, like new",
+      "price": "$450",
+      "lat": 28.1866014,
+      "lon": -82.366121,
+      "location": "Wesley Chapel, FL",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/743467472_2171715580066316_8379736078953252084_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=106&ccb=1-7&_nc_sid=92e707&_nc_ohc=HBY8lWCpgQgQ7kNvwGmk8dM&_nc_oc=Adphq9SDMp464X0lqIbj4GTRxY0jcQvYjXJqQtnMZG70IQwOImYPYdTAPpuYspRndOs&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=0GzXf3aiLYRIi_H4Wce8Cg&_nc_ss=7b2a8&oh=00_AQCCRoGnor7hmIdUbH0sMnlgCP4AjVr9SpUDoq3v3ditfw&oe=6A5842B2",
+      "adUrl": "https://www.facebook.com/marketplace/item/1566477825070362/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-07-11 17:05:19",
+      "lastSeen": "2026-07-11T17:07:46.383Z"
+    },
     {
       "adID": "1569573268147067",
       "source": "MP",
@@ -36,7 +216,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-11 14:05:05",
-      "lastSeen": "2026-07-11T16:05:02.144Z"
+      "lastSeen": "2026-07-11T17:05:19.509Z"
     },
     {
       "adID": "1601008764925170",
@@ -56,7 +236,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-11 13:04:59",
-      "lastSeen": "2026-07-11T13:05:22.570Z"
+      "lastSeen": "2026-07-11T17:05:19.677Z"
     },
     {
       "adID": "2805052359876437",
@@ -116,7 +296,7 @@
       "priceChangedAt": "2026-07-11 14:05:06",
       "hidden": 0,
       "created_at": "2026-07-11 11:05:06",
-      "lastSeen": "2026-07-11T16:05:02.177Z"
+      "lastSeen": "2026-07-11T17:05:19.744Z"
     },
     {
       "adID": "2060253508251368",
@@ -136,7 +316,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-10 22:05:05",
-      "lastSeen": "2026-07-11T16:05:15.273Z"
+      "lastSeen": "2026-07-11T17:08:14.935Z"
     },
     {
       "adID": "2168171857248928",
@@ -196,7 +376,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-10 14:07:40",
-      "lastSeen": "2026-07-11T16:07:16.773Z"
+      "lastSeen": "2026-07-11T17:11:06.146Z"
     },
     {
       "adID": "2024830925064690",
@@ -276,7 +456,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-09 19:39:34",
-      "lastSeen": "2026-07-11T16:07:18.142Z"
+      "lastSeen": "2026-07-11T17:11:07.834Z"
     },
     {
       "adID": "KLOV-563524",
@@ -336,7 +516,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-09 19:39:27",
-      "lastSeen": "2026-07-11T16:07:16.906Z"
+      "lastSeen": "2026-07-11T17:11:06.280Z"
     },
     {
       "adID": "KLOV-564279",
@@ -356,7 +536,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-09 19:39:27",
-      "lastSeen": "2026-07-11T16:07:16.938Z"
+      "lastSeen": "2026-07-11T17:11:06.314Z"
     },
     {
       "adID": "KLOV-563795",
