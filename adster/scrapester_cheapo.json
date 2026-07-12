@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-12T16:07:07.595Z",
+  "generated_at": "2026-07-12T17:07:37.963Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,33 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 42,
-      "droppedPrice": 358,
+      "exported_ads": 43,
+      "droppedPrice": 360,
       "droppedMissingGeo": 0,
-      "droppedCircle": 296
+      "droppedCircle": 298
     }
   },
   "ads": [
+    {
+      "adID": "2136750853536157",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100091954923940/?product_id=2136750853536157",
+      "author": "David Shaffer",
+      "postedTime": "2026-07-12T15:59:50.000Z",
+      "title": "1960s LeMans Grand Prix Pinball Game - Toy",
+      "description": "22” Tall and 10” Wide BooneVille Arkansas",
+      "price": "$20",
+      "lat": 33.7544657,
+      "lon": -84.3898151,
+      "location": "Atlanta, GA",
+      "imageUrl": "https://scontent-dfw6-2.xx.fbcdn.net/v/t39.84726-6/746472356_1346412263593120_5907442323548101776_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=110&ccb=1-7&_nc_sid=92e707&_nc_ohc=iRY3Euhw51MQ7kNvwGhtdGx&_nc_oc=AdpzOWFIzjczcujfA3Cgh2YXd2hcZN8RuJpgbjou2525sayKwbzNUlX6lodt2RBSQ2o&_nc_zt=14&_nc_ht=scontent-dfw6-2.xx&_nc_gid=Q0iuxhmTcWqr8htAvTHA0A&_nc_ss=7b2a8&oh=00_AQAk1LOJsqAIQ4X_OCfU4AkQICLHuJ9SqUeZ_pz3ot2gUQ&oe=6A599F6F",
+      "adUrl": "https://www.facebook.com/marketplace/item/2136750853536157/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-07-12 17:05:31",
+      "lastSeen": "2026-07-12T17:06:28.736Z"
+    },
     {
       "adID": "1594360972293744",
       "source": "MP",
@@ -56,7 +76,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-12 13:06:18",
-      "lastSeen": "2026-07-12T16:05:49.282Z"
+      "lastSeen": "2026-07-12T17:05:31.629Z"
     },
     {
       "adID": "1058945333155014",
@@ -76,7 +96,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-12 12:05:48",
-      "lastSeen": "2026-07-12T16:05:49.349Z"
+      "lastSeen": "2026-07-12T17:05:31.696Z"
     },
     {
       "adID": "1047072331593522",
@@ -96,7 +116,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-12 11:06:22",
-      "lastSeen": "2026-07-12T16:05:49.316Z"
+      "lastSeen": "2026-07-12T17:05:31.662Z"
     },
     {
       "adID": "1012705848021104",
@@ -116,7 +136,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-12 11:06:22",
-      "lastSeen": "2026-07-12T16:05:49.450Z"
+      "lastSeen": "2026-07-12T17:05:31.797Z"
     },
     {
       "adID": "2009459719710575",
@@ -156,7 +176,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-11 23:06:08",
-      "lastSeen": "2026-07-12T16:05:49.617Z"
+      "lastSeen": "2026-07-12T17:05:31.976Z"
     },
     {
       "adID": "1457477166422856",
@@ -216,7 +236,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-11 19:06:09",
-      "lastSeen": "2026-07-12T16:05:49.951Z"
+      "lastSeen": "2026-07-12T17:05:32.310Z"
     },
     {
       "adID": "996227133241679",
@@ -256,7 +276,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-11 18:06:50",
-      "lastSeen": "2026-07-12T16:05:50.018Z"
+      "lastSeen": "2026-07-12T17:05:32.376Z"
     },
     {
       "adID": "KLOV-564999",
@@ -276,7 +296,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-11 17:11:05",
-      "lastSeen": "2026-07-12T16:07:03.494Z"
+      "lastSeen": "2026-07-12T17:07:33.205Z"
     },
     {
       "adID": "2069728046958288",
@@ -316,7 +336,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-11 17:08:14",
-      "lastSeen": "2026-07-12T16:05:50.320Z"
+      "lastSeen": "2026-07-12T17:05:32.998Z"
     },
     {
       "adID": "1060843006515757",
@@ -336,7 +356,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-11 17:08:13",
-      "lastSeen": "2026-07-12T16:05:50.085Z"
+      "lastSeen": "2026-07-12T17:05:32.444Z"
     },
     {
       "adID": "1580185163531055",
@@ -356,7 +376,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-11 17:05:20",
-      "lastSeen": "2026-07-12T16:05:07.922Z"
+      "lastSeen": "2026-07-12T17:05:18.144Z"
     },
     {
       "adID": "1568147228038632",
@@ -376,7 +396,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-11 17:05:19",
-      "lastSeen": "2026-07-12T13:05:12.277Z"
+      "lastSeen": "2026-07-12T17:05:18.077Z"
     },
     {
       "adID": "1245203617631174",
@@ -396,7 +416,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-11 17:05:19",
-      "lastSeen": "2026-07-12T16:05:07.889Z"
+      "lastSeen": "2026-07-12T17:05:18.111Z"
     },
     {
       "adID": "1566477825070362",
@@ -436,7 +456,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-11 14:05:05",
-      "lastSeen": "2026-07-12T16:05:07.989Z"
+      "lastSeen": "2026-07-12T17:05:18.211Z"
     },
     {
       "adID": "1601008764925170",
@@ -516,7 +536,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-10 22:05:05",
-      "lastSeen": "2026-07-12T16:05:50.387Z"
+      "lastSeen": "2026-07-12T17:05:33.063Z"
     },
     {
       "adID": "2168171857248928",
@@ -656,7 +676,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-09 19:39:34",
-      "lastSeen": "2026-07-12T16:07:05.686Z"
+      "lastSeen": "2026-07-12T17:07:36.287Z"
     },
     {
       "adID": "KLOV-563524",
