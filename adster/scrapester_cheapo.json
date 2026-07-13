@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-13T21:35:23.724Z",
+  "generated_at": "2026-07-13T22:09:10.817Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,33 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 68,
-      "droppedPrice": 414,
+      "exported_ads": 69,
+      "droppedPrice": 417,
       "droppedMissingGeo": 0,
-      "droppedCircle": 374
+      "droppedCircle": 383
     }
   },
   "ads": [
+    {
+      "adID": "1517063646086540",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100029168648126/?product_id=1517063646086540",
+      "author": "Shal Paquette",
+      "postedTime": "2026-07-13T10:36:26.000Z",
+      "title": "Large stamp collection",
+      "description": "Too may to picture all of them. Im not answering a million questions. If you are interested in buying all of them we can arrange for you to look them over and make a offer. Message me",
+      "price": "$1",
+      "lat": 28.9294316,
+      "lon": -81.6656305,
+      "location": "Umatilla, FL",
+      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/747604711_2088094171810642_728394410483723713_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=101&ccb=1-7&_nc_sid=92e707&_nc_ohc=1sMLCloK7PgQ7kNvwEf57Rt&_nc_oc=AdrFTDtZ3-_caqpfb7XJICXUpJllOEfaz2Hzx2qggDzH73KHkI97nBCzV2OWww_CI0Y&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=nKkDVgABFTN9nCDcP9PabQ&_nc_ss=7b2a8&oh=00_AQCRgxZzGyucMFoPj038ssqEokSC8EnljuJnro1PVKkt3g&oe=6A5B4E96",
+      "adUrl": "https://www.facebook.com/marketplace/item/1517063646086540/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-07-13 22:06:44",
+      "lastSeen": "2026-07-13T22:08:09.184Z"
+    },
     {
       "adID": "27508496652149018",
       "source": "MP",
@@ -36,7 +56,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-13 21:05:38",
-      "lastSeen": "2026-07-13T21:06:06.083Z"
+      "lastSeen": "2026-07-13T22:05:26.718Z"
     },
     {
       "adID": "1546366983563518",
@@ -56,7 +76,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-13 20:07:47",
-      "lastSeen": "2026-07-13T21:06:38.729Z"
+      "lastSeen": "2026-07-13T22:06:43.585Z"
     },
     {
       "adID": "896485386835416",
@@ -96,7 +116,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-13 20:05:12",
-      "lastSeen": "2026-07-13T21:05:38.929Z"
+      "lastSeen": "2026-07-13T22:06:43.977Z"
     },
     {
       "adID": "1023453243979840",
@@ -116,7 +136,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-13 19:06:42",
-      "lastSeen": "2026-07-13T21:06:37.489Z"
+      "lastSeen": "2026-07-13T22:06:41.510Z"
     },
     {
       "adID": "4611723732450736",
@@ -136,7 +156,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-13 19:06:42",
-      "lastSeen": "2026-07-13T21:06:37.556Z"
+      "lastSeen": "2026-07-13T22:06:41.577Z"
     },
     {
       "adID": "1018526397811246",
@@ -156,7 +176,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-13 19:06:42",
-      "lastSeen": "2026-07-13T21:06:37.590Z"
+      "lastSeen": "2026-07-13T22:06:41.611Z"
     },
     {
       "adID": "1558449605677768",
@@ -183,20 +203,20 @@
       "source": "FB",
       "authorUrl": null,
       "author": "John Russo",
-      "postedTime": "2026-07-13T19:01:38.677Z",
+      "postedTime": "2026-07-13T19:01:30.129Z",
       "title": "Silent scope front end parts only",
       "description": "As you can see this is the front end there is no CPU board the gun is complete but untested. I have no reason to think the gun doesn’t work. 99% sure we ended up with this front end from a game that otherwise died.",
       "price": "$200",
       "lat": 27.9449854,
       "lon": -82.4583107,
       "location": "TAMPA, FL",
-      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.30808-6/743386970_10235853020533931_3676087032669024506_n.jpg?stp=dst-jpg_tt6&cstp=mx1537x2048&ctp=s590x590&_nc_cat=105&ccb=1-7&_nc_sid=aa7b47&_nc_ohc=BO1t5p6sY6EQ7kNvwEQjy0s&_nc_oc=AdrZxL2ld-UK3nseSHZyqaF7R1I7paVhLbWHdjlONLtn6voqQS1GZPHYuTIFF6cYMJo&_nc_zt=23&_nc_ht=scontent-dfw5-1.xx&_nc_gid=eSt6FHlJaabb2WQHzE6xcA&_nc_ss=7b2a8&oh=00_AQDyM6IuB64UeAb-la0MxkuX2Q3xC37avfjk4Mgknp56hg&oe=6A5B11B1",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.30808-6/743386970_10235853020533931_3676087032669024506_n.jpg?stp=dst-jpg_tt6&cstp=mx1537x2048&ctp=s590x590&_nc_cat=105&ccb=1-7&_nc_sid=aa7b47&_nc_ohc=BO1t5p6sY6EQ7kNvwEQjy0s&_nc_oc=AdrZxL2ld-UK3nseSHZyqaF7R1I7paVhLbWHdjlONLtn6voqQS1GZPHYuTIFF6cYMJo&_nc_zt=23&_nc_ht=scontent-dfw5-1.xx&_nc_gid=JWwXyC1slzzeHpS5J_MmYw&_nc_ss=7b2a8&oh=00_AQCtr954xZK4I2ml5eVKY93sLD6fuW-dMNXtmx-LuzTo5g&oe=6A5B49F1",
       "adUrl": "https://www.facebook.com/commerce/listing/1467723131705933/",
       "priceChanged": 0,
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-13 19:01:26",
-      "lastSeen": "2026-07-13T21:01:38.789Z"
+      "lastSeen": "2026-07-13T22:01:30.277Z"
     },
     {
       "adID": "1066143389411759",
@@ -256,7 +276,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-13 17:06:24",
-      "lastSeen": "2026-07-13T21:06:38.762Z"
+      "lastSeen": "2026-07-13T22:06:43.624Z"
     },
     {
       "adID": "1769752067358149",
@@ -296,7 +316,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-13 11:09:00",
-      "lastSeen": "2026-07-13T21:07:53.446Z"
+      "lastSeen": "2026-07-13T22:09:06.353Z"
     },
     {
       "adID": "1532977624987111",
@@ -336,7 +356,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-13 11:05:18",
-      "lastSeen": "2026-07-13T21:05:39.383Z"
+      "lastSeen": "2026-07-13T22:05:26.986Z"
     },
     {
       "adID": "1496940078785872",
@@ -356,7 +376,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-13 01:05:04",
-      "lastSeen": "2026-07-13T21:05:39.550Z"
+      "lastSeen": "2026-07-13T22:05:27.153Z"
     },
     {
       "adID": "1750819536054635",
@@ -376,7 +396,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-12 23:06:30",
-      "lastSeen": "2026-07-13T21:06:38.092Z"
+      "lastSeen": "2026-07-13T22:06:42.113Z"
     },
     {
       "adID": "1031334169378916",
@@ -403,20 +423,20 @@
       "source": "FB",
       "authorUrl": null,
       "author": "Cory Anderson",
-      "postedTime": "2026-07-12T22:00:34.196Z",
+      "postedTime": "2026-07-12T22:00:28.975Z",
       "title": "Gyurss",
       "description": "I have a Gyruss arcade game for sale that is in excellent condition. I will not answer questions in the comments . If interested PM me directly. Asking $900.00",
       "price": "$900",
       "lat": 30.3262247,
       "lon": -81.6579179,
       "location": "JACKSONVILLE, FL",
-      "imageUrl": "https://scontent-dfw6-2.xx.fbcdn.net/v/t1.6435-9/119965794_3860260557319647_2135384064706645180_n.jpg?stp=dst-jpg_tt6&cstp=mx1317x640&ctp=s590x590&_nc_cat=110&ccb=1-7&_nc_sid=aa7b47&_nc_ohc=ETNxPxzBhMwQ7kNvwGFLJXq&_nc_oc=Adq3zjrFS4WEqh64BCUdRkwKkY-WkhhLgN0EYblAURthGb0ATOzJPCon7n1eoT83N54&_nc_zt=23&_nc_ht=scontent-dfw6-2.xx&_nc_gid=JXnv2ukPCkpKK8q3GY9iJw&_nc_ss=7b2a8&oh=00_AQDK4jsmq66xK28kFJDj_ZGsWozOYoJFYGSQXtOrt8CL_w&oe=6A7CCA75",
+      "imageUrl": "https://scontent-dfw6-2.xx.fbcdn.net/v/t1.6435-9/119965794_3860260557319647_2135384064706645180_n.jpg?stp=dst-jpg_tt6&cstp=mx1317x640&ctp=s590x590&_nc_cat=110&ccb=1-7&_nc_sid=aa7b47&_nc_ohc=ETNxPxzBhMwQ7kNvwGFLJXq&_nc_oc=Adq3zjrFS4WEqh64BCUdRkwKkY-WkhhLgN0EYblAURthGb0ATOzJPCon7n1eoT83N54&_nc_zt=23&_nc_ht=scontent-dfw6-2.xx&_nc_gid=oZE3sUEHWJPMfbHWBUGiGQ&_nc_ss=7b2a8&oh=00_AQBgNg3eK_pbxVX-Fl9jATQ1rPdRXH2-Il8E_K_Pn20XlQ&oe=6A7CCA75",
       "adUrl": "https://www.facebook.com/commerce/listing/1371872218202751/",
       "priceChanged": 0,
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-12 22:00:26",
-      "lastSeen": "2026-07-13T21:00:34.310Z"
+      "lastSeen": "2026-07-13T22:00:29.097Z"
     },
     {
       "adID": "2286928652135455",
@@ -496,7 +516,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-12 20:05:09",
-      "lastSeen": "2026-07-13T21:06:38.259Z"
+      "lastSeen": "2026-07-13T22:06:43.204Z"
     },
     {
       "adID": "1232509165620800",
@@ -636,7 +656,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-12 11:06:22",
-      "lastSeen": "2026-07-13T21:06:38.460Z"
+      "lastSeen": "2026-07-13T22:06:43.406Z"
     },
     {
       "adID": "1012705848021104",
@@ -656,7 +676,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-12 11:06:22",
-      "lastSeen": "2026-07-13T21:06:38.560Z"
+      "lastSeen": "2026-07-13T22:06:43.506Z"
     },
     {
       "adID": "2009459719710575",
@@ -816,7 +836,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-11 17:11:05",
-      "lastSeen": "2026-07-13T21:07:54.746Z"
+      "lastSeen": "2026-07-13T22:09:07.289Z"
     },
     {
       "adID": "2069728046958288",
@@ -1216,7 +1236,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-09 19:39:34",
-      "lastSeen": "2026-07-13T21:07:56.068Z"
+      "lastSeen": "2026-07-13T22:09:09.000Z"
     },
     {
       "adID": "KLOV-563524",
