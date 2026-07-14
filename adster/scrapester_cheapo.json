@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-14T16:07:44.925Z",
+  "generated_at": "2026-07-14T17:09:47.423Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,33 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 79,
-      "droppedPrice": 437,
+      "exported_ads": 80,
+      "droppedPrice": 447,
       "droppedMissingGeo": 0,
-      "droppedCircle": 423
+      "droppedCircle": 430
     }
   },
   "ads": [
+    {
+      "adID": "1329119356090503",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100000113952189/?product_id=1329119356090503",
+      "author": "Rayand Candy Lewis",
+      "postedTime": "2026-07-14T16:32:12.000Z",
+      "title": "Williams Gorgar Pinball Machine",
+      "description": "Vintage Williams Gorgar pinball machine has a fantasy horror theme with red, black, and white cabinet art. This solid-state machine is the first talking pinball game and has a four-player digital display. The playfield has three pop bumpers, two flippers, and a magnet feature. The backglass has vibrant multi-colored artwork depicting a demon figure. It needs service.",
+      "price": "$800",
+      "lat": 33.2095614,
+      "lon": -87.5675258,
+      "location": "Tuscaloosa, AL",
+      "imageUrl": "https://scontent-dfw6-2.xx.fbcdn.net/v/t39.84726-6/748216561_1361820172593159_259999631989947148_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=109&ccb=1-7&_nc_sid=92e707&_nc_ohc=lgNbjPl6_V0Q7kNvwGdDFpq&_nc_oc=AdrHYA96MvxROWigkj-5HsTrTRL681u8yrCtwtPKMa4sHMA-UyQEaqEROfNtMyVxktU&_nc_zt=14&_nc_ht=scontent-dfw6-2.xx&_nc_gid=FF8QwEaAzd5xhvos-EARtA&_nc_ss=7b2a8&oh=00_AQCbjXtuotria-4V5bCij4vmRMgtiaH2gba27A4U3mC15A&oe=6A5C262E",
+      "adUrl": "https://www.facebook.com/marketplace/item/1329119356090503/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-07-14 17:07:43",
+      "lastSeen": "2026-07-14T17:08:43.237Z"
+    },
     {
       "adID": "1552833379563108",
       "source": "MP",
@@ -56,7 +76,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-14 15:05:03",
-      "lastSeen": "2026-07-14T16:05:07.191Z"
+      "lastSeen": "2026-07-14T17:05:15.401Z"
     },
     {
       "adID": "1599624271805841",
@@ -76,7 +96,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-14 15:05:03",
-      "lastSeen": "2026-07-14T16:05:07.225Z"
+      "lastSeen": "2026-07-14T17:05:15.435Z"
     },
     {
       "adID": "KLOV-559902",
@@ -96,7 +116,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-14 14:06:49",
-      "lastSeen": "2026-07-14T16:07:40.157Z"
+      "lastSeen": "2026-07-14T17:09:43.081Z"
     },
     {
       "adID": "901806042974008",
@@ -156,7 +176,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-14 13:05:03",
-      "lastSeen": "2026-07-14T16:05:07.259Z"
+      "lastSeen": "2026-07-14T17:05:15.468Z"
     },
     {
       "adID": "27660417313578440",
@@ -176,7 +196,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-14 11:07:29",
-      "lastSeen": "2026-07-14T16:06:24.648Z"
+      "lastSeen": "2026-07-14T17:07:44.237Z"
     },
     {
       "adID": "37508559852075934",
@@ -196,7 +216,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-14 11:05:17",
-      "lastSeen": "2026-07-14T16:05:07.325Z"
+      "lastSeen": "2026-07-14T17:05:15.535Z"
     },
     {
       "adID": "1046479184493127",
@@ -216,7 +236,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-13 23:05:23",
-      "lastSeen": "2026-07-14T16:05:07.426Z"
+      "lastSeen": "2026-07-14T17:05:15.636Z"
     },
     {
       "adID": "1517063646086540",
@@ -256,7 +276,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-13 21:05:38",
-      "lastSeen": "2026-07-14T16:05:07.460Z"
+      "lastSeen": "2026-07-14T17:05:15.669Z"
     },
     {
       "adID": "1546366983563518",
@@ -330,13 +350,13 @@
       "lat": 30.5552959,
       "lon": -87.7109526,
       "location": "Robertsdale, AL",
-      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/745715494_1336549128605260_8837865438852080413_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=101&ccb=1-7&_nc_sid=92e707&_nc_ohc=AkJcBUOk_cIQ7kNvwFJIhr4&_nc_oc=AdoccqD3j-_uggMKgMkWeYCJGyelqScb_gBZKl1_aK744vD2k9orq73U_cDdSdgtaSY&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=nKx9Q08XV9IwVql0pOn0-A&_nc_ss=7b2a8&oh=00_AQAa2CCNsynIp14AFvWvvmeuB63tgcWjN3LsF8JCufY82g&oe=6A5B1FB2",
+      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/745715494_1336549128605260_8837865438852080413_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=101&ccb=1-7&_nc_sid=92e707&_nc_ohc=AkJcBUOk_cIQ7kNvwFJIhr4&_nc_oc=AdoccqD3j-_uggMKgMkWeYCJGyelqScb_gBZKl1_aK744vD2k9orq73U_cDdSdgtaSY&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=lGNSvDrVZN2f-wGb6ARJtQ&_nc_ss=7b2a8&oh=00_AQAj-h89onUW4gY5Pq45ERY2XGo-WK19SJFMpPWJ0kYUVQ&oe=6A5C38F2",
       "adUrl": "https://www.facebook.com/marketplace/item/1023453243979840/",
       "priceChanged": 0,
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-13 19:06:42",
-      "lastSeen": "2026-07-14T16:06:24.916Z"
+      "lastSeen": "2026-07-14T17:08:43.392Z"
     },
     {
       "adID": "4611723732450736",
@@ -356,7 +376,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-13 19:06:42",
-      "lastSeen": "2026-07-14T16:06:24.982Z"
+      "lastSeen": "2026-07-14T17:07:44.550Z"
     },
     {
       "adID": "1018526397811246",
@@ -376,7 +396,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-13 19:06:42",
-      "lastSeen": "2026-07-14T16:06:25.015Z"
+      "lastSeen": "2026-07-14T17:07:44.583Z"
     },
     {
       "adID": "1558449605677768",
@@ -516,7 +536,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-13 11:09:00",
-      "lastSeen": "2026-07-14T16:07:40.914Z"
+      "lastSeen": "2026-07-14T17:09:43.817Z"
     },
     {
       "adID": "1532977624987111",
@@ -556,7 +576,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-13 11:05:18",
-      "lastSeen": "2026-07-14T16:05:07.762Z"
+      "lastSeen": "2026-07-14T17:05:16.640Z"
     },
     {
       "adID": "1496940078785872",
@@ -576,7 +596,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-13 01:05:04",
-      "lastSeen": "2026-07-14T16:05:07.928Z"
+      "lastSeen": "2026-07-14T17:05:16.808Z"
     },
     {
       "adID": "1750819536054635",
@@ -623,20 +643,20 @@
       "source": "FB",
       "authorUrl": null,
       "author": "Cory Anderson",
-      "postedTime": "2026-07-13T16:00:26.596Z",
+      "postedTime": "2026-07-13T17:00:27.808Z",
       "title": "Gyurss",
       "description": "I have a Gyruss arcade game for sale that is in excellent condition. I will not answer questions in the comments . If interested PM me directly. Asking $900.00",
       "price": "$900",
       "lat": 30.3262247,
       "lon": -81.6579179,
       "location": "JACKSONVILLE, FL",
-      "imageUrl": "https://scontent-dfw6-2.xx.fbcdn.net/v/t1.6435-9/119965794_3860260557319647_2135384064706645180_n.jpg?stp=dst-jpg_tt6&cstp=mx1317x640&ctp=s590x590&_nc_cat=110&ccb=1-7&_nc_sid=aa7b47&_nc_ohc=ETNxPxzBhMwQ7kNvwGFLJXq&_nc_oc=Adq3zjrFS4WEqh64BCUdRkwKkY-WkhhLgN0EYblAURthGb0ATOzJPCon7n1eoT83N54&_nc_zt=23&_nc_ht=scontent-dfw6-2.xx&_nc_gid=L1X0JYBk2SHr86WQycHPtw&_nc_ss=7b2a8&oh=00_AQBcOZqvpqSb8c6qkhvBMCuOGsCLNoQsEUev3_rD4rQNEw&oe=6A7DE3B5",
+      "imageUrl": "https://scontent-dfw6-2.xx.fbcdn.net/v/t1.6435-9/119965794_3860260557319647_2135384064706645180_n.jpg?stp=dst-jpg_tt6&cstp=mx1317x640&ctp=s590x590&_nc_cat=110&ccb=1-7&_nc_sid=aa7b47&_nc_ohc=ETNxPxzBhMwQ7kNvwGFLJXq&_nc_oc=Adq3zjrFS4WEqh64BCUdRkwKkY-WkhhLgN0EYblAURthGb0ATOzJPCon7n1eoT83N54&_nc_zt=23&_nc_ht=scontent-dfw6-2.xx&_nc_gid=I4FS2guoN3u4O82wLCpJmA&_nc_ss=7b2a8&oh=00_AQD-QZmINQikM8qkvz1XYi0I2B_uz9cPWGo47ENA7TU26A&oe=6A7DE3B5",
       "adUrl": "https://www.facebook.com/commerce/listing/1371872218202751/",
       "priceChanged": 0,
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-12 22:00:26",
-      "lastSeen": "2026-07-14T16:00:26.851Z"
+      "lastSeen": "2026-07-14T17:00:29.525Z"
     },
     {
       "adID": "2286928652135455",
@@ -1436,7 +1456,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-09 19:39:34",
-      "lastSeen": "2026-07-14T16:07:43.173Z"
+      "lastSeen": "2026-07-14T17:09:46.023Z"
     },
     {
       "adID": "KLOV-563524",
