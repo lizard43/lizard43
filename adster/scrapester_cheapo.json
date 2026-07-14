@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-14T13:08:16.155Z",
+  "generated_at": "2026-07-14T14:06:54.191Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,33 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 75,
-      "droppedPrice": 435,
+      "exported_ads": 76,
+      "droppedPrice": 436,
       "droppedMissingGeo": 0,
-      "droppedCircle": 410
+      "droppedCircle": 412
     }
   },
   "ads": [
+    {
+      "adID": "KLOV-559902",
+      "source": "KLOV",
+      "authorUrl": "https://forums.arcade-museum.com/members/kittybeater.35366/",
+      "author": "kittybeater",
+      "postedTime": "2026-07-14T13:22:50.000Z",
+      "title": "Williams / Make Trax PCB (Works But Has No Sound)",
+      "description": "Williams / Make Trax PCB (Works But Has No Sound) #5 on this page of site PCB's J - Q The Arcade Boneyard, Arcade Parts Site PCB's (Circuit Boards) PCB's J - Q For Arcade & Coin Operated Machines The Arcade Boneyard, New & Used Arcade & Coin Operated Machines, Parts , Manuals thearcadeboneyard.com",
+      "price": "$0",
+      "lat": 29.1871986,
+      "lon": -82.1400923,
+      "location": "Ocala, Florida",
+      "imageUrl": "/images/klov-placeholder.png",
+      "adUrl": "https://forums.arcade-museum.com/threads/559902/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-07-14 14:06:49",
+      "lastSeen": "2026-07-14T14:06:49.789Z"
+    },
     {
       "adID": "901806042974008",
       "source": "MP",
@@ -36,7 +56,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-14 13:05:04",
-      "lastSeen": "2026-07-14T13:06:17.307Z"
+      "lastSeen": "2026-07-14T14:05:03.499Z"
     },
     {
       "adID": "1344507534322193",
@@ -56,7 +76,7 @@
       "priceChangedAt": "2026-07-14 13:06:47",
       "hidden": 0,
       "created_at": "2026-07-14 13:05:04",
-      "lastSeen": "2026-07-14T13:07:10.737Z"
+      "lastSeen": "2026-07-14T14:06:06.180Z"
     },
     {
       "adID": "1030555202794195",
@@ -76,7 +96,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-14 13:05:03",
-      "lastSeen": "2026-07-14T13:06:47.179Z"
+      "lastSeen": "2026-07-14T14:06:06.101Z"
     },
     {
       "adID": "27660417313578440",
@@ -96,7 +116,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-14 11:07:29",
-      "lastSeen": "2026-07-14T13:06:45.711Z"
+      "lastSeen": "2026-07-14T14:06:04.337Z"
     },
     {
       "adID": "37508559852075934",
@@ -116,7 +136,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-14 11:05:17",
-      "lastSeen": "2026-07-14T13:05:03.723Z"
+      "lastSeen": "2026-07-14T14:05:02.079Z"
     },
     {
       "adID": "1046479184493127",
@@ -136,7 +156,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-13 23:05:23",
-      "lastSeen": "2026-07-14T13:05:03.823Z"
+      "lastSeen": "2026-07-14T14:05:02.189Z"
     },
     {
       "adID": "1517063646086540",
@@ -176,7 +196,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-13 21:05:38",
-      "lastSeen": "2026-07-14T13:05:03.857Z"
+      "lastSeen": "2026-07-14T14:05:02.223Z"
     },
     {
       "adID": "1546366983563518",
@@ -256,7 +276,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-13 19:06:42",
-      "lastSeen": "2026-07-14T13:06:45.991Z"
+      "lastSeen": "2026-07-14T14:06:04.715Z"
     },
     {
       "adID": "4611723732450736",
@@ -276,7 +296,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-13 19:06:42",
-      "lastSeen": "2026-07-14T13:06:46.057Z"
+      "lastSeen": "2026-07-14T14:06:04.825Z"
     },
     {
       "adID": "1018526397811246",
@@ -296,7 +316,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-13 19:06:42",
-      "lastSeen": "2026-07-14T13:06:46.091Z"
+      "lastSeen": "2026-07-14T14:06:04.882Z"
     },
     {
       "adID": "1558449605677768",
@@ -436,7 +456,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-13 11:09:00",
-      "lastSeen": "2026-07-14T13:08:11.847Z"
+      "lastSeen": "2026-07-14T14:06:50.569Z"
     },
     {
       "adID": "1532977624987111",
@@ -476,7 +496,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-13 11:05:18",
-      "lastSeen": "2026-07-14T13:05:04.159Z"
+      "lastSeen": "2026-07-14T14:05:02.524Z"
     },
     {
       "adID": "1496940078785872",
@@ -496,7 +516,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-13 01:05:04",
-      "lastSeen": "2026-07-14T13:05:04.326Z"
+      "lastSeen": "2026-07-14T14:05:02.691Z"
     },
     {
       "adID": "1750819536054635",
@@ -516,7 +536,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-12 23:06:30",
-      "lastSeen": "2026-07-14T13:06:46.812Z"
+      "lastSeen": "2026-07-14T14:06:05.657Z"
     },
     {
       "adID": "1031334169378916",
@@ -543,20 +563,20 @@
       "source": "FB",
       "authorUrl": null,
       "author": "Cory Anderson",
-      "postedTime": "2026-07-13T13:00:27.036Z",
+      "postedTime": "2026-07-13T14:00:27.623Z",
       "title": "Gyurss",
       "description": "I have a Gyruss arcade game for sale that is in excellent condition. I will not answer questions in the comments . If interested PM me directly. Asking $900.00",
       "price": "$900",
       "lat": 30.3262247,
       "lon": -81.6579179,
       "location": "JACKSONVILLE, FL",
-      "imageUrl": "https://scontent-dfw6-2.xx.fbcdn.net/v/t1.6435-9/119965794_3860260557319647_2135384064706645180_n.jpg?stp=dst-jpg_tt6&cstp=mx1317x640&ctp=s590x590&_nc_cat=110&ccb=1-7&_nc_sid=aa7b47&_nc_ohc=ETNxPxzBhMwQ7kNvwGFLJXq&_nc_oc=Adq3zjrFS4WEqh64BCUdRkwKkY-WkhhLgN0EYblAURthGb0ATOzJPCon7n1eoT83N54&_nc_zt=23&_nc_ht=scontent-dfw6-2.xx&_nc_gid=UzPUUfRQaYlBOGRc-fUGxw&_nc_ss=7b2a8&oh=00_AQCxd9ow4TBJiRkeXcIPHLYE25Ka8gypzEiiNcsfkhlInA&oe=6A7DAB75",
+      "imageUrl": "https://scontent-dfw6-2.xx.fbcdn.net/v/t1.6435-9/119965794_3860260557319647_2135384064706645180_n.jpg?stp=dst-jpg_tt6&cstp=mx1317x640&ctp=s590x590&_nc_cat=110&ccb=1-7&_nc_sid=aa7b47&_nc_ohc=ETNxPxzBhMwQ7kNvwGFLJXq&_nc_oc=Adq3zjrFS4WEqh64BCUdRkwKkY-WkhhLgN0EYblAURthGb0ATOzJPCon7n1eoT83N54&_nc_zt=23&_nc_ht=scontent-dfw6-2.xx&_nc_gid=m9I6dCJhZAmFsbxf5GzrTQ&_nc_ss=7b2a8&oh=00_AQDgwsOOOHAvZ5B03EIBC8aW3e2DZU1wpTcNE_hl62TPmQ&oe=6A7DAB75",
       "adUrl": "https://www.facebook.com/commerce/listing/1371872218202751/",
       "priceChanged": 0,
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-12 22:00:26",
-      "lastSeen": "2026-07-14T13:00:27.257Z"
+      "lastSeen": "2026-07-14T14:00:27.866Z"
     },
     {
       "adID": "2286928652135455",
@@ -636,7 +656,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-12 20:05:09",
-      "lastSeen": "2026-07-14T13:06:46.978Z"
+      "lastSeen": "2026-07-14T14:06:05.835Z"
     },
     {
       "adID": "1232509165620800",
@@ -1356,7 +1376,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-09 19:39:34",
-      "lastSeen": "2026-07-14T13:08:14.197Z"
+      "lastSeen": "2026-07-14T14:06:52.883Z"
     },
     {
       "adID": "KLOV-563524",
