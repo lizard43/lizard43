@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-14T10:01:50.051Z",
+  "generated_at": "2026-07-14T11:09:10.709Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,53 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 70,
-      "droppedPrice": 419,
+      "exported_ads": 72,
+      "droppedPrice": 431,
       "droppedMissingGeo": 0,
-      "droppedCircle": 389
+      "droppedCircle": 401
     }
   },
   "ads": [
+    {
+      "adID": "27660417313578440",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100069968612675/?product_id=27660417313578440",
+      "author": "Sharon Jock",
+      "postedTime": "2026-07-14T02:17:04.000Z",
+      "title": "Vintage pin ball game",
+      "description": "Do not know if works in the Orginal box 1980,s",
+      "price": "$20",
+      "lat": 27.4989278,
+      "lon": -82.5748194,
+      "location": "Bradenton, FL",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/747604761_1347175700215676_513933142571006570_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=105&ccb=1-7&_nc_sid=92e707&_nc_ohc=mGth51dj5K0Q7kNvwHtCl6s&_nc_oc=AdoTU6hE799nzjmpgisdg9UEa4RzlCNqvXGUIcSwipjRRfF68AJzljK1z9M4fdFVqBs&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=Sd9z61WSMA0aF0mp-EtSXA&_nc_ss=7b2a8&oh=00_AQATmjAQj1NnsEX3cyVk8XZbno_eTVifvnzxGzRrpIaJ7g&oe=6A5BDBC3",
+      "adUrl": "https://www.facebook.com/marketplace/item/27660417313578440/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-07-14 11:07:29",
+      "lastSeen": "2026-07-14T11:08:07.279Z"
+    },
+    {
+      "adID": "37508559852075934",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/61560235824270/?product_id=37508559852075934",
+      "author": "Jamo Le",
+      "postedTime": "2026-07-14T02:54:33.000Z",
+      "title": "Player1 100+games ms Pac-Man",
+      "description": "",
+      "price": "$450",
+      "lat": 33.6676103,
+      "lon": -84.0176904,
+      "location": "Conyers, GA",
+      "imageUrl": "https://scontent-dfw6-2.xx.fbcdn.net/v/t39.84726-6/745886314_1736305844051204_8690154740562421832_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=108&ccb=1-7&_nc_sid=92e707&_nc_ohc=zpV4wMZyu_IQ7kNvwFr3XOy&_nc_oc=AdrAR7dTGaIwph8C2Mv2amlD_bwboHOSMU4_QwVRsSDbpER1dTOyufHrmLpECETxV94&_nc_zt=14&_nc_ht=scontent-dfw6-2.xx&_nc_gid=1CJVlE5G-t-N0rqc6mimgA&_nc_ss=7b2a8&oh=00_AQCKfAcOIRUODJzXBA9gPOgYMzXQzXomfsRhV4L1d8A26Q&oe=6A5BDFC9",
+      "adUrl": "https://www.facebook.com/marketplace/item/37508559852075934/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-07-14 11:05:17",
+      "lastSeen": "2026-07-14T11:06:58.516Z"
+    },
     {
       "adID": "1046479184493127",
       "source": "MP",
@@ -36,7 +76,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-13 23:05:23",
-      "lastSeen": "2026-07-14T01:05:17.647Z"
+      "lastSeen": "2026-07-14T11:05:17.501Z"
     },
     {
       "adID": "1517063646086540",
@@ -76,7 +116,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-13 21:05:38",
-      "lastSeen": "2026-07-14T01:05:17.715Z"
+      "lastSeen": "2026-07-14T11:05:17.568Z"
     },
     {
       "adID": "1546366983563518",
@@ -156,7 +196,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-13 19:06:42",
-      "lastSeen": "2026-07-14T01:06:07.523Z"
+      "lastSeen": "2026-07-14T11:07:29.367Z"
     },
     {
       "adID": "4611723732450736",
@@ -176,7 +216,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-13 19:06:42",
-      "lastSeen": "2026-07-14T01:06:07.590Z"
+      "lastSeen": "2026-07-14T11:07:29.433Z"
     },
     {
       "adID": "1018526397811246",
@@ -196,7 +236,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-13 19:06:42",
-      "lastSeen": "2026-07-14T01:06:46.915Z"
+      "lastSeen": "2026-07-14T11:07:29.467Z"
     },
     {
       "adID": "1558449605677768",
@@ -336,7 +376,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-13 11:09:00",
-      "lastSeen": "2026-07-14T01:07:48.734Z"
+      "lastSeen": "2026-07-14T11:09:05.168Z"
     },
     {
       "adID": "1532977624987111",
@@ -376,7 +416,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-13 11:05:18",
-      "lastSeen": "2026-07-14T01:05:17.994Z"
+      "lastSeen": "2026-07-14T11:05:17.836Z"
     },
     {
       "adID": "1496940078785872",
@@ -396,7 +436,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-13 01:05:04",
-      "lastSeen": "2026-07-14T00:05:13.762Z"
+      "lastSeen": "2026-07-14T11:05:18.003Z"
     },
     {
       "adID": "1750819536054635",
@@ -416,7 +456,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-12 23:06:30",
-      "lastSeen": "2026-07-14T01:06:08.059Z"
+      "lastSeen": "2026-07-14T11:07:30.189Z"
     },
     {
       "adID": "1031334169378916",
@@ -443,20 +483,20 @@
       "source": "FB",
       "authorUrl": null,
       "author": "Cory Anderson",
-      "postedTime": "2026-07-13T01:00:27.673Z",
+      "postedTime": "2026-07-13T11:00:28.734Z",
       "title": "Gyurss",
       "description": "I have a Gyruss arcade game for sale that is in excellent condition. I will not answer questions in the comments . If interested PM me directly. Asking $900.00",
       "price": "$900",
       "lat": 30.3262247,
       "lon": -81.6579179,
       "location": "JACKSONVILLE, FL",
-      "imageUrl": "https://scontent-dfw6-2.xx.fbcdn.net/v/t1.6435-9/119965794_3860260557319647_2135384064706645180_n.jpg?stp=dst-jpg_tt6&cstp=mx1317x640&ctp=s590x590&_nc_cat=110&ccb=1-7&_nc_sid=aa7b47&_nc_ohc=ETNxPxzBhMwQ7kNvwGFLJXq&_nc_oc=Adq3zjrFS4WEqh64BCUdRkwKkY-WkhhLgN0EYblAURthGb0ATOzJPCon7n1eoT83N54&_nc_zt=23&_nc_ht=scontent-dfw6-2.xx&_nc_gid=jrgGW91jIr7AYFl2123qZw&_nc_ss=7b2a8&oh=00_AQBM8_YS0f-WIh_f-4oxqmAlSF8yLrOhUW8sqJHnS4Ai2Q&oe=6A7D02B5",
+      "imageUrl": "https://scontent-dfw6-2.xx.fbcdn.net/v/t1.6435-9/119965794_3860260557319647_2135384064706645180_n.jpg?stp=dst-jpg_tt6&cstp=mx1317x640&ctp=s590x590&_nc_cat=110&ccb=1-7&_nc_sid=aa7b47&_nc_ohc=ETNxPxzBhMwQ7kNvwGFLJXq&_nc_oc=Adq3zjrFS4WEqh64BCUdRkwKkY-WkhhLgN0EYblAURthGb0ATOzJPCon7n1eoT83N54&_nc_zt=23&_nc_ht=scontent-dfw6-2.xx&_nc_gid=agyu3YIggBFbeggfC2cUAg&_nc_ss=7b2a8&oh=00_AQDqbwhvSIYCbtkhwcUU6w6TMsBZlbd-tfTH9ma8_LR3nA&oe=6A7D7335",
       "adUrl": "https://www.facebook.com/commerce/listing/1371872218202751/",
       "priceChanged": 0,
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-12 22:00:26",
-      "lastSeen": "2026-07-14T01:00:27.816Z"
+      "lastSeen": "2026-07-14T11:00:28.920Z"
     },
     {
       "adID": "2286928652135455",
@@ -536,7 +576,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-12 20:05:09",
-      "lastSeen": "2026-07-14T01:06:08.226Z"
+      "lastSeen": "2026-07-14T11:07:30.356Z"
     },
     {
       "adID": "1232509165620800",
@@ -1256,7 +1296,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-09 19:39:34",
-      "lastSeen": "2026-07-14T01:07:51.403Z"
+      "lastSeen": "2026-07-14T11:09:07.727Z"
     },
     {
       "adID": "KLOV-563524",
