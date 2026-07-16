@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Bally WAV 2 BASIC Player - 20260716_220500</title>
+  <title>Bally WAV 2 BASIC Player - 20260716_231500</title>
   <style>
     :root {
       --bg: #0d1117;
@@ -1665,6 +1665,28 @@
       padding-left: 20px;
     }
 
+    .help-tabs {
+      display: flex;
+      gap: 4px;
+      padding: 8px 13px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .help-tab {
+      padding: 8px 12px;
+      border: 0;
+      border-bottom: 2px solid transparent;
+      color: var(--muted);
+      background: transparent;
+      font-weight: 750;
+      cursor: pointer;
+    }
+
+    .help-tab.active { color: var(--text); border-bottom-color: var(--accent); }
+    .help-pane { display: none; }
+    .help-pane.active { display: block; }
+    .help-version { color: #7890a7; font: 10px/1 var(--mono); }
+
     kbd {
       padding: 1px 6px;
       border: 1px solid #3b4a60;
@@ -1679,8 +1701,6 @@
       html, body { height: auto; overflow: auto; }
       .app { height: auto; min-height: 100vh; }
       .tool-bar { flex-wrap: wrap; }
-      .brand-block { flex: 1 1 200px; min-width: 190px; }
-      .brand-sub { display: none; }
       .tool-spacer { display: none; }
       .layout.workbench-layout { height: auto; grid-template-columns: 1fr !important; overflow: visible; }
       .workspace-panel { height: 68vh; min-height: 470px; }
@@ -1697,17 +1717,15 @@
         gap: 4px;
         padding: 7px;
       }
-      .brand-block { grid-column: 1 / -1; min-width: 0; border-right: 0; padding: 2px 1px 5px; }
-      .brand-title { font-size: 16px; }
-      .file-tools { grid-column: 1 / 5; grid-row: 2; }
-      .run-tools { grid-column: 1 / 5; grid-row: 3; }
+      .file-tools { grid-column: 1 / 5; grid-row: 1; }
+      .run-tools { grid-column: 1 / 5; grid-row: 2; }
       .tool-group { padding: 0; border: 0; }
-      .toolbar-mode { grid-column: 5 / 8; grid-row: 3; }
+      .toolbar-mode { grid-column: 5 / 8; grid-row: 2; }
       .tool-spacer { display: none; }
       .help-tools { display: contents; }
-      #helpBtn { grid-column: 5; grid-row: 2; }
-      #settingsBtn { grid-column: 6; grid-row: 2; }
-      .toolbar-status { grid-column: 1 / -1; grid-row: 4; min-width: 0; max-width: none; min-height: 22px; padding: 2px 3px 0; }
+      #helpBtn { grid-column: 5; grid-row: 1; }
+      #settingsBtn { grid-column: 6; grid-row: 1; }
+      .toolbar-status { grid-column: 1 / -1; grid-row: 3; min-width: 0; max-width: none; min-height: 22px; padding: 2px 3px 0; }
       .status-tooltip { left: 0; right: 0; width: auto; }
       .icon-btn, .upload-icon-btn { width: 30px; height: 30px; }
       .baud-radios { display: none; }
@@ -1728,11 +1746,6 @@
 <body>
   <div class="app">
     <header class="tool-bar" aria-label="Bally BASIC tool bar">
-      <div class="brand-block">
-        <div class="brand-title">Bally WAV 2 BASIC Player</div>
-        <div class="brand-sub">20260716_220500 · DECODER + INTERPRETER</div>
-      </div>
-
       <div class="tool-group file-tools" id="uploadCard">
         <label class="upload-icon-btn" for="wavInput" title="Upload WAV or BASIC" aria-label="Upload WAV or BASIC">↥</label>
         <input id="wavInput" type="file" accept="audio/wav,.wav,text/plain,.bas,.txt" />
@@ -2000,17 +2013,27 @@ first cut.</pre>
 
   <div class="modal-backdrop" id="helpDialog" role="dialog" aria-modal="true" aria-labelledby="helpTitle">
     <section class="dialog">
-      <div class="dialog-head"><h3 id="helpTitle">Bally BASIC Player Help</h3><button class="icon-btn" data-close-dialog="helpDialog" aria-label="Close help">×</button></div>
-      <div class="dialog-body">
-        <h4>Quick start</h4>
-        <ol class="help-list"><li>Upload or drop a Bally/AstroBASIC WAV. The decoded listing replaces the BASIC editor contents.</li><li>Review or edit the listing, then press <b>Run</b>.</li><li>Use <kbd>Space</kbd>, the mouse on the display, or the P1 Trigger button for <code>TR(1)</code>.</li></ol>
-        <h4>First-cut interpreter</h4>
-        <p>Supports the language used by Nuke: integer expressions, assignments, <code>IF</code> without THEN, <code>GOTO</code>, <code>GOSUB/RETURN</code>, <code>FOR/TO/STEP/NEXT</code>, <code>PRINT</code>, <code>CLEAR</code>, <code>LINE</code>, <code>BOX</code>, <code>RND</code>, <code>ABS</code>, <code>TR</code>, <code>PX</code>, <code>%()</code> memory, <code>&amp;()</code> ports, and the FC/BC/CX/CY/NT variables.</p>
-        <h4>Controls</h4>
+      <div class="dialog-head"><h3 id="helpTitle">Bally WAV 2 BASIC Player <span class="help-version">20260716_231500</span></h3><button class="icon-btn" data-close-dialog="helpDialog" aria-label="Close help">×</button></div>
+      <div class="help-tabs" role="tablist" aria-label="Help topics">
+        <button class="help-tab active" data-help-tab="decoder" role="tab" aria-selected="true">WAV DECODER</button>
+        <button class="help-tab" data-help-tab="player" role="tab" aria-selected="false">BASIC PLAYER</button>
+      </div>
+      <div class="dialog-body help-pane active" id="help-decoder" role="tabpanel">
+        <h4>Decode a cassette</h4>
+        <ol class="help-list"><li>Upload a WAV or drop it directly on the BASIC editor.</li><li>Leave the rate on <b>Auto</b> first; force <b>300</b> or <b>2000</b> if detection chooses poorly.</li><li>Open <b>Tape Signal</b> to inspect the leader, waveform, timing split, bytes, and parser output.</li></ol>
+        <h4>Getting a clean decode</h4>
+        <ul class="help-list"><li>Use an uncompressed mono or stereo PCM WAV; the decoder mixes stereo to mono.</li><li>A complete, steady leader is important. Avoid clipped beginnings and aggressive noise reduction.</li><li>If Auto fails, try the known tape rate, then Invert signal or disable Schmitt cleanup in Settings.</li><li>Manual cycle split and start cycle are recovery tools for noisy or nonstandard recordings.</li></ul>
+        <h4>What gets loaded</h4>
+        <p>The stored numbered program becomes editable BASIC source. Tape titles, immediate commands, and loader trailers may appear around it and are ignored by the player.</p>
+      </div>
+      <div class="dialog-body help-pane" id="help-player" role="tabpanel" hidden>
+        <h4>Run and control</h4>
+        <p>Review or edit the listing, then press <b>Run</b>. Run/Pause/Stop/Reset are in the toolbar.</p>
         <ul class="help-list"><li><b>Player 1:</b> <kbd>Arrow keys</kbd> joystick · <kbd>Space</kbd> trigger</li><li><b>Player 2:</b> <kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd> joystick · <kbd>F</kbd> trigger</li><li><b>Console:</b> <kbd>Enter</kbd> GO switch · <kbd>Esc</kbd> closes dialogs</li></ul>
-        <p>Run/Pause/Stop/Reset are in the toolbar. Dropping a <code>.bas</code> or <code>.txt</code> file loads source directly.</p>
-        <h4>Boundary</h4>
-        <p>This is a source-level Bally BASIC interpreter. Arbitrary Z80 machine-language execution through <code>CALL()</code>, cassette <code>:RUN</code> binaries, and every undocumented ROM side effect are outside this first cut.</p>
+        <h4>Language coverage</h4>
+        <p>Supports integer expressions, assignments, <code>IF</code> without THEN, <code>GOTO</code>, <code>GOSUB/RETURN</code>, <code>FOR/TO/STEP/NEXT</code>, <code>PRINT</code>, <code>CLEAR</code>, <code>LINE</code>, <code>BOX</code>, <code>RND</code>, <code>ABS</code>, input functions, memory, ports, and core display variables.</p>
+        <h4>Machine-language compatibility</h4>
+        <p>Known onboard ROM calls are modeled when practical. Unknown <code>CALL</code> routines are skipped with a warning so programs can continue. Programs that depend on custom Z80 code for core graphics, controls, or game logic may still behave incorrectly. Cassette <code>:RUN</code> binaries are not executed.</p>
       </div>
     </section>
   </div>
@@ -3889,6 +3912,7 @@ first cut.</pre>
         this.execLineIndex = 0;
         this.currentLineNumber = null;
         this.ignoredSourceLines = 0;
+        this.machineCalls = new Set();
         this.ops = 0;
         this.dirty = true;
         this.randomState = 1982;
@@ -3925,6 +3949,7 @@ first cut.</pre>
         this.state = 'LOADED';
         this.currentLineNumber = this.lines[0].number;
         this.ops = 0;
+        this.machineCalls.clear();
         this.updateHud();
         return this.lines.length;
       }
@@ -4074,7 +4099,8 @@ first cut.</pre>
         if (/^RUN\b/i.test(text)) { this.pc = { line: 0, stmt: 0 }; return; }
         if ((match = text.match(/^CALL\s*(.+)$/i))) {
           const address = this.evalExpression(match[1]);
-          throw new Error(`CALL ${address} uses a machine-language routine, which this source-level player cannot execute yet`);
+          this.executeMachineCall(address);
+          return;
         }
 
         if (/^[&%]\s*\(/.test(text)) { this.executeArrayAssignment(text); return; }
@@ -4249,9 +4275,23 @@ first cut.</pre>
           }
           case 'KN': return (args[0] || 1) === 2 ? this.input.knob2 : this.input.knob;
           case 'PX': return this.pixel(args[0] || 0, args[1] || 0);
-          case 'CALL': throw new Error('CALL() machine-language execution is not supported in this cut');
+          case 'CALL': return this.executeMachineCall(args[0] || 0);
           default: throw new Error(`Unknown function ${name}()`);
         }
+      }
+
+      executeMachineCall(rawAddress) {
+        const address = rawAddress & 0xffff;
+        // A few direct ROM entry points have safe, useful source-level equivalents.
+        if (address === 0x05fe) { if (this.audio) this.audio.silence(); return 0; }
+        if (address === 0x037f) { this.writeVar('A', this.random(this.readVar('A'))); return this.readVar('A'); }
+        if (address === 0x001b || address === 0x0200) return 0;
+        if (!this.machineCalls.has(address)) {
+          this.machineCalls.add(address);
+          const hex = address.toString(16).toUpperCase().padStart(4, '0');
+          setStatus('work', `Compatibility: skipped machine-language CALL ${address} ($${hex}); BASIC execution continues.`);
+        }
+        return 0;
       }
 
       random(maximum) {
@@ -4611,6 +4651,19 @@ first cut.</pre>
 
     document.querySelectorAll('[data-work-tab]').forEach(button => button.addEventListener('click', () => selectWorkTab(button.dataset.workTab)));
     document.querySelectorAll('[data-view-tab]').forEach(button => button.addEventListener('click', () => selectViewTab(button.dataset.viewTab)));
+    document.querySelectorAll('[data-help-tab]').forEach(button => button.addEventListener('click', () => {
+      const name = button.dataset.helpTab;
+      document.querySelectorAll('[data-help-tab]').forEach(tab => {
+        const active = tab === button;
+        tab.classList.toggle('active', active);
+        tab.setAttribute('aria-selected', String(active));
+      });
+      document.querySelectorAll('.help-pane').forEach(pane => {
+        const active = pane.id === `help-${name}`;
+        pane.classList.toggle('active', active);
+        pane.hidden = !active;
+      });
+    }));
     document.querySelectorAll('[data-close-dialog]').forEach(button => button.addEventListener('click', () => closeDialog(button.dataset.closeDialog)));
     document.querySelectorAll('.modal-backdrop').forEach(backdrop => backdrop.addEventListener('pointerdown', event => { if (event.target === backdrop) closeDialog(backdrop.id); }));
 
