@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Bally WAV 2 BASIC Player - 20260716_231500</title>
+  <title>Bally WAV 2 BASIC Player - 20260716_235000</title>
   <style>
     :root {
       --bg: #0d1117;
@@ -1709,27 +1709,23 @@
 
     @media (max-width: 680px) {
       .tool-bar {
-        display: grid;
-        grid-template-columns: repeat(6, 30px) minmax(0, 1fr);
-        grid-auto-rows: auto;
+        display: flex;
+        flex-wrap: wrap;
         align-items: center;
-        justify-content: start;
-        gap: 4px;
-        padding: 7px;
+        gap: 3px;
+        padding: 4px;
       }
-      .file-tools { grid-column: 1 / 5; grid-row: 1; }
-      .run-tools { grid-column: 1 / 5; grid-row: 2; }
-      .tool-group { padding: 0; border: 0; }
-      .toolbar-mode { grid-column: 5 / 8; grid-row: 2; }
+      .file-tools { order: 1; }
+      .run-tools { order: 2; }
+      .tool-group { gap: 2px; padding: 0; border: 0; }
+      .toolbar-mode { order: 3; }
       .tool-spacer { display: none; }
-      .help-tools { display: contents; }
-      #helpBtn { grid-column: 5; grid-row: 1; }
-      #settingsBtn { grid-column: 6; grid-row: 1; }
-      .toolbar-status { grid-column: 1 / -1; grid-row: 3; min-width: 0; max-width: none; min-height: 22px; padding: 2px 3px 0; }
+      .help-tools { order: 4; }
+      .toolbar-status { order: 5; flex: 1 0 100%; min-width: 0; max-width: none; min-height: 19px; padding: 0 3px; }
       .status-tooltip { left: 0; right: 0; width: auto; }
-      .icon-btn, .upload-icon-btn { width: 30px; height: 30px; }
+      .icon-btn, .upload-icon-btn { width: 27px; height: 27px; border-radius: 6px; font-size: 13px; }
       .baud-radios { display: none; }
-      .baud-select { display: block; }
+      .baud-select { display: block; width: 58px; height: 27px; padding: 0 17px 0 6px; }
       .tab-meta { display: none !important; }
       .tab-bar { min-height: 35px; align-items: end; padding-right: 5px; }
       .tab-btn { flex: 1 1 50%; padding-inline: 5px; text-align: center; }
@@ -2013,7 +2009,7 @@ first cut.</pre>
 
   <div class="modal-backdrop" id="helpDialog" role="dialog" aria-modal="true" aria-labelledby="helpTitle">
     <section class="dialog">
-      <div class="dialog-head"><h3 id="helpTitle">Bally WAV 2 BASIC Player <span class="help-version">20260716_231500</span></h3><button class="icon-btn" data-close-dialog="helpDialog" aria-label="Close help">×</button></div>
+      <div class="dialog-head"><h3 id="helpTitle">Bally WAV 2 BASIC Player <span class="help-version">20260716_235000</span></h3><button class="icon-btn" data-close-dialog="helpDialog" aria-label="Close help">×</button></div>
       <div class="help-tabs" role="tablist" aria-label="Help topics">
         <button class="help-tab active" data-help-tab="decoder" role="tab" aria-selected="true">WAV DECODER</button>
         <button class="help-tab" data-help-tab="player" role="tab" aria-selected="false">BASIC PLAYER</button>
