@@ -21,8 +21,8 @@
 
   <script src="../js/loader.js?nomenu"></script>
   <link rel="stylesheet" href="../css/wow-font.css" />
-  <link rel="stylesheet" href="../css/astrocade-pcb.css?v=20260709_rombuilder" />
-  <script src="../js/astrocade-pcb.js?v=20260709_rombuilder"></script>
+  <link rel="stylesheet" href="../css/astrocade-pcb.css?v=20260709_romgroups_r1" />
+  <script src="../js/astrocade-pcb.js?v=20260709_romgroups_r1"></script>
 </head>
 
 <body class="guide-chapter">
@@ -679,7 +679,12 @@
         callout: '',
         badges: ['4 KB', 'unmapped'],
         roms: [
-          { name: 'wow.x11', start: 0xC000, end: 0xCFFF, size: '4 KB', chip: 'TMS2532', crc: '16f84d73' },
+          {
+            pcb: 'PCB 91397',
+            chips: [
+              { name: 'wow.x11', start: 0xC000, end: 0xCFFF, size: '4 KB', chip: 'TMS2532', crc: '16f84d73' },
+            ]
+          }
         ],
         equs: [
           'FOREIGN_END         equ $CFFF',
@@ -717,9 +722,14 @@
         callout: '',
         badges: ['12 KB'],
         roms: [
-          { name: 'wow.x5', start: 0x8000, end: 0x8FFF, size: '4 KB', chip: 'TMS2532', crc: '16912c2b' },
-          { name: 'wow.x6', start: 0x9000, end: 0x9FFF, size: '4 KB', chip: 'TMS2532', crc: '35797f82' },
-          { name: 'wow.x7', start: 0xA000, end: 0xAFFF, size: '4 KB', chip: 'TMS2532', crc: 'ce404305' }
+          {
+            pcb: 'PCB 91397',
+            chips: [
+              { name: 'wow.x5', start: 0x8000, end: 0x8FFF, size: '4 KB', chip: 'TMS2532', crc: '16912c2b' },
+              { name: 'wow.x6', start: 0x9000, end: 0x9FFF, size: '4 KB', chip: 'TMS2532', crc: '35797f82' },
+              { name: 'wow.x7', start: 0xA000, end: 0xAFFF, size: '4 KB', chip: 'TMS2532', crc: 'ce404305' }
+            ]
+          }
         ],
         equs: [
           'ROM1_END            equ $CFFF',
@@ -758,10 +768,15 @@
         callout: '',
         badges: ['16 KB', 'Magic Write'],
         roms: [
-          { name: 'wow.x1', start: 0x0000, end: 0x0FFF, size: '4 KB', chip: 'TMS2532', crc: 'c1295786' },
-          { name: 'wow.x2', start: 0x1000, end: 0x1FFF, size: '4 KB', chip: 'TMS2532', crc: '9be93215' },
-          { name: 'wow.x3', start: 0x2000, end: 0x2FFF, size: '4 KB', chip: 'TMS2532', crc: '75e5a22e' },
-          { name: 'wow.x4', start: 0x3000, end: 0x3FFF, size: '4 KB', chip: 'TMS2532', crc: 'ef28eb84' }
+          {
+            pcb: 'PCB 91397',
+            chips: [
+              { name: 'wow.x1', start: 0x0000, end: 0x0FFF, size: '4 KB', chip: 'TMS2532', crc: 'c1295786' },
+              { name: 'wow.x2', start: 0x1000, end: 0x1FFF, size: '4 KB', chip: 'TMS2532', crc: '9be93215' },
+              { name: 'wow.x3', start: 0x2000, end: 0x2FFF, size: '4 KB', chip: 'TMS2532', crc: '75e5a22e' },
+              { name: 'wow.x4', start: 0x3000, end: 0x3FFF, size: '4 KB', chip: 'TMS2532', crc: 'ef28eb84' }
+            ]
+          }
         ],
         equs: [
           'ROM0_START          equ $0000',

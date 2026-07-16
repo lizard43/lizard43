@@ -1,6 +1,6 @@
 /*
   Astrocade Field Guide - reusable drawn PCB widget
-  RESPONSIVE CACHE-BUSTER BUILD 20260709_rombuilder
+  RESPONSIVE CACHE-BUSTER BUILD 20260709_romgroups_r1
   Drop in after field-guide.css.
 
   Usage:
@@ -935,10 +935,12 @@ body.astrocade-pcb-page section.astrocade-pcb-example-card {
 
 
 /* -------------------------------------------------------------------------
-   Memory map ROM chip renderer styles - 20260709_rombuilder
+   Memory map ROM chip renderer styles - 20260709_romgroups_r1
    Used by AstrocadePCB.renderMemoryMapRomChips(...).
 --------------------------------------------------------------------------- */
 .memmap-rom-stack {
+  display: grid;
+  gap: 0.72rem;
   margin-top: 0.72rem;
   padding-top: 0.12rem;
 }
@@ -953,11 +955,45 @@ body.astrocade-pcb-page section.astrocade-pcb-example-card {
   text-transform: uppercase;
 }
 
+.memmap-rom-group {
+  display: grid;
+  grid-template-columns: minmax(5.15rem, max-content) minmax(11rem, 1fr);
+  column-gap: 0.78rem;
+  align-items: start;
+  min-width: 0;
+  padding: 0 0.32rem;
+}
+
+.memmap-rom-group.is-unlabeled {
+  grid-template-columns: minmax(11rem, 1fr);
+}
+
+.memmap-rom-pcb-label {
+  justify-self: end;
+  align-self: start;
+  margin-top: 0.48rem;
+  max-width: 7.4rem;
+  padding: 0.25rem 0.42rem;
+  border: 1px solid rgba(255, 209, 102, 0.28);
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.20);
+  color: #ffd86b;
+  font-family: "OCR A Std", "OCR A Extended", "Share Tech Mono", "IBM Plex Mono", "Fira Code", Consolas, monospace;
+  font-size: 0.58rem;
+  font-weight: 900;
+  line-height: 1.08;
+  letter-spacing: 0.08em;
+  text-align: right;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
 .memmap-rom-grid {
   display: grid;
   grid-template-columns: minmax(11rem, 1fr);
   gap: 0.48rem;
-  padding: 0 0.32rem;
+  min-width: 0;
+  padding: 0;
 }
 
 .memmap-rom-chip {
@@ -1084,6 +1120,20 @@ body.astrocade-pcb-page section.astrocade-pcb-example-card {
 }
 
 @media (max-width: 520px) {
+  .memmap-rom-group,
+  .memmap-rom-group.is-unlabeled {
+    grid-template-columns: minmax(11rem, 1fr);
+    gap: 0.32rem;
+    padding: 0;
+  }
+
+  .memmap-rom-pcb-label {
+    justify-self: center;
+    margin-top: 0;
+    max-width: none;
+    text-align: center;
+  }
+
   .memmap-rom-chip {
     max-width: 250px;
     padding-right: 2.72rem;

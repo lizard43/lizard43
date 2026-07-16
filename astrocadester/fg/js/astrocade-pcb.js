@@ -1,6 +1,6 @@
 /*
   Astrocade Field Guide - reusable drawn PCB widget
-  CACHE-BUSTER BUILD 20260709_rombuilder
+  CACHE-BUSTER BUILD 20260709_romgroups_r1
   No canvas, no generated images. Pure HTML/CSS/SVG from data.
 */
 (function () {
@@ -512,8 +512,136 @@
     return '$' + numeric.toString(16).toUpperCase().padStart(4, '0');
   }
 
+  function isMemoryMapRomChip(item) {
+    if (!item || typeof item !== 'object' || Array.isArray(item)) {
+      return false;
+    }
+
+    if (Array.isArray(item.roms) || Array.isArray(item.chips) || Array.isArray(item.items)) {
+      return false;
+    }
+
+    return item.name !== undefined || item.start !== undefined || item.end !== undefined ||
+      item.size !== undefined || item.chip !== undefined || item.crc !== undefined;
+  }
+
+  function memoryRomGroupLabel(source) {
+    if (!source || typeof source !== 'object') {
+      return '';
+    }
+
+    return String(
+      source.pcbLabel ??
+      source.pcb ??
+      source.boardLabel ??
+      source.board ??
+      source.groupLabel ??
+      source.label ??
+      ''
+    ).trim();
+  }
+
+  function normalizeMemoryRomGroups(region) {
+    const source = Array.isArray(region?.romGroups)
+      ? region.romGroups
+      : Array.isArray(region?.roms)
+        ? region.roms
+        : [];
+
+    if (!source.length) {
+      return [];
+    }
+
+    const regionLabel = memoryRomGroupLabel(region);
+    const hasExplicitGroups = source.some((entry) => {
+      if (Array.isArray(entry)) return true;
+      if (!entry || typeof entry !== 'object') return false;
+      if (isMemoryMapRomChip(entry)) return false;
+      return Array.isArray(entry.roms) || Array.isArray(entry.chips) || Array.isArray(entry.items) ||
+        memoryRomGroupLabel(entry) !== '';
+    });
+
+    if (!hasExplicitGroups) {
+      return [{
+        label: regionLabel,
+        roms: source.filter(isMemoryMapRomChip)
+      }].filter((group) => group.roms.length > 0);
+    }
+
+    return source.map((entry) => {
+      if (Array.isArray(entry)) {
+        const meta = entry.find((item) => item && typeof item === 'object' && !Array.isArray(item) && !isMemoryMapRomChip(item));
+        return {
+          label: memoryRomGroupLabel(entry) || memoryRomGroupLabel(meta),
+          roms: entry.filter(isMemoryMapRomChip)
+        };
+      }
+
+      if (isMemoryMapRomChip(entry)) {
+        return {
+          label: '',
+          roms: [entry]
+        };
+      }
+
+      if (entry && typeof entry === 'object') {
+        const chips = Array.isArray(entry.chips)
+          ? entry.chips
+          : Array.isArray(entry.roms)
+            ? entry.roms
+            : Array.isArray(entry.items)
+              ? entry.items
+              : [];
+
+        return {
+          label: memoryRomGroupLabel(entry),
+          roms: chips.filter(isMemoryMapRomChip)
+        };
+      }
+
+      return { label: '', roms: [] };
+    }).filter((group) => group.roms.length > 0);
+  }
+
+  function renderMemoryMapRomChip(rom, formatHex) {
+    const chip = div('memmap-rom-chip');
+    const romName = rom.name || rom.label || 'ROM';
+    const romStart = Number(rom.start || 0);
+    const romEnd = Number(rom.end || romStart);
+
+    chip.title = [
+      `${romName} maps to ${formatHex(romStart)}-${formatHex(romEnd)}`,
+      rom.size || '',
+      rom.chip || '',
+      rom.crc ? `CRC ${rom.crc}` : ''
+    ].filter(Boolean).join(' · ');
+
+    const notch = span('memmap-rom-notch');
+    notch.setAttribute('aria-hidden', 'true');
+
+    const name = span('memmap-rom-name', romName);
+
+    const range = span('memmap-rom-range');
+    range.setAttribute('aria-label', `${formatHex(romStart)}-${formatHex(romEnd)}`);
+    range.append(
+      span('memmap-rom-range-top', formatHex(romEnd)),
+      span('memmap-rom-range-bottom', formatHex(romStart))
+    );
+
+    const size = span('memmap-rom-size', [rom.size, rom.chip || ''].filter(Boolean).join(' · '));
+    const crc = span('memmap-rom-crc', rom.crc ? `CRC ${rom.crc}` : '');
+
+    chip.append(notch, name, range, size, crc);
+    return chip;
+  }
+
   function renderMemoryMapRomChips(blockPanel, region, options = {}) {
-    if (!blockPanel || !region || !Array.isArray(region.roms) || region.roms.length === 0) {
+    if (!blockPanel || !region) {
+      return null;
+    }
+
+    const groups = normalizeMemoryRomGroups(region);
+    if (!groups.length) {
       return null;
     }
 
@@ -522,44 +650,25 @@
       : defaultFormatMemoryHex;
 
     const romStack = div('memmap-rom-stack');
-    const romGrid = div('memmap-rom-grid');
 
-    [...region.roms]
-      .filter(Boolean)
-      .sort((a, b) => Number(b.start || 0) - Number(a.start || 0))
-      .forEach((rom) => {
-        const chip = div('memmap-rom-chip');
-        const romName = rom.name || rom.label || 'ROM';
-        const romStart = Number(rom.start || 0);
-        const romEnd = Number(rom.end || romStart);
+    groups.forEach((group) => {
+      const groupWrap = div(['memmap-rom-group', group.label ? 'has-label' : 'is-unlabeled'].filter(Boolean).join(' '));
+      if (group.label) {
+        groupWrap.append(span('memmap-rom-pcb-label', group.label));
+      }
 
-        chip.title = [
-          `${romName} maps to ${formatHex(romStart)}-${formatHex(romEnd)}`,
-          rom.size || '',
-          rom.chip || '',
-          rom.crc ? `CRC ${rom.crc}` : ''
-        ].filter(Boolean).join(' · ');
+      const romGrid = div('memmap-rom-grid');
+      [...group.roms]
+        .filter(Boolean)
+        .sort((a, b) => Number(b.start || 0) - Number(a.start || 0))
+        .forEach((rom) => {
+          romGrid.append(renderMemoryMapRomChip(rom, formatHex));
+        });
 
-        const notch = span('memmap-rom-notch');
-        notch.setAttribute('aria-hidden', 'true');
+      groupWrap.append(romGrid);
+      romStack.append(groupWrap);
+    });
 
-        const name = span('memmap-rom-name', romName);
-
-        const range = span('memmap-rom-range');
-        range.setAttribute('aria-label', `${formatHex(romStart)}-${formatHex(romEnd)}`);
-        range.append(
-          span('memmap-rom-range-top', formatHex(romEnd)),
-          span('memmap-rom-range-bottom', formatHex(romStart))
-        );
-
-        const size = span('memmap-rom-size', [rom.size, rom.chip || ''].filter(Boolean).join(' · '));
-        const crc = span('memmap-rom-crc', rom.crc ? `CRC ${rom.crc}` : '');
-
-        chip.append(notch, name, range, size, crc);
-        romGrid.append(chip);
-      });
-
-    romStack.append(romGrid);
     blockPanel.append(romStack);
     return romStack;
   }
