@@ -1,10 +1,20 @@
 <!doctype html>
+<!--
+  Bally WAV 2 BASIC Player
+
+    1. Bally/AstroBASIC cassette decoding at 300 and 2000 baud.
+    2. A source-level Bally BASIC interpreter and Astrocade-style display.
+    3. Tape diagnostics for inspecting signal quality and decoder timing.
+
+  Everything (html/css/js) is intentionally kept in this single file so it 
+  can be downloaded,shared, and run locally without a build step or web server.
+-->
 <html lang="en">
 
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Bally WAV 2 BASIC Player - 20260717_153000</title>
+  <title>Bally WAV 2 BASIC Player - 20260717_173000</title>
   <style>
     :root {
       --bg: #0d1117;
@@ -611,7 +621,7 @@
       }
     }
 
-    /* Compact pass: make output visible first, reduce decorative spacing. */
+    /* Compact workbench layout: reserve vertical space for decoded output. */
     .hero {
       margin-bottom: 0;
     }
@@ -661,7 +671,7 @@
     }
 
 
-    /* Fix pass: keep the BASIC editor fully inside the viewport and make its scrollbar usable. */
+    /* The source panel owns its scrollbar and remains inside the viewport. */
     .layout {
       align-items: stretch;
     }
@@ -1080,7 +1090,7 @@
       z-index: 6 !important;
     }
 
-    /* 20260716 player workbench ------------------------------------------------ */
+    /* BASIC player workbench -------------------------------------------------- */
     :root {
       --toolbar: #171d27;
       --toolbar-hi: #202938;
@@ -2071,7 +2081,7 @@ first cut.</pre>
 
   <div class="modal-backdrop" id="helpDialog" role="dialog" aria-modal="true" aria-labelledby="helpTitle">
     <section class="dialog">
-      <div class="dialog-head"><h3 id="helpTitle">Bally WAV 2 BASIC Player <span class="help-version">20260717_153000</span></h3><button class="icon-btn" data-close-dialog="helpDialog" aria-label="Close help">×</button></div>
+      <div class="dialog-head"><h3 id="helpTitle">Bally WAV 2 BASIC Player <span class="help-version">20260717_173000</span></h3><button class="icon-btn" data-close-dialog="helpDialog" aria-label="Close help">×</button></div>
       <div class="help-tabs" role="tablist" aria-label="Help topics">
         <button class="help-tab active" data-help-tab="decoder" role="tab" aria-selected="true">WAV DECODER</button>
         <button class="help-tab" data-help-tab="player" role="tab" aria-selected="false">BASIC PLAYER</button>
@@ -2100,6 +2110,21 @@ first cut.</pre>
 
   <script>
     'use strict';
+
+    /*
+      Source map
+      ----------
+      UI and file loading        loadFile(), decodeAndRender()
+      Cassette decoding          Bally300Decoder, BallyBin2000Decoder
+      WAV and signal processing  parseWav(), makeDigital(), makeCycles()
+      Tape diagnostics           renderStats(), drawSignalOverview(), drawZoom()
+      BASIC parsing              ExprLexer, ExprParser, splitBasicStatements()
+      BASIC execution            BallyBasicRuntime
+      Sound                      BallyAudio
+
+      Bally BASIC arithmetic is signed 16-bit. Hardware addresses and port
+      values are explicitly masked where an unsigned representation is needed.
+    */
 
     const MIN0 = 3;
     const MAX0 = 4;
@@ -2221,6 +2246,7 @@ first cut.</pre>
       });
     }
 
+    /** Merge numbered BASIC lines; an empty patch line deletes that line number. */
     function mergeBasicSources(baseSource, patchSource) {
       const numbered = new Map();
       const headers = [];
@@ -2245,6 +2271,7 @@ first cut.</pre>
       return [...headers, ...program].join('\n');
     }
 
+    /** Load source directly, or decode a WAV before placing its listing in the editor. */
     async function loadFile(file) {
       setStatus('work', `Reading ${file.name}...`);
       try {
@@ -2276,6 +2303,7 @@ first cut.</pre>
       }
     }
 
+    /** Validate the settings dialog and return normalized decoder options. */
     function getOptions() {
       const cycleSplitRaw = $('cycleSplit').value.trim();
       const maxBytesRaw = $('maxBytes').value.trim();
@@ -2299,6 +2327,7 @@ first cut.</pre>
       };
     }
 
+    /** Reset the prior program, decode one WAV, and update all editor/diagnostic views. */
     function decodeAndRender(file, arrayBuffer) {
       const priorSource = basicOutput.value;
       basicRuntime.unloadSource();
@@ -2334,6 +2363,7 @@ first cut.</pre>
       }
     }
 
+    /** Run shared signal preparation, then select the 300- or 2000-baud decoder. */
     function decodeWavAuto(arrayBuffer, inputName, opts) {
       const wav = parseWav(arrayBuffer);
       const st = signalStats(wav.samples);
@@ -2345,6 +2375,7 @@ first cut.</pre>
       return decodeWav300Prepared(inputName, opts, wav, st, dig, transitions, detection);
     }
 
+    /** Decode the original Bally BASIC 300-baud BLOAD record stream. */
     function decodeWav300Prepared(inputName, opts, wav, st, dig, transitions, detection) {
       const cycleInfo = makeCycles(transitions, wav.fmt.sampleRate, opts);
       const dec = new Bally300Decoder(cycleInfo.cycles, wav.fmt.sampleRate, opts);
@@ -2373,6 +2404,7 @@ first cut.</pre>
     }
 
 
+    /** Score transition lengths against the two cassette timing families. */
     function detectBaudMode(transitions, sampleRate, opts) {
       const score300 = scoreCycleMode(transitions, sampleRate, 0, [sampleRate / 2400, sampleRate / 1200], [2.0, 3.0]);
       const score2000off0 = scoreCycleMode(transitions, sampleRate, 0, [sampleRate / 3150, sampleRate / 1575], [1.6, 2.2]);
@@ -2401,10 +2433,11 @@ first cut.</pre>
     }
 
 
+    /** Decode the AstroBASIC/BallyBin 2000-baud split-word load format. */
     function decodeWav2000Prepared(inputName, opts, wav, st, dig, transitions, detection) {
       const cycleInfo = makeCycles2000(transitions, wav.fmt.sampleRate, opts, detection.offset2000);
 
-      // BallyBin 1.4 reference path:
+      // BallyBin 1.4 format:
       //   WavDataOut writes one full square wave per bit: 7 samples for 0, 14 for 1.
       //   putByteHeader writes 2 MSB-first header bits.
       //   putByte writes 8 MSB-first data bits.
@@ -2469,6 +2502,7 @@ first cut.</pre>
       };
     }
 
+    /** Sample-domain decoder for BallyBin's 2000-baud square-wave format. */
     class BallyBin2000Decoder {
       constructor(samples, sampleRate, opts) {
         this.samples = samples;
@@ -2635,6 +2669,7 @@ first cut.</pre>
       }
     }
 
+    /** Undo BallyBin's bit interleave and reconstruct one loaded 16-bit word. */
     function convertBallyBinWord(inByteOne, inByteTwo) {
       const outByteOne =
         (((inByteOne & 0x02) > 0) ? 128 : 0) + (((inByteTwo & 0x02) > 0) ? 64 : 0) +
@@ -2667,6 +2702,7 @@ first cut.</pre>
       };
     }
 
+    /** Locate and detokenize numbered BASIC records in a 2000-baud memory image. */
     function parseAstroBasicProgramImage(raw) {
       const lines = [];
       let i = 0;
@@ -2708,8 +2744,7 @@ first cut.</pre>
     }
 
     function bytesTo2000OutputText(raw, inputName, opts, detection, dec, parser, leader) {
-      // The main editor should behave like the 300-baud path: decoded BASIC only.
-      // Headers, delimiters, byte counts, and trailing hex belong in Debug / paste-back report.
+      // Keep transport metadata in Debug; the editor receives only BASIC source.
       const listing = parser.listing;
       if (listing && listing.lines && listing.lines.length) {
         return listing.lines
@@ -2757,8 +2792,7 @@ first cut.</pre>
       const spanSamples = Math.max(1, Math.min(wav.samples.length, Math.round(wav.fmt.sampleRate * DEFAULT_ZOOM_SECONDS)));
       let startSample;
       if (leader && Number.isFinite(leader.endTimeSec) && leader.endTimeSec > 0) {
-        // Default view is now tighter and centered on the leader/sync edge, not the middle of the leader.
-        // That usually shows the last leader cycles plus the first data/sync bits in one glance.
+        // Center on the leader/sync boundary so the first data cycles remain visible.
         const edge = Math.round(leader.endTimeSec * wav.fmt.sampleRate);
         startSample = edge - Math.round(spanSamples * 0.62);
       } else if (leader && Number.isFinite(leader.timeSec)) {
@@ -2861,6 +2895,7 @@ first cut.</pre>
       return Math.max(lo, Math.min(hi, v));
     }
 
+    /** Cycle-domain decoder for the original 300-baud Bally BASIC tape format. */
     class Bally300Decoder {
       constructor(cycles, sampleRate, opts) {
         this.cycles = cycles;
@@ -2956,6 +2991,7 @@ first cut.</pre>
       }
     }
 
+    /** State machine that extracts line-numbered source from 300-baud BLOAD bytes. */
     class BasicLineParser300BLOAD {
       constructor(opts) {
         this.opts = opts;
@@ -3015,6 +3051,7 @@ first cut.</pre>
       }
     }
 
+    /** Parse PCM/float RIFF-WAVE data and downmix all channels to normalized mono. */
     function parseWav(arrayBuffer) {
       const dv = new DataView(arrayBuffer);
       const bytes = new Uint8Array(arrayBuffer);
@@ -3096,6 +3133,7 @@ first cut.</pre>
       return { min, max, mean, rms: Math.sqrt(sumSq / samples.length), peakAfterDc };
     }
 
+    /** Convert normalized samples to a digital waveform, optionally using hysteresis. */
     function makeDigital(samples, stats, opts) {
       const digital = new Uint8Array(samples.length);
       const threshold = stats.mean;
@@ -3114,6 +3152,7 @@ first cut.</pre>
       return { digital, threshold, hyst };
     }
 
+    /** Return sample indices at which the thresholded waveform changes state. */
     function findTransitions(digital) {
       const t = [];
       let prev = digital[0];
@@ -3124,6 +3163,7 @@ first cut.</pre>
       return t;
     }
 
+    /** Pair half-wave transitions into full 300-baud cycles and classify their length. */
     function makeCycles(transitions, sampleRate, opts) {
       const split = opts.cycleSplit || (sampleRate / 1600);
       const expectedShort = sampleRate / 2400;
@@ -3205,7 +3245,6 @@ first cut.</pre>
       $('waveCaption').textContent = `${compact(wav.frames)} samples / ${compact(transitions.length)} transitions · drag amber box · wheel zoom`;
       updateBitCaption(result);
       updateZoomCaption(result);
-      // zoom caption is updated by updateZoomCaption(result)
       $('histCaption').textContent = `${compact(cycleInfo.stats.count)} full cycles from ${compact(transitions.length)} transitions`;
     }
 
@@ -3312,6 +3351,7 @@ first cut.</pre>
       debugLog.textContent = lines.join('\n');
     }
 
+    /** Redraw every tape diagnostic from a single immutable decode result. */
     function drawAll(result) {
       drawSignalOverview(waveCanvas, result.wav.samples, result.signalStats.mean, result.transitions, result.wav.fmt.sampleRate, result.leaders, result.zoomWindow);
       drawZoom(zoomCanvas, result.wav.samples, result.digital.digital, result.signalStats.mean, result.wav.fmt.sampleRate, result.zoomWindow, result.leaders);
@@ -3321,6 +3361,7 @@ first cut.</pre>
       updateBitCaption(result);
     }
 
+    /** Draw the full recording as amplitude, transition density, and leader markers. */
     function drawSignalOverview(canvas, samples, mean, transitions, sampleRate, leaders, zoomWindow) {
       const ctx = setupCanvas(canvas);
       const w = canvas.width, h = canvas.height;
@@ -3355,7 +3396,7 @@ first cut.</pre>
       const transBase = h * 0.90;
       const transHeight = h * 0.26;
 
-      // Transition density bars: more useful at full-WAV scale than raw PCM cycles.
+      // At full-file scale, transition density is more legible than individual cycles.
       ctx.fillStyle = 'rgba(96,165,250,.55)';
       for (let b = 0; b < bucketCount; b++) {
         const x = b / bucketCount * w;
@@ -3364,7 +3405,7 @@ first cut.</pre>
         ctx.fillRect(x, transBase - bh, bw, bh);
       }
 
-      // Average absolute amplitude envelope as a calm line, not a solid min/max block.
+      // A mean absolute-amplitude envelope keeps dense recordings readable.
       ctx.strokeStyle = 'rgba(94,234,212,.95)';
       ctx.lineWidth = 2;
       ctx.beginPath();
@@ -3375,7 +3416,7 @@ first cut.</pre>
       }
       ctx.stroke();
 
-      // Leader markers: line plus a small translucent band for the ten-one-bit leader run.
+      // Mark both the leader interval and its transition into data.
       if (leaders && leaders.length) {
         for (const leader of leaders) {
           const iv = leaderIntervalSamples(leader, sampleRate);
@@ -3420,6 +3461,7 @@ first cut.</pre>
       }
     }
 
+    /** Draw raw and thresholded samples inside the selected time window. */
     function drawZoom(canvas, samples, digital, mean, sampleRate, zoomWindow, leaders) {
       const ctx = setupCanvas(canvas);
       const w = canvas.width, h = canvas.height;
@@ -3470,6 +3512,7 @@ first cut.</pre>
       ctx.stroke();
     }
 
+    /** Draw classified cycle lengths for the current zoom window. */
     function drawBitTiming(canvas, cycleInfo, zoomWindow, sampleRate, mode) {
       const ctx = setupCanvas(canvas);
       const w = canvas.width, h = canvas.height;
@@ -3488,7 +3531,7 @@ first cut.</pre>
       const maxDur = Math.max(cycleInfo.stats.p99 || 1, cycleInfo.expectedLong || 1, cycleInfo.split || 1) * 1.15;
       const yForDur = (dur) => base - Math.max(1, Math.min(1, dur / maxDur)) * (h - padT - padB);
 
-      // Expected/split reference lines.
+      // Reference lines show expected timing and the active classification threshold.
       const refs = [
         { dur: cycleInfo.expectedShort, label: mode === '2000' ? '0' : 'short', alpha: .22 },
         { dur: cycleInfo.expectedLong, label: mode === '2000' ? '1' : 'long', alpha: .28 },
@@ -3518,12 +3561,13 @@ first cut.</pre>
         }
       }
 
-      // Small edge glow at the current selection edges.
+      // Emphasize the selected time window without obscuring its samples.
       ctx.strokeStyle = 'rgba(251,191,36,.5)';
       ctx.lineWidth = 1;
       ctx.strokeRect(0.5, 0.5, w - 1, h - 1);
     }
 
+    /** Draw the cycle-length distribution used to choose the split threshold. */
     function drawHistogram(canvas, cycleInfo) {
       const ctx = setupCanvas(canvas);
       const w = canvas.width, h = canvas.height;
@@ -3579,9 +3623,7 @@ first cut.</pre>
       ctx.stroke();
     }
 
-    // -------------------------------------------------------------------------
-    // Bally BASIC source-level player
-    // -------------------------------------------------------------------------
+    // Bally BASIC source-level player -----------------------------------------
 
     const NUKE_DEMO = String.raw`    1 .
     2 .
@@ -3756,15 +3798,17 @@ first cut.</pre>
       '=': ['00000','11111','00000','11111','00000','00000','00000'],
       '<': ['00010','00100','01000','10000','01000','00100','00010'],
       '>': ['01000','00100','00010','00001','00010','00100','01000'],
-      // Bally code $61 is used as the moving aircraft/bomb glyph in Nuke.
+      // Tape character $61 is a Bally graphics glyph rather than lowercase ASCII.
       'a': ['00100','11111','01110','00100','00100','01010','00000']
     };
 
+    /** Apply Bally BASIC's signed 16-bit integer representation. */
     function word16(value) {
       const n = Math.trunc(Number(value) || 0) & 0xffff;
       return n & 0x8000 ? n - 0x10000 : n;
     }
 
+    /** Split outside quoted strings and parenthesized expressions. */
     function splitTopLevel(text, separator = ',') {
       const out = [];
       let start = 0, depth = 0, quote = null;
@@ -3786,6 +3830,7 @@ first cut.</pre>
       return out;
     }
 
+    /** Split a source line into semicolon-delimited statements. */
     function splitBasicStatements(text) {
       const out = [];
       let start = 0, depth = 0, quote = null;
@@ -3795,8 +3840,7 @@ first cut.</pre>
           if (ch === quote) {
             quote = null;
           } else if (ch === ';' && depth === 0 && looksLikeStatementStart(text.slice(i + 1))) {
-            // Bally tape listings often omit a string's closing quote. A
-            // statement separator followed by another statement closes it.
+            // On Bally BASIC, a statement boundary may terminate an open string.
             out.push(text.slice(start, i));
             start = i + 1;
             quote = null;
@@ -3815,6 +3859,7 @@ first cut.</pre>
       return out;
     }
 
+    /** Tokenize the expression subset accepted by the source-level interpreter. */
     class ExprLexer {
       constructor(text) { this.text = text; this.i = 0; this.tokens = []; this.scan(); }
       scan() {
@@ -3851,6 +3896,7 @@ first cut.</pre>
       }
     }
 
+    /** Recursive-descent parser with Bally BASIC operator precedence. */
     class ExprParser {
       constructor(text) { this.text = text; this.tokens = new ExprLexer(text).tokens; this.i = 0; }
       peek(type) { return this.tokens[this.i].type === type; }
@@ -3925,6 +3971,7 @@ first cut.</pre>
       }
     }
 
+    /** Parse one expression and return its small interpreter AST. */
     function parseExpressionAst(text) {
       const src = String(text).trim();
       if (!src) throw new Error('Missing expression');
@@ -3992,6 +4039,7 @@ first cut.</pre>
       return -1;
     }
 
+    /** Approximate an Astrocade chrominance/luminance byte as browser RGB. */
     function colorSpecToRgb(spec) {
       const value = spec & 0xff;
       const lum = value & 7;
@@ -4016,6 +4064,13 @@ first cut.</pre>
       return [Math.round((r+m)*255), Math.round((g+m)*255), Math.round((b+m)*255)];
     }
 
+    /**
+     * Source-level Bally BASIC runtime.
+     *
+     * This is intentionally not a full Z80 emulator. It models documented BASIC
+     * statements, the visible 160x88 display, controller ports, sound registers,
+     * selected ROM calls, and recognized RAM display drivers.
+     */
     class BallyBasicRuntime {
       constructor(canvas, audio) {
         this.canvas = canvas;
@@ -4051,6 +4106,7 @@ first cut.</pre>
         this.resetMachine();
       }
 
+      /** Compile numbered source lines into executable statement lists. */
       compile(source, resetState = true) {
         const byNumber = new Map();
         let ignoredSourceLines = 0;
@@ -4058,8 +4114,7 @@ first cut.</pre>
           if (!rawLine.trim()) continue;
           const match = rawLine.match(/^\s*(\d+)\s*(.*)$/);
           if (!match) {
-            // A decoded tape may contain a title, immediate CLEAR/RUN command,
-            // or loader trailer around the stored line-numbered program.
+            // Ignore cassette labels, immediate commands, and loader trailers.
             ignoredSourceLines++;
             continue;
           }
@@ -4165,6 +4220,7 @@ first cut.</pre>
         return { line: pc.line + 1, stmt: 0 };
       }
 
+      /** Execute one statement and leave the next program counter ready. */
       stepOne() {
         if (!this.running || this.paused) return;
         if (this.pc.line >= this.lines.length) { this.stop('ENDED'); return; }
@@ -4194,12 +4250,12 @@ first cut.</pre>
         this.pc = { line: this.execLineIndex + 1, stmt: 0 };
       }
 
+      /** Dispatch one already-split BASIC statement. */
       executeStatement(statement) {
         const text = statement.trim();
         if (!text || text.startsWith('.')) return;
 
-        // Bally cassette control. On real hardware this disconnects the
-        // audio interface after a load; the browser decoder is already done.
+        // Cassette audio is already detached by the browser-side decoder.
         if (/^:RETURN\b/i.test(text)) return;
         if (/^:INPUT\b/i.test(text)) {
           this.stop('TAPE INPUT');
@@ -4351,8 +4407,7 @@ first cut.</pre>
           }
           const stringQuote = item[0];
           if (stringQuote === '"' || stringQuote === "'") {
-            // Bally BASIC accepts the end of the PRINT statement as the end
-            // of a string, so decoded 300-baud listings need no final quote.
+            // A PRINT boundary implicitly closes an unterminated string.
             output += item.endsWith(stringQuote) && item.length > 1
               ? item.slice(1, -1)
               : item.slice(1);
@@ -4428,9 +4483,10 @@ first cut.</pre>
         }
       }
 
+      /** Map safe ROM calls and recognized RAM drivers to browser-side behavior. */
       executeMachineCall(rawAddress) {
         const address = rawAddress & 0xffff;
-        // A few direct ROM entry points have safe, useful source-level equivalents.
+        // Safe ROM entry points with direct source-level equivalents.
         if (address === 0x05fe) { if (this.audio) this.audio.silence(); return 0; }
         if (address === 0x037f) { this.writeVar('A', this.random(this.readVar('A'))); return this.readVar('A'); }
         if (address === 0x001b || address === 0x0200) return 0;
@@ -4453,23 +4509,20 @@ first cut.</pre>
         return expected.every((value, offset) => value == null || this.memoryByte(address + offset) === value);
       }
 
+      /** Recognize and install a RAM-based IM-2 alternating-color raster driver. */
       installRasterDisplay(address) {
-        // Common cassette technique: a tiny CALL target installs an IM-2
-        // vector and points port $0D at a RAM interrupt handler. Recognise the
-        // hardware protocol, not a particular BASIC title.
+        // The CALL target selects an IM-2 page and writes the vector offset to $0D.
         if (!this.memoryBytesMatch(address, [0xf3, 0x3e, null, 0xed, 0x47, 0x3e, null, 0xd3, 0x0d, 0xfb, 0xc9])) return false;
         const vector = (this.memoryByte(address + 2) << 8) | this.memoryByte(address + 6);
         const handler = this.memoryByte(vector) | (this.memoryByte(vector + 1) << 8);
-        // Raster color handler: save registers; advance a scan-line counter;
-        // write the right and left palettes, horizontal boundary and next
-        // interrupt line. These checks deliberately tolerate its data bytes.
+        // Match the handler's palette, boundary, and next-interrupt port writes.
+        // Data operands remain unconstrained so equivalent drivers can vary them.
         const isColorRaster = this.memoryBytesMatch(handler, [0xc5, 0xe5, 0xf5]) &&
           this.memoryBytesMatch(handler + 0x25, [0xd3, 0x00, 0xd3, 0x01]) &&
           this.memoryBytesMatch(handler + 0x36, [0xd3, 0x04, 0xd3, 0x05]) &&
           this.memoryBytesMatch(handler + 0x47, [0xd3, 0x0f]);
         if (!isColorRaster) return false;
 
-        // Decode the values used by this standard alternating-band driver.
         // Hardware scan lines are twice the 88-line BASIC display resolution.
         const step = this.memoryByte(handler + 9);
         const fieldEnd = this.memoryByte(handler + 0x2b);
@@ -4639,12 +4692,9 @@ first cut.</pre>
           const glyph = FONT_5X7[ch] || FONT_5X7['?'];
           const x = this.readVar('CX');
           const y = this.readVar('CY');
-          // Keep the complete 5x7 glyph and its 6x8 erase cell inside the CRT.
-          // A one-pixel top margin also prevents the canvas frame from visually
-          // swallowing the highest glyph row.
+          // Keep the 5x7 glyph and its 6x8 erase cell inside the CRT.
           const drawY = Math.max(-43, Math.min(36, y));
-          // CY is the character baseline. Draw upward from it so a baseline at
-          // -40 remains wholly visible at the bottom of the 88-line display.
+          // CY is a baseline; drawing upward keeps the lowest text row visible.
           for (let row = 0; row < 8; row++) for (let col = 0; col < 6; col++) this.plot(x + col, drawY + row, 2);
           for (let row = 0; row < 7; row++) {
             for (let col = 0; col < 5; col++) if (glyph[row][col] === '1') this.plot(x + col, drawY + 6 - row, 1);
@@ -4659,6 +4709,7 @@ first cut.</pre>
         if (this.vars.CY < -44) this.vars.CY = 43;
       }
 
+      /** Convert the monochrome framebuffer and active color model to canvas RGB. */
       render() {
         if (!this.dirty) return;
         const image = this.ctx.createImageData(160, 88);
@@ -4706,6 +4757,7 @@ first cut.</pre>
       }
     }
 
+    /** Minimal Web Audio rendering for the tone/noise ports used by BASIC programs. */
     class BallyAudio {
       constructor() {
         this.context = null;
