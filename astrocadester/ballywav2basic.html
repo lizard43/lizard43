@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Bally WAV 2 BASIC Player - 20260717_130000</title>
+  <title>Bally WAV 2 BASIC Player - 20260717_153000</title>
   <style>
     :root {
       --bg: #0d1117;
@@ -2071,7 +2071,7 @@ first cut.</pre>
 
   <div class="modal-backdrop" id="helpDialog" role="dialog" aria-modal="true" aria-labelledby="helpTitle">
     <section class="dialog">
-      <div class="dialog-head"><h3 id="helpTitle">Bally WAV 2 BASIC Player <span class="help-version">20260717_130000</span></h3><button class="icon-btn" data-close-dialog="helpDialog" aria-label="Close help">×</button></div>
+      <div class="dialog-head"><h3 id="helpTitle">Bally WAV 2 BASIC Player <span class="help-version">20260717_153000</span></h3><button class="icon-btn" data-close-dialog="helpDialog" aria-label="Close help">×</button></div>
       <div class="help-tabs" role="tablist" aria-label="Help topics">
         <button class="help-tab active" data-help-tab="decoder" role="tab" aria-selected="true">WAV DECODER</button>
         <button class="help-tab" data-help-tab="player" role="tab" aria-selected="false">BASIC PLAYER</button>
@@ -2093,7 +2093,7 @@ first cut.</pre>
         <h4>Language coverage</h4>
         <p>Supports integer and character-literal expressions, assignments, <code>IF</code> without THEN, <code>GOTO</code>, <code>GOSUB/RETURN</code>, <code>FOR/TO/STEP/NEXT</code>, <code>PRINT</code>, <code>INPUT</code>, <code>CLEAR</code>, <code>LINE</code>, <code>BOX</code>, <code>RND</code>, <code>ABS</code>, input functions, <code>@()</code> arrays, memory, ports, and core display variables including <code>TV</code> character output and <code>KP</code> keyboard input.</p>
         <h4>Machine-language compatibility</h4>
-        <p>Known onboard ROM calls are modeled when practical. Unknown <code>CALL</code> routines are skipped with a warning so programs can continue. Programs that depend on custom Z80 code for core graphics, controls, or game logic may still behave incorrectly. Cassette <code>:INPUT</code> stops in a waiting-for-tape state when no chained block is present; <code>:RUN</code> binaries are not executed.</p>
+        <p>Known onboard ROM calls are modeled when practical. The player also recognizes RAM-installed IM-2 raster color drivers that use the Astrocade palette, horizontal-boundary, and interrupt-line ports. Unknown <code>CALL</code> routines are skipped with a warning so programs can continue. Programs that depend on other custom Z80 code for core graphics, controls, or game logic may still behave incorrectly. Cassette <code>:INPUT</code> stops in a waiting-for-tape state when no chained block is present; <code>:RUN</code> binaries are not executed.</p>
       </div>
     </section>
   </div>
@@ -4043,6 +4043,7 @@ first cut.</pre>
         this.currentLineNumber = null;
         this.ignoredSourceLines = 0;
         this.machineCalls = new Set();
+        this.rasterDisplay = null;
         this.keyQueue = [];
         this.ops = 0;
         this.dirty = true;
@@ -4109,6 +4110,7 @@ first cut.</pre>
         Object.assign(this.vars, { FC: 7, BC: 0, CX: -80, CY: 43, NT: 0, RM: 0, SM: 0 });
         this.memory = new Map();
         this.atArray = new Map();
+        this.rasterDisplay = null;
         this.ports.fill(0);
         this.framebuffer.fill(0);
         this.lineX = 0;
@@ -4432,12 +4434,70 @@ first cut.</pre>
         if (address === 0x05fe) { if (this.audio) this.audio.silence(); return 0; }
         if (address === 0x037f) { this.writeVar('A', this.random(this.readVar('A'))); return this.readVar('A'); }
         if (address === 0x001b || address === 0x0200) return 0;
+        if (this.installRasterDisplay(address)) return 0;
         if (!this.machineCalls.has(address)) {
           this.machineCalls.add(address);
           const hex = address.toString(16).toUpperCase().padStart(4, '0');
           setStatus('work', `Compatibility: skipped machine-language CALL ${address} ($${hex}); BASIC execution continues.`);
         }
         return 0;
+      }
+
+      memoryByte(address) {
+        const a = address & 0xffff;
+        const word = (this.memory.get(a & 0xfffe) || 0) & 0xffff;
+        return (a & 1) ? (word >>> 8) & 0xff : word & 0xff;
+      }
+
+      memoryBytesMatch(address, expected) {
+        return expected.every((value, offset) => value == null || this.memoryByte(address + offset) === value);
+      }
+
+      installRasterDisplay(address) {
+        // Common cassette technique: a tiny CALL target installs an IM-2
+        // vector and points port $0D at a RAM interrupt handler. Recognise the
+        // hardware protocol, not a particular BASIC title.
+        if (!this.memoryBytesMatch(address, [0xf3, 0x3e, null, 0xed, 0x47, 0x3e, null, 0xd3, 0x0d, 0xfb, 0xc9])) return false;
+        const vector = (this.memoryByte(address + 2) << 8) | this.memoryByte(address + 6);
+        const handler = this.memoryByte(vector) | (this.memoryByte(vector + 1) << 8);
+        // Raster color handler: save registers; advance a scan-line counter;
+        // write the right and left palettes, horizontal boundary and next
+        // interrupt line. These checks deliberately tolerate its data bytes.
+        const isColorRaster = this.memoryBytesMatch(handler, [0xc5, 0xe5, 0xf5]) &&
+          this.memoryBytesMatch(handler + 0x25, [0xd3, 0x00, 0xd3, 0x01]) &&
+          this.memoryBytesMatch(handler + 0x36, [0xd3, 0x04, 0xd3, 0x05]) &&
+          this.memoryBytesMatch(handler + 0x47, [0xd3, 0x0f]);
+        if (!isColorRaster) return false;
+
+        // Decode the values used by this standard alternating-band driver.
+        // Hardware scan lines are twice the 88-line BASIC display resolution.
+        const step = this.memoryByte(handler + 9);
+        const fieldEnd = this.memoryByte(handler + 0x2b);
+        const frameEnd = this.memoryByte(handler + 0x0d);
+        const fieldColor = this.memoryByte(handler + 0x35);
+        const boundary = this.memoryByte(handler + 0x40);
+        const initial = this.memoryByte(handler + 0x14);
+        const increment = this.memoryByte(handler + 0x1c);
+        const wrap = this.memoryByte(handler + 0x22);
+        const firstBand = (initial + increment) & 0xff;
+        const secondBand = (firstBand + increment >= this.memoryByte(handler + 0x1e))
+          ? (firstBand + increment - wrap) & 0xff
+          : (firstBand + increment) & 0xff;
+        this.rasterDisplay = {
+          type: 'alternating-color-bands',
+          step: step || 14,
+          fieldEnd: fieldEnd || 99,
+          frameEnd: frameEnd || 183,
+          fieldColor: fieldColor || 8,
+          boundaryPixels: (boundary || 17) * 4,
+          bandColors: [firstBand, secondBand]
+        };
+        this.dirty = true;
+        if (!this.machineCalls.has(address)) {
+          this.machineCalls.add(address);
+          setStatus('ok', `Compatibility: installed RAM raster color driver at $${handler.toString(16).toUpperCase().padStart(4, '0')}.`);
+        }
+        return true;
       }
 
       random(maximum) {
@@ -4605,7 +4665,18 @@ first cut.</pre>
         const fg = colorSpecToRgb(this.readVar('FC'));
         const bg = colorSpecToRgb(this.readVar('BC'));
         for (let i = 0; i < this.framebuffer.length; i++) {
-          const color = this.framebuffer[i] ? fg : bg;
+          let color = this.framebuffer[i] ? fg : bg;
+          if (this.rasterDisplay?.type === 'alternating-color-bands') {
+            const x = i % 160;
+            const y = Math.floor(i / 160);
+            const scanLine = y * 2;
+            const raster = this.rasterDisplay;
+            const band = Math.floor(scanLine / raster.step) & 1;
+            const bandColor = colorSpecToRgb(raster.bandColors[band]);
+            const inField = scanLine < raster.fieldEnd && x < raster.boundaryPixels;
+            if (inField) color = this.framebuffer[i] ? colorSpecToRgb(0x07) : colorSpecToRgb(raster.fieldColor);
+            else color = bandColor;
+          }
           const p = i * 4;
           image.data[p] = color[0]; image.data[p + 1] = color[1]; image.data[p + 2] = color[2]; image.data[p + 3] = 255;
         }
