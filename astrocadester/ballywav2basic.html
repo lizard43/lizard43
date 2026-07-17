@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Bally WAV 2 BASIC Player - 20260717_111500</title>
+  <title>Bally WAV 2 BASIC Player - 20260717_130000</title>
   <style>
     :root {
       --bg: #0d1117;
@@ -1095,13 +1095,16 @@
     .tool-bar {
       min-height: 44px;
       display: flex;
+      flex-wrap: nowrap;
       align-items: center;
       gap: 4px;
-      padding: 4px 6px;
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      background: linear-gradient(180deg, var(--toolbar-hi), var(--toolbar));
-      box-shadow: 0 12px 30px rgba(0, 0, 0, .28);
+      margin: -8px -8px 0;
+      padding: 5px 8px;
+      border: 0;
+      border-bottom: 1px solid var(--border);
+      border-radius: 0;
+      background: var(--toolbar);
+      box-shadow: none;
       overflow: visible;
       position: relative;
       z-index: 200;
@@ -1139,9 +1142,10 @@
       padding-right: 0;
     }
 
+    .help-tools { flex: 0 0 auto; margin-left: auto; }
+
     .tool-spacer {
-      flex: 1 1 auto;
-      min-width: 8px;
+      display: none;
     }
 
     .icon-btn,
@@ -1216,16 +1220,16 @@
     }
 
     .baud-radios {
-      display: inline-flex;
+      display: none;
       align-items: center;
       gap: 3px;
     }
 
     .baud-select {
-      display: none;
-      width: 68px;
-      height: 28px;
-      padding: 0 22px 0 8px;
+      display: block;
+      width: 58px;
+      height: 32px;
+      padding: 0 17px 0 6px;
       border: 1px solid rgba(94, 234, 212, .58);
       border-radius: 7px;
       color: #dffdf7;
@@ -1234,8 +1238,9 @@
     }
 
     .toolbar-status {
-      min-width: 110px;
-      max-width: 300px;
+      flex: 1 1 300px;
+      min-width: 0;
+      max-width: none;
       display: flex;
       align-items: center;
       gap: 5px;
@@ -1252,9 +1257,13 @@
 
     .toolbar-status #statusText,
     .toolbar-status #fileName {
+      min-width: 0;
       overflow: hidden;
       text-overflow: ellipsis;
     }
+
+    .toolbar-status #statusText { flex: 0 1 auto; }
+    .toolbar-status #fileName { flex: 1 1 auto; }
 
     .toolbar-status #fileName:empty {
       display: none;
@@ -1742,7 +1751,7 @@
     @media (max-width: 1040px) {
       html, body { height: auto; overflow: auto; }
       .app { height: auto; min-height: 100vh; }
-      .tool-bar { flex-wrap: wrap; }
+      .tool-bar { flex-wrap: nowrap; }
       .tool-spacer { display: none; }
       .layout.workbench-layout { height: auto; grid-template-columns: 1fr !important; overflow: visible; }
       .workspace-panel { height: 68vh; min-height: 470px; }
@@ -1786,9 +1795,9 @@
       <div class="tool-group file-tools" id="uploadCard">
         <label class="upload-icon-btn" for="wavInput" title="Upload WAV or BASIC" aria-label="Upload WAV or BASIC">↥</label>
         <input id="wavInput" type="file" accept="audio/wav,.wav,text/plain,.bas,.txt,.prg" />
+        <button class="icon-btn" id="downloadBasicBtn" title="Download BASIC" aria-label="Download BASIC">⇩</button>
         <button class="icon-btn" id="demoBtn" title="Load Nuke demo" aria-label="Load Nuke demo">✦</button>
         <button class="icon-btn" id="copyBtn" title="Copy BASIC" aria-label="Copy BASIC">⧉</button>
-        <button class="icon-btn" id="downloadBasicBtn" title="Download BASIC" aria-label="Download BASIC">⇩</button>
       </div>
 
       <div class="tool-group run-tools">
@@ -2062,7 +2071,7 @@ first cut.</pre>
 
   <div class="modal-backdrop" id="helpDialog" role="dialog" aria-modal="true" aria-labelledby="helpTitle">
     <section class="dialog">
-      <div class="dialog-head"><h3 id="helpTitle">Bally WAV 2 BASIC Player <span class="help-version">20260717_111500</span></h3><button class="icon-btn" data-close-dialog="helpDialog" aria-label="Close help">×</button></div>
+      <div class="dialog-head"><h3 id="helpTitle">Bally WAV 2 BASIC Player <span class="help-version">20260717_130000</span></h3><button class="icon-btn" data-close-dialog="helpDialog" aria-label="Close help">×</button></div>
       <div class="help-tabs" role="tablist" aria-label="Help topics">
         <button class="help-tab active" data-help-tab="decoder" role="tab" aria-selected="true">WAV DECODER</button>
         <button class="help-tab" data-help-tab="player" role="tab" aria-selected="false">BASIC PLAYER</button>
