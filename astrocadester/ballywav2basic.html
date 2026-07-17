@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Bally WAV 2 BASIC Player - 20260717_064500</title>
+  <title>Bally WAV 2 BASIC Player - 20260717_111500</title>
   <style>
     :root {
       --bg: #0d1117;
@@ -1454,6 +1454,14 @@
       display: grid;
     }
 
+    .editor-shell.empty .drop-hint {
+      display: grid;
+      border-color: rgba(94, 234, 212, .32);
+      color: #91a7b9;
+      background: rgba(5, 12, 18, .72);
+      letter-spacing: .04em;
+    }
+
     .editor-footer {
       position: absolute;
       left: 14px;
@@ -1777,7 +1785,7 @@
     <header class="tool-bar" aria-label="Bally BASIC tool bar">
       <div class="tool-group file-tools" id="uploadCard">
         <label class="upload-icon-btn" for="wavInput" title="Upload WAV or BASIC" aria-label="Upload WAV or BASIC">↥</label>
-        <input id="wavInput" type="file" accept="audio/wav,.wav,text/plain,.bas,.txt" />
+        <input id="wavInput" type="file" accept="audio/wav,.wav,text/plain,.bas,.txt,.prg" />
         <button class="icon-btn" id="demoBtn" title="Load Nuke demo" aria-label="Load Nuke demo">✦</button>
         <button class="icon-btn" id="copyBtn" title="Copy BASIC" aria-label="Copy BASIC">⧉</button>
         <button class="icon-btn" id="downloadBasicBtn" title="Download BASIC" aria-label="Download BASIC">⇩</button>
@@ -1818,7 +1826,7 @@
     </header>
 
     <main class="layout workbench-layout">
-      <section class="panel workspace-panel">
+      <section class="panel workspace-panel" id="workspacePanel">
         <div class="tab-bar" role="tablist" aria-label="Source workspace">
           <button class="tab-btn active" data-work-tab="basic" role="tab" aria-selected="true">BASIC</button>
           <button class="tab-btn" data-work-tab="rom" role="tab" aria-selected="false">ROM SUBROUTINES</button>
@@ -1828,9 +1836,9 @@
         <div class="tab-content editor-tab active" id="work-basic" role="tabpanel">
           <div class="editor-shell" id="dropZone">
             <textarea id="basicOutput" spellcheck="false" wrap="off" aria-label="Bally BASIC source"
-              placeholder="Paste Bally BASIC here, upload a WAV, or drop a WAV/BAS file into this editor."></textarea>
+              placeholder="Paste or type Bally BASIC here."></textarea>
             <div class="copy-toast" id="copyToast">Copied</div>
-            <div class="drop-hint">Drop WAV or BASIC source to load</div>
+            <div class="drop-hint">DROP WAV / BAS HERE</div>
             <div class="editor-footer"><span id="editorLines">0 lines</span><span id="editorChars">0 characters</span></div>
           </div>
         </div>
@@ -2054,7 +2062,7 @@ first cut.</pre>
 
   <div class="modal-backdrop" id="helpDialog" role="dialog" aria-modal="true" aria-labelledby="helpTitle">
     <section class="dialog">
-      <div class="dialog-head"><h3 id="helpTitle">Bally WAV 2 BASIC Player <span class="help-version">20260717_064500</span></h3><button class="icon-btn" data-close-dialog="helpDialog" aria-label="Close help">×</button></div>
+      <div class="dialog-head"><h3 id="helpTitle">Bally WAV 2 BASIC Player <span class="help-version">20260717_111500</span></h3><button class="icon-btn" data-close-dialog="helpDialog" aria-label="Close help">×</button></div>
       <div class="help-tabs" role="tablist" aria-label="Help topics">
         <button class="help-tab active" data-help-tab="decoder" role="tab" aria-selected="true">WAV DECODER</button>
         <button class="help-tab" data-help-tab="player" role="tab" aria-selected="false">BASIC PLAYER</button>
@@ -2065,13 +2073,13 @@ first cut.</pre>
         <h4>Getting a clean decode</h4>
         <ul class="help-list"><li>Use an uncompressed mono or stereo PCM WAV; the decoder mixes stereo to mono.</li><li>A complete, steady leader is important. Avoid clipped beginnings and aggressive noise reduction.</li><li>If Auto fails, try the known tape rate, then Invert signal or disable Schmitt cleanup in Settings.</li><li>Manual cycle split and start cycle are recovery tools for noisy or nonstandard recordings.</li></ul>
         <h4>What gets loaded</h4>
-        <p>The stored numbered program becomes editable BASIC source. Tape titles, immediate commands, and loader trailers may appear around it and are ignored by the player.</p>
+        <p>The stored numbered program becomes editable BASIC source. Tape titles, immediate commands, and loader trailers may appear around it and are ignored by the player. Tokenized Bally <code>.prg</code> files are detokenized through the same BASIC token table used by the cassette decoder.</p>
         <p><b>Patch and modification tapes:</b> load the base program with <b>Replace</b>, choose <b>Merge/patch by line number</b> in Settings, then load the modification tape. Matching line numbers are replaced, new lines are added, and a bare line number deletes that base line.</p>
       </div>
       <div class="dialog-body help-pane" id="help-player" role="tabpanel" hidden>
         <h4>Run and control</h4>
         <p>Review or edit the listing, then press <b>Run</b>. Run/Pause/Stop/Reset remain available in the toolbar. BASIC <code>INPUT</code> requests appear directly over the Astrocade display.</p>
-        <p>Programs that read <code>KP</code> pause at the display for one keyboard character at a time. Type the requested letter, number, or space; no extra Enter is needed. The program resumes the exact statement after each key.</p>
+        <p>Programs that read <code>KP</code> pause at the display for one console switch at a time. Printable typing goes to the keypad only while that request is visible; otherwise <kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd><kbd>F</kbd> remain exclusively P2 controls. GO, joystick directions, and triggers stay separate controller signals.</p>
         <ul class="help-list"><li><b>Player 1:</b> <kbd>Arrow keys</kbd> joystick · <kbd>Space</kbd> trigger</li><li><b>Player 2:</b> <kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd> joystick · <kbd>F</kbd> trigger</li><li><b>Console:</b> <kbd>Enter</kbd> GO switch · <kbd>Esc</kbd> closes dialogs</li></ul>
         <h4>Language coverage</h4>
         <p>Supports integer and character-literal expressions, assignments, <code>IF</code> without THEN, <code>GOTO</code>, <code>GOSUB/RETURN</code>, <code>FOR/TO/STEP/NEXT</code>, <code>PRINT</code>, <code>INPUT</code>, <code>CLEAR</code>, <code>LINE</code>, <code>BOX</code>, <code>RND</code>, <code>ABS</code>, input functions, <code>@()</code> arrays, memory, ports, and core display variables including <code>TV</code> character output and <code>KP</code> keyboard input.</p>
@@ -2130,6 +2138,7 @@ first cut.</pre>
     const debugLog = $('debugLog');
     const uploadCard = $('uploadCard');
     const dropZone = $('dropZone');
+    const workspacePanel = $('workspacePanel');
     const editorDropPanel = $('work-basic');
     const waveCanvas = $('waveCanvas');
     const zoomCanvas = $('zoomCanvas');
@@ -2192,7 +2201,7 @@ first cut.</pre>
     waveCanvas.addEventListener('wheel', (ev) => adjustZoomWindowWithWheel(ev, 'overview'), { passive: false });
     zoomCanvas.addEventListener('wheel', (ev) => adjustZoomWindowWithWheel(ev, 'zoom'), { passive: false });
 
-    for (const el of [dropZone, uploadCard]) {
+    for (const el of [workspacePanel, uploadCard]) {
       el.addEventListener('dragover', (ev) => { ev.preventDefault(); editorDropPanel.classList.add('dragging'); });
       el.addEventListener('dragleave', () => editorDropPanel.classList.remove('dragging'));
       el.addEventListener('drop', async (ev) => {
@@ -2234,7 +2243,9 @@ first cut.</pre>
           const priorSource = basicOutput.value;
           basicRuntime.unloadSource();
           selectViewTab('console');
-          const incomingSource = await file.text();
+          const incomingSource = /\.prg$/i.test(file.name)
+            ? bytesToCleanBasicText(Array.from(new Uint8Array(await file.arrayBuffer())))
+            : await file.text();
           basicOutput.value = $('loadMode').value === 'merge' ? mergeBasicSources(priorSource, incomingSource) : incomingSource;
           lastFile = null;
           lastArrayBuffer = null;
@@ -4435,9 +4446,10 @@ first cut.</pre>
           case 'XY': return word16(((this.lineY & 0xff) << 8) | (this.lineX & 0xff));
           case 'KP': {
             if (this.keyQueue.length) {
-              const code = this.keyQueue.shift();
+              const event = this.keyQueue.shift();
+              const code = typeof event === 'number' ? event : event.code;
               this.input.keyCode = code;
-              this.input.keyLatch = 1;
+              if (typeof event === 'number' || event.signalPort) this.input.keyLatch = 1;
               return word16(code);
             }
             this.pc = { ...this.statementPc };
@@ -4558,7 +4570,10 @@ first cut.</pre>
           const glyph = FONT_5X7[ch] || FONT_5X7['?'];
           const x = this.readVar('CX');
           const y = this.readVar('CY');
-          const drawY = Math.max(-43, Math.min(37, y));
+          // Keep the complete 5x7 glyph and its 6x8 erase cell inside the CRT.
+          // A one-pixel top margin also prevents the canvas frame from visually
+          // swallowing the highest glyph row.
+          const drawY = Math.max(-43, Math.min(36, y));
           // CY is the character baseline. Draw upward from it so a baseline at
           // -40 remains wholly visible at the bottom of the 88-line display.
           for (let row = 0; row < 8; row++) for (let col = 0; col < 6; col++) this.plot(x + col, drawY + row, 2);
@@ -4719,6 +4734,7 @@ first cut.</pre>
       $('editorChars').textContent = `${basicOutput.value.length.toLocaleString()} characters`;
       if ($('work-basic').classList.contains('active')) $('sourceMeta').textContent = `${numberedSourceLines()} numbered lines · drop WAV/BAS here`;
       copyBtn.disabled = !basicOutput.value;
+      dropZone.classList.toggle('empty', !basicOutput.value.trim());
     }
 
     function loadNukeDemo() {
@@ -4791,7 +4807,16 @@ first cut.</pre>
     function setTrigger(pressed, player = 1) { basicRuntime.setTrigger(pressed, player); }
     function setGo(pressed) {
       basicRuntime.input.go = pressed ? 1 : 0;
-      if (pressed) basicRuntime.input.goLatch = 1;
+      if (pressed) {
+        basicRuntime.input.goLatch = 1;
+        if (pendingKeyInput) {
+          supplyBasicKeyCode(13, 'GO');
+          // KP consumes this GO keystroke. Its key latch will be exposed once
+          // when KP is retried; do not leave a second GO event behind.
+          basicRuntime.input.go = 0;
+          basicRuntime.input.goLatch = 0;
+        }
+      }
       $('goBtn').classList.toggle('pressed', pressed);
     }
 
@@ -4844,14 +4869,19 @@ first cut.</pre>
         $('inputMessage').textContent = 'TYPE ONE PRINTABLE CHARACTER';
         return false;
       }
-      basicRuntime.keyQueue.push(ch.charCodeAt(0));
+      return supplyBasicKeyCode(ch.charCodeAt(0), ch === ' ' ? 'SPACE' : ch);
+    }
+
+    function supplyBasicKeyCode(code, label, signalPort = true) {
+      if (!pendingKeyInput) return false;
+      basicRuntime.keyQueue.push({ code: code & 0x7f, signalPort });
       pendingKeyInput = false;
       $('inputForm').hidden = true;
       $('inputValue').value = '';
       basicRuntime.paused = false;
       basicRuntime.state = 'RUNNING';
       basicRuntime.updateHud();
-      setStatus('good', `Accepted ${ch === ' ' ? 'SPACE' : ch}.`);
+      setStatus('good', `Accepted ${label}.`);
       $('astrocadeCanvas').focus();
       return true;
     }
@@ -4943,7 +4973,12 @@ first cut.</pre>
 
     const triggerSurfaces = [$('triggerBtn'), $('astrocadeCanvas')];
     for (const surface of triggerSurfaces) {
-      surface.addEventListener('pointerdown', event => { event.preventDefault(); surface.setPointerCapture?.(event.pointerId); setTrigger(true); });
+      surface.addEventListener('pointerdown', event => {
+        event.preventDefault();
+        surface.setPointerCapture?.(event.pointerId);
+        setTrigger(true);
+        if (pendingKeyInput) supplyBasicKeyCode(0, 'P1 TRIGGER', false);
+      });
       surface.addEventListener('pointerup', event => { event.preventDefault(); setTrigger(false); });
       surface.addEventListener('pointercancel', () => setTrigger(false));
       surface.addEventListener('lostpointercapture', () => setTrigger(false));
@@ -4961,6 +4996,23 @@ first cut.</pre>
         document.querySelectorAll('.modal-backdrop.open').forEach(dialog => closeDialog(dialog.id));
         return;
       }
+      if (pendingKeyInput && event.key === 'Enter') {
+        event.preventDefault();
+        setGo(true);
+        return;
+      }
+      if (keyDirection[event.key]) {
+        event.preventDefault();
+        basicRuntime.setDirection(keyDirection[event.key], true);
+        if (pendingKeyInput) supplyBasicKeyCode(0, `P1 ${keyDirection[event.key].toUpperCase()}`, false);
+        return;
+      }
+      if (event.code === 'Space') {
+        event.preventDefault();
+        setTrigger(true);
+        if (pendingKeyInput) supplyBasicKeyCode(0, 'P1 TRIGGER', false);
+        return;
+      }
       if (pendingKeyInput && event.key.length === 1 && /^[\x20-\x7E]$/.test(event.key)) {
         event.preventDefault();
         supplyBasicKey(event.key);
@@ -4968,15 +5020,8 @@ first cut.</pre>
       }
       if (event.target === $('inputValue')) return;
       if (!basicRuntime.running || (event.target === basicOutput && !basicRuntime.running)) return;
-      if (event.key.length === 1 && /^[a-z ]$/i.test(event.key)) {
-        basicRuntime.input.keyCode = event.key.toUpperCase().charCodeAt(0);
-        basicRuntime.input.keyLatch = 1;
-        event.preventDefault();
-      }
-      if (event.code === 'Space') { event.preventDefault(); setTrigger(true); }
       if (event.code === 'KeyF') { event.preventDefault(); setTrigger(true, 2); }
       if (event.key === 'Enter') { event.preventDefault(); setGo(true); }
-      if (keyDirection[event.key]) { event.preventDefault(); basicRuntime.setDirection(keyDirection[event.key], true); }
       if (keyDirection2[event.key.toLowerCase()]) { event.preventDefault(); basicRuntime.setDirection(keyDirection2[event.key.toLowerCase()], true, 2); }
     }, true);
     window.addEventListener('keyup', event => {
@@ -5028,7 +5073,7 @@ first cut.</pre>
       for (const id of ['waveCanvas', 'zoomCanvas', 'bitCanvas', 'histCanvas']) {
         const c = $(id); const ctx = setupCanvas(c); ctx.clearRect(0, 0, c.width, c.height); drawGrid(ctx, c.width, c.height);
       }
-      setStatus('', 'Ready. Upload a Bally/AstroBASIC WAV');
+      setStatus('', 'Ready. Drop a WAV/BAS file or type Bally BASIC.');
     }
 
     function escapeHtml(s) {
@@ -5044,7 +5089,6 @@ first cut.</pre>
     $('stopBtn').disabled = true;
     $('resetBtn').disabled = true;
     updateEditorMetrics();
-    loadNukeDemo();
     requestAnimationFrame(runtimeFrame);
   </script>
 </body>
