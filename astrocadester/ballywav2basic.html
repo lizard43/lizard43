@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Bally WAV 2 BASIC Player - 20260716_235000</title>
+  <title>Bally WAV 2 BASIC Player - 20260717_064500</title>
   <style>
     :root {
       --bg: #0d1117;
@@ -1489,7 +1489,7 @@
       flex: 0 0 auto;
       min-height: 0;
       display: grid;
-      grid-template-rows: auto auto;
+      grid-template-rows: auto auto auto;
       gap: 7px;
     }
 
@@ -1575,6 +1575,15 @@
       background: linear-gradient(180deg, #e54b65, #9f243b);
       box-shadow: 0 0 22px rgba(251, 113, 133, .32);
     }
+
+    .console-controls { display: flex; gap: 6px; }
+    .go-btn {
+      min-width: 92px;
+      border-color: #35665f;
+      color: #ccfbf1;
+      background: linear-gradient(180deg, #17463f, #102b29);
+    }
+    .go-btn.pressed, .go-btn:active { background: linear-gradient(180deg, #20a48f, #11685e); }
 
     .tape-scroll {
       width: 100%;
@@ -1687,6 +1696,31 @@
     .help-pane.active { display: block; }
     .help-version { color: #7890a7; font: 10px/1 var(--mono); }
 
+    .console-input {
+      position: static;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 5px;
+      padding: 7px;
+      border: 1px solid rgba(94, 234, 212, .65);
+      border-radius: 7px;
+      background: rgba(4, 9, 14, .94);
+      box-shadow: inset 0 0 18px rgba(0, 0, 0, .34);
+    }
+    .console-input[hidden] { display: none; }
+    .console-input label { grid-column: 1 / -1; color: #fff; font: 700 clamp(10px, 2.2vw, 14px)/1.15 var(--mono); }
+    .console-input input {
+      min-width: 0;
+      padding: 6px 8px;
+      border: 1px solid #7b8da4;
+      border-radius: 5px;
+      color: #fff;
+      background: #02060a;
+      font: 15px/1 var(--mono);
+    }
+    .console-input .btn { padding: 5px 10px; }
+    .input-message { grid-column: 1 / -1; min-height: 1em; color: #fda4af; font: 10px/1 var(--mono); }
+
     kbd {
       padding: 1px 6px;
       border: 1px solid #3b4a60;
@@ -1715,13 +1749,12 @@
         gap: 3px;
         padding: 4px;
       }
-      .file-tools { order: 1; }
-      .run-tools { order: 2; }
+      .file-tools, .run-tools, .help-tools { display: contents; }
       .tool-group { gap: 2px; padding: 0; border: 0; }
-      .toolbar-mode { order: 3; }
+      .toolbar-mode { order: 1; }
       .tool-spacer { display: none; }
-      .help-tools { order: 4; }
-      .toolbar-status { order: 5; flex: 1 0 100%; min-width: 0; max-width: none; min-height: 19px; padding: 0 3px; }
+      .file-tools > *, .run-tools > *, .help-tools > * { order: 1; }
+      .toolbar-status { order: 2; flex: 1 0 100%; min-width: 0; max-width: none; min-height: 19px; padding: 0 3px; }
       .status-tooltip { left: 0; right: 0; width: auto; }
       .icon-btn, .upload-icon-btn { width: 27px; height: 27px; border-radius: 6px; font-size: 13px; }
       .baud-radios { display: none; }
@@ -1915,6 +1948,12 @@ first cut.</pre>
             <div class="console-stage scanlines" id="consoleStage">
               <canvas id="astrocadeCanvas" width="160" height="88" tabindex="0" aria-label="Astrocade BASIC display"></canvas>
             </div>
+            <form class="console-input" id="inputForm" hidden>
+              <label id="inputPrompt" for="inputValue">BASIC INPUT</label>
+              <input id="inputValue" type="text" inputmode="numeric" autocomplete="off" aria-describedby="inputMessage" />
+              <button class="btn primary" id="inputSubmit" type="submit">ENTER</button>
+              <span class="input-message" id="inputMessage" aria-live="polite"></span>
+            </form>
             <div class="console-hud">
               <div class="runtime-readout">
                 <span>STATE <b id="runtimeState">READY</b></span>
@@ -1923,7 +1962,10 @@ first cut.</pre>
                 <span>SPEED <b id="runtimeSpeed">1×</b></span>
                 <span>TR(1) <b id="triggerState">0</b></span>
               </div>
-              <button class="trigger-btn" id="triggerBtn">P1 TRIGGER · SPACE</button>
+              <div class="console-controls">
+                <button class="trigger-btn go-btn" id="goBtn">CONSOLE GO · ENTER</button>
+                <button class="trigger-btn" id="triggerBtn">P1 TRIGGER · SPACE</button>
+              </div>
             </div>
           </div>
         </div>
@@ -1998,6 +2040,9 @@ first cut.</pre>
             <select id="speedSelect"><option value="0.5">0.5×</option><option value="1" selected>1× · original pace</option><option value="2">2×</option><option value="5">5×</option><option value="10">10×</option></select>
           </label>
           <label>Random seed<input id="randomSeed" type="number" value="1982" step="1" /></label>
+          <label>BASIC tape load
+            <select id="loadMode"><option value="replace" selected>Replace current program</option><option value="merge">Merge/patch by line number</option></select>
+          </label>
         </div>
         <label class="check"><input id="soundEnabled" type="checkbox" checked /> Enable Astrocade sound-port synthesis</label>
         <label class="check"><input id="scanlinesEnabled" type="checkbox" checked /> Show subtle CRT scanlines</label>
@@ -2009,7 +2054,7 @@ first cut.</pre>
 
   <div class="modal-backdrop" id="helpDialog" role="dialog" aria-modal="true" aria-labelledby="helpTitle">
     <section class="dialog">
-      <div class="dialog-head"><h3 id="helpTitle">Bally WAV 2 BASIC Player <span class="help-version">20260716_235000</span></h3><button class="icon-btn" data-close-dialog="helpDialog" aria-label="Close help">×</button></div>
+      <div class="dialog-head"><h3 id="helpTitle">Bally WAV 2 BASIC Player <span class="help-version">20260717_064500</span></h3><button class="icon-btn" data-close-dialog="helpDialog" aria-label="Close help">×</button></div>
       <div class="help-tabs" role="tablist" aria-label="Help topics">
         <button class="help-tab active" data-help-tab="decoder" role="tab" aria-selected="true">WAV DECODER</button>
         <button class="help-tab" data-help-tab="player" role="tab" aria-selected="false">BASIC PLAYER</button>
@@ -2021,15 +2066,17 @@ first cut.</pre>
         <ul class="help-list"><li>Use an uncompressed mono or stereo PCM WAV; the decoder mixes stereo to mono.</li><li>A complete, steady leader is important. Avoid clipped beginnings and aggressive noise reduction.</li><li>If Auto fails, try the known tape rate, then Invert signal or disable Schmitt cleanup in Settings.</li><li>Manual cycle split and start cycle are recovery tools for noisy or nonstandard recordings.</li></ul>
         <h4>What gets loaded</h4>
         <p>The stored numbered program becomes editable BASIC source. Tape titles, immediate commands, and loader trailers may appear around it and are ignored by the player.</p>
+        <p><b>Patch and modification tapes:</b> load the base program with <b>Replace</b>, choose <b>Merge/patch by line number</b> in Settings, then load the modification tape. Matching line numbers are replaced, new lines are added, and a bare line number deletes that base line.</p>
       </div>
       <div class="dialog-body help-pane" id="help-player" role="tabpanel" hidden>
         <h4>Run and control</h4>
-        <p>Review or edit the listing, then press <b>Run</b>. Run/Pause/Stop/Reset are in the toolbar.</p>
+        <p>Review or edit the listing, then press <b>Run</b>. Run/Pause/Stop/Reset remain available in the toolbar. BASIC <code>INPUT</code> requests appear directly over the Astrocade display.</p>
+        <p>Programs that read <code>KP</code> pause at the display for one keyboard character at a time. Type the requested letter, number, or space; no extra Enter is needed. The program resumes the exact statement after each key.</p>
         <ul class="help-list"><li><b>Player 1:</b> <kbd>Arrow keys</kbd> joystick · <kbd>Space</kbd> trigger</li><li><b>Player 2:</b> <kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd> joystick · <kbd>F</kbd> trigger</li><li><b>Console:</b> <kbd>Enter</kbd> GO switch · <kbd>Esc</kbd> closes dialogs</li></ul>
         <h4>Language coverage</h4>
-        <p>Supports integer expressions, assignments, <code>IF</code> without THEN, <code>GOTO</code>, <code>GOSUB/RETURN</code>, <code>FOR/TO/STEP/NEXT</code>, <code>PRINT</code>, <code>CLEAR</code>, <code>LINE</code>, <code>BOX</code>, <code>RND</code>, <code>ABS</code>, input functions, memory, ports, and core display variables.</p>
+        <p>Supports integer and character-literal expressions, assignments, <code>IF</code> without THEN, <code>GOTO</code>, <code>GOSUB/RETURN</code>, <code>FOR/TO/STEP/NEXT</code>, <code>PRINT</code>, <code>INPUT</code>, <code>CLEAR</code>, <code>LINE</code>, <code>BOX</code>, <code>RND</code>, <code>ABS</code>, input functions, <code>@()</code> arrays, memory, ports, and core display variables including <code>TV</code> character output and <code>KP</code> keyboard input.</p>
         <h4>Machine-language compatibility</h4>
-        <p>Known onboard ROM calls are modeled when practical. Unknown <code>CALL</code> routines are skipped with a warning so programs can continue. Programs that depend on custom Z80 code for core graphics, controls, or game logic may still behave incorrectly. Cassette <code>:RUN</code> binaries are not executed.</p>
+        <p>Known onboard ROM calls are modeled when practical. Unknown <code>CALL</code> routines are skipped with a warning so programs can continue. Programs that depend on custom Z80 code for core graphics, controls, or game logic may still behave incorrectly. Cassette <code>:INPUT</code> stops in a waiting-for-tape state when no chained block is present; <code>:RUN</code> binaries are not executed.</p>
       </div>
     </section>
   </div>
@@ -2156,13 +2203,39 @@ first cut.</pre>
       });
     }
 
+    function mergeBasicSources(baseSource, patchSource) {
+      const numbered = new Map();
+      const headers = [];
+      const seenHeaders = new Set();
+      const absorb = (source, patching) => {
+        for (const rawLine of String(source || '').replace(/\r/g, '').split('\n')) {
+          const match = rawLine.match(/^\s*(\d+)\s*(.*)$/);
+          if (match) {
+            const number = Number(match[1]);
+            const body = match[2] || '';
+            if (patching && !body.trim()) numbered.delete(number);
+            else if (body.trim()) numbered.set(number, `${String(number).padStart(5, ' ')} ${body}`.trimEnd());
+          } else if (rawLine.trim() && !seenHeaders.has(rawLine.trim())) {
+            seenHeaders.add(rawLine.trim());
+            headers.push(rawLine);
+          }
+        }
+      };
+      absorb(baseSource, false);
+      absorb(patchSource, true);
+      const program = Array.from(numbered.entries()).sort((a, b) => a[0] - b[0]).map(([, line]) => line);
+      return [...headers, ...program].join('\n');
+    }
+
     async function loadFile(file) {
       setStatus('work', `Reading ${file.name}...`);
       try {
         if (!/\.wav$/i.test(file.name) && !/audio\/(wav|wave|x-wav)/i.test(file.type || '')) {
+          const priorSource = basicOutput.value;
           basicRuntime.unloadSource();
           selectViewTab('console');
-          basicOutput.value = await file.text();
+          const incomingSource = await file.text();
+          basicOutput.value = $('loadMode').value === 'merge' ? mergeBasicSources(priorSource, incomingSource) : incomingSource;
           lastFile = null;
           lastArrayBuffer = null;
           lastResult = null;
@@ -2170,7 +2243,7 @@ first cut.</pre>
           copyBtn.disabled = !basicOutput.value;
           updateEditorMetrics();
           selectWorkTab('basic');
-          setStatus('good', `Loaded BASIC source from ${file.name}`);
+          setStatus('good', `${$('loadMode').value === 'merge' ? 'Merged' : 'Loaded'} BASIC source from ${file.name}`);
           return;
         }
         const buf = await file.arrayBuffer();
@@ -2207,6 +2280,7 @@ first cut.</pre>
     }
 
     function decodeAndRender(file, arrayBuffer) {
+      const priorSource = basicOutput.value;
       basicRuntime.unloadSource();
       setStatus('work', 'Detecting and decoding tape stream...');
       try {
@@ -2214,7 +2288,8 @@ first cut.</pre>
         const result = decodeWavAuto(arrayBuffer, file.name, opts);
         lastResult = result;
         fileName.textContent = file.name;
-        basicOutput.value = result.cleanBasic;
+        const merged = $('loadMode').value === 'merge';
+        basicOutput.value = merged ? mergeBasicSources(priorSource, result.cleanBasic) : result.cleanBasic;
         copyBtn.disabled = false;
         applyOptions.disabled = false;
         updateEditorMetrics();
@@ -2225,7 +2300,7 @@ first cut.</pre>
         drawAll(result);
         if (result.leader) {
           if (result.parser.lines.length) {
-            setStatus('good', `${result.modeLabel}: decoded ${result.dec.stats.bytes} bytes into ${result.parser.lines.length} BASIC lines.`);
+            setStatus('good', `${result.modeLabel}: decoded ${result.dec.stats.bytes} bytes into ${result.parser.lines.length} BASIC lines${merged ? ' and merged them by line number' : ''}.`);
           } else if (result.mode === '2000') {
             setStatus('work', `${result.modeLabel}: decoded ${result.dec.stats.bytes} load bytes, but no line-numbered BASIC listing was found. See debug.`);
           } else {
@@ -3732,13 +3807,22 @@ first cut.</pre>
             this.tokens.push({ type: 'num', value: Number(this.text.slice(s, this.i)) });
             continue;
           }
+          if (ch === '"' || ch === "'") {
+            const quote = ch;
+            const start = ++this.i;
+            while (this.i < this.text.length && this.text[this.i] !== quote) this.i++;
+            const value = this.text.slice(start, this.i);
+            if (this.i < this.text.length) this.i++;
+            this.tokens.push({ type: 'str', value });
+            continue;
+          }
           if (/[A-Za-z]/.test(ch)) {
             const s = this.i++;
             while (this.i < this.text.length && /[A-Za-z]/.test(this.text[this.i])) this.i++;
             this.tokens.push({ type: 'id', value: this.text.slice(s, this.i).toUpperCase() });
             continue;
           }
-          if ('+-*/<>=#(),%&'.includes(ch)) {
+          if ('+-*/<>=#(),%&@'.includes(ch)) {
             this.tokens.push({ type: ch, value: ch }); this.i++; continue;
           }
           throw new Error(`Unexpected expression character "${ch}"`);
@@ -3793,10 +3877,11 @@ first cut.</pre>
       }
       primary() {
         if (this.peek('num')) return { type: 'num', value: this.take('num').value };
+        if (this.peek('str')) return { type: 'char', value: this.take('str').value };
         if (this.peek('(')) {
           this.take('('); const node = this.comparison(); this.take(')'); return node;
         }
-        if (this.peek('%') || this.peek('&')) {
+        if (this.peek('%') || this.peek('&') || this.peek('@')) {
           const name = this.tokens[this.i++].type;
           this.take('('); const args = this.argumentList(); return { type: 'call', name, args };
         }
@@ -3826,12 +3911,40 @@ first cut.</pre>
       return new ExprParser(src).parse();
     }
 
+    function parseInputSpec(text) {
+      const prompts = [];
+      const variables = [];
+      let i = 0;
+      while (i < text.length) {
+        while (i < text.length && /[\s,;]/.test(text[i])) i++;
+        if (i >= text.length) break;
+        if (text[i] === '"') {
+          const start = ++i;
+          while (i < text.length && text[i] !== '"') i++;
+          prompts.push(text.slice(start, i));
+          if (i < text.length) i++;
+          continue;
+        }
+        if (/[A-Za-z]/.test(text[i])) {
+          const start = i++;
+          while (i < text.length && /[A-Za-z]/.test(text[i])) i++;
+          const names = text.slice(start, i).toUpperCase();
+          if (names.length > 2) throw new Error(`WHAT? Invalid INPUT variable ${names}`);
+          variables.push(names);
+          continue;
+        }
+        throw new Error(`WHAT? Unsupported INPUT syntax near ${text.slice(i)}`);
+      }
+      if (!variables.length) throw new Error('WHAT? INPUT has no variables');
+      return { prompt: prompts.join(' · ').trim() || 'Enter a number', variables };
+    }
+
     function looksLikeStatementStart(text) {
       const s = text.trimStart();
       if (!s) return false;
-      if (/^(IF|GOTO|GOSUB|RETURN|PRINT|BOX|LINE|FOR|NEXT|CLEAR|STOP|RUN)(?=\s|[A-Z0-9(&%+\-]|$)/i.test(s)) return true;
+      if (/^(IF|GOTO|GOSUB|RETURN|PRINT|BOX|LINE|FOR|NEXT|CLEAR|STOP|RUN)(?=\s|[A-Z0-9(&%@+\-]|$)/i.test(s)) return true;
       if (/^[A-Z]{1,2}\s*=/i.test(s)) return true;
-      if (/^[&%]\s*\(/.test(s)) return true;
+      if (/^[&%@]\s*\(/.test(s)) return true;
       return false;
     }
 
@@ -3890,6 +4003,7 @@ first cut.</pre>
         this.audio = audio;
         this.framebuffer = new Uint8Array(160 * 88);
         this.memory = new Map();
+        this.atArray = new Map();
         this.ports = new Uint8Array(256);
         this.vars = Object.create(null);
         this.lines = [];
@@ -3899,7 +4013,7 @@ first cut.</pre>
         this.input = {
           trigger: 0, triggerLatch: 0, left: 0, right: 0, up: 0, down: 0, knob: 0,
           trigger2: 0, triggerLatch2: 0, left2: 0, right2: 0, up2: 0, down2: 0, knob2: 0,
-          go: 0, goLatch: 0
+          go: 0, goLatch: 0, keyCode: 0, keyLatch: 0
         };
         this.running = false;
         this.paused = false;
@@ -3909,6 +4023,7 @@ first cut.</pre>
         this.currentLineNumber = null;
         this.ignoredSourceLines = 0;
         this.machineCalls = new Set();
+        this.keyQueue = [];
         this.ops = 0;
         this.dirty = true;
         this.randomState = 1982;
@@ -3973,11 +4088,13 @@ first cut.</pre>
         for (let code = 65; code <= 90; code++) this.vars[String.fromCharCode(code)] = 0;
         Object.assign(this.vars, { FC: 7, BC: 0, CX: -80, CY: 43, NT: 0, RM: 0, SM: 0 });
         this.memory = new Map();
+        this.atArray = new Map();
         this.ports.fill(0);
         this.framebuffer.fill(0);
         this.lineX = 0;
         this.lineY = 0;
         this.randomState = (Number($('randomSeed')?.value) || 1982) >>> 0;
+        this.keyQueue = [];
         this.dirty = true;
         if (this.audio) this.audio.silence();
       }
@@ -4031,6 +4148,7 @@ first cut.</pre>
         if (this.pc.line >= this.lines.length) { this.stop('ENDED'); return; }
         const line = this.lines[this.pc.line];
         const stmt = line.statements[this.pc.stmt] ?? '';
+        this.statementPc = { ...this.pc };
         this.execLineIndex = this.pc.line;
         this.currentLineNumber = line.number;
         this.pc = this.nextPc(this.pc);
@@ -4061,6 +4179,11 @@ first cut.</pre>
         // Bally cassette control. On real hardware this disconnects the
         // audio interface after a load; the browser decoder is already done.
         if (/^:RETURN\b/i.test(text)) return;
+        if (/^:INPUT\b/i.test(text)) {
+          this.stop('TAPE INPUT');
+          setStatus('work', 'Cassette :INPUT requested; waiting for a chained tape program block.');
+          return;
+        }
 
         if (/^IF(?=\s|[A-Z(&%+\-0-9])/i.test(text)) {
           const clause = splitIfClause(text);
@@ -4087,6 +4210,11 @@ first cut.</pre>
           return;
         }
         if ((match = text.match(/^NEXT\s*([A-Z])?/i))) { this.executeNext((match[1] || '').toUpperCase()); return; }
+        if (/^INPUT(?:\s|$)/i.test(text)) {
+          const spec = parseInputSpec(text.replace(/^INPUT\s*/i, ''));
+          requestBasicInput(spec.prompt, spec.variables);
+          return;
+        }
         if (/^PRINT(?:\s|$)/i.test(text)) { this.executePrint(text.replace(/^PRINT\s*/i, '')); return; }
         if ((match = text.match(/^BOX\s*(.*)$/i))) { this.executeBox(match[1]); return; }
         if ((match = text.match(/^LINE\s*(.*)$/i))) { this.executeLine(match[1]); return; }
@@ -4099,7 +4227,7 @@ first cut.</pre>
           return;
         }
 
-        if (/^[&%]\s*\(/.test(text)) { this.executeArrayAssignment(text); return; }
+        if (/^[&%@]\s*\(/.test(text)) { this.executeArrayAssignment(text); return; }
         if ((match = text.match(/^([A-Z]{1,2})\s*=\s*(.*)$/i))) {
           this.writeVar(match[1].toUpperCase(), this.evalExpression(match[2]));
           return;
@@ -4221,6 +4349,7 @@ first cut.</pre>
       evalAst(node) {
         switch (node.type) {
           case 'num': return word16(node.value);
+          case 'char': return word16(node.value ? node.value.charCodeAt(0) : 0);
           case 'var': return this.readVar(node.name);
           case 'unary': {
             const value = this.evalAst(node.value);
@@ -4252,6 +4381,7 @@ first cut.</pre>
       evalCall(name, args) {
         if (name === '%') return this.readArray('%', args[0]);
         if (name === '&') return this.readArray('&', args[0]);
+        if (name === '@') return this.readArray('@', args[0]);
         switch (name) {
           case 'ABS': return word16(Math.abs(args[0] || 0));
           case 'RND': return this.random(args[0] || 0);
@@ -4303,7 +4433,17 @@ first cut.</pre>
         switch (name) {
           case 'SZ': return 1760;
           case 'XY': return word16(((this.lineY & 0xff) << 8) | (this.lineX & 0xff));
-          case 'KP': return 0;
+          case 'KP': {
+            if (this.keyQueue.length) {
+              const code = this.keyQueue.shift();
+              this.input.keyCode = code;
+              this.input.keyLatch = 1;
+              return word16(code);
+            }
+            this.pc = { ...this.statementPc };
+            requestBasicKey();
+            return 0;
+          }
           default: return word16(this.vars[name] || 0);
         }
       }
@@ -4324,8 +4464,13 @@ first cut.</pre>
 
       readArray(kind, index) {
         const address = word16(index) & 0xffff;
+        if (kind === '@') return this.atArray.has(address) ? this.atArray.get(address) : 0;
         if (kind === '&') {
           if ((address & 0xff) === 23) {
+            if (this.input.keyLatch) {
+              this.input.keyLatch = 0;
+              return 16;
+            }
             const value = this.input.go || this.input.goLatch;
             this.input.goLatch = 0;
             return value ? 1 : 0;
@@ -4337,7 +4482,9 @@ first cut.</pre>
 
       writeArray(kind, index, value) {
         const address = word16(index) & 0xffff;
-        if (kind === '&') {
+        if (kind === '@') {
+          this.atArray.set(address, word16(value));
+        } else if (kind === '&') {
           this.ports[address & 0xff] = value & 0xff;
           if (this.audio && this.running && !this.paused) this.audio.update(this.ports);
         } else {
@@ -4597,6 +4744,7 @@ first cut.</pre>
 
     function runCurrentBasic() {
       try {
+        cancelBasicInput();
         const resetState = $('clearOnRun').checked;
         const count = basicRuntime.compile(basicOutput.value, resetState);
         basicAudio.setEnabled($('soundEnabled').checked);
@@ -4641,9 +4789,111 @@ first cut.</pre>
     }
 
     function setTrigger(pressed, player = 1) { basicRuntime.setTrigger(pressed, player); }
+    function setGo(pressed) {
+      basicRuntime.input.go = pressed ? 1 : 0;
+      if (pressed) basicRuntime.input.goLatch = 1;
+      $('goBtn').classList.toggle('pressed', pressed);
+    }
 
     function openDialog(id) { $(id).classList.add('open'); }
     function closeDialog(id) { $(id).classList.remove('open'); }
+
+    let pendingInputVariables = [];
+    let pendingKeyInput = false;
+    function requestBasicInput(promptText, variables) {
+      pendingInputVariables = Array.isArray(variables) ? variables : [variables];
+      pendingKeyInput = false;
+      basicRuntime.paused = true;
+      basicRuntime.state = 'INPUT';
+      basicRuntime.updateHud();
+      const count = pendingInputVariables.length;
+      $('inputPrompt').textContent = `${promptText.trim() || 'Enter a number'}${count > 1 ? ` · ${count} VALUES` : ''}`;
+      $('inputValue').value = '';
+      $('inputValue').inputMode = 'numeric';
+      $('inputValue').removeAttribute('maxlength');
+      $('inputSubmit').textContent = 'ENTER';
+      $('inputMessage').textContent = '';
+      $('inputForm').hidden = false;
+      setTimeout(() => $('inputValue').focus(), 0);
+      $('inputMessage').textContent = count > 1 ? 'SEPARATE VALUES WITH - / , OR SPACE' : '';
+      setStatus('work', `BASIC is waiting for ${pendingInputVariables.join(', ')}.`);
+    }
+
+    function requestBasicKey() {
+      if (pendingKeyInput) return;
+      pendingKeyInput = true;
+      pendingInputVariables = [];
+      basicRuntime.paused = true;
+      basicRuntime.state = 'KEY';
+      basicRuntime.updateHud();
+      $('inputPrompt').textContent = 'BASIC KEYPAD INPUT · ONE CHARACTER';
+      $('inputValue').value = '';
+      $('inputValue').inputMode = 'text';
+      $('inputValue').maxLength = 1;
+      $('inputSubmit').textContent = 'USE KEY';
+      $('inputMessage').textContent = '';
+      $('inputForm').hidden = false;
+      setTimeout(() => $('inputValue').focus(), 0);
+      setStatus('work', 'BASIC is waiting for a keypad character.');
+    }
+
+    function supplyBasicKey(character) {
+      if (!pendingKeyInput || !character) return false;
+      const ch = character.toUpperCase()[0];
+      if (!/^[\x20-\x7E]$/.test(ch)) {
+        $('inputMessage').textContent = 'TYPE ONE PRINTABLE CHARACTER';
+        return false;
+      }
+      basicRuntime.keyQueue.push(ch.charCodeAt(0));
+      pendingKeyInput = false;
+      $('inputForm').hidden = true;
+      $('inputValue').value = '';
+      basicRuntime.paused = false;
+      basicRuntime.state = 'RUNNING';
+      basicRuntime.updateHud();
+      setStatus('good', `Accepted ${ch === ' ' ? 'SPACE' : ch}.`);
+      $('astrocadeCanvas').focus();
+      return true;
+    }
+
+    function cancelBasicInput() {
+      pendingInputVariables = [];
+      pendingKeyInput = false;
+      $('inputForm').hidden = true;
+      $('inputValue').value = '';
+      $('inputMessage').textContent = '';
+    }
+
+    $('inputForm').addEventListener('submit', event => {
+      event.preventDefault();
+      const raw = $('inputValue').value.trim();
+      if (pendingKeyInput) {
+        supplyBasicKey($('inputValue').value);
+        return;
+      }
+      const values = pendingInputVariables.length > 1
+        ? raw.split(/[\s,\/-]+/).filter(Boolean)
+        : [raw];
+      if (values.length !== pendingInputVariables.length || values.some(value => !/^[+-]?\d+$/.test(value))) {
+        $('inputMessage').textContent = pendingInputVariables.length > 1
+          ? `ENTER ${pendingInputVariables.length} WHOLE NUMBERS`
+          : 'PLEASE ENTER A WHOLE NUMBER';
+        $('inputValue').select();
+        return;
+      }
+      pendingInputVariables.forEach((variable, index) => basicRuntime.writeVar(variable, Math.trunc(Number(values[index]))));
+      pendingInputVariables = [];
+      $('inputForm').hidden = true;
+      basicRuntime.paused = false;
+      basicRuntime.state = 'RUNNING';
+      basicRuntime.updateHud();
+      setStatus('good', 'Input accepted; BASIC execution resumed.');
+      $('astrocadeCanvas').focus();
+    });
+
+    $('inputValue').addEventListener('input', () => {
+      if (pendingKeyInput && $('inputValue').value) supplyBasicKey($('inputValue').value);
+    });
 
     document.querySelectorAll('[data-work-tab]').forEach(button => button.addEventListener('click', () => selectWorkTab(button.dataset.workTab)));
     document.querySelectorAll('[data-view-tab]').forEach(button => button.addEventListener('click', () => selectViewTab(button.dataset.viewTab)));
@@ -4669,11 +4919,16 @@ first cut.</pre>
     $('downloadBasicBtn').addEventListener('click', downloadBasicSource);
     $('runBtn').addEventListener('click', runCurrentBasic);
     $('pauseBtn').addEventListener('click', () => {
+      if (pendingInputVariables.length || pendingKeyInput) {
+        $('inputValue').focus();
+        setStatus('work', pendingKeyInput ? 'BASIC is waiting for a letter; type it or press Stop.' : `BASIC is waiting for ${pendingInputVariables.join(', ')}; enter values or press Stop.`);
+        return;
+      }
       basicRuntime.pauseToggle();
       setStatus(basicRuntime.paused ? 'work' : 'good', basicRuntime.paused ? 'BASIC execution paused.' : 'BASIC execution resumed.');
     });
-    $('stopBtn').addEventListener('click', () => { basicRuntime.stop('STOPPED'); setStatus('', 'BASIC execution stopped.'); });
-    $('resetBtn').addEventListener('click', () => { basicRuntime.resetProgram(); setStatus('', 'Astrocade console reset.'); });
+    $('stopBtn').addEventListener('click', () => { cancelBasicInput(); basicRuntime.stop('STOPPED'); setStatus('', 'BASIC execution stopped.'); });
+    $('resetBtn').addEventListener('click', () => { cancelBasicInput(); basicRuntime.resetProgram(); setStatus('', 'Astrocade console reset.'); });
     basicOutput.addEventListener('input', updateEditorMetrics);
 
     $('speedSelect').addEventListener('change', () => {
@@ -4693,6 +4948,10 @@ first cut.</pre>
       surface.addEventListener('pointercancel', () => setTrigger(false));
       surface.addEventListener('lostpointercapture', () => setTrigger(false));
     }
+    $('goBtn').addEventListener('pointerdown', event => { event.preventDefault(); $('goBtn').setPointerCapture?.(event.pointerId); setGo(true); });
+    $('goBtn').addEventListener('pointerup', event => { event.preventDefault(); setGo(false); });
+    $('goBtn').addEventListener('pointercancel', () => setGo(false));
+    $('goBtn').addEventListener('lostpointercapture', () => setGo(false));
     window.addEventListener('pointerup', () => setTrigger(false));
 
     const keyDirection = { ArrowLeft: 'left', ArrowRight: 'right', ArrowUp: 'up', ArrowDown: 'down' };
@@ -4702,20 +4961,31 @@ first cut.</pre>
         document.querySelectorAll('.modal-backdrop.open').forEach(dialog => closeDialog(dialog.id));
         return;
       }
+      if (pendingKeyInput && event.key.length === 1 && /^[\x20-\x7E]$/.test(event.key)) {
+        event.preventDefault();
+        supplyBasicKey(event.key);
+        return;
+      }
+      if (event.target === $('inputValue')) return;
       if (!basicRuntime.running || (event.target === basicOutput && !basicRuntime.running)) return;
+      if (event.key.length === 1 && /^[a-z ]$/i.test(event.key)) {
+        basicRuntime.input.keyCode = event.key.toUpperCase().charCodeAt(0);
+        basicRuntime.input.keyLatch = 1;
+        event.preventDefault();
+      }
       if (event.code === 'Space') { event.preventDefault(); setTrigger(true); }
       if (event.code === 'KeyF') { event.preventDefault(); setTrigger(true, 2); }
-      if (event.code === 'Enter') { event.preventDefault(); basicRuntime.input.go = 1; basicRuntime.input.goLatch = 1; }
+      if (event.key === 'Enter') { event.preventDefault(); setGo(true); }
       if (keyDirection[event.key]) { event.preventDefault(); basicRuntime.setDirection(keyDirection[event.key], true); }
       if (keyDirection2[event.key.toLowerCase()]) { event.preventDefault(); basicRuntime.setDirection(keyDirection2[event.key.toLowerCase()], true, 2); }
-    });
+    }, true);
     window.addEventListener('keyup', event => {
       if (event.code === 'Space') setTrigger(false);
       if (event.code === 'KeyF') setTrigger(false, 2);
-      if (event.code === 'Enter') basicRuntime.input.go = 0;
+      if (event.key === 'Enter') setGo(false);
       if (keyDirection[event.key]) basicRuntime.setDirection(keyDirection[event.key], false);
       if (keyDirection2[event.key.toLowerCase()]) basicRuntime.setDirection(keyDirection2[event.key.toLowerCase()], false, 2);
-    });
+    }, true);
 
     function renderError(e) {
       console.error(e);
@@ -4743,6 +5013,7 @@ first cut.</pre>
     }
 
     function clearAll() {
+      cancelBasicInput();
       basicOutput.value = '';
       debugLog.textContent = 'No decode yet.';
       fileName.textContent = '';
