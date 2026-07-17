@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-17T18:02:09.710Z",
+  "generated_at": "2026-07-17T19:09:53.229Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,53 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 96,
-      "droppedPrice": 584,
+      "exported_ads": 98,
+      "droppedPrice": 594,
       "droppedMissingGeo": 0,
-      "droppedCircle": 555
+      "droppedCircle": 560
     }
   },
   "ads": [
+    {
+      "adID": "1459739249308671",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100001064738971/?product_id=1459739249308671",
+      "author": "Jasper Shipley",
+      "postedTime": "2026-07-16T02:24:17.000Z",
+      "title": "1977 pinball playfield &parts",
+      "description": "1977 CB Charlie pinball by wonder wizard",
+      "price": "$100",
+      "lat": 27.928464,
+      "lon": -82.2880508,
+      "location": "Brandon, FL",
+      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/747062712_1067028449167018_2615577483701439263_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=103&ccb=1-7&_nc_sid=92e707&_nc_ohc=UkdV8LqXyxcQ7kNvwEWtuDh&_nc_oc=AdpzN4-jk6p4b58tOGd509dGiUrsA-uJGlUImLVPkJ__43wCbClRaWNV9hJSvBB0p74&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=3HimCstwg_zddzU4-XqlAg&_nc_ss=7b2a8&oh=00_AQCyTAbxHOJEqZHX2qAs0e9FtG6bjS6HPWLQzvRoq6XcDQ&oe=6A60679C",
+      "adUrl": "https://www.facebook.com/marketplace/item/1459739249308671/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-07-17 19:07:25",
+      "lastSeen": "2026-07-17T19:08:42.816Z"
+    },
+    {
+      "adID": "934180046360813",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100010168543056/?product_id=934180046360813",
+      "author": "Ginari Price",
+      "postedTime": "2026-07-17T18:03:35.000Z",
+      "title": "Vintage Pac-Man Arcade Machine",
+      "description": "Pac-Man, Ms. Pac-Man, Super Pac-Man",
+      "price": "$165",
+      "lat": 33.9528472,
+      "lon": -84.5496148,
+      "location": "Marietta, GA",
+      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/749286154_1034867785611297_3091224500656162324_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=101&ccb=1-7&_nc_sid=92e707&_nc_ohc=kcMajfJ-n9MQ7kNvwFT-Dhl&_nc_oc=AdrCyVfOKSPYH0F3cE9zLLOJEtNkJLu7cjlHBmHSp-edDii-0ajRe391IyBy51yEso8&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=GUW6g1qZsqI94F7m0fF4MQ&_nc_ss=7b2a8&oh=00_AQCOf0h2elsi8a80ENS8FjYemUH8cz6YHSbUsQtS1IeQVw&oe=6A60473D",
+      "adUrl": "https://www.facebook.com/marketplace/item/934180046360813/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-07-17 19:05:09",
+      "lastSeen": "2026-07-17T19:06:53.517Z"
+    },
     {
       "adID": "KLOV-552277",
       "source": "KLOV",
@@ -36,7 +76,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-17 18:02:03",
-      "lastSeen": "2026-07-17T18:02:03.174Z"
+      "lastSeen": "2026-07-17T19:09:50.029Z"
     },
     {
       "adID": "KLOV-534592",
@@ -56,7 +96,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-17 18:02:02",
-      "lastSeen": "2026-07-17T18:02:02.248Z"
+      "lastSeen": "2026-07-17T19:09:49.628Z"
     },
     {
       "adID": "KLOV-565151",
@@ -76,7 +116,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-17 18:02:02",
-      "lastSeen": "2026-07-17T18:02:02.701Z"
+      "lastSeen": "2026-07-17T19:09:49.796Z"
     },
     {
       "adID": "KLOV-536297",
@@ -96,7 +136,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-17 18:02:00",
-      "lastSeen": "2026-07-17T18:02:00.352Z"
+      "lastSeen": "2026-07-17T19:09:48.856Z"
     },
     {
       "adID": "KLOV-546228",
@@ -116,7 +156,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-17 18:02:00",
-      "lastSeen": "2026-07-17T18:02:00.420Z"
+      "lastSeen": "2026-07-17T19:09:48.924Z"
     },
     {
       "adID": "KLOV-565176",
@@ -136,7 +176,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-17 18:02:00",
-      "lastSeen": "2026-07-17T18:02:00.554Z"
+      "lastSeen": "2026-07-17T19:09:48.992Z"
     },
     {
       "adID": "1574948170826663",
@@ -156,7 +196,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-17 17:54:54",
-      "lastSeen": "2026-07-17T17:58:10.969Z"
+      "lastSeen": "2026-07-17T19:07:25.462Z"
     },
     {
       "adID": "1545627080366122",
@@ -176,7 +216,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-17 17:54:54",
-      "lastSeen": "2026-07-17T18:00:47.528Z"
+      "lastSeen": "2026-07-17T19:07:25.687Z"
     },
     {
       "adID": "1579380247248264",
@@ -196,7 +236,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-17 17:54:53",
-      "lastSeen": "2026-07-17T17:58:09.315Z"
+      "lastSeen": "2026-07-17T19:07:24.923Z"
     },
     {
       "adID": "2818131535236676",
@@ -216,7 +256,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-17 17:47:27",
-      "lastSeen": "2026-07-17T17:53:48.523Z"
+      "lastSeen": "2026-07-17T19:05:09.898Z"
     },
     {
       "adID": "1526753005894951",
@@ -236,7 +276,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-17 17:47:26",
-      "lastSeen": "2026-07-17T17:50:29.255Z"
+      "lastSeen": "2026-07-17T19:05:09.798Z"
     },
     {
       "adID": "2743991519374869",
@@ -256,7 +296,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-17 17:47:26",
-      "lastSeen": "2026-07-17T17:53:48.483Z"
+      "lastSeen": "2026-07-17T19:05:09.865Z"
     },
     {
       "adID": "1042832151556414",
@@ -276,7 +316,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-17 17:47:25",
-      "lastSeen": "2026-07-17T17:50:28.854Z"
+      "lastSeen": "2026-07-17T19:05:09.397Z"
     },
     {
       "adID": "1528113094914839",
@@ -296,7 +336,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-17 17:47:25",
-      "lastSeen": "2026-07-17T17:50:28.887Z"
+      "lastSeen": "2026-07-17T19:05:09.430Z"
     },
     {
       "adID": "2203926673796261",
@@ -316,7 +356,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-17 17:47:25",
-      "lastSeen": "2026-07-17T17:50:28.987Z"
+      "lastSeen": "2026-07-17T19:05:09.531Z"
     },
     {
       "adID": "2088041135112629",
@@ -336,7 +376,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-17 17:47:25",
-      "lastSeen": "2026-07-17T17:50:29.020Z"
+      "lastSeen": "2026-07-17T19:05:09.564Z"
     },
     {
       "adID": "3938325489808925",
@@ -356,7 +396,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-17 17:47:25",
-      "lastSeen": "2026-07-17T17:50:29.153Z"
+      "lastSeen": "2026-07-17T19:05:09.697Z"
     },
     {
       "adID": "931169616674927",
@@ -370,73 +410,73 @@
       "lat": 30.5254692,
       "lon": -89.6795084,
       "location": "Picayune, MS",
-      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/748150537_894112807078123_1612066241975274796_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=100&ccb=1-7&_nc_sid=92e707&_nc_ohc=JSSPuUOltdUQ7kNvwHPqkpW&_nc_oc=Adp1g-Ny1ZppkV_X4nz-N9pwH-KIJIrJ62ImqWbQLyKRnEFZu7D4krAYEjMejMR-tJo&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=T0Y5mKdLOLRfFYRNk4ZqnA&_nc_ss=7b2a8&oh=00_AQDBQnwpRwUP2Gvq0R3KjjHpSOdvAy4NFeBknV7qeHRWAg&oe=6A60581B",
+      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/748150537_894112807078123_1612066241975274796_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=100&ccb=1-7&_nc_sid=92e707&_nc_ohc=JSSPuUOltdUQ7kNvwHPqkpW&_nc_oc=Adp1g-Ny1ZppkV_X4nz-N9pwH-KIJIrJ62ImqWbQLyKRnEFZu7D4krAYEjMejMR-tJo&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=bZiZ3vFAz0PDDXKR3f6lkQ&_nc_ss=7b2a8&oh=00_AQDrb3CbBSXHNgL4XHKiSsAgFaHboLHwfXCJwSqHPRwNew&oe=6A60581B",
       "adUrl": "https://www.facebook.com/marketplace/item/931169616674927/",
       "priceChanged": 0,
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-17 17:47:25",
-      "lastSeen": "2026-07-17T17:50:29.187Z"
+      "lastSeen": "2026-07-17T19:06:53.550Z"
     },
     {
       "adID": "1047464231195689",
       "source": "FB",
       "authorUrl": null,
       "author": "Jonathon Davis",
-      "postedTime": "2026-07-16T17:45:03.546Z",
+      "postedTime": "2026-07-16T19:02:54.286Z",
       "title": "Total Nuclear Annihilation NOS Playfield",
       "description": "Selling my NOS Total Nuclear Annihilation playfield. It is dimpled and ready to install or hang on your wall.",
       "price": "$600",
       "lat": 34.2073196,
       "lon": -84.1401926,
       "location": "CUMMING, GA",
-      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.30808-6/749286693_10163618043142670_4508429624356686640_n.jpg?stp=dst-jpg_tt6&cstp=mx1536x2048&ctp=s590x590&_nc_cat=105&ccb=1-7&_nc_sid=aa7b47&_nc_ohc=Xkg02WhRjwQQ7kNvwHbv89r&_nc_oc=AdoMjPnkveNxQ3Bj-3G2kmcLnfeiATV-kFyFbMCJTSkBe-86QbcHBlFhiBMKaOh1UeQ&_nc_zt=23&_nc_ht=scontent-dfw5-1.xx&_nc_gid=A7_a7YvLC5u8d-CvqZCjog&_nc_ss=7b2a8&oh=00_AQAocjU7A_xoRN5VrN1PJ9M1YDTBc1rpXFi3QnCOR17gpQ&oe=6A60548E",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.30808-6/749286693_10163618043142670_4508429624356686640_n.jpg?stp=dst-jpg_tt6&cstp=mx1536x2048&ctp=s590x590&_nc_cat=105&ccb=1-7&_nc_sid=aa7b47&_nc_ohc=Xkg02WhRjwQQ7kNvwHbv89r&_nc_oc=AdoMjPnkveNxQ3Bj-3G2kmcLnfeiATV-kFyFbMCJTSkBe-86QbcHBlFhiBMKaOh1UeQ&_nc_zt=23&_nc_ht=scontent-dfw5-1.xx&_nc_gid=fBW4IBkO9PHvxYr-aggn_Q&_nc_ss=7b2a8&oh=00_AQCa_tJTzrqEzDFxQt26FjH5u6ZNHw83BAqK-tVi017w2g&oe=6A60548E",
       "adUrl": "https://www.facebook.com/commerce/listing/1047464231195689/",
       "priceChanged": 0,
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-17 17:45:07",
-      "lastSeen": "2026-07-17T17:45:07.191Z"
+      "lastSeen": "2026-07-17T19:02:55.019Z"
     },
     {
       "adID": "1037962395385632",
       "source": "FB",
       "authorUrl": null,
       "author": "Fred Cook",
-      "postedTime": "2026-07-16T18:44:04.028Z",
+      "postedTime": "2026-07-16T19:01:55.744Z",
       "title": "(Pending) Argosy Pinball Project Machine 1977 Williams",
       "description": "1977 Williams Argosy Pinball Project. Game is mostly complete and can definitely be brought back to life. I just don't have the time",
       "price": "$500",
       "lat": 27.928464,
       "lon": -82.2880508,
       "location": "BRANDON, FL",
-      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.30808-6/748787085_37553640534219624_5453196339150753106_n.jpg?stp=dst-jpg_tt6&cstp=mx1080x2340&ctp=s590x590&_nc_cat=101&ccb=1-7&_nc_sid=aa7b47&_nc_ohc=aqQb8ZneUp8Q7kNvwGDaCFr&_nc_oc=Adqd3CH9mmohcM-Vj6QeJq2rlpiE7fE5r2WvrqJFsCwWE-KAuiap6_Yz9hdhElsEdeA&_nc_zt=23&_nc_ht=scontent-dfw6-1.xx&_nc_gid=L1Cl1iNiIREfhnLfiIKIMQ&_nc_ss=7b2a8&oh=00_AQDUcaKdWgOm3qcIavTfoSpnBoQXgUkt5tc4J035s_VU0Q&oe=6A602FAC",
+      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.30808-6/748787085_37553640534219624_5453196339150753106_n.jpg?stp=dst-jpg_tt6&cstp=mx1080x2340&ctp=s590x590&_nc_cat=101&ccb=1-7&_nc_sid=aa7b47&_nc_ohc=aqQb8ZneUp8Q7kNvwGDaCFr&_nc_oc=Adqd3CH9mmohcM-Vj6QeJq2rlpiE7fE5r2WvrqJFsCwWE-KAuiap6_Yz9hdhElsEdeA&_nc_zt=23&_nc_ht=scontent-dfw6-1.xx&_nc_gid=KO39bDUuIWXA4iPfczFEUA&_nc_ss=7b2a8&oh=00_AQAZuUt-lzVSWqLqJD_RzGt3EgKIsLbSaQFFJNe1CgiB8g&oe=6A6067EC",
       "adUrl": "https://www.facebook.com/commerce/listing/1037962395385632/",
       "priceChanged": 0,
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-17 17:44:04",
-      "lastSeen": "2026-07-17T17:44:04.429Z"
+      "lastSeen": "2026-07-17T19:01:55.774Z"
     },
     {
       "adID": "1352846130286322",
       "source": "FB",
       "authorUrl": null,
       "author": "Jorge Castillo",
-      "postedTime": "2026-07-17T15:42:26.914Z",
+      "postedTime": "2026-07-17T16:00:26.669Z",
       "title": "Scotsman cm3 commercial Ice Machine",
       "description": "Runs just fine, but doesn’t freeze. We recently got a smaller one due to space. Make your offers, they’re all welcomed! First come first serve!",
       "price": "$250",
       "lat": 33.5801103,
       "lon": -85.0766113,
       "location": "CARROLLTON, GA",
-      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.30808-6/747989132_122243196848264182_3380979985439384430_n.jpg?stp=dst-jpg_tt6&cstp=mx1537x2048&ctp=s590x590&_nc_cat=105&ccb=1-7&_nc_sid=aa7b47&_nc_ohc=eM96ThXKnAUQ7kNvwHnB2lP&_nc_oc=Adpf7zLfyq3iJwTgpWQm8CQyQXAfd6WRbjxtrr-9hirZfT_F5DOQf5sz7rhZ6qHY1JI&_nc_zt=23&_nc_ht=scontent-dfw5-1.xx&_nc_gid=9u295ZPWRKptKBn-T9hCHA&_nc_ss=7b2a8&oh=00_AQDnU1WUkH4FA7MBzj6fZAAvvdA8k6Df4voG-lUuvIkBlw&oe=6A603E75",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.30808-6/747989132_122243196848264182_3380979985439384430_n.jpg?stp=dst-jpg_tt6&cstp=mx1537x2048&ctp=s590x590&_nc_cat=105&ccb=1-7&_nc_sid=aa7b47&_nc_ohc=eM96ThXKnAUQ7kNvwHnB2lP&_nc_oc=Adpf7zLfyq3iJwTgpWQm8CQyQXAfd6WRbjxtrr-9hirZfT_F5DOQf5sz7rhZ6qHY1JI&_nc_zt=23&_nc_ht=scontent-dfw5-1.xx&_nc_gid=lbWIY-REknpgw5KQbSupFw&_nc_ss=7b2a8&oh=00_AQCubADtWFC9pX5_N4zdgT4YgFq4HuWw_3b74mlS2zkFHg&oe=6A603E75",
       "adUrl": "https://www.facebook.com/commerce/listing/1352846130286322/",
       "priceChanged": 0,
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-17 17:42:27",
-      "lastSeen": "2026-07-17T17:42:27.510Z"
+      "lastSeen": "2026-07-17T19:00:26.708Z"
     },
     {
       "adID": "KLOV-554639",
@@ -916,7 +956,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-13 11:09:00",
-      "lastSeen": "2026-07-17T18:02:02.443Z"
+      "lastSeen": "2026-07-17T19:09:49.762Z"
     },
     {
       "adID": "1532977624987111",
@@ -1003,20 +1043,20 @@
       "source": "FB",
       "authorUrl": null,
       "author": "Cory Anderson",
-      "postedTime": "2026-07-13T17:42:26.949Z",
+      "postedTime": "2026-07-13T19:00:26.695Z",
       "title": "Gyurss",
       "description": "I have a Gyruss arcade game for sale that is in excellent condition. I will not answer questions in the comments . If interested PM me directly. Asking $900.00",
       "price": "$900",
       "lat": 30.3262247,
       "lon": -81.6579179,
       "location": "JACKSONVILLE, FL",
-      "imageUrl": "https://scontent-dfw6-2.xx.fbcdn.net/v/t1.6435-9/119965794_3860260557319647_2135384064706645180_n.jpg?stp=dst-jpg_tt6&cstp=mx1317x640&ctp=s590x590&_nc_cat=110&ccb=1-7&_nc_sid=aa7b47&_nc_ohc=_RfQEpuY7J4Q7kNvwEOiRri&_nc_oc=AdpEtRU7518XD8OiiVzdxwJnAFugbxgCvvJtsm-o2el6s1sDdo6VSUsF_-y9_nuUm5U&_nc_zt=23&_nc_ht=scontent-dfw6-2.xx&_nc_gid=wqHHOA4FUzjh14kESncEAQ&_nc_ss=7b2a8&oh=00_AQBXYeTb1eZK8hClTDvXz2-E-ZgXWaRTApL1nGVzY3hSAg&oe=6A81D835",
+      "imageUrl": "https://scontent-dfw6-2.xx.fbcdn.net/v/t1.6435-9/119965794_3860260557319647_2135384064706645180_n.jpg?stp=dst-jpg_tt6&cstp=mx1317x640&ctp=s590x590&_nc_cat=110&ccb=1-7&_nc_sid=aa7b47&_nc_ohc=_RfQEpuY7J4Q7kNvwEOiRri&_nc_oc=AdpEtRU7518XD8OiiVzdxwJnAFugbxgCvvJtsm-o2el6s1sDdo6VSUsF_-y9_nuUm5U&_nc_zt=23&_nc_ht=scontent-dfw6-2.xx&_nc_gid=R9aSS_U5rsMZyUhiv3yAnQ&_nc_ss=7b2a8&oh=00_AQDB_R2nHikj85PJf-TohjSagoU26b39THbbqCvnClSivQ&oe=6A81D835",
       "adUrl": "https://www.facebook.com/commerce/listing/1371872218202751/",
       "priceChanged": 0,
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-12 22:00:26",
-      "lastSeen": "2026-07-17T17:42:31.618Z"
+      "lastSeen": "2026-07-17T19:00:27.429Z"
     },
     {
       "adID": "2286928652135455",
@@ -1876,7 +1916,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-09 19:39:27",
-      "lastSeen": "2026-07-17T18:02:02.820Z"
+      "lastSeen": "2026-07-17T19:09:49.862Z"
     },
     {
       "adID": "1467961558422856",
