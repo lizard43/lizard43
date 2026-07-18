@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-18T20:07:45.946Z",
+  "generated_at": "2026-07-18T21:09:07.023Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,113 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 90,
-      "droppedPrice": 609,
+      "exported_ads": 95,
+      "droppedPrice": 612,
       "droppedMissingGeo": 0,
-      "droppedCircle": 579
+      "droppedCircle": 589
     }
   },
   "ads": [
+    {
+      "adID": "KLOV-565237",
+      "source": "KLOV",
+      "authorUrl": "https://forums.arcade-museum.com/members/jjhudgins.80749/",
+      "author": "jjhudgins",
+      "postedTime": "2026-07-18T21:00:02.000Z",
+      "title": "Jeff Hendrix LV2000 K6100 PCB",
+      "description": "Going thru my stash today and found one of these. $20 shipped",
+      "price": "$20",
+      "lat": 33.2588817,
+      "lon": -86.8295337,
+      "location": "Alabama",
+      "imageUrl": "/images/klov-placeholder.png",
+      "adUrl": "https://forums.arcade-museum.com/threads/565237/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-07-18 21:09:02",
+      "lastSeen": "2026-07-18T21:09:02.563Z"
+    },
+    {
+      "adID": "2882994522036189",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100003849775256/?product_id=2882994522036189",
+      "author": "David Owensby",
+      "postedTime": "2026-07-17T18:24:09.000Z",
+      "title": "Antique game",
+      "description": "",
+      "price": "$200",
+      "lat": 34.2200942,
+      "lon": -85.6077402,
+      "location": "Cedar Bluff, AL",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/742198387_1956250155038964_6925152742519432243_n.jpg?stp=c0.43.261.261a_dst-jpg_p261x260_tt6&_nc_cat=111&ccb=1-7&_nc_sid=92e707&_nc_ohc=GO40mMKB9QgQ7kNvwH8cYOg&_nc_oc=AdrQqVs6lTDrrHVSjDUiHH5CUej3mhAxzpk5QPOE4mxpTW04VOb4ERKIKABbdvEptl8&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=bG34PgR6_f83C-SbFWH5AA&_nc_ss=7b2a8&oh=00_AQCt7pRcOahf2dZJMbWr7Zwmx8Bd3XLuMIfkRpDcmfqOwQ&oe=6A61BD2B",
+      "adUrl": "https://www.facebook.com/marketplace/item/2882994522036189/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-07-18 21:07:32",
+      "lastSeen": "2026-07-18T21:08:00.469Z"
+    },
+    {
+      "adID": "1583290570207752",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/61554645366196/?product_id=1583290570207752",
+      "author": "Bryant Agee",
+      "postedTime": "2026-07-18T02:01:40.000Z",
+      "title": "8296 Ms.pacman 2020 arcade game",
+      "description": "No flaws",
+      "price": "$150",
+      "lat": 33.5206824,
+      "lon": -86.8024326,
+      "location": "Birmingham, AL",
+      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.30808-6/724282449_10174629637600613_1076382573101874824_n.jpg?stp=c256.0.1536.1536a_dst-jpg_tt6&cstp=mx1536x1536&ctp=s261x260&_nc_cat=101&ccb=1-7&_nc_sid=aa7b47&_nc_ohc=58KE5yqz9aIQ7kNvwEjO1e8&_nc_oc=AdqJumykHEpcynRgyxtMe_1wzNewjwiKlfTJfMRalV9t-x3KV_V5JI8aGaNQfEv29Wo&_nc_zt=23&_nc_ht=scontent-dfw6-1.xx&_nc_gid=KD254WFiQpn1-QhxTnCyxg&_nc_ss=7b2a8&oh=00_AQCNZC-A-oR6fOoC_viMqT3viUWa8ywe4VcnH0NSLLeQuw&oe=6A61CF4B",
+      "adUrl": "https://www.facebook.com/marketplace/item/1583290570207752/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-07-18 21:05:05",
+      "lastSeen": "2026-07-18T21:07:01.327Z"
+    },
+    {
+      "adID": "1880393230033170",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100001406881484/?product_id=1880393230033170",
+      "author": "Jennifer Washington",
+      "postedTime": "2026-07-17T23:37:28.000Z",
+      "title": "Street Fighter II Arcade machine",
+      "description": "Dimensions: 22.00 x 28.00 x 67.00 in 15+ Legendary Games: Choose from *15+ classic Capcom titles, including Street FighterTM favorites, for endless hours of competitive and nostalgic gameplay.",
+      "price": "$400",
+      "lat": 27.9449854,
+      "lon": -82.4583107,
+      "location": "Tampa, FL",
+      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.30808-6/724282449_10174629637600613_1076382573101874824_n.jpg?stp=c256.0.1536.1536a_dst-jpg_tt6&cstp=mx1536x1536&ctp=s261x260&_nc_cat=101&ccb=1-7&_nc_sid=aa7b47&_nc_ohc=58KE5yqz9aIQ7kNvwEjO1e8&_nc_oc=AdqJumykHEpcynRgyxtMe_1wzNewjwiKlfTJfMRalV9t-x3KV_V5JI8aGaNQfEv29Wo&_nc_zt=23&_nc_ht=scontent-dfw6-1.xx&_nc_gid=SSDaV4kGB8rQ4rvcEvWZZg&_nc_ss=7b2a8&oh=00_AQDyrissEiz7Td39J2K_mcllXg_lbTdXbM7hEPyOhKoJuw&oe=6A61CF4B",
+      "adUrl": "https://www.facebook.com/marketplace/item/1880393230033170/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-07-18 21:05:05",
+      "lastSeen": "2026-07-18T21:07:01.461Z"
+    },
+    {
+      "adID": "1056701963376635",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/1577919064/?product_id=1056701963376635",
+      "author": "Robert Nichols",
+      "postedTime": "2026-07-17T22:57:21.000Z",
+      "title": "Valley Cougar Darts Arcade Machine 1986",
+      "description": "Dimensions are 1’x2’x8’ Vintage arcade dart machine is manufactured by Valley Recreation Products, Inc. This upright cabinet has a black and white color scheme with blue and red accents on the dartboard. The unit is constructed from wood and metal with a coin-operated mechanism and multiple locking access panels. It has a digital score display at the top and a soft-tip dartboard.",
+      "price": "$500",
+      "lat": 27.7980814,
+      "lon": -82.7973247,
+      "location": "Madeira Beach, FL",
+      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.30808-6/724282449_10174629637600613_1076382573101874824_n.jpg?stp=c256.0.1536.1536a_dst-jpg_tt6&cstp=mx1536x1536&ctp=s261x260&_nc_cat=101&ccb=1-7&_nc_sid=aa7b47&_nc_ohc=58KE5yqz9aIQ7kNvwEjO1e8&_nc_oc=AdqJumykHEpcynRgyxtMe_1wzNewjwiKlfTJfMRalV9t-x3KV_V5JI8aGaNQfEv29Wo&_nc_zt=23&_nc_ht=scontent-dfw6-1.xx&_nc_gid=85dHNg84t8v7_zeQhu-Cow&_nc_ss=7b2a8&oh=00_AQCpLvjhTHoOIWre7Zzb-cxaVq11po_Gqkzzvn4DvhDTbQ&oe=6A61CF4B",
+      "adUrl": "https://www.facebook.com/marketplace/item/1056701963376635/",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-07-18 21:05:05",
+      "lastSeen": "2026-07-18T21:07:01.495Z"
+    },
     {
       "adID": "KLOV-565233",
       "source": "KLOV",
@@ -36,7 +136,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-18 20:07:41",
-      "lastSeen": "2026-07-18T20:07:41.781Z"
+      "lastSeen": "2026-07-18T21:09:02.919Z"
     },
     {
       "adID": "KLOV-559512",
@@ -56,7 +156,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-18 18:08:25",
-      "lastSeen": "2026-07-18T20:07:41.915Z"
+      "lastSeen": "2026-07-18T21:09:03.020Z"
     },
     {
       "adID": "1751736845953118",
@@ -76,7 +176,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-18 18:05:15",
-      "lastSeen": "2026-07-18T20:05:17.535Z"
+      "lastSeen": "2026-07-18T21:05:04.886Z"
     },
     {
       "adID": "1133665265766247",
@@ -156,7 +256,7 @@
       "priceChangedAt": "2026-07-18 19:05:15",
       "hidden": 0,
       "created_at": "2026-07-18 17:05:10",
-      "lastSeen": "2026-07-18T20:05:17.568Z"
+      "lastSeen": "2026-07-18T21:05:04.919Z"
     },
     {
       "adID": "27816055161364662",
@@ -176,7 +276,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-18 16:05:57",
-      "lastSeen": "2026-07-18T19:06:25.939Z"
+      "lastSeen": "2026-07-18T21:07:33.210Z"
     },
     {
       "adID": "1052001420844702",
@@ -196,7 +296,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-18 14:05:50",
-      "lastSeen": "2026-07-18T20:06:51.054Z"
+      "lastSeen": "2026-07-18T21:07:31.659Z"
     },
     {
       "adID": "PI-218058",
@@ -236,7 +336,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-18 13:08:51",
-      "lastSeen": "2026-07-18T20:07:42.151Z"
+      "lastSeen": "2026-07-18T21:09:03.255Z"
     },
     {
       "adID": "1512607523411591",
@@ -296,14 +396,14 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-18 11:08:25",
-      "lastSeen": "2026-07-18T20:07:42.283Z"
+      "lastSeen": "2026-07-18T21:09:03.389Z"
     },
     {
       "adID": "PI-215282",
       "source": "PS",
       "authorUrl": "https://pinside.com/pinball/community/pinsiders/rebelb/market",
       "author": "RebelB",
-      "postedTime": "2026-07-18T00:07:01.331Z",
+      "postedTime": "2026-07-18T00:08:21.142Z",
       "title": "Super Score Vintage Pinball Machine Gottlieb 1967",
       "description": "Used - shows wear, needs some work - “Tested and Works. The 2nd player reels and ball count stick and will have to be manually reset to start a new game.”",
       "price": "$500",
@@ -316,7 +416,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-18 00:08:12",
-      "lastSeen": "2026-07-18T20:07:02.574Z"
+      "lastSeen": "2026-07-18T21:08:22.208Z"
     },
     {
       "adID": "1499581678153572",
@@ -463,20 +563,20 @@
       "source": "KLOV",
       "authorUrl": "https://forums.arcade-museum.com/members/beterthnyu.71591/",
       "author": "beterthnyu",
-      "postedTime": "2026-07-16T02:00:56.000Z",
+      "postedTime": "2026-07-18T20:22:18.000Z",
       "title": "Dungeons and Dragons Tower of Doom A & B Boards",
-      "description": "Selling my Dungeons and Dragons Tower of Doom A & B Boards. It has been Phoenixed with the battery removed, so you dont have to worry about it suiciding. Recently played through and tested working perfectly. $300 shipped to US 48.",
-      "price": "$300",
+      "description": "Selling my Dungeons and Dragons Tower of Doom A & B Boards. It has been Phoenixed with the battery removed, so you dont have to worry about it suiciding. Recently played through and tested working perfectly. $290 + shipping to US 48.",
+      "price": "$290",
       "lat": 31.1443351,
       "lon": -89.406955,
       "location": "purvis, Mississippi",
       "imageUrl": "/images/klov-placeholder.png",
       "adUrl": "https://forums.arcade-museum.com/threads/565151/",
-      "priceChanged": 0,
-      "priceChangedAt": null,
+      "priceChanged": 1,
+      "priceChangedAt": "2026-07-18 21:09:02",
       "hidden": 0,
       "created_at": "2026-07-17 18:02:02",
-      "lastSeen": "2026-07-18T01:07:16.629Z"
+      "lastSeen": "2026-07-18T21:09:02.818Z"
     },
     {
       "adID": "KLOV-536297",
@@ -496,7 +596,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-17 18:02:00",
-      "lastSeen": "2026-07-18T20:07:42.317Z"
+      "lastSeen": "2026-07-18T21:09:03.423Z"
     },
     {
       "adID": "KLOV-546228",
@@ -516,7 +616,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-17 18:02:00",
-      "lastSeen": "2026-07-18T20:07:42.517Z"
+      "lastSeen": "2026-07-18T21:09:03.623Z"
     },
     {
       "adID": "KLOV-565176",
@@ -536,7 +636,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-17 18:02:00",
-      "lastSeen": "2026-07-18T20:07:42.015Z"
+      "lastSeen": "2026-07-18T21:09:03.121Z"
     },
     {
       "adID": "1574948170826663",
@@ -1163,7 +1263,7 @@
       "source": "FB",
       "authorUrl": null,
       "author": "Cory Anderson",
-      "postedTime": "2026-07-13T18:00:27.858Z",
+      "postedTime": "2026-07-13T21:00:27.405Z",
       "title": "Gyurss",
       "description": "I have a Gyruss arcade game for sale that is in excellent condition. I will not answer questions in the comments . If interested PM me directly. Asking $900.00",
       "price": "$900",
@@ -1176,7 +1276,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-12 22:00:26",
-      "lastSeen": "2026-07-18T18:00:28.682Z"
+      "lastSeen": "2026-07-18T21:00:28.738Z"
     },
     {
       "adID": "1532852185253819",
