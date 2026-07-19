@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-19T22:07:51.718Z",
+  "generated_at": "2026-07-19T23:07:59.947Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,57 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 21,
-      "droppedPrice": 196,
+      "exported_ads": 23,
+      "droppedPrice": 200,
       "droppedMissingGeo": 0,
-      "droppedCircle": 198
+      "droppedCircle": 201
     }
   },
   "ads": [
+    {
+      "adID": "1066728392539975",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/1332017674/?product_id=1066728392539975",
+      "author": "Paul Johnston",
+      "postedTime": "2026-07-19T22:51:17.000Z",
+      "title": "Moving Boxes",
+      "description": "FREE moving boxes...multiple sizes, including wardrobe boxes and packing material. Pick up in Arcade/Jefferson",
+      "price": "$0",
+      "lat": 34.096496,
+      "lon": -83.7612839,
+      "location": "Hoschton, GA",
+      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/751563254_1056255497366605_1306289274255282355_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=102&ccb=1-7&_nc_sid=92e707&_nc_ohc=jeqE_JYp-kUQ7kNvwHo2Zvz&_nc_oc=AdrZ8lA3PCGKS_wXF-jPBUz70aPXl0v8j5GbhkJBeD-kg7Hydi-_f7ceWoeRa1HCIsU&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=4tk-M3fb6st-IH-iHdZYTA&_nc_ss=7b2a8&oh=00_AQAM8Yx1DbPCn03v5vkFIkxzJ7EtDjGAw-kHDBjt9URZHA&oe=6A633355",
+      "adUrl": "https://www.facebook.com/marketplace/item/1066728392539975/",
+      "facebookGroupId": null,
+      "facebookGroupName": null,
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-07-19 23:05:17",
+      "lastSeen": "2026-07-19T23:05:55.601Z"
+    },
+    {
+      "adID": "1030830106501625",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/1173415561/?product_id=1030830106501625",
+      "author": "Heather Pinkston",
+      "postedTime": "2026-07-19T21:50:34.000Z",
+      "title": "Kimball Challenger P5 electric keyboard",
+      "description": "The Kimball Challenger P5 is a vintage 1984 portable synthesizer and organ. Famous for its retro 80s aesthetic, it features built-in drum machines, built-in speakers, auto-accompaniment, and sound effects like birds and arcade crashes.",
+      "price": "$175",
+      "lat": 30.4065868,
+      "lon": -87.6835974,
+      "location": "Foley, AL",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/749269292_1554388099605334_6583778440852456326_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=111&ccb=1-7&_nc_sid=92e707&_nc_ohc=S4svGOXa-CkQ7kNvwHIIDPV&_nc_oc=AdoZyFeAqDxYY3rlvinSCydgOJTzbmacjG6GxsruRfAvg0bR0dpe-NUvm6VOJfsgUmE&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=Z8BONWn_spF1tcdxLmreAw&_nc_ss=7b2a8&oh=00_AQBfbYLtI1z3Asp8VS0-EyGYm1jaaBOUkBuOZ5VOvVTQSQ&oe=6A634381",
+      "adUrl": "https://www.facebook.com/marketplace/item/1030830106501625/",
+      "facebookGroupId": null,
+      "facebookGroupName": null,
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-07-19 23:05:17",
+      "lastSeen": "2026-07-19T23:05:55.657Z"
+    },
     {
       "adID": "902407602919003",
       "source": "MP",
@@ -38,7 +82,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-19 22:06:14",
-      "lastSeen": "2026-07-19T22:06:47.011Z"
+      "lastSeen": "2026-07-19T23:06:24.323Z"
     },
     {
       "adID": "3231686400552753",
@@ -60,7 +104,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-19 22:05:14",
-      "lastSeen": "2026-07-19T22:05:38.798Z"
+      "lastSeen": "2026-07-19T23:05:17.788Z"
     },
     {
       "adID": "1716582329546791",
@@ -104,7 +148,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-19 21:06:06",
-      "lastSeen": "2026-07-19T22:05:14.784Z"
+      "lastSeen": "2026-07-19T23:05:17.821Z"
     },
     {
       "adID": "1743252213358087",
@@ -126,7 +170,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-19 21:06:05",
-      "lastSeen": "2026-07-19T22:05:14.672Z"
+      "lastSeen": "2026-07-19T23:05:17.654Z"
     },
     {
       "adID": "1772607797230308",
@@ -148,7 +192,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-19 21:06:05",
-      "lastSeen": "2026-07-19T22:05:14.706Z"
+      "lastSeen": "2026-07-19T23:05:17.687Z"
     },
     {
       "adID": "2213146052816873",
@@ -170,7 +214,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-19 21:06:03",
-      "lastSeen": "2026-07-19T22:05:14.461Z"
+      "lastSeen": "2026-07-19T23:05:17.453Z"
     },
     {
       "adID": "KLOV-565263",
@@ -178,7 +222,7 @@
       "authorUrl": "https://forums.arcade-museum.com/members/steve23.31225/",
       "author": "steve23",
       "postedTime": "2026-07-19T19:53:25.000Z",
-      "title": "Leland, Super Off Rd, Attax, pcb's",
+      "title": "*PENDING*Leland, Super Off Rd, Attax, pcb's",
       "description": "More Leland to go: Super Off Road, plays but graphic issues Attax dead World Series plays graphic issues World Series, dirty missing Z80 All sold as is $200 shipped to lower 48 (these are HEAVY)",
       "price": "$200",
       "lat": 29.8946952,
@@ -192,7 +236,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-19 20:07:44",
-      "lastSeen": "2026-07-19T22:07:47.505Z"
+      "lastSeen": "2026-07-19T23:07:55.717Z"
     },
     {
       "adID": "KLOV-565261",
@@ -214,7 +258,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-19 20:07:44",
-      "lastSeen": "2026-07-19T22:07:47.572Z"
+      "lastSeen": "2026-07-19T23:07:55.782Z"
     },
     {
       "adID": "KLOV-529072",
@@ -236,7 +280,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-19 17:50:56",
-      "lastSeen": "2026-07-19T22:07:48.498Z"
+      "lastSeen": "2026-07-19T23:07:56.687Z"
     },
     {
       "adID": "KLOV-536297",
@@ -258,7 +302,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-19 17:50:56",
-      "lastSeen": "2026-07-19T22:07:48.532Z"
+      "lastSeen": "2026-07-19T23:07:56.720Z"
     },
     {
       "adID": "KLOV-565176",
@@ -280,7 +324,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-19 17:50:55",
-      "lastSeen": "2026-07-19T22:07:48.264Z"
+      "lastSeen": "2026-07-19T23:07:56.453Z"
     },
     {
       "adID": "KLOV-375293",
@@ -302,7 +346,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-19 17:50:55",
-      "lastSeen": "2026-07-19T22:07:48.398Z"
+      "lastSeen": "2026-07-19T23:07:56.586Z"
     },
     {
       "adID": "KLOV-565233",
@@ -324,7 +368,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-19 17:50:54",
-      "lastSeen": "2026-07-19T22:07:47.672Z"
+      "lastSeen": "2026-07-19T23:07:55.883Z"
     },
     {
       "adID": "KLOV-565237",
@@ -346,7 +390,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-19 17:50:54",
-      "lastSeen": "2026-07-19T22:07:47.952Z"
+      "lastSeen": "2026-07-19T23:07:56.152Z"
     },
     {
       "adID": "KLOV-565151",
@@ -368,14 +412,14 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-19 17:50:54",
-      "lastSeen": "2026-07-19T22:07:48.084Z"
+      "lastSeen": "2026-07-19T23:07:56.284Z"
     },
     {
       "adID": "PI-215282",
       "source": "PS",
       "authorUrl": "https://pinside.com/pinball/community/pinsiders/rebelb/market",
       "author": "RebelB",
-      "postedTime": "2026-07-18T00:07:12.219Z",
+      "postedTime": "2026-07-18T00:07:18.194Z",
       "title": "Super Score Vintage Pinball Machine Gottlieb 1967",
       "description": "Used - shows wear, needs some work - “Tested and Works. The 2nd player reels and ball count stick and will have to be manually reset to start a new game.”",
       "price": "$500",
@@ -390,14 +434,14 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-19 17:50:12",
-      "lastSeen": "2026-07-19T22:07:12.446Z"
+      "lastSeen": "2026-07-19T23:07:18.690Z"
     },
     {
       "adID": "PI-215821",
       "source": "PS",
       "authorUrl": "https://pinside.com/pinball/community/pinsiders/skipnatty/market",
       "author": "Skipnatty",
-      "postedTime": "2026-07-19T00:07:08.635Z",
+      "postedTime": "2026-07-19T00:07:14.324Z",
       "title": "Dialed In - Playfield Protector (New)",
       "description": "NOS (New Old Stock) - “Brand new never opened from factory. 50 bucks obo + shipping if shipping needed.”",
       "price": "$50",
@@ -412,7 +456,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-19 17:50:07",
-      "lastSeen": "2026-07-19T22:07:09.684Z"
+      "lastSeen": "2026-07-19T23:07:15.765Z"
     },
     {
       "adID": "1045178381317041",
@@ -434,7 +478,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-19 17:45:19",
-      "lastSeen": "2026-07-19T22:06:14.841Z"
+      "lastSeen": "2026-07-19T23:06:25.178Z"
     },
     {
       "adID": "1056701963376635",
@@ -463,7 +507,7 @@
       "source": "FB",
       "authorUrl": null,
       "author": "John Russo",
-      "postedTime": "2026-07-13T22:02:25.583Z",
+      "postedTime": "2026-07-13T23:02:27.257Z",
       "title": "Silent scope front end parts only",
       "description": "As you can see this is the front end there is no CPU board the gun is complete but untested. I have no reason to think the gun doesn’t work. 99% sure we ended up with this front end from a game that otherwise died.",
       "price": "$200",
@@ -478,7 +522,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-19 17:35:03",
-      "lastSeen": "2026-07-19T22:02:26.039Z"
+      "lastSeen": "2026-07-19T23:02:27.676Z"
     }
   ]
 }
