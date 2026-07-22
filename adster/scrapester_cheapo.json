@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-22T22:19:00.465Z",
+  "generated_at": "2026-07-22T23:16:39.493Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,35 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 39,
-      "droppedPrice": 367,
+      "exported_ads": 40,
+      "droppedPrice": 370,
       "droppedMissingGeo": 0,
-      "droppedCircle": 345
+      "droppedCircle": 347
     }
   },
   "ads": [
+    {
+      "adID": "2437713696639440",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100013596578218/?product_id=2437713696639440",
+      "author": "Casey Ard",
+      "postedTime": "2026-07-22T21:36:15.000Z",
+      "title": "Arcade machine",
+      "description": "Mini arcade machine",
+      "price": "$200",
+      "lat": 28.01633,
+      "lon": -82.1234803,
+      "location": "Plant City, FL",
+      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/750396991_2077721823176090_7767642101280900505_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=107&ccb=1-7&_nc_sid=92e707&_nc_ohc=gQqSCEXYTHsQ7kNvwEIYMMu&_nc_oc=Adrk72dMCgTWew5RkcRzpe_IxWbv2axjuZihLANzSsh56s1r1uNybjT3Vjdk_Qxo5Eo&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=BVSVkrncjxzw2wN_zHD6pg&_nc_ss=7b2a8&oh=00_AQAU1NFt-1HM6ohw11Ri36ACNR9Ravng-psRoWxJOrUAfg&oe=6A670912",
+      "adUrl": "https://www.facebook.com/marketplace/item/2437713696639440/",
+      "facebookGroupId": null,
+      "facebookGroupName": null,
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-07-22 23:05:14",
+      "lastSeen": "2026-07-22T23:11:20.802Z"
+    },
     {
       "adID": "1209691717963923",
       "source": "MP",
@@ -74,7 +96,7 @@
       "lat": 34.3382257,
       "lon": -84.3765714,
       "location": "Ball Ground, GA",
-      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/752786773_1046428731136885_7908429470757361246_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=102&ccb=1-7&_nc_sid=92e707&_nc_ohc=zQCcPwj4NmIQ7kNvwHRbBNR&_nc_oc=AdoFrx9aN045QY09qA5gYEmLhHlzuVXCqv0RhPjbiE8CBsv2JZQJZtIX0FPALrGGEas&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=eAfTJQrm6j87iihgr4E6Yw&_nc_ss=7b2a8&oh=00_AQDQ2d-1FSWc0ysIK6I2S5u4fk9WdYRJIj5c9NdTstQeSA&oe=6A6706D2",
+      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/752786773_1046428731136885_7908429470757361246_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=102&ccb=1-7&_nc_sid=92e707&_nc_ohc=zQCcPwj4NmIQ7kNvwHRbBNR&_nc_oc=AdoFrx9aN045QY09qA5gYEmLhHlzuVXCqv0RhPjbiE8CBsv2JZQJZtIX0FPALrGGEas&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=YSxBxmdutBL0wCeXBH2RCg&_nc_ss=7b2a8&oh=00_AQBppymUAY74Voe8WkuFkSgp43ZcvVv7MYB3-mNs3rVfTQ&oe=6A6706D2",
       "adUrl": "https://www.facebook.com/marketplace/item/1749282822743033/",
       "facebookGroupId": null,
       "facebookGroupName": null,
@@ -82,7 +104,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-22 21:05:16",
-      "lastSeen": "2026-07-22T21:08:56.163Z"
+      "lastSeen": "2026-07-22T23:11:21.104Z"
     },
     {
       "adID": "KLOV-565357",
@@ -104,14 +126,14 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-22 20:17:19",
-      "lastSeen": "2026-07-22T22:18:56.393Z"
+      "lastSeen": "2026-07-22T23:16:35.231Z"
     },
     {
       "adID": "PI-206463",
       "source": "PS",
       "authorUrl": "https://pinside.com/pinball/community/pinsiders/mrtattooz/market",
       "author": "Mrtattooz",
-      "postedTime": "2026-07-22T20:18:16.311Z",
+      "postedTime": "2026-07-22T20:15:58.356Z",
       "title": "Space Jam used Playfield",
       "description": "Used, good condition - “I have for sale a Space Jam Playfield that is in pretty darn good shape. Still has mylar around pop bumpers. The only wear is minimal around the scoop and I've send way worse on ot...”",
       "price": "$275",
@@ -126,7 +148,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-22 20:16:40",
-      "lastSeen": "2026-07-22T22:18:16.744Z"
+      "lastSeen": "2026-07-22T23:15:58.495Z"
     },
     {
       "adID": "1015593908047339",
@@ -184,7 +206,7 @@
       "lat": 34.2978794,
       "lon": -83.8240663,
       "location": "Gainesville, GA",
-      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/755381090_1703145534277496_3880569633961442278_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=104&ccb=1-7&_nc_sid=92e707&_nc_ohc=mASqQ1faDnAQ7kNvwG33tD5&_nc_oc=AdrE9wKji05nHji2icYgQK6eMcgHPlNexzj59BLrsgYL91ifniwcO2tgfZQ5px5POGI&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=kJeSk8lp8_jRKIuJqFRdNQ&_nc_ss=7b2a8&oh=00_AQA6AQZvwxG0md-3Nm57j3o7HJOMgz0yDPw0iWGPEALZuA&oe=6A671124",
+      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/755381090_1703145534277496_3880569633961442278_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=104&ccb=1-7&_nc_sid=92e707&_nc_ohc=mASqQ1faDnAQ7kNvwG33tD5&_nc_oc=AdrE9wKji05nHji2icYgQK6eMcgHPlNexzj59BLrsgYL91ifniwcO2tgfZQ5px5POGI&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=fn3yTFGZt2aws7FK0vpqpQ&_nc_ss=7b2a8&oh=00_AQDfg7XtwCgWVZC3FMpgfP77v_H5ZygqZN9qXaWUeEehow&oe=6A671124",
       "adUrl": "https://www.facebook.com/marketplace/item/2281591779311918/",
       "facebookGroupId": null,
       "facebookGroupName": null,
@@ -192,14 +214,14 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-22 20:05:13",
-      "lastSeen": "2026-07-22T22:08:34.376Z"
+      "lastSeen": "2026-07-22T23:08:37.621Z"
     },
     {
       "adID": "1022886133679748",
       "source": "FB",
       "authorUrl": null,
       "author": "Lisa Ryder",
-      "postedTime": "2026-07-22T20:01:29.529Z",
+      "postedTime": "2026-07-22T20:01:30.095Z",
       "title": "Thermal take Power Supply",
       "description": "New in box Thermaltake Pure Power 430watt",
       "price": "$50",
@@ -214,7 +236,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-22 20:01:27",
-      "lastSeen": "2026-07-22T22:01:29.547Z"
+      "lastSeen": "2026-07-22T23:01:30.145Z"
     },
     {
       "adID": "KLOV-481858",
@@ -236,7 +258,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-22 15:18:07",
-      "lastSeen": "2026-07-22T22:18:56.762Z"
+      "lastSeen": "2026-07-22T23:16:35.599Z"
     },
     {
       "adID": "1584841766623805",
@@ -294,7 +316,7 @@
       "lat": 34.257038,
       "lon": -85.1646726,
       "location": "Rome, GA",
-      "imageUrl": "https://scontent-dfw6-2.xx.fbcdn.net/v/t39.84726-6/753702640_1030469403207382_230455052374500227_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=108&ccb=1-7&_nc_sid=92e707&_nc_ohc=mXNMIluPLhIQ7kNvwHCW3Bu&_nc_oc=Ado32ED0McXEbBhn7tOOzuc20x9pAVdHhncennSHv024UPgNObUd2lC4Tb4FZJQ0kSE&_nc_zt=14&_nc_ht=scontent-dfw6-2.xx&_nc_gid=Hxg4vcJEm9kQMALu8appCw&_nc_ss=7b2a8&oh=00_AQD7-boyi3NIS5FKA37p50y5fOpx2M86Dc-GhB87JF3rdA&oe=6A66FCF3",
+      "imageUrl": "https://scontent-dfw6-2.xx.fbcdn.net/v/t39.84726-6/753702640_1030469403207382_230455052374500227_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=108&ccb=1-7&_nc_sid=92e707&_nc_ohc=mXNMIluPLhIQ7kNvwHCW3Bu&_nc_oc=Ado32ED0McXEbBhn7tOOzuc20x9pAVdHhncennSHv024UPgNObUd2lC4Tb4FZJQ0kSE&_nc_zt=14&_nc_ht=scontent-dfw6-2.xx&_nc_gid=D7nW8gbzCWsEyVTqK2BiNA&_nc_ss=7b2a8&oh=00_AQAcuXiuUAZV6ZVua3toCTThziexqEf4mFp9aCN1_HjVOQ&oe=6A673533",
       "adUrl": "https://www.facebook.com/marketplace/item/1023445007141521/",
       "facebookGroupId": null,
       "facebookGroupName": null,
@@ -302,7 +324,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-22 12:05:14",
-      "lastSeen": "2026-07-22T22:08:34.543Z"
+      "lastSeen": "2026-07-22T23:08:37.789Z"
     },
     {
       "adID": "1686621125971367",
@@ -316,7 +338,7 @@
       "lat": 33.5206824,
       "lon": -86.8024326,
       "location": "Birmingham, AL",
-      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/752484781_1967077523944378_433030771638160467_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=104&ccb=1-7&_nc_sid=92e707&_nc_ohc=DogIiOIQjFgQ7kNvwEe-HPL&_nc_oc=AdoEP5x2qOT6HZFMt4t2eCPvZCAE3_BLquE-yYUUnS82xhCOsQHT7lA3-Dcvig1Dl20&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=hWvG69bWGix9D4A0AwvZjA&_nc_ss=7b2a8&oh=00_AQC5MutysjWX1-bBvCoaO28XtHZrgv_yzcb2o83eINA3ow&oe=6A670EA5",
+      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/752484781_1967077523944378_433030771638160467_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=104&ccb=1-7&_nc_sid=92e707&_nc_ohc=DogIiOIQjFgQ7kNvwEe-HPL&_nc_oc=AdoEP5x2qOT6HZFMt4t2eCPvZCAE3_BLquE-yYUUnS82xhCOsQHT7lA3-Dcvig1Dl20&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=pPnFSM_GaxnRq_nVq5uIaw&_nc_ss=7b2a8&oh=00_AQCag1kScW4zhSVb0szvtFM4XvmI9cy6h4Tqc2qtd0ZhPA&oe=6A670EA5",
       "adUrl": "https://www.facebook.com/marketplace/item/1686621125971367/",
       "facebookGroupId": null,
       "facebookGroupName": null,
@@ -324,7 +346,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-22 11:05:18",
-      "lastSeen": "2026-07-22T22:08:34.578Z"
+      "lastSeen": "2026-07-22T23:08:37.822Z"
     },
     {
       "adID": "900533686441844",
@@ -368,7 +390,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-21 14:14:46",
-      "lastSeen": "2026-07-22T22:18:57.062Z"
+      "lastSeen": "2026-07-22T23:16:35.923Z"
     },
     {
       "adID": "KLOV-561395",
@@ -390,7 +412,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-21 13:21:52",
-      "lastSeen": "2026-07-22T22:18:57.129Z"
+      "lastSeen": "2026-07-22T23:16:35.989Z"
     },
     {
       "adID": "KLOV-495908",
@@ -412,7 +434,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-21 13:21:52",
-      "lastSeen": "2026-07-22T22:18:57.163Z"
+      "lastSeen": "2026-07-22T23:16:36.023Z"
     },
     {
       "adID": "3197568423785969",
@@ -720,7 +742,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-19 17:50:55",
-      "lastSeen": "2026-07-22T22:18:56.928Z"
+      "lastSeen": "2026-07-22T23:16:35.766Z"
     },
     {
       "adID": "KLOV-375293",
@@ -815,7 +837,7 @@
       "source": "PS",
       "authorUrl": "https://pinside.com/pinball/community/pinsiders/skipnatty/market",
       "author": "Skipnatty",
-      "postedTime": "2026-07-19T22:18:22.246Z",
+      "postedTime": "2026-07-19T23:16:03.826Z",
       "title": "Dialed In - Playfield Protector (New)",
       "description": "NOS (New Old Stock) - “Brand new never opened from factory. 50 bucks obo + shipping if shipping needed.”",
       "price": "$50",
@@ -830,7 +852,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-19 17:50:07",
-      "lastSeen": "2026-07-22T22:18:25.240Z"
+      "lastSeen": "2026-07-22T23:16:05.324Z"
     },
     {
       "adID": "1056701963376635",
@@ -874,7 +896,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-19 17:35:03",
-      "lastSeen": "2026-07-22T22:02:30.854Z"
+      "lastSeen": "2026-07-22T23:02:30.258Z"
     }
   ]
 }
