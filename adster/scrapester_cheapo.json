@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-24T19:33:05.661Z",
+  "generated_at": "2026-07-24T20:20:14.763Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,35 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 48,
-      "droppedPrice": 448,
+      "exported_ads": 49,
+      "droppedPrice": 452,
       "droppedMissingGeo": 0,
-      "droppedCircle": 462
+      "droppedCircle": 470
     }
   },
   "ads": [
+    {
+      "adID": "1702361060881282",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100002162503325/?product_id=1702361060881282",
+      "author": "Joseph Tatum",
+      "postedTime": "2026-07-24T18:32:09.000Z",
+      "title": "Vintage Game Time Ward's Corner Norfolk VA Arcade Token",
+      "description": "Weathered brass arcade token from Game Time at Ward's Corner in Norfolk, VA. This circular metal piece has a clown face and 'NO CASH VALUE' on the obverse. The reverse side is inscribed with 'GAME TIME WARD'S CORNER NORFOLK, VA.' It has a dark patina and surface oxidation. Located in Prattville",
+      "price": "$4",
+      "lat": 32.4600136,
+      "lon": -86.4753174,
+      "location": "Prattville, AL",
+      "imageUrl": "https://scontent-dfw6-2.xx.fbcdn.net/v/t39.84726-6/756044046_1741604671305672_2313106706263879847_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=108&ccb=1-7&_nc_sid=92e707&_nc_ohc=O0Fl79z3HcwQ7kNvwFbLnsC&_nc_oc=Adp9ENrIy0VK1kh0kFqi81eKpIFWQX4DI3_UigeSHzlI8YkR-mYrLIlYZXD9YLV4yns&_nc_zt=14&_nc_ht=scontent-dfw6-2.xx&_nc_gid=Nd5HAppL20h78VXdDSvf2g&_nc_ss=7b2a8&oh=00_AQD2zOwH5zuZbbeQ3ELvUI--WtEcfUFvD6d60OYAzBXahg&oe=6A69864D",
+      "adUrl": "https://www.facebook.com/marketplace/item/1702361060881282/",
+      "facebookGroupId": null,
+      "facebookGroupName": null,
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-07-24 20:05:15",
+      "lastSeen": "2026-07-24T20:12:01.463Z"
+    },
     {
       "adID": "891075380256008",
       "source": "MP",
@@ -30,7 +52,7 @@
       "lat": 30.3262247,
       "lon": -81.6579179,
       "location": "Jacksonville, FL",
-      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/756343992_1456606749822688_9048761222722474677_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=106&ccb=1-7&_nc_sid=92e707&_nc_ohc=bmB5UsLWA00Q7kNvwHK3XEW&_nc_oc=Adp1JA40o9FH4pOMXDUEfNL00Pxh38C1I1EXAT0BZHQfyX6QW7TmBODYxUFBxhXNi7A&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=ED2OoKFBvA2PRJ9HIPo1tg&_nc_ss=7b2a8&oh=00_AQBlz751ApY-FQwnBiPMAV7iQjiR_OyalctRhWvGY46iYw&oe=6A69A264",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/756343992_1456606749822688_9048761222722474677_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=106&ccb=1-7&_nc_sid=92e707&_nc_ohc=bmB5UsLWA00Q7kNvwHK3XEW&_nc_oc=Adp1JA40o9FH4pOMXDUEfNL00Pxh38C1I1EXAT0BZHQfyX6QW7TmBODYxUFBxhXNi7A&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=Z08DaqDvDBsz4BWybDPznA&_nc_ss=7b2a8&oh=00_AQD8x9aGgyC8wrW8I2WmF_76DH_I28gVHP8D1C5Uwr3kGA&oe=6A69A264",
       "adUrl": "https://www.facebook.com/marketplace/item/891075380256008/",
       "facebookGroupId": null,
       "facebookGroupName": null,
@@ -38,7 +60,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-24 19:05:23",
-      "lastSeen": "2026-07-24T19:08:59.584Z"
+      "lastSeen": "2026-07-24T20:08:25.539Z"
     },
     {
       "adID": "1761042838549023",
@@ -96,7 +118,7 @@
       "lat": 30.1586518,
       "lon": -85.6602936,
       "location": "Panama City, FL",
-      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/753663495_27770951772598393_86943871749565930_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=107&ccb=1-7&_nc_sid=92e707&_nc_ohc=9HnAgQvFyI8Q7kNvwFBgtpo&_nc_oc=AdpDmY-IzYt1Ubwft2eEUFZ0DQyG2HxCL8JWekVYbbrN-YNp2hEUxxru1bT2R2LxN2k&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=oIFcwPKteanbUYNhaGXkKQ&_nc_ss=7b2a8&oh=00_AQDV2B_PoWxjs2L6mG1zErO6NapbxMxm5d947QAecGd65g&oe=6A69A672",
+      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/753663495_27770951772598393_86943871749565930_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=107&ccb=1-7&_nc_sid=92e707&_nc_ohc=9HnAgQvFyI8Q7kNvwFBgtpo&_nc_oc=AdpDmY-IzYt1Ubwft2eEUFZ0DQyG2HxCL8JWekVYbbrN-YNp2hEUxxru1bT2R2LxN2k&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=x1wnMr97ROxrkRxDKlEi3Q&_nc_ss=7b2a8&oh=00_AQDMrbgiBZQcz5tW_PfBlPEbF5UBpRjbdb_oV3pEMvRfAQ&oe=6A69A672",
       "adUrl": "https://www.facebook.com/marketplace/item/1070272198669963/",
       "facebookGroupId": null,
       "facebookGroupName": null,
@@ -104,7 +126,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-24 17:05:14",
-      "lastSeen": "2026-07-24T19:08:59.735Z"
+      "lastSeen": "2026-07-24T20:08:25.682Z"
     },
     {
       "adID": "1690296856437841",
@@ -118,7 +140,7 @@
       "lat": 28.2441768,
       "lon": -82.7192671,
       "location": "New Port Richey, FL",
-      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/755374086_27444033395269001_2541165678427739577_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=102&ccb=1-7&_nc_sid=92e707&_nc_ohc=adVabnAKlEsQ7kNvwHWu5c2&_nc_oc=Adr--5u452wh848uGKJvLzFnLBVUsRPZ7SMfskn1YnYnFDVWfdrxo0miXR6jsDZKm4c&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=2JsGxPlUaq6F6GNST8XFxQ&_nc_ss=7b2a8&oh=00_AQDHtnAKvfBSVw3zQ6uQaLpyiRaZH2gTvEStUWPF-4Zgqw&oe=6A698402",
+      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/755374086_27444033395269001_2541165678427739577_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=102&ccb=1-7&_nc_sid=92e707&_nc_ohc=adVabnAKlEsQ7kNvwHWu5c2&_nc_oc=Adr--5u452wh848uGKJvLzFnLBVUsRPZ7SMfskn1YnYnFDVWfdrxo0miXR6jsDZKm4c&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=B4Yt1WrtvE6sChMJBoYrqA&_nc_ss=7b2a8&oh=00_AQBN6K06gndzaEqSiW94JsHnwpxGa6fmQ1qI9qnaoZ-0fw&oe=6A698402",
       "adUrl": "https://www.facebook.com/marketplace/item/1690296856437841/",
       "facebookGroupId": null,
       "facebookGroupName": null,
@@ -126,7 +148,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-24 16:05:22",
-      "lastSeen": "2026-07-24T19:08:59.768Z"
+      "lastSeen": "2026-07-24T20:08:25.716Z"
     },
     {
       "adID": "2677089902749917",
@@ -162,7 +184,7 @@
       "lat": 33.7544657,
       "lon": -84.3898151,
       "location": "Atlanta, GA",
-      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/754588339_1610221584136699_91996363033901728_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=111&ccb=1-7&_nc_sid=92e707&_nc_ohc=PSvYPwX13IUQ7kNvwF7MH9x&_nc_oc=Adr5nxlSwJpj3lir5AL7-x9oBHRnZKfpCaCiSKyb1Nan21btkwzGnt22Ioa5gub7Cz0&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=AolWcf8Rf_FJud3q9mZQ-g&_nc_ss=7b2a8&oh=00_AQCGdIbRqII6aLU_LUilD4R3-BAV9iJF9M0HbQKqcIiJww&oe=6A698354",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/754588339_1610221584136699_91996363033901728_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=111&ccb=1-7&_nc_sid=92e707&_nc_ohc=PSvYPwX13IUQ7kNvwF7MH9x&_nc_oc=Adr5nxlSwJpj3lir5AL7-x9oBHRnZKfpCaCiSKyb1Nan21btkwzGnt22Ioa5gub7Cz0&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=rYkOsrFLtV5ecYIpOJv1fw&_nc_ss=7b2a8&oh=00_AQDgxt9B9JJ7nCjCuFCWLo3LJ8RLE9ZYw1usDq08EJkTYg&oe=6A698354",
       "adUrl": "https://www.facebook.com/marketplace/item/1577153123817012/",
       "facebookGroupId": null,
       "facebookGroupName": null,
@@ -170,7 +192,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-24 13:05:19",
-      "lastSeen": "2026-07-24T19:12:49.696Z"
+      "lastSeen": "2026-07-24T20:16:54.867Z"
     },
     {
       "adID": "2182845762282447",
@@ -250,7 +272,7 @@
       "lat": 29.0427592,
       "lon": -81.9292505,
       "location": "Ocklawaha, FL",
-      "imageUrl": "https://scontent-dfw6-2.xx.fbcdn.net/v/t39.84726-6/755693802_1729243304962052_1153273428742518839_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=110&ccb=1-7&_nc_sid=92e707&_nc_ohc=iparPdqdS04Q7kNvwElZtEz&_nc_oc=AdpFzVu2CXZu8Egh2ymr_wT7YXoDDRTEQ9m1kLrk0fXO4VMhaCIFOiJ8tLP5zNINFCU&_nc_zt=14&_nc_ht=scontent-dfw6-2.xx&_nc_gid=3Cqh_kIKm_YpcnZ83AwKHQ&_nc_ss=7b2a8&oh=00_AQCFPNikjTqVaxSH1OW4wdmdQ48-gKizQDQiPwzI4UxrcA&oe=6A6981F3",
+      "imageUrl": "https://scontent-dfw6-2.xx.fbcdn.net/v/t39.84726-6/755693802_1729243304962052_1153273428742518839_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=110&ccb=1-7&_nc_sid=92e707&_nc_ohc=iparPdqdS04Q7kNvwElZtEz&_nc_oc=AdpFzVu2CXZu8Egh2ymr_wT7YXoDDRTEQ9m1kLrk0fXO4VMhaCIFOiJ8tLP5zNINFCU&_nc_zt=14&_nc_ht=scontent-dfw6-2.xx&_nc_gid=zMA7kGhi9GvW2d9iOADlSw&_nc_ss=7b2a8&oh=00_AQDyfF1UQMZ_lrboeincyZ7eCVp6_3FBFUe-sHVPMV8-Eg&oe=6A6981F3",
       "adUrl": "https://www.facebook.com/marketplace/item/1371769281757290/",
       "facebookGroupId": null,
       "facebookGroupName": null,
@@ -258,7 +280,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-23 23:14:29",
-      "lastSeen": "2026-07-24T19:15:44.481Z"
+      "lastSeen": "2026-07-24T20:19:08.190Z"
     },
     {
       "adID": "2082150082722006",
@@ -302,7 +324,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-23 16:48:56",
-      "lastSeen": "2026-07-24T19:05:24.148Z"
+      "lastSeen": "2026-07-24T20:05:13.077Z"
     },
     {
       "adID": "KLOV-512842",
@@ -324,7 +346,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-23 13:15:51",
-      "lastSeen": "2026-07-24T19:16:41.104Z"
+      "lastSeen": "2026-07-24T20:20:07.673Z"
     },
     {
       "adID": "1675194634609124",
@@ -346,7 +368,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-23 12:21:03",
-      "lastSeen": "2026-07-24T19:09:29.416Z"
+      "lastSeen": "2026-07-24T20:13:47.057Z"
     },
     {
       "adID": "1785138972656516",
@@ -419,7 +441,7 @@
       "source": "PS",
       "authorUrl": "https://pinside.com/pinball/community/pinsiders/mrtattooz/market",
       "author": "Mrtattooz",
-      "postedTime": "2026-07-22T20:16:05.573Z",
+      "postedTime": "2026-07-22T20:19:34.459Z",
       "title": "Space Jam used Playfield",
       "description": "Used, good condition - “I have for sale a Space Jam Playfield that is in pretty darn good shape. Still has mylar around pop bumpers. The only wear is minimal around the scoop and I've send way worse on ot...”",
       "price": "$275",
@@ -434,7 +456,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-22 20:16:40",
-      "lastSeen": "2026-07-24T19:16:05.960Z"
+      "lastSeen": "2026-07-24T20:19:34.880Z"
     },
     {
       "adID": "1015593908047339",
@@ -1028,7 +1050,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-19 17:50:54",
-      "lastSeen": "2026-07-24T19:16:41.037Z"
+      "lastSeen": "2026-07-24T20:20:07.606Z"
     },
     {
       "adID": "PI-215821",
