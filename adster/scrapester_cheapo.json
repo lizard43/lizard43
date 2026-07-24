@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-24T15:32:56.047Z",
+  "generated_at": "2026-07-24T16:13:31.496Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,35 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 43,
-      "droppedPrice": 439,
+      "exported_ads": 44,
+      "droppedPrice": 440,
       "droppedMissingGeo": 0,
-      "droppedCircle": 436
+      "droppedCircle": 443
     }
   },
   "ads": [
+    {
+      "adID": "1690296856437841",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/1015170160/?product_id=1690296856437841",
+      "author": "Andrew L. Pooley",
+      "postedTime": "2026-07-24T15:20:22.000Z",
+      "title": "Arcade",
+      "description": "Arcade emulator thousands of games",
+      "price": "$400",
+      "lat": 28.2441768,
+      "lon": -82.7192671,
+      "location": "New Port Richey, FL",
+      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/755374086_27444033395269001_2541165678427739577_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=102&ccb=1-7&_nc_sid=92e707&_nc_ohc=adVabnAKlEsQ7kNvwHWu5c2&_nc_oc=Adr--5u452wh848uGKJvLzFnLBVUsRPZ7SMfskn1YnYnFDVWfdrxo0miXR6jsDZKm4c&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=4diVvUavSBw-UnXB5cKAVw&_nc_ss=7b2a8&oh=00_AQDFAMkZ64FNCpacyr_cSrPo8SScPWd_xX5l_Jo4rAbcvg&oe=6A694BC2",
+      "adUrl": "https://www.facebook.com/marketplace/item/1690296856437841/",
+      "facebookGroupId": null,
+      "facebookGroupName": null,
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-07-24 16:05:22",
+      "lastSeen": "2026-07-24T16:07:44.039Z"
+    },
     {
       "adID": "2677089902749917",
       "source": "MP",
@@ -52,7 +74,7 @@
       "lat": 33.7544657,
       "lon": -84.3898151,
       "location": "Atlanta, GA",
-      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/754588339_1610221584136699_91996363033901728_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=111&ccb=1-7&_nc_sid=92e707&_nc_ohc=PSvYPwX13IUQ7kNvwF7MH9x&_nc_oc=Adr5nxlSwJpj3lir5AL7-x9oBHRnZKfpCaCiSKyb1Nan21btkwzGnt22Ioa5gub7Cz0&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=Mw0-ZWUI8hDYoAFoQKo3VA&_nc_ss=7b2a8&oh=00_AQCCtnaAw7v7yp39XdK5ty6_NbBevtymORV8d9sMwxlrTA&oe=6A694B14",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/754588339_1610221584136699_91996363033901728_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=111&ccb=1-7&_nc_sid=92e707&_nc_ohc=PSvYPwX13IUQ7kNvwF7MH9x&_nc_oc=Adr5nxlSwJpj3lir5AL7-x9oBHRnZKfpCaCiSKyb1Nan21btkwzGnt22Ioa5gub7Cz0&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=UgQTdGiARoTPDrY9BoKSxg&_nc_ss=7b2a8&oh=00_AQAe12mdFra_QpSzwmpna0BQ7kRADvWpJlYYKiX1Y72CEg&oe=6A694B14",
       "adUrl": "https://www.facebook.com/marketplace/item/1577153123817012/",
       "facebookGroupId": null,
       "facebookGroupName": null,
@@ -60,7 +82,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-24 13:05:19",
-      "lastSeen": "2026-07-24T15:12:06.572Z"
+      "lastSeen": "2026-07-24T16:11:55.817Z"
     },
     {
       "adID": "2182845762282447",
@@ -133,14 +155,14 @@
       "source": "MP",
       "authorUrl": "https://www.facebook.com/marketplace/profile/61590841798461/?product_id=1371769281757290",
       "author": "Dean Walls",
-      "postedTime": "2026-07-23T22:55:37.000Z",
+      "postedTime": "2026-03-02T23:52:56.000Z",
       "title": "Vintage pinball back glass nos",
       "description": "20x22 freshly framed",
       "price": "$250",
       "lat": 29.0427592,
       "lon": -81.9292505,
       "location": "Ocklawaha, FL",
-      "imageUrl": "https://scontent-dfw6-2.xx.fbcdn.net/v/t39.84726-6/755693802_1729243304962052_1153273428742518839_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=110&ccb=1-7&_nc_sid=92e707&_nc_ohc=iparPdqdS04Q7kNvwElZtEz&_nc_oc=AdpFzVu2CXZu8Egh2ymr_wT7YXoDDRTEQ9m1kLrk0fXO4VMhaCIFOiJ8tLP5zNINFCU&_nc_zt=14&_nc_ht=scontent-dfw6-2.xx&_nc_gid=j-fJXFzMu564ek9fpb1WEg&_nc_ss=7b2a8&oh=00_AQBtCl-ifiKU9ICJFqZLesckuDvPiSoekLGAIUZfy5CrUQ&oe=6A6949B3",
+      "imageUrl": "https://scontent-dfw6-2.xx.fbcdn.net/v/t39.84726-6/755693802_1729243304962052_1153273428742518839_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=110&ccb=1-7&_nc_sid=92e707&_nc_ohc=iparPdqdS04Q7kNvwElZtEz&_nc_oc=AdpFzVu2CXZu8Egh2ymr_wT7YXoDDRTEQ9m1kLrk0fXO4VMhaCIFOiJ8tLP5zNINFCU&_nc_zt=14&_nc_ht=scontent-dfw6-2.xx&_nc_gid=j2J-ySBA6-XT-GKkcTuXOA&_nc_ss=7b2a8&oh=00_AQCz-d-Jw3SVGU7So6PE_2kCgBMfeivGDFl0z1ehAKEyyw&oe=6A6949B3",
       "adUrl": "https://www.facebook.com/marketplace/item/1371769281757290/",
       "facebookGroupId": null,
       "facebookGroupName": null,
@@ -148,7 +170,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-23 23:14:29",
-      "lastSeen": "2026-07-24T15:12:07.124Z"
+      "lastSeen": "2026-07-24T16:11:56.054Z"
     },
     {
       "adID": "2082150082722006",
@@ -192,7 +214,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-23 16:48:56",
-      "lastSeen": "2026-07-24T15:08:44.925Z"
+      "lastSeen": "2026-07-24T16:05:23.394Z"
     },
     {
       "adID": "KLOV-512842",
@@ -214,7 +236,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-23 13:15:51",
-      "lastSeen": "2026-07-24T15:13:07.516Z"
+      "lastSeen": "2026-07-24T16:13:27.332Z"
     },
     {
       "adID": "1675194634609124",
@@ -236,7 +258,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-23 12:21:03",
-      "lastSeen": "2026-07-24T15:09:13.862Z"
+      "lastSeen": "2026-07-24T16:08:16.141Z"
     },
     {
       "adID": "1785138972656516",
@@ -309,7 +331,7 @@
       "source": "PS",
       "authorUrl": "https://pinside.com/pinball/community/pinsiders/mrtattooz/market",
       "author": "Mrtattooz",
-      "postedTime": "2026-07-22T20:12:30.696Z",
+      "postedTime": "2026-07-22T20:12:52.953Z",
       "title": "Space Jam used Playfield",
       "description": "Used, good condition - “I have for sale a Space Jam Playfield that is in pretty darn good shape. Still has mylar around pop bumpers. The only wear is minimal around the scoop and I've send way worse on ot...”",
       "price": "$275",
@@ -324,7 +346,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-22 20:16:40",
-      "lastSeen": "2026-07-24T15:12:31.005Z"
+      "lastSeen": "2026-07-24T16:12:53.316Z"
     },
     {
       "adID": "1015593908047339",
@@ -918,7 +940,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-19 17:50:54",
-      "lastSeen": "2026-07-24T15:13:07.382Z"
+      "lastSeen": "2026-07-24T16:13:27.198Z"
     },
     {
       "adID": "PI-215821",
