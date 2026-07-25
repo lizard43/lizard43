@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-25T11:21:07.605Z",
+  "generated_at": "2026-07-25T11:37:40.888Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,10 +11,10 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 52,
-      "droppedPrice": 478,
+      "exported_ads": 49,
+      "droppedPrice": 477,
       "droppedMissingGeo": 0,
-      "droppedCircle": 481
+      "droppedCircle": 480
     }
   },
   "ads": [
@@ -39,28 +39,6 @@
       "hidden": 0,
       "created_at": "2026-07-25 11:17:07",
       "lastSeen": "2026-07-25T11:20:00.507Z"
-    },
-    {
-      "adID": "27912161778402926",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/100091658559124/?product_id=27912161778402926",
-      "author": "Maritza Fernandez",
-      "postedTime": "2026-07-24T15:25:02.000Z",
-      "title": "Control para juego de consola",
-      "description": "Lo compre pensando que le quedaría a mi consola pero no le quedo",
-      "price": "$15",
-      "lat": 30.4019789,
-      "lon": -86.8700821,
-      "location": "Navarre, FL",
-      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/754143411_1965471240861818_5816201874682041302_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=111&ccb=1-7&_nc_sid=92e707&_nc_ohc=9Acno-TEF0gQ7kNvwEAVS4y&_nc_oc=Adq9KWR11fNHP_bk0T78sizdluMksAopLAtIU_7biPXKQIzEXIQzIbzvydsjih9vLcs&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=5-N14j5SRCMNXt-e1t3oTg&_nc_ss=7b2a8&oh=00_AQD9Y5V_HaRToINtiH0lcBcfMiNkex8xfkh0yKOXYTlcEA&oe=6A6A53C2",
-      "adUrl": "https://www.facebook.com/marketplace/item/27912161778402926/",
-      "facebookGroupId": null,
-      "facebookGroupName": null,
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-07-25 11:05:30",
-      "lastSeen": "2026-07-25T11:12:52.225Z"
     },
     {
       "adID": "1356375299339010",
@@ -171,50 +149,6 @@
       "hidden": 0,
       "created_at": "2026-07-24 17:05:16",
       "lastSeen": "2026-07-25T00:12:31.199Z"
-    },
-    {
-      "adID": "882768161570712",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/100014550729144/?product_id=882768161570712",
-      "author": "Randi Hill",
-      "postedTime": "2026-07-24T16:35:01.000Z",
-      "title": "Arcade Game NFL Blitz",
-      "description": "Great like new condition",
-      "price": "$225",
-      "lat": 30.1586518,
-      "lon": -85.6602936,
-      "location": "Panama City, FL",
-      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/754015732_1766412841471314_4849252789751163045_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=102&ccb=1-7&_nc_sid=92e707&_nc_ohc=oLZVjq1gPmEQ7kNvwEivZD8&_nc_oc=AdrBz7AMjWyjLIhirFlqp64hBbGKqd3qG5dWjZHwaKtdHuKekbRuAtMRTRgCFrgYRCM&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=22UijnT4bIrNTES0Xh5jqQ&_nc_ss=7b2a8&oh=00_AQCJjHVO6fL5D7CklOZcnfW4rS0obGtClhxO-XVi37WnXQ&oe=6A69CB6B",
-      "adUrl": "https://www.facebook.com/marketplace/item/882768161570712/",
-      "facebookGroupId": null,
-      "facebookGroupName": null,
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-07-24 17:05:15",
-      "lastSeen": "2026-07-25T00:12:09.362Z"
-    },
-    {
-      "adID": "1070272198669963",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/100014550729144/?product_id=1070272198669963",
-      "author": "Randi Hill",
-      "postedTime": "2026-07-24T16:33:47.000Z",
-      "title": "Pac man arcade",
-      "description": "Great new condition. Hardly used.",
-      "price": "$225",
-      "lat": 30.1586518,
-      "lon": -85.6602936,
-      "location": "Panama City, FL",
-      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/753663495_27770951772598393_86943871749565930_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=107&ccb=1-7&_nc_sid=92e707&_nc_ohc=9HnAgQvFyI8Q7kNvwFBgtpo&_nc_oc=AdpDmY-IzYt1Ubwft2eEUFZ0DQyG2HxCL8JWekVYbbrN-YNp2hEUxxru1bT2R2LxN2k&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=r6k-Jko4OhMirEizRPvDQw&_nc_ss=7b2a8&oh=00_AQCVA4uzqdShXb-hF5Q9KZcaWbacpngdrK_6qS-oPavnzg&oe=6A69DEB2",
-      "adUrl": "https://www.facebook.com/marketplace/item/1070272198669963/",
-      "facebookGroupId": null,
-      "facebookGroupName": null,
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-07-24 17:05:14",
-      "lastSeen": "2026-07-25T01:08:00.841Z"
     },
     {
       "adID": "2677089902749917",
