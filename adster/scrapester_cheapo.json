@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-25T21:17:03.273Z",
+  "generated_at": "2026-07-25T21:35:48.577Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,10 +11,10 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 46,
+      "exported_ads": 45,
       "droppedPrice": 508,
       "droppedMissingGeo": 0,
-      "droppedCircle": 505
+      "droppedCircle": 502
     }
   },
   "ads": [
@@ -1007,28 +1007,6 @@
       "hidden": 0,
       "created_at": "2026-07-19 17:50:07",
       "lastSeen": "2026-07-23T01:17:13.469Z"
-    },
-    {
-      "adID": "1056701963376635",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/1577919064/?product_id=1056701963376635",
-      "author": "Robert Nichols",
-      "postedTime": "2026-07-17T22:57:21.000Z",
-      "title": "Valley Cougar Darts Arcade Machine 1986",
-      "description": "Dimensions are 1’x2’x8’ Vintage arcade dart machine is manufactured by Valley Recreation Products, Inc. This upright cabinet has a black and white color scheme with blue and red accents on the dartboard. The unit is constructed from wood and metal with a coin-operated mechanism and multiple locking access panels. It has a digital score display at the top and a soft-tip dartboard.",
-      "price": "$500",
-      "lat": 27.7980814,
-      "lon": -82.7973247,
-      "location": "Madeira Beach, FL",
-      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/751832953_1063055863344599_6278004993931434255_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=92e707&_nc_ohc=rXcXm3FggnsQ7kNvwHqHtB4&_nc_oc=AdpyySaBYUkRHdL_M6zBu1boDadWSYLvDWxk3pee_rSgSnOaOHiZzEUYdAZwpg1FQfg&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=_fhw4DTijjrQ0yneyrhYsA&_nc_ss=7b2a8&oh=00_AQD3id4FAWPMos3P_wNVQpnaa1j1qwXLwFRoWBf8F9OwhA&oe=6A66E8C2",
-      "adUrl": "https://www.facebook.com/marketplace/item/1056701963376635/",
-      "facebookGroupId": null,
-      "facebookGroupName": null,
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-07-19 17:37:57",
-      "lastSeen": "2026-07-22T19:31:51.646Z"
     }
   ]
 }
