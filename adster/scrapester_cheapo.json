@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-25T00:18:16.397Z",
+  "generated_at": "2026-07-25T01:14:58.777Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,35 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 52,
-      "droppedPrice": 466,
+      "exported_ads": 50,
+      "droppedPrice": 468,
       "droppedMissingGeo": 0,
-      "droppedCircle": 483
+      "droppedCircle": 471
     }
   },
   "ads": [
+    {
+      "adID": "1356375299339010",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/1568913753/?product_id=1356375299339010",
+      "author": "Craig Gilley",
+      "postedTime": "2026-07-24T00:42:42.000Z",
+      "title": "Nadex S540 Coin Counter, Sorter, and Wrapper",
+      "description": "Professional-grade coin management system is a Nadex S540 model. This device has the capability to count, sort, and wrap pennies, nickels, dimes, quarters, and dollar coins. It features a 2-in-1 design that allows for sorting into coin trays or directly into wrappers. The machine has a digital display for grand totals and individual denomination counts. It is constructed with a black plastic housing and includes custom batch settings with an auto-stop function.",
+      "price": "$100",
+      "lat": 33.5909365,
+      "lon": -86.4908168,
+      "location": "Moody, AL",
+      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/749354810_2082150839366557_603145002825424607_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=107&ccb=1-7&_nc_sid=92e707&_nc_ohc=Ri1DPia3c1sQ7kNvwGWXTt1&_nc_oc=AdrCAw1cyBoMuA3HtG8qY3UCclXLt4hmK1Oz_ihblrIULcIidrg1dZ0TOOiM0KDUse8&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=4BwKC4bXSZu8r_qMmMgN6A&_nc_ss=7b2a8&oh=00_AQCLy7th0KnXR5X2eZoiRD7MvW4AY91N9sATLTcLrzBtbA&oe=6A69E7BE",
+      "adUrl": "https://www.facebook.com/marketplace/item/1356375299339010/",
+      "facebookGroupId": null,
+      "facebookGroupName": null,
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-07-25 01:08:31",
+      "lastSeen": "2026-07-25T01:11:54.701Z"
+    },
     {
       "adID": "3175385922644525",
       "source": "MP",
@@ -60,29 +82,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-24 22:16:42",
-      "lastSeen": "2026-07-25T00:18:11.944Z"
-    },
-    {
-      "adID": "2589516531551367",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/1396135414/?product_id=2589516531551367",
-      "author": "Andrew Stone",
-      "postedTime": "2026-07-24T21:24:46.000Z",
-      "title": "Arcade Games",
-      "description": "This is a replica, classic arcade game unit. The best place to look up all of the specs is where I purchased it from in January from Best Buy online. There are several games that are included. Keep in mind this is a replica and not the original arcade unit. It’s also smaller in size. This unit is lightweight and is for pick up only.",
-      "price": "$300",
-      "lat": 30.1765914,
-      "lon": -85.805386,
-      "location": "Panama City Beach, FL",
-      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/757431972_4418964255029214_7650628652857828641_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=100&ccb=1-7&_nc_sid=92e707&_nc_ohc=oLlxPapv-c0Q7kNvwFogn34&_nc_oc=AdoLF_xAl4-RAIl6Kiv72lN592n5z6iNtZ05adSkwCTZnntMCNYzvNvWOu-PfLIWg2U&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=cJJ7DrDBG0Pj_A4gTBXHww&_nc_ss=7b2a8&oh=00_AQD6v1llCaHDWDHg_Qs7s3Wgjc5aXcN3q3ue7DgOc9nsvg&oe=6A69DE6B",
-      "adUrl": "https://www.facebook.com/marketplace/item/2589516531551367/",
-      "facebookGroupId": null,
-      "facebookGroupName": null,
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-07-24 22:05:14",
-      "lastSeen": "2026-07-25T00:08:32.008Z"
+      "lastSeen": "2026-07-25T01:14:54.172Z"
     },
     {
       "adID": "1341574671443147",
@@ -96,7 +96,7 @@
       "lat": 33.8389977,
       "lon": -83.9007382,
       "location": "Loganville, GA",
-      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/754462897_1601001824868953_2359598560847200098_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=107&ccb=1-7&_nc_sid=92e707&_nc_ohc=v6rPPo7Dg8QQ7kNvwEZaTXl&_nc_oc=Ado2QzlwQdMXUHjxTUJBkIxcegjSY3CgNvsyJmkTu5j2FWa-LAtmhyF7CyFJdC1uUsM&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=9eE7Cxxcoo1qX7KQo8WYKQ&_nc_ss=7b2a8&oh=00_AQCReHqFlLy1FjkCVHzIOeEN9s-DepS158TZTvCser4iZg&oe=6A69E873",
+      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/754462897_1601001824868953_2359598560847200098_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=107&ccb=1-7&_nc_sid=92e707&_nc_ohc=v6rPPo7Dg8QQ7kNvwEZaTXl&_nc_oc=Ado2QzlwQdMXUHjxTUJBkIxcegjSY3CgNvsyJmkTu5j2FWa-LAtmhyF7CyFJdC1uUsM&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=UyGSRv04aVG10Zo0XhENzQ&_nc_ss=7b2a8&oh=00_AQCGiyBKqZQxGMsRWTuXVJ6ayILB6k3i8cYL0ML-B2uRrw&oe=6A69E873",
       "adUrl": "https://www.facebook.com/marketplace/item/1341574671443147/",
       "facebookGroupId": null,
       "facebookGroupName": null,
@@ -104,29 +104,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-24 21:05:17",
-      "lastSeen": "2026-07-25T00:12:09.027Z"
-    },
-    {
-      "adID": "891075380256008",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/100001165232560/?product_id=891075380256008",
-      "author": "Kirsten Bernreuter Griffin",
-      "postedTime": "2026-07-24T18:53:34.000Z",
-      "title": "Mrs. PAC Man arcade game",
-      "description": "Mrs pac man arcade game. P/U in Neptune Beach",
-      "price": "$50",
-      "lat": 30.3262247,
-      "lon": -81.6579179,
-      "location": "Jacksonville, FL",
-      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/756343992_1456606749822688_9048761222722474677_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=106&ccb=1-7&_nc_sid=92e707&_nc_ohc=bmB5UsLWA00Q7kNvwHK3XEW&_nc_oc=Adp1JA40o9FH4pOMXDUEfNL00Pxh38C1I1EXAT0BZHQfyX6QW7TmBODYxUFBxhXNi7A&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=rky7_yhsLPrzsTAHuWBHWw&_nc_ss=7b2a8&oh=00_AQDYWxzrNC4na7orSqBM1ae8P51VN_sQrI7L9Cqsa2afUQ&oe=6A69A264",
-      "adUrl": "https://www.facebook.com/marketplace/item/891075380256008/",
-      "facebookGroupId": null,
-      "facebookGroupName": null,
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-07-24 19:05:23",
-      "lastSeen": "2026-07-24T22:08:12.648Z"
+      "lastSeen": "2026-07-25T01:11:54.003Z"
     },
     {
       "adID": "1761042838549023",
@@ -184,7 +162,7 @@
       "lat": 30.1586518,
       "lon": -85.6602936,
       "location": "Panama City, FL",
-      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/753663495_27770951772598393_86943871749565930_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=107&ccb=1-7&_nc_sid=92e707&_nc_ohc=9HnAgQvFyI8Q7kNvwFBgtpo&_nc_oc=AdpDmY-IzYt1Ubwft2eEUFZ0DQyG2HxCL8JWekVYbbrN-YNp2hEUxxru1bT2R2LxN2k&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=6xpbLGus8yuUu7BWM9GTAg&_nc_ss=7b2a8&oh=00_AQBC8qRYt0xzyd6PHzRr4hOKdOkSf9OLHD6iVgNuj0BDlw&oe=6A69DEB2",
+      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/753663495_27770951772598393_86943871749565930_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=107&ccb=1-7&_nc_sid=92e707&_nc_ohc=9HnAgQvFyI8Q7kNvwFBgtpo&_nc_oc=AdpDmY-IzYt1Ubwft2eEUFZ0DQyG2HxCL8JWekVYbbrN-YNp2hEUxxru1bT2R2LxN2k&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=r6k-Jko4OhMirEizRPvDQw&_nc_ss=7b2a8&oh=00_AQCVA4uzqdShXb-hF5Q9KZcaWbacpngdrK_6qS-oPavnzg&oe=6A69DEB2",
       "adUrl": "https://www.facebook.com/marketplace/item/1070272198669963/",
       "facebookGroupId": null,
       "facebookGroupName": null,
@@ -192,29 +170,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-24 17:05:14",
-      "lastSeen": "2026-07-25T00:08:32.190Z"
-    },
-    {
-      "adID": "1690296856437841",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/1015170160/?product_id=1690296856437841",
-      "author": "Andrew L. Pooley",
-      "postedTime": "2026-07-24T15:20:22.000Z",
-      "title": "Arcade",
-      "description": "Arcade emulator thousands of games",
-      "price": "$400",
-      "lat": 28.2441768,
-      "lon": -82.7192671,
-      "location": "New Port Richey, FL",
-      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/755374086_27444033395269001_2541165678427739577_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=102&ccb=1-7&_nc_sid=92e707&_nc_ohc=adVabnAKlEsQ7kNvwHWu5c2&_nc_oc=Adr--5u452wh848uGKJvLzFnLBVUsRPZ7SMfskn1YnYnFDVWfdrxo0miXR6jsDZKm4c&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=zd3MTOk6WZwc7twlgWpxvg&_nc_ss=7b2a8&oh=00_AQB4Olp9yf__bPG7mFoeugLuVzdKUcvkUhZzjYqOrxZviw&oe=6A69BC42",
-      "adUrl": "https://www.facebook.com/marketplace/item/1690296856437841/",
-      "facebookGroupId": null,
-      "facebookGroupName": null,
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-07-24 16:05:22",
-      "lastSeen": "2026-07-25T00:08:32.223Z"
+      "lastSeen": "2026-07-25T01:08:00.841Z"
     },
     {
       "adID": "2677089902749917",
@@ -250,7 +206,7 @@
       "lat": 33.7544657,
       "lon": -84.3898151,
       "location": "Atlanta, GA",
-      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/754588339_1610221584136699_91996363033901728_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=111&ccb=1-7&_nc_sid=92e707&_nc_ohc=PSvYPwX13IUQ7kNvwF7MH9x&_nc_oc=Adr5nxlSwJpj3lir5AL7-x9oBHRnZKfpCaCiSKyb1Nan21btkwzGnt22Ioa5gub7Cz0&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=cdNA5I4Jl_JpO176HxsIMg&_nc_ss=7b2a8&oh=00_AQDyzxb3obJxTjb-I0HvdtS2VZRG7bu_KR3vz6s9GR0scQ&oe=6A69BB94",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/754588339_1610221584136699_91996363033901728_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=111&ccb=1-7&_nc_sid=92e707&_nc_ohc=PSvYPwX13IUQ7kNvwF7MH9x&_nc_oc=Adr5nxlSwJpj3lir5AL7-x9oBHRnZKfpCaCiSKyb1Nan21btkwzGnt22Ioa5gub7Cz0&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=nGgAxCGBzSjYAdydMFdKTg&_nc_ss=7b2a8&oh=00_AQDSoz4JSxdIzWsKBZQk-x6g-fLIuIy4MUvz2UubzQ_9hQ&oe=6A69F3D4",
       "adUrl": "https://www.facebook.com/marketplace/item/1577153123817012/",
       "facebookGroupId": null,
       "facebookGroupName": null,
@@ -258,7 +214,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-24 13:05:19",
-      "lastSeen": "2026-07-25T00:16:32.005Z"
+      "lastSeen": "2026-07-25T01:11:54.388Z"
     },
     {
       "adID": "2182845762282447",
@@ -346,7 +302,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-23 23:14:29",
-      "lastSeen": "2026-07-25T00:12:59.467Z"
+      "lastSeen": "2026-07-25T01:08:31.194Z"
     },
     {
       "adID": "2082150082722006",
@@ -390,7 +346,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-23 16:48:56",
-      "lastSeen": "2026-07-25T00:05:13.179Z"
+      "lastSeen": "2026-07-25T01:05:10.185Z"
     },
     {
       "adID": "KLOV-512842",
@@ -434,7 +390,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-23 12:21:03",
-      "lastSeen": "2026-07-25T00:12:59.987Z"
+      "lastSeen": "2026-07-25T01:08:31.429Z"
     },
     {
       "adID": "1785138972656516",
@@ -507,7 +463,7 @@
       "source": "PS",
       "authorUrl": "https://pinside.com/pinball/community/pinsiders/mrtattooz/market",
       "author": "Mrtattooz",
-      "postedTime": "2026-07-23T00:17:36.789Z",
+      "postedTime": "2026-07-23T01:14:17.444Z",
       "title": "Space Jam used Playfield",
       "description": "Used, good condition - “I have for sale a Space Jam Playfield that is in pretty darn good shape. Still has mylar around pop bumpers. The only wear is minimal around the scoop and I've send way worse on ot...”",
       "price": "$275",
@@ -522,7 +478,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-22 20:16:40",
-      "lastSeen": "2026-07-25T00:17:37.846Z"
+      "lastSeen": "2026-07-25T01:14:18.676Z"
     },
     {
       "adID": "1015593908047339",
@@ -650,8 +606,8 @@
       "adUrl": "https://www.facebook.com/marketplace/item/1686621125971367/",
       "facebookGroupId": null,
       "facebookGroupName": null,
-      "priceChanged": 1,
-      "priceChangedAt": "2026-07-23 01:05:10",
+      "priceChanged": 0,
+      "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-22 11:05:18",
       "lastSeen": "2026-07-23T21:05:20.943Z"
@@ -1050,7 +1006,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-19 17:50:55",
-      "lastSeen": "2026-07-25T00:18:11.844Z"
+      "lastSeen": "2026-07-25T01:14:54.105Z"
     },
     {
       "adID": "KLOV-375293",
@@ -1094,7 +1050,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-19 17:50:54",
-      "lastSeen": "2026-07-25T00:18:11.977Z"
+      "lastSeen": "2026-07-25T01:14:54.205Z"
     },
     {
       "adID": "KLOV-565151",
@@ -1116,7 +1072,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-19 17:50:54",
-      "lastSeen": "2026-07-25T00:18:12.949Z"
+      "lastSeen": "2026-07-25T01:14:55.187Z"
     },
     {
       "adID": "PI-215821",
