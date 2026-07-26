@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-26T21:35:46.104Z",
+  "generated_at": "2026-07-26T22:16:51.515Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,35 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 52,
+      "exported_ads": 53,
       "droppedPrice": 542,
       "droppedMissingGeo": 0,
-      "droppedCircle": 561
+      "droppedCircle": 568
     }
   },
   "ads": [
+    {
+      "adID": "2146576005887393",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100016463406535/?product_id=2146576005887393",
+      "author": "Grace Jensen",
+      "postedTime": "2026-07-26T21:55:59.000Z",
+      "title": "Bally Knockout Pinball Machine",
+      "description": "Free Vintage Bally Knockout pinball machine to anyone who can come pick it up! It doesn’t currently work - definitely going to be a *fun* project for someone who enjoys collecting/fixing vintage pinball machines. Bally knockout is a 2-player electro-mechanical game with a boxing theme. It has a wood cabinet with original artwork, a glass-covered playfield, and a mechanical score reel backbox.",
+      "price": "$0",
+      "lat": 30.6913462,
+      "lon": -88.0437509,
+      "location": "Mobile, AL",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/758400738_2873961576298328_5251418872643417622_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=111&ccb=1-7&_nc_sid=92e707&_nc_ohc=cRT-e2N2s7wQ7kNvwE0stJ4&_nc_oc=Ado9U49oY8sQUskq2NXlYDWtB02aa0ixNxk3illVZcykIuZIMiaHTz9s44g-HzC8SMc&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=0f6P1hwHJJDTNhzya338-w&_nc_ss=7b2a8&oh=00_AQAycaVzjxBY73iTUVUIu_LWAD1kgzKmIfuVVUmoPm_G8w&oe=6A6C50F9",
+      "adUrl": "https://www.facebook.com/marketplace/item/2146576005887393/",
+      "facebookGroupId": null,
+      "facebookGroupName": null,
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-07-26 22:11:22",
+      "lastSeen": "2026-07-26T22:14:46.757Z"
+    },
     {
       "adID": "1394552812602237",
       "source": "MP",
@@ -74,7 +96,7 @@
       "lat": 28.810823,
       "lon": -81.8778582,
       "location": "Leesburg, FL",
-      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/756342556_1004374952397861_5973902182910404186_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=102&ccb=1-7&_nc_sid=92e707&_nc_ohc=MXqINSQp1sAQ7kNvwHC7uhh&_nc_oc=AdoJVlAe2NSghaLhrmvBjeDek2YGYb6wTzwlf5rpwQFfro7hrOZKCrB1zP0gQg6eM3o&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=u3FTkRFyUYG5PjORmMnWjg&_nc_ss=7b2a8&oh=00_AQBOhQ-KepP63ox6vSsL8lGWVx5W72r1iWmnZtKDdqtwWQ&oe=6A6C40D7",
+      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/756342556_1004374952397861_5973902182910404186_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=102&ccb=1-7&_nc_sid=92e707&_nc_ohc=MXqINSQp1sAQ7kNvwHC7uhh&_nc_oc=AdoJVlAe2NSghaLhrmvBjeDek2YGYb6wTzwlf5rpwQFfro7hrOZKCrB1zP0gQg6eM3o&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=d2u-ncXCQvzlmG2slZuM9w&_nc_ss=7b2a8&oh=00_AQAQung5u9MfBRR9ht3oU0DgbDnPdvVfagNWiy5Dwx45XQ&oe=6A6C40D7",
       "adUrl": "https://www.facebook.com/marketplace/item/1750889679668935/",
       "facebookGroupId": null,
       "facebookGroupName": null,
@@ -82,7 +104,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-26 17:05:05",
-      "lastSeen": "2026-07-26T21:09:07.697Z"
+      "lastSeen": "2026-07-26T22:08:28.049Z"
     },
     {
       "adID": "KLOV-557962",
@@ -104,7 +126,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-26 16:19:57",
-      "lastSeen": "2026-07-26T21:16:46.495Z"
+      "lastSeen": "2026-07-26T22:16:46.773Z"
     },
     {
       "adID": "1614588060386031",
@@ -118,7 +140,7 @@
       "lat": 33.7514966,
       "lon": -84.7477136,
       "location": "Douglasville, GA",
-      "imageUrl": "https://scontent-dfw6-2.xx.fbcdn.net/v/t39.84726-6/756807525_1024484403526114_6395303765233453913_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=108&ccb=1-7&_nc_sid=92e707&_nc_ohc=yCY3rWSTpZQQ7kNvwG0kUU9&_nc_oc=AdpDdtZgK107_M-nTXbkuyh35Xw9_CCH9G6IADKC2ZM-uDCHNZtLtskyIhOYkNjvj70&_nc_zt=14&_nc_ht=scontent-dfw6-2.xx&_nc_gid=amQWiOujR0MG76VoFJcPsw&_nc_ss=7b2a8&oh=00_AQAqBx22RoZE-HeME2b5Hag5PzmIFOwAZrxPXFNBoVoaMw&oe=6A6C42E9",
+      "imageUrl": "https://scontent-dfw6-2.xx.fbcdn.net/v/t39.84726-6/756807525_1024484403526114_6395303765233453913_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=108&ccb=1-7&_nc_sid=92e707&_nc_ohc=yCY3rWSTpZQQ7kNvwG0kUU9&_nc_oc=AdpDdtZgK107_M-nTXbkuyh35Xw9_CCH9G6IADKC2ZM-uDCHNZtLtskyIhOYkNjvj70&_nc_zt=14&_nc_ht=scontent-dfw6-2.xx&_nc_gid=kH63LMtR2qb42k9oj_lxZw&_nc_ss=7b2a8&oh=00_AQADv19LhuSrhewqAXzV7pQVz5Vp4HZLa5jkJk1erbvHmA&oe=6A6C42E9",
       "adUrl": "https://www.facebook.com/marketplace/item/1614588060386031/",
       "facebookGroupId": null,
       "facebookGroupName": null,
@@ -126,7 +148,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-25 23:09:17",
-      "lastSeen": "2026-07-26T21:09:08.722Z"
+      "lastSeen": "2026-07-26T22:08:28.228Z"
     },
     {
       "adID": "870547785834310",
@@ -192,7 +214,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-25 22:05:23",
-      "lastSeen": "2026-07-26T21:09:08.856Z"
+      "lastSeen": "2026-07-26T22:05:07.936Z"
     },
     {
       "adID": "2118277699061788",
@@ -258,7 +280,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-25 18:16:42",
-      "lastSeen": "2026-07-26T21:16:47.143Z"
+      "lastSeen": "2026-07-26T22:16:47.410Z"
     },
     {
       "adID": "1349088913473224",
@@ -324,7 +346,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-25 16:08:53",
-      "lastSeen": "2026-07-26T21:10:32.774Z"
+      "lastSeen": "2026-07-26T22:11:23.096Z"
     },
     {
       "adID": "1706781160608416",
@@ -346,7 +368,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-25 16:05:31",
-      "lastSeen": "2026-07-26T21:05:54.385Z"
+      "lastSeen": "2026-07-26T22:05:08.036Z"
     },
     {
       "adID": "1068805165624288",
@@ -639,7 +661,7 @@
       "source": "PS",
       "authorUrl": "https://pinside.com/pinball/community/pinsiders/mrtattooz/market",
       "author": "Mrtattooz",
-      "postedTime": "2026-07-22T21:16:12.814Z",
+      "postedTime": "2026-07-22T22:16:16.664Z",
       "title": "Space Jam used Playfield",
       "description": "Used, good condition - “I have for sale a Space Jam Playfield that is in pretty darn good shape. Still has mylar around pop bumpers. The only wear is minimal around the scoop and I've send way worse on ot...”",
       "price": "$275",
@@ -654,7 +676,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-22 20:16:40",
-      "lastSeen": "2026-07-26T21:16:14.140Z"
+      "lastSeen": "2026-07-26T22:16:17.491Z"
     },
     {
       "adID": "KLOV-481858",
