@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-26T01:17:35.991Z",
+  "generated_at": "2026-07-26T06:09:53.898Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -12,9 +12,9 @@
     },
     "counts": {
       "exported_ads": 48,
-      "droppedPrice": 517,
+      "droppedPrice": 512,
       "droppedMissingGeo": 0,
-      "droppedCircle": 515
+      "droppedCircle": 510
     }
   },
   "ads": [
@@ -716,8 +716,8 @@
       "adUrl": "https://www.facebook.com/groups/1773011939682519/posts/4394723190844701/",
       "facebookGroupId": "1773011939682519",
       "facebookGroupName": "Arcade Machines For Sale",
-      "priceChanged": 1,
-      "priceChangedAt": "2026-07-24 06:03:12",
+      "priceChanged": 0,
+      "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-21 00:00:28",
       "lastSeen": "2026-07-24T06:03:12.176Z"
@@ -1072,7 +1072,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-19 17:50:07",
-      "lastSeen": "2026-07-23T01:17:13.469Z"
+      "lastSeen": "2026-07-26T06:08:18.688Z"
     }
   ]
 }
