@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-28T21:16:14.868Z",
+  "generated_at": "2026-07-28T21:35:56.840Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,10 +11,10 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 68,
-      "droppedPrice": 632,
+      "exported_ads": 67,
+      "droppedPrice": 629,
       "droppedMissingGeo": 0,
-      "droppedCircle": 659
+      "droppedCircle": 658
     }
   },
   "ads": [
@@ -679,28 +679,6 @@
       "lastSeen": "2026-07-27T14:14:12.919Z"
     },
     {
-      "adID": "1349088913473224",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/100009382012312/?product_id=1349088913473224",
-      "author": "Ronnie White",
-      "postedTime": "2026-07-25T17:51:39.000Z",
-      "title": "Vintage 1970's IDEAL Toy Carnival Style Target Gallery",
-      "description": "Vintage 1970's IDEAL Toy Carnival Style Target Gallery Excellent condition and works great. Hours of fun testing your aiming skill. Everything is completely enclosed and safe for everyone. I meet at either First Baptist Atlanta 4400 North Peachtree Rd 30338 or Home Depot 4343 Tilly Mill Rd 30360.",
-      "price": "$20",
-      "lat": 33.7544657,
-      "lon": -84.3898151,
-      "location": "Atlanta, GA",
-      "imageUrl": "https://scontent-atl3-3.xx.fbcdn.net/v/t39.84726-6/754462687_1708156153738791_3535481825141639626_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=107&ccb=1-7&_nc_sid=92e707&_nc_ohc=Y4Vkko9hqD0Q7kNvwG5fxgq&_nc_oc=AdqLyNVe-jPwp6xwiFkCyxqF6aKjn3NrNyuW8BHyxwdKPGMmn8nTOJ5vPhj07DQoZCo&_nc_zt=14&_nc_ht=scontent-atl3-3.xx&_nc_gid=YzPB3DZl77RhMRM8q5CtKA&_nc_ss=7b2a8&oh=00_AQA_ZhkV56HTZ-cnd-GmDia9oxHq2KnkQHeWMlZYJcso2A&oe=6A6B1555",
-      "adUrl": "https://www.facebook.com/marketplace/item/1349088913473224/",
-      "facebookGroupId": null,
-      "facebookGroupName": null,
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-07-25 18:08:07",
-      "lastSeen": "2026-07-25T21:15:56.252Z"
-    },
-    {
       "adID": "1705924460715302",
       "source": "MP",
       "authorUrl": "https://www.facebook.com/marketplace/profile/505904573/?product_id=1705924460715302",
@@ -1046,8 +1024,8 @@
       "adUrl": "https://www.facebook.com/marketplace/item/1686621125971367/",
       "facebookGroupId": null,
       "facebookGroupName": null,
-      "priceChanged": 1,
-      "priceChangedAt": "2026-07-26 21:34:52",
+      "priceChanged": 0,
+      "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-22 11:05:18",
       "lastSeen": "2026-07-26T21:34:52.076Z"
