@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-03T19:32:36.351Z",
+  "generated_at": "2026-08-03T20:15:06.564Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -12,12 +12,34 @@
     },
     "counts": {
       "exported_ads": 153,
-      "droppedPrice": 892,
+      "droppedPrice": 894,
       "droppedMissingGeo": 0,
-      "droppedCircle": 944
+      "droppedCircle": 949
     }
   },
   "ads": [
+    {
+      "adID": "1056124393636362",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/61558353351942/?product_id=1056124393636362",
+      "author": "Mel Hansen",
+      "postedTime": "2026-08-03T19:04:35.000Z",
+      "title": "Flown Arcana Game",
+      "description": "In case never used",
+      "price": "$30",
+      "lat": 34.3683267,
+      "lon": -84.9349057,
+      "location": "Adairsville, GA",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/762768981_1053853727614707_8194604925567071595_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=105&ccb=1-7&_nc_sid=92e707&_nc_ohc=EeXMrvUm2eAQ7kNvwGwiBYw&_nc_oc=Adp7Lwp41NGY7-6ZdxDqSOwq7S5JxaTO99mgogpkf_Ran0QouYAMPG9mVyJky3yotvg&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=nZi_gR4QMYBlGndf4egisQ&_nc_ss=7b2a8&oh=00_AQEw-HaemPJavIJRmOzpIVTaWscDCpXQgh9cCFckq_N6Ig&oe=6A76B38A",
+      "adUrl": "https://www.facebook.com/marketplace/item/1056124393636362/",
+      "facebookGroupId": null,
+      "facebookGroupName": null,
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-08-03 20:10:19",
+      "lastSeen": "2026-08-03T20:13:17.625Z"
+    },
     {
       "adID": "2042389613034758",
       "source": "MP",
@@ -60,7 +82,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-08-03 15:14:52",
-      "lastSeen": "2026-08-03T19:18:02.866Z"
+      "lastSeen": "2026-08-03T20:15:01.959Z"
     },
     {
       "adID": "2249078699249886",
@@ -74,7 +96,7 @@
       "lat": 33.7544657,
       "lon": -84.3898151,
       "location": "Atlanta, GA",
-      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/764006291_1604883137752936_9078389721228440061_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=103&ccb=1-7&_nc_sid=92e707&_nc_ohc=VB6lIvRQN4oQ7kNvwHSCRs5&_nc_oc=Adpms3cw7B_s3hkWHpAkQrwrSce5UyVSx1u5N0JIuuwCRA9-QBLvpvSGUIb_WCXZ88E&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=Bh0TCnlBGc3mgd75nxPclA&_nc_ss=7b2a8&oh=00_AQHyCPPOSgj-PeIioX2tXrnvgZZn6m5ha6UQz1Wcf1Kh4g&oe=6A76A1C5",
+      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/764006291_1604883137752936_9078389721228440061_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=103&ccb=1-7&_nc_sid=92e707&_nc_ohc=VB6lIvRQN4oQ7kNvwHSCRs5&_nc_oc=Adpms3cw7B_s3hkWHpAkQrwrSce5UyVSx1u5N0JIuuwCRA9-QBLvpvSGUIb_WCXZ88E&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=oPUc1lQ2PWv6tYpHPAVGJw&_nc_ss=7b2a8&oh=00_AQGw3Q8RxXYcV84DgbmlcMigTbdZ-NEn1KF_QYQtdPyNIQ&oe=6A76DA05",
       "adUrl": "https://www.facebook.com/marketplace/item/2249078699249886/",
       "facebookGroupId": null,
       "facebookGroupName": null,
@@ -82,7 +104,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-08-03 14:04:54",
-      "lastSeen": "2026-08-03T19:08:14.526Z"
+      "lastSeen": "2026-08-03T20:08:16.226Z"
     },
     {
       "adID": "1573352274467913",
@@ -236,7 +258,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-08-03 11:23:21",
-      "lastSeen": "2026-08-03T19:12:04.153Z"
+      "lastSeen": "2026-08-03T20:10:18.661Z"
     },
     {
       "adID": "1524415392210319",
@@ -324,21 +346,21 @@
       "priceChangedAt": "2026-08-03 19:05:02",
       "hidden": 0,
       "created_at": "2026-08-03 11:05:07",
-      "lastSeen": "2026-08-03T19:11:31.086Z"
+      "lastSeen": "2026-08-03T20:05:07.804Z"
     },
     {
       "adID": "1030669939858353",
       "source": "MP",
       "authorUrl": "https://www.facebook.com/marketplace/profile/1393740055/?product_id=1030669939858353",
       "author": "Kendra KC Alston",
-      "postedTime": "2026-08-03T02:07:36.000Z",
+      "postedTime": "2026-08-03T03:57:23.000Z",
       "title": "Arcade games",
       "description": "Pac Man and Mortal Kombat",
       "price": "$300",
       "lat": 34.0028569,
       "lon": -84.1441046,
       "location": "Duluth, GA",
-      "imageUrl": "https://scontent-dfw6-2.xx.fbcdn.net/v/t39.84726-6/762883131_4093051857666010_7666124734064226143_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=109&ccb=1-7&_nc_sid=92e707&_nc_ohc=UVwCj-uEIJMQ7kNvwF_0fxa&_nc_oc=AdoH0gBujl3JXoeHKkfj1dZuwHb2jQVsYJzd0zRv3P5TkJrRw7RsJSVQxg_JB4EBvGo&_nc_zt=14&_nc_ht=scontent-dfw6-2.xx&_nc_gid=R5wXu0hH5_QzT2WpCyGHnQ&_nc_ss=7b2a8&oh=00_AQFxHvDsKcJFevbRlxQM-tX0Z7A6IHvNrpSqEPAwqW400Q&oe=6A76BAF5",
+      "imageUrl": "https://scontent-dfw6-2.xx.fbcdn.net/v/t39.84726-6/762883131_4093051857666010_7666124734064226143_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=109&ccb=1-7&_nc_sid=92e707&_nc_ohc=UVwCj-uEIJMQ7kNvwF_0fxa&_nc_oc=AdoH0gBujl3JXoeHKkfj1dZuwHb2jQVsYJzd0zRv3P5TkJrRw7RsJSVQxg_JB4EBvGo&_nc_zt=14&_nc_ht=scontent-dfw6-2.xx&_nc_gid=aShGs6n02TbjBSgPpqnWEQ&_nc_ss=7b2a8&oh=00_AQFraeA2Lze2XucCC5XGRPvmWfshpEBGQHVY34GgEhUsbw&oe=6A76BAF5",
       "adUrl": "https://www.facebook.com/marketplace/item/1030669939858353/",
       "facebookGroupId": null,
       "facebookGroupName": null,
@@ -346,7 +368,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-08-03 11:05:04",
-      "lastSeen": "2026-08-03T19:08:14.560Z"
+      "lastSeen": "2026-08-03T20:08:16.259Z"
     },
     {
       "adID": "3719895538159012",
@@ -382,7 +404,7 @@
       "lat": 28.0856815,
       "lon": -82.756907,
       "location": "Palm Harbor, FL",
-      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/762331926_1033977875920701_4930844327759258874_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=100&ccb=1-7&_nc_sid=92e707&_nc_ohc=oet5iLt2vKEQ7kNvwGjLvd_&_nc_oc=AdoO5oOjh4Bxy8tlRfGXrJl4_hz-VCoAF9juBmk4GWzCAtw6EHzNH7W6nZI7VzYMFfI&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=efyz_yAUfDknD7qBf_mLTQ&_nc_ss=7b2a8&oh=00_AQHaWM06dBuUfNshI9ebTMQohFTsqI3XIXHFrcqGHS_7sA&oe=6A76A0CC",
+      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/762331926_1033977875920701_4930844327759258874_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=100&ccb=1-7&_nc_sid=92e707&_nc_ohc=oet5iLt2vKEQ7kNvwGjLvd_&_nc_oc=AdoO5oOjh4Bxy8tlRfGXrJl4_hz-VCoAF9juBmk4GWzCAtw6EHzNH7W6nZI7VzYMFfI&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=oEu3LRKsUh8-zdvFUmAHNQ&_nc_ss=7b2a8&oh=00_AQFLd308QXEV3sxojkZqJ_Pg4xeGZoEJ0DAOTkyJWR0KOw&oe=6A76D90C",
       "adUrl": "https://www.facebook.com/marketplace/item/1779925793019049/",
       "facebookGroupId": null,
       "facebookGroupName": null,
@@ -390,7 +412,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-08-03 00:11:03",
-      "lastSeen": "2026-08-03T19:15:33.510Z"
+      "lastSeen": "2026-08-03T20:13:17.323Z"
     },
     {
       "adID": "1049977124211649",
@@ -404,7 +426,7 @@
       "lat": 31.805769,
       "lon": -81.4306642,
       "location": "Midway, GA",
-      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/762446387_2271358846969545_893554507528738294_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=103&ccb=1-7&_nc_sid=92e707&_nc_ohc=gis7wtZkwL4Q7kNvwFZgqno&_nc_oc=AdpeLpGHR5n-g_lSp6sLl_dfX0-odgscX2ebnSQjxWPwJqdL5MH2LpMxO0np2-ThYLk&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=M3U1WAgtkqzco69OwvMWwQ&_nc_ss=7b2a8&oh=00_AQEUw7MW58DyagqhzmAPZIbwz1Mz-DK63Y8gnoygvCly0A&oe=6A76D6F9",
+      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/762446387_2271358846969545_893554507528738294_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=103&ccb=1-7&_nc_sid=92e707&_nc_ohc=gis7wtZkwL4Q7kNvwFZgqno&_nc_oc=AdpeLpGHR5n-g_lSp6sLl_dfX0-odgscX2ebnSQjxWPwJqdL5MH2LpMxO0np2-ThYLk&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=dMcD7VbpJa0swQOXbzNYPQ&_nc_ss=7b2a8&oh=00_AQEKaWayEywV7dmimtM1YwFhALHjHG0dQS_PcIZ0cbPfHg&oe=6A76D6F9",
       "adUrl": "https://www.facebook.com/marketplace/item/1049977124211649/",
       "facebookGroupId": null,
       "facebookGroupName": null,
@@ -412,7 +434,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-08-03 00:11:03",
-      "lastSeen": "2026-08-03T19:15:33.544Z"
+      "lastSeen": "2026-08-03T20:13:17.358Z"
     },
     {
       "adID": "1074754238330830",
@@ -459,28 +481,6 @@
       "lastSeen": "2026-08-03T00:10:38.486Z"
     },
     {
-      "adID": "1853372588962659",
-      "source": "FB",
-      "authorUrl": null,
-      "author": "Howard Rompre",
-      "postedTime": "2026-08-02T23:00:27.018Z",
-      "title": "Daytona USA Pair",
-      "description": "Not working. Left monitor necked. Will need left monitor and some rewiring. Played blind 6 months ago. Don’t have the time and clearing my storage.",
-      "price": "$300",
-      "lat": 30.1586518,
-      "lon": -85.6602936,
-      "location": "PANAMA CITY, FL",
-      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.30808-6/763298725_10235189826546009_4226344856075937853_n.jpg?stp=dst-jpg_tt6&cstp=mx2048x1537&ctp=s590x590&_nc_cat=103&ccb=1-7&_nc_sid=aa7b47&_nc_ohc=k9dkNwOvojIQ7kNvwEdoPJJ&_nc_oc=AdoFtNrNgngvSV3X0zWeswBROee5chbfkB6JFmEgvifw_Mjex1HST-mbsUlpC81aO2c&_nc_zt=23&_nc_ht=scontent-dfw6-1.xx&_nc_gid=AeYEvsa50e8e2fZ25JSZXQ&_nc_ss=7b2a8&oh=00_AQE2bnWostrI3D61OzpCFXn_cHXvZFc7TvY4LE-wNzVemA&oe=6A758B6B",
-      "adUrl": "https://www.facebook.com/groups/1773011939682519/posts/4415882565395430/",
-      "facebookGroupId": "1773011939682519",
-      "facebookGroupName": "Arcade Machines For Sale",
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-08-02 23:00:26",
-      "lastSeen": "2026-08-03T19:00:27.238Z"
-    },
-    {
       "adID": "1391174436443076",
       "source": "MP",
       "authorUrl": "https://www.facebook.com/marketplace/profile/1418942118/?product_id=1391174436443076",
@@ -500,7 +500,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-08-02 19:13:46",
-      "lastSeen": "2026-08-03T19:12:03.886Z"
+      "lastSeen": "2026-08-03T20:10:18.426Z"
     },
     {
       "adID": "1531631575429640",
@@ -522,7 +522,7 @@
       "priceChangedAt": "2026-08-03 16:05:03",
       "hidden": 0,
       "created_at": "2026-08-02 19:05:02",
-      "lastSeen": "2026-08-03T19:12:03.952Z"
+      "lastSeen": "2026-08-03T20:10:18.493Z"
     },
     {
       "adID": "4436269983185688",
@@ -808,7 +808,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-08-02 13:10:38",
-      "lastSeen": "2026-08-03T19:12:04.187Z"
+      "lastSeen": "2026-08-03T20:10:18.694Z"
     },
     {
       "adID": "KLOV-564268",
@@ -830,14 +830,14 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-08-02 11:26:51",
-      "lastSeen": "2026-08-03T19:18:05.159Z"
+      "lastSeen": "2026-08-03T20:15:03.506Z"
     },
     {
       "adID": "KLOV-565702",
       "source": "KLOV",
       "authorUrl": "https://forums.arcade-museum.com/members/alfonzotan.46466/",
       "author": "alfonzotan",
-      "postedTime": "2026-08-03T19:15:35.000Z",
+      "postedTime": "2026-08-03T19:54:47.000Z",
       "title": "At SFGE: Black Widow and Missile Command cocktail",
       "description": "If these don't sell Sunday I'll put up actual FS posts, but: they're on the floor in Atlanta for one more day, and I really don't want to schlep either one of them home, so if you're at the show, check them out and make me an offer. (No handy picture of the MC, sorry: I'll post one in the morning.)",
       "price": "$0",
@@ -852,7 +852,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-08-02 11:26:51",
-      "lastSeen": "2026-08-03T19:18:03.704Z"
+      "lastSeen": "2026-08-03T20:15:03.048Z"
     },
     {
       "adID": "1698195114766893",
@@ -1145,7 +1145,7 @@
       "source": "PS",
       "authorUrl": "https://pinside.com/pinball/community/pinsiders/skipnatty/market",
       "author": "Skipnatty",
-      "postedTime": "2026-08-01T19:17:21.268Z",
+      "postedTime": "2026-08-01T20:14:20.386Z",
       "title": "FS: OEM Sega 6-player DMD",
       "description": "Used, good condition - “Pulled from my Baywatch after replacing with pin2dmd. Works as expected. Can ship at cost. Does not include dmd controller board, display only.”",
       "price": "$200",
@@ -1160,7 +1160,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-08-01 16:14:39",
-      "lastSeen": "2026-08-03T19:17:28.791Z"
+      "lastSeen": "2026-08-03T20:14:22.502Z"
     },
     {
       "adID": "1350290997191486",
@@ -1189,7 +1189,7 @@
       "source": "FB",
       "authorUrl": null,
       "author": "Jarrett Crum",
-      "postedTime": "2026-08-01T19:00:27.039Z",
+      "postedTime": "2026-08-01T20:00:27.697Z",
       "title": "(Pending) Daytona USA - Arcades",
       "description": "Pair of Daytona Arcades. Not working but complete. $800 obo.",
       "price": "$800",
@@ -1204,7 +1204,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-08-01 16:00:26",
-      "lastSeen": "2026-08-03T19:00:27.517Z"
+      "lastSeen": "2026-08-03T20:00:28.535Z"
     },
     {
       "adID": "KLOV-550906",
@@ -2414,7 +2414,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-27 12:19:48",
-      "lastSeen": "2026-08-03T19:18:03.236Z"
+      "lastSeen": "2026-08-03T20:15:02.337Z"
     },
     {
       "adID": "1756242312049754",
