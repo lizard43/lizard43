@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-04T19:16:58.845Z",
+  "generated_at": "2026-08-04T19:34:29.524Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,10 +11,10 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 163,
-      "droppedPrice": 956,
+      "exported_ads": 162,
+      "droppedPrice": 955,
       "droppedMissingGeo": 0,
-      "droppedCircle": 999
+      "droppedCircle": 998
     }
   },
   "ads": [
@@ -1689,28 +1689,6 @@
       "hidden": 0,
       "created_at": "2026-08-01 00:05:02",
       "lastSeen": "2026-08-04T15:35:05.064Z"
-    },
-    {
-      "adID": "1040470025018504",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/61550232630773/?product_id=1040470025018504",
-      "author": "Thomas Balkcom",
-      "postedTime": "2026-07-31T23:26:23.000Z",
-      "title": "Classic Golden Tee Arcade",
-      "description": "Great game but not needed anymore. Pick up only",
-      "price": "$400",
-      "lat": 33.8942729,
-      "lon": -83.95574,
-      "location": "Grayson, GA",
-      "imageUrl": "https://scontent-dfw6-2.xx.fbcdn.net/v/t39.84726-6/761573809_1546341913537251_1401939444592602461_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=109&ccb=1-7&_nc_sid=92e707&_nc_ohc=iUCPkxoXNosQ7kNvwFHcwCI&_nc_oc=AdraHEzEoD5qegersJ2TpAcggJPEvbBkVKBWkauBG4bDkkbqa8yOr3wDvJ2jNMYBios&_nc_zt=14&_nc_ht=scontent-dfw6-2.xx&_nc_gid=b9SNmiu2ZZm4FQEPdFj7Ww&_nc_ss=7b2a8&oh=00_AQFoyjMSnrpPyIfS2MQXL2Zz10DFqjR5xAfOEaz8l7WMcA&oe=6A73FE75",
-      "adUrl": "https://www.facebook.com/marketplace/item/1040470025018504/",
-      "facebookGroupId": null,
-      "facebookGroupName": null,
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-08-01 00:05:01",
-      "lastSeen": "2026-08-01T18:08:38.462Z"
     },
     {
       "adID": "1067953952348765",
