@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-10T10:06:50.691Z",
+  "generated_at": "2026-08-10T11:31:40.647Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,57 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 194,
-      "droppedPrice": 1139,
+      "exported_ads": 196,
+      "droppedPrice": 1144,
       "droppedMissingGeo": 0,
-      "droppedCircle": 1224
+      "droppedCircle": 1234
     }
   },
   "ads": [
+    {
+      "adID": "KLOV-565967",
+      "source": "KLOV",
+      "authorUrl": "https://forums.arcade-museum.com/members/beterthnyu.71591/",
+      "author": "beterthnyu",
+      "postedTime": "2026-08-10T03:44:39.000Z",
+      "title": "CarnEvil with SSD",
+      "description": "Carnevil board set fully working and recently played through. Converted from hard drive to SSD. $325 shipped to US 48.",
+      "price": "$325",
+      "lat": 31.1443351,
+      "lon": -89.406955,
+      "location": "purvis, Mississippi",
+      "imageUrl": "/images/klov-placeholder.png",
+      "adUrl": "https://forums.arcade-museum.com/threads/565967/",
+      "facebookGroupId": null,
+      "facebookGroupName": null,
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-08-10 11:31:34",
+      "lastSeen": "2026-08-10T11:31:34.218Z"
+    },
+    {
+      "adID": "871310195862808",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100006747642934/?product_id=871310195862808",
+      "author": "Angie Reiss",
+      "postedTime": "2026-08-10T01:33:22.000Z",
+      "title": "Pinball (Loose)",
+      "description": "Loose Condition works well",
+      "price": "$6",
+      "lat": 28.2336196,
+      "lon": -82.1811947,
+      "location": "Zephyrhills, FL",
+      "imageUrl": "https://scontent-dfw6-2.xx.fbcdn.net/v/t39.84726-6/772611393_1725297375356701_2925636114906178949_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=110&ccb=1-7&_nc_sid=92e707&_nc_ohc=An4StFcntTgQ7kNvwEi4a28&_nc_oc=Adrk2aKp7OD2OrM_ZUusyVJpRfrdCH2MLRtBrB-J_0gSrKpMpgd4768re8L_FyNiYxI&_nc_zt=14&_nc_ht=scontent-dfw6-2.xx&_nc_gid=ltTfnNeSJRMhJphQI_WnFQ&_nc_ss=7b2a8&oh=00_AQHw2GhFCgheJKy8hyLXxbu6ZkzCzirYR1KypiqCpoIlWg&oe=6A7F6B71",
+      "adUrl": "https://www.facebook.com/marketplace/item/871310195862808/",
+      "facebookGroupId": null,
+      "facebookGroupName": null,
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-08-10 11:18:16",
+      "lastSeen": "2026-08-10T11:21:48.154Z"
+    },
     {
       "adID": "1039652162008508",
       "source": "MP",
@@ -52,7 +96,7 @@
       "lat": 27.4989278,
       "lon": -82.5748194,
       "location": "Bradenton, FL",
-      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/770908491_28144418635189361_7021239848935902932_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=111&ccb=1-7&_nc_sid=92e707&_nc_ohc=MuH1wwnsdGMQ7kNvwFCIGmt&_nc_oc=Adpy7oWvi8YWbkFdqY1i9r-bOtk9DJAV8UeG5Uhbwp1Yhqq2-fWsTmROKThtkA9vn_U&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=o8cSAP8_UI9i-HlgmqEPhQ&_nc_ss=7b2a8&oh=00_AQFLjln4YzF89DyjbmNEuNf8ym29YsUy3ExHF0ZtcMifgA&oe=6A7EE5A9",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/770908491_28144418635189361_7021239848935902932_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=111&ccb=1-7&_nc_sid=92e707&_nc_ohc=kbGjoX3PrxUQ7kNvwHwV__e&_nc_oc=Adr35_4VK_O4_eH0EdcyftgRDtDOm0HQb-Da81iEfRrohO6asqp6KWIHAt4djqCyIr4&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=CxRE1Bsl_i4U03wTt60sPw&_nc_ss=7b2a8&oh=00_AQGQJiTSYb7F9uyAYw1SD9-uZnQtD5NAllHJWHk64mqxsA&oe=6A7F8E69",
       "adUrl": "https://www.facebook.com/marketplace/item/2145444289681238/",
       "facebookGroupId": null,
       "facebookGroupName": null,
@@ -60,7 +104,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-08-09 20:05:02",
-      "lastSeen": "2026-08-10T01:12:04.530Z"
+      "lastSeen": "2026-08-10T11:25:11.806Z"
     },
     {
       "adID": "1054324193811057",
@@ -96,7 +140,7 @@
       "lat": 33.883887,
       "lon": -84.5147454,
       "location": "Smyrna, GA",
-      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/767334168_3894083920728970_6433876185692797561_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=101&ccb=1-7&_nc_sid=92e707&_nc_ohc=aDD3_YPQihsQ7kNvwEdaxSQ&_nc_oc=Adq_Q8E_2yJDoRb0kj4k_q7kPKrFcuyGcQ9j24GJPeFJjX6LntLvOZJx2zJYVM2fHBU&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=2f0buQ4BQAvoUtpjkRkc4g&_nc_ss=7b2a8&oh=00_AQHRRvj-UABdsYjreTstL6SV5i2IDZH08K8pGFHa0BmAbg&oe=6A7E8B16",
+      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/767334168_3894083920728970_6433876185692797561_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=101&ccb=1-7&_nc_sid=92e707&_nc_ohc=aDD3_YPQihsQ7kNvwEdaxSQ&_nc_oc=Adq_Q8E_2yJDoRb0kj4k_q7kPKrFcuyGcQ9j24GJPeFJjX6LntLvOZJx2zJYVM2fHBU&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=Y6mwUsCcO4OV7EZrkAgv4A&_nc_ss=7b2a8&oh=00_AQELhrMsrNCpCV4VoNrxyQJpjAbhWabB7jKFivKBQw2z7w&oe=6A7F6C16",
       "adUrl": "https://www.facebook.com/marketplace/item/1299649255398364/",
       "facebookGroupId": null,
       "facebookGroupName": null,
@@ -104,7 +148,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-08-09 19:05:28",
-      "lastSeen": "2026-08-09T19:11:39.821Z"
+      "lastSeen": "2026-08-10T11:15:21.105Z"
     },
     {
       "adID": "1742564166996209",
@@ -140,7 +184,7 @@
       "lat": 29.8946952,
       "lon": -81.3145395,
       "location": "St Augustine, FL",
-      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/768969722_1095266163169878_7371600867522742074_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=102&ccb=1-7&_nc_sid=92e707&_nc_ohc=llbT55Yr7v8Q7kNvwHYj6nQ&_nc_oc=Adoh89uoLFMUA8QBYnYz_GFbMAI5_BuX4KhecYkkcdju7nztt_jeB9xovBFoiCGrIDI&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=Zfub7puc9jFw894hGJSWvA&_nc_ss=7b2a8&oh=00_AQEpNWMFEsZOG9qI27VdGmbsRe0xY4nW1KbErSrUIYJ36A&oe=6A7EAF3C",
+      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/768969722_1095266163169878_7371600867522742074_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=102&ccb=1-7&_nc_sid=92e707&_nc_ohc=llbT55Yr7v8Q7kNvwHYj6nQ&_nc_oc=Adoh89uoLFMUA8QBYnYz_GFbMAI5_BuX4KhecYkkcdju7nztt_jeB9xovBFoiCGrIDI&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=gMK6am3QuIuWW81pTNcocw&_nc_ss=7b2a8&oh=00_AQEG4VUfu8mWgOcGO8iROQ48lOODt5mC5IYmIp08huZL1g&oe=6A7F903C",
       "adUrl": "https://www.facebook.com/marketplace/item/2231023791024907/",
       "facebookGroupId": null,
       "facebookGroupName": null,
@@ -148,7 +192,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-08-09 17:10:20",
-      "lastSeen": "2026-08-09T20:17:10.304Z"
+      "lastSeen": "2026-08-10T11:17:47.777Z"
     },
     {
       "adID": "3192252700983834",
@@ -192,7 +236,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-08-09 13:22:22",
-      "lastSeen": "2026-08-10T01:13:05.275Z"
+      "lastSeen": "2026-08-10T11:31:35.088Z"
     },
     {
       "adID": "1035729498832205",
@@ -331,7 +375,7 @@
       "source": "FB",
       "authorUrl": null,
       "author": "William Wyman",
-      "postedTime": "2026-08-09T01:00:59.783Z",
+      "postedTime": "2026-08-09T11:00:58.759Z",
       "title": "1965 Bally Border Beauty wire diagram",
       "description": "1965 Bally Border Beauty wire diagram",
       "price": "$20",
@@ -346,7 +390,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-08-09 00:01:03",
-      "lastSeen": "2026-08-10T01:01:00.623Z"
+      "lastSeen": "2026-08-10T11:00:59.394Z"
     },
     {
       "adID": "1575659277353993",
@@ -368,7 +412,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-08-08 23:10:12",
-      "lastSeen": "2026-08-10T01:07:45.607Z"
+      "lastSeen": "2026-08-10T11:18:19.772Z"
     },
     {
       "adID": "1382884420467025",
@@ -390,7 +434,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-08-08 22:13:28",
-      "lastSeen": "2026-08-10T01:07:45.674Z"
+      "lastSeen": "2026-08-10T11:18:20.141Z"
     },
     {
       "adID": "1702946600804927",
@@ -676,7 +720,7 @@
       "priceChangedAt": "2026-08-09 17:10:21",
       "hidden": 0,
       "created_at": "2026-08-08 11:05:15",
-      "lastSeen": "2026-08-10T01:07:45.875Z"
+      "lastSeen": "2026-08-10T11:18:21.864Z"
     },
     {
       "adID": "1824265022280604",
@@ -4247,10 +4291,10 @@
       "source": "KLOV",
       "authorUrl": "https://forums.arcade-museum.com/members/beterthnyu.71591/",
       "author": "beterthnyu",
-      "postedTime": "2026-08-08T19:48:47.000Z",
+      "postedTime": "2026-08-10T03:38:40.000Z",
       "title": "Dungeons and Dragons Tower of Doom A & B Boards",
-      "description": "Selling my Dungeons and Dragons Tower of Doom A & B Boards. It has been Phoenixed with the battery removed, so you dont have to worry about it suiciding. Recently played through and tested working perfectly. $250 + shipping to US 48.",
-      "price": "$250",
+      "description": "Selling my Dungeons and Dragons Tower of Doom A & B Boards. It has been Phoenixed with the battery removed, so you dont have to worry about it suiciding. Recently played through and tested working perfectly. $225 + shipping to US 48.",
+      "price": "$225",
       "lat": 31.1443351,
       "lon": -89.406955,
       "location": "purvis, Mississippi",
@@ -4259,10 +4303,10 @@
       "facebookGroupId": null,
       "facebookGroupName": null,
       "priceChanged": 1,
-      "priceChangedAt": "2026-08-08 20:17:03",
+      "priceChangedAt": "2026-08-10 11:31:34",
       "hidden": 0,
       "created_at": "2026-07-19 17:50:54",
-      "lastSeen": "2026-08-10T01:13:05.608Z"
+      "lastSeen": "2026-08-10T11:31:34.284Z"
     },
     {
       "adID": "PI-215821",
