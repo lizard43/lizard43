@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-17T00:16:22.804Z",
+  "generated_at": "2026-08-17T01:14:00.682Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,19 +11,41 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 221,
-      "droppedPrice": 1403,
+      "exported_ads": 222,
+      "droppedPrice": 1406,
       "droppedMissingGeo": 0,
-      "droppedCircle": 1419
+      "droppedCircle": 1424
     }
   },
   "ads": [
+    {
+      "adID": "1595437338883677",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/842565593/?product_id=1595437338883677",
+      "author": "Wayne Heinlein Jr.",
+      "postedTime": "2026-08-17T00:53:36.000Z",
+      "title": "Arcade CRT monitor",
+      "description": "This was a spare monitor I had for my arcades. The arcades are gone and I have a few things left I will be listing. Worked last time I tested it but has been stored in my garage for a couple years. Sold as is. Might need rebuilt. I have not restested it. Cash only local pickup in the 34609 area",
+      "price": "$160",
+      "lat": 28.4635266,
+      "lon": -82.5363557,
+      "location": "Spring Hill, FL",
+      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/778835677_2003953186923271_6865673498870610024_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=104&ccb=1-7&_nc_sid=92e707&_nc_ohc=UwR_WGsmeSMQ7kNvwF0iY3J&_nc_oc=Adpf0Td8GB-L2yWugFoxyNodBrHZoCbs7KFUpstC5gf7gFPF21Y9-kelLdeRLoDO0KY&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=c0S6WZleBozstc0uoLycMg&_nc_ss=7b2a8&oh=00_AQFPFRo0VnWZa6-Eo0EqzsrA9ntAxaqeNpEDtXVF3lQ-KQ&oe=6A883897",
+      "adUrl": "https://www.facebook.com/marketplace/item/1595437338883677/",
+      "facebookGroupId": null,
+      "facebookGroupName": null,
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-08-17 01:05:00",
+      "lastSeen": "2026-08-17T01:08:07.232Z"
+    },
     {
       "adID": "PI-213829",
       "source": "PS",
       "authorUrl": "https://pinside.com/pinball/community/pinsiders/smokinhos/market",
       "author": "smokinhos",
-      "postedTime": "2026-08-16T22:15:37.835Z",
+      "postedTime": "2026-08-16T22:13:15.732Z",
       "title": "CLIPs Godzilla plastic protectors set - complete minus Mothr",
       "description": "New (selling one, non-business) - “Complete set minus the Mothra plastic. 33 pcs. Never used. Yellow set.”",
       "price": "$125",
@@ -38,7 +60,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-08-16 22:17:59",
-      "lastSeen": "2026-08-17T00:15:38.433Z"
+      "lastSeen": "2026-08-17T01:13:16.100Z"
     },
     {
       "adID": "1378985443762530",
@@ -52,7 +74,7 @@
       "lat": 34.1652304,
       "lon": -84.7997613,
       "location": "Cartersville, GA",
-      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/774140329_849527811459730_5702568813153596878_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=111&ccb=1-7&_nc_sid=92e707&_nc_ohc=PHfz7W65P4AQ7kNvwFrf6a-&_nc_oc=AdosdWLSHA5eDJAiJWTr8k6tPyKB5oIrBq3qmPWZ0bRa-voWDyaXZAPXZXK4bMDWLEA&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=Sx8l4Y3X4rtiWb_4H4Q4bA&_nc_ss=7b2a8&oh=00_AQGvanU1ydkmwbqSAh0z4ca1dvSxk1sBLiav8HjXkgtgng&oe=6A882B41",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/774140329_849527811459730_5702568813153596878_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=111&ccb=1-7&_nc_sid=92e707&_nc_ohc=PHfz7W65P4AQ7kNvwFrf6a-&_nc_oc=AdosdWLSHA5eDJAiJWTr8k6tPyKB5oIrBq3qmPWZ0bRa-voWDyaXZAPXZXK4bMDWLEA&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=n4QYefsVRFyKDxmJF0ewBA&_nc_ss=7b2a8&oh=00_AQFCUdt0ToOUOobZLkbwbcR5ZVsfq0WZ5QWvcRucD2fg6Q&oe=6A882B41",
       "adUrl": "https://www.facebook.com/marketplace/item/1378985443762530/",
       "facebookGroupId": null,
       "facebookGroupName": null,
@@ -60,7 +82,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-08-16 22:11:47",
-      "lastSeen": "2026-08-17T00:14:47.119Z"
+      "lastSeen": "2026-08-17T01:13:00.997Z"
     },
     {
       "adID": "28149326414664105",
@@ -170,7 +192,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-08-16 15:15:36",
-      "lastSeen": "2026-08-17T00:16:17.149Z"
+      "lastSeen": "2026-08-17T01:13:55.577Z"
     },
     {
       "adID": "KLOV-557627",
@@ -192,7 +214,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-08-16 13:18:00",
-      "lastSeen": "2026-08-17T00:16:17.183Z"
+      "lastSeen": "2026-08-17T01:13:55.610Z"
     },
     {
       "adID": "KLOV-566154",
@@ -214,14 +236,14 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-08-16 13:18:00",
-      "lastSeen": "2026-08-17T00:16:17.216Z"
+      "lastSeen": "2026-08-17T01:13:55.645Z"
     },
     {
       "adID": "PI-219536",
       "source": "PS",
       "authorUrl": "https://pinside.com/pinball/community/pinsiders/gardenartisan68/market",
       "author": "Gardenartisan68",
-      "postedTime": "2026-08-16T10:15:37.841Z",
+      "postedTime": "2026-08-16T10:13:15.736Z",
       "title": "Big Indian",
       "description": "Partially restored (almost original) - “Gottlieb Big Indian pinball machine. Everything works great. Nice playfield. Repainted cabinet and backbox. Backglass has noticeable bulb spots but not bad.”",
       "price": "$650",
@@ -236,7 +258,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-08-16 11:39:30",
-      "lastSeen": "2026-08-17T00:15:39.349Z"
+      "lastSeen": "2026-08-17T01:13:17.290Z"
     },
     {
       "adID": "1390948096005747",
@@ -258,7 +280,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-08-16 11:05:09",
-      "lastSeen": "2026-08-17T00:05:09.986Z"
+      "lastSeen": "2026-08-17T01:04:59.927Z"
     },
     {
       "adID": "2442203952927351",
@@ -280,7 +302,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-08-16 01:05:02",
-      "lastSeen": "2026-08-17T00:05:09.411Z"
+      "lastSeen": "2026-08-17T01:04:59.659Z"
     },
     {
       "adID": "1090397236985745",
@@ -324,7 +346,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-08-15 23:14:47",
-      "lastSeen": "2026-08-17T00:05:10.053Z"
+      "lastSeen": "2026-08-17T01:04:59.994Z"
     },
     {
       "adID": "1385859193483883",
@@ -390,7 +412,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-08-15 21:08:11",
-      "lastSeen": "2026-08-17T00:11:45.798Z"
+      "lastSeen": "2026-08-17T01:10:06.458Z"
     },
     {
       "adID": "KLOV-560788",
@@ -412,7 +434,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-08-15 20:18:28",
-      "lastSeen": "2026-08-17T00:16:17.853Z"
+      "lastSeen": "2026-08-17T01:13:56.215Z"
     },
     {
       "adID": "KLOV-563795",
@@ -434,7 +456,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-08-15 20:18:27",
-      "lastSeen": "2026-08-17T00:16:17.518Z"
+      "lastSeen": "2026-08-17T01:13:55.880Z"
     },
     {
       "adID": "2151432319051500",
@@ -456,7 +478,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-08-15 20:12:14",
-      "lastSeen": "2026-08-17T00:11:45.876Z"
+      "lastSeen": "2026-08-17T01:10:06.524Z"
     },
     {
       "adID": "KLOV-566111",
@@ -478,14 +500,14 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-08-14 22:12:32",
-      "lastSeen": "2026-08-17T00:16:17.018Z"
+      "lastSeen": "2026-08-17T01:13:55.444Z"
     },
     {
       "adID": "5019938774895927",
       "source": "FB",
       "authorUrl": null,
       "author": "Vaughn Vaughn",
-      "postedTime": "2026-08-15T00:00:28.040Z",
+      "postedTime": "2026-08-15T01:00:26.206Z",
       "title": "(Pending) Sega Naomi 2 System",
       "description": "Sega Naomi 2 Arcade system with Virtua Fighter 4. Complete. This listing is for the Naomi2 system only, not the Dynamo cabinet. That picture is only to show that it’s working. Must pickup in person",
       "price": "$325",
@@ -500,7 +522,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-08-14 22:00:28",
-      "lastSeen": "2026-08-17T00:00:29.117Z"
+      "lastSeen": "2026-08-17T01:00:26.672Z"
     },
     {
       "adID": "1045682294540771",
@@ -1666,7 +1688,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-08-08 15:18:28",
-      "lastSeen": "2026-08-17T00:16:17.551Z"
+      "lastSeen": "2026-08-17T01:13:55.914Z"
     },
     {
       "adID": "1070996898607884",
@@ -2942,7 +2964,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-08-02 11:26:51",
-      "lastSeen": "2026-08-17T00:16:19.848Z"
+      "lastSeen": "2026-08-17T01:13:57.788Z"
     },
     {
       "adID": "1698195114766893",
