@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-17T13:18:57.472Z",
+  "generated_at": "2026-08-17T14:17:07.674Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,19 +11,63 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 217,
-      "droppedPrice": 1398,
+      "exported_ads": 219,
+      "droppedPrice": 1400,
       "droppedMissingGeo": 0,
-      "droppedCircle": 1431
+      "droppedCircle": 1432
     }
   },
   "ads": [
+    {
+      "adID": "1581806576987495",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100000076858136/?product_id=1581806576987495",
+      "author": "Stacie Ross",
+      "postedTime": "2026-08-17T13:53:30.000Z",
+      "title": "Ms Pac Man Full Size Game Arcade",
+      "description": "Full size game arcade with matching stool! Games include Ms PAC Man, Galaxy, PAC Mania and PAC Man plus! Must pick up!!",
+      "price": "$350",
+      "lat": 30.1654707,
+      "lon": -81.7016346,
+      "location": "Orange Park, FL",
+      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/777867908_1784731919209974_7278871685850374686_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=104&ccb=1-7&_nc_sid=92e707&_nc_ohc=OXqSOoYw9fYQ7kNvwFWcYNg&_nc_oc=AdrIeGEzM4sbegpQ1mwb4v7MF0eF33ISxX9QkZZ4lGL5uxc6gbxiN1OrXR0pRAuJCrA&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=E4qbhXwUbBiW_fg9_N6C1w&_nc_ss=7b2a8&oh=00_AQFaPS3VUfvo1D1jYBkmjHlVe7ApLFU66rOvcGm3-g5DJw&oe=6A88E51A",
+      "adUrl": "https://www.facebook.com/marketplace/item/1581806576987495/",
+      "facebookGroupId": null,
+      "facebookGroupName": null,
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-08-17 14:05:07",
+      "lastSeen": "2026-08-17T14:11:47.504Z"
+    },
+    {
+      "adID": "973134231852654",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100002863300085/?product_id=973134231852654",
+      "author": "Ashley Espino",
+      "postedTime": "2026-06-24T03:28:04.000Z",
+      "title": "LOL Surprise BOYS Arcade Heros (2)",
+      "description": "Two Brand new surprise boxes Marietta pick up",
+      "price": "$30",
+      "lat": 33.9528472,
+      "lon": -84.5496148,
+      "location": "Marietta, GA",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/776453545_3793712804104037_322334218199641037_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=92e707&_nc_ohc=sKSGGUA9nbcQ7kNvwFbPnZh&_nc_oc=AdrIMd1q-2fOnL6DTpjxtvKAIBbF_Y1wGzF5C7jsSsxRfCV5_kf1OZ6y-nl8z0W3gyw&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=8vPUKjVO6-pJVRgE8aNDZw&_nc_ss=7b2a8&oh=00_AQFr0jU7YKSjd4fc7HjIf8Qsd6wjWKsYGdyr8cEU1ZEApQ&oe=6A88E6D0",
+      "adUrl": "https://www.facebook.com/marketplace/item/973134231852654/",
+      "facebookGroupId": null,
+      "facebookGroupName": null,
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-08-17 14:05:07",
+      "lastSeen": "2026-08-17T14:11:47.750Z"
+    },
     {
       "adID": "PI-219608",
       "source": "PS",
       "authorUrl": "https://pinside.com/pinball/community/pinsiders/gardenartisan68/market",
       "author": "Gardenartisan68",
-      "postedTime": "2026-08-17T09:18:12.837Z",
+      "postedTime": "2026-08-17T09:16:18.985Z",
       "title": "Bronco",
       "description": "Used - shows wear but 100% working and clean - “Cleaned and adjusted all the switches in the playfield and cabinet. The game works well. Touched up playfield. Backglass is nice original. Cabinet is nice except someone painted o...”",
       "price": "$700",
@@ -38,14 +82,14 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-08-17 12:36:53",
-      "lastSeen": "2026-08-17T13:18:12.917Z"
+      "lastSeen": "2026-08-17T14:16:19.146Z"
     },
     {
       "adID": "PI-219607",
       "source": "PS",
       "authorUrl": "https://pinside.com/pinball/community/pinsiders/gardenartisan68/market",
       "author": "Gardenartisan68",
-      "postedTime": "2026-08-17T09:18:12.837Z",
+      "postedTime": "2026-08-17T09:16:18.985Z",
       "title": "Liberty Bell",
       "description": "Used - shows wear, needs some work - “I’ve gone through the whole playfield and cabinet, cleaning and adjusting switches. The game works well. Playfield needs a bit of touchup. Cabinet is nice. Major issue is the bac...”",
       "price": "$650",
@@ -60,7 +104,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-08-17 12:36:53",
-      "lastSeen": "2026-08-17T13:18:12.950Z"
+      "lastSeen": "2026-08-17T14:16:19.180Z"
     },
     {
       "adID": "2241565706384740",
@@ -118,7 +162,7 @@
       "lat": 33.8901036,
       "lon": -84.1429719,
       "location": "Lilburn, GA",
-      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/775116020_1113113291380611_4646238008850321245_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=101&ccb=1-7&_nc_sid=92e707&_nc_ohc=mME-Zkzqtv0Q7kNvwGpIqna&_nc_oc=AdpCsnw0Wu1QfC35NMSGjedJmwP5lEV2Xt7WuoI6kK4IuCWmO-S1GLwYdnHwZ5EIz3g&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=zj8bmW1JsVpr09hZmYvBWg&_nc_ss=7b2a8&oh=00_AQFmuMTx4jyYRGRt_MMvMNJHGQH5y2SkxGhd8fgrw54k9A&oe=6A88F011",
+      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/775116020_1113113291380611_4646238008850321245_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=101&ccb=1-7&_nc_sid=92e707&_nc_ohc=mME-Zkzqtv0Q7kNvwGpIqna&_nc_oc=AdpCsnw0Wu1QfC35NMSGjedJmwP5lEV2Xt7WuoI6kK4IuCWmO-S1GLwYdnHwZ5EIz3g&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=j80WQFZPnfJhwwyluxOw-g&_nc_ss=7b2a8&oh=00_AQH3_XrIAJxm4gMrjbLSicxM-TXofAATe1C8yXbVC-e9MA&oe=6A88F011",
       "adUrl": "https://www.facebook.com/marketplace/item/1109048891457373/",
       "facebookGroupId": null,
       "facebookGroupName": null,
@@ -126,7 +170,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-08-17 12:20:07",
-      "lastSeen": "2026-08-17T13:16:22.946Z"
+      "lastSeen": "2026-08-17T14:16:02.429Z"
     },
     {
       "adID": "1033141856207966",
@@ -140,7 +184,7 @@
       "lat": 27.9449854,
       "lon": -82.4583107,
       "location": "Tampa, FL",
-      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/774595920_1411586160868879_5102616186400470915_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=100&ccb=1-7&_nc_sid=92e707&_nc_ohc=UXUPTe87f6gQ7kNvwHpUrwo&_nc_oc=AdrKn455FATlqC1T7ultdCufGHWDqzJvRYwOZH5URPNlf0RxveRShi2BMZDJxBU7I-Y&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=5SQcu-C1uoaF_u6F7PTTTw&_nc_ss=7b2a8&oh=00_AQFICruets1qQuTZ_JUgo7cDPnDR3HhU3Y8OxFdQPm-Ahg&oe=6A88CF0B",
+      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/774595920_1411586160868879_5102616186400470915_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=100&ccb=1-7&_nc_sid=92e707&_nc_ohc=UXUPTe87f6gQ7kNvwHpUrwo&_nc_oc=AdrKn455FATlqC1T7ultdCufGHWDqzJvRYwOZH5URPNlf0RxveRShi2BMZDJxBU7I-Y&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=HsmWlBDLKLaFNWDTiqG_Lw&_nc_ss=7b2a8&oh=00_AQEDgBULui46Qe_cqx075iURwtwVDhKmH2nUgH1G9vy-NA&oe=6A88CF0B",
       "adUrl": "https://www.facebook.com/marketplace/item/1033141856207966/",
       "facebookGroupId": null,
       "facebookGroupName": null,
@@ -148,7 +192,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-08-17 11:05:21",
-      "lastSeen": "2026-08-17T13:08:20.253Z"
+      "lastSeen": "2026-08-17T14:08:10.960Z"
     },
     {
       "adID": "4383451098536622",
@@ -162,7 +206,7 @@
       "lat": 29.9060388,
       "lon": -90.1422962,
       "location": "Westwego, LA",
-      "imageUrl": "https://scontent-dfw6-2.xx.fbcdn.net/v/t39.84726-6/775319586_1405762695036298_8381994973314181690_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=108&ccb=1-7&_nc_sid=92e707&_nc_ohc=psnNN7bHjxcQ7kNvwHAZkrD&_nc_oc=AdobbaDGqp4G7vW9-DKKEo2qrP95jn4v2KpRlyGApxOeKYwHl9gKZTX_E2zWD2foyPM&_nc_zt=14&_nc_ht=scontent-dfw6-2.xx&_nc_gid=jlTXjzEXZ5CvdTaAVujXsQ&_nc_ss=7b2a8&oh=00_AQHWqYJWSCsmI4kHEtBZQLNMEdLM7--C4cipnT47cxYFkQ&oe=6A88EBB5",
+      "imageUrl": "https://scontent-dfw6-2.xx.fbcdn.net/v/t39.84726-6/775319586_1405762695036298_8381994973314181690_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=108&ccb=1-7&_nc_sid=92e707&_nc_ohc=psnNN7bHjxcQ7kNvwHAZkrD&_nc_oc=AdobbaDGqp4G7vW9-DKKEo2qrP95jn4v2KpRlyGApxOeKYwHl9gKZTX_E2zWD2foyPM&_nc_zt=14&_nc_ht=scontent-dfw6-2.xx&_nc_gid=86GdefT_KBXxKgtt3tsfhA&_nc_ss=7b2a8&oh=00_AQEevJ0SXCYZl6b81dnFgTEanHXuCK_rSKEMi7srS0pVxw&oe=6A88EBB5",
       "adUrl": "https://www.facebook.com/marketplace/item/4383451098536622/",
       "facebookGroupId": null,
       "facebookGroupName": null,
@@ -170,7 +214,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-08-17 11:05:20",
-      "lastSeen": "2026-08-17T13:08:20.220Z"
+      "lastSeen": "2026-08-17T14:08:10.926Z"
     },
     {
       "adID": "1595437338883677",
@@ -199,7 +243,7 @@
       "source": "PS",
       "authorUrl": "https://pinside.com/pinball/community/pinsiders/smokinhos/market",
       "author": "smokinhos",
-      "postedTime": "2026-08-16T22:18:12.840Z",
+      "postedTime": "2026-08-16T22:16:18.988Z",
       "title": "CLIPs Godzilla plastic protectors set - complete minus Mothr",
       "description": "New (selling one, non-business) - “Complete set minus the Mothra plastic. 33 pcs. Never used. Yellow set.”",
       "price": "$125",
@@ -214,7 +258,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-08-16 22:17:59",
-      "lastSeen": "2026-08-17T13:18:13.587Z"
+      "lastSeen": "2026-08-17T14:16:19.826Z"
     },
     {
       "adID": "1378985443762530",
@@ -250,7 +294,7 @@
       "lat": 27.9658533,
       "lon": -82.8001026,
       "location": "Clearwater, FL",
-      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/776985214_1355501882922493_7707449631231929915_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=102&ccb=1-7&_nc_sid=92e707&_nc_ohc=ISFchrF56NUQ7kNvwGe10c2&_nc_oc=AdphPNNVLTVge9G3LM2c9xEs68RAYBVdP3H6TUqD0kswVhTIZnrPM1RwQoScZDEP38g&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=6_wlPPnc154omQ3xgUvg7Q&_nc_ss=7b2a8&oh=00_AQHWd1Fd7KoitGsoDts7WjeEGHZBTSXRK2R649-eNJH21g&oe=6A88E374",
+      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/776985214_1355501882922493_7707449631231929915_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=102&ccb=1-7&_nc_sid=92e707&_nc_ohc=ISFchrF56NUQ7kNvwGe10c2&_nc_oc=AdphPNNVLTVge9G3LM2c9xEs68RAYBVdP3H6TUqD0kswVhTIZnrPM1RwQoScZDEP38g&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=_GLJnUvSdqm0sxToJtQZ8g&_nc_ss=7b2a8&oh=00_AQFhv964Y0f8IOpb289M0Hu7f5xe0CT77S49Vovin9moJg&oe=6A88E374",
       "adUrl": "https://www.facebook.com/marketplace/item/28149326414664105/",
       "facebookGroupId": null,
       "facebookGroupName": null,
@@ -258,7 +302,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-08-16 21:05:56",
-      "lastSeen": "2026-08-17T13:08:20.354Z"
+      "lastSeen": "2026-08-17T14:08:11.060Z"
     },
     {
       "adID": "1035993429191146",
@@ -272,7 +316,7 @@
       "lat": 29.8946952,
       "lon": -81.3145395,
       "location": "St Augustine, FL",
-      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/776020895_2009510546360159_6215116798882618991_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=101&ccb=1-7&_nc_sid=92e707&_nc_ohc=3VXK3L5kOOEQ7kNvwF5YtdV&_nc_oc=AdopQWwp1jD-zxMDqyHojnh3oW86Cpgzig9EnhzlqNrP4iuMCIby97igP6OPBnn1UhI&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=cJPBuX2D75-kzvyemXDKWg&_nc_ss=7b2a8&oh=00_AQHqR1DRRHFVa0U_9IjKwJDZdko_9iHOrT8tnbWV6MW3Ng&oe=6A88C251",
+      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/776020895_2009510546360159_6215116798882618991_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=101&ccb=1-7&_nc_sid=92e707&_nc_ohc=3VXK3L5kOOEQ7kNvwF5YtdV&_nc_oc=AdopQWwp1jD-zxMDqyHojnh3oW86Cpgzig9EnhzlqNrP4iuMCIby97igP6OPBnn1UhI&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=yX0RylsON8JvlN-rpQGIpg&_nc_ss=7b2a8&oh=00_AQFgfdN4lDkpWqyCRe4x9zkC1ghbwTXTgoM1JUmPqnIujg&oe=6A88FA91",
       "adUrl": "https://www.facebook.com/marketplace/item/1035993429191146/",
       "facebookGroupId": null,
       "facebookGroupName": null,
@@ -280,7 +324,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-08-16 20:05:06",
-      "lastSeen": "2026-08-17T13:08:20.487Z"
+      "lastSeen": "2026-08-17T14:08:11.193Z"
     },
     {
       "adID": "4439071452979907",
@@ -346,7 +390,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-08-16 15:15:36",
-      "lastSeen": "2026-08-17T13:18:52.265Z"
+      "lastSeen": "2026-08-17T14:17:03.319Z"
     },
     {
       "adID": "KLOV-557627",
@@ -368,7 +412,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-08-16 13:18:00",
-      "lastSeen": "2026-08-17T13:18:52.298Z"
+      "lastSeen": "2026-08-17T14:17:03.352Z"
     },
     {
       "adID": "KLOV-566154",
@@ -390,14 +434,14 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-08-16 13:18:00",
-      "lastSeen": "2026-08-17T13:18:52.332Z"
+      "lastSeen": "2026-08-17T14:17:03.386Z"
     },
     {
       "adID": "PI-219536",
       "source": "PS",
       "authorUrl": "https://pinside.com/pinball/community/pinsiders/gardenartisan68/market",
       "author": "Gardenartisan68",
-      "postedTime": "2026-08-16T10:18:16.318Z",
+      "postedTime": "2026-08-16T10:16:27.777Z",
       "title": "Big Indian",
       "description": "Partially restored (almost original) - “Gottlieb Big Indian pinball machine. Everything works great. Nice playfield. Repainted cabinet and backbox. Backglass has noticeable bulb spots but not bad.”",
       "price": "$650",
@@ -412,7 +456,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-08-16 11:39:30",
-      "lastSeen": "2026-08-17T13:18:17.317Z"
+      "lastSeen": "2026-08-17T14:16:28.141Z"
     },
     {
       "adID": "1390948096005747",
@@ -566,7 +610,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-08-15 21:08:11",
-      "lastSeen": "2026-08-17T13:13:28.022Z"
+      "lastSeen": "2026-08-17T14:12:48.206Z"
     },
     {
       "adID": "KLOV-560788",
@@ -588,7 +632,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-08-15 20:18:28",
-      "lastSeen": "2026-08-17T13:18:52.901Z"
+      "lastSeen": "2026-08-17T14:17:03.966Z"
     },
     {
       "adID": "KLOV-563795",
@@ -610,7 +654,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-08-15 20:18:27",
-      "lastSeen": "2026-08-17T13:18:52.566Z"
+      "lastSeen": "2026-08-17T14:17:03.632Z"
     },
     {
       "adID": "2151432319051500",
@@ -632,14 +676,14 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-08-15 20:12:14",
-      "lastSeen": "2026-08-17T13:13:28.056Z"
+      "lastSeen": "2026-08-17T14:12:48.239Z"
     },
     {
       "adID": "5019938774895927",
       "source": "FB",
       "authorUrl": null,
       "author": "Vaughn Vaughn",
-      "postedTime": "2026-08-15T13:00:27.995Z",
+      "postedTime": "2026-08-15T14:00:27.597Z",
       "title": "(Pending) Sega Naomi 2 System",
       "description": "Sega Naomi 2 Arcade system with Virtua Fighter 4. Complete. This listing is for the Naomi2 system only, not the Dynamo cabinet. That picture is only to show that it’s working. Must pickup in person",
       "price": "$325",
@@ -654,7 +698,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-08-14 22:00:28",
-      "lastSeen": "2026-08-17T13:00:28.451Z"
+      "lastSeen": "2026-08-17T14:00:28.356Z"
     },
     {
       "adID": "1045682294540771",
@@ -1820,7 +1864,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-08-08 15:18:28",
-      "lastSeen": "2026-08-17T13:18:52.600Z"
+      "lastSeen": "2026-08-17T14:17:03.667Z"
     },
     {
       "adID": "1070996898607884",
@@ -2920,7 +2964,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-08-02 11:26:51",
-      "lastSeen": "2026-08-17T13:18:54.525Z"
+      "lastSeen": "2026-08-17T14:17:05.389Z"
     },
     {
       "adID": "1698195114766893",
@@ -4335,7 +4379,7 @@
       "source": "KLOV",
       "authorUrl": "https://forums.arcade-museum.com/members/kittybeater.35366/",
       "author": "kittybeater",
-      "postedTime": "2026-07-22T13:26:54.000Z",
+      "postedTime": "2026-08-17T13:54:53.000Z",
       "title": "Dart Machine parts / Arachnid, Pub Time & Valley",
       "description": "Dart Machine parts / Arachnid, Pub Time & Valley Arachnid Darts The Arcade Boneyard, Arcade Parts Site, Arachnid Darts Parts The Arcade Boneyard, New & Used Arcade & Coin Operated Machines, Parts , Manuals thearcadeboneyard.com Merit / Pub Time Darts The Arcade Boneyard, Arcade Parts Site, Merit / ...",
       "price": "$0",
@@ -4350,7 +4394,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-22 15:18:07",
-      "lastSeen": "2026-08-12T00:50:00.568Z"
+      "lastSeen": "2026-08-17T14:17:03.007Z"
     },
     {
       "adID": "900533686441844",
@@ -4423,7 +4467,7 @@
       "source": "KLOV",
       "authorUrl": "https://forums.arcade-museum.com/members/kittybeater.35366/",
       "author": "kittybeater",
-      "postedTime": "2026-07-21T13:18:59.000Z",
+      "postedTime": "2026-08-17T13:55:34.000Z",
       "title": "Galaga / Bally Control Panel (Aftermarket Overlay) $84.99",
       "description": "Galaga / Bally Control Panel (Aftermarket Overlay) $84.99 Upright Control Panels The Arcade Boneyard, Arcade Parts Site, Control Panels For Upright Coin Operated Machines Page The Arcade Boneyard, New & Used Arcade & Coin Operated Machines, Parts , Manuals thearcadeboneyard.com",
       "price": "$84",
@@ -4438,7 +4482,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-07-21 13:21:52",
-      "lastSeen": "2026-08-12T00:59:01.585Z"
+      "lastSeen": "2026-08-17T14:17:02.964Z"
     },
     {
       "adID": "1371872218202751",
