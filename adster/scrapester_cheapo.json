@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-18T14:11:04.512Z",
+  "generated_at": "2026-08-18T15:13:14.592Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,57 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 21,
-      "droppedPrice": 220,
+      "exported_ads": 23,
+      "droppedPrice": 223,
       "droppedMissingGeo": 0,
-      "droppedCircle": 203
+      "droppedCircle": 207
     }
   },
   "ads": [
+    {
+      "adID": "KLOV-566096",
+      "source": "KLOV",
+      "authorUrl": "https://forums.arcade-museum.com/members/1kgen.62188/",
+      "author": "1kGen",
+      "postedTime": "2026-08-18T15:07:18.000Z",
+      "title": "Nintendo Popeye Parts",
+      "description": "I've got some more Popeye parts for sale. Popeye PCB: $200 shipped. Works great. Pics detail both PCBs. Manual + Schematics: $30 shipped. Harnesses: $35 shipped. Just the ones pictured. PCB Cage Thingy: $75 shipped. Just what's pictured. PM me if interested.",
+      "price": "$200",
+      "lat": 33.5206824,
+      "lon": -86.8024326,
+      "location": "Birmingham, Alabama",
+      "imageUrl": "/images/klov-placeholder.png",
+      "adUrl": "https://forums.arcade-museum.com/threads/566096/",
+      "facebookGroupId": null,
+      "facebookGroupName": null,
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-08-18 15:13:09",
+      "lastSeen": "2026-08-18T15:13:09.986Z"
+    },
+    {
+      "adID": "PI-219654",
+      "source": "PS",
+      "authorUrl": "https://pinside.com/pinball/community/pinsiders/seshpilot/market",
+      "author": "seshpilot",
+      "postedTime": "2026-08-18T15:06:30.730Z",
+      "title": "Stern / Sega Whitestar CPU Sound Board",
+      "description": "Used, poor condition - “The board sadly suffered battery acid damage. It was cleaned up and worked for a few months, but now, is no longer working. As a result, you are buying the board completely AS-IS. ...”",
+      "price": "$100",
+      "lat": 33.3401108,
+      "lon": -86.6302625,
+      "location": "Chelsea, AL",
+      "imageUrl": "https://imgproxy.pinside.com/QOyKSot5JX6TA_OfPWYvYSkCNNU5aEt8b9s9ot_Z3vE/rs:fit:640:480/fn:pinside_896e9f27a233/enc/Cu73P0lVoVy1CQYW0xBIh91rkFgcfFeASTWUAufY5tP0ix3dUgPXiJBV3FWov34Q_o3Zgnsgh5gnCi_qreQL3-WeKEBad2BoaD8DhPVaEh2Mvxfe-5cc83Z2_eiG14to.jpg",
+      "adUrl": "https://pinside.com/pinball/market/classifieds/ad/219654",
+      "facebookGroupId": null,
+      "facebookGroupName": null,
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-08-18 15:12:30",
+      "lastSeen": "2026-08-18T15:12:30.829Z"
+    },
     {
       "adID": "1080104621631266",
       "source": "MP",
@@ -30,7 +74,7 @@
       "lat": 28.0341847,
       "lon": -82.6650992,
       "location": "Oldsmar, FL",
-      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/777381808_2291527898268430_5637740396881382323_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=103&ccb=1-7&_nc_sid=92e707&_nc_ohc=_uI_lzjihV0Q7kNvwHY0d1G&_nc_oc=Adr0nmrm7TxVFlVpO3i4bUILRi5QV0GkT04ekJEMgtTub3lWl8N9Ug1y4Q3c0RmWN8s&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=VCkSB0pk-lZLrQm3RgMBjQ&_nc_ss=7b2a8&oh=00_AQFAw50aLhenVwlqbFzDXF4v1hEtCeVBQ4BZBqaHVCH54g&oe=6A8A3EEA",
+      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/777381808_2291527898268430_5637740396881382323_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=103&ccb=1-7&_nc_sid=92e707&_nc_ohc=_uI_lzjihV0Q7kNvwHY0d1G&_nc_oc=Adr0nmrm7TxVFlVpO3i4bUILRi5QV0GkT04ekJEMgtTub3lWl8N9Ug1y4Q3c0RmWN8s&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=sazZzr_j68MuRK_rw8CZaA&_nc_ss=7b2a8&oh=00_AQGsUNhzMtcvU_VkC5mkCn-BVdYCpj7Q-AjsW319KzrsjA&oe=6A8A3EEA",
       "adUrl": "https://www.facebook.com/marketplace/item/1080104621631266/",
       "facebookGroupId": null,
       "facebookGroupName": null,
@@ -38,7 +82,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-08-18 14:07:13",
-      "lastSeen": "2026-08-18T14:09:59.879Z"
+      "lastSeen": "2026-08-18T15:12:06.874Z"
     },
     {
       "adID": "1750615776061369",
@@ -52,7 +96,7 @@
       "lat": 31.1499528,
       "lon": -81.4914894,
       "location": "Brunswick, GA",
-      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/778025522_1061342373529070_2076346417594418339_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=106&ccb=1-7&_nc_sid=92e707&_nc_ohc=1ABYdUmXcuAQ7kNvwFuP9PM&_nc_oc=AdpKIIfH9L4QH5msXNzF8JFVdtfzQgUMxO_G3bksrL1on3P3N_OeY5Cik7esjF0VAAY&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=Kd8Y8K7gFabB1V-X2CAW5w&_nc_ss=7b2a8&oh=00_AQEeV8T3l0AUuaKVHByNRU2n9-F2ypUNAKmvjS-mfFAa7w&oe=6A8A2C2E",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/778025522_1061342373529070_2076346417594418339_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=106&ccb=1-7&_nc_sid=92e707&_nc_ohc=1ABYdUmXcuAQ7kNvwFuP9PM&_nc_oc=AdpKIIfH9L4QH5msXNzF8JFVdtfzQgUMxO_G3bksrL1on3P3N_OeY5Cik7esjF0VAAY&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=0z59UfaX2cY2QqHStfwlsw&_nc_ss=7b2a8&oh=00_AQEWaolFq5BUEJaDYH0Gq9yaS9dSUoO2OKGnSkPtNjzglg&oe=6A8A646E",
       "adUrl": "https://www.facebook.com/marketplace/item/1750615776061369/",
       "facebookGroupId": null,
       "facebookGroupName": null,
@@ -60,7 +104,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-08-18 11:22:59",
-      "lastSeen": "2026-08-18T14:10:00.327Z"
+      "lastSeen": "2026-08-18T15:12:07.694Z"
     },
     {
       "adID": "5019938774895927",
@@ -104,7 +148,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-08-17 23:04:36",
-      "lastSeen": "2026-08-18T14:11:02.980Z"
+      "lastSeen": "2026-08-18T15:13:12.668Z"
     },
     {
       "adID": "KLOV-563795",
@@ -192,7 +236,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-08-17 23:04:32",
-      "lastSeen": "2026-08-18T14:11:01.183Z"
+      "lastSeen": "2026-08-18T15:13:10.922Z"
     },
     {
       "adID": "KLOV-557627",
@@ -214,7 +258,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-08-17 23:04:32",
-      "lastSeen": "2026-08-18T14:11:01.217Z"
+      "lastSeen": "2026-08-18T15:13:10.956Z"
     },
     {
       "adID": "KLOV-566154",
@@ -236,7 +280,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-08-17 23:04:32",
-      "lastSeen": "2026-08-18T14:11:01.250Z"
+      "lastSeen": "2026-08-18T15:13:10.989Z"
     },
     {
       "adID": "KLOV-495908",
@@ -258,7 +302,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-08-17 23:04:31",
-      "lastSeen": "2026-08-18T14:11:00.849Z"
+      "lastSeen": "2026-08-18T15:13:10.589Z"
     },
     {
       "adID": "KLOV-481858",
@@ -280,14 +324,14 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-08-17 23:04:31",
-      "lastSeen": "2026-08-18T14:11:00.882Z"
+      "lastSeen": "2026-08-18T15:13:10.623Z"
     },
     {
       "adID": "PI-219536",
       "source": "PS",
       "authorUrl": "https://pinside.com/pinball/community/pinsiders/gardenartisan68/market",
       "author": "Gardenartisan68",
-      "postedTime": "2026-08-16T14:10:28.761Z",
+      "postedTime": "2026-08-16T15:12:38.165Z",
       "title": "Big Indian",
       "description": "Partially restored (almost original) - “Gottlieb Big Indian pinball machine. Everything works great. Nice playfield. Repainted cabinet and backbox. Backglass has noticeable bulb spots but not bad.”",
       "price": "$650",
@@ -302,14 +346,14 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-08-17 23:03:56",
-      "lastSeen": "2026-08-18T14:10:28.828Z"
+      "lastSeen": "2026-08-18T15:12:38.385Z"
     },
     {
       "adID": "PI-213829",
       "source": "PS",
       "authorUrl": "https://pinside.com/pinball/community/pinsiders/smokinhos/market",
       "author": "smokinhos",
-      "postedTime": "2026-08-16T22:10:25.492Z",
+      "postedTime": "2026-08-16T22:12:34.128Z",
       "title": "CLIPs Godzilla plastic protectors set - complete minus Mothr",
       "description": "New (selling one, non-business) - “Complete set minus the Mothra plastic. 33 pcs. Never used. Yellow set.”",
       "price": "$125",
@@ -324,14 +368,14 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-08-17 23:03:54",
-      "lastSeen": "2026-08-18T14:10:26.239Z"
+      "lastSeen": "2026-08-18T15:12:35.614Z"
     },
     {
       "adID": "PI-219608",
       "source": "PS",
       "authorUrl": "https://pinside.com/pinball/community/pinsiders/gardenartisan68/market",
       "author": "Gardenartisan68",
-      "postedTime": "2026-08-17T09:10:25.484Z",
+      "postedTime": "2026-08-17T09:12:34.126Z",
       "title": "Bronco",
       "description": "Used - shows wear but 100% working and clean - “Cleaned and adjusted all the switches in the playfield and cabinet. The game works well. Touched up playfield. Backglass is nice original. Cabinet is nice except someone painted o...”",
       "price": "$700",
@@ -346,14 +390,14 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-08-17 23:03:50",
-      "lastSeen": "2026-08-18T14:10:25.569Z"
+      "lastSeen": "2026-08-18T15:12:34.450Z"
     },
     {
       "adID": "PI-219607",
       "source": "PS",
       "authorUrl": "https://pinside.com/pinball/community/pinsiders/gardenartisan68/market",
       "author": "Gardenartisan68",
-      "postedTime": "2026-08-17T09:10:25.484Z",
+      "postedTime": "2026-08-17T09:12:34.126Z",
       "title": "Liberty Bell",
       "description": "Used - shows wear, needs some work - “I’ve gone through the whole playfield and cabinet, cleaning and adjusting switches. The game works well. Playfield needs a bit of touchup. Cabinet is nice. Major issue is the bac...”",
       "price": "$650",
@@ -368,7 +412,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-08-17 23:03:50",
-      "lastSeen": "2026-08-18T14:10:25.603Z"
+      "lastSeen": "2026-08-18T15:12:34.484Z"
     },
     {
       "adID": "1109048891457373",
