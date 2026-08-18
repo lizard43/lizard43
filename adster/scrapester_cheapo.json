@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-17T23:04:42.631Z",
+  "generated_at": "2026-08-18T00:12:07.077Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,57 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 21,
-      "droppedPrice": 197,
+      "exported_ads": 20,
+      "droppedPrice": 199,
       "droppedMissingGeo": 0,
-      "droppedCircle": 181
+      "droppedCircle": 183
     }
   },
   "ads": [
+    {
+      "adID": "1056842686828463",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100086377534406/?product_id=1056842686828463",
+      "author": "Богдан Дерен",
+      "postedTime": "2026-08-17T23:33:46.000Z",
+      "title": "1996 Olympic Sponsor Pin Collection 922 of 1200",
+      "description": "Limited edition framed set of 1996 Atlanta Olympic Games sponsor pins. This collection includes 42 individual pins mounted on a black background within a dark wood-finish frame. A gold-tone plaque at the bottom identifies this as set number 922 of 1200. The pins represent various official sponsors including Coca-Cola, Kodak, Visa, IBM, and AT&T.",
+      "price": "$500",
+      "lat": 34.0514898,
+      "lon": -84.0712997,
+      "location": "Suwanee, GA",
+      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/776351276_1667367028141316_4982074648960078043_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=100&ccb=1-7&_nc_sid=92e707&_nc_ohc=iNAgoDyD-CkQ7kNvwFmqPtv&_nc_oc=AdqzL7N6qmsW6_m8DE46oyeS89o-Xh9Tg2K_kjb6QFPz3TZyK9MKMUsTQ-7bTHV8iJI&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=xMJVdI0PMqU2-h4H4_wxzA&_nc_ss=7b2a8&oh=00_AQFr3iVhu_dbbgdLBtKJzb8oAjnweQchN-8WD5j4XuHvLQ&oe=6A896452",
+      "adUrl": "https://www.facebook.com/marketplace/item/1056842686828463/",
+      "facebookGroupId": null,
+      "facebookGroupName": null,
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-08-18 00:08:59",
+      "lastSeen": "2026-08-18T00:11:01.117Z"
+    },
+    {
+      "adID": "5019938774895927",
+      "source": "FB",
+      "authorUrl": null,
+      "author": "Vaughn Vaughn",
+      "postedTime": "2026-08-15T00:00:26.948Z",
+      "title": "(Pending) Sega Naomi 2 System",
+      "description": "Sega Naomi 2 Arcade system with Virtua Fighter 4. Complete. This listing is for the Naomi2 system only, not the Dynamo cabinet. That picture is only to show that it’s working. Must pickup in person",
+      "price": "$325",
+      "lat": 29.7957633,
+      "lon": -90.822871,
+      "location": "THIBODAUX, LA",
+      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.30808-6/775375610_1611833880376640_2600823111708257200_n.jpg?stp=dst-jpg_tt6&cstp=mx1537x2048&ctp=s590x590&_nc_cat=103&ccb=1-7&_nc_sid=aa7b47&_nc_ohc=b1ZwhBpDxdoQ7kNvwF5g4r5&_nc_oc=AdpYkDtG9iDl4rypcvQ3dFgZcYJpCjMHV2xXC3w4mm1shsjMjV2v8m_bsJLWL6V6nzQ&_nc_zt=23&_nc_ht=scontent-dfw6-1.xx&_nc_gid=i3fPvi-2QapfZS9QEfFFGQ&_nc_ss=7b2a8&oh=00_AQG4GY8hCdk9DD9QZ4g260f1Ott9U6Jb_OhmYqNgqzhaCw&oe=6A8961F0",
+      "adUrl": "https://www.facebook.com/groups/1773011939682519/posts/4428403837476636/",
+      "facebookGroupId": "1773011939682519",
+      "facebookGroupName": "Arcade Machines For Sale",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-08-18 00:00:27",
+      "lastSeen": "2026-08-18T00:00:27.649Z"
+    },
     {
       "adID": "KLOV-564268",
       "source": "KLOV",
@@ -38,7 +82,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-08-17 23:04:36",
-      "lastSeen": "2026-08-17T23:04:36.239Z"
+      "lastSeen": "2026-08-18T00:12:05.403Z"
     },
     {
       "adID": "KLOV-563795",
@@ -60,7 +104,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-08-17 23:04:33",
-      "lastSeen": "2026-08-17T23:04:33.210Z"
+      "lastSeen": "2026-08-18T00:12:03.653Z"
     },
     {
       "adID": "KLOV-565911",
@@ -82,7 +126,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-08-17 23:04:33",
-      "lastSeen": "2026-08-17T23:04:33.250Z"
+      "lastSeen": "2026-08-18T00:12:03.686Z"
     },
     {
       "adID": "KLOV-560788",
@@ -126,7 +170,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-08-17 23:04:32",
-      "lastSeen": "2026-08-17T23:04:32.243Z"
+      "lastSeen": "2026-08-18T00:12:03.385Z"
     },
     {
       "adID": "KLOV-557627",
@@ -148,7 +192,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-08-17 23:04:32",
-      "lastSeen": "2026-08-17T23:04:32.323Z"
+      "lastSeen": "2026-08-18T00:12:03.419Z"
     },
     {
       "adID": "KLOV-566154",
@@ -170,7 +214,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-08-17 23:04:32",
-      "lastSeen": "2026-08-17T23:04:32.360Z"
+      "lastSeen": "2026-08-18T00:12:03.452Z"
     },
     {
       "adID": "KLOV-495908",
@@ -192,7 +236,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-08-17 23:04:31",
-      "lastSeen": "2026-08-17T23:04:31.678Z"
+      "lastSeen": "2026-08-18T00:12:03.050Z"
     },
     {
       "adID": "KLOV-481858",
@@ -214,14 +258,14 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-08-17 23:04:31",
-      "lastSeen": "2026-08-17T23:04:31.712Z"
+      "lastSeen": "2026-08-18T00:12:03.084Z"
     },
     {
       "adID": "PI-219536",
       "source": "PS",
       "authorUrl": "https://pinside.com/pinball/community/pinsiders/gardenartisan68/market",
       "author": "Gardenartisan68",
-      "postedTime": "2026-08-16T10:03:54.005Z",
+      "postedTime": "2026-08-16T10:11:26.834Z",
       "title": "Big Indian",
       "description": "Partially restored (almost original) - “Gottlieb Big Indian pinball machine. Everything works great. Nice playfield. Repainted cabinet and backbox. Backglass has noticeable bulb spots but not bad.”",
       "price": "$650",
@@ -236,14 +280,14 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-08-17 23:03:56",
-      "lastSeen": "2026-08-17T23:03:56.484Z"
+      "lastSeen": "2026-08-18T00:11:27.907Z"
     },
     {
       "adID": "PI-213829",
       "source": "PS",
       "authorUrl": "https://pinside.com/pinball/community/pinsiders/smokinhos/market",
       "author": "smokinhos",
-      "postedTime": "2026-08-16T22:03:54.000Z",
+      "postedTime": "2026-08-16T22:11:26.828Z",
       "title": "CLIPs Godzilla plastic protectors set - complete minus Mothr",
       "description": "New (selling one, non-business) - “Complete set minus the Mothra plastic. 33 pcs. Never used. Yellow set.”",
       "price": "$125",
@@ -258,14 +302,14 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-08-17 23:03:54",
-      "lastSeen": "2026-08-17T23:03:54.331Z"
+      "lastSeen": "2026-08-18T00:11:27.016Z"
     },
     {
       "adID": "PI-219608",
       "source": "PS",
       "authorUrl": "https://pinside.com/pinball/community/pinsiders/gardenartisan68/market",
       "author": "Gardenartisan68",
-      "postedTime": "2026-08-17T10:03:48.658Z",
+      "postedTime": "2026-08-17T09:11:23.044Z",
       "title": "Bronco",
       "description": "Used - shows wear but 100% working and clean - “Cleaned and adjusted all the switches in the playfield and cabinet. The game works well. Touched up playfield. Backglass is nice original. Cabinet is nice except someone painted o...”",
       "price": "$700",
@@ -280,14 +324,14 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-08-17 23:03:50",
-      "lastSeen": "2026-08-17T23:03:50.625Z"
+      "lastSeen": "2026-08-18T00:11:24.354Z"
     },
     {
       "adID": "PI-219607",
       "source": "PS",
       "authorUrl": "https://pinside.com/pinball/community/pinsiders/gardenartisan68/market",
       "author": "Gardenartisan68",
-      "postedTime": "2026-08-17T09:03:48.658Z",
+      "postedTime": "2026-08-17T09:11:23.044Z",
       "title": "Liberty Bell",
       "description": "Used - shows wear, needs some work - “I’ve gone through the whole playfield and cabinet, cleaning and adjusting switches. The game works well. Playfield needs a bit of touchup. Cabinet is nice. Major issue is the bac...”",
       "price": "$650",
@@ -302,7 +346,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-08-17 23:03:50",
-      "lastSeen": "2026-08-17T23:03:50.660Z"
+      "lastSeen": "2026-08-18T00:11:24.388Z"
     },
     {
       "adID": "1109048891457373",
@@ -312,7 +356,7 @@
       "postedTime": "2026-08-16T14:40:02.000Z",
       "title": "Game Stop Counter - FREE",
       "description": "Free used Game Stop counter. Please bring tools and help to dismantle it and take it.",
-      "price": "$0",
+      "price": "Free",
       "lat": 33.8901036,
       "lon": -84.1429719,
       "location": "Lilburn, GA",
@@ -324,7 +368,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-08-17 22:48:23",
-      "lastSeen": "2026-08-17T22:58:00.652Z"
+      "lastSeen": "2026-08-18T00:08:59.041Z"
     },
     {
       "adID": "1611724153881134",
@@ -346,7 +390,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-08-17 22:48:23",
-      "lastSeen": "2026-08-17T22:58:01.173Z"
+      "lastSeen": "2026-08-18T00:08:59.243Z"
     },
     {
       "adID": "4326082877706388",
@@ -368,51 +412,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-08-17 22:48:23",
-      "lastSeen": "2026-08-17T23:00:59.487Z"
-    },
-    {
-      "adID": "2151432319051500",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/1142565143/?product_id=2151432319051500",
-      "author": "Don Moose Lewis",
-      "postedTime": "2026-08-15T19:37:55.000Z",
-      "title": "RARE 1969 Chicago coin pinball glass face promo piece “Pirate's Gold”",
-      "description": "21 1/4” x 23 3/4” must go make offer we can meet at the Mt. Paran Country Store during daylight hours",
-      "price": "$85",
-      "lat": 33.7544657,
-      "lon": -84.3898151,
-      "location": "Atlanta, GA",
-      "imageUrl": "https://scontent-dfw6-2.xx.fbcdn.net/v/t39.84726-6/774595913_1848263822802773_4275882141643567751_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=109&ccb=1-7&_nc_sid=92e707&_nc_ohc=Kf6E4v5YKKAQ7kNvwFkfhfG&_nc_oc=AdqwBeOwvKIrpdxrvWm2njnYXuQNmWI_DhF7s8P7XsF181Tf1C64onoJwiCnseRKjyY&_nc_zt=14&_nc_ht=scontent-dfw6-2.xx&_nc_gid=3CWd_-rHt_V_Q7396dBE9w&_nc_ss=7b2a8&oh=00_AQEkSpmSf_YwXCdum8om_vqgL-gnSLHRxqWlZsUfLr5KIw&oe=6A897EAA",
-      "adUrl": "https://www.facebook.com/marketplace/item/2151432319051500/",
-      "facebookGroupId": null,
-      "facebookGroupName": null,
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-08-17 22:48:23",
-      "lastSeen": "2026-08-17T23:00:59.530Z"
-    },
-    {
-      "adID": "4383451098536622",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/100079992570142/?product_id=4383451098536622",
-      "author": "Edwin Quijada",
-      "postedTime": "2026-08-16T23:03:00.000Z",
-      "title": "Pro controlr nitendo/PC or laptop",
-      "description": "Bueno",
-      "price": "$40",
-      "lat": 29.9060388,
-      "lon": -90.1422962,
-      "location": "Westwego, LA",
-      "imageUrl": "https://scontent-dfw6-2.xx.fbcdn.net/v/t39.84726-6/775319586_1405762695036298_8381994973314181690_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=108&ccb=1-7&_nc_sid=92e707&_nc_ohc=psnNN7bHjxcQ7kNvwHAZkrD&_nc_oc=AdobbaDGqp4G7vW9-DKKEo2qrP95jn4v2KpRlyGApxOeKYwHl9gKZTX_E2zWD2foyPM&_nc_zt=14&_nc_ht=scontent-dfw6-2.xx&_nc_gid=b4HjtrQAxszUmLSfOJX8iA&_nc_ss=7b2a8&oh=00_AQHFX3a1_uDzfLaxuYoZVYZkSqIZP30pvX_7bmY10OCBvw&oe=6A895C35",
-      "adUrl": "https://www.facebook.com/marketplace/item/4383451098536622/",
-      "facebookGroupId": null,
-      "facebookGroupName": null,
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-08-17 22:29:11",
-      "lastSeen": "2026-08-17T23:03:27.575Z"
+      "lastSeen": "2026-08-18T00:08:59.310Z"
     },
     {
       "adID": "28149326414664105",
@@ -434,7 +434,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-08-17 22:29:11",
-      "lastSeen": "2026-08-17T22:44:56.255Z"
+      "lastSeen": "2026-08-18T00:05:08.468Z"
     },
     {
       "adID": "1035993429191146",
@@ -456,29 +456,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-08-17 22:29:11",
-      "lastSeen": "2026-08-17T22:44:56.389Z"
-    },
-    {
-      "adID": "1780579823130417",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/100003359685907/?product_id=1780579823130417",
-      "author": "Shelly Wright",
-      "postedTime": "2026-07-30T21:39:39.000Z",
-      "title": "Arcade game",
-      "description": "Been used a couple of times my son doesn’t play it much. Plays several games works perfect . This would be a nice Christmas gift or to add to your air bnb . Won’t take less paid almost 500 for it",
-      "price": "$180",
-      "lat": 30.1586518,
-      "lon": -85.6602936,
-      "location": "Panama City, FL",
-      "imageUrl": "https://scontent-dfw6-2.xx.fbcdn.net/v/t39.84726-6/776383653_1648831176147885_5912393928317566690_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=109&ccb=1-7&_nc_sid=92e707&_nc_ohc=Y1BeF0-z9OMQ7kNvwGz8HlW&_nc_oc=Adpf8_xQ108BLzom9nQggK5qg6oGP_1KLKBjrZFrsK1TaARTUfKygr1xtEio9IX5YuU&_nc_zt=14&_nc_ht=scontent-dfw6-2.xx&_nc_gid=LvTN3UOqWVtG8AiSIoHU4Q&_nc_ss=7b2a8&oh=00_AQHEI9N7KJ6Gm5FzAKz9TO_uudmkV8fSrYXeQKYk3yMoLQ&oe=6A8953FB",
-      "adUrl": "https://www.facebook.com/marketplace/item/1780579823130417/",
-      "facebookGroupId": null,
-      "facebookGroupName": null,
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-08-17 22:29:09",
-      "lastSeen": "2026-08-17T22:31:42.859Z"
+      "lastSeen": "2026-08-18T00:05:08.602Z"
     }
   ]
 }
