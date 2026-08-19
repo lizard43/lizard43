@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-19T18:17:00.193Z",
+  "generated_at": "2026-08-19T19:20:03.128Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,35 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 29,
-      "droppedPrice": 301,
+      "exported_ads": 30,
+      "droppedPrice": 305,
       "droppedMissingGeo": 0,
-      "droppedCircle": 279
+      "droppedCircle": 286
     }
   },
   "ads": [
+    {
+      "adID": "28088550420828713",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/61576054504888/?product_id=28088550420828713",
+      "author": "Blake Thomas",
+      "postedTime": "2026-08-19T18:10:05.000Z",
+      "title": "Arcade game",
+      "description": "Good condition",
+      "price": "$125",
+      "lat": 33.5206824,
+      "lon": -86.8024326,
+      "location": "Birmingham, AL",
+      "imageUrl": "https://scontent-dfw6-2.xx.fbcdn.net/v/t39.84726-6/777920064_1527716661990986_7047010872179349447_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=107&ccb=1-7&_nc_sid=92e707&_nc_ohc=Xvdhzh2vueMQ7kNvwHq1Tc7&_nc_oc=AdonhoK7lLtoNxjrfAJwM6A_JexiTdKVasWeS2jOUshuKnjcSLppWtu982lf4lW9410&_nc_zt=14&_nc_ht=scontent-dfw6-2.xx&_nc_gid=SwVEv_xAS6FChMQteDxY-A&_nc_ss=7b2a8&oh=00_AQFOWBNBKz2L30MR1LH--qmIKGA1vx0HHxffl4Gtm2czCA&oe=6A8BCCC6",
+      "adUrl": "https://www.facebook.com/marketplace/item/28088550420828713/",
+      "facebookGroupId": null,
+      "facebookGroupName": null,
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-08-19 19:05:07",
+      "lastSeen": "2026-08-19T19:08:26.355Z"
+    },
     {
       "adID": "3262960960555464",
       "source": "MP",
@@ -118,7 +140,7 @@
       "lat": 28.183222,
       "lon": -82.5540279,
       "location": "Odessa, FL",
-      "imageUrl": "https://scontent-dfw6-2.xx.fbcdn.net/v/t39.84726-6/776222562_1833905577574628_2646845836411226544_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=109&ccb=1-7&_nc_sid=92e707&_nc_ohc=7t2Hg1VukpYQ7kNvwHz-3Or&_nc_oc=AdqZVu1Yiet8NO_GFfnMw4tzD-9mNE6l3aVIXWIseJMe_w_GtxcDYXxdniW0zpK6w4U&_nc_zt=14&_nc_ht=scontent-dfw6-2.xx&_nc_gid=fs3gRepHsxuo2HmEK9TXgw&_nc_ss=7b2a8&oh=00_AQFFEr8bYEfXOCfVinw-n-OFDfvSNHKU0jU55keOGFiHrA&oe=6A8BD993",
+      "imageUrl": "https://scontent-dfw6-2.xx.fbcdn.net/v/t39.84726-6/776222562_1833905577574628_2646845836411226544_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=109&ccb=1-7&_nc_sid=92e707&_nc_ohc=7t2Hg1VukpYQ7kNvwHz-3Or&_nc_oc=AdqZVu1Yiet8NO_GFfnMw4tzD-9mNE6l3aVIXWIseJMe_w_GtxcDYXxdniW0zpK6w4U&_nc_zt=14&_nc_ht=scontent-dfw6-2.xx&_nc_gid=jTf-bnUWKNzgKM2uydDtuQ&_nc_ss=7b2a8&oh=00_AQE4Osu08mD5W-n5oQycCcBvSp8REQoqbefHvNrhEr9fDA&oe=6A8BD993",
       "adUrl": "https://www.facebook.com/marketplace/item/879376471711054/",
       "facebookGroupId": null,
       "facebookGroupName": null,
@@ -126,7 +148,7 @@
       "priceChangedAt": "2026-08-19 00:08:20",
       "hidden": 0,
       "created_at": "2026-08-18 21:05:09",
-      "lastSeen": "2026-08-19T18:12:40.131Z"
+      "lastSeen": "2026-08-19T19:17:48.873Z"
     },
     {
       "adID": "KLOV-534592",
@@ -148,14 +170,14 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-08-18 16:12:43",
-      "lastSeen": "2026-08-19T18:16:55.553Z"
+      "lastSeen": "2026-08-19T19:19:57.168Z"
     },
     {
       "adID": "4417514471848280",
       "source": "FB",
       "authorUrl": null,
       "author": "Jrowme Bman",
-      "postedTime": "2026-08-18T18:00:27.314Z",
+      "postedTime": "2026-08-18T19:00:27.123Z",
       "title": "ARCADE CLASSICS FULL SIZE ARCADE",
       "description": "Arcade has 412 classic arcade 80s takes quarters to play very fun machine ready to play is heavy bring help to load",
       "price": "$950",
@@ -170,7 +192,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-08-18 16:00:27",
-      "lastSeen": "2026-08-19T18:00:28.032Z"
+      "lastSeen": "2026-08-19T19:00:27.600Z"
     },
     {
       "adID": "KLOV-566096",
@@ -192,14 +214,14 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-08-18 15:13:09",
-      "lastSeen": "2026-08-19T18:16:55.654Z"
+      "lastSeen": "2026-08-19T19:19:57.268Z"
     },
     {
       "adID": "PI-219654",
       "source": "PS",
       "authorUrl": "https://pinside.com/pinball/community/pinsiders/seshpilot/market",
       "author": "seshpilot",
-      "postedTime": "2026-08-18T15:16:20.669Z",
+      "postedTime": "2026-08-18T15:19:20.933Z",
       "title": "Stern / Sega Whitestar CPU Sound Board",
       "description": "Used, poor condition - “The board sadly suffered battery acid damage. It was cleaned up and worked for a few months, but now, is no longer working. As a result, you are buying the board completely AS-IS. ...”",
       "price": "$100",
@@ -214,7 +236,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-08-18 15:12:30",
-      "lastSeen": "2026-08-19T18:16:21.069Z"
+      "lastSeen": "2026-08-19T19:19:21.674Z"
     },
     {
       "adID": "1059369823458952",
@@ -280,7 +302,7 @@
       "priceChangedAt": "2026-08-18 16:12:45",
       "hidden": 0,
       "created_at": "2026-08-17 23:04:36",
-      "lastSeen": "2026-08-19T18:16:57.143Z"
+      "lastSeen": "2026-08-19T19:19:58.502Z"
     },
     {
       "adID": "KLOV-563795",
@@ -485,7 +507,7 @@
       "source": "PS",
       "authorUrl": "https://pinside.com/pinball/community/pinsiders/smokinhos/market",
       "author": "smokinhos",
-      "postedTime": "2026-08-17T18:16:23.848Z",
+      "postedTime": "2026-08-17T19:19:24.295Z",
       "title": "CLIPs Godzilla plastic protectors set - complete minus Mothr",
       "description": "New (selling one, non-business) - “Complete set minus the Mothra plastic. 33 pcs. Never used. Yellow set.”",
       "price": "$100",
@@ -500,14 +522,14 @@
       "priceChangedAt": "2026-08-19 11:31:05",
       "hidden": 0,
       "created_at": "2026-08-17 23:03:54",
-      "lastSeen": "2026-08-19T18:16:25.157Z"
+      "lastSeen": "2026-08-19T19:19:25.389Z"
     },
     {
       "adID": "PI-219608",
       "source": "PS",
       "authorUrl": "https://pinside.com/pinball/community/pinsiders/gardenartisan68/market",
       "author": "Gardenartisan68",
-      "postedTime": "2026-08-17T18:16:23.841Z",
+      "postedTime": "2026-08-17T19:19:24.292Z",
       "title": "Bronco",
       "description": "Used - shows wear but 100% working and clean - “Cleaned and adjusted all the switches in the playfield and cabinet. The game works well. Touched up playfield. Backglass is nice original. Cabinet is nice except someone painted o...”",
       "price": "$700",
@@ -522,14 +544,14 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-08-17 23:03:50",
-      "lastSeen": "2026-08-19T18:16:24.234Z"
+      "lastSeen": "2026-08-19T19:19:24.785Z"
     },
     {
       "adID": "PI-219607",
       "source": "PS",
       "authorUrl": "https://pinside.com/pinball/community/pinsiders/gardenartisan68/market",
       "author": "Gardenartisan68",
-      "postedTime": "2026-08-17T18:16:23.841Z",
+      "postedTime": "2026-08-17T19:19:24.292Z",
       "title": "Liberty Bell",
       "description": "Used - shows wear, needs some work - “I’ve gone through the whole playfield and cabinet, cleaning and adjusting switches. The game works well. Playfield needs a bit of touchup. Cabinet is nice. Major issue is the bac...”",
       "price": "$650",
@@ -544,7 +566,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-08-17 23:03:50",
-      "lastSeen": "2026-08-19T18:16:24.267Z"
+      "lastSeen": "2026-08-19T19:19:24.818Z"
     },
     {
       "adID": "1109048891457373",
