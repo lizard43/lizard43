@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-28T15:34:07.883Z",
+  "generated_at": "2026-08-28T16:17:11.967Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,35 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 131,
-      "droppedPrice": 701,
+      "exported_ads": 132,
+      "droppedPrice": 707,
       "droppedMissingGeo": 0,
       "droppedCircle": 743
     }
   },
   "ads": [
+    {
+      "adID": "1897104131628481",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100052664076259/?product_id=1897104131628481",
+      "author": "Tristan J Sabatino",
+      "postedTime": "2026-08-28T15:55:35.000Z",
+      "title": "CarnEvil Arcade Machine",
+      "description": "Worn arcade cabinet with original CarnEvil side art and marquee. This unit has two light guns in blue and red, a CRT monitor, and a coin door assembly. The wooden cabinet shows significant wear and exposed internal components. Needs new cabinet i have all decals and glass front cover",
+      "price": "$500",
+      "lat": 29.1871986,
+      "lon": -82.1400923,
+      "location": "Ocala, FL",
+      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/786993184_38041750988802689_2772150189460263830_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=100&ccb=1-7&_nc_sid=92e707&_nc_ohc=xNFgZPTARKgQ7kNvwEOdVev&_nc_oc=AdqF-M4Nxmo1Hk7H-qMe7bPy9iOOCiIWb7zzCG2dtyr5xJS3TP7shImA2grrrCZvdfI&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=flYQvt5KWAzCQxqXbZ3Wtg&_nc_ss=7b2a8&oh=00_AQE3RaDh7nk2p8S7Ow3GdKAxsIg8dRgVlyQJMglaRW3pdA&oe=6A977B51",
+      "adUrl": "https://www.facebook.com/marketplace/item/1897104131628481/",
+      "facebookGroupId": null,
+      "facebookGroupName": null,
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-08-28 16:05:04",
+      "lastSeen": "2026-08-28T16:14:33.861Z"
+    },
     {
       "adID": "KLOV-554468",
       "source": "KLOV",
@@ -38,7 +60,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-08-28 15:14:35",
-      "lastSeen": "2026-08-28T15:14:35.038Z"
+      "lastSeen": "2026-08-28T16:17:07.214Z"
     },
     {
       "adID": "1388735599278657",
@@ -52,7 +74,7 @@
       "lat": 34.729847,
       "lon": -86.5859011,
       "location": "Huntsville, AL",
-      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/789296528_2212739829506160_4467100319128160096_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=106&ccb=1-7&_nc_sid=92e707&_nc_ohc=KsAkxg0dTPUQ7kNvwElLDt_&_nc_oc=AdqZKUf9FDIO0UCzFGix8x1smxPnYOU0ZdK_6jIKPHDsFhof0sNBlM9M6H7CLtaaQvg&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=NNpQe9QWNuE1hyaWdwQQQQ&_nc_ss=7b2a8&oh=00_AQGAAFV5l2KiSyoPYcyzPFKZZ1QQu7aAN51U6tBhViWVBw&oe=6A976278",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/789296528_2212739829506160_4467100319128160096_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=106&ccb=1-7&_nc_sid=92e707&_nc_ohc=KsAkxg0dTPUQ7kNvwElLDt_&_nc_oc=AdqZKUf9FDIO0UCzFGix8x1smxPnYOU0ZdK_6jIKPHDsFhof0sNBlM9M6H7CLtaaQvg&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=Pe849OBAee54iTFgdQrk_g&_nc_ss=7b2a8&oh=00_AQEFQ_CkvomMVoRinYnT637aTSsIdp3tit6CrskJKkiC4g&oe=6A979AB8",
       "adUrl": "https://www.facebook.com/marketplace/item/1388735599278657/",
       "facebookGroupId": null,
       "facebookGroupName": null,
@@ -60,7 +82,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-08-28 15:05:01",
-      "lastSeen": "2026-08-28T15:08:02.705Z"
+      "lastSeen": "2026-08-28T16:08:17.325Z"
     },
     {
       "adID": "3781586308648453",
@@ -74,7 +96,7 @@
       "lat": 27.928464,
       "lon": -82.2880508,
       "location": "Brandon, FL",
-      "imageUrl": "https://scontent-dfw6-2.xx.fbcdn.net/v/t39.84726-6/782489544_1597567708482389_7699349709662057174_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=110&ccb=1-7&_nc_sid=92e707&_nc_ohc=sGFZRcGs16UQ7kNvwHyeFn7&_nc_oc=AdonQRp2akjvri7V5Btiqx9O_EHCx5x41HmtkLl-eFsKwDWux9EcPomfdSV7OcM10Aw&_nc_zt=14&_nc_ht=scontent-dfw6-2.xx&_nc_gid=xi89NTqaUbh8YMQELNWBLg&_nc_ss=7b2a8&oh=00_AQFDuJtESFzvGB1nScQAzH7VDQtZyUBh5msD8NrDw79dtg&oe=6A975E2A",
+      "imageUrl": "https://scontent-dfw6-2.xx.fbcdn.net/v/t39.84726-6/782489544_1597567708482389_7699349709662057174_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=110&ccb=1-7&_nc_sid=92e707&_nc_ohc=sGFZRcGs16UQ7kNvwHyeFn7&_nc_oc=AdonQRp2akjvri7V5Btiqx9O_EHCx5x41HmtkLl-eFsKwDWux9EcPomfdSV7OcM10Aw&_nc_zt=14&_nc_ht=scontent-dfw6-2.xx&_nc_gid=Fd-O7JYXF0Rhr_9Mnt0cNw&_nc_ss=7b2a8&oh=00_AQFYh4HUiap2ltOYr4oi3lJzPLWq9jfeZOPEwnTuyl1VRg&oe=6A97966A",
       "adUrl": "https://www.facebook.com/marketplace/item/3781586308648453/",
       "facebookGroupId": null,
       "facebookGroupName": null,
@@ -82,21 +104,21 @@
       "priceChangedAt": "2026-08-28 11:05:04",
       "hidden": 0,
       "created_at": "2026-08-28 01:05:12",
-      "lastSeen": "2026-08-28T15:08:02.873Z"
+      "lastSeen": "2026-08-28T16:08:17.425Z"
     },
     {
       "adID": "4541695126096731",
       "source": "MP",
       "authorUrl": "https://www.facebook.com/marketplace/profile/100001099689388/?product_id=4541695126096731",
       "author": "Mildred Hunt",
-      "postedTime": "2026-07-21T20:18:25.000Z",
+      "postedTime": "2026-08-27T23:39:32.000Z",
       "title": "Pinball for sell.",
       "description": "",
       "price": "$260",
       "lat": 29.6519684,
       "lon": -82.3249846,
       "location": "Gainesville, FL",
-      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/787924733_1397312122343742_6632108927208131447_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=105&ccb=1-7&_nc_sid=92e707&_nc_ohc=Ge8trn6eIsIQ7kNvwGM5e-E&_nc_oc=AdrmLUWCWx_sXdd6iR05BCrQspJUZsL7nc6PK0mViUuT6wsZHelGdz5Glp6JjyWDq4k&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=qoL27dzhBRpeMO---_viFQ&_nc_ss=7b2a8&oh=00_AQFR4E2D7GimE9tXHAVLbBP_HDPTAFXK9wD7hXA5QUaZ4g&oe=6A977223",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/787924733_1397312122343742_6632108927208131447_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=105&ccb=1-7&_nc_sid=92e707&_nc_ohc=Ge8trn6eIsIQ7kNvwGM5e-E&_nc_oc=AdrmLUWCWx_sXdd6iR05BCrQspJUZsL7nc6PK0mViUuT6wsZHelGdz5Glp6JjyWDq4k&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=2u8yF98TQUD4DHIdoLzH1g&_nc_ss=7b2a8&oh=00_AQEv2ECyJBeREP3xVuQcl7tb6yO63UqTv8u5wItd8HVeSg&oe=6A977223",
       "adUrl": "https://www.facebook.com/marketplace/item/4541695126096731/",
       "facebookGroupId": null,
       "facebookGroupName": null,
@@ -104,7 +126,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-08-28 00:08:41",
-      "lastSeen": "2026-08-28T15:12:53.199Z"
+      "lastSeen": "2026-08-28T16:14:33.593Z"
     },
     {
       "adID": "1567180181872111",
@@ -118,7 +140,7 @@
       "lat": 33.0142344,
       "lon": -83.9044159,
       "location": "Monroe, GA",
-      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/786543138_1583772283191011_8774033693695900875_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=101&ccb=1-7&_nc_sid=92e707&_nc_ohc=d-f4PSpUF7kQ7kNvwHrSmLR&_nc_oc=Ado6v01IrXVAtq5Ovw33IsUBAJfcFm8i2Kutxvy0Wu5GKXUonSEiRlCIZZBYHzRXhb0&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=CBjxSbZnUU2wN0MYfg9Gfw&_nc_ss=7b2a8&oh=00_AQEl9xkfAMwPYRtDAPl4ZaFKmrhzXZ1A2q6x75j6FzJJrg&oe=6A977BD3",
+      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/786543138_1583772283191011_8774033693695900875_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=101&ccb=1-7&_nc_sid=92e707&_nc_ohc=d-f4PSpUF7kQ7kNvwHrSmLR&_nc_oc=Ado6v01IrXVAtq5Ovw33IsUBAJfcFm8i2Kutxvy0Wu5GKXUonSEiRlCIZZBYHzRXhb0&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=GoF1Jv5Tn1QgeYiR5ID_Zg&_nc_ss=7b2a8&oh=00_AQEAdhsa_ZLihcx_e8vwfc_-ysr3CUbAQOVAOUACqfsbFA&oe=6A977BD3",
       "adUrl": "https://www.facebook.com/marketplace/item/1567180181872111/",
       "facebookGroupId": null,
       "facebookGroupName": null,
@@ -126,7 +148,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-08-27 19:10:36",
-      "lastSeen": "2026-08-28T15:13:36.197Z"
+      "lastSeen": "2026-08-28T16:16:09.339Z"
     },
     {
       "adID": "KLOV-542186",
@@ -148,7 +170,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-08-27 18:18:17",
-      "lastSeen": "2026-08-28T15:14:35.474Z"
+      "lastSeen": "2026-08-28T16:17:07.649Z"
     },
     {
       "adID": "KLOV-513187",
@@ -170,7 +192,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-08-27 18:18:17",
-      "lastSeen": "2026-08-28T15:14:35.507Z"
+      "lastSeen": "2026-08-28T16:17:07.683Z"
     },
     {
       "adID": "2100461777260029",
@@ -324,7 +346,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-08-27 11:05:09",
-      "lastSeen": "2026-08-28T15:05:01.377Z"
+      "lastSeen": "2026-08-28T16:05:03.266Z"
     },
     {
       "adID": "1344633687448185",
@@ -346,7 +368,7 @@
       "priceChangedAt": "2026-08-28 13:05:13",
       "hidden": 0,
       "created_at": "2026-08-27 01:05:09",
-      "lastSeen": "2026-08-28T15:05:01.578Z"
+      "lastSeen": "2026-08-28T16:05:03.467Z"
     },
     {
       "adID": "1335621738394201",
@@ -368,7 +390,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-08-27 00:05:07",
-      "lastSeen": "2026-08-28T15:05:01.645Z"
+      "lastSeen": "2026-08-28T16:05:03.534Z"
     },
     {
       "adID": "1578659943708092",
@@ -412,7 +434,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-08-26 21:05:03",
-      "lastSeen": "2026-08-28T15:05:01.913Z"
+      "lastSeen": "2026-08-28T16:05:03.801Z"
     },
     {
       "adID": "PI-220101",
@@ -456,7 +478,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-08-26 18:11:45",
-      "lastSeen": "2026-08-28T15:09:46.752Z"
+      "lastSeen": "2026-08-28T16:11:01.535Z"
     },
     {
       "adID": "1038582109168444",
@@ -566,7 +588,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-08-26 11:31:48",
-      "lastSeen": "2026-08-28T15:14:36.093Z"
+      "lastSeen": "2026-08-28T16:17:07.950Z"
     },
     {
       "adID": "KLOV-565237",
@@ -661,7 +683,7 @@
       "source": "PS",
       "authorUrl": "https://pinside.com/pinball/community/pinsiders/alex/market",
       "author": "alex",
-      "postedTime": "2026-08-26T15:14:04.526Z",
+      "postedTime": "2026-08-26T16:16:33.968Z",
       "title": "FS: NOS Williams Big Guns Playfield",
       "description": "NOS (New Old Stock) - “Selling my NOS Big Guns playfield. Will look amazing when installed in a game (or on your wall). Colors are vibrant, no insert issues, factory mylar installed. Was going to install...”",
       "price": "$600",
@@ -676,7 +698,7 @@
       "priceChangedAt": "2026-08-28 11:09:18",
       "hidden": 0,
       "created_at": "2026-08-25 22:17:33",
-      "lastSeen": "2026-08-28T15:14:04.888Z"
+      "lastSeen": "2026-08-28T16:16:34.406Z"
     },
     {
       "adID": "1063548816409314",
@@ -2568,7 +2590,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-08-17 23:04:36",
-      "lastSeen": "2026-08-28T15:14:37.023Z"
+      "lastSeen": "2026-08-28T16:17:09.108Z"
     },
     {
       "adID": "KLOV-563795",
