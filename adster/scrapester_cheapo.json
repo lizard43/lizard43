@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-28T14:14:59.353Z",
+  "generated_at": "2026-08-28T15:14:39.918Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,57 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 129,
-      "droppedPrice": 697,
+      "exported_ads": 131,
+      "droppedPrice": 701,
       "droppedMissingGeo": 0,
-      "droppedCircle": 742
+      "droppedCircle": 745
     }
   },
   "ads": [
+    {
+      "adID": "KLOV-554468",
+      "source": "KLOV",
+      "authorUrl": "https://forums.arcade-museum.com/members/kittybeater.35366/",
+      "author": "kittybeater",
+      "postedTime": "2026-08-28T15:02:56.000Z",
+      "title": "Rectangular Lighted buttons",
+      "description": "Rectangular Lighted buttons Lighted Buttons The Arcade Boneyard, Arcade Parts Site Lighted Buttons Page The Arcade Boneyard, New & Used Arcade & Coin Operated Machines, Parts , Manuals thearcadeboneyard.com",
+      "price": "$0",
+      "lat": 29.1871986,
+      "lon": -82.1400923,
+      "location": "Ocala, Florida",
+      "imageUrl": "/images/klov-placeholder.png",
+      "adUrl": "https://forums.arcade-museum.com/threads/554468/",
+      "facebookGroupId": null,
+      "facebookGroupName": null,
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-08-28 15:14:35",
+      "lastSeen": "2026-08-28T15:14:35.038Z"
+    },
+    {
+      "adID": "1388735599278657",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/61585367045252/?product_id=1388735599278657",
+      "author": "Don Aye",
+      "postedTime": "2026-08-28T14:53:53.000Z",
+      "title": "39 Classic Arcade Games",
+      "description": "",
+      "price": "$600",
+      "lat": 34.729847,
+      "lon": -86.5859011,
+      "location": "Huntsville, AL",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/789296528_2212739829506160_4467100319128160096_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=106&ccb=1-7&_nc_sid=92e707&_nc_ohc=KsAkxg0dTPUQ7kNvwElLDt_&_nc_oc=AdqZKUf9FDIO0UCzFGix8x1smxPnYOU0ZdK_6jIKPHDsFhof0sNBlM9M6H7CLtaaQvg&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=NNpQe9QWNuE1hyaWdwQQQQ&_nc_ss=7b2a8&oh=00_AQGAAFV5l2KiSyoPYcyzPFKZZ1QQu7aAN51U6tBhViWVBw&oe=6A976278",
+      "adUrl": "https://www.facebook.com/marketplace/item/1388735599278657/",
+      "facebookGroupId": null,
+      "facebookGroupName": null,
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-08-28 15:05:01",
+      "lastSeen": "2026-08-28T15:08:02.705Z"
+    },
     {
       "adID": "3781586308648453",
       "source": "MP",
@@ -30,7 +74,7 @@
       "lat": 27.928464,
       "lon": -82.2880508,
       "location": "Brandon, FL",
-      "imageUrl": "https://scontent-dfw6-2.xx.fbcdn.net/v/t39.84726-6/782489544_1597567708482389_7699349709662057174_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=110&ccb=1-7&_nc_sid=92e707&_nc_ohc=sGFZRcGs16UQ7kNvwHyeFn7&_nc_oc=AdonQRp2akjvri7V5Btiqx9O_EHCx5x41HmtkLl-eFsKwDWux9EcPomfdSV7OcM10Aw&_nc_zt=14&_nc_ht=scontent-dfw6-2.xx&_nc_gid=z0STH_nIpumOvyIECdiHHA&_nc_ss=7b2a8&oh=00_AQHVtjnQNJQVd5HLoMyFRFEmn8JxY4QuBTiH36evOpZvCg&oe=6A975E2A",
+      "imageUrl": "https://scontent-dfw6-2.xx.fbcdn.net/v/t39.84726-6/782489544_1597567708482389_7699349709662057174_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=110&ccb=1-7&_nc_sid=92e707&_nc_ohc=sGFZRcGs16UQ7kNvwHyeFn7&_nc_oc=AdonQRp2akjvri7V5Btiqx9O_EHCx5x41HmtkLl-eFsKwDWux9EcPomfdSV7OcM10Aw&_nc_zt=14&_nc_ht=scontent-dfw6-2.xx&_nc_gid=xi89NTqaUbh8YMQELNWBLg&_nc_ss=7b2a8&oh=00_AQFDuJtESFzvGB1nScQAzH7VDQtZyUBh5msD8NrDw79dtg&oe=6A975E2A",
       "adUrl": "https://www.facebook.com/marketplace/item/3781586308648453/",
       "facebookGroupId": null,
       "facebookGroupName": null,
@@ -38,21 +82,21 @@
       "priceChangedAt": "2026-08-28 11:05:04",
       "hidden": 0,
       "created_at": "2026-08-28 01:05:12",
-      "lastSeen": "2026-08-28T14:07:57.681Z"
+      "lastSeen": "2026-08-28T15:08:02.873Z"
     },
     {
       "adID": "4541695126096731",
       "source": "MP",
       "authorUrl": "https://www.facebook.com/marketplace/profile/100001099689388/?product_id=4541695126096731",
       "author": "Mildred Hunt",
-      "postedTime": "2026-07-31T02:52:55.000Z",
+      "postedTime": "2026-07-21T20:18:25.000Z",
       "title": "Pinball for sell.",
       "description": "",
       "price": "$260",
       "lat": 29.6519684,
       "lon": -82.3249846,
       "location": "Gainesville, FL",
-      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/787924733_1397312122343742_6632108927208131447_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=105&ccb=1-7&_nc_sid=92e707&_nc_ohc=Ge8trn6eIsIQ7kNvwGM5e-E&_nc_oc=AdrmLUWCWx_sXdd6iR05BCrQspJUZsL7nc6PK0mViUuT6wsZHelGdz5Glp6JjyWDq4k&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=urSbhHo7qPL-W5UlWoU-dA&_nc_ss=7b2a8&oh=00_AQFK3vi_lyWhZm0JkD6IlfZebOanLTr3SX9qIWM7AHFo9w&oe=6A977223",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/787924733_1397312122343742_6632108927208131447_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=105&ccb=1-7&_nc_sid=92e707&_nc_ohc=Ge8trn6eIsIQ7kNvwGM5e-E&_nc_oc=AdrmLUWCWx_sXdd6iR05BCrQspJUZsL7nc6PK0mViUuT6wsZHelGdz5Glp6JjyWDq4k&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=qoL27dzhBRpeMO---_viFQ&_nc_ss=7b2a8&oh=00_AQFR4E2D7GimE9tXHAVLbBP_HDPTAFXK9wD7hXA5QUaZ4g&oe=6A977223",
       "adUrl": "https://www.facebook.com/marketplace/item/4541695126096731/",
       "facebookGroupId": null,
       "facebookGroupName": null,
@@ -60,7 +104,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-08-28 00:08:41",
-      "lastSeen": "2026-08-28T14:12:46.950Z"
+      "lastSeen": "2026-08-28T15:12:53.199Z"
     },
     {
       "adID": "1567180181872111",
@@ -74,7 +118,7 @@
       "lat": 33.0142344,
       "lon": -83.9044159,
       "location": "Monroe, GA",
-      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/786543138_1583772283191011_8774033693695900875_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=101&ccb=1-7&_nc_sid=92e707&_nc_ohc=d-f4PSpUF7kQ7kNvwHrSmLR&_nc_oc=Ado6v01IrXVAtq5Ovw33IsUBAJfcFm8i2Kutxvy0Wu5GKXUonSEiRlCIZZBYHzRXhb0&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=YXo5gZZnxJ9JBhir_GnMFQ&_nc_ss=7b2a8&oh=00_AQGTzu9P8ToRvmLKRVtGfCwxnoH7dsJEJATMXtYs2Zs84Q&oe=6A977BD3",
+      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/786543138_1583772283191011_8774033693695900875_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=101&ccb=1-7&_nc_sid=92e707&_nc_ohc=d-f4PSpUF7kQ7kNvwHrSmLR&_nc_oc=Ado6v01IrXVAtq5Ovw33IsUBAJfcFm8i2Kutxvy0Wu5GKXUonSEiRlCIZZBYHzRXhb0&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=CBjxSbZnUU2wN0MYfg9Gfw&_nc_ss=7b2a8&oh=00_AQEl9xkfAMwPYRtDAPl4ZaFKmrhzXZ1A2q6x75j6FzJJrg&oe=6A977BD3",
       "adUrl": "https://www.facebook.com/marketplace/item/1567180181872111/",
       "facebookGroupId": null,
       "facebookGroupName": null,
@@ -82,7 +126,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-08-27 19:10:36",
-      "lastSeen": "2026-08-28T14:13:54.470Z"
+      "lastSeen": "2026-08-28T15:13:36.197Z"
     },
     {
       "adID": "KLOV-542186",
@@ -104,7 +148,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-08-27 18:18:17",
-      "lastSeen": "2026-08-28T14:14:55.258Z"
+      "lastSeen": "2026-08-28T15:14:35.474Z"
     },
     {
       "adID": "KLOV-513187",
@@ -126,7 +170,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-08-27 18:18:17",
-      "lastSeen": "2026-08-28T14:14:55.291Z"
+      "lastSeen": "2026-08-28T15:14:35.507Z"
     },
     {
       "adID": "2100461777260029",
@@ -280,7 +324,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-08-27 11:05:09",
-      "lastSeen": "2026-08-28T14:05:00.159Z"
+      "lastSeen": "2026-08-28T15:05:01.377Z"
     },
     {
       "adID": "1344633687448185",
@@ -302,7 +346,7 @@
       "priceChangedAt": "2026-08-28 13:05:13",
       "hidden": 0,
       "created_at": "2026-08-27 01:05:09",
-      "lastSeen": "2026-08-28T14:05:00.360Z"
+      "lastSeen": "2026-08-28T15:05:01.578Z"
     },
     {
       "adID": "1335621738394201",
@@ -324,7 +368,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-08-27 00:05:07",
-      "lastSeen": "2026-08-28T14:05:00.427Z"
+      "lastSeen": "2026-08-28T15:05:01.645Z"
     },
     {
       "adID": "1578659943708092",
@@ -368,7 +412,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-08-26 21:05:03",
-      "lastSeen": "2026-08-28T14:05:01.003Z"
+      "lastSeen": "2026-08-28T15:05:01.913Z"
     },
     {
       "adID": "PI-220101",
@@ -412,7 +456,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-08-26 18:11:45",
-      "lastSeen": "2026-08-28T14:09:41.165Z"
+      "lastSeen": "2026-08-28T15:09:46.752Z"
     },
     {
       "adID": "1038582109168444",
@@ -500,7 +544,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-08-26 11:31:48",
-      "lastSeen": "2026-08-28T14:14:55.905Z"
+      "lastSeen": "2026-08-28T15:14:36.429Z"
     },
     {
       "adID": "KLOV-563524",
@@ -522,7 +566,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-08-26 11:31:48",
-      "lastSeen": "2026-08-28T14:14:55.559Z"
+      "lastSeen": "2026-08-28T15:14:36.093Z"
     },
     {
       "adID": "KLOV-565237",
@@ -617,7 +661,7 @@
       "source": "PS",
       "authorUrl": "https://pinside.com/pinball/community/pinsiders/alex/market",
       "author": "alex",
-      "postedTime": "2026-08-26T14:14:21.945Z",
+      "postedTime": "2026-08-26T15:14:04.526Z",
       "title": "FS: NOS Williams Big Guns Playfield",
       "description": "NOS (New Old Stock) - “Selling my NOS Big Guns playfield. Will look amazing when installed in a game (or on your wall). Colors are vibrant, no insert issues, factory mylar installed. Was going to install...”",
       "price": "$600",
@@ -632,7 +676,7 @@
       "priceChangedAt": "2026-08-28 11:09:18",
       "hidden": 0,
       "created_at": "2026-08-25 22:17:33",
-      "lastSeen": "2026-08-28T14:14:22.297Z"
+      "lastSeen": "2026-08-28T15:14:04.888Z"
     },
     {
       "adID": "1063548816409314",
@@ -2524,7 +2568,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-08-17 23:04:36",
-      "lastSeen": "2026-08-28T14:14:56.582Z"
+      "lastSeen": "2026-08-28T15:14:37.023Z"
     },
     {
       "adID": "KLOV-563795",
