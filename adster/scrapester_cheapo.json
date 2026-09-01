@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-01T11:28:05.424Z",
+  "generated_at": "2026-09-01T12:16:49.126Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,35 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 186,
-      "droppedPrice": 866,
+      "exported_ads": 187,
+      "droppedPrice": 867,
       "droppedMissingGeo": 0,
-      "droppedCircle": 919
+      "droppedCircle": 921
     }
   },
   "ads": [
+    {
+      "adID": "911286458305451",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/1577966239/?product_id=911286458305451",
+      "author": "Julie McEver",
+      "postedTime": "2026-09-01T03:41:20.000Z",
+      "title": "Pins-set of 10",
+      "description": "Set of 10 pins. Two of them are from Seattle, one is The Varsity, one is a vintage Nurses pin, four are from Alaska, one is a vintage American Heart Association pin and one is from Cass High School. All in good condition. 10.00 for the set. Pins would be great for resellers individually. Located in Newnan. Local sales only.",
+      "price": "$10",
+      "lat": 33.3806716,
+      "lon": -84.7996573,
+      "location": "Newnan, GA",
+      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/789033922_951490787237444_979156704174205121_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=100&ccb=1-7&_nc_sid=92e707&_nc_ohc=pLoz4hYK3_oQ7kNvwEciLxa&_nc_oc=Adr33_J_ZiraXZUP5IsgncOk3JBtmxoFMgIP7z6fUksYtg_LmG_nA4J-8CDIvLdDJ0s&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=gsc2bGMEv1d8jah4qBr-qA&_nc_ss=7b2a8&oh=00_AQI9D4_T70352thDPPZiG8RwrCG2r9uNuqC9WGSnm5IFeA&oe=6A9CAB39",
+      "adUrl": "https://www.facebook.com/marketplace/item/911286458305451/",
+      "facebookGroupId": null,
+      "facebookGroupName": null,
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-09-01 12:07:59",
+      "lastSeen": "2026-09-01T12:15:51.388Z"
+    },
     {
       "adID": "KLOV-566716",
       "source": "KLOV",
@@ -38,7 +60,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-09-01 11:28:00",
-      "lastSeen": "2026-09-01T11:28:00.523Z"
+      "lastSeen": "2026-09-01T12:16:44.773Z"
     },
     {
       "adID": "845533828549653",
@@ -74,7 +96,7 @@
       "lat": 29.8946952,
       "lon": -81.3145395,
       "location": "St Augustine, FL",
-      "imageUrl": "https://scontent-dfw6-2.xx.fbcdn.net/v/t39.84726-6/786242300_1451037743535552_5545368253668094978_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=108&ccb=1-7&_nc_sid=92e707&_nc_ohc=uDUskS3N5NkQ7kNvwFYlnMj&_nc_oc=Adov5cSKEhumwmLMBsYH8PBo_iVgtgQNHP9Gr1ZI4pSim8AyGboANJk--BTZDfVzgEI&_nc_zt=14&_nc_ht=scontent-dfw6-2.xx&_nc_gid=G123fyY_Yajf63M-jE4dnw&_nc_ss=7b2a8&oh=00_AQLFjunzBc0b_Qt8hU2m6DxJDM0uh8_Vdw6sjxViPdECnA&oe=6A9C9F99",
+      "imageUrl": "https://scontent-dfw6-2.xx.fbcdn.net/v/t39.84726-6/786242300_1451037743535552_5545368253668094978_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=108&ccb=1-7&_nc_sid=92e707&_nc_ohc=uDUskS3N5NkQ7kNvwFYlnMj&_nc_oc=Adov5cSKEhumwmLMBsYH8PBo_iVgtgQNHP9Gr1ZI4pSim8AyGboANJk--BTZDfVzgEI&_nc_zt=14&_nc_ht=scontent-dfw6-2.xx&_nc_gid=6twi9Gw2lVEsDA5Hdcf9nQ&_nc_ss=7b2a8&oh=00_AQIOq5p9tYdIo9yfMfbZy_2tvzIvap8DsD4g2Y-MyMaBxw&oe=6A9C9F99",
       "adUrl": "https://www.facebook.com/marketplace/item/3355920387902091/",
       "facebookGroupId": null,
       "facebookGroupName": null,
@@ -82,7 +104,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-09-01 00:13:29",
-      "lastSeen": "2026-09-01T11:26:20.906Z"
+      "lastSeen": "2026-09-01T12:11:08.690Z"
     },
     {
       "adID": "1731687578132916",
@@ -177,7 +199,7 @@
       "source": "PS",
       "authorUrl": "https://pinside.com/pinball/community/pinsiders/gardenartisan68/market",
       "author": "Gardenartisan68",
-      "postedTime": "2026-08-31T17:27:21.509Z",
+      "postedTime": "2026-08-31T17:16:07.423Z",
       "title": "Road Race",
       "description": "Partially restored (almost original) - “Gottlieb Road Race Very clean. Works great. Nice playfield. BGResto backglass. Cabinet has been refurbished and painted white. Thinking about doing a custom cabinet art design just...”",
       "price": "$750",
@@ -192,7 +214,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-08-31 17:17:48",
-      "lastSeen": "2026-09-01T11:27:23.133Z"
+      "lastSeen": "2026-09-01T12:16:08.224Z"
     },
     {
       "adID": "1700830605380676",
@@ -258,7 +280,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-08-31 16:17:17",
-      "lastSeen": "2026-09-01T11:28:01.093Z"
+      "lastSeen": "2026-09-01T12:16:45.597Z"
     },
     {
       "adID": "1762971498368931",
@@ -302,7 +324,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-08-31 14:16:19",
-      "lastSeen": "2026-09-01T11:28:01.193Z"
+      "lastSeen": "2026-09-01T12:16:45.695Z"
     },
     {
       "adID": "1759608245361053",
@@ -324,7 +346,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-08-31 12:05:03",
-      "lastSeen": "2026-09-01T11:05:10.484Z"
+      "lastSeen": "2026-09-01T12:05:10.429Z"
     },
     {
       "adID": "1098504932851303",
@@ -566,7 +588,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-08-31 11:12:50",
-      "lastSeen": "2026-09-01T11:19:44.011Z"
+      "lastSeen": "2026-09-01T12:07:57.429Z"
     },
     {
       "adID": "1094457189811419",
@@ -654,7 +676,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-08-30 20:13:08",
-      "lastSeen": "2026-09-01T01:09:41.014Z"
+      "lastSeen": "2026-09-01T12:07:57.462Z"
     },
     {
       "adID": "1389308233403973",
@@ -742,7 +764,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-08-30 16:05:06",
-      "lastSeen": "2026-09-01T01:09:41.114Z"
+      "lastSeen": "2026-09-01T12:07:57.563Z"
     },
     {
       "adID": "2206147490229507",
@@ -1365,7 +1387,7 @@
       "source": "PS",
       "authorUrl": "https://pinside.com/pinball/community/pinsiders/racingpin/market",
       "author": "RacingPin",
-      "postedTime": "2026-08-29T11:27:29.211Z",
+      "postedTime": "2026-08-29T12:16:13.819Z",
       "title": "Empty Bally SS Black Jack Cabinet",
       "description": "Used, fair condition - “This is for an empty head and body Bally early SS cabinet. Originally from a Black Jack. In fair condition”",
       "price": "$100",
@@ -1380,7 +1402,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-08-29 01:14:10",
-      "lastSeen": "2026-09-01T11:27:29.561Z"
+      "lastSeen": "2026-09-01T12:16:14.184Z"
     },
     {
       "adID": "1498188845692203",
@@ -1886,7 +1908,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-08-26 11:31:48",
-      "lastSeen": "2026-09-01T11:28:00.658Z"
+      "lastSeen": "2026-09-01T12:16:44.841Z"
     },
     {
       "adID": "KLOV-563524",
@@ -2568,7 +2590,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-08-23 16:26:13",
-      "lastSeen": "2026-09-01T11:28:00.490Z"
+      "lastSeen": "2026-09-01T12:16:44.740Z"
     },
     {
       "adID": "1749721346361787",
@@ -3778,7 +3800,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-08-17 23:04:36",
-      "lastSeen": "2026-09-01T11:28:03.041Z"
+      "lastSeen": "2026-09-01T12:16:47.088Z"
     },
     {
       "adID": "KLOV-563795",
