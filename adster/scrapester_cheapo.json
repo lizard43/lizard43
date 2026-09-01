@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-01T14:21:09.967Z",
+  "generated_at": "2026-09-01T15:34:57.400Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,26 +11,158 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 189,
-      "droppedPrice": 872,
+      "exported_ads": 195,
+      "droppedPrice": 879,
       "droppedMissingGeo": 0,
-      "droppedCircle": 933
+      "droppedCircle": 946
     }
   },
   "ads": [
+    {
+      "adID": "2307276993428220",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/5002237/?product_id=2307276993428220",
+      "author": "Javier Adorno",
+      "postedTime": "2026-09-01T14:05:37.000Z",
+      "title": "R36S Retro Game Console",
+      "description": "Pickup in Tampa, Citrus Park area. This is a cool little console that has thousands of retro games ready to play. It comes in the original box with the charger. Usually when you buy these new, the factory SD card it comes with is no good, expected to fail, and it is always recommended that you replace it first. I've already done this, with a new Sandisk 64GB SD with ArkOS flashed and over 2,000 games added. It is brand new, other than the things done above, plus some testing. Games included are from these retro consoles: Arcade Atari 2600 PC Engine NES SNES N64 Game Boy Game Boy Color Game Boy Advance Sega Master System Sega Genesis Game Gear Neo Geo PlayStation 1 It has a 3.5\" IPS screen. Charges with a type C charger (input 5V, 1.5A) If there are specific games you want on it, let me know, and I may be able to add them if they're not already there. Cash (preferred) Cash App Venmo Zelle Thanks for checking it out!",
+      "price": "$70",
+      "lat": 27.9449854,
+      "lon": -82.4583107,
+      "location": "Tampa, FL",
+      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/792046912_1611450063677280_2993244407860987748_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=101&ccb=1-7&_nc_sid=92e707&_nc_ohc=-YiVkVHn4dUQ7kNvwGbuEHh&_nc_oc=AdpDnLuZ12K9Bvdb6TceFCylhPYp4JcvuAu11TbAnaUiz046ODvjnaV3j3HoXxpc-38&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=JPY9IB3eoSq9vb94d0iEAg&_nc_ss=7b2a8&oh=00_AQKb7hxc-7ugXzfRoDZYy7JV6jiTplcHw1spK-yEZpODPw&oe=6A9CC4DF",
+      "adUrl": "https://www.facebook.com/marketplace/item/2307276993428220/",
+      "facebookGroupId": null,
+      "facebookGroupName": null,
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-09-01 15:05:20",
+      "lastSeen": "2026-09-01T15:25:46.039Z"
+    },
+    {
+      "adID": "27732135433153141",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/61578933760486/?product_id=27732135433153141",
+      "author": "Polly Smith",
+      "postedTime": "2026-09-01T01:28:46.000Z",
+      "title": "Pac-Man arcade mini",
+      "description": "Battery powered 5.5” H x 3.5” W x 3” D",
+      "price": "$10",
+      "lat": 28.0856815,
+      "lon": -82.756907,
+      "location": "Palm Harbor, FL",
+      "imageUrl": "https://scontent-dfw6-2.xx.fbcdn.net/v/t39.84726-6/790268290_1094490230202407_8062394061247539755_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=109&ccb=1-7&_nc_sid=92e707&_nc_ohc=4m5D1-FhV5oQ7kNvwFAalGR&_nc_oc=AdoYhtGlX9RmbRZn5zY_gHZhTu77e0b3AWq-spREdDZoY8xW-fFFODuLw_gJhtn8Jdw&_nc_zt=14&_nc_ht=scontent-dfw6-2.xx&_nc_gid=oRrfLHkCsunqc0bYSxHJLg&_nc_ss=7b2a8&oh=00_AQKK1FmKpiiKwYjeBRIC96cXgcFfg6y9k_gsGAJOoC5mDQ&oe=6A9CC06E",
+      "adUrl": "https://www.facebook.com/marketplace/item/27732135433153141/",
+      "facebookGroupId": null,
+      "facebookGroupName": null,
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-09-01 15:05:15",
+      "lastSeen": "2026-09-01T15:18:58.467Z"
+    },
+    {
+      "adID": "1736793367370955",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/61578933760486/?product_id=1736793367370955",
+      "author": "Polly Smith",
+      "postedTime": "2026-09-01T01:28:46.000Z",
+      "title": "Pac-Man joystick retro arcade game",
+      "description": "Have two of these Must be plugged in while playing",
+      "price": "$10",
+      "lat": 28.0856815,
+      "lon": -82.756907,
+      "location": "Palm Harbor, FL",
+      "imageUrl": "https://scontent-dfw6-2.xx.fbcdn.net/v/t39.84726-6/790186321_1616949126673513_5836656606926559195_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=110&ccb=1-7&_nc_sid=92e707&_nc_ohc=AFRtWB0qxggQ7kNvwGfegQ6&_nc_oc=AdqxTeCNyjjqNj0EswtfMCE6Wdp2b-iY9toyZvpZsZbMsuDnBcu2HtGOcaUAwjvmoNk&_nc_zt=14&_nc_ht=scontent-dfw6-2.xx&_nc_gid=hMwh2Or47dkHN3WWlkfTYA&_nc_ss=7b2a8&oh=00_AQLJQkZgtnbYFmfD8cUcD4ZyLFxRYv8p2exzdjHhzZ1EzQ&oe=6A9CAF70",
+      "adUrl": "https://www.facebook.com/marketplace/item/1736793367370955/",
+      "facebookGroupId": null,
+      "facebookGroupName": null,
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-09-01 15:05:15",
+      "lastSeen": "2026-09-01T15:18:58.501Z"
+    },
+    {
+      "adID": "1151979900743882",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/61552719609033/?product_id=1151979900743882",
+      "author": "Rick Dailey",
+      "postedTime": "2026-09-01T14:43:24.000Z",
+      "title": "Space invaders",
+      "description": "2 games included. Space invaders black & white, space invaders color.",
+      "price": "$150",
+      "lat": 29.3880028,
+      "lon": -82.4481694,
+      "location": "Williston, FL",
+      "imageUrl": "https://scontent-dfw6-2.xx.fbcdn.net/v/t39.84726-6/790457587_1587840069490499_2145268637446056465_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=109&ccb=1-7&_nc_sid=92e707&_nc_ohc=de7ClMP6MiEQ7kNvwEy0jGT&_nc_oc=AdqdrpxwP2MF3_0FP8TAaB-6-r-jxqB3nS3hXmUGTS49jLce-SWwuPLUwrdCcKyuf1Q&_nc_zt=14&_nc_ht=scontent-dfw6-2.xx&_nc_gid=yecQ1L77kIgLd_ESJbYwPg&_nc_ss=7b2a8&oh=00_AQIaK84EgL07xRoSV6fRkYd0VjQo3syyJvD0ELQw4yRlVA&oe=6A9CD737",
+      "adUrl": "https://www.facebook.com/marketplace/item/1151979900743882/",
+      "facebookGroupId": null,
+      "facebookGroupName": null,
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-09-01 15:05:08",
+      "lastSeen": "2026-09-01T15:08:13.745Z"
+    },
+    {
+      "adID": "1632631425157307",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/61552719609033/?product_id=1632631425157307",
+      "author": "Rick Dailey",
+      "postedTime": "2026-09-01T14:41:11.000Z",
+      "title": "Street fighter 2 champion edition.",
+      "description": "Three games included Street fighter 2 champion edition, street fighter 2 New champions, street fighter 2 turbo",
+      "price": "$200",
+      "lat": 29.3880028,
+      "lon": -82.4481694,
+      "location": "Williston, FL",
+      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/791246556_1938050680214925_6196393767320006493_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=100&ccb=1-7&_nc_sid=92e707&_nc_ohc=xyh7sMqL5MYQ7kNvwEfcRma&_nc_oc=Adp9TVYJHqZ1WvTRctlCVZ4_99-IJZSXfXJcgcyd8BHsOiRCn8y8D08yC5Nm_Qxzcoc&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=eRbTozTaVNDQe0oxgEbliQ&_nc_ss=7b2a8&oh=00_AQLqL8A9Fdf7PPXs57B6_1VZiw2ImB7YQ2SbO3ZIy3LqFw&oe=6A9CBF91",
+      "adUrl": "https://www.facebook.com/marketplace/item/1632631425157307/",
+      "facebookGroupId": null,
+      "facebookGroupName": null,
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-09-01 15:05:08",
+      "lastSeen": "2026-09-01T15:08:13.778Z"
+    },
+    {
+      "adID": "1374649214853337",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/61552719609033/?product_id=1374649214853337",
+      "author": "Rick Dailey",
+      "postedTime": "2026-09-01T14:37:58.000Z",
+      "title": "Marvel Capcom",
+      "description": "Three games included . The punisher, X-men,marvel children of the atom superhero’s hero’s.",
+      "price": "$200",
+      "lat": 29.3880028,
+      "lon": -82.4481694,
+      "location": "Williston, FL",
+      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/789707736_1750302325922599_2825200726956675385_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=102&ccb=1-7&_nc_sid=92e707&_nc_ohc=CwI6GeTuLBwQ7kNvwF-hbEb&_nc_oc=AdriKf0BZAZeuwGCwkJIS1clsI2EzvwpiwRWAmz8b4RdnT52LrYbNMEB_NqyVT9Fqzk&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=hBInxZE7YqZV1KiwwPfLLA&_nc_ss=7b2a8&oh=00_AQLqz4WTe_nVnRThIvh7cFEJuSmlsfcS8ArZfV4gFRQm8A&oe=6A9CBA88",
+      "adUrl": "https://www.facebook.com/marketplace/item/1374649214853337/",
+      "facebookGroupId": null,
+      "facebookGroupName": null,
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-09-01 15:05:08",
+      "lastSeen": "2026-09-01T15:08:13.812Z"
+    },
     {
       "adID": "1093836336550693",
       "source": "MP",
       "authorUrl": "https://www.facebook.com/marketplace/profile/822229888/?product_id=1093836336550693",
       "author": "John Preble",
-      "postedTime": "2026-07-25T06:19:45.000Z",
+      "postedTime": "2026-09-01T13:52:40.000Z",
       "title": "2 pinball machines in Abita -",
       "description": "needs minor repair - aztex needs score reel coil, stardust was restored recently and stopped working - i now need space. at the abita mystery house - [hidden information] - 10am-5pm two for 700",
       "price": "$700",
       "lat": 30.4785257,
       "lon": -90.0375755,
       "location": "Abita Springs, LA",
-      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/789581396_2860821760960979_6827731856136329649_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=92e707&_nc_ohc=CWt41sF_q04Q7kNvwGoBBKi&_nc_oc=Adp_wgByGQujM8gvUzF1EahQnY8xKcp80hDrnDEDKBqKjvKCuICFxgjDIdijWja2iSw&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=oh7hqAbJ5RLOV_vZ-1fu-w&_nc_ss=7b2a8&oh=00_AQJjnnELuKwnb9kA8WvZZcbvDP5sfphUrIonID7BfGiDjA&oe=6A9CA1FD",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/789581396_2860821760960979_6827731856136329649_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=92e707&_nc_ohc=CWt41sF_q04Q7kNvwGoBBKi&_nc_oc=Adp_wgByGQujM8gvUzF1EahQnY8xKcp80hDrnDEDKBqKjvKCuICFxgjDIdijWja2iSw&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=r2OLVHB-xIbRg-vfbvC04A&_nc_ss=7b2a8&oh=00_AQIwQWegS_aBjzM7Rr-YNEW9dW-uBMGRgI7oFKcEOq1hEA&oe=6A9CDA3D",
       "adUrl": "https://www.facebook.com/marketplace/item/1093836336550693/",
       "facebookGroupId": null,
       "facebookGroupName": null,
@@ -38,7 +170,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-09-01 14:12:15",
-      "lastSeen": "2026-09-01T14:15:22.441Z"
+      "lastSeen": "2026-09-01T15:29:25.797Z"
     },
     {
       "adID": "1085638823969885",
@@ -52,7 +184,7 @@
       "lat": 30.3262247,
       "lon": -81.6579179,
       "location": "Jacksonville, FL",
-      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/790519941_2055478815079061_8934667453199235365_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=104&ccb=1-7&_nc_sid=92e707&_nc_ohc=3M4THVa-mTUQ7kNvwHfVz3t&_nc_oc=AdpF5HCjzGNQAMd84PjxJCwb94rck6yurGoQv1T5LmuiiXcz5d2WDaOjs_BgpllFAGg&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=uHYuuNX3lnrWlyM8R3wGRA&_nc_ss=7b2a8&oh=00_AQINzMS4GLl-8qBeA29AenduZofnsLx10Z5AxtsP7AaUiA&oe=6A9C9693",
+      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/790519941_2055478815079061_8934667453199235365_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=104&ccb=1-7&_nc_sid=92e707&_nc_ohc=3M4THVa-mTUQ7kNvwHfVz3t&_nc_oc=AdpF5HCjzGNQAMd84PjxJCwb94rck6yurGoQv1T5LmuiiXcz5d2WDaOjs_BgpllFAGg&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=J5YAPUDJi_lrJ_oa2_ZJ4g&_nc_ss=7b2a8&oh=00_AQJKcT6qbiJzdGi5l5jv8xh1GdOAvIgOGaHH3tnM_BhXSg&oe=6A9CCED3",
       "adUrl": "https://www.facebook.com/marketplace/item/1085638823969885/",
       "facebookGroupId": null,
       "facebookGroupName": null,
@@ -60,7 +192,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-09-01 13:12:34",
-      "lastSeen": "2026-09-01T13:18:32.834Z"
+      "lastSeen": "2026-09-01T15:33:52.573Z"
     },
     {
       "adID": "911286458305451",
@@ -104,7 +236,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-09-01 11:28:00",
-      "lastSeen": "2026-09-01T14:21:05.383Z"
+      "lastSeen": "2026-09-01T15:34:52.834Z"
     },
     {
       "adID": "845533828549653",
@@ -140,7 +272,7 @@
       "lat": 29.8946952,
       "lon": -81.3145395,
       "location": "St Augustine, FL",
-      "imageUrl": "https://scontent-dfw6-2.xx.fbcdn.net/v/t39.84726-6/786242300_1451037743535552_5545368253668094978_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=108&ccb=1-7&_nc_sid=92e707&_nc_ohc=uDUskS3N5NkQ7kNvwFYlnMj&_nc_oc=Adov5cSKEhumwmLMBsYH8PBo_iVgtgQNHP9Gr1ZI4pSim8AyGboANJk--BTZDfVzgEI&_nc_zt=14&_nc_ht=scontent-dfw6-2.xx&_nc_gid=bEp6sMRO-wNTQPMPlXuSTA&_nc_ss=7b2a8&oh=00_AQJDf9dgcSMLi4yhixrGLgsObRuT3D7ovytw-slbdOIN0A&oe=6A9C9F99",
+      "imageUrl": "https://scontent-dfw6-2.xx.fbcdn.net/v/t39.84726-6/786242300_1451037743535552_5545368253668094978_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=108&ccb=1-7&_nc_sid=92e707&_nc_ohc=uDUskS3N5NkQ7kNvwFYlnMj&_nc_oc=Adov5cSKEhumwmLMBsYH8PBo_iVgtgQNHP9Gr1ZI4pSim8AyGboANJk--BTZDfVzgEI&_nc_zt=14&_nc_ht=scontent-dfw6-2.xx&_nc_gid=yvQ9lAqsflWSMznOgIhnaQ&_nc_ss=7b2a8&oh=00_AQK_J_WSdP9A0DDsFxpLc80h1Gf_hoQWvF4Fn1c3SYvTUQ&oe=6A9CD7D9",
       "adUrl": "https://www.facebook.com/marketplace/item/3355920387902091/",
       "facebookGroupId": null,
       "facebookGroupName": null,
@@ -148,7 +280,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-09-01 00:13:29",
-      "lastSeen": "2026-09-01T14:18:27.593Z"
+      "lastSeen": "2026-09-01T15:32:40.520Z"
     },
     {
       "adID": "1731687578132916",
@@ -243,7 +375,7 @@
       "source": "PS",
       "authorUrl": "https://pinside.com/pinball/community/pinsiders/gardenartisan68/market",
       "author": "Gardenartisan68",
-      "postedTime": "2026-08-31T17:20:27.390Z",
+      "postedTime": "2026-08-31T17:34:15.314Z",
       "title": "Road Race",
       "description": "Partially restored (almost original) - “Gottlieb Road Race Very clean. Works great. Nice playfield. BGResto backglass. Cabinet has been refurbished and painted white. Thinking about doing a custom cabinet art design just...”",
       "price": "$750",
@@ -258,7 +390,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-08-31 17:17:48",
-      "lastSeen": "2026-09-01T14:20:29.306Z"
+      "lastSeen": "2026-09-01T15:34:16.626Z"
     },
     {
       "adID": "1700830605380676",
@@ -324,7 +456,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-08-31 16:17:17",
-      "lastSeen": "2026-09-01T14:21:05.851Z"
+      "lastSeen": "2026-09-01T15:34:53.303Z"
     },
     {
       "adID": "1762971498368931",
@@ -368,7 +500,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-08-31 14:16:19",
-      "lastSeen": "2026-09-01T14:21:06.259Z"
+      "lastSeen": "2026-09-01T15:34:53.402Z"
     },
     {
       "adID": "1759608245361053",
@@ -1431,7 +1563,7 @@
       "source": "PS",
       "authorUrl": "https://pinside.com/pinball/community/pinsiders/racingpin/market",
       "author": "RacingPin",
-      "postedTime": "2026-08-29T14:20:35.195Z",
+      "postedTime": "2026-08-29T15:34:22.217Z",
       "title": "Empty Bally SS Black Jack Cabinet",
       "description": "Used, fair condition - “This is for an empty head and body Bally early SS cabinet. Originally from a Black Jack. In fair condition”",
       "price": "$100",
@@ -1446,7 +1578,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-08-29 01:14:10",
-      "lastSeen": "2026-09-01T14:20:35.597Z"
+      "lastSeen": "2026-09-01T15:34:22.639Z"
     },
     {
       "adID": "1498188845692203",
@@ -1952,7 +2084,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-08-26 11:31:48",
-      "lastSeen": "2026-09-01T14:21:05.451Z"
+      "lastSeen": "2026-09-01T15:34:52.901Z"
     },
     {
       "adID": "KLOV-563524",
@@ -2634,7 +2766,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-08-23 16:26:13",
-      "lastSeen": "2026-09-01T14:21:05.350Z"
+      "lastSeen": "2026-09-01T15:34:52.800Z"
     },
     {
       "adID": "1749721346361787",
@@ -3844,7 +3976,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-08-17 23:04:36",
-      "lastSeen": "2026-09-01T14:21:07.661Z"
+      "lastSeen": "2026-09-01T15:34:54.792Z"
     },
     {
       "adID": "KLOV-563795",
