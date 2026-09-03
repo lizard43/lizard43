@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-03T10:01:53.845Z",
+  "generated_at": "2026-09-03T11:13:41.739Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,57 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 220,
-      "droppedPrice": 964,
+      "exported_ads": 221,
+      "droppedPrice": 970,
       "droppedMissingGeo": 0,
-      "droppedCircle": 1023
+      "droppedCircle": 1027
     }
   },
   "ads": [
+    {
+      "adID": "2166740870549812",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100009501742045/?product_id=2166740870549812",
+      "author": "Christine Arnold",
+      "postedTime": "2026-09-03T01:55:05.000Z",
+      "title": "Arcade game",
+      "description": "300$",
+      "price": "$300",
+      "lat": 28.4635266,
+      "lon": -82.5363557,
+      "location": "Spring Hill, FL",
+      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/792109709_28004336405893273_211347826871045165_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=103&ccb=1-7&_nc_sid=92e707&_nc_ohc=lW_3DW0QYOAQ7kNvwGdIjsY&_nc_oc=AdrtAtPSHWzreW8wTnYMvRq7sUkAtY_ABQgpECIDWHdbTbNs57hu1Q3ibwQGChXlrFk&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=oI21A65ErjvQ4jEsNXU3OQ&_nc_ss=7b2a8&oh=00_AQKAHFj_mwH2HzCi3E0g_OiJlALXUrOt_-MZd7GP4lWvvw&oe=6A9F20A6",
+      "adUrl": "https://www.facebook.com/marketplace/item/2166740870549812/",
+      "facebookGroupId": null,
+      "facebookGroupName": null,
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-09-03 11:05:09",
+      "lastSeen": "2026-09-03T11:07:38.518Z"
+    },
+    {
+      "adID": "1542506493747030",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100081812183023/?product_id=1542506493747030",
+      "author": "Inez Fite",
+      "postedTime": "2026-09-02T15:45:30.000Z",
+      "title": "Ms.Pacman arcade machine",
+      "description": "Barely used ms.pacman arcade machine. $400",
+      "price": "$400",
+      "lat": 30.6913462,
+      "lon": -88.0437509,
+      "location": "Mobile, AL",
+      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/791599698_1065470652865107_4132894738081030912_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=100&ccb=1-7&_nc_sid=92e707&_nc_ohc=wDmYTR_222sQ7kNvwEgLhdF&_nc_oc=AdrGqKFZifhqCuPDBWfJ34_zurB0QIk9LzK0K27aE8zk7Oo3aJ8hTr2TRPPBpkxp31s&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=0Ag_05Ldc-9wiTHNGV3TMg&_nc_ss=7b2a8&oh=00_AQICRYPWt3s6MAn6_Cm1rNk_1zCMTqiGQpYS4eeuqZ5zwQ&oe=6A9F38DD",
+      "adUrl": "https://www.facebook.com/marketplace/item/1542506493747030/",
+      "facebookGroupId": null,
+      "facebookGroupName": null,
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-09-03 11:05:09",
+      "lastSeen": "2026-09-03T11:07:38.751Z"
+    },
     {
       "adID": "KLOV-566783",
       "source": "KLOV",
@@ -38,7 +82,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-09-02 22:15:50",
-      "lastSeen": "2026-09-03T01:17:52.932Z"
+      "lastSeen": "2026-09-03T11:13:37.551Z"
     },
     {
       "adID": "1447638340745706",
@@ -148,7 +192,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-09-02 16:05:06",
-      "lastSeen": "2026-09-03T01:16:19.481Z"
+      "lastSeen": "2026-09-03T11:08:05.942Z"
     },
     {
       "adID": "1611785960650881",
@@ -170,7 +214,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-09-02 16:05:04",
-      "lastSeen": "2026-09-03T01:08:21.607Z"
+      "lastSeen": "2026-09-03T11:05:09.878Z"
     },
     {
       "adID": "1403072095100863",
@@ -228,7 +272,7 @@
       "lat": 30.4868564,
       "lon": -90.9562125,
       "location": "Denham Springs, LA",
-      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/793158914_932831882616169_6276155471666277773_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=111&ccb=1-7&_nc_sid=92e707&_nc_ohc=U7WlnJTuf10Q7kNvwFovIzK&_nc_oc=Adpm2ssq0voHW8NfFIBibIG9PEGAsMvC_tM-OMhUtIIJ4ezmhCR34U83h6tSkgwVjpQ&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=mvPOGcZD-bzBADm8Dkd2Ww&_nc_ss=7b2a8&oh=00_AQJl7W2cb-T_zw9ZyOWXiebMswFb3d4uLqkKt9jLcxuJWA&oe=6A9E8DC5",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/793158914_932831882616169_6276155471666277773_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=111&ccb=1-7&_nc_sid=92e707&_nc_ohc=U7WlnJTuf10Q7kNvwFovIzK&_nc_oc=Adpm2ssq0voHW8NfFIBibIG9PEGAsMvC_tM-OMhUtIIJ4ezmhCR34U83h6tSkgwVjpQ&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=c8STMGNP0PyNrep0b3rduw&_nc_ss=7b2a8&oh=00_AQJRJO0IGb626hmt0uP4-_16w3x5eUQWGzEzee8t5Z0oiQ&oe=6A9F3685",
       "adUrl": "https://www.facebook.com/marketplace/item/1065336486249598/",
       "facebookGroupId": null,
       "facebookGroupName": null,
@@ -236,7 +280,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-09-02 13:05:06",
-      "lastSeen": "2026-09-03T01:08:21.573Z"
+      "lastSeen": "2026-09-03T11:07:38.818Z"
     },
     {
       "adID": "1919884676082849",
@@ -302,29 +346,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-09-02 11:11:15",
-      "lastSeen": "2026-09-03T01:16:19.382Z"
-    },
-    {
-      "adID": "1466063328685018",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/100022527129435/?product_id=1466063328685018",
-      "author": "Randy Taylor",
-      "postedTime": "2026-09-02T05:36:17.000Z",
-      "title": "Vintage Pinball Video Game",
-      "description": "Very old ... pick up Bowdon Ga ... shipping available upon request",
-      "price": "$42",
-      "lat": 33.5378885,
-      "lon": -85.2532818,
-      "location": "Bowdon, GA",
-      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/790755206_1756778328930604_7485264309696898779_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=104&ccb=1-7&_nc_sid=92e707&_nc_ohc=pnI_TSm0AZsQ7kNvwH4a7_9&_nc_oc=AdpCXqHg4TbKEXNo9lZ74t05KsSeH0zyY80znPenhdL8YCz4Y4xxTIPUfo6rFI3Y77E&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=izhFJm3BU7bxnisHpo1UsA&_nc_ss=7b2a8&oh=00_AQKRdP2OGxArlAHa815c_JUVoYCc9hTJp11SuE6CUKoeFw&oe=6A9E908C",
-      "adUrl": "https://www.facebook.com/marketplace/item/1466063328685018/",
-      "facebookGroupId": null,
-      "facebookGroupName": null,
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-09-02 11:11:14",
-      "lastSeen": "2026-09-03T01:16:19.315Z"
+      "lastSeen": "2026-09-03T11:08:05.841Z"
     },
     {
       "adID": "1559810412857675",
@@ -566,7 +588,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-09-01 22:14:24",
-      "lastSeen": "2026-09-03T01:12:55.096Z"
+      "lastSeen": "2026-09-03T11:08:06.496Z"
     },
     {
       "adID": "1689980605420687",
@@ -698,7 +720,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-09-01 20:12:11",
-      "lastSeen": "2026-09-03T01:12:55.163Z"
+      "lastSeen": "2026-09-03T11:08:06.563Z"
     },
     {
       "adID": "2925868557763593",
@@ -1189,7 +1211,7 @@
       "source": "PS",
       "authorUrl": "https://pinside.com/pinball/community/pinsiders/gardenartisan68/market",
       "author": "Gardenartisan68",
-      "postedTime": "2026-09-01T01:17:12.654Z",
+      "postedTime": "2026-09-01T11:13:04.255Z",
       "title": "Road Race",
       "description": "Partially restored (almost original) - “Gottlieb Road Race Very clean. Works great. Nice playfield. BGResto backglass. Cabinet has been refurbished and painted white. Thinking about doing a custom cabinet art design just...”",
       "price": "$750",
@@ -1204,7 +1226,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-08-31 17:17:48",
-      "lastSeen": "2026-09-03T01:17:13.850Z"
+      "lastSeen": "2026-09-03T11:13:04.374Z"
     },
     {
       "adID": "1700830605380676",
