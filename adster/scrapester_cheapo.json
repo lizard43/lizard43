@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-03T01:17:57.404Z",
+  "generated_at": "2026-09-03T06:07:42.785Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,10 +11,10 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 223,
+      "exported_ads": 220,
       "droppedPrice": 964,
       "droppedMissingGeo": 0,
-      "droppedCircle": 1027
+      "droppedCircle": 1024
     }
   },
   "ads": [
@@ -1614,7 +1614,7 @@
       "lat": 34.6731323,
       "lon": -86.0338765,
       "location": "Scottsboro, AL",
-      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/783673555_2151607589099234_9192773438086971323_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=104&ccb=1-7&_nc_sid=92e707&_nc_ohc=sHNGmXzWBOgQ7kNvwH07kfR&_nc_oc=Adr2rsHuFrCkGllPsOz8KmXY9tq-XQCRjCE_6jSCf50mViH8Yc7NWhmVDvHajvsJLds&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=jCQ4CSYFLLWUeSj9QBV0rQ&_nc_ss=7b2a8&oh=00_AQKd_rgNwtI272qKwgCtCeHp0_RhXHgs50gCLTdlhOQ9Ug&oe=6A9A699F",
+      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/783673555_2151607589099234_9192773438086971323_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=104&ccb=1-7&_nc_sid=92e707&_nc_ohc=TrLUNY22uHsQ7kNvwHmVc0-&_nc_oc=AdruALdkqhh-83HQmOf9XnjACLS-OZ8cc__7VTkRe8cQ01SM_EQERPryTpnvf3S0r24&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=JoTvacEM-dZ5KrQagiD7QA&_nc_ss=7b2a8&oh=00_AQI9mPJ2qwjfPtSdd_vvX31it39oDCvTDSQETcOQ0mBChw&oe=6A9ECE9F",
       "adUrl": "https://www.facebook.com/marketplace/item/1823967798623293/",
       "facebookGroupId": null,
       "facebookGroupName": null,
@@ -1622,7 +1622,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-08-30 21:05:40",
-      "lastSeen": "2026-08-30T22:12:53.741Z"
+      "lastSeen": "2026-09-03T06:04:43.998Z"
     },
     {
       "adID": "1412038467514953",
@@ -1779,28 +1779,6 @@
       "lastSeen": "2026-09-02T17:32:37.700Z"
     },
     {
-      "adID": "2622701601519240",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/100005524714312/?product_id=2622701601519240",
-      "author": "Alexis Church",
-      "postedTime": "2026-08-30T14:49:54.000Z",
-      "title": "Rampage arcade game",
-      "description": "Rampage arcade machine, buttons are a little bit sticky, but it works. Needs a good cleaning.",
-      "price": "$80",
-      "lat": 30.3262247,
-      "lon": -81.6579179,
-      "location": "Jacksonville, FL",
-      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/788414108_28204162919213961_7097065412093391138_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=103&ccb=1-7&_nc_sid=92e707&_nc_ohc=ddLsvHlcwscQ7kNvwE9xiQQ&_nc_oc=AdpeQ01lA-09lR0ji5J0YZ9tKOcPLK_bhiocylKvaxyRElJgBCYf1MeRg8qJq8Hvp6o&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=jF8ZXJmRdLXUe9upHeoQdA&_nc_ss=7b2a8&oh=00_AQK8aidsJ6g1xnOwDSqsA5f0BurbABGPVsBBIQ-3JMVW_A&oe=6A9AB62E",
-      "adUrl": "https://www.facebook.com/marketplace/item/2622701601519240/",
-      "facebookGroupId": null,
-      "facebookGroupName": null,
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-08-30 15:05:04",
-      "lastSeen": "2026-08-31T01:08:18.676Z"
-    },
-    {
       "adID": "2198581764053949",
       "source": "MP",
       "authorUrl": "https://www.facebook.com/marketplace/profile/100000553242915/?product_id=2198581764053949",
@@ -1845,28 +1823,6 @@
       "lastSeen": "2026-08-31T01:17:11.412Z"
     },
     {
-      "adID": "1747815726463680",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/100040844970146/?product_id=1747815726463680",
-      "author": "Ron Bryant",
-      "postedTime": "2026-08-30T04:05:59.000Z",
-      "title": "Selling old Dreamcast",
-      "description": "Selling my childhood game it comes with two controllers and all wires it comes on the only thing is the disc part won't close which can be fixed easily I'll trade for it as well",
-      "price": "$50",
-      "lat": 31.5623892,
-      "lon": -89.4975669,
-      "location": "Seminary, MS",
-      "imageUrl": "https://scontent-dfw6-2.xx.fbcdn.net/v/t39.84726-6/788439037_28645439505145285_9030173491318385259_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=108&ccb=1-7&_nc_sid=92e707&_nc_ohc=zyQlRcfIkEsQ7kNvwG8bc5_&_nc_oc=Adp1IjN73W0uHHSUJoXaxkUXx5yk1smE8aJ5YsY_yMGl_vpjvsCXFMF8-8GRvLCmS9E&_nc_zt=14&_nc_ht=scontent-dfw6-2.xx&_nc_gid=9PH9XDy0NFq4KQaY_d2ZMw&_nc_ss=7b2a8&oh=00_AQJ9zhkA1owO3-a0yYNk6MmfiXkBDcd66dEK3Id_2rDZ4w&oe=6A9AA856",
-      "adUrl": "https://www.facebook.com/marketplace/item/1747815726463680/",
-      "facebookGroupId": null,
-      "facebookGroupName": null,
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-08-30 13:05:10",
-      "lastSeen": "2026-08-31T01:08:18.855Z"
-    },
-    {
       "adID": "1382409020773436",
       "source": "MP",
       "authorUrl": "https://www.facebook.com/marketplace/profile/100001862342048/?product_id=1382409020773436",
@@ -1878,7 +1834,7 @@
       "lat": 30.3504751,
       "lon": -89.1528176,
       "location": "Long Beach, MS",
-      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/789349478_2425480851273198_3315838281766686133_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=105&ccb=1-7&_nc_sid=92e707&_nc_ohc=3QE6m5JXiuIQ7kNvwE1vqGM&_nc_oc=AdoMewAHoq1GWQL2Eur0StYSsaNQjDpEr0F-uSuJOm19FpwgE-4bNDJinK4gPGPhG5Y&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=h3ghfNASeVmZZu-134IPnA&_nc_ss=7b2a8&oh=00_AQL0fUbpIjccLOxKIj-I3VAxdnOlfIs2qTxmAf2snxeyAw&oe=6A9A947B",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/789349478_2425480851273198_3315838281766686133_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=105&ccb=1-7&_nc_sid=92e707&_nc_ohc=UBIsK0SJbIMQ7kNvwFwNzEq&_nc_oc=Adp-_P-wbu3_yDx1x2hT24G1fjq5asqK8R6yR0j8fs4husT3zeDwJy42RlQpfptDy0A&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=AwPC0vuTUbTGJ87qsyrKKQ&_nc_ss=7b2a8&oh=00_AQIWEGsw6SrDwBfktxQ6_E8PaDR-c_dXbGOz3H9EaWAR7A&oe=6A9EF97B",
       "adUrl": "https://www.facebook.com/marketplace/item/1382409020773436/",
       "facebookGroupId": null,
       "facebookGroupName": null,
@@ -1886,7 +1842,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-08-30 13:05:08",
-      "lastSeen": "2026-08-31T01:08:18.821Z"
+      "lastSeen": "2026-09-03T06:04:44.265Z"
     },
     {
       "adID": "1566862641589507",
@@ -1962,19 +1918,19 @@
       "postedTime": "2026-08-29T22:53:17.000Z",
       "title": "1981 centipede arcade pcb untested",
       "description": "Have two 1981 original centipede pcbs untested pickup only in tallassee al CASH Only if listed its available thanks for looking",
-      "price": "$200",
+      "price": "$120",
       "lat": 32.5348568,
       "lon": -85.8922974,
       "location": "Tallassee, AL",
-      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/790591017_1381433433638128_982627415398390061_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=106&ccb=1-7&_nc_sid=92e707&_nc_ohc=JPo1Bu4IKGkQ7kNvwH2oMhr&_nc_oc=AdqddEpnoTrqPEQrnffSdxYRtw64OIwwKwQbwbndnkzyRNoyx2ZNeGoh2g17-RzkyVQ&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=HLvstOJImji9ef_PP3E0lg&_nc_ss=7b2a8&oh=00_AQLcSJEAorkxt-Je8HDjgW88uOWTheMaC6ssdZWC51NXmQ&oe=6A9A7BE1",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/790591017_1381433433638128_982627415398390061_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=106&ccb=1-7&_nc_sid=92e707&_nc_ohc=d5H50VZpsboQ7kNvwH4ergw&_nc_oc=AdrmTaRNpHwQ9lAWrb1IzP_0Q3gMAP-qhVUlwHTWVMYuRtXVs10PCz8dp_zngFHlt-8&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=w8YJZ3juppMhYEN7L-itEQ&_nc_ss=7b2a8&oh=00_AQLN5bWrvSqBLMc2SXBZyW173bW4nUBBUi9X5Iea0jkiDg&oe=6A9EE0E1",
       "adUrl": "https://www.facebook.com/marketplace/item/1654006093017910/",
       "facebookGroupId": null,
       "facebookGroupName": null,
-      "priceChanged": 0,
-      "priceChangedAt": null,
+      "priceChanged": 1,
+      "priceChangedAt": "2026-09-03 06:07:06",
       "hidden": 0,
       "created_at": "2026-08-29 23:05:04",
-      "lastSeen": "2026-08-31T01:05:07.454Z"
+      "lastSeen": "2026-09-03T06:07:06.944Z"
     },
     {
       "adID": "1736273657657067",
@@ -2415,28 +2371,6 @@
       "hidden": 0,
       "created_at": "2026-08-28 15:14:35",
       "lastSeen": "2026-08-30T13:37:33.212Z"
-    },
-    {
-      "adID": "4541695126096731",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/100001099689388/?product_id=4541695126096731",
-      "author": "Mildred Hunt",
-      "postedTime": "2026-08-27T23:39:32.000Z",
-      "title": "Pinball for sell.",
-      "description": "",
-      "price": "$260",
-      "lat": 29.6519684,
-      "lon": -82.3249846,
-      "location": "Gainesville, FL",
-      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/787924733_1397312122343742_6632108927208131447_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=105&ccb=1-7&_nc_sid=92e707&_nc_ohc=Ge8trn6eIsIQ7kNvwGM5e-E&_nc_oc=AdrmLUWCWx_sXdd6iR05BCrQspJUZsL7nc6PK0mViUuT6wsZHelGdz5Glp6JjyWDq4k&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=wHKMGX2SsWdURPwst_StEg&_nc_ss=7b2a8&oh=00_AQKnXyaLbnnVrBaq9mk3qAf_o2t0CsxidQFfO3Un5ElddA&oe=6A97E2A3",
-      "adUrl": "https://www.facebook.com/marketplace/item/4541695126096731/",
-      "facebookGroupId": null,
-      "facebookGroupName": null,
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-08-28 00:08:41",
-      "lastSeen": "2026-08-31T01:12:55.450Z"
     },
     {
       "adID": "1567180181872111",
