@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-04T22:07:32.551Z",
+  "generated_at": "2026-09-04T23:07:09.143Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,35 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 270,
-      "droppedPrice": 1047,
+      "exported_ads": 271,
+      "droppedPrice": 1052,
       "droppedMissingGeo": 0,
-      "droppedCircle": 1075
+      "droppedCircle": 1080
     }
   },
   "ads": [
+    {
+      "adID": "1400533535597513",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100088274022764/?product_id=1400533535597513",
+      "author": "Kim Burge",
+      "postedTime": "2026-09-04T22:55:35.000Z",
+      "title": "Hyperkin Retron 5 Gaming Console",
+      "description": "Multifunctional gaming console is teal and black with pink accents. This Hyperkin Retron 5 system has five cartridge slots for NES, SNES, Genesis, Famicom, and Game Boy Advance games. It includes one wireless controller, one wired controller, and a power adapter.",
+      "price": "$100",
+      "lat": 30.1586518,
+      "lon": -85.6602936,
+      "location": "Panama City, FL",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t45.5328-4/794317869_1925310248904418_5144149833576218298_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=111&ccb=1-7&_nc_sid=247b10&_nc_ohc=PB4ugmWEJyAQ7kNvwHKEKVP&_nc_oc=AdqiGmAjdfUkYRMOViJc70dDNDRLtphEZWlJKWTXrtwYNEAiH-QLWHvpncGhS-bBWjo&_nc_zt=23&_nc_ht=scontent-dfw5-1.xx&_nc_gid=bRt7bso2gLkZ5nWK7q3WuA&_nc_ss=7b2a8&oh=00_AQIdCBNuMCvAc78R0o4vlyqexCVLatIRc3iuefLHOSXMMA&oe=6AA11323",
+      "adUrl": "https://www.facebook.com/marketplace/item/1400533535597513/",
+      "facebookGroupId": null,
+      "facebookGroupName": null,
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-09-04 23:05:08",
+      "lastSeen": "2026-09-04T23:05:24.361Z"
+    },
     {
       "adID": "KLOV-564279",
       "source": "KLOV",
@@ -38,7 +60,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-09-04 22:07:27",
-      "lastSeen": "2026-09-04T22:07:27.738Z"
+      "lastSeen": "2026-09-04T23:07:04.860Z"
     },
     {
       "adID": "3659171900916433",
@@ -346,7 +368,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-09-04 16:05:05",
-      "lastSeen": "2026-09-04T22:05:05.320Z"
+      "lastSeen": "2026-09-04T23:05:08.611Z"
     },
     {
       "adID": "1116453707610486",
@@ -368,7 +390,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-09-04 16:05:05",
-      "lastSeen": "2026-09-04T22:05:05.353Z"
+      "lastSeen": "2026-09-04T23:05:08.644Z"
     },
     {
       "adID": "1624923095906670",
@@ -390,7 +412,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-09-04 16:05:05",
-      "lastSeen": "2026-09-04T22:05:05.387Z"
+      "lastSeen": "2026-09-04T23:05:08.678Z"
     },
     {
       "adID": "4535800106698318",
@@ -500,7 +522,7 @@
       "priceChangedAt": "2026-09-04 17:05:11",
       "hidden": 0,
       "created_at": "2026-09-04 16:05:04",
-      "lastSeen": "2026-09-04T22:05:05.253Z"
+      "lastSeen": "2026-09-04T23:05:08.544Z"
     },
     {
       "adID": "1788361068865436",
@@ -522,7 +544,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-09-04 16:05:04",
-      "lastSeen": "2026-09-04T22:05:05.286Z"
+      "lastSeen": "2026-09-04T23:05:08.577Z"
     },
     {
       "adID": "2154209762116753",
@@ -544,7 +566,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-09-04 15:11:13",
-      "lastSeen": "2026-09-04T22:06:04.377Z"
+      "lastSeen": "2026-09-04T23:05:54.404Z"
     },
     {
       "adID": "2000380840669880",
@@ -566,7 +588,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-09-04 15:11:13",
-      "lastSeen": "2026-09-04T22:06:04.411Z"
+      "lastSeen": "2026-09-04T23:05:54.438Z"
     },
     {
       "adID": "1023743757340059",
@@ -588,7 +610,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-09-04 15:11:13",
-      "lastSeen": "2026-09-04T22:06:04.444Z"
+      "lastSeen": "2026-09-04T23:05:54.471Z"
     },
     {
       "adID": "1370893624776951",
@@ -610,7 +632,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-09-04 15:11:13",
-      "lastSeen": "2026-09-04T22:06:04.478Z"
+      "lastSeen": "2026-09-04T23:05:54.505Z"
     },
     {
       "adID": "2519385405229349",
@@ -632,7 +654,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-09-04 15:11:13",
-      "lastSeen": "2026-09-04T22:06:04.511Z"
+      "lastSeen": "2026-09-04T23:05:54.538Z"
     },
     {
       "adID": "4301212613355975",
@@ -654,7 +676,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-09-04 15:11:13",
-      "lastSeen": "2026-09-04T22:06:04.545Z"
+      "lastSeen": "2026-09-04T23:05:54.571Z"
     },
     {
       "adID": "1436178681748770",
@@ -676,7 +698,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-09-04 15:11:13",
-      "lastSeen": "2026-09-04T22:06:04.579Z"
+      "lastSeen": "2026-09-04T23:05:54.605Z"
     },
     {
       "adID": "1377256954597541",
@@ -698,7 +720,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-09-04 15:11:13",
-      "lastSeen": "2026-09-04T22:06:04.612Z"
+      "lastSeen": "2026-09-04T23:05:54.638Z"
     },
     {
       "adID": "1857440861910448",
@@ -720,7 +742,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-09-04 15:11:13",
-      "lastSeen": "2026-09-04T22:06:04.646Z"
+      "lastSeen": "2026-09-04T23:05:54.672Z"
     },
     {
       "adID": "1726745175079346",
@@ -742,7 +764,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-09-04 15:11:13",
-      "lastSeen": "2026-09-04T22:06:04.679Z"
+      "lastSeen": "2026-09-04T23:05:54.705Z"
     },
     {
       "adID": "1534100928405130",
@@ -764,7 +786,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-09-04 15:11:13",
-      "lastSeen": "2026-09-04T22:06:04.745Z"
+      "lastSeen": "2026-09-04T23:05:54.772Z"
     },
     {
       "adID": "2121792788447931",
@@ -808,7 +830,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-09-04 15:11:12",
-      "lastSeen": "2026-09-04T22:06:04.009Z"
+      "lastSeen": "2026-09-04T23:05:54.036Z"
     },
     {
       "adID": "1049451814622104",
@@ -830,7 +852,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-09-04 15:11:12",
-      "lastSeen": "2026-09-04T22:06:04.042Z"
+      "lastSeen": "2026-09-04T23:05:54.070Z"
     },
     {
       "adID": "5409875992569890",
@@ -852,7 +874,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-09-04 15:11:12",
-      "lastSeen": "2026-09-04T22:06:04.075Z"
+      "lastSeen": "2026-09-04T23:05:54.104Z"
     },
     {
       "adID": "1725182722943712",
@@ -874,7 +896,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-09-04 15:11:12",
-      "lastSeen": "2026-09-04T22:06:04.109Z"
+      "lastSeen": "2026-09-04T23:05:54.137Z"
     },
     {
       "adID": "1052057277665447",
@@ -896,7 +918,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-09-04 15:11:12",
-      "lastSeen": "2026-09-04T22:06:04.142Z"
+      "lastSeen": "2026-09-04T23:05:54.170Z"
     },
     {
       "adID": "1022346197285750",
@@ -918,7 +940,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-09-04 15:11:12",
-      "lastSeen": "2026-09-04T22:06:04.176Z"
+      "lastSeen": "2026-09-04T23:05:54.204Z"
     },
     {
       "adID": "1589753619543433",
@@ -940,7 +962,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-09-04 15:11:12",
-      "lastSeen": "2026-09-04T22:06:04.210Z"
+      "lastSeen": "2026-09-04T23:05:54.238Z"
     },
     {
       "adID": "1724121688857993",
@@ -962,7 +984,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-09-04 15:11:12",
-      "lastSeen": "2026-09-04T22:06:04.243Z"
+      "lastSeen": "2026-09-04T23:05:54.271Z"
     },
     {
       "adID": "1588758639407565",
@@ -984,7 +1006,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-09-04 15:11:12",
-      "lastSeen": "2026-09-04T22:06:04.277Z"
+      "lastSeen": "2026-09-04T23:05:54.303Z"
     },
     {
       "adID": "1802226797801877",
@@ -1006,7 +1028,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-09-04 15:11:12",
-      "lastSeen": "2026-09-04T22:06:04.310Z"
+      "lastSeen": "2026-09-04T23:05:54.337Z"
     },
     {
       "adID": "1827458898388308",
@@ -1028,7 +1050,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-09-04 15:11:12",
-      "lastSeen": "2026-09-04T22:06:04.344Z"
+      "lastSeen": "2026-09-04T23:05:54.370Z"
     },
     {
       "adID": "1072202971886256",
@@ -1050,7 +1072,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-09-04 15:05:23",
-      "lastSeen": "2026-09-04T22:05:05.119Z"
+      "lastSeen": "2026-09-04T23:05:08.410Z"
     },
     {
       "adID": "1624131712620640",
@@ -1072,7 +1094,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-09-04 15:05:23",
-      "lastSeen": "2026-09-04T22:05:05.152Z"
+      "lastSeen": "2026-09-04T23:05:08.443Z"
     },
     {
       "adID": "993382087049913",
@@ -1094,7 +1116,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-09-04 15:05:23",
-      "lastSeen": "2026-09-04T22:05:05.219Z"
+      "lastSeen": "2026-09-04T23:05:08.510Z"
     },
     {
       "adID": "1840750097375046",
@@ -1116,7 +1138,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-09-04 15:05:22",
-      "lastSeen": "2026-09-04T22:05:04.918Z"
+      "lastSeen": "2026-09-04T23:05:08.209Z"
     },
     {
       "adID": "1583114063547284",
@@ -1138,7 +1160,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-09-04 15:05:22",
-      "lastSeen": "2026-09-04T22:05:04.951Z"
+      "lastSeen": "2026-09-04T23:05:08.243Z"
     },
     {
       "adID": "1376602388000593",
@@ -1160,7 +1182,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-09-04 15:05:22",
-      "lastSeen": "2026-09-04T22:05:04.985Z"
+      "lastSeen": "2026-09-04T23:05:08.276Z"
     },
     {
       "adID": "1067081515867935",
@@ -1182,7 +1204,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-09-04 15:05:22",
-      "lastSeen": "2026-09-04T22:05:05.018Z"
+      "lastSeen": "2026-09-04T23:05:08.310Z"
     },
     {
       "adID": "1083314597600072",
@@ -1204,14 +1226,14 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-09-04 15:05:22",
-      "lastSeen": "2026-09-04T22:05:05.085Z"
+      "lastSeen": "2026-09-04T23:05:08.376Z"
     },
     {
       "adID": "823506990820151",
       "source": "FB",
       "authorUrl": null,
       "author": "Greg Cannone",
-      "postedTime": "2026-09-04T03:00:56.583Z",
+      "postedTime": "2026-09-04T03:00:57.766Z",
       "title": "OFF ROAD CHALLENGE",
       "description": "For sale Off Road challenge arcade gsme with 32in LCD flat screen",
       "price": "$550",
@@ -1226,14 +1248,14 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-09-04 11:00:58",
-      "lastSeen": "2026-09-04T22:00:56.825Z"
+      "lastSeen": "2026-09-04T23:00:58.130Z"
     },
     {
       "adID": "1055745194121630",
       "source": "FB",
       "authorUrl": null,
       "author": "Greg Cannone",
-      "postedTime": "2026-09-04T03:00:56.582Z",
+      "postedTime": "2026-09-04T03:00:57.766Z",
       "title": "Area 51",
       "description": "For sale Area51 with Maximum Force upgrade good working monitor wax recaped about 2yrs ago $600 obo located in Stone Mountain GA easy loading",
       "price": "$600",
@@ -1248,7 +1270,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-09-04 11:00:57",
-      "lastSeen": "2026-09-04T22:00:56.780Z"
+      "lastSeen": "2026-09-04T23:00:57.941Z"
     },
     {
       "adID": "KLOV-373719",
@@ -1270,7 +1292,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-09-03 14:33:31",
-      "lastSeen": "2026-09-04T22:07:28.984Z"
+      "lastSeen": "2026-09-04T23:07:05.741Z"
     },
     {
       "adID": "1423317379645212",
@@ -1996,7 +2018,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-09-01 20:12:11",
-      "lastSeen": "2026-09-04T22:06:04.712Z"
+      "lastSeen": "2026-09-04T23:05:54.739Z"
     },
     {
       "adID": "2925868557763593",
@@ -5648,7 +5670,7 @@
       "priceChangedAt": "2026-09-04 14:11:41",
       "hidden": 0,
       "created_at": "2026-08-17 23:04:36",
-      "lastSeen": "2026-09-04T22:07:29.117Z"
+      "lastSeen": "2026-09-04T23:07:05.942Z"
     },
     {
       "adID": "KLOV-563795",
