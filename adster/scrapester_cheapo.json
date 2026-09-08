@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-08T10:00:25.181Z",
+  "generated_at": "2026-09-08T11:08:22.871Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,26 +11,70 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 8,
-      "droppedPrice": 207,
+      "exported_ads": 10,
+      "droppedPrice": 220,
       "droppedMissingGeo": 0,
-      "droppedCircle": 156
+      "droppedCircle": 162
     }
   },
   "ads": [
+    {
+      "adID": "1844597626906481",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100004653342774/?product_id=1844597626906481",
+      "author": "Pamela Plancich",
+      "postedTime": "2026-09-08T01:28:53.000Z",
+      "title": "Alabama game, unopened",
+      "description": "New, never opened Bamaopoly game",
+      "price": "$20",
+      "lat": 30.6182476,
+      "lon": -87.7530454,
+      "location": "Loxley, AL",
+      "imageUrl": "https://scontent-dfw6-2.xx.fbcdn.net/v/t39.84726-6/799622691_1056969493920399_2452341064807735504_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=108&ccb=1-7&_nc_sid=92e707&_nc_ohc=i0WvZvhQcyEQ7kNvwG0ObJm&_nc_oc=AdrL7nhoePzN138LeFwk3k9n6CBjXispVBY8SHn0NeMI0WCdl7uuU6ibxaAAj4Q5hbI&_nc_zt=14&_nc_ht=scontent-dfw6-2.xx&_nc_gid=p9JYkmBPHS3XtUNgsnRMLA&_nc_ss=7b2a8&oh=00_AQKNe0ldLwYW9yyGDHXw23vH11JALlDlUjR9vPyjAHhgrQ&oe=6AA5C0D2",
+      "adUrl": "https://www.facebook.com/marketplace/item/1844597626906481/",
+      "facebookGroupId": null,
+      "facebookGroupName": null,
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-09-08 11:05:16",
+      "lastSeen": "2026-09-08T11:06:39.592Z"
+    },
+    {
+      "adID": "1049394877860139",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/1724481832/?product_id=1049394877860139",
+      "author": "Zachary Smith",
+      "postedTime": "2026-09-08T01:27:51.000Z",
+      "title": "Antique Atari System",
+      "description": "Antique! Comes with 2 paddle know, 2 controllers, and 12 games!",
+      "price": "$75",
+      "lat": 31.2237285,
+      "lon": -85.3934375,
+      "location": "Dothan, AL",
+      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/799251566_1135537252740454_7682116679787374862_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=107&ccb=1-7&_nc_sid=92e707&_nc_ohc=Ynk2dF1rjlAQ7kNvwFr24Aq&_nc_oc=AdoLCmpkJ7UHZ8KxzkB3jPcvSYLYwoZpXcedWeGzuiTNrfacqo_q8WZEUi9JalzKMvg&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=0m1T09-EDVB1LZ3SvwuwHQ&_nc_ss=7b2a8&oh=00_AQKcSG8AclsT-r3dslw-8podm64VzzwX4DkMb8vi7k--Wg&oe=6AA5B9BF",
+      "adUrl": "https://www.facebook.com/marketplace/item/1049394877860139/",
+      "facebookGroupId": null,
+      "facebookGroupName": null,
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-09-08 11:05:15",
+      "lastSeen": "2026-09-08T11:06:39.014Z"
+    },
     {
       "adID": "1484157810138965",
       "source": "MP",
       "authorUrl": "https://www.facebook.com/marketplace/profile/506758931/?product_id=1484157810138965",
       "author": "Melissa Stoker",
-      "postedTime": "2026-09-08T00:58:06.000Z",
+      "postedTime": "2026-08-11T18:39:56.000Z",
       "title": "Sushi Go! Pick and Pass Card Game Gamewright New Factory Sealed",
       "description": "Brand new, factory-sealed Sushi Go! The Pick and Pass Card Game by Gamewright. Fast-playing family card game for 2–5 players. Players collect combinations of sushi cards to score points. Great family game, travel game, party game or gift. • Factory sealed/never opened • 108 cards + rules of play • 2–5 players • Ages 8+ • Approx. 15-minute play time • Gamewright • 2014 edition • Oppenheim Toy Portfolio Platinum Best Toy Award winner Outer shrink wrap has some storage wear/creasing, but game remains unopened. Smoke-free and pet-free home.",
       "price": "$8",
       "lat": 30.605427,
       "lon": -87.344442,
       "location": "Cantonment, FL",
-      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t45.5328-4/798589928_1049437477800883_4576613051427595066_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=104&ccb=1-7&_nc_sid=247b10&_nc_ohc=qke12p36AUcQ7kNvwGojD38&_nc_oc=Adq5PZJNUkBG00X1R6hWEQUQOadvy0sOa8Orx9wKBM5cl7BBvFPcwPUG0--OJ19gcx8&_nc_zt=23&_nc_ht=scontent-dfw5-2.xx&_nc_gid=3dpBRe-kdcbvu8UeG6Cg2Q&_nc_ss=7b2a8&oh=00_AQJD1Jrfj3xXVFoo8ix1DEROa93VeRx_Q7Ds0p77q7ZPhg&oe=6AA526BA",
+      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/794212513_1380354820374641_4429657916409943612_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=100&ccb=1-7&_nc_sid=92e707&_nc_ohc=Z8WLiufCeCYQ7kNvwHuh5MA&_nc_oc=AdoXO-n3R0RjF3ol8tFw4F36KVPU2VpsaqW65C3sS_d1hoe8YBKYbh2a8VY0fZEQ82k&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=qL8OMIICdUtO9eU9Z02aEA&_nc_ss=7b2a8&oh=00_AQK5VALRsG9pS_-LaDzFhsvBMT1h4hivnIisbe2ja9LRmw&oe=6AA5A739",
       "adUrl": "https://www.facebook.com/marketplace/item/1484157810138965/",
       "facebookGroupId": null,
       "facebookGroupName": null,
@@ -38,7 +82,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-09-08 01:05:11",
-      "lastSeen": "2026-09-08T01:05:43.292Z"
+      "lastSeen": "2026-09-08T11:06:39.893Z"
     },
     {
       "adID": "1620202866141560",
@@ -82,7 +126,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-09-07 21:50:20",
-      "lastSeen": "2026-09-08T01:06:54.485Z"
+      "lastSeen": "2026-09-08T11:08:20.827Z"
     },
     {
       "adID": "KLOV-557627",
@@ -104,7 +148,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-09-07 21:50:16",
-      "lastSeen": "2026-09-08T01:06:51.654Z"
+      "lastSeen": "2026-09-08T11:08:18.713Z"
     },
     {
       "adID": "KLOV-566932",
@@ -126,14 +170,14 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-09-07 21:50:15",
-      "lastSeen": "2026-09-08T01:06:50.883Z"
+      "lastSeen": "2026-09-08T11:08:17.902Z"
     },
     {
       "adID": "PI-108051",
       "source": "PS",
       "authorUrl": "https://pinside.com/pinball/community/pinsiders/firepug/market",
       "author": "Firepug",
-      "postedTime": "2026-09-07T15:06:15.111Z",
+      "postedTime": "2026-09-07T15:07:43.918Z",
       "title": "Strato-Flite",
       "description": "Partially restored (almost original) - “Partially restored, game plays 100%. Looking to trade towards a non EM. This is a pin that I keep at my dads house, I can grab better pics next time I go there lol. I can deliver i...”",
       "price": "$999",
@@ -148,7 +192,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-09-07 21:49:37",
-      "lastSeen": "2026-09-08T01:06:16.074Z"
+      "lastSeen": "2026-09-08T11:07:44.042Z"
     },
     {
       "adID": "2210520576510841",
@@ -162,7 +206,7 @@
       "lat": 30.4982516,
       "lon": -86.1360517,
       "location": "Freeport, FL",
-      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t45.5328-4/798743749_28767917952805412_5695020809062694511_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=103&ccb=1-7&_nc_sid=247b10&_nc_ohc=QKWKgoe5pHYQ7kNvwHj_eBM&_nc_oc=Adp7TVeRaCJ19f6OMPY4kmqHqJmdK1Aw4J0j7pUwegVkx9Fw4_DxVcUQJJ9XS_dNO9E&_nc_zt=23&_nc_ht=scontent-dfw6-1.xx&_nc_gid=AdZDTaCz4wqstcE5Om9PPg&_nc_ss=7b2a8&oh=00_AQLIQgfaItGl0YjFWvU126f2StMiCWAOVLyJQ13aTO40Sw&oe=6AA53940",
+      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t45.5328-4/798743749_28767917952805412_5695020809062694511_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=103&ccb=1-7&_nc_sid=247b10&_nc_ohc=QKWKgoe5pHYQ7kNvwHj_eBM&_nc_oc=Adp7TVeRaCJ19f6OMPY4kmqHqJmdK1Aw4J0j7pUwegVkx9Fw4_DxVcUQJJ9XS_dNO9E&_nc_zt=23&_nc_ht=scontent-dfw6-1.xx&_nc_gid=s9tOzvWYLB77vrT1CBhUcA&_nc_ss=7b2a8&oh=00_AQL3bCXW7Ujs31dlGB397Kq6H2q2afsREPhsqsImmmbGjA&oe=6AA5A9C0",
       "adUrl": "https://www.facebook.com/marketplace/item/2210520576510841/",
       "facebookGroupId": null,
       "facebookGroupName": null,
@@ -170,14 +214,14 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-09-07 21:37:29",
-      "lastSeen": "2026-09-08T01:05:43.252Z"
+      "lastSeen": "2026-09-08T11:06:38.973Z"
     },
     {
       "adID": "3460834317457237",
       "source": "FB",
       "authorUrl": null,
       "author": "Dane Caro",
-      "postedTime": "2026-09-07T01:02:29.947Z",
+      "postedTime": "2026-09-07T11:02:31.974Z",
       "title": "Large Lot of Arcade Games",
       "description": "Currently have a large selection of arcade games I need to sell. If you have a business and need games or want a few for your home, reach out! Willing to work on bulk deals. Can browse some of the games in this photo album, but have many more.",
       "price": "$1",
@@ -192,7 +236,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-09-07 21:17:39",
-      "lastSeen": "2026-09-08T01:02:29.978Z"
+      "lastSeen": "2026-09-08T11:02:31.999Z"
     }
   ]
 }
