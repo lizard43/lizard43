@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-09T19:32:36.186Z",
+  "generated_at": "2026-09-09T20:08:46.020Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,79 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 15,
-      "droppedPrice": 300,
+      "exported_ads": 18,
+      "droppedPrice": 301,
       "droppedMissingGeo": 0,
-      "droppedCircle": 208
+      "droppedCircle": 209
     }
   },
   "ads": [
+    {
+      "adID": "KLOV-564990",
+      "source": "KLOV",
+      "authorUrl": "https://forums.arcade-museum.com/members/clucas79.83867/",
+      "author": "Clucas79",
+      "postedTime": "2026-09-09T19:12:47.000Z",
+      "title": "Neo-Geo MVS & Atomiswave",
+      "description": "I recently had to have emergency brain surgery so I am unable to work and provide for my family so I am selling some of my arcade stuff to help keep the lights on and food on the table. I love my arcades but I love my family so much more! Any help by purchasing will be greatly appreciated! Working ...",
+      "price": "$350",
+      "lat": 33.3044654,
+      "lon": -83.684096,
+      "location": "Monticello, Georgia",
+      "imageUrl": "https://sf.arcade-museum.com/data/attachments/865/865232-11c31fc9a3250f545adf69a3a1dcd665.jpg",
+      "adUrl": "https://forums.arcade-museum.com/threads/564990/",
+      "facebookGroupId": null,
+      "facebookGroupName": null,
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-09-09 20:08:41",
+      "lastSeen": "2026-09-09T20:08:41.211Z"
+    },
+    {
+      "adID": "1859403408373977",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100060241774479/?product_id=1859403408373977",
+      "author": "Hips Hips",
+      "postedTime": "2026-09-09T19:28:53.000Z",
+      "title": "Quick Hit Machine Slot",
+      "description": "",
+      "price": "$1",
+      "lat": 30.6913462,
+      "lon": -88.0437509,
+      "location": "Mobile, AL",
+      "imageUrl": "https://scontent-dfw6-2.xx.fbcdn.net/v/t39.84726-6/794394849_1734147531765506_2812128949838455030_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=108&ccb=1-7&_nc_sid=92e707&_nc_ohc=GiWTj7rB0g4Q7kNvwG7bXqo&_nc_oc=Adr9TPI4K7tOlyHMzqR16SxdrCXEFzdCxrg3p9vtD_oRFHj-8R0QEfhBjijwHJsyYj4&_nc_zt=14&_nc_ht=scontent-dfw6-2.xx&_nc_gid=cQZJ0axw2BCg4iqNN3IGkQ&_nc_ss=7b2a8&oh=00_AQL4QYWSWn8v7XnF0mUTZT-Tq5ZOk2GzM3K9sS9-ZQyL6Q&oe=6AA79C89",
+      "adUrl": "https://www.facebook.com/marketplace/item/1859403408373977/",
+      "facebookGroupId": null,
+      "facebookGroupName": null,
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-09-09 20:05:02",
+      "lastSeen": "2026-09-09T20:07:44.011Z"
+    },
+    {
+      "adID": "959581993120094",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100050108714361/?product_id=959581993120094",
+      "author": "Tom Evans",
+      "postedTime": "2026-09-07T01:39:09.000Z",
+      "title": "Tetris Strategy Game",
+      "description": "Classic Tetris strategy game for 2-4 players. This board game is recommended for ages 8 and up and features a colorful box with iconic tetromino shapes.",
+      "price": "$10",
+      "lat": 31.1039239,
+      "lon": -87.0722655,
+      "location": "Brewton, AL",
+      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/799170661_2546868775762066_2736732318239626804_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=107&ccb=1-7&_nc_sid=92e707&_nc_ohc=QDujulN7wIEQ7kNvwGcmtns&_nc_oc=Adpg2QMm3K8cuC7RILsXc5XBDyMcqPUfvEI_VrFD0jCeJ3ZqvMrBScgps8LO16_C8aM&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=xcpa-fm8NsVUAUFx6ePekw&_nc_ss=7b2a8&oh=00_AQI-UrDMznoQ-F0SgoXRU1z3sNM8Njrccg9n1wg9bV7h3g&oe=6AA78410",
+      "adUrl": "https://www.facebook.com/marketplace/item/959581993120094/",
+      "facebookGroupId": null,
+      "facebookGroupName": null,
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-09-09 20:05:02",
+      "lastSeen": "2026-09-09T20:05:52.776Z"
+    },
     {
       "adID": "1108994351549064",
       "source": "MP",
@@ -104,7 +170,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-09-09 18:05:02",
-      "lastSeen": "2026-09-09T19:05:01.609Z"
+      "lastSeen": "2026-09-09T20:05:02.369Z"
     },
     {
       "adID": "1335882768377842",
@@ -118,7 +184,7 @@
       "lat": 30.4065868,
       "lon": -87.6835974,
       "location": "Foley, AL",
-      "imageUrl": "https://scontent-dfw6-2.xx.fbcdn.net/v/t39.84726-6/796354727_4621624914780893_552458936479920895_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=108&ccb=1-7&_nc_sid=92e707&_nc_ohc=jQL4XKUI4hwQ7kNvwHn42l2&_nc_oc=AdpqxUHsoP7Dil_lQFVeYC0TONgj6Z9jTDP_4dUYMF9CJI5RBJf9t0R-b39Apmg0G88&_nc_zt=14&_nc_ht=scontent-dfw6-2.xx&_nc_gid=PS1yVUatYUGS9S2quWa7TQ&_nc_ss=7b2a8&oh=00_AQKsENO8ZulS-Irevu4hcFW5PmQDEL9HnCpQyKTEw8Zgeg&oe=6AA77A4C",
+      "imageUrl": "https://scontent-dfw6-2.xx.fbcdn.net/v/t39.84726-6/796354727_4621624914780893_552458936479920895_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=108&ccb=1-7&_nc_sid=92e707&_nc_ohc=jQL4XKUI4hwQ7kNvwHn42l2&_nc_oc=AdpqxUHsoP7Dil_lQFVeYC0TONgj6Z9jTDP_4dUYMF9CJI5RBJf9t0R-b39Apmg0G88&_nc_zt=14&_nc_ht=scontent-dfw6-2.xx&_nc_gid=9mCjGqWQcBziLh3b_lt3Iw&_nc_ss=7b2a8&oh=00_AQIGSJVd_quc0zkzgS0S-p9XYGyRQdwT4HUsUWXpaJ0-bg&oe=6AA77A4C",
       "adUrl": "https://www.facebook.com/marketplace/item/1335882768377842/",
       "facebookGroupId": null,
       "facebookGroupName": null,
@@ -126,7 +192,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-09-09 17:11:35",
-      "lastSeen": "2026-09-09T19:08:50.727Z"
+      "lastSeen": "2026-09-09T20:07:44.048Z"
     },
     {
       "adID": "1743653796687886",
@@ -140,7 +206,7 @@
       "lat": 30.3935337,
       "lon": -86.4957834,
       "location": "Destin, FL",
-      "imageUrl": "https://scontent-dfw6-2.xx.fbcdn.net/v/t39.84726-6/792157963_1620200402838865_3227727237462732802_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=108&ccb=1-7&_nc_sid=92e707&_nc_ohc=VbgLXcD8txYQ7kNvwFGUZXK&_nc_oc=AdqDQGzEvjCzTreCOECPKrRyME0CZ8z1c1FzEnshz77rZqg4H9cnpn74TpGNaMJbDok&_nc_zt=14&_nc_ht=scontent-dfw6-2.xx&_nc_gid=BxLzup9rzJginYkmyQdprA&_nc_ss=7b2a8&oh=00_AQIvRCQVZiDATKxkStcID8v04fKx6wOVdeuoGLQmKu7ipg&oe=6AA7930C",
+      "imageUrl": "https://scontent-dfw6-2.xx.fbcdn.net/v/t39.84726-6/792157963_1620200402838865_3227727237462732802_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=108&ccb=1-7&_nc_sid=92e707&_nc_ohc=VbgLXcD8txYQ7kNvwFGUZXK&_nc_oc=AdqDQGzEvjCzTreCOECPKrRyME0CZ8z1c1FzEnshz77rZqg4H9cnpn74TpGNaMJbDok&_nc_zt=14&_nc_ht=scontent-dfw6-2.xx&_nc_gid=n5JqpboIW3fdtZev3-KBow&_nc_ss=7b2a8&oh=00_AQKBFY_HDTS9OPUdwiZiU8L8lLwsAC-D0sxhry7Ta96nUQ&oe=6AA7930C",
       "adUrl": "https://www.facebook.com/marketplace/item/1743653796687886/",
       "facebookGroupId": null,
       "facebookGroupName": null,
@@ -148,7 +214,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-09-09 17:11:35",
-      "lastSeen": "2026-09-09T19:08:50.761Z"
+      "lastSeen": "2026-09-09T20:07:44.079Z"
     },
     {
       "adID": "2867223326982689",
@@ -162,7 +228,7 @@
       "lat": 30.4144143,
       "lon": -87.5981531,
       "location": "Elberta, AL",
-      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/801963801_3661798090634090_8717423854112442973_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=100&ccb=1-7&_nc_sid=92e707&_nc_ohc=4PzAjKz9s30Q7kNvwE0Um5J&_nc_oc=Adrqjg7q11pUYC4bzsUat1KgT_fVkOhi8YwDNDpILzHysSQ5KpkQ1zaqMdXe3dIHK2U&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=dKlFvMz3-bcNf4VH2MyQzA&_nc_ss=7b2a8&oh=00_AQKZMhfCX5JavBuZKWeVcvuOv6ImqOnwXZQXZfUUl6uHzA&oe=6AA78818",
+      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/801963801_3661798090634090_8717423854112442973_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=100&ccb=1-7&_nc_sid=92e707&_nc_ohc=4PzAjKz9s30Q7kNvwE0Um5J&_nc_oc=Adrqjg7q11pUYC4bzsUat1KgT_fVkOhi8YwDNDpILzHysSQ5KpkQ1zaqMdXe3dIHK2U&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=V0nE-phC532RiiL8pNvtJA&_nc_ss=7b2a8&oh=00_AQJfyDqp4vK_80-vlqJ75_HxbWf5-dzlMuTz5BU4vZv9QA&oe=6AA78818",
       "adUrl": "https://www.facebook.com/marketplace/item/2867223326982689/",
       "facebookGroupId": null,
       "facebookGroupName": null,
@@ -170,7 +236,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-09-09 17:05:03",
-      "lastSeen": "2026-09-09T19:08:50.794Z"
+      "lastSeen": "2026-09-09T20:07:44.247Z"
     },
     {
       "adID": "KLOV-512184",
@@ -192,14 +258,14 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-09-09 14:08:56",
-      "lastSeen": "2026-09-09T19:12:49.760Z"
+      "lastSeen": "2026-09-09T20:08:41.500Z"
     },
     {
       "adID": "KLOV-381287",
       "source": "KLOV",
       "authorUrl": "https://forums.arcade-museum.com/members/kittybeater.35366/",
       "author": "kittybeater",
-      "postedTime": "2026-09-09T16:01:15.000Z",
+      "postedTime": "2026-09-09T19:26:27.000Z",
       "title": "Used Arcade Game Harnesses",
       "description": "Used Arcade Game Harnesses http://thearcadeboneyard.com/wire_harnesses_and_cables/wire_harnesses.php also have new jamma harnesses, edge connectors & 28 pin finger boards http://thearcadeboneyard.com/new_arcade_parts/new_jamma_harnesses_&_edge_connectors.php [email protected]",
       "price": "$0",
@@ -214,7 +280,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-09-09 14:08:56",
-      "lastSeen": "2026-09-09T19:12:49.659Z"
+      "lastSeen": "2026-09-09T20:08:41.140Z"
     },
     {
       "adID": "954035397025868",
@@ -236,7 +302,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-09-08 18:05:11",
-      "lastSeen": "2026-09-09T19:05:01.574Z"
+      "lastSeen": "2026-09-09T20:05:02.303Z"
     },
     {
       "adID": "1620202866141560",
@@ -302,7 +368,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-09-07 21:50:15",
-      "lastSeen": "2026-09-09T19:12:49.455Z"
+      "lastSeen": "2026-09-09T20:08:41.244Z"
     },
     {
       "adID": "PI-108051",
@@ -346,7 +412,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-09-07 21:37:29",
-      "lastSeen": "2026-09-09T19:05:50.999Z"
+      "lastSeen": "2026-09-09T20:06:24.798Z"
     }
   ]
 }
