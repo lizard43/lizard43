@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-10T10:02:40.443Z",
+  "generated_at": "2026-09-10T11:07:57.823Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,35 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 7,
-      "droppedPrice": 323,
+      "exported_ads": 8,
+      "droppedPrice": 333,
       "droppedMissingGeo": 0,
-      "droppedCircle": 217
+      "droppedCircle": 221
     }
   },
   "ads": [
+    {
+      "adID": "1380846734239138",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/1646002554/?product_id=1380846734239138",
+      "author": "Chris Warren",
+      "postedTime": "2026-09-10T02:02:09.000Z",
+      "title": "Nfl blitz",
+      "description": "Nfl blitz in great working shape just a little hard to play. I'm going to either buy a Street Fighter or Mortal Kombat or something like that.or race game",
+      "price": "$250",
+      "lat": 30.4057552,
+      "lon": -86.618842,
+      "location": "Fort Walton Beach, FL",
+      "imageUrl": "https://scontent-dfw6-2.xx.fbcdn.net/v/t39.84726-6/802032183_1621513489500213_7183836287717104747_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=108&ccb=1-7&_nc_sid=92e707&_nc_ohc=XKIuHHwE5fQQ7kNvwF15BG0&_nc_oc=AdrU3fY5PIED0luh1jMnjKV6BqjmfZGfvhqrwuTBn46iLMqQqp4dSlhcgr5cLPzw3jU&_nc_zt=14&_nc_ht=scontent-dfw6-2.xx&_nc_gid=iExs5humJWiPDQQLLUOrdw&_nc_ss=7b2a8&oh=00_AQKZqoRanKlks9IH99JE-D2p2ojTkk53R4I34OHwSRaH7A&oe=6AA87207",
+      "adUrl": "https://www.facebook.com/marketplace/item/1380846734239138/",
+      "facebookGroupId": null,
+      "facebookGroupName": null,
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-09-10 11:05:06",
+      "lastSeen": "2026-09-10T11:06:58.790Z"
+    },
     {
       "adID": "KLOV-512184",
       "source": "KLOV",
@@ -38,7 +60,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-09-09 14:08:56",
-      "lastSeen": "2026-09-10T01:07:35.620Z"
+      "lastSeen": "2026-09-10T11:07:53.872Z"
     },
     {
       "adID": "KLOV-381287",
@@ -60,7 +82,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-09-09 14:08:56",
-      "lastSeen": "2026-09-10T01:07:35.419Z"
+      "lastSeen": "2026-09-10T11:07:53.396Z"
     },
     {
       "adID": "954035397025868",
@@ -82,7 +104,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-09-08 18:05:11",
-      "lastSeen": "2026-09-10T01:04:58.179Z"
+      "lastSeen": "2026-09-10T11:05:06.162Z"
     },
     {
       "adID": "1620202866141560",
@@ -170,7 +192,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-09-07 21:37:29",
-      "lastSeen": "2026-09-10T01:05:51.412Z"
+      "lastSeen": "2026-09-10T11:06:33.846Z"
     }
   ]
 }
