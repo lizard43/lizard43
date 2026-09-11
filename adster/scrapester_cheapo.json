@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-11T15:32:22.577Z",
+  "generated_at": "2026-09-11T16:07:24.371Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,57 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 10,
-      "droppedPrice": 378,
+      "exported_ads": 12,
+      "droppedPrice": 383,
       "droppedMissingGeo": 0,
-      "droppedCircle": 280
+      "droppedCircle": 285
     }
   },
   "ads": [
+    {
+      "adID": "KLOV-565678",
+      "source": "KLOV",
+      "authorUrl": "https://forums.arcade-museum.com/members/digindug82.83438/",
+      "author": "Digindug82",
+      "postedTime": "2026-09-11T15:55:30.000Z",
+      "title": "Semi working Galaxian board",
+      "description": "Here is a semi working Galaxian board, picture has lines in it, possibly ram issue? Not sure, see pictures of the issue all else is working. Jamma adapter not included $125.00 shipped in the USA or make an offer Thanks! Now $80.00 shipped",
+      "price": "$125",
+      "lat": 28.5551912,
+      "lon": -81.7669488,
+      "location": "Clermont, Florida",
+      "imageUrl": "/images/klov-placeholder.png",
+      "adUrl": "https://forums.arcade-museum.com/threads/565678/",
+      "facebookGroupId": null,
+      "facebookGroupName": null,
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-09-11 16:07:16",
+      "lastSeen": "2026-09-11T16:07:16.588Z"
+    },
+    {
+      "adID": "KLOV-566154",
+      "source": "KLOV",
+      "authorUrl": "https://forums.arcade-museum.com/members/digindug82.83438/",
+      "author": "Digindug82",
+      "postedTime": "2026-09-11T15:54:25.000Z",
+      "title": "Oscar Control Spinner",
+      "description": "Here is an Oscar controls spinner in great shape minus the rust on the stick which should clean up nicely see pictures. $110.00 shipped in the USA Now $90.00 shipped",
+      "price": "$110",
+      "lat": 28.5551912,
+      "lon": -81.7669488,
+      "location": "Clermont, Florida",
+      "imageUrl": "/images/klov-placeholder.png",
+      "adUrl": "https://forums.arcade-museum.com/threads/566154/",
+      "facebookGroupId": null,
+      "facebookGroupName": null,
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-09-11 16:07:16",
+      "lastSeen": "2026-09-11T16:07:16.622Z"
+    },
     {
       "adID": "KLOV-552277",
       "source": "KLOV",
@@ -38,7 +82,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-09-11 12:50:17",
-      "lastSeen": "2026-09-11T15:06:21.181Z"
+      "lastSeen": "2026-09-11T16:07:16.957Z"
     },
     {
       "adID": "KLOV-566716",
@@ -60,7 +104,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-09-11 12:50:17",
-      "lastSeen": "2026-09-11T15:06:21.214Z"
+      "lastSeen": "2026-09-11T16:07:16.990Z"
     },
     {
       "adID": "KLOV-498705",
@@ -82,7 +126,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-09-10 15:06:37",
-      "lastSeen": "2026-09-11T15:06:22.382Z"
+      "lastSeen": "2026-09-11T16:07:17.794Z"
     },
     {
       "adID": "KLOV-512184",
@@ -148,7 +192,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-09-08 18:05:11",
-      "lastSeen": "2026-09-11T15:04:59.960Z"
+      "lastSeen": "2026-09-11T16:05:00.332Z"
     },
     {
       "adID": "1620202866141560",
@@ -236,7 +280,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-09-07 21:37:29",
-      "lastSeen": "2026-09-11T15:05:35.484Z"
+      "lastSeen": "2026-09-11T16:05:39.435Z"
     }
   ]
 }
