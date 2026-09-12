@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-12T14:21:06.465Z",
+  "generated_at": "2026-09-12T15:07:16.758Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,19 +11,41 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 15,
-      "droppedPrice": 384,
+      "exported_ads": 16,
+      "droppedPrice": 385,
       "droppedMissingGeo": 0,
-      "droppedCircle": 305
+      "droppedCircle": 307
     }
   },
   "ads": [
+    {
+      "adID": "1499721292189649",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/1837080061/?product_id=1499721292189649",
+      "author": "Emily Flickinger Tramutolo",
+      "postedTime": "2026-09-12T14:07:48.000Z",
+      "title": "Little times t ball set",
+      "description": "New, never opened. Front porch pickup",
+      "price": "$10",
+      "lat": 30.5231647,
+      "lon": -87.9028458,
+      "location": "Fairhope, AL",
+      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/807843962_4704729729810787_5672131890773684378_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=103&ccb=1-7&_nc_sid=92e707&_nc_ohc=1o6SKcgt9bcQ7kNvwEP55su&_nc_oc=Adot3S4sQi9D4-Hl9nihwW-uyh34JHWGSk8ckZZ0tnDQd1cRrJes0NYMpmNLJ1FhJpA&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=0xP2w9cl75vfk5YoMauL4g&_nc_ss=7b2a8&oh=00_AQKX6H0r5-2cAionRAxNYlac6skbfZArL95hdvUhl36K7Q&oe=6AAB392E",
+      "adUrl": "https://www.facebook.com/marketplace/item/1499721292189649/",
+      "facebookGroupId": null,
+      "facebookGroupName": null,
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-09-12 15:05:46",
+      "lastSeen": "2026-09-12T15:06:10.176Z"
+    },
     {
       "adID": "1470375984924956",
       "source": "FB",
       "authorUrl": null,
       "author": "Peter Pappas",
-      "postedTime": "2026-09-12T04:02:23.778Z",
+      "postedTime": "2026-09-12T04:02:22.206Z",
       "title": "TXesign Silicone Sleeve for UE BOOM 3",
       "description": "New silicone protective sleeve for the Ultimate Ears BOOM 3 speaker. This TXesign accessory is made of silicone and includes a carrying handle.",
       "price": "$20",
@@ -38,7 +60,7 @@
       "priceChangedAt": "2026-09-12 13:56:10",
       "hidden": 0,
       "created_at": "2026-09-12 11:02:27",
-      "lastSeen": "2026-09-12T13:56:10.903Z"
+      "lastSeen": "2026-09-12T15:02:22.262Z"
     },
     {
       "adID": "1598635748465121",
@@ -60,7 +82,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-09-11 21:06:00",
-      "lastSeen": "2026-09-12T13:57:04.544Z"
+      "lastSeen": "2026-09-12T15:05:45.996Z"
     },
     {
       "adID": "2349744825767678",
@@ -82,7 +104,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-09-11 17:05:47",
-      "lastSeen": "2026-09-12T13:57:45.706Z"
+      "lastSeen": "2026-09-12T15:05:45.963Z"
     },
     {
       "adID": "KLOV-565678",
@@ -104,7 +126,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-09-11 16:07:16",
-      "lastSeen": "2026-09-12T13:57:45.907Z"
+      "lastSeen": "2026-09-12T15:07:12.028Z"
     },
     {
       "adID": "KLOV-566154",
@@ -126,7 +148,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-09-11 16:07:16",
-      "lastSeen": "2026-09-12T13:58:03.129Z"
+      "lastSeen": "2026-09-12T15:07:12.062Z"
     },
     {
       "adID": "KLOV-552277",
@@ -148,7 +170,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-09-11 12:50:17",
-      "lastSeen": "2026-09-12T13:59:08.687Z"
+      "lastSeen": "2026-09-12T15:07:12.306Z"
     },
     {
       "adID": "KLOV-566716",
@@ -170,7 +192,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-09-11 12:50:17",
-      "lastSeen": "2026-09-12T13:59:08.724Z"
+      "lastSeen": "2026-09-12T15:07:12.340Z"
     },
     {
       "adID": "KLOV-498705",
@@ -258,7 +280,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-09-08 18:05:11",
-      "lastSeen": "2026-09-12T14:08:11.089Z"
+      "lastSeen": "2026-09-12T15:05:00.251Z"
     },
     {
       "adID": "1620202866141560",
@@ -346,7 +368,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-09-07 21:37:29",
-      "lastSeen": "2026-09-12T14:18:51.842Z"
+      "lastSeen": "2026-09-12T15:05:45.922Z"
     }
   ]
 }
