@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-13T13:07:24.081Z",
+  "generated_at": "2026-09-13T14:08:25.606Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,35 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 18,
-      "droppedPrice": 421,
+      "exported_ads": 19,
+      "droppedPrice": 426,
       "droppedMissingGeo": 0,
       "droppedCircle": 338
     }
   },
   "ads": [
+    {
+      "adID": "1833052504738561",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100000477937671/?product_id=1833052504738561",
+      "author": "Charles Stiles",
+      "postedTime": "2026-09-13T13:47:23.000Z",
+      "title": "Presto Pop Corn Machine",
+      "description": "",
+      "price": "$25",
+      "lat": 30.3935337,
+      "lon": -86.4957834,
+      "location": "Destin, FL",
+      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/808897145_1640921634040152_3623112274602323025_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=102&ccb=1-7&_nc_sid=92e707&_nc_ohc=qhJ_NfSfT58Q7kNvwGRwZM6&_nc_oc=Adp79hwUarLyKRLaYGglpKgtAg-nLkTsZyZIDblIahShhKEwGFzjn7sIdZ9fYfPrLcE&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=tf7mITl-TLwx6Hp9hPJMHg&_nc_ss=7b2a8&oh=00_AQL4eDZwVBaqqRKbg8MzVmtz3kJfUoyyQg8Go1Wo-lOw-A&oe=6AAC7986",
+      "adUrl": "https://www.facebook.com/marketplace/item/1833052504738561/",
+      "facebookGroupId": null,
+      "facebookGroupName": null,
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-09-13 14:06:38",
+      "lastSeen": "2026-09-13T14:07:19.812Z"
+    },
     {
       "adID": "2099337373992623",
       "source": "MP",
@@ -38,7 +60,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-09-13 11:07:09",
-      "lastSeen": "2026-09-13T13:05:58.924Z"
+      "lastSeen": "2026-09-13T14:06:38.905Z"
     },
     {
       "adID": "1102184445830080",
@@ -52,7 +74,7 @@
       "lat": 30.1586518,
       "lon": -85.6602936,
       "location": "Panama City, FL",
-      "imageUrl": "https://scontent-dfw6-2.xx.fbcdn.net/v/t39.84726-6/806318614_937359222753862_3944936935002004503_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=109&ccb=1-7&_nc_sid=92e707&_nc_ohc=K2-yxuJ5Rj8Q7kNvwHZPjtI&_nc_oc=Ado-lrD2w70dIMkH_iD7ftW836Fs-OE3oaphxpKQL7b3FkLe4j1ZtOYfIxLaEbira-0&_nc_zt=14&_nc_ht=scontent-dfw6-2.xx&_nc_gid=ZsTzPJlsveSyuWT6tO3kGw&_nc_ss=7b2a8&oh=00_AQL9Mp68pFhNmbgMKgSwCyCGB7gODeCa01o3XckvhdwsHg&oe=6AAC819B",
+      "imageUrl": "https://scontent-dfw6-2.xx.fbcdn.net/v/t39.84726-6/806318614_937359222753862_3944936935002004503_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=109&ccb=1-7&_nc_sid=92e707&_nc_ohc=K2-yxuJ5Rj8Q7kNvwHZPjtI&_nc_oc=Ado-lrD2w70dIMkH_iD7ftW836Fs-OE3oaphxpKQL7b3FkLe4j1ZtOYfIxLaEbira-0&_nc_zt=14&_nc_ht=scontent-dfw6-2.xx&_nc_gid=--uffE2vwV5qfiKzItHpWA&_nc_ss=7b2a8&oh=00_AQKuIefw-sXq_NdWjWTLiKocCYzqi3ey0aA_NvGBiEr0kA&oe=6AAC819B",
       "adUrl": "https://www.facebook.com/marketplace/item/1102184445830080/",
       "facebookGroupId": null,
       "facebookGroupName": null,
@@ -60,7 +82,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-09-12 23:05:06",
-      "lastSeen": "2026-09-13T13:05:32.920Z"
+      "lastSeen": "2026-09-13T14:06:14.834Z"
     },
     {
       "adID": "1339660278015421",
@@ -74,7 +96,7 @@
       "lat": 30.1586518,
       "lon": -85.6602936,
       "location": "Panama City, FL",
-      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/807595611_1790833821918563_1395782452967307897_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=106&ccb=1-7&_nc_sid=92e707&_nc_ohc=2bX1ZvoH4IQQ7kNvwGq5vYE&_nc_oc=AdoW5HpbKtxYa6vlJ6os8DnBAsq6EyY9by0Ni6Y1a3SL4bTaxB6jlc1ar5tj8VbYt5g&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=1MJNXBTV-JzIybK_jtXhew&_nc_ss=7b2a8&oh=00_AQKF7gOxIf5vZMOPdPoVW_8hiRtk4dvI9XET7mHoFAAe_w&oe=6AAC87E6",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/807595611_1790833821918563_1395782452967307897_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=106&ccb=1-7&_nc_sid=92e707&_nc_ohc=2bX1ZvoH4IQQ7kNvwGq5vYE&_nc_oc=AdoW5HpbKtxYa6vlJ6os8DnBAsq6EyY9by0Ni6Y1a3SL4bTaxB6jlc1ar5tj8VbYt5g&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=spJoQnUAuB8hnTHdDZ_jQA&_nc_ss=7b2a8&oh=00_AQJ97ODo4xE7AONBRf-Qy8scKrnsjAGxVUU49o-B0LQKBA&oe=6AAC87E6",
       "adUrl": "https://www.facebook.com/marketplace/item/1339660278015421/",
       "facebookGroupId": null,
       "facebookGroupName": null,
@@ -82,7 +104,7 @@
       "priceChangedAt": "2026-09-12 21:05:01",
       "hidden": 0,
       "created_at": "2026-09-12 18:05:02",
-      "lastSeen": "2026-09-13T13:06:11.563Z"
+      "lastSeen": "2026-09-13T14:07:19.696Z"
     },
     {
       "adID": "KLOV-566157",
@@ -104,7 +126,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-09-12 17:06:52",
-      "lastSeen": "2026-09-13T13:07:20.172Z"
+      "lastSeen": "2026-09-13T14:08:21.041Z"
     },
     {
       "adID": "KLOV-551143",
@@ -126,7 +148,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-09-12 16:08:22",
-      "lastSeen": "2026-09-13T13:07:20.272Z"
+      "lastSeen": "2026-09-13T14:08:21.163Z"
     },
     {
       "adID": "KLOV-564999",
@@ -148,7 +170,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-09-12 16:08:22",
-      "lastSeen": "2026-09-13T13:07:20.310Z"
+      "lastSeen": "2026-09-13T14:08:21.197Z"
     },
     {
       "adID": "KLOV-565678",
@@ -170,7 +192,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-09-11 16:07:16",
-      "lastSeen": "2026-09-13T13:07:20.685Z"
+      "lastSeen": "2026-09-13T14:08:21.564Z"
     },
     {
       "adID": "KLOV-566154",
@@ -192,7 +214,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-09-11 16:07:16",
-      "lastSeen": "2026-09-13T13:07:20.718Z"
+      "lastSeen": "2026-09-13T14:08:21.598Z"
     },
     {
       "adID": "KLOV-552277",
@@ -324,7 +346,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-09-08 18:05:11",
-      "lastSeen": "2026-09-13T13:05:06.009Z"
+      "lastSeen": "2026-09-13T14:04:57.812Z"
     },
     {
       "adID": "1620202866141560",
@@ -412,7 +434,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-09-07 21:37:29",
-      "lastSeen": "2026-09-13T13:05:58.837Z"
+      "lastSeen": "2026-09-13T14:06:38.834Z"
     }
   ]
 }
