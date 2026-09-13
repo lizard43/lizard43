@@ -1,5 +1,5 @@
 // Filename: archive.js
-// Version: 20260913-203036
+// Version: 20260913-210557
 
 "use strict";
 
@@ -35,7 +35,7 @@ const state = {
     threadMessages: new Map(),
     expandedThreads: new Set(),
     messageSort: {
-        column: "number",
+        column: "date",
         direction: "desc"
     },
     threadSort: {
@@ -122,12 +122,9 @@ function applyTheme(theme) {
     }
 }
 
-function updateMessageCounter(displayedCount = state.messages.length, threadCount = null) {
+function updateMessageCounter(displayedCount = state.messages.length) {
     const totalCount = state.manifest?.messageCount ?? state.messages.length;
-    const text = `${displayedCount.toLocaleString()} / ${totalCount.toLocaleString()}` +
-        (threadCount === null
-            ? ""
-            : ` · ${threadCount.toLocaleString()} ${threadCount === 1 ? "thread" : "threads"}`);
+    const text = `${displayedCount.toLocaleString()} / ${totalCount.toLocaleString()}`;
     for (const counter of document.querySelectorAll("[data-message-counter]")) {
         counter.textContent = text;
     }
@@ -394,13 +391,50 @@ function filteredMessages() {
     return messages;
 }
 
-function senderCell(message) {
+function messageIndicators({ messageCount = null, attachmentCount = 0, matchCount = null } = {}) {
+    const indicators = document.createElement("span");
+    indicators.className = "message-row-indicators";
+
+    if (messageCount !== null) {
+        const count = document.createElement("span");
+        count.className = "thread-message-count";
+        count.textContent = Number(messageCount).toLocaleString();
+        count.setAttribute("aria-label", `${Number(messageCount).toLocaleString()} messages`);
+        count.title = matchCount !== null && matchCount !== messageCount
+            ? `${Number(matchCount).toLocaleString()} matching messages out of ${Number(messageCount).toLocaleString()}`
+            : `${Number(messageCount).toLocaleString()} messages`;
+        indicators.append(count);
+    }
+
+    if (attachmentCount > 0) {
+        const clip = document.createElement("span");
+        clip.className = "attachment-indicator";
+        clip.setAttribute(
+            "aria-label",
+            `${Number(attachmentCount).toLocaleString()} ${attachmentCount === 1 ? "attachment" : "attachments"}`
+        );
+        clip.title = `${Number(attachmentCount).toLocaleString()} ${attachmentCount === 1 ? "attachment" : "attachments"}`;
+        clip.innerHTML = `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m20.5 11.5-8.9 8.9a6 6 0 0 1-8.5-8.5l9.6-9.6a4 4 0 0 1 5.7 5.7l-9.6 9.6a2 2 0 0 1-2.8-2.8l8.9-8.9"></path></svg>`;
+        indicators.append(clip);
+    }
+
+    return indicators;
+}
+
+function senderCell(message, indicatorOptions = {}) {
     const wrapper = document.createElement("button");
     wrapper.type = "button";
     wrapper.className = "message-sender-link";
+    const primary = document.createElement("span");
+    primary.className = "message-sender-primary";
     const name = document.createElement("span");
     name.textContent = message.senderName || message.sender;
-    wrapper.append(name);
+    primary.append(name);
+    const indicators = messageIndicators(indicatorOptions);
+    if (indicators.childElementCount) {
+        primary.append(indicators);
+    }
+    wrapper.append(primary);
     if (message.senderAddress) {
         const address = document.createElement("span");
         address.className = "sender-address";
@@ -589,16 +623,11 @@ function runBusy(task) {
 
 function configureMessageSort(table) {
     const labels = {
-        number: state.threaded ? "Thread" : "Msg #",
-        date: state.threaded ? "Last posted" : "Date",
-        sender: state.threaded ? "Started by" : "Sender",
+        date: state.threaded ? "Posted" : "Date",
+        sender: "Sender",
         subject: "Subject"
     };
     const sortState = state.threaded ? state.threadSort : state.messageSort;
-
-    if (state.threaded) {
-        table.querySelector("[data-message-sort='number']")?.closest("th")?.remove();
-    }
 
     for (const button of table.querySelectorAll("[data-message-sort]")) {
         const column = button.dataset.messageSort;
@@ -697,7 +726,9 @@ function createMessageRow(message, options = {}) {
     dateCell.append(messageDateElement(message.date));
 
     const fromCell = document.createElement("td");
-    fromCell.append(senderCell(message));
+    fromCell.append(senderCell(message, {
+        attachmentCount: Number(message.attachments) || 0
+    }));
 
     const subjectCell = document.createElement("td");
     subjectCell.append(previewTrigger(message, message.subject));
@@ -706,13 +737,7 @@ function createMessageRow(message, options = {}) {
     }
     appendSearchSnippet(subjectCell, message);
 
-    if (options.hideNumber) {
-        row.append(dateCell, fromCell, subjectCell);
-    } else {
-        const numberCell = document.createElement("td");
-        numberCell.append(previewTrigger(message, message.number));
-        row.append(numberCell, dateCell, fromCell, subjectCell);
-    }
+    row.append(dateCell, fromCell, subjectCell);
     return row;
 }
 
@@ -863,17 +888,18 @@ function threadSummaryRow(thread) {
     dateCell.append(dateLayout);
 
     const senderColumn = document.createElement("td");
-    senderColumn.append(senderCell(thread.root));
+    const attachmentCount = thread.messages.reduce(
+        (total, message) => total + (Number(message.attachments) || 0),
+        0
+    );
+    senderColumn.append(senderCell(thread.root, {
+        messageCount: thread.messages.length,
+        attachmentCount,
+        matchCount: thread.matches.size
+    }));
 
     const subjectCell = document.createElement("td");
     subjectCell.append(previewTrigger(thread.root, thread.root.subject));
-    const metadata = document.createElement("div");
-    metadata.className = "thread-summary-meta";
-    const totalLabel = `${thread.messages.length.toLocaleString()} ${thread.messages.length === 1 ? "msg" : "msgs"}`;
-    metadata.textContent = thread.matches.size === thread.messages.length
-        ? totalLabel
-        : `${thread.matches.size.toLocaleString()} matches · ${totalLabel}`;
-    subjectCell.append(metadata);
     const snippetMessage = thread.messages.find((message) =>
         thread.matches.has(message.number) &&
         state.bodySearchSnippets.has(message.number)
@@ -928,7 +954,6 @@ function renderThreadedMessages() {
                 }
                 const row = createMessageRow(message, {
                     className: "thread-message-row thread-span-row",
-                    hideNumber: true,
                     depth: threadDepth(message),
                     dimmed: thread.matches.size !== thread.messages.length &&
                         !thread.matches.has(message.number)
@@ -947,7 +972,7 @@ function renderThreadedMessages() {
         `Page ${state.page} of ${pageCount}`;
     elements.previous.disabled = state.page <= 1;
     elements.next.disabled = state.page >= pageCount;
-    updateMessageCounter(matchingMessages.length, threads.length);
+    updateMessageCounter(matchingMessages.length);
     renderActiveFilter(matchingMessages.length);
 }
 
@@ -1067,7 +1092,7 @@ function renderSenders() {
         for (const [label, column] of [
             ["Sender", "name"],
             ["Msgs", "count"],
-            ["Last posted", "lastPosted"]
+            ["Posted", "lastPosted"]
         ]) {
             const header = document.createElement("th");
             header.scope = "col";
@@ -1145,9 +1170,9 @@ function renderTopics() {
         for (const [label, column] of [
             ["Name", "name"],
             ["Category", "category"],
-            ["Description", "description"],
+            ["Desc", "description"],
             ["Messages", "count"],
-            ["Last posted", "lastPosted"]
+            ["Posted", "lastPosted"]
         ]) {
             const header = document.createElement("th");
             header.scope = "col";

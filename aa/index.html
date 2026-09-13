@@ -1,6 +1,6 @@
 <!--
 Filename: index.html
-Version: 20260913-203036
+Version: 20260913-211316
 -->
 <!doctype html>
 <html lang="en">
@@ -33,6 +33,12 @@ Version: 20260913-203036
 
     <nav class="app-toolbar" aria-label="Message controls and search">
         <div class="toolbar-inner">
+            <label class="toolbar-search">
+                <span class="visually-hidden">Search messages</span>
+                <input id="searchInput" type="search"
+                    placeholder="Search message number, sender, or subject"
+                    autocomplete="off">
+            </label>
             <button id="threadViewButton" type="button" class="toolbar-button thread-view-button"
                 aria-label="Group messages by thread" title="Group messages by thread"
                 aria-pressed="false">
@@ -59,12 +65,6 @@ Version: 20260913-203036
                     <path d="M19.4 15a1.7 1.7 0 0 0 .34 1.88l.06.06-2.83 2.83-.06-.06A1.7 1.7 0 0 0 15 19.4a1.7 1.7 0 0 0-1 .6 1.7 1.7 0 0 0-.4 1.1V21h-4v-.09A1.7 1.7 0 0 0 8.6 19.4a1.7 1.7 0 0 0-1.88.34l-.06.06-2.83-2.83.06-.06A1.7 1.7 0 0 0 4.6 15a1.7 1.7 0 0 0-.6-1 1.7 1.7 0 0 0-1.1-.4H3v-4h.09A1.7 1.7 0 0 0 4.6 8.6a1.7 1.7 0 0 0-.34-1.88l-.06-.06 2.83-2.83.06.06A1.7 1.7 0 0 0 9 4.6a1.7 1.7 0 0 0 1-.6 1.7 1.7 0 0 0 .4-1.1V3h4v.09A1.7 1.7 0 0 0 15.4 4.6a1.7 1.7 0 0 0 1.88-.34l.06-.06 2.83 2.83-.06.06A1.7 1.7 0 0 0 19.4 9c.13.37.35.71.64.98.3.27.68.42 1.08.42H21v4h-.09A1.7 1.7 0 0 0 19.4 15Z"></path>
                 </svg>
             </button>
-            <label class="toolbar-search">
-                <span class="visually-hidden">Search messages</span>
-                <input id="searchInput" type="search"
-                    placeholder="Search message number, sender, or subject"
-                    autocomplete="off">
-            </label>
         </div>
     </nav>
     </div>
@@ -131,16 +131,15 @@ Version: 20260913-203036
             <table class="message-table">
                 <thead>
                     <tr>
-                        <th scope="col"><button type="button" class="sort-button" data-message-sort="number">Msg #</button></th>
                         <th scope="col"><button type="button" class="sort-button" data-message-sort="date">Date</button></th>
-                        <th scope="col"><button type="button" class="sort-button" data-message-sort="sender">Sender</button></th>
                         <th scope="col">
-                            <span class="subject-heading">
-                                <button type="button" class="sort-button" data-message-sort="subject">Subject</button>
+                            <span class="sender-heading">
+                                <button type="button" class="sort-button" data-message-sort="sender">Sender</button>
                                 <span class="message-counter" data-message-counter
                                     aria-label="Displayed and total messages">— / —</span>
                             </span>
                         </th>
+                        <th scope="col"><button type="button" class="sort-button" data-message-sort="subject">Subject</button></th>
                     </tr>
                 </thead>
                 <tbody></tbody>
