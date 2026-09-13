@@ -1,5 +1,5 @@
 // Filename: archive.js
-// Version: 20260913-210557
+// Version: 20260913-211813
 
 "use strict";
 
@@ -70,7 +70,6 @@ const elements = {
     bodySearchButton: document.querySelector("#bodySearchButton"),
     settingsButton: document.querySelector("#settingsButton"),
     settingsDialog: document.querySelector("#settingsDialog"),
-    themeSetting: document.querySelector("#themeSetting"),
     pageSizeSetting: document.querySelector("#pageSizeSetting"),
     threadedSetting: document.querySelector("#threadedSetting"),
     bodySearchSetting: document.querySelector("#bodySearchSetting")
@@ -84,9 +83,6 @@ function loadSettings() {
         settings = {};
     }
 
-    const theme = ["system", "light", "dark"].includes(settings.theme)
-        ? settings.theme
-        : "system";
     const pageSize = [50, 100, 200].includes(Number(settings.pageSize))
         ? Number(settings.pageSize)
         : DEFAULT_PAGE_SIZE;
@@ -94,31 +90,20 @@ function loadSettings() {
     state.pageSize = pageSize;
     state.threaded = settings.threaded !== false;
     state.searchBodies = settings.searchBodies !== false;
-    elements.themeSetting.value = theme;
     elements.pageSizeSetting.value = String(pageSize);
     elements.threadedSetting.checked = state.threaded;
     elements.bodySearchSetting.checked = state.searchBodies;
-    applyTheme(theme);
 }
 
 function saveSettings() {
     try {
         localStorage.setItem(SETTINGS_KEY, JSON.stringify({
-            theme: elements.themeSetting.value,
             pageSize: state.pageSize,
             threaded: state.threaded,
             searchBodies: state.searchBodies
         }));
     } catch {
         // Browser privacy settings may disable local storage.
-    }
-}
-
-function applyTheme(theme) {
-    if (theme === "system") {
-        document.documentElement.removeAttribute("data-theme");
-    } else {
-        document.documentElement.dataset.theme = theme;
     }
 }
 
@@ -1436,11 +1421,6 @@ addEventListener("hashchange", () => {
 
 elements.settingsButton.addEventListener("click", () => {
     elements.settingsDialog.showModal();
-});
-
-elements.themeSetting.addEventListener("change", () => {
-    applyTheme(elements.themeSetting.value);
-    saveSettings();
 });
 
 elements.pageSizeSetting.addEventListener("change", () => {

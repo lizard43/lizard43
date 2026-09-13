@@ -1,18 +1,18 @@
 /*
  * Filename: archive.css
- * Version: 20260913-211316
+ * Version: 20260913-212217
  */
 
 :root {
-    color-scheme: light dark;
-    --background: #f4f6f8;
-    --surface: #ffffff;
-    --surface-alt: #eef2f5;
-    --text: #18232d;
-    --muted: #62717f;
-    --line: #d5dde4;
-    --accent: #1565a8;
-    --accent-strong: #0e4c80;
+    color-scheme: dark;
+    --background: #090b0d;
+    --surface: #192229;
+    --surface-alt: #222d35;
+    --text: #e8eef2;
+    --muted: #a7b4bd;
+    --line: #34434e;
+    --accent: #5797c8;
+    --accent-strong: #78acd2;
     --focus: #ef9f27;
     font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
         "Segoe UI", sans-serif;
@@ -55,7 +55,7 @@ html.is-body-searching * {
 
 .site-header {
     background: #090b0d;
-    color: #c4ccd3;
+    color: #8996a0;
     padding: 0.42rem max(0.5rem, calc((100vw - 1280px) / 2));
 }
 
@@ -71,8 +71,8 @@ html.is-body-searching * {
     min-width: 0;
     margin: 0;
     overflow: hidden;
-    color: #c4ccd3;
-    font-size: 0.93rem;
+    color: #8996a0;
+    font-size: 0.76rem;
     font-weight: 600;
     letter-spacing: 0.025em;
     line-height: 1.25;
@@ -88,14 +88,14 @@ html.is-body-searching * {
 }
 
 .view-tab {
-    min-height: 1.7rem;
+    min-height: 1.85rem;
     padding: 0.2rem 0.48rem;
     border: 1px solid transparent;
     border-radius: 0.28rem;
     background: transparent;
     color: #8996a0;
-    font-size: 0.75rem;
-    font-weight: 600;
+    font-size: 0.88rem;
+    font-weight: 650;
     line-height: 1;
 }
 
@@ -799,33 +799,6 @@ a { color: var(--accent); }
     border: 0;
 }
 
-@media (prefers-color-scheme: dark) {
-    :root:not([data-theme="light"]) {
-        --background: #090b0d;
-        --surface: #192229;
-        --surface-alt: #222d35;
-        --text: #e8eef2;
-        --muted: #a7b4bd;
-        --line: #34434e;
-        --accent: #5797c8;
-        --accent-strong: #78acd2;
-    }
-}
-
-:root[data-theme="light"] { color-scheme: light; }
-
-:root[data-theme="dark"] {
-    color-scheme: dark;
-    --background: #090b0d;
-    --surface: #192229;
-    --surface-alt: #222d35;
-    --text: #e8eef2;
-    --muted: #a7b4bd;
-    --line: #34434e;
-    --accent: #5797c8;
-    --accent-strong: #78acd2;
-}
-
 @media (max-width: 700px) {
     main { width: calc(100% - 0.5rem); }
     .site-header { padding-inline: 0.35rem; }
@@ -1029,7 +1002,7 @@ a { color: var(--accent); }
 }
 
 @media (max-width: 420px) {
-    .site-header h1 { font-size: 0.84rem; }
+    .site-header h1 { font-size: 0.72rem; }
     .message-counter { font-size: 0.72rem; }
 
     .message-table thead tr,
@@ -1087,7 +1060,7 @@ a { color: var(--accent); }
 }
 
 @media (max-width: 340px) {
-    .view-tab { padding-inline: 0.38rem; font-size: 0.7rem; }
+    .view-tab { padding-inline: 0.38rem; font-size: 0.8rem; }
     .view-tab-wide { display: none; }
     .view-tab-compact { display: inline; }
 }
