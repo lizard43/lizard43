@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-13T17:08:08.596Z",
+  "generated_at": "2026-09-13T17:26:29.867Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,35 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 20,
+      "exported_ads": 18,
       "droppedPrice": 431,
       "droppedMissingGeo": 0,
       "droppedCircle": 343
     }
   },
   "ads": [
+    {
+      "adID": "2210520576510841",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/1353189086/?product_id=2210520576510841",
+      "author": "Jon Sutcliffe",
+      "postedTime": "2026-09-07T21:09:43.000Z",
+      "title": "Original Ms Pac-Man : Project",
+      "description": "$400 OBO Original Bally Midway Ms. Pac-Man from ~1981. All original PCBs, components, control panel, harness with G07 CRT. Non working, as-is. It does power-on but no video. I did not attempt to coin-up or start. Look at pictures, ask for more. If you're local, come look it over. I prefer local pickup so you can see. I will help load. Can deliver ~locally to your door for a fee. No stairs or other adventures. Will ship if you make all shipper arrangements and pay in full prior to shipment.",
+      "price": "$400",
+      "lat": 30.4982516,
+      "lon": -86.1360517,
+      "location": "Freeport, FL",
+      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t45.5328-4/798743749_28767917952805412_5695020809062694511_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=103&ccb=1-7&_nc_sid=247b10&_nc_ohc=ZgghetHP7t8Q7kNvwHUZaQF&_nc_oc=AdrWP1-lyj4IFRtDyCcSjkFpTKWHMuL8dbGZxK0Jk0aRfBtoPaV-W3TPet0xq1Yn27I&_nc_zt=23&_nc_ht=scontent-dfw6-1.xx&_nc_gid=dq_OjuJGjNCSUDDyTiQKMQ&_nc_ss=7b2a8&oh=00_AQKmxne2XffX6n-_zn1N_NTIleNWMTbvr4kMGrrQvABmBg&oe=6AACB1C0",
+      "adUrl": "https://www.facebook.com/marketplace/item/2210520576510841/",
+      "facebookGroupId": null,
+      "facebookGroupName": null,
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-09-13 17:26:11",
+      "lastSeen": "2026-09-13T17:26:11.845Z"
+    },
     {
       "adID": "KLOV-561395",
       "source": "KLOV",
@@ -39,50 +61,6 @@
       "hidden": 0,
       "created_at": "2026-09-13 15:07:27",
       "lastSeen": "2026-09-13T17:08:04.160Z"
-    },
-    {
-      "adID": "1833052504738561",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/100000477937671/?product_id=1833052504738561",
-      "author": "Charles Stiles",
-      "postedTime": "2026-09-13T13:47:23.000Z",
-      "title": "Presto Pop Corn Machine",
-      "description": "",
-      "price": "$25",
-      "lat": 30.3935337,
-      "lon": -86.4957834,
-      "location": "Destin, FL",
-      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/808897145_1640921634040152_3623112274602323025_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=102&ccb=1-7&_nc_sid=92e707&_nc_ohc=qhJ_NfSfT58Q7kNvwGRwZM6&_nc_oc=Adp79hwUarLyKRLaYGglpKgtAg-nLkTsZyZIDblIahShhKEwGFzjn7sIdZ9fYfPrLcE&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=6AOBMZKv_AS21zvwqGG4eg&_nc_ss=7b2a8&oh=00_AQLJQXTe2bbS5ui37zNVme5rs7MSyG6p3TvNhKhd-40Now&oe=6AACB1C6",
-      "adUrl": "https://www.facebook.com/marketplace/item/1833052504738561/",
-      "facebookGroupId": null,
-      "facebookGroupName": null,
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-09-13 14:06:38",
-      "lastSeen": "2026-09-13T17:07:02.810Z"
-    },
-    {
-      "adID": "2099337373992623",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/100031303190691/?product_id=2099337373992623",
-      "author": "Michael Sanders",
-      "postedTime": "2026-09-11T16:20:17.000Z",
-      "title": "Op-17",
-      "description": "Brand new sleeve to boosters op 17 12 a piece 20 available local pickup in Bonifay Florida cash onlyI",
-      "price": "$12",
-      "lat": 30.7918559,
-      "lon": -85.6796533,
-      "location": "Bonifay, FL",
-      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/806002387_1759496935109472_8199381212021064391_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=102&ccb=1-7&_nc_sid=92e707&_nc_ohc=eOC9sCtayl8Q7kNvwEEEEwA&_nc_oc=AdpycdjTRhzloMRvKdavzUnO0PhMAXT0pPsj-gna55os29G7jVQMrsHf2csJWYkVkPw&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=GP1b4ZmFJ55BmOq0gx-TMw&_nc_ss=7b2a8&oh=00_AQJxIpODSqvt4hg1yJzcCo_9icrC1JRsTA6htF7xSO26BQ&oe=6AAC553E",
-      "adUrl": "https://www.facebook.com/marketplace/item/2099337373992623/",
-      "facebookGroupId": null,
-      "facebookGroupName": null,
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-09-13 11:07:09",
-      "lastSeen": "2026-09-13T17:06:26.524Z"
     },
     {
       "adID": "1102184445830080",
@@ -435,28 +413,6 @@
       "hidden": 0,
       "created_at": "2026-09-07 21:49:37",
       "lastSeen": "2026-09-12T14:17:43.167Z"
-    },
-    {
-      "adID": "2210520576510841",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/1353189086/?product_id=2210520576510841",
-      "author": "Jon Sutcliffe",
-      "postedTime": "2026-09-07T21:09:43.000Z",
-      "title": "Original Ms Pac-Man : Project",
-      "description": "$400 OBO Original Bally Midway Ms. Pac-Man from ~1981. All original PCBs, components, control panel, harness with G07 CRT. Non working, as-is. It does power-on but no video. I did not attempt to coin-up or start. Look at pictures, ask for more. If you're local, come look it over. I prefer local pickup so you can see. I will help load. Can deliver ~locally to your door for a fee. No stairs or other adventures. Will ship if you make all shipper arrangements and pay in full prior to shipment.",
-      "price": "$400",
-      "lat": 30.4982516,
-      "lon": -86.1360517,
-      "location": "Freeport, FL",
-      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t45.5328-4/798743749_28767917952805412_5695020809062694511_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=103&ccb=1-7&_nc_sid=247b10&_nc_ohc=DruMZzKfcz0Q7kNvwH63M0S&_nc_oc=AdpX_pvmZLbPCFlHcQ9QnTb4PY4grw37ldol7SXDioUiRpaYc9kJn8AZm-Lp7Gyo4Vc&_nc_zt=23&_nc_ht=scontent-dfw6-1.xx&_nc_gid=Ybw4xTTQjWn2ucarvoy1KA&_nc_ss=7b2a8&oh=00_AQKyfFqscoXZmRqiP4yjjDeZVmbCMQSOmemUMoBsQolDmQ&oe=6AAB2800",
-      "adUrl": "https://www.facebook.com/marketplace/item/2210520576510841/",
-      "facebookGroupId": null,
-      "facebookGroupName": null,
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-09-07 21:37:29",
-      "lastSeen": "2026-09-13T17:06:26.463Z"
     }
   ]
 }
