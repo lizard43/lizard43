@@ -1,5 +1,5 @@
 // Filename: archive.js
-// Version: 20260913-165823
+// Version: 20260913-203036
 
 "use strict";
 
@@ -25,11 +25,21 @@ const state = {
     keyword: null,
     topic: null,
     previewNumber: null,
-    searchBodies: false,
+    previewAnchorNumber: null,
+    searchBodies: true,
     bodySearchMatches: new Set(),
     bodySearchSnippets: new Map(),
+    threaded: true,
+    threadDataAvailable: false,
+    messageByNumber: new Map(),
+    threadMessages: new Map(),
+    expandedThreads: new Set(),
     messageSort: {
         column: "number",
+        direction: "desc"
+    },
+    threadSort: {
+        column: "date",
         direction: "desc"
     },
     senderSort: {
@@ -56,11 +66,14 @@ const elements = {
     pageStatus: document.querySelector("#pageStatus"),
     tableTemplate: document.querySelector("#messageTableTemplate"),
     tabs: [...document.querySelectorAll("[data-view]")],
+    threadViewButton: document.querySelector("#threadViewButton"),
     bodySearchButton: document.querySelector("#bodySearchButton"),
     settingsButton: document.querySelector("#settingsButton"),
     settingsDialog: document.querySelector("#settingsDialog"),
     themeSetting: document.querySelector("#themeSetting"),
-    pageSizeSetting: document.querySelector("#pageSizeSetting")
+    pageSizeSetting: document.querySelector("#pageSizeSetting"),
+    threadedSetting: document.querySelector("#threadedSetting"),
+    bodySearchSetting: document.querySelector("#bodySearchSetting")
 };
 
 function loadSettings() {
@@ -79,8 +92,12 @@ function loadSettings() {
         : DEFAULT_PAGE_SIZE;
 
     state.pageSize = pageSize;
+    state.threaded = settings.threaded !== false;
+    state.searchBodies = settings.searchBodies !== false;
     elements.themeSetting.value = theme;
     elements.pageSizeSetting.value = String(pageSize);
+    elements.threadedSetting.checked = state.threaded;
+    elements.bodySearchSetting.checked = state.searchBodies;
     applyTheme(theme);
 }
 
@@ -88,7 +105,9 @@ function saveSettings() {
     try {
         localStorage.setItem(SETTINGS_KEY, JSON.stringify({
             theme: elements.themeSetting.value,
-            pageSize: state.pageSize
+            pageSize: state.pageSize,
+            threaded: state.threaded,
+            searchBodies: state.searchBodies
         }));
     } catch {
         // Browser privacy settings may disable local storage.
@@ -103,9 +122,12 @@ function applyTheme(theme) {
     }
 }
 
-function updateMessageCounter(displayedCount = state.messages.length) {
+function updateMessageCounter(displayedCount = state.messages.length, threadCount = null) {
     const totalCount = state.manifest?.messageCount ?? state.messages.length;
-    const text = `${displayedCount.toLocaleString()} / ${totalCount.toLocaleString()}`;
+    const text = `${displayedCount.toLocaleString()} / ${totalCount.toLocaleString()}` +
+        (threadCount === null
+            ? ""
+            : ` · ${threadCount.toLocaleString()} ${threadCount === 1 ? "thread" : "threads"}`);
     for (const counter of document.querySelectorAll("[data-message-counter]")) {
         counter.textContent = text;
     }
@@ -130,13 +152,46 @@ function buildSenderDirectory(messages) {
     return [...senders.values()];
 }
 
+function buildThreadIndex(messages) {
+    state.messageByNumber = new Map();
+    state.threadMessages = new Map();
+    state.threadDataAvailable = messages.length > 0 &&
+        messages.every((message) => Object.hasOwn(message, "threadRootNumber"));
+
+    for (const message of messages) {
+        message.number = Number(message.number);
+        message.threadRootNumber = Number(message.threadRootNumber ?? message.number);
+        message.parentNumber = message.parentNumber == null ? null : Number(message.parentNumber);
+        state.messageByNumber.set(message.number, message);
+        const thread = state.threadMessages.get(message.threadRootNumber) || [];
+        thread.push(message);
+        state.threadMessages.set(message.threadRootNumber, thread);
+    }
+
+    for (const thread of state.threadMessages.values()) {
+        thread.sort((left, right) =>
+            new Date(left.date).getTime() - new Date(right.date).getTime() ||
+            left.number - right.number
+        );
+    }
+
+    if (!state.threadDataAvailable) {
+        state.threaded = false;
+    }
+}
+
+function clearPreview() {
+    state.previewNumber = null;
+    state.previewAnchorNumber = null;
+}
+
 function parseHash() {
     const value = location.hash.replace(/^#/, "");
     const [kind, encodedValue] = value.split("=", 2);
     state.sender = null;
     state.keyword = null;
     state.topic = null;
-    state.previewNumber = null;
+    clearPreview();
 
     if (kind === "sender" && encodedValue) {
         state.view = "messages";
@@ -203,6 +258,19 @@ function updateBodySearchControl() {
     } else if (state.searchBodies) {
         label = "Message text search enabled";
     }
+    button.setAttribute("aria-label", label);
+    button.title = label;
+}
+
+function updateThreadViewControl() {
+    const button = elements.threadViewButton;
+    button.hidden = state.view !== "messages";
+    button.disabled = !state.threadDataAvailable;
+    button.classList.toggle("active", state.threaded && state.threadDataAvailable);
+    button.setAttribute("aria-pressed", String(state.threaded && state.threadDataAvailable));
+    const label = state.threadDataAvailable
+        ? (state.threaded ? "Show flat message list" : "Group messages by thread")
+        : "Run the updated site export to enable threads";
     button.setAttribute("aria-label", label);
     button.title = label;
 }
@@ -327,16 +395,23 @@ function filteredMessages() {
 }
 
 function senderCell(message) {
-    const wrapper = document.createElement("div");
-    const name = document.createElement("div");
+    const wrapper = document.createElement("button");
+    wrapper.type = "button";
+    wrapper.className = "message-sender-link";
+    const name = document.createElement("span");
     name.textContent = message.senderName || message.sender;
     wrapper.append(name);
     if (message.senderAddress) {
-        const address = document.createElement("div");
+        const address = document.createElement("span");
         address.className = "sender-address";
         address.textContent = message.senderAddress;
         wrapper.append(address);
     }
+    wrapper.addEventListener("click", () => {
+        state.query = "";
+        elements.search.value = "";
+        location.hash = `sender=${encodeURIComponent(message.senderKey)}`;
+    });
     return wrapper;
 }
 
@@ -345,9 +420,37 @@ function previewTrigger(message, label) {
     button.type = "button";
     button.className = "message-link message-preview-trigger";
     button.textContent = label;
-    button.setAttribute("aria-expanded", String(state.previewNumber === message.number));
+    button.setAttribute(
+        "aria-expanded",
+        String(state.previewAnchorNumber === message.number && state.previewNumber !== null)
+    );
     button.addEventListener("click", () => {
-        state.previewNumber = state.previewNumber === message.number ? null : message.number;
+        if (state.previewAnchorNumber === message.number && state.previewNumber !== null) {
+            clearPreview();
+        } else {
+            state.previewAnchorNumber = message.number;
+            state.previewNumber = message.number;
+        }
+        renderMessages();
+    });
+    return button;
+}
+
+function threadForMessage(message) {
+    return state.threadMessages.get(message.threadRootNumber) || [message];
+}
+
+function threadNavigationButton(label, targetMessage) {
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = "preview-thread-button";
+    button.textContent = label;
+    button.disabled = !targetMessage;
+    button.addEventListener("click", () => {
+        if (!targetMessage) {
+            return;
+        }
+        state.previewNumber = targetMessage.number;
         renderMessages();
     });
     return button;
@@ -371,7 +474,7 @@ function messagePreviewRow(message) {
     const row = document.createElement("tr");
     row.className = "message-preview-row";
     const cell = document.createElement("td");
-    cell.colSpan = 4;
+    cell.colSpan = state.threaded && state.threadDataAvailable ? 3 : 4;
 
     const preview = document.createElement("section");
     preview.className = "message-preview";
@@ -388,16 +491,35 @@ function messagePreviewRow(message) {
     open.className = "open-message-button";
     open.textContent = "Open on Groups.io";
 
+    const messageNumber = document.createElement("span");
+    messageNumber.className = "preview-message-number";
+    messageNumber.textContent = `Msg #${message.number}`;
+    actions.append(open, messageNumber);
+
+    const thread = threadForMessage(message);
+    const threadIndex = thread.findIndex((entry) => entry.number === message.number);
+    if (thread.length > 1 && threadIndex >= 0) {
+        const navigation = document.createElement("div");
+        navigation.className = "preview-thread-navigation";
+        const previous = threadNavigationButton("← Previous", thread[threadIndex - 1]);
+        const status = document.createElement("span");
+        status.className = "preview-thread-status";
+        status.textContent = `${threadIndex + 1} of ${thread.length}`;
+        const next = threadNavigationButton("Next →", thread[threadIndex + 1]);
+        navigation.append(previous, status, next);
+        actions.append(navigation);
+    }
+
     const close = document.createElement("button");
     close.type = "button";
     close.className = "close-preview-button";
     close.setAttribute("aria-label", "Close message preview");
     close.textContent = "×";
     close.addEventListener("click", () => {
-        state.previewNumber = null;
+        clearPreview();
         renderMessages();
     });
-    actions.append(open, close);
+    actions.append(close);
     toolbar.append(actions);
 
     const body = document.createElement("div");
@@ -467,35 +589,40 @@ function runBusy(task) {
 
 function configureMessageSort(table) {
     const labels = {
-        number: "Msg #",
-        date: "Date",
-        sender: "Sender",
+        number: state.threaded ? "Thread" : "Msg #",
+        date: state.threaded ? "Last posted" : "Date",
+        sender: state.threaded ? "Started by" : "Sender",
         subject: "Subject"
     };
+    const sortState = state.threaded ? state.threadSort : state.messageSort;
+
+    if (state.threaded) {
+        table.querySelector("[data-message-sort='number']")?.closest("th")?.remove();
+    }
 
     for (const button of table.querySelectorAll("[data-message-sort]")) {
         const column = button.dataset.messageSort;
-        const active = state.messageSort.column === column;
+        const active = sortState.column === column;
         button.textContent = `${labels[column]}${active
-            ? (state.messageSort.direction === "asc" ? " ▲" : " ▼")
+            ? (sortState.direction === "asc" ? " ▲" : " ▼")
             : ""}`;
         const header = button.closest("th");
         if (active) {
             header.setAttribute(
                 "aria-sort",
-                state.messageSort.direction === "asc" ? "ascending" : "descending"
+                sortState.direction === "asc" ? "ascending" : "descending"
             );
         }
         button.addEventListener("click", () => {
             runBusy(() => {
                 if (active) {
-                    state.messageSort.direction = state.messageSort.direction === "asc" ? "desc" : "asc";
+                    sortState.direction = sortState.direction === "asc" ? "desc" : "asc";
                 } else {
-                    state.messageSort.column = column;
-                    state.messageSort.direction = ["number", "date"].includes(column) ? "desc" : "asc";
+                    sortState.column = column;
+                    sortState.direction = ["number", "date"].includes(column) ? "desc" : "asc";
                 }
                 state.page = 1;
-                state.previewNumber = null;
+                clearPreview();
                 renderMessages();
                 scrollTo({ top: 0, behavior: "auto" });
             });
@@ -503,7 +630,105 @@ function configureMessageSort(table) {
     }
 }
 
-function renderMessages() {
+function dateParts(date, includeTime = false) {
+    const options = {
+        year: "2-digit",
+        month: "short",
+        day: "2-digit"
+    };
+    if (includeTime) {
+        options.hour = "2-digit";
+        options.minute = "2-digit";
+        options.hourCycle = "h23";
+    }
+    return new Map(
+        new Intl.DateTimeFormat("en-US", options)
+            .formatToParts(new Date(date))
+            .map((part) => [part.type, part.value])
+    );
+}
+
+function formatCalendarDate(date) {
+    const parts = dateParts(date);
+    return `${parts.get("day")} ${parts.get("month")} ${parts.get("year")}`;
+}
+
+function messageDateElement(date) {
+    const parts = dateParts(date, true);
+    const element = document.createElement("time");
+    element.className = "message-date";
+    element.dateTime = new Date(date).toISOString();
+
+    const calendar = document.createElement("span");
+    calendar.className = "message-date-calendar";
+    calendar.textContent = `${parts.get("day")} ${parts.get("month")} ${parts.get("year")}`;
+
+    const separator = document.createElement("span");
+    separator.className = "message-date-separator";
+    separator.textContent = " · ";
+
+    const clock = document.createElement("span");
+    clock.className = "message-date-clock";
+    clock.textContent = `${parts.get("hour")}:${parts.get("minute")}`;
+    element.append(calendar, separator, clock);
+    return element;
+}
+
+function appendSearchSnippet(cell, message) {
+    const snippet = state.bodySearchSnippets.get(Number(message.number));
+    if (state.searchBodies && snippet) {
+        cell.append(searchMatchSnippet(snippet, state.query.toLocaleLowerCase("en-US")));
+    }
+}
+
+function createMessageRow(message, options = {}) {
+    const row = document.createElement("tr");
+    if (options.className) {
+        row.className = options.className;
+    }
+    if (options.depth) {
+        row.style.setProperty("--thread-depth", String(Math.min(options.depth, 4)));
+    }
+    if (options.dimmed) {
+        row.classList.add("thread-nonmatch");
+    }
+
+    const dateCell = document.createElement("td");
+    dateCell.append(messageDateElement(message.date));
+
+    const fromCell = document.createElement("td");
+    fromCell.append(senderCell(message));
+
+    const subjectCell = document.createElement("td");
+    subjectCell.append(previewTrigger(message, message.subject));
+    if (options.depth) {
+        subjectCell.classList.add("thread-child-subject");
+    }
+    appendSearchSnippet(subjectCell, message);
+
+    if (options.hideNumber) {
+        row.append(dateCell, fromCell, subjectCell);
+    } else {
+        const numberCell = document.createElement("td");
+        numberCell.append(previewTrigger(message, message.number));
+        row.append(numberCell, dateCell, fromCell, subjectCell);
+    }
+    return row;
+}
+
+function appendPreviewAfterAnchor(body, anchorMessage, threadSpan = false) {
+    if (state.previewAnchorNumber !== anchorMessage.number || state.previewNumber === null) {
+        return;
+    }
+    const previewMessage = state.messageByNumber.get(state.previewNumber);
+    if (previewMessage) {
+        const previewRow = messagePreviewRow(previewMessage);
+        previewRow.classList.toggle("thread-span-row", threadSpan);
+        body.append(previewRow);
+    }
+}
+
+function renderFlatMessages() {
     const messages = sortedMessages(filteredMessages());
     const pageCount = Math.max(1, Math.ceil(messages.length / state.pageSize));
     state.page = Math.min(state.page, pageCount);
@@ -522,34 +747,9 @@ function renderMessages() {
         configureMessageSort(table);
 
         for (const message of pageMessages) {
-            const row = document.createElement("tr");
-            const numberCell = document.createElement("td");
-            numberCell.append(previewTrigger(message, message.number));
-
-            const dateCell = document.createElement("td");
-            dateCell.textContent = new Date(message.date).toLocaleString(undefined, {
-                year: "numeric",
-                month: "short",
-                day: "numeric",
-                hour: "numeric",
-                minute: "2-digit"
-            });
-
-            const fromCell = document.createElement("td");
-            fromCell.append(senderCell(message));
-
-            const subjectCell = document.createElement("td");
-            subjectCell.append(previewTrigger(message, message.subject));
-            const snippet = state.bodySearchSnippets.get(Number(message.number));
-            if (state.searchBodies && snippet) {
-                subjectCell.append(searchMatchSnippet(snippet, state.query.toLocaleLowerCase("en-US")));
-            }
-
-            row.append(numberCell, dateCell, fromCell, subjectCell);
+            const row = createMessageRow(message);
             body.append(row);
-            if (state.previewNumber === message.number) {
-                body.append(messagePreviewRow(message));
-            }
+            appendPreviewAfterAnchor(body, message);
         }
         elements.content.append(table);
     }
@@ -561,6 +761,202 @@ function renderMessages() {
     elements.next.disabled = state.page >= pageCount;
     updateMessageCounter(messages.length);
     renderActiveFilter(messages.length);
+}
+
+function threadDepth(message) {
+    let depth = 0;
+    let current = message;
+    const visited = new Set([message.number]);
+    while (current.parentNumber !== null && depth < 4) {
+        const parent = state.messageByNumber.get(current.parentNumber);
+        if (!parent || visited.has(parent.number)) {
+            break;
+        }
+        visited.add(parent.number);
+        depth += 1;
+        current = parent;
+    }
+    return depth;
+}
+
+function filteredThreadEntries(messages) {
+    const matchesByRoot = new Map();
+    for (const message of messages) {
+        const matches = matchesByRoot.get(message.threadRootNumber) || new Set();
+        matches.add(message.number);
+        matchesByRoot.set(message.threadRootNumber, matches);
+    }
+
+    return [...matchesByRoot.entries()].map(([rootNumber, matches]) => {
+        const thread = state.threadMessages.get(rootNumber) || [];
+        const root = state.messageByNumber.get(rootNumber) || thread[0];
+        return {
+            rootNumber,
+            root,
+            latest: thread[thread.length - 1] || root,
+            messages: thread,
+            matches
+        };
+    }).filter((entry) => entry.root);
+}
+
+function threadSortValue(thread, column) {
+    if (column === "number") {
+        return thread.rootNumber;
+    }
+    if (column === "date") {
+        return new Date(thread.latest.date).getTime();
+    }
+    if (column === "sender") {
+        return `${thread.root.senderName || thread.root.sender} ${thread.root.senderAddress || ""}`
+            .toLocaleLowerCase("en-US");
+    }
+    return thread.root.subject.toLocaleLowerCase("en-US");
+}
+
+function sortedThreadEntries(threads) {
+    const { column, direction } = state.threadSort;
+    const multiplier = direction === "asc" ? 1 : -1;
+    return [...threads].sort((left, right) => {
+        const leftValue = threadSortValue(left, column);
+        const rightValue = threadSortValue(right, column);
+        const comparison = typeof leftValue === "string"
+            ? leftValue.localeCompare(rightValue)
+            : leftValue - rightValue;
+        return comparison * multiplier || right.latest.number - left.latest.number;
+    });
+}
+
+function threadSummaryRow(thread) {
+    const row = document.createElement("tr");
+    row.className = "thread-summary-row";
+    const expanded = state.expandedThreads.has(thread.rootNumber);
+    row.classList.toggle("thread-span-row", expanded);
+
+    const dateCell = document.createElement("td");
+    const dateLayout = document.createElement("span");
+    dateLayout.className = "thread-date-layout";
+    if (thread.messages.length > 1) {
+        const toggle = document.createElement("button");
+        toggle.type = "button";
+        toggle.className = "thread-toggle";
+        toggle.textContent = expanded ? "▾" : "▸";
+        toggle.setAttribute("aria-label", `${expanded ? "Collapse" : "Expand"} thread ${thread.rootNumber}`);
+        toggle.setAttribute("aria-expanded", String(expanded));
+        toggle.addEventListener("click", () => {
+            if (expanded) {
+                state.expandedThreads.delete(thread.rootNumber);
+            } else {
+                state.expandedThreads.add(thread.rootNumber);
+            }
+            renderMessages();
+        });
+        dateLayout.append(toggle);
+    } else {
+        const spacer = document.createElement("span");
+        spacer.className = "thread-toggle-spacer";
+        dateLayout.append(spacer);
+    }
+    const date = document.createElement("span");
+    date.append(messageDateElement(thread.latest.date));
+    dateLayout.append(date);
+    dateCell.append(dateLayout);
+
+    const senderColumn = document.createElement("td");
+    senderColumn.append(senderCell(thread.root));
+
+    const subjectCell = document.createElement("td");
+    subjectCell.append(previewTrigger(thread.root, thread.root.subject));
+    const metadata = document.createElement("div");
+    metadata.className = "thread-summary-meta";
+    const totalLabel = `${thread.messages.length.toLocaleString()} ${thread.messages.length === 1 ? "msg" : "msgs"}`;
+    metadata.textContent = thread.matches.size === thread.messages.length
+        ? totalLabel
+        : `${thread.matches.size.toLocaleString()} matches · ${totalLabel}`;
+    subjectCell.append(metadata);
+    const snippetMessage = thread.messages.find((message) =>
+        thread.matches.has(message.number) &&
+        state.bodySearchSnippets.has(message.number)
+    );
+    if (snippetMessage) {
+        const snippet = searchMatchSnippet(
+            state.bodySearchSnippets.get(snippetMessage.number),
+            state.query.toLocaleLowerCase("en-US")
+        );
+        if (snippetMessage.number !== thread.root.number) {
+            snippet.prepend(document.createTextNode(`#${snippetMessage.number}: `));
+        }
+        subjectCell.append(snippet);
+    }
+
+    row.append(dateCell, senderColumn, subjectCell);
+    return row;
+}
+
+function renderThreadedMessages() {
+    const matchingMessages = filteredMessages();
+    const threads = sortedThreadEntries(filteredThreadEntries(matchingMessages));
+    const pageCount = Math.max(1, Math.ceil(threads.length / state.pageSize));
+    state.page = Math.min(state.page, pageCount);
+    const firstIndex = (state.page - 1) * state.pageSize;
+    const pageThreads = threads.slice(firstIndex, firstIndex + state.pageSize);
+
+    elements.content.replaceChildren();
+    if (!pageThreads.length) {
+        const empty = document.createElement("p");
+        empty.className = "empty-state";
+        empty.textContent = "No threads match the current filter.";
+        elements.content.append(empty);
+    } else {
+        const tableFragment = elements.tableTemplate.content.cloneNode(true);
+        const table = tableFragment.querySelector("table");
+        const body = tableFragment.querySelector("tbody");
+        table.classList.add("threaded-table");
+        configureMessageSort(tableFragment);
+
+        for (const thread of pageThreads) {
+            const expanded = state.expandedThreads.has(thread.rootNumber);
+            const summary = threadSummaryRow(thread);
+            body.append(summary);
+            appendPreviewAfterAnchor(body, thread.root, expanded);
+            if (!expanded) {
+                continue;
+            }
+            for (const message of thread.messages) {
+                if (message.number === thread.root.number) {
+                    continue;
+                }
+                const row = createMessageRow(message, {
+                    className: "thread-message-row thread-span-row",
+                    hideNumber: true,
+                    depth: threadDepth(message),
+                    dimmed: thread.matches.size !== thread.messages.length &&
+                        !thread.matches.has(message.number)
+                });
+                body.append(row);
+                appendPreviewAfterAnchor(body, message, true);
+            }
+        }
+        elements.content.append(tableFragment);
+    }
+
+    elements.pagination.hidden = threads.length <= state.pageSize;
+    elements.pageStatus.textContent =
+        `${threads.length.toLocaleString()} threads · ` +
+        `${matchingMessages.length.toLocaleString()} messages · ` +
+        `Page ${state.page} of ${pageCount}`;
+    elements.previous.disabled = state.page <= 1;
+    elements.next.disabled = state.page >= pageCount;
+    updateMessageCounter(matchingMessages.length, threads.length);
+    renderActiveFilter(matchingMessages.length);
+}
+
+function renderMessages() {
+    if (state.threaded && state.threadDataAvailable) {
+        renderThreadedMessages();
+    } else {
+        renderFlatMessages();
+    }
 }
 
 function directoryButton(label, count, onClick) {
@@ -709,11 +1105,7 @@ function renderSenders() {
             countColumn.textContent = sender.count.toLocaleString();
 
             const dateColumn = document.createElement("td");
-            dateColumn.textContent = new Date(sender.lastPosted).toLocaleDateString(undefined, {
-                year: "numeric",
-                month: "short",
-                day: "numeric"
-            });
+            dateColumn.textContent = formatCalendarDate(sender.lastPosted);
             row.append(senderColumn, countColumn, dateColumn);
             body.append(row);
         }
@@ -798,11 +1190,7 @@ function renderTopics() {
             countColumn.textContent = topic.messageCount.toLocaleString();
 
             const dateColumn = document.createElement("td");
-            dateColumn.textContent = new Date(topic.lastPosted).toLocaleDateString(undefined, {
-                year: "numeric",
-                month: "short",
-                day: "numeric"
-            });
+            dateColumn.textContent = formatCalendarDate(topic.lastPosted);
 
             row.append(
                 nameColumn,
@@ -892,7 +1280,7 @@ function renderActiveFilter(messageCount) {
     clear.className = "clear-filter";
     clear.textContent = "Clear filter";
     clear.addEventListener("click", () => {
-        location.hash = "messages";
+        location.hash = state.topic ? "topics" : "messages";
     });
     elements.activeFilter.append(label, clear);
     elements.activeFilter.hidden = false;
@@ -900,6 +1288,7 @@ function renderActiveFilter(messageCount) {
 
 function render() {
     updateBodySearchControl();
+    updateThreadViewControl();
     for (const tab of elements.tabs) {
         tab.classList.toggle("active", tab.dataset.view === state.view);
         tab.setAttribute("aria-pressed", String(tab.dataset.view === state.view));
@@ -946,6 +1335,7 @@ async function loadArchive() {
     const topicCatalog = await topicsResponse.json();
     state.topics = topicCatalog.topics;
     state.senders = buildSenderDirectory(state.messages);
+    buildThreadIndex(state.messages);
     elements.settingsArchiveSummary.textContent =
         `${state.manifest.messageCount.toLocaleString()} messages · ` +
         `${new Date(state.manifest.oldestDate).getFullYear()}–` +
@@ -958,19 +1348,34 @@ async function loadArchive() {
 elements.search.addEventListener("input", (event) => {
     state.query = event.target.value.trim();
     state.page = 1;
-    state.previewNumber = null;
+    clearPreview();
     searchMessageBodies();
     render();
 });
 
+elements.threadViewButton.addEventListener("click", () => {
+    if (!state.threadDataAvailable) {
+        return;
+    }
+    state.threaded = !state.threaded;
+    elements.threadedSetting.checked = state.threaded;
+    state.page = 1;
+    clearPreview();
+    saveSettings();
+    render();
+    scrollTo({ top: 0, behavior: "auto" });
+});
+
 elements.bodySearchButton.addEventListener("click", () => {
     state.searchBodies = !state.searchBodies;
+    elements.bodySearchSetting.checked = state.searchBodies;
     state.bodySearchMatches = new Set();
     state.bodySearchSnippets = new Map();
     bodySearchWork.generation += 1;
     setBodySearchProgress(false);
     state.page = 1;
-    state.previewNumber = null;
+    clearPreview();
+    saveSettings();
     render();
     searchMessageBodies();
     elements.search.focus();
@@ -984,14 +1389,14 @@ for (const tab of elements.tabs) {
 
 elements.previous.addEventListener("click", () => {
     state.page -= 1;
-    state.previewNumber = null;
+    clearPreview();
     renderMessages();
     scrollTo({ top: 0, behavior: "smooth" });
 });
 
 elements.next.addEventListener("click", () => {
     state.page += 1;
-    state.previewNumber = null;
+    clearPreview();
     renderMessages();
     scrollTo({ top: 0, behavior: "smooth" });
 });
@@ -1016,10 +1421,35 @@ elements.themeSetting.addEventListener("change", () => {
 elements.pageSizeSetting.addEventListener("change", () => {
     state.pageSize = Number(elements.pageSizeSetting.value);
     state.page = 1;
-    state.previewNumber = null;
+    clearPreview();
     saveSettings();
     if (state.manifest) {
         render();
+    }
+});
+
+elements.threadedSetting.addEventListener("change", () => {
+    state.threaded = elements.threadedSetting.checked;
+    state.page = 1;
+    clearPreview();
+    saveSettings();
+    if (state.manifest) {
+        render();
+    }
+});
+
+elements.bodySearchSetting.addEventListener("change", () => {
+    state.searchBodies = elements.bodySearchSetting.checked;
+    state.bodySearchMatches = new Set();
+    state.bodySearchSnippets = new Map();
+    bodySearchWork.generation += 1;
+    setBodySearchProgress(false);
+    state.page = 1;
+    clearPreview();
+    saveSettings();
+    if (state.manifest) {
+        render();
+        searchMessageBodies();
     }
 });
 

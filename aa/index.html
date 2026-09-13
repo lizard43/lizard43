@@ -1,6 +1,6 @@
 <!--
 Filename: index.html
-Version: 20260913-165417
+Version: 20260913-203036
 -->
 <!doctype html>
 <html lang="en">
@@ -8,7 +8,7 @@ Version: 20260913-165417
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Search and browse the Bally Alley message archive.">
-    <title>Bally Alley Message Archive</title>
+    <title>Adam's Archive</title>
     <link rel="stylesheet" href="archive.css">
     <script src="archive.js" defer></script>
 </head>
@@ -16,32 +16,31 @@ Version: 20260913-165417
     <div id="appChrome" class="app-chrome">
     <header class="site-header">
         <div class="site-title-row">
-            <h1>Bally Alley Message Archive</h1>
+            <h1>Adam's Archive</h1>
+            <nav class="view-tabs" aria-label="Archive views">
+                <button type="button" data-view="messages" class="view-tab active"
+                    aria-label="Messages" aria-pressed="true">
+                    <span class="view-tab-wide">Messages</span>
+                    <span class="view-tab-compact">Msgs</span>
+                </button>
+                <button type="button" data-view="senders" class="view-tab"
+                    aria-label="Senders" aria-pressed="false">Senders</button>
+                <button type="button" data-view="topics" class="view-tab"
+                    aria-label="Topics" aria-pressed="false">Topics</button>
+            </nav>
         </div>
     </header>
 
-    <nav class="app-toolbar" aria-label="Archive views and settings">
+    <nav class="app-toolbar" aria-label="Message controls and search">
         <div class="toolbar-inner">
-            <button type="button" data-view="messages" class="toolbar-button active"
-                aria-label="Messages" title="Messages">
+            <button id="threadViewButton" type="button" class="toolbar-button thread-view-button"
+                aria-label="Group messages by thread" title="Group messages by thread"
+                aria-pressed="false">
                 <svg viewBox="0 0 24 24" aria-hidden="true">
-                    <rect x="3" y="5" width="18" height="14" rx="2"></rect>
-                    <path d="m3 7 9 6 9-6"></path>
-                </svg>
-            </button>
-            <button type="button" data-view="senders" class="toolbar-button"
-                aria-label="Senders" title="Senders">
-                <svg viewBox="0 0 24 24" aria-hidden="true">
-                    <circle cx="9" cy="8" r="4"></circle>
-                    <path d="M2.5 20a6.5 6.5 0 0 1 13 0"></path>
-                    <path d="M16 5.2a4 4 0 0 1 0 7.6M18 15a6 6 0 0 1 3.5 5"></path>
-                </svg>
-            </button>
-            <button type="button" data-view="topics" class="toolbar-button"
-                aria-label="Topics" title="Topics">
-                <svg viewBox="0 0 24 24" aria-hidden="true">
-                    <path d="M20 13 11 4H4v7l9 9a2 2 0 0 0 2.8 0l4.2-4.2A2 2 0 0 0 20 13Z"></path>
-                    <circle cx="8" cy="8" r="1.25"></circle>
+                    <circle cx="6" cy="5" r="2"></circle>
+                    <circle cx="18" cy="12" r="2"></circle>
+                    <circle cx="6" cy="19" r="2"></circle>
+                    <path d="M8 5h2a3 3 0 0 1 3 3v1a3 3 0 0 0 3 3M8 19h2a3 3 0 0 0 3-3v-1a3 3 0 0 1 3-3"></path>
                 </svg>
             </button>
             <button id="bodySearchButton" type="button" class="toolbar-button body-search-button"
@@ -104,11 +103,21 @@ Version: 20260913-165417
                         <option value="200">200</option>
                     </select>
                 </label>
+                <label class="settings-checkbox-row">
+                    <span>Group messages by thread</span>
+                    <input id="threadedSetting" type="checkbox">
+                </label>
+                <label class="settings-checkbox-row">
+                    <span>Search message text</span>
+                    <input id="bodySearchSetting" type="checkbox">
+                </label>
                 <div class="settings-about">
                     <span>Version</span>
                     <strong>v20260913</strong>
                     <span>Archive</span>
                     <strong id="settingsArchiveSummary">Loading…</strong>
+                    <span>Contact</span>
+                    <strong><a href="mailto:astrocadester@gmail.com">astrocadester@gmail.com</a></strong>
                 </div>
             </div>
             <footer class="settings-footer">
