@@ -1,5 +1,5 @@
 // Filename: archive.js
-// Version: 20260914-002700
+// Version: 20260914-011522
 
 "use strict";
 
@@ -26,6 +26,10 @@ const state = {
     keywords: [],
     topics: [],
     people: [],
+    organizations: [],
+    projects: [],
+    relationships: [],
+    personBySenderKey: new Map(),
     senders: [],
     view: "messages",
     query: "",
@@ -34,6 +38,7 @@ const state = {
     topic: null,
     personFilter: null,
     personFilterType: null,
+    expandedPerson: null,
     previewNumber: null,
     searchBodies: true,
     bodySearchMatches: new Set(),
@@ -156,6 +161,15 @@ function buildSenderDirectory(messages) {
     return [...senders.values()];
 }
 
+function buildPeopleSenderIndex() {
+    state.personBySenderKey = new Map();
+    for (const person of state.people) {
+        for (const senderKey of person.senderKeys || []) {
+            state.personBySenderKey.set(senderKey, person);
+        }
+    }
+}
+
 function buildThreadIndex(messages) {
     state.messageByNumber = new Map();
     state.threadMessages = new Map();
@@ -202,6 +216,7 @@ function parseHash() {
     state.topic = null;
     state.personFilter = null;
     state.personFilterType = null;
+    state.expandedPerson = null;
     clearPreview();
 
     if (kind === "sender" && encodedValue) {
@@ -213,10 +228,13 @@ function parseHash() {
     } else if (kind === "topic" && encodedValue) {
         state.view = "messages";
         state.topic = decodeURIComponent(encodedValue);
-    } else if (["person-authored", "person-related"].includes(kind) && encodedValue) {
+    } else if (["person-authored", "person-mentions", "person-related"].includes(kind) && encodedValue) {
         state.view = "messages";
         state.personFilter = decodeURIComponent(encodedValue);
-        state.personFilterType = kind === "person-authored" ? "authored" : "related";
+        state.personFilterType = kind === "person-authored" ? "authored" : "mentions";
+    } else if (kind === "people") {
+        state.view = "people";
+        state.expandedPerson = encodedValue ? decodeURIComponent(encodedValue) : null;
     } else if (["messages", "senders", "topics", "people", "keywords"].includes(kind)) {
         state.view = kind;
     } else {
@@ -406,7 +424,10 @@ function filteredMessages() {
         } else {
             const topic = state.topics.find((entry) => entry.id === person?.topicId);
             const messageNumbers = new Set(topic?.messages || []);
-            messages = messages.filter((message) => messageNumbers.has(message.number));
+            const senderKeys = new Set(person?.senderKeys || []);
+            messages = messages.filter((message) =>
+                messageNumbers.has(message.number) && !senderKeys.has(message.senderKey)
+            );
         }
     }
 
@@ -451,7 +472,28 @@ function messageIndicators({ messageCount = null, attachmentCount = 0, matchCoun
     return indicators;
 }
 
+function personIndicator(senderKey) {
+    const person = state.personBySenderKey.get(senderKey);
+    if (!person) {
+        return null;
+    }
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = "person-indicator";
+    button.textContent = "★";
+    button.setAttribute("aria-label", `Open the ${person.name} profile`);
+    button.title = `Featured person: ${person.name}`;
+    button.addEventListener("click", () => {
+        state.query = "";
+        elements.search.value = "";
+        location.hash = `people=${encodeURIComponent(person.id)}`;
+    });
+    return button;
+}
+
 function senderCell(message) {
+    const container = document.createElement("span");
+    container.className = "sender-with-profile";
     const wrapper = document.createElement("button");
     wrapper.type = "button";
     wrapper.className = "message-sender-link";
@@ -469,7 +511,12 @@ function senderCell(message) {
         elements.search.value = "";
         location.hash = `sender=${encodeURIComponent(message.senderKey)}`;
     });
-    return wrapper;
+    container.append(wrapper);
+    const indicator = personIndicator(message.senderKey);
+    if (indicator) {
+        container.append(indicator);
+    }
+    return container;
 }
 
 function previewTrigger(message, label) {
@@ -776,7 +823,35 @@ function appendSearchSnippet(cell, message) {
     const snippet = state.bodySearchSnippets.get(Number(message.number));
     if (state.searchBodies && snippet) {
         cell.append(searchMatchSnippet(snippet, state.query.toLocaleLowerCase("en-US")));
+        return;
     }
+    const mentionSnippet = personMentionSnippet(message);
+    if (mentionSnippet) {
+        cell.append(mentionSnippet);
+    }
+}
+
+function personMentionContext(message) {
+    if (state.personFilterType !== "mentions" || !state.personFilter) {
+        return null;
+    }
+    const person = state.people.find((entry) => entry.id === state.personFilter);
+    const topic = state.topics.find((entry) => entry.id === person?.topicId);
+    return topic?.messageContexts?.[message.number] || null;
+}
+
+function personMentionSnippet(message, includeNumber = false) {
+    const context = personMentionContext(message);
+    if (!context) {
+        return null;
+    }
+    const term = context.term || "name";
+    const text = context.excerpt || `Matched “${term}” in the subject.`;
+    const snippet = searchMatchSnippet(text, term.toLocaleLowerCase("en-US"));
+    if (includeNumber) {
+        snippet.prepend(document.createTextNode(`#${message.number}: `));
+    }
+    return snippet;
 }
 
 function createMessageRow(message, options = {}) {
@@ -955,7 +1030,10 @@ function threadSummaryRow(thread) {
     senderColumn.append(senderCell(thread.root));
 
     const subjectCell = document.createElement("td");
-    subjectCell.append(previewTrigger(thread.root, thread.root.subject));
+    const mentionMessage = state.personFilterType === "mentions"
+        ? [...thread.messages].reverse().find((message) => thread.matches.has(message.number))
+        : null;
+    subjectCell.append(previewTrigger(mentionMessage || thread.root, thread.root.subject));
     const indicators = messageIndicators({
         messageCount: thread.messages.length,
         attachmentCount,
@@ -964,19 +1042,25 @@ function threadSummaryRow(thread) {
     if (indicators.childElementCount) {
         subjectCell.append(indicators);
     }
-    const snippetMessage = thread.messages.find((message) =>
+    const searchSnippetMessage = thread.messages.find((message) =>
         thread.matches.has(message.number) &&
         state.bodySearchSnippets.has(message.number)
     );
-    if (snippetMessage) {
+    if (searchSnippetMessage) {
         const snippet = searchMatchSnippet(
-            state.bodySearchSnippets.get(snippetMessage.number),
+            state.bodySearchSnippets.get(searchSnippetMessage.number),
             state.query.toLocaleLowerCase("en-US")
         );
-        if (snippetMessage.number !== thread.root.number) {
-            snippet.prepend(document.createTextNode(`#${snippetMessage.number}: `));
+        if (searchSnippetMessage.number !== thread.root.number) {
+            snippet.prepend(document.createTextNode(`#${searchSnippetMessage.number}: `));
         }
         subjectCell.append(snippet);
+    } else if (mentionMessage) {
+        const snippet = personMentionSnippet(
+            mentionMessage,
+            mentionMessage.number !== thread.root.number
+        );
+        if (snippet) subjectCell.append(snippet);
     }
 
     row.append(dateCell, senderColumn, subjectCell);
@@ -1185,7 +1269,14 @@ function renderSenders() {
             senderButton.addEventListener("click", () => {
                 location.hash = `sender=${encodeURIComponent(sender.key)}`;
             });
-            senderColumn.append(senderButton);
+            const senderWithProfile = document.createElement("span");
+            senderWithProfile.className = "sender-with-profile";
+            senderWithProfile.append(senderButton);
+            const indicator = personIndicator(sender.key);
+            if (indicator) {
+                senderWithProfile.append(indicator);
+            }
+            senderColumn.append(senderWithProfile);
 
             const countColumn = document.createElement("td");
             countColumn.className = "numeric-column";
@@ -1301,7 +1392,7 @@ function renderTopics() {
 function personMessageButton(person, type) {
     const count = type === "authored"
         ? person.authoredMessageCount
-        : person.mentionedMessageCount;
+        : person.mentionMessageCount;
     const button = document.createElement("button");
     button.type = "button";
     button.className = "person-message-button";
@@ -1309,15 +1400,77 @@ function personMessageButton(person, type) {
     const total = document.createElement("strong");
     total.textContent = Number(count || 0).toLocaleString();
     const label = document.createElement("span");
-    label.textContent = type === "authored" ? "Authored messages" : "Related messages";
+    label.textContent = type === "authored" ? "Authored messages" : "Mentions by others";
     button.append(total, label);
     button.disabled = !count;
     button.addEventListener("click", () => {
         state.query = "";
         elements.search.value = "";
-        location.hash = `person-${type}=${encodeURIComponent(person.id)}`;
+        location.hash = `${type === "authored" ? "person-authored" : "person-mentions"}=${encodeURIComponent(person.id)}`;
     });
     return button;
+}
+
+function profileTopicAnchor(topic, label = topic.label) {
+    const link = document.createElement("a");
+    link.className = "profile-topic-link";
+    link.href = `#topic=${encodeURIComponent(topic.id)}`;
+    link.textContent = label;
+    return link;
+}
+
+function personRelatedTopics(person) {
+    return (person.relatedTopicIds || [])
+        .map((id) => state.topics.find((topic) => topic.id === id))
+        .filter(Boolean);
+}
+
+function profileLinkTerms(person) {
+    const terms = new Map();
+    for (const topic of personRelatedTopics(person)) {
+        for (const term of [topic.label, ...(topic.terms || []), ...(topic.aliases || [])]) {
+            const normalized = String(term || "").normalize("NFKC").trim();
+            if (normalized) terms.set(normalized.toLocaleLowerCase("en-US"), topic);
+        }
+    }
+    return [...terms.entries()].sort((left, right) => right[0].length - left[0].length);
+}
+
+function appendLinkedProfileText(container, text, person) {
+    const terms = profileLinkTerms(person);
+    if (!terms.length) {
+        container.textContent = text;
+        return;
+    }
+    const topicByTerm = new Map(terms);
+    const pattern = new RegExp(
+        `(?<![\\p{L}\\p{N}])(${terms
+            .map(([term]) => term.replace(/[.*+?^${}()|[\\]\\]/g, "\\$&"))
+            .join("|")})(?![\\p{L}\\p{N}])`,
+        "giu"
+    );
+    let offset = 0;
+    for (const match of String(text).matchAll(pattern)) {
+        container.append(document.createTextNode(text.slice(offset, match.index)));
+        const topic = topicByTerm.get(match[0].toLocaleLowerCase("en-US"));
+        container.append(profileTopicAnchor(topic, match[0]));
+        offset = match.index + match[0].length;
+    }
+    container.append(document.createTextNode(text.slice(offset)));
+}
+
+function renderPersonTopics(person) {
+    const topics = personRelatedTopics(person);
+    if (!topics.length) return null;
+    const section = document.createElement("section");
+    section.className = "person-related-topics";
+    const heading = document.createElement("h3");
+    heading.textContent = "Related topics";
+    const links = document.createElement("div");
+    links.className = "person-topic-links";
+    for (const topic of topics) links.append(profileTopicAnchor(topic));
+    section.append(heading, links);
+    return section;
 }
 
 function renderPersonSources(sources) {
@@ -1339,6 +1492,51 @@ function renderPersonSources(sources) {
         list.append(item);
     }
     return list;
+}
+
+function renderPersonConnections(person) {
+    const relationships = state.relationships.filter((relationship) =>
+        (relationship.participants || []).some((participant) => participant.personId === person.id)
+    );
+    if (!relationships.length) {
+        return null;
+    }
+
+    const section = document.createElement("section");
+    section.className = "person-connections";
+    const heading = document.createElement("h3");
+    heading.textContent = "Connections";
+    const list = document.createElement("ul");
+    for (const relationship of relationships) {
+        const item = document.createElement("li");
+        const otherPeople = (relationship.participants || [])
+            .filter((participant) => participant.personId !== person.id)
+            .map((participant) =>
+                state.people.find((entry) => entry.id === participant.personId)?.name || participant.name
+            )
+            .filter(Boolean);
+        const organizations = (relationship.organizationIds || [])
+            .map((id) => state.organizations.find((entry) => entry.id === id)?.name || id);
+        const projects = (relationship.projectIds || [])
+            .map((id) => state.projects.find((entry) => entry.id === id)?.name || id);
+        const context = [
+            otherPeople.length ? `with ${otherPeople.join(", ")}` : "",
+            organizations.length ? `at ${organizations.join(", ")}` : "",
+            projects.length ? `on ${projects.join(", ")}` : "",
+            relationship.period || ""
+        ].filter(Boolean).join(" · ");
+        const title = document.createElement("strong");
+        title.textContent = context || relationship.label || "Documented collaboration";
+        item.append(title);
+        if (relationship.description) {
+            const description = document.createElement("span");
+            description.textContent = relationship.description;
+            item.append(description);
+        }
+        list.append(item);
+    }
+    section.append(heading, list);
+    return section;
 }
 
 function renderPeople() {
@@ -1367,52 +1565,115 @@ function renderPeople() {
         const directory = document.createElement("div");
         directory.className = "people-directory";
         for (const person of visible) {
+            const expanded = state.expandedPerson === person.id;
             const card = document.createElement("article");
             card.className = "person-card";
+            card.dataset.personId = person.id;
+            card.classList.toggle("expanded", expanded);
 
             const header = document.createElement("header");
             header.className = "person-card-header";
+            const toggle = document.createElement("button");
+            toggle.type = "button";
+            toggle.className = "person-card-toggle";
+            toggle.setAttribute("aria-expanded", String(expanded));
+            toggle.setAttribute("aria-label", `${expanded ? "Collapse" : "Open"} ${person.name} profile`);
+            toggle.addEventListener("click", () => {
+                state.expandedPerson = expanded ? null : person.id;
+                history.replaceState(
+                    null,
+                    "",
+                    state.expandedPerson
+                        ? `#people=${encodeURIComponent(state.expandedPerson)}`
+                        : "#people"
+                );
+                renderPeople();
+                requestAnimationFrame(() => {
+                    document.querySelector(`[data-person-id="${CSS.escape(person.id)}"]`)
+                        ?.scrollIntoView({ block: "nearest" });
+                });
+            });
+
+            const summary = document.createElement("span");
+            summary.className = "person-card-summary";
             const name = document.createElement("h2");
             name.textContent = person.name;
             const role = document.createElement("p");
             role.className = "person-role";
-            role.textContent = person.astrocadeRole;
-            header.append(name, role);
+            role.textContent = person.astrocadeRole || "Identity and history review pending.";
+            summary.append(name, role);
+
+            const counts = document.createElement("span");
+            counts.className = "person-card-counts";
+            counts.textContent =
+                `${Number(person.authoredMessageCount || 0).toLocaleString()} authored · ` +
+                `${Number(person.mentionMessageCount || 0).toLocaleString()} mentions`;
+            const chevron = document.createElement("span");
+            chevron.className = "person-card-chevron";
+            chevron.textContent = expanded ? "▾" : "▸";
+            toggle.append(summary, counts, chevron);
+            header.append(toggle);
+            card.append(header);
+
+            if (!expanded) {
+                directory.append(card);
+                continue;
+            }
 
             const actions = document.createElement("div");
             actions.className = "person-message-actions";
             actions.append(
                 personMessageButton(person, "authored"),
-                personMessageButton(person, "related")
+                personMessageButton(person, "mentions")
             );
 
-            const careerHeading = document.createElement("h3");
-            careerHeading.textContent = "Computer-industry career";
-            const career = document.createElement("p");
-            career.textContent = person.industrySummary;
-
-            const accomplishmentsHeading = document.createElement("h3");
-            accomplishmentsHeading.textContent = "Selected accomplishments";
-            const accomplishments = document.createElement("ul");
-            accomplishments.className = "person-accomplishments";
-            for (const accomplishment of person.accomplishments || []) {
-                const item = document.createElement("li");
-                item.textContent = accomplishment;
-                accomplishments.append(item);
+            const details = document.createElement("div");
+            details.className = "person-card-details";
+            details.append(actions);
+            const relatedTopics = renderPersonTopics(person);
+            if (relatedTopics) {
+                details.append(relatedTopics);
+            }
+            const connections = renderPersonConnections(person);
+            if (connections) {
+                details.append(connections);
             }
 
-            const sourcesHeading = document.createElement("h3");
-            sourcesHeading.textContent = "Sources";
-            card.append(
-                header,
-                actions,
-                careerHeading,
-                career,
-                accomplishmentsHeading,
-                accomplishments,
-                sourcesHeading,
-                renderPersonSources(person.sources)
-            );
+            if (person.industrySummary) {
+                const careerHeading = document.createElement("h3");
+                careerHeading.textContent = "Computer-industry career";
+                const career = document.createElement("p");
+                appendLinkedProfileText(career, person.industrySummary, person);
+                details.append(careerHeading, career);
+            }
+
+            if (person.accomplishments?.length) {
+                const accomplishmentsHeading = document.createElement("h3");
+                accomplishmentsHeading.textContent = "Selected accomplishments";
+                const accomplishments = document.createElement("ul");
+                accomplishments.className = "person-accomplishments";
+                for (const accomplishment of person.accomplishments) {
+                    const item = document.createElement("li");
+                    appendLinkedProfileText(item, accomplishment, person);
+                    accomplishments.append(item);
+                }
+                details.append(accomplishmentsHeading, accomplishments);
+            }
+
+            if (person.sources?.length) {
+                const sourcesHeading = document.createElement("h3");
+                sourcesHeading.textContent = "Sources";
+                details.append(sourcesHeading, renderPersonSources(person.sources));
+            }
+
+            if (!person.industrySummary && !person.accomplishments?.length &&
+                !person.sources?.length && !connections) {
+                const pending = document.createElement("p");
+                pending.className = "person-profile-pending";
+                pending.textContent = "Identity confirmation and sourced profile research are pending.";
+                details.append(pending);
+            }
+            card.append(details);
             directory.append(card);
         }
         elements.content.append(directory);
@@ -1483,7 +1744,7 @@ function renderActiveFilter(messageCount) {
         label.textContent = `Keyword: ${state.keyword} · ${messageCount.toLocaleString()} messages`;
     } else if (state.personFilter) {
         const person = state.people.find((entry) => entry.id === state.personFilter);
-        const relation = state.personFilterType === "authored" ? "Authored by" : "Related to";
+        const relation = state.personFilterType === "authored" ? "Authored by" : "Mentions of";
         label.textContent = `${relation} ${person?.name || state.personFilter} · ${messageCount.toLocaleString()} messages`;
     } else {
         const topic = state.topics.find((entry) => entry.id === state.topic);
@@ -1556,7 +1817,11 @@ async function loadArchive() {
     if (peopleResponse?.ok) {
         const peopleCatalog = await peopleResponse.json();
         state.people = peopleCatalog.people || [];
+        state.organizations = peopleCatalog.organizations || [];
+        state.projects = peopleCatalog.projects || [];
+        state.relationships = peopleCatalog.relationships || [];
     }
+    buildPeopleSenderIndex();
     state.senders = buildSenderDirectory(state.messages);
     buildThreadIndex(state.messages);
     elements.settingsArchiveSummary.textContent =
