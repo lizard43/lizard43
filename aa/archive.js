@@ -1,4 +1,5 @@
 // Filename: archive.js
+// Version: 20260914-people-network
 // Version: 20260914-011522
 
 "use strict";
@@ -1509,29 +1510,57 @@ function renderPersonConnections(person) {
     const list = document.createElement("ul");
     for (const relationship of relationships) {
         const item = document.createElement("li");
-        const otherPeople = (relationship.participants || [])
-            .filter((participant) => participant.personId !== person.id)
-            .map((participant) =>
-                state.people.find((entry) => entry.id === participant.personId)?.name || participant.name
-            )
-            .filter(Boolean);
+        const people = (relationship.participants || []).map((participant) => {
+            const name = state.people.find((entry) => entry.id === participant.personId)?.name ||
+                participant.name || participant.personId;
+            return participant.role ? `${name} — ${participant.role}` : name;
+        }).filter(Boolean);
         const organizations = (relationship.organizationIds || [])
             .map((id) => state.organizations.find((entry) => entry.id === id)?.name || id);
         const projects = (relationship.projectIds || [])
             .map((id) => state.projects.find((entry) => entry.id === id)?.name || id);
-        const context = [
-            otherPeople.length ? `with ${otherPeople.join(", ")}` : "",
-            organizations.length ? `at ${organizations.join(", ")}` : "",
-            projects.length ? `on ${projects.join(", ")}` : "",
-            relationship.period || ""
-        ].filter(Boolean).join(" · ");
         const title = document.createElement("strong");
-        title.textContent = context || relationship.label || "Documented collaboration";
+        title.textContent = relationship.label || "Documented connection";
         item.append(title);
+        const context = [
+            relationship.period || "",
+            organizations.length ? organizations.join(", ") : "",
+            projects.length ? projects.join(", ") : ""
+        ].filter(Boolean).join(" · ");
+        if (context) {
+            const metadata = document.createElement("span");
+            metadata.className = "person-connection-metadata";
+            metadata.textContent = context;
+            item.append(metadata);
+        }
+        if (people.length) {
+            const participants = document.createElement("span");
+            participants.className = "person-connection-participants";
+            participants.textContent = people.join("; ");
+            item.append(participants);
+        }
         if (relationship.description) {
             const description = document.createElement("span");
+            description.className = "person-connection-description";
             description.textContent = relationship.description;
             item.append(description);
+        }
+        if (relationship.sources?.length) {
+            const evidence = document.createElement("span");
+            evidence.className = "person-connection-evidence";
+            evidence.append(document.createTextNode("Evidence: "));
+            relationship.sources.forEach((source, index) => {
+                if (index) evidence.append(document.createTextNode(" · "));
+                const url = typeof source === "string" ? source : source.url;
+                const label = typeof source === "string" ? source : (source.label || source.url);
+                const link = document.createElement("a");
+                link.href = url;
+                link.target = "_blank";
+                link.rel = "noopener";
+                link.textContent = label;
+                evidence.append(link);
+            });
+            item.append(evidence);
         }
         list.append(item);
     }
@@ -1548,6 +1577,8 @@ function renderPeople() {
             person.name,
             ...(person.aliases || []),
             person.astrocadeRole,
+            person.astrocadeSummary,
+            person.laterCareerSummary,
             person.industrySummary,
             ...(person.accomplishments || [])
         ].join(" ").toLocaleLowerCase("en-US");
@@ -1634,17 +1665,17 @@ function renderPeople() {
             if (relatedTopics) {
                 details.append(relatedTopics);
             }
+
+            if (person.astrocadeSummary) {
+                const astrocadeHeading = document.createElement("h3");
+                astrocadeHeading.textContent = "Astrocade and early computing";
+                const astrocade = document.createElement("p");
+                appendLinkedProfileText(astrocade, person.astrocadeSummary, person);
+                details.append(astrocadeHeading, astrocade);
+            }
             const connections = renderPersonConnections(person);
             if (connections) {
                 details.append(connections);
-            }
-
-            if (person.industrySummary) {
-                const careerHeading = document.createElement("h3");
-                careerHeading.textContent = "Computer-industry career";
-                const career = document.createElement("p");
-                appendLinkedProfileText(career, person.industrySummary, person);
-                details.append(careerHeading, career);
             }
 
             if (person.accomplishments?.length) {
@@ -1660,13 +1691,23 @@ function renderPeople() {
                 details.append(accomplishmentsHeading, accomplishments);
             }
 
+            const laterCareerSummary = person.laterCareerSummary || person.industrySummary;
+            if (laterCareerSummary) {
+                const careerHeading = document.createElement("h3");
+                careerHeading.textContent = "Later career";
+                const career = document.createElement("p");
+                appendLinkedProfileText(career, laterCareerSummary, person);
+                details.append(careerHeading, career);
+            }
+
             if (person.sources?.length) {
                 const sourcesHeading = document.createElement("h3");
                 sourcesHeading.textContent = "Sources";
                 details.append(sourcesHeading, renderPersonSources(person.sources));
             }
 
-            if (!person.industrySummary && !person.accomplishments?.length &&
+            if (!person.astrocadeSummary && !person.laterCareerSummary && !person.industrySummary &&
+                !person.accomplishments?.length &&
                 !person.sources?.length && !connections) {
                 const pending = document.createElement("p");
                 pending.className = "person-profile-pending";

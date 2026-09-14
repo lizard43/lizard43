@@ -890,7 +890,13 @@ a { color: var(--accent); }
 .person-sources { font-size: 0.86rem; }
 .person-connections strong,
 .person-connections span { display: block; }
-.person-connections span { margin-top: 0.08rem; color: var(--muted); font-size: 0.86rem; }
+.person-connections li { margin-top: 0.5rem; }
+.person-connections span { margin-top: 0.12rem; font-size: 0.86rem; }
+.person-connection-metadata { color: var(--accent-strong); }
+.person-connection-participants,
+.person-connection-description { color: var(--muted); }
+.person-connection-evidence { color: var(--muted); font-size: 0.78rem !important; }
+.person-connection-evidence a { color: var(--accent-strong); }
 
 .topic-table {
     min-width: 800px;
