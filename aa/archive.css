@@ -1,6 +1,6 @@
 /*
  * Filename: archive.css
- * Version: 20260913-212217
+ * Version: 20260914-004429
  */
 
 :root {
@@ -377,16 +377,9 @@ a { color: var(--accent); }
     text-align: left;
 }
 
-.message-sender-primary {
-    display: flex;
-    align-items: center;
-    max-width: 100%;
-    gap: 0.38rem;
-}
+.message-sender-link > span:first-child { font-weight: 650; }
 
-.message-sender-primary > span:first-child { font-weight: 650; }
-
-.message-sender-link:hover .message-sender-primary > span:first-child {
+.message-sender-link:hover > span:first-child {
     text-decoration: underline;
 }
 
@@ -395,6 +388,8 @@ a { color: var(--accent); }
     flex: 0 0 auto;
     align-items: center;
     gap: 0.28rem;
+    margin-left: 0.38rem;
+    vertical-align: text-bottom;
 }
 
 .thread-message-count {
@@ -434,6 +429,7 @@ a { color: var(--accent); }
 .message-date-clock { white-space: nowrap; }
 
 .message-preview-trigger {
+    display: inline;
     padding: 0;
     border: 0;
     background: transparent;
@@ -463,35 +459,95 @@ a { color: var(--accent); }
     color: var(--text);
 }
 
-.message-preview-row:hover { background: transparent; }
-.message-preview-row > td { padding: 0; }
+.message-reader-open,
+.message-reader-open body { overflow: hidden; }
 
-.message-preview {
-    position: relative;
-    margin: 0.6rem;
-    border: 1px solid color-mix(in srgb, var(--accent) 45%, var(--line));
-    border-radius: 0.5rem;
+.message-dialog {
+    position: fixed;
+    inset: var(--app-chrome-height, 4.5rem) 0 0;
+    width: 100%;
+    max-width: none;
+    height: calc(100dvh - var(--app-chrome-height, 4.5rem));
+    max-height: none;
+    margin: 0;
+    padding: 0;
+    border: 1px solid color-mix(in srgb, var(--accent) 55%, var(--line));
+    border-radius: 0.55rem 0.55rem 0 0;
     background: var(--background);
+    color: var(--text);
+    box-shadow: 0 -0.4rem 1.8rem rgba(0, 0, 0, 0.5);
     overflow: hidden;
 }
 
-.message-preview-toolbar {
+.message-dialog::backdrop { background: rgba(0, 0, 0, 0.34); }
+
+.message-reader {
     display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    padding: 0.55rem 3.25rem 0.55rem 0.7rem;
+    flex-direction: column;
+    height: 100%;
+    min-height: 0;
+}
+
+.message-reader-header {
+    flex: 0 0 auto;
+    padding: 0.6rem max(0.75rem, calc((100vw - 1280px) / 2));
     border-bottom: 1px solid var(--line);
     background: var(--surface-alt);
 }
 
-.message-preview-actions {
+.message-reader-title-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.8rem;
+}
+
+.message-reader-title-row h2 {
+    min-width: 0;
+    margin: 0;
+    color: var(--accent-strong);
+    font-size: 1.05rem;
+    line-height: 1.3;
+    overflow-wrap: anywhere;
+}
+
+.message-reader-title-row .dialog-close {
+    flex: 0 0 auto;
+}
+
+.message-reader-details {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.22rem 0.8rem;
+    margin-top: 0.28rem;
+    color: var(--muted);
+    font-size: 0.8rem;
+}
+
+.message-reader-sender {
+    display: inline-flex;
+    gap: 0.35rem;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: var(--accent);
+    font-weight: 650;
+}
+
+.message-reader-sender:hover { text-decoration: underline; }
+.message-reader-sender span + span { color: var(--muted); font-weight: 400; }
+.message-reader-details time,
+.message-reader-details > span { white-space: nowrap; }
+
+.message-reader-actions {
     display: flex;
     align-items: center;
     flex-wrap: wrap;
     gap: 0.55rem;
+    margin-top: 0.5rem;
 }
 
-.preview-thread-navigation {
+.reader-thread-navigation {
     display: inline-flex;
     align-items: center;
     overflow: hidden;
@@ -499,7 +555,7 @@ a { color: var(--accent); }
     border-radius: 0.35rem;
 }
 
-.preview-thread-button {
+.reader-thread-navigation button {
     padding: 0.4rem 0.55rem;
     border: 0;
     background: var(--surface);
@@ -508,19 +564,12 @@ a { color: var(--accent); }
     white-space: nowrap;
 }
 
-.preview-thread-button:hover:not(:disabled) { background: var(--background); }
-.preview-thread-button:disabled { color: var(--muted); cursor: default; opacity: 0.5; }
+.reader-thread-navigation button:hover:not(:disabled) { background: var(--background); }
+.reader-thread-navigation button:disabled { color: var(--muted); cursor: default; opacity: 0.45; }
 
-.preview-thread-status {
+#messageDialogThreadStatus {
     padding: 0.4rem 0.5rem;
     border-inline: 1px solid var(--line);
-    color: var(--muted);
-    font-size: 0.78rem;
-    font-variant-numeric: tabular-nums;
-    white-space: nowrap;
-}
-
-.preview-message-number {
     color: var(--muted);
     font-size: 0.78rem;
     font-variant-numeric: tabular-nums;
@@ -540,33 +589,61 @@ a { color: var(--accent); }
 
 .open-message-button:hover { background: var(--accent-strong); }
 
-.close-preview-button {
-    position: absolute;
-    top: 0.45rem;
-    right: 0.55rem;
-    width: 2rem;
-    height: 2rem;
-    padding: 0;
-    border: 1px solid var(--line);
-    border-radius: 50%;
-    background: var(--surface);
-    color: var(--text);
-    font-size: 1.35rem;
-    line-height: 1;
+.message-reader-scroll-shell {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+    min-height: 0;
 }
 
-.close-preview-button:hover { border-color: var(--accent); }
-
-.message-preview-body {
-    max-height: 32rem;
+.message-reader-body {
+    flex: 1 1 auto;
+    min-height: 0;
     overflow: auto;
-    padding: 1rem;
+    overscroll-behavior: contain;
+    padding: clamp(0.8rem, 2vw, 1.5rem) max(0.8rem, calc((100vw - 1280px) / 2));
     color: var(--text);
+    outline: 0;
+    touch-action: pan-y;
+}
+
+.message-reader-body pre {
+    max-width: 100%;
+    margin: 0;
     font-family: ui-monospace, SFMono-Regular, Consolas, "Liberation Mono", monospace;
     font-size: 0.88rem;
     line-height: 1.55;
     overflow-wrap: anywhere;
     white-space: pre-wrap;
+    word-break: break-word;
+}
+
+.reader-boundary-hint {
+    position: absolute;
+    left: 50%;
+    bottom: 0.7rem;
+    z-index: 2;
+    max-width: calc(100% - 1.5rem);
+    transform: translateX(-50%);
+    padding: 0.38rem 0.65rem;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    background: color-mix(in srgb, var(--surface-alt) 94%, transparent);
+    color: var(--muted);
+    box-shadow: 0 0.3rem 1rem rgba(0, 0, 0, 0.35);
+    font-size: 0.75rem;
+    text-align: center;
+    pointer-events: none;
+}
+
+.reader-boundary-hint.at-top {
+    position: static;
+    order: -1;
+    flex: 0 0 auto;
+    max-width: calc(100% - 1.5rem);
+    margin: 0.35rem auto;
+    transform: none;
 }
 
 .thread-summary-row > td {
@@ -642,6 +719,82 @@ a { color: var(--accent); }
 
 .directory-button:hover { border-color: var(--accent); }
 .directory-count { color: var(--muted); white-space: nowrap; }
+
+.people-directory {
+    display: grid;
+    gap: 0.8rem;
+}
+
+.person-card {
+    padding: clamp(0.85rem, 2vw, 1.25rem);
+    border: 1px solid var(--line);
+    border-radius: 0.5rem;
+    background: var(--surface);
+    line-height: 1.48;
+}
+
+.person-card-header h2 {
+    margin: 0;
+    color: var(--text);
+    font-size: 1.3rem;
+}
+
+.person-role {
+    max-width: 68rem;
+    margin: 0.2rem 0 0;
+    color: var(--muted);
+}
+
+.person-card h3 {
+    margin: 1rem 0 0.3rem;
+    color: var(--muted);
+    font-size: 0.76rem;
+    letter-spacing: 0.045em;
+    text-transform: uppercase;
+}
+
+.person-card > p { max-width: 72rem; margin: 0; }
+
+.person-message-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.55rem;
+    margin-top: 0.8rem;
+}
+
+.person-message-button {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 0.42rem;
+    min-width: 10rem;
+    padding: 0.48rem 0.65rem;
+    border: 1px solid color-mix(in srgb, var(--accent) 58%, var(--line));
+    border-radius: 0.38rem;
+    background: transparent;
+    color: var(--text);
+    text-align: left;
+}
+
+.person-message-button:hover:not(:disabled) {
+    border-color: var(--accent);
+    background: color-mix(in srgb, var(--accent) 8%, transparent);
+}
+
+.person-message-button:disabled { cursor: default; opacity: 0.45; }
+.person-message-button strong { color: var(--accent-strong); font-variant-numeric: tabular-nums; }
+.person-message-button span { color: var(--muted); font-size: 0.82rem; }
+
+.person-accomplishments,
+.person-sources {
+    max-width: 72rem;
+    margin: 0.25rem 0 0;
+    padding-left: 1.2rem;
+}
+
+.person-accomplishments li + li,
+.person-sources li + li { margin-top: 0.28rem; }
+
+.person-sources { font-size: 0.86rem; }
 
 .topic-table {
     min-width: 800px;
@@ -936,14 +1089,14 @@ a { color: var(--accent); }
     }
 
     .message-table thead tr,
-    .message-table tbody > tr:not(.message-preview-row) {
+    .message-table tbody > tr {
         display: grid;
         grid-template-columns: 7.2rem minmax(0, 1fr);
         width: 100%;
     }
 
     .threaded-table thead tr,
-    .threaded-table tbody > tr:not(.message-preview-row) {
+    .threaded-table tbody > tr {
         grid-template-columns: 7.2rem minmax(0, 1fr);
     }
 
@@ -971,29 +1124,26 @@ a { color: var(--accent); }
     .message-table th:nth-child(2) .sender-heading { display: block; }
     .message-table th:nth-child(3) { grid-column: 2; }
 
-    .message-table tbody > tr:not(.message-preview-row) {
+    .message-table tbody > tr {
         border-bottom: 1px solid var(--line);
     }
 
-    .message-table tbody > tr:not(.message-preview-row) td:first-child {
+    .message-table tbody > tr td:first-child {
         grid-row: 1 / 3;
     }
 
-    .message-table tbody > tr:not(.message-preview-row) td:nth-child(2) {
+    .message-table tbody > tr td:nth-child(2) {
         grid-column: 2;
         grid-row: 1;
         padding-bottom: 0.12rem;
     }
 
-    .message-table tbody > tr:not(.message-preview-row) td:nth-child(3) {
+    .message-table tbody > tr td:nth-child(3) {
         grid-column: 2;
         grid-row: 2;
         padding-top: 0.12rem;
     }
 
-    .message-preview-row,
-    .message-preview-row > td { display: block; width: 100%; }
-    .message-preview { margin: 0.4rem; }
     .settings-fields label,
     .settings-about { grid-template-columns: 1fr; gap: 0.3rem; }
     .settings-fields .settings-checkbox-row {
@@ -1003,15 +1153,24 @@ a { color: var(--accent); }
 
 @media (max-width: 420px) {
     .site-header h1 { font-size: 0.72rem; }
+    .view-tab { padding-inline: 0.34rem; font-size: 0.82rem; }
     .message-counter { font-size: 0.72rem; }
 
+    .person-message-actions { display: grid; grid-template-columns: 1fr 1fr; }
+    .person-message-button {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 0.05rem;
+        min-width: 0;
+    }
+
     .message-table thead tr,
-    .message-table tbody > tr:not(.message-preview-row) {
+    .message-table tbody > tr {
         grid-template-columns: 5.8rem minmax(0, 1fr);
     }
 
     .threaded-table thead tr,
-    .threaded-table tbody > tr:not(.message-preview-row) {
+    .threaded-table tbody > tr {
         grid-template-columns: 5.8rem minmax(0, 1fr);
     }
 
@@ -1025,8 +1184,20 @@ a { color: var(--accent); }
     .threaded-table .thread-child-subject {
         padding-left: calc(0.3rem + var(--thread-depth, 1) * 0.4rem);
     }
-    .preview-thread-button { padding-inline: 0.4rem; font-size: 0.74rem; }
-    .preview-thread-status { padding-inline: 0.38rem; font-size: 0.72rem; }
+    .message-reader-header { padding: 0.48rem 0.55rem; }
+    .message-reader-title-row h2 { font-size: 0.92rem; }
+    .message-reader-details { gap: 0.16rem 0.55rem; font-size: 0.72rem; }
+    .message-reader-sender {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 0;
+    }
+    .message-reader-actions { margin-top: 0.4rem; }
+    .message-reader-actions .open-message-button { font-size: 0.76rem; }
+    .reader-thread-navigation button { padding-inline: 0.4rem; font-size: 0.74rem; }
+    #messageDialogThreadStatus { padding-inline: 0.38rem; font-size: 0.72rem; }
+    .message-reader-body { padding: 0.75rem 0.65rem 2.8rem; }
+    .message-reader-body pre { font-size: 0.8rem; line-height: 1.48; }
     .subject-heading {
         align-items: flex-start;
         flex-direction: column;

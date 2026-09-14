@@ -1,5 +1,5 @@
 // Filename: archive.js
-// Version: 20260913-211813
+// Version: 20260914-002700
 
 "use strict";
 
@@ -13,19 +13,28 @@ const bodySearchWork = {
     processed: 0,
     total: 0
 };
+const readerNavigation = {
+    loadGeneration: 0,
+    touchStartY: null,
+    touchBoundary: null,
+    touchNavigated: false,
+    lockedUntil: 0
+};
 const state = {
     manifest: null,
     messages: [],
     keywords: [],
     topics: [],
+    people: [],
     senders: [],
     view: "messages",
     query: "",
     sender: null,
     keyword: null,
     topic: null,
+    personFilter: null,
+    personFilterType: null,
     previewNumber: null,
-    previewAnchorNumber: null,
     searchBodies: true,
     bodySearchMatches: new Set(),
     bodySearchSnippets: new Map(),
@@ -72,7 +81,20 @@ const elements = {
     settingsDialog: document.querySelector("#settingsDialog"),
     pageSizeSetting: document.querySelector("#pageSizeSetting"),
     threadedSetting: document.querySelector("#threadedSetting"),
-    bodySearchSetting: document.querySelector("#bodySearchSetting")
+    bodySearchSetting: document.querySelector("#bodySearchSetting"),
+    messageDialog: document.querySelector("#messageDialog"),
+    messageDialogSubject: document.querySelector("#messageDialogSubject"),
+    messageDialogSender: document.querySelector("#messageDialogSender"),
+    messageDialogDate: document.querySelector("#messageDialogDate"),
+    messageDialogNumber: document.querySelector("#messageDialogNumber"),
+    messageDialogOpen: document.querySelector("#messageDialogOpen"),
+    messageDialogPrevious: document.querySelector("#messageDialogPrevious"),
+    messageDialogThreadStatus: document.querySelector("#messageDialogThreadStatus"),
+    messageDialogNext: document.querySelector("#messageDialogNext"),
+    messageDialogClose: document.querySelector("#messageDialogClose"),
+    messageDialogBody: document.querySelector("#messageDialogBody"),
+    messageDialogText: document.querySelector("#messageDialogText"),
+    messageDialogBoundary: document.querySelector("#messageDialogBoundary")
 };
 
 function loadSettings() {
@@ -164,7 +186,12 @@ function buildThreadIndex(messages) {
 
 function clearPreview() {
     state.previewNumber = null;
-    state.previewAnchorNumber = null;
+    readerNavigation.loadGeneration += 1;
+    hideReaderBoundaryHint();
+    if (elements.messageDialog.open) {
+        elements.messageDialog.close();
+    }
+    updatePreviewTriggers();
 }
 
 function parseHash() {
@@ -173,6 +200,8 @@ function parseHash() {
     state.sender = null;
     state.keyword = null;
     state.topic = null;
+    state.personFilter = null;
+    state.personFilterType = null;
     clearPreview();
 
     if (kind === "sender" && encodedValue) {
@@ -184,7 +213,11 @@ function parseHash() {
     } else if (kind === "topic" && encodedValue) {
         state.view = "messages";
         state.topic = decodeURIComponent(encodedValue);
-    } else if (["messages", "senders", "topics", "keywords"].includes(kind)) {
+    } else if (["person-authored", "person-related"].includes(kind) && encodedValue) {
+        state.view = "messages";
+        state.personFilter = decodeURIComponent(encodedValue);
+        state.personFilterType = kind === "person-authored" ? "authored" : "related";
+    } else if (["messages", "senders", "topics", "people", "keywords"].includes(kind)) {
         state.view = kind;
     } else {
         state.view = "messages";
@@ -365,6 +398,18 @@ function filteredMessages() {
         messages = messages.filter((message) => messageNumbers.has(message.number));
     }
 
+    if (state.personFilter) {
+        const person = state.people.find((entry) => entry.id === state.personFilter);
+        if (state.personFilterType === "authored") {
+            const senderKeys = new Set(person?.senderKeys || []);
+            messages = messages.filter((message) => senderKeys.has(message.senderKey));
+        } else {
+            const topic = state.topics.find((entry) => entry.id === person?.topicId);
+            const messageNumbers = new Set(topic?.messages || []);
+            messages = messages.filter((message) => messageNumbers.has(message.number));
+        }
+    }
+
     if (state.query) {
         const query = state.query.toLocaleLowerCase("en-US");
         messages = messages.filter((message) =>
@@ -406,20 +451,13 @@ function messageIndicators({ messageCount = null, attachmentCount = 0, matchCoun
     return indicators;
 }
 
-function senderCell(message, indicatorOptions = {}) {
+function senderCell(message) {
     const wrapper = document.createElement("button");
     wrapper.type = "button";
     wrapper.className = "message-sender-link";
-    const primary = document.createElement("span");
-    primary.className = "message-sender-primary";
     const name = document.createElement("span");
     name.textContent = message.senderName || message.sender;
-    primary.append(name);
-    const indicators = messageIndicators(indicatorOptions);
-    if (indicators.childElementCount) {
-        primary.append(indicators);
-    }
-    wrapper.append(primary);
+    wrapper.append(name);
     if (message.senderAddress) {
         const address = document.createElement("span");
         address.className = "sender-address";
@@ -439,18 +477,15 @@ function previewTrigger(message, label) {
     button.type = "button";
     button.className = "message-link message-preview-trigger";
     button.textContent = label;
-    button.setAttribute(
-        "aria-expanded",
-        String(state.previewAnchorNumber === message.number && state.previewNumber !== null)
-    );
+    button.dataset.messageNumber = String(message.number);
+    button.setAttribute("aria-haspopup", "dialog");
+    button.setAttribute("aria-expanded", String(state.previewNumber === message.number));
     button.addEventListener("click", () => {
-        if (state.previewAnchorNumber === message.number && state.previewNumber !== null) {
+        if (elements.messageDialog.open && state.previewNumber === message.number) {
             clearPreview();
         } else {
-            state.previewAnchorNumber = message.number;
-            state.previewNumber = message.number;
+            openMessageReader(message);
         }
-        renderMessages();
     });
     return button;
 }
@@ -459,96 +494,145 @@ function threadForMessage(message) {
     return state.threadMessages.get(message.threadRootNumber) || [message];
 }
 
-function threadNavigationButton(label, targetMessage) {
-    const button = document.createElement("button");
-    button.type = "button";
-    button.className = "preview-thread-button";
-    button.textContent = label;
-    button.disabled = !targetMessage;
-    button.addEventListener("click", () => {
-        if (!targetMessage) {
-            return;
-        }
-        state.previewNumber = targetMessage.number;
-        renderMessages();
-    });
-    return button;
-}
-
-async function loadMessageBody(message, bodyElement) {
+async function messageBody(message) {
     try {
         const bodies = await fetchBodyChunk(message.bodyChunk);
-        if (document.contains(bodyElement) && state.previewNumber === message.number) {
-            bodyElement.textContent = bodies[message.number] || "This message has no text body.";
-        }
+        return bodies[message.number] || "This message has no text body.";
     } catch (error) {
         bodyChunkCache.delete(message.bodyChunk);
-        if (document.contains(bodyElement) && state.previewNumber === message.number) {
-            bodyElement.textContent = `${error.message} Run npm run export to generate preview data.`;
-        }
+        return `${error.message} Run npm run export to generate message data.`;
     }
 }
 
-function messagePreviewRow(message) {
-    const row = document.createElement("tr");
-    row.className = "message-preview-row";
-    const cell = document.createElement("td");
-    cell.colSpan = state.threaded && state.threadDataAvailable ? 3 : 4;
-
-    const preview = document.createElement("section");
-    preview.className = "message-preview";
-    preview.setAttribute("aria-label", `Preview of message ${message.number}`);
-
-    const toolbar = document.createElement("div");
-    toolbar.className = "message-preview-toolbar";
-    const actions = document.createElement("div");
-    actions.className = "message-preview-actions";
-    const open = document.createElement("a");
-    open.href = message.url;
-    open.target = "_blank";
-    open.rel = "noopener";
-    open.className = "open-message-button";
-    open.textContent = "Open on Groups.io";
-
-    const messageNumber = document.createElement("span");
-    messageNumber.className = "preview-message-number";
-    messageNumber.textContent = `Msg #${message.number}`;
-    actions.append(open, messageNumber);
-
+function readerThreadPosition(message) {
+    if (!message) {
+        return { thread: [], index: -1, previous: null, next: null };
+    }
     const thread = threadForMessage(message);
     const threadIndex = thread.findIndex((entry) => entry.number === message.number);
-    if (thread.length > 1 && threadIndex >= 0) {
-        const navigation = document.createElement("div");
-        navigation.className = "preview-thread-navigation";
-        const previous = threadNavigationButton("← Previous", thread[threadIndex - 1]);
-        const status = document.createElement("span");
-        status.className = "preview-thread-status";
-        status.textContent = `${threadIndex + 1} of ${thread.length}`;
-        const next = threadNavigationButton("Next →", thread[threadIndex + 1]);
-        navigation.append(previous, status, next);
-        actions.append(navigation);
+    return {
+        thread,
+        index: threadIndex,
+        previous: threadIndex > 0 ? thread[threadIndex - 1] : null,
+        next: threadIndex >= 0 && threadIndex < thread.length - 1
+            ? thread[threadIndex + 1]
+            : null
+    };
+}
+
+function updatePreviewTriggers() {
+    for (const trigger of document.querySelectorAll("[data-message-number]")) {
+        trigger.setAttribute(
+            "aria-expanded",
+            String(elements.messageDialog.open && Number(trigger.dataset.messageNumber) === state.previewNumber)
+        );
     }
+}
 
-    const close = document.createElement("button");
-    close.type = "button";
-    close.className = "close-preview-button";
-    close.setAttribute("aria-label", "Close message preview");
-    close.textContent = "×";
-    close.addEventListener("click", () => {
-        clearPreview();
-        renderMessages();
+function hideReaderBoundaryHint() {
+    if (!elements.messageDialogBoundary) {
+        return;
+    }
+    elements.messageDialogBoundary.hidden = true;
+    elements.messageDialogBoundary.classList.remove("at-top", "at-bottom");
+}
+
+function showReaderBoundaryHint(direction) {
+    const position = readerThreadPosition(state.messageByNumber.get(state.previewNumber));
+    const target = direction === "previous" ? position.previous : position.next;
+    if (!target) {
+        hideReaderBoundaryHint();
+        return;
+    }
+    elements.messageDialogBoundary.textContent = direction === "previous"
+        ? "Scroll again for the previous message"
+        : "Scroll again for the next message";
+    elements.messageDialogBoundary.classList.toggle("at-top", direction === "previous");
+    elements.messageDialogBoundary.classList.toggle("at-bottom", direction === "next");
+    elements.messageDialogBoundary.hidden = false;
+}
+
+function updateReaderBoundaryHint() {
+    const body = elements.messageDialogBody;
+    const atTop = body.scrollTop <= 1;
+    const atBottom = body.scrollTop + body.clientHeight >= body.scrollHeight - 1;
+    const position = readerThreadPosition(state.messageByNumber.get(state.previewNumber));
+    if (atTop && atBottom && (position.previous || position.next)) {
+        elements.messageDialogBoundary.textContent = "Scroll past an edge to move through this thread";
+        elements.messageDialogBoundary.classList.remove("at-top", "at-bottom");
+        elements.messageDialogBoundary.hidden = false;
+    } else if (atBottom && position.next) {
+        showReaderBoundaryHint("next");
+    } else if (atTop && position.previous) {
+        showReaderBoundaryHint("previous");
+    } else {
+        hideReaderBoundaryHint();
+    }
+}
+
+async function openMessageReader(message, scrollPosition = "top") {
+    const generation = ++readerNavigation.loadGeneration;
+    state.previewNumber = message.number;
+    const position = readerThreadPosition(message);
+
+    elements.messageDialogSubject.textContent = message.subject;
+    elements.messageDialogSender.replaceChildren();
+    const senderName = document.createElement("span");
+    senderName.textContent = message.senderName || message.sender;
+    elements.messageDialogSender.append(senderName);
+    if (message.senderAddress) {
+        const address = document.createElement("span");
+        address.textContent = message.senderAddress;
+        elements.messageDialogSender.append(address);
+    }
+    const date = messageDateElement(message.date);
+    elements.messageDialogDate.className = date.className;
+    elements.messageDialogDate.dateTime = date.dateTime;
+    elements.messageDialogDate.replaceChildren(...date.childNodes);
+    elements.messageDialogNumber.textContent = `Msg #${message.number}`;
+    elements.messageDialogOpen.href = message.url;
+    elements.messageDialogPrevious.disabled = !position.previous;
+    elements.messageDialogNext.disabled = !position.next;
+    elements.messageDialogThreadStatus.textContent =
+        `${position.index + 1} of ${position.thread.length}`;
+    elements.messageDialogText.textContent = "Loading message…";
+    hideReaderBoundaryHint();
+
+    if (!elements.messageDialog.open) {
+        syncChromeHeight();
+        elements.messageDialog.showModal();
+        document.documentElement.classList.add("message-reader-open");
+    }
+    updatePreviewTriggers();
+
+    const body = await messageBody(message);
+    if (generation !== readerNavigation.loadGeneration || state.previewNumber !== message.number) {
+        return;
+    }
+    elements.messageDialogText.textContent = body;
+    requestAnimationFrame(() => {
+        elements.messageDialogBody.scrollTop = scrollPosition === "bottom"
+            ? elements.messageDialogBody.scrollHeight
+            : 0;
+        updateReaderBoundaryHint();
+        elements.messageDialogBody.focus({ preventScroll: true });
     });
-    actions.append(close);
-    toolbar.append(actions);
+}
 
-    const body = document.createElement("div");
-    body.className = "message-preview-body";
-    body.textContent = "Loading message…";
-    preview.append(toolbar, body);
-    cell.append(preview);
-    row.append(cell);
-    loadMessageBody(message, body);
-    return row;
+function navigateMessageReader(direction) {
+    if (performance.now() < readerNavigation.lockedUntil) {
+        return;
+    }
+    const message = state.messageByNumber.get(state.previewNumber);
+    if (!message) {
+        return;
+    }
+    const position = readerThreadPosition(message);
+    const target = direction === "previous" ? position.previous : position.next;
+    if (target) {
+        readerNavigation.lockedUntil = performance.now() + 450;
+        openMessageReader(target, direction === "previous" ? "bottom" : "top");
+    }
 }
 
 function messageSortValue(message, column) {
@@ -711,12 +795,16 @@ function createMessageRow(message, options = {}) {
     dateCell.append(messageDateElement(message.date));
 
     const fromCell = document.createElement("td");
-    fromCell.append(senderCell(message, {
-        attachmentCount: Number(message.attachments) || 0
-    }));
+    fromCell.append(senderCell(message));
 
     const subjectCell = document.createElement("td");
     subjectCell.append(previewTrigger(message, message.subject));
+    const indicators = messageIndicators({
+        attachmentCount: Number(message.attachments) || 0
+    });
+    if (indicators.childElementCount) {
+        subjectCell.append(indicators);
+    }
     if (options.depth) {
         subjectCell.classList.add("thread-child-subject");
     }
@@ -724,18 +812,6 @@ function createMessageRow(message, options = {}) {
 
     row.append(dateCell, fromCell, subjectCell);
     return row;
-}
-
-function appendPreviewAfterAnchor(body, anchorMessage, threadSpan = false) {
-    if (state.previewAnchorNumber !== anchorMessage.number || state.previewNumber === null) {
-        return;
-    }
-    const previewMessage = state.messageByNumber.get(state.previewNumber);
-    if (previewMessage) {
-        const previewRow = messagePreviewRow(previewMessage);
-        previewRow.classList.toggle("thread-span-row", threadSpan);
-        body.append(previewRow);
-    }
 }
 
 function renderFlatMessages() {
@@ -759,7 +835,6 @@ function renderFlatMessages() {
         for (const message of pageMessages) {
             const row = createMessageRow(message);
             body.append(row);
-            appendPreviewAfterAnchor(body, message);
         }
         elements.content.append(table);
     }
@@ -877,14 +952,18 @@ function threadSummaryRow(thread) {
         (total, message) => total + (Number(message.attachments) || 0),
         0
     );
-    senderColumn.append(senderCell(thread.root, {
-        messageCount: thread.messages.length,
-        attachmentCount,
-        matchCount: thread.matches.size
-    }));
+    senderColumn.append(senderCell(thread.root));
 
     const subjectCell = document.createElement("td");
     subjectCell.append(previewTrigger(thread.root, thread.root.subject));
+    const indicators = messageIndicators({
+        messageCount: thread.messages.length,
+        attachmentCount,
+        matchCount: thread.matches.size
+    });
+    if (indicators.childElementCount) {
+        subjectCell.append(indicators);
+    }
     const snippetMessage = thread.messages.find((message) =>
         thread.matches.has(message.number) &&
         state.bodySearchSnippets.has(message.number)
@@ -929,7 +1008,6 @@ function renderThreadedMessages() {
             const expanded = state.expandedThreads.has(thread.rootNumber);
             const summary = threadSummaryRow(thread);
             body.append(summary);
-            appendPreviewAfterAnchor(body, thread.root, expanded);
             if (!expanded) {
                 continue;
             }
@@ -944,7 +1022,6 @@ function renderThreadedMessages() {
                         !thread.matches.has(message.number)
                 });
                 body.append(row);
-                appendPreviewAfterAnchor(body, message, true);
             }
         }
         elements.content.append(tableFragment);
@@ -1221,6 +1298,130 @@ function renderTopics() {
     elements.activeFilter.hidden = true;
 }
 
+function personMessageButton(person, type) {
+    const count = type === "authored"
+        ? person.authoredMessageCount
+        : person.mentionedMessageCount;
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = "person-message-button";
+
+    const total = document.createElement("strong");
+    total.textContent = Number(count || 0).toLocaleString();
+    const label = document.createElement("span");
+    label.textContent = type === "authored" ? "Authored messages" : "Related messages";
+    button.append(total, label);
+    button.disabled = !count;
+    button.addEventListener("click", () => {
+        state.query = "";
+        elements.search.value = "";
+        location.hash = `person-${type}=${encodeURIComponent(person.id)}`;
+    });
+    return button;
+}
+
+function renderPersonSources(sources) {
+    const list = document.createElement("ul");
+    list.className = "person-sources";
+    for (const source of sources || []) {
+        const url = typeof source === "string" ? source : source.url;
+        const label = typeof source === "string" ? source : (source.label || source.url);
+        if (!url) {
+            continue;
+        }
+        const item = document.createElement("li");
+        const link = document.createElement("a");
+        link.href = url;
+        link.target = "_blank";
+        link.rel = "noopener";
+        link.textContent = label;
+        item.append(link);
+        list.append(item);
+    }
+    return list;
+}
+
+function renderPeople() {
+    updateMessageCounter();
+    elements.content.replaceChildren();
+    const query = state.query.toLocaleLowerCase("en-US");
+    const visible = state.people.filter((person) => {
+        const searchable = [
+            person.name,
+            ...(person.aliases || []),
+            person.astrocadeRole,
+            person.industrySummary,
+            ...(person.accomplishments || [])
+        ].join(" ").toLocaleLowerCase("en-US");
+        return !query || searchable.includes(query);
+    });
+
+    if (!visible.length) {
+        const empty = document.createElement("p");
+        empty.className = "empty-state";
+        empty.textContent = state.people.length
+            ? "No people match the current search."
+            : "No people profiles are available. Run npm run people to build the catalog.";
+        elements.content.append(empty);
+    } else {
+        const directory = document.createElement("div");
+        directory.className = "people-directory";
+        for (const person of visible) {
+            const card = document.createElement("article");
+            card.className = "person-card";
+
+            const header = document.createElement("header");
+            header.className = "person-card-header";
+            const name = document.createElement("h2");
+            name.textContent = person.name;
+            const role = document.createElement("p");
+            role.className = "person-role";
+            role.textContent = person.astrocadeRole;
+            header.append(name, role);
+
+            const actions = document.createElement("div");
+            actions.className = "person-message-actions";
+            actions.append(
+                personMessageButton(person, "authored"),
+                personMessageButton(person, "related")
+            );
+
+            const careerHeading = document.createElement("h3");
+            careerHeading.textContent = "Computer-industry career";
+            const career = document.createElement("p");
+            career.textContent = person.industrySummary;
+
+            const accomplishmentsHeading = document.createElement("h3");
+            accomplishmentsHeading.textContent = "Selected accomplishments";
+            const accomplishments = document.createElement("ul");
+            accomplishments.className = "person-accomplishments";
+            for (const accomplishment of person.accomplishments || []) {
+                const item = document.createElement("li");
+                item.textContent = accomplishment;
+                accomplishments.append(item);
+            }
+
+            const sourcesHeading = document.createElement("h3");
+            sourcesHeading.textContent = "Sources";
+            card.append(
+                header,
+                actions,
+                careerHeading,
+                career,
+                accomplishmentsHeading,
+                accomplishments,
+                sourcesHeading,
+                renderPersonSources(person.sources)
+            );
+            directory.append(card);
+        }
+        elements.content.append(directory);
+    }
+
+    elements.pagination.hidden = true;
+    elements.activeFilter.hidden = true;
+}
+
 function topicSortValue(topic, column) {
     if (column === "name") {
         return topic.label.toLocaleLowerCase("en-US");
@@ -1269,7 +1470,7 @@ function topicSortButton(label, column) {
 
 function renderActiveFilter(messageCount) {
     elements.activeFilter.replaceChildren();
-    if (!state.sender && !state.keyword && !state.topic) {
+    if (!state.sender && !state.keyword && !state.topic && !state.personFilter) {
         elements.activeFilter.hidden = true;
         return;
     }
@@ -1280,6 +1481,10 @@ function renderActiveFilter(messageCount) {
         label.textContent = `Sender: ${sender?.name || state.sender} · ${messageCount.toLocaleString()} messages`;
     } else if (state.keyword) {
         label.textContent = `Keyword: ${state.keyword} · ${messageCount.toLocaleString()} messages`;
+    } else if (state.personFilter) {
+        const person = state.people.find((entry) => entry.id === state.personFilter);
+        const relation = state.personFilterType === "authored" ? "Authored by" : "Related to";
+        label.textContent = `${relation} ${person?.name || state.personFilter} · ${messageCount.toLocaleString()} messages`;
     } else {
         const topic = state.topics.find((entry) => entry.id === state.topic);
         label.textContent = `Topic: ${topic?.label || state.topic} · ${messageCount.toLocaleString()} messages`;
@@ -1290,7 +1495,7 @@ function renderActiveFilter(messageCount) {
     clear.className = "clear-filter";
     clear.textContent = "Clear filter";
     clear.addEventListener("click", () => {
-        location.hash = state.topic ? "topics" : "messages";
+        location.hash = state.topic ? "topics" : (state.personFilter ? "people" : "messages");
     });
     elements.activeFilter.append(label, clear);
     elements.activeFilter.hidden = false;
@@ -1310,6 +1515,9 @@ function render() {
     } else if (state.view === "topics") {
         elements.search.placeholder = "Search topic name, category, or description";
         renderTopics();
+    } else if (state.view === "people") {
+        elements.search.placeholder = "Search people, roles, or accomplishments";
+        renderPeople();
     } else if (state.view === "keywords") {
         renderDirectory(
             state.keywords.map((keyword) => ({
@@ -1328,11 +1536,12 @@ function render() {
 }
 
 async function loadArchive() {
-    const [manifestResponse, messagesResponse, keywordsResponse, topicsResponse] = await Promise.all([
+    const [manifestResponse, messagesResponse, keywordsResponse, topicsResponse, peopleResponse] = await Promise.all([
         fetch("data/manifest.json"),
         fetch("data/messages.json"),
         fetch("data/keywords.json"),
-        fetch("data/topics.json")
+        fetch("data/topics.json"),
+        fetch("data/people.json").catch(() => null)
     ]);
     if (![manifestResponse, messagesResponse, keywordsResponse, topicsResponse]
         .every((response) => response.ok)) {
@@ -1344,6 +1553,10 @@ async function loadArchive() {
     state.keywords = await keywordsResponse.json();
     const topicCatalog = await topicsResponse.json();
     state.topics = topicCatalog.topics;
+    if (peopleResponse?.ok) {
+        const peopleCatalog = await peopleResponse.json();
+        state.people = peopleCatalog.people || [];
+    }
     state.senders = buildSenderDirectory(state.messages);
     buildThreadIndex(state.messages);
     elements.settingsArchiveSummary.textContent =
@@ -1463,6 +1676,103 @@ elements.settingsDialog.addEventListener("click", (event) => {
         elements.settingsDialog.close();
     }
 });
+
+elements.messageDialogClose.addEventListener("click", () => {
+    elements.messageDialog.close();
+});
+
+elements.messageDialogPrevious.addEventListener("click", () => {
+    navigateMessageReader("previous");
+});
+
+elements.messageDialogNext.addEventListener("click", () => {
+    navigateMessageReader("next");
+});
+
+elements.messageDialogSender.addEventListener("click", () => {
+    const message = state.messageByNumber.get(state.previewNumber);
+    if (!message) {
+        return;
+    }
+    state.query = "";
+    elements.search.value = "";
+    elements.messageDialog.close();
+    location.hash = `sender=${encodeURIComponent(message.senderKey)}`;
+});
+
+elements.messageDialog.addEventListener("close", () => {
+    readerNavigation.loadGeneration += 1;
+    state.previewNumber = null;
+    document.documentElement.classList.remove("message-reader-open");
+    hideReaderBoundaryHint();
+    updatePreviewTriggers();
+});
+
+elements.messageDialog.addEventListener("click", (event) => {
+    if (event.target === elements.messageDialog) {
+        elements.messageDialog.close();
+    }
+});
+
+elements.messageDialog.addEventListener("keydown", (event) => {
+    if (event.key === "ArrowLeft") {
+        event.preventDefault();
+        navigateMessageReader("previous");
+    } else if (event.key === "ArrowRight") {
+        event.preventDefault();
+        navigateMessageReader("next");
+    }
+});
+
+elements.messageDialogBody.addEventListener("scroll", updateReaderBoundaryHint, { passive: true });
+
+elements.messageDialogBody.addEventListener("wheel", (event) => {
+    const body = elements.messageDialogBody;
+    const atTop = body.scrollTop <= 1;
+    const atBottom = body.scrollTop + body.clientHeight >= body.scrollHeight - 1;
+    if (event.deltaY < 0 && atTop) {
+        event.preventDefault();
+        navigateMessageReader("previous");
+    } else if (event.deltaY > 0 && atBottom) {
+        event.preventDefault();
+        navigateMessageReader("next");
+    }
+}, { passive: false });
+
+elements.messageDialogBody.addEventListener("touchstart", (event) => {
+    const body = elements.messageDialogBody;
+    const atTop = body.scrollTop <= 1;
+    const atBottom = body.scrollTop + body.clientHeight >= body.scrollHeight - 1;
+    readerNavigation.touchStartY = event.touches[0]?.clientY ?? null;
+    readerNavigation.touchBoundary = atTop && !atBottom
+        ? "previous"
+        : (atBottom && !atTop ? "next" : (atTop && atBottom ? "both" : null));
+    readerNavigation.touchNavigated = false;
+}, { passive: true });
+
+elements.messageDialogBody.addEventListener("touchmove", (event) => {
+    if (readerNavigation.touchStartY === null || readerNavigation.touchNavigated) {
+        return;
+    }
+    const currentY = event.touches[0]?.clientY;
+    if (currentY === undefined) {
+        return;
+    }
+    const movement = readerNavigation.touchStartY - currentY;
+    const wantsNext = movement > 48 && ["next", "both"].includes(readerNavigation.touchBoundary);
+    const wantsPrevious = movement < -48 && ["previous", "both"].includes(readerNavigation.touchBoundary);
+    if (wantsNext || wantsPrevious) {
+        event.preventDefault();
+        readerNavigation.touchNavigated = true;
+        navigateMessageReader(wantsNext ? "next" : "previous");
+    }
+}, { passive: false });
+
+elements.messageDialogBody.addEventListener("touchend", () => {
+    readerNavigation.touchStartY = null;
+    readerNavigation.touchBoundary = null;
+    readerNavigation.touchNavigated = false;
+}, { passive: true });
 
 function syncChromeHeight() {
     document.documentElement.style.setProperty(

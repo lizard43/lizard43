@@ -1,6 +1,6 @@
 <!--
 Filename: index.html
-Version: 20260913-211813
+Version: 20260914-002700
 -->
 <!doctype html>
 <html lang="en">
@@ -27,6 +27,8 @@ Version: 20260913-211813
                     aria-label="Senders" aria-pressed="false">Senders</button>
                 <button type="button" data-view="topics" class="view-tab"
                     aria-label="Topics" aria-pressed="false">Topics</button>
+                <button type="button" data-view="people" class="view-tab"
+                    aria-label="People" aria-pressed="false">People</button>
             </nav>
         </div>
     </header>
@@ -80,6 +82,40 @@ Version: 20260913-211813
         </nav>
     </main>
 
+    <dialog id="messageDialog" class="message-dialog" aria-labelledby="messageDialogSubject">
+        <article class="message-reader">
+            <header class="message-reader-header">
+                <div class="message-reader-title-row">
+                    <h2 id="messageDialogSubject">Message</h2>
+                    <button id="messageDialogClose" type="button" class="dialog-close"
+                        aria-label="Close message">×</button>
+                </div>
+                <div class="message-reader-details">
+                    <button id="messageDialogSender" type="button"
+                        class="message-reader-sender"></button>
+                    <time id="messageDialogDate"></time>
+                    <span id="messageDialogNumber"></span>
+                </div>
+                <div class="message-reader-actions">
+                    <a id="messageDialogOpen" class="open-message-button" target="_blank"
+                        rel="noopener">Open on Groups.io</a>
+                    <nav class="reader-thread-navigation" aria-label="Messages in this thread">
+                        <button id="messageDialogPrevious" type="button">← Previous</button>
+                        <span id="messageDialogThreadStatus" aria-live="polite"></span>
+                        <button id="messageDialogNext" type="button">Next →</button>
+                    </nav>
+                </div>
+            </header>
+            <div class="message-reader-scroll-shell">
+                <div id="messageDialogBody" class="message-reader-body" tabindex="0">
+                    <pre id="messageDialogText">Loading message…</pre>
+                </div>
+                <div id="messageDialogBoundary" class="reader-boundary-hint"
+                    aria-live="polite" hidden></div>
+            </div>
+        </article>
+    </dialog>
+
     <dialog id="settingsDialog" class="settings-dialog" aria-labelledby="settingsTitle">
         <form method="dialog">
             <header class="settings-header">
@@ -105,7 +141,7 @@ Version: 20260913-211813
                 </label>
                 <div class="settings-about">
                     <span>Version</span>
-                    <strong>v20260913</strong>
+                    <strong>v20260914</strong>
                     <span>Archive</span>
                     <strong id="settingsArchiveSummary">Loading…</strong>
                     <span>Contact</span>
