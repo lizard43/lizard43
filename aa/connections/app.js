@@ -102,16 +102,20 @@ d3.json("people.json").then(function(loadedData) {
                 const note = l.reason 
                     ? `<span class="connection-reason">${l.reason}</span>` 
                     : '<span class="placeholder-text">No annotation</span>';
+                // Block layouts allow smooth line wrapping on narrow glass screens
                 listHtml += `<div class="connection-item"><strong>${peer}</strong>${note}</div>`;
             });
         }
 
         const biographicalData = d.bio ? d.bio : "";
 
+        // Completely refactored sidebar content injection
         d3.select("#panel-content").html(`
-            <div class="meta-value" style="font-size: 20px; font-weight: 700; color: #ffffff; margin-bottom: 2px;">${d.id}</div>
-            <div class="meta-value" style="font-size: 13px; font-style: italic; color: #a0aec0; margin-bottom: 14px; line-height: 1.4;">${biographicalData}</div>
-            <div class="meta-label" style="border-top: 1px solid #24242b; padding-top: 10px;">Connections</div>
+            <div class="meta-label">Name</div>
+            <div class="meta-value" style="font-size: 18px; font-weight: 600; color: #ffffff;">${d.id}</div>
+            <div class="meta-value" style="font-size: 13px; font-style: italic; color: #a0aec0; margin-top: 4px; line-height: 1.4;">${biographicalData}</div>
+            
+            <div class="meta-label" style="border-top: 1px solid #24242b; margin-top: 14px; padding-top: 10px;">Connections</div>
             <div style="margin-top: 4px;">${listHtml}</div>
         `);
         
