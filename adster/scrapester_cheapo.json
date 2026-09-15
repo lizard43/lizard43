@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-15T15:32:13.102Z",
+  "generated_at": "2026-09-15T16:06:01.313Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,35 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 24,
-      "droppedPrice": 502,
+      "exported_ads": 25,
+      "droppedPrice": 505,
       "droppedMissingGeo": 0,
-      "droppedCircle": 392
+      "droppedCircle": 396
     }
   },
   "ads": [
+    {
+      "adID": "1825263175585535",
+      "source": "FB",
+      "authorUrl": null,
+      "author": "Sherry Cassaw",
+      "postedTime": "2026-09-15T15:02:50.823Z",
+      "title": "Industrial fan",
+      "description": "HIGH VELOCITY AIRFLOW: Equipped with a robust motor and two speed settings (High: 9,300 CFM / Low: 6,100 CFM), this industrial drum fan delivers massive airflow to ventilate large areas. It is ideal for workshops, warehouses, and garages where powerful cooling is essential for personnel and equipment.",
+      "price": "$95",
+      "lat": 34.0234337,
+      "lon": -84.6154897,
+      "location": "KENNESAW, GA",
+      "imageUrl": "https://scontent-dfw6-2.xx.fbcdn.net/v/t39.30808-6/812281497_29477676011822001_1297569790104023616_n.jpg?stp=dst-jpg_tt6&cstp=mx884x1920&ctp=s590x590&_nc_cat=110&ccb=1-7&_nc_sid=aa7b47&_nc_ohc=GfPGGlZqfQAQ7kNvwF8tTaS&_nc_oc=AdqBrmRySSu5qpZW_Xj9JVuPeRgwL239VLbu47t9WMwi0tOQ7g-VqECt2hJJjzvu5og&_nc_zt=23&_nc_ht=scontent-dfw6-2.xx&_nc_gid=A4JzpfLv17vpz-VgQ1V5Qw&_nc_ss=7b2a8&oh=00_AQLEyZeTbucR5dOKgQnZ0rlXHu6AejFHZpi75aQAK75zNQ&oe=6AAF27A8",
+      "adUrl": "https://www.facebook.com/groups/958426214184968/posts/29203516842582527/",
+      "facebookGroupId": "958426214184968",
+      "facebookGroupName": "Pinball Marketplace Buy and Sell",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-09-15 16:02:50",
+      "lastSeen": "2026-09-15T16:02:50.938Z"
+    },
     {
       "adID": "KLOV-567170",
       "source": "KLOV",
@@ -38,7 +60,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-09-15 15:08:14",
-      "lastSeen": "2026-09-15T15:08:14.215Z"
+      "lastSeen": "2026-09-15T16:05:56.739Z"
     },
     {
       "adID": "1074255061651652",
@@ -104,14 +126,14 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-09-15 14:07:16",
-      "lastSeen": "2026-09-15T15:08:14.315Z"
+      "lastSeen": "2026-09-15T16:05:56.839Z"
     },
     {
       "adID": "28664482523177613",
       "source": "FB",
       "authorUrl": null,
       "author": "Randy Weaver",
-      "postedTime": "2026-09-14T18:02:23.293Z",
+      "postedTime": "2026-09-14T18:02:22.033Z",
       "title": "Cash boxes",
       "description": "assorted cash boxes for arcade and jukebox. The square black metal door is perfectly new and has its frame. the other two frames and very slightly bent.... like they deterred a wouldbe thief.",
       "price": "$30",
@@ -126,7 +148,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-09-14 18:02:25",
-      "lastSeen": "2026-09-15T15:02:23.405Z"
+      "lastSeen": "2026-09-15T16:02:22.137Z"
     },
     {
       "adID": "KLOV-567141",
@@ -148,7 +170,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-09-14 01:07:46",
-      "lastSeen": "2026-09-15T15:08:15.997Z"
+      "lastSeen": "2026-09-15T16:05:58.500Z"
     },
     {
       "adID": "2210520576510841",
@@ -170,7 +192,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-09-13 17:26:11",
-      "lastSeen": "2026-09-15T15:06:07.322Z"
+      "lastSeen": "2026-09-15T16:05:13.799Z"
     },
     {
       "adID": "KLOV-561395",
@@ -192,7 +214,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-09-13 15:07:27",
-      "lastSeen": "2026-09-15T15:08:15.209Z"
+      "lastSeen": "2026-09-15T16:05:58.040Z"
     },
     {
       "adID": "1102184445830080",
@@ -214,7 +236,7 @@
       "priceChangedAt": "2026-09-14 23:05:02",
       "hidden": 0,
       "created_at": "2026-09-12 23:05:06",
-      "lastSeen": "2026-09-15T15:05:02.257Z"
+      "lastSeen": "2026-09-15T16:05:01.764Z"
     },
     {
       "adID": "1339660278015421",
@@ -478,7 +500,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-09-08 18:05:11",
-      "lastSeen": "2026-09-15T15:06:07.358Z"
+      "lastSeen": "2026-09-15T16:05:13.828Z"
     },
     {
       "adID": "1620202866141560",
