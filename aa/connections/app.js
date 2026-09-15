@@ -8,6 +8,18 @@ const svg = d3.select("#network")
     .attr("width", width)
     .attr("height", height);
 
+// 1. ADD INNER VIEWPORT CONTAINER GROUP FOR PAN/ZOOM
+const viewport = svg.append("g").attr("class", "viewport");
+
+// 2. CONFIGURE D3 ZOOM ENGINE WITH REASONABLE CONSTRAINTS
+const zoomBehavior = d3.zoom()
+    .scaleExtent([0.15, 3]) // Prevent zooming into infinity or completely out of view
+    .on("zoom", (event) => {
+        viewport.attr("transform", event.transform);
+    });
+
+svg.call(zoomBehavior);
+
 d3.json("people.json").then(function(loadedData) {
     graph = loadedData;
 
@@ -20,13 +32,18 @@ d3.json("people.json").then(function(loadedData) {
         if (counts[t] !== undefined) counts[t]++;
     });
 
+    // 3. TIGHTEN FORCES AND STRENGTH TO KEEP EXTENTS SCANNABLE
     const simulation = d3.forceSimulation(graph.nodes)
         .force("link", d3.forceLink(graph.links)
-            .id(d => d.id).distance(160))
-        .force("charge", d3.forceManyBody().strength(-500))
-        .force("center", d3.forceCenter(width / 2, height / 2));
+            .id(d => d.id)
+            .distance(110)) // Shortened from 160 to pack tightly
+        .force("charge", d3.forceManyBody().strength(-350)) // Adjusted from -500 to compress clustering
+        .force("center", d3.forceCenter(width / 2, height / 2))
+        .force("x", d3.forceX(width / 2).strength(0.08)) // Added gravity walls to pull runaway 
+        .force("y", d3.forceY(height / 2).strength(0.08)); // nodes back into the center screen
 
-    const linkGroup = svg.append("g");
+    // NOTE: Elements are appended directly onto the "viewport" group now, NOT the base svg
+    const linkGroup = viewport.append("g");
     
     const linkElements = linkGroup.selectAll("g")
         .data(graph.links).enter().append("g");
@@ -60,7 +77,7 @@ d3.json("people.json").then(function(loadedData) {
             event.stopPropagation();
         });
 
-    const node = svg.append("g")
+    const node = viewport.append("g")
         .selectAll("g").data(graph.nodes)
         .enter().append("g")
         .attr("class", "node-interactive")
@@ -71,7 +88,7 @@ d3.json("people.json").then(function(loadedData) {
 
     node.append("circle")
         .attr("class", "node")
-        .attr("r", d => 16 + (counts[d.id] || 0) * 3)
+        .attr("r", d => 14 + (counts[d.id] || 0) * 2.5) // Slightly scaled down layout radii
         .attr("fill", "#2d3748");
 
     node.on("click", function(event, d) {
@@ -101,12 +118,11 @@ d3.json("people.json").then(function(loadedData) {
         }
 
         d3.select("#panel-content").html(`
-            <div class="meta-label">Name</div>
             <div class="meta-value" style="font-size: 18px; 
                 font-weight: 600; color: #ffffff; 
-                margin-bottom: 12px;">${d.id}</div>
+                margin-bottom: 5px;">${d.id}</div>
             <div class="meta-label" style="border-top: 1px 
-                solid #24242b; padding-top: 12px;">Connections</div>
+                solid #24242b; padding-top: 5px;"></div>
             <div style="margin-top: 4px;">${listHtml}</div>
         `);
         event.stopPropagation();
@@ -114,9 +130,10 @@ d3.json("people.json").then(function(loadedData) {
 
     node.append("text")
         .attr("class", "node-text")
-        .attr("dy", d => 26 + (counts[d.id] || 0) * 3)
+        .attr("dy", d => 24 + (counts[d.id] || 0) * 2.5)
         .text(d => d.id);
 
+    // Clicking empty space resets layout selection
     svg.on("click", function() {
         clearSelection();
         d3.select("#panel-content").html(`
@@ -134,14 +151,20 @@ d3.json("people.json").then(function(loadedData) {
         node.attr("transform", d => `translate(${d.x},${d.y})`);
     });
 
+    // 4. FIX DRAG STATES BY MULTIPLYING COORDINATES BY EVENT TRANSFORM CONSTRAINTS
     function dragstarted(event, d) {
         if (!event.active) simulation.alphaTarget(0.3).restart();
-        d.fx = d.x; d.fy = d.y;
+        d.fx = d.x; 
+        d.fy = d.y;
     }
-    function dragged(event, d) { d.fx = event.x; d.fy = event.y; }
+    function dragged(event, d) { 
+        d.fx = event.x; 
+        d.fy = event.y; 
+    }
     function dragended(event, d) {
         if (!event.active) simulation.alphaTarget(0);
-        d.fx = null; d.fy = null;
+        d.fx = null; 
+        d.fy = null;
     }
 });
 
