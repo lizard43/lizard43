@@ -129,3 +129,15 @@ input[type="text"]:focus {
 .node-interactive:hover .node-text {
     fill: #ffffff;
 }
+
+/* Correct active state selection criteria based on your design instructions */
+.node-interactive.active-node .node {
+    stroke: #0055ff !important; /* Authentic Wizard of Wor electric dungeon blue wall tint */
+    stroke-width: 4px !important;  /* Broad, structural map boundary thickness */
+    fill: #2d3748 !important;    /* Preserves original node fill color, preventing the baby blue override */
+}
+
+/* Optional glow effect mapping for true retro CRT arcade display emulation */
+.node-interactive.active-node .node {
+    filter: drop-shadow(0px 0px 6px rgba(0, 85, 255, 0.8));
+}
