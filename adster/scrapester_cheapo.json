@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-15T10:01:20.268Z",
+  "generated_at": "2026-09-15T11:09:16.027Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,19 +11,63 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 20,
-      "droppedPrice": 493,
+      "exported_ads": 22,
+      "droppedPrice": 500,
       "droppedMissingGeo": 0,
-      "droppedCircle": 380
+      "droppedCircle": 390
     }
   },
   "ads": [
+    {
+      "adID": "1585920329693135",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100000717721881/?product_id=1585920329693135",
+      "author": "Kimberly Jones",
+      "postedTime": "2026-09-15T01:48:42.000Z",
+      "title": "Santa's helper pin",
+      "description": "Need a way to explain how Santa gets to all the houses? That’s cause you’re his helper and now you can have proof! When the little one starts questioning because some other little one spilled the beans, pull out your pin and tell him the truth! Santa swore you in as an official helper!",
+      "price": "$10",
+      "lat": 30.4065868,
+      "lon": -87.6835974,
+      "location": "Foley, AL",
+      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/811711318_907106278877273_647086421964294550_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=102&ccb=1-7&_nc_sid=92e707&_nc_ohc=ptgs3ulV330Q7kNvwEvT-Pi&_nc_oc=Ado-KYd5b-h7iDlgnTf9_lB1QC97eO3d7cZcCURAZ-BPKOzjoYnK29oKByjD6-VKByk&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=R8qQI40SqtBD3hzUypR7Ug&_nc_ss=7b2a8&oh=00_AQJhGim7BpJzRHulE5sKOMIwDwcL52MzLcfX2BJ-_UtQIQ&oe=6AAEE2C4",
+      "adUrl": "https://www.facebook.com/marketplace/item/1585920329693135/",
+      "facebookGroupId": null,
+      "facebookGroupName": null,
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-09-15 11:05:52",
+      "lastSeen": "2026-09-15T11:08:16.312Z"
+    },
+    {
+      "adID": "4543948372590848",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100023451751296/?product_id=4543948372590848",
+      "author": "Amir Ilhom",
+      "postedTime": "2026-09-15T01:11:43.000Z",
+      "title": "Metal Target",
+      "description": "For target practice",
+      "price": "$50",
+      "lat": 30.4380832,
+      "lon": -84.2809332,
+      "location": "Tallahassee, FL",
+      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/808080890_1623506046036084_7752578407655010941_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=104&ccb=1-7&_nc_sid=92e707&_nc_ohc=HaN-_j1_9iEQ7kNvwHuJmL-&_nc_oc=AdpZOjoCeC6Svylm_11TeAk2dqXXwVeKgkuQ4G8iufKIV2bWrfFuJx0kWaCJ_JyV5Ns&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=47NCGelxIxYUQRRgMhwmXQ&_nc_ss=7b2a8&oh=00_AQIQq_QK5fr3GQAmaW4K3RN2jl_1qJqm7UX01YB0VujrVQ&oe=6AAEFA09",
+      "adUrl": "https://www.facebook.com/marketplace/item/4543948372590848/",
+      "facebookGroupId": null,
+      "facebookGroupName": null,
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-09-15 11:05:51",
+      "lastSeen": "2026-09-15T11:08:15.849Z"
+    },
     {
       "adID": "28664482523177613",
       "source": "FB",
       "authorUrl": null,
       "author": "Randy Weaver",
-      "postedTime": "2026-09-14T18:02:21.633Z",
+      "postedTime": "2026-09-14T18:02:30.612Z",
       "title": "Cash boxes",
       "description": "assorted cash boxes for arcade and jukebox. The square black metal door is perfectly new and has its frame. the other two frames and very slightly bent.... like they deterred a wouldbe thief.",
       "price": "$30",
@@ -38,7 +82,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-09-14 18:02:25",
-      "lastSeen": "2026-09-15T01:02:21.676Z"
+      "lastSeen": "2026-09-15T11:02:30.649Z"
     },
     {
       "adID": "KLOV-567141",
@@ -60,7 +104,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-09-14 01:07:46",
-      "lastSeen": "2026-09-15T01:09:14.767Z"
+      "lastSeen": "2026-09-15T11:09:12.085Z"
     },
     {
       "adID": "2210520576510841",
@@ -82,7 +126,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-09-13 17:26:11",
-      "lastSeen": "2026-09-15T01:05:57.398Z"
+      "lastSeen": "2026-09-15T11:05:51.751Z"
     },
     {
       "adID": "KLOV-561395",
@@ -104,7 +148,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-09-13 15:07:27",
-      "lastSeen": "2026-09-15T01:09:13.134Z"
+      "lastSeen": "2026-09-15T11:09:11.483Z"
     },
     {
       "adID": "1102184445830080",
@@ -126,7 +170,7 @@
       "priceChangedAt": "2026-09-14 23:05:02",
       "hidden": 0,
       "created_at": "2026-09-12 23:05:06",
-      "lastSeen": "2026-09-15T01:04:58.858Z"
+      "lastSeen": "2026-09-15T11:05:12.998Z"
     },
     {
       "adID": "1339660278015421",
@@ -390,7 +434,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-09-08 18:05:11",
-      "lastSeen": "2026-09-15T01:05:57.470Z"
+      "lastSeen": "2026-09-15T11:05:51.892Z"
     },
     {
       "adID": "1620202866141560",
