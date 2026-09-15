@@ -1,0 +1,131 @@
+body {
+    margin: 0;
+    overflow: hidden;
+    background-color: #0c0c0e;
+    font-family: -apple-system, sans-serif;
+    display: flex;
+    color: #e2e8f0;
+}
+#canvas-container {
+    width: 75vw;
+    height: 100vh;
+    position: relative;
+}
+svg {
+    width: 100%;
+    height: 100%;
+}
+#sidebar {
+    width: 25vw;
+    height: 100vh;
+    background-color: #16161a;
+    border-left: 1px solid #24242b;
+    box-shadow: -4px 0 15px rgba(0,0,0,0.5);
+    box-sizing: border-box;
+    padding: 24px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+}
+h2 {
+    margin-top: 0;
+    color: #ffffff;
+    font-size: 20px;
+    border-bottom: 1px solid #24242b;
+    padding-bottom: 12px;
+}
+.meta-label {
+    font-weight: 700;
+    color: #718096;
+    margin-top: 18px;
+    font-size: 11px;
+    text-transform: uppercase;
+}
+.meta-value {
+    color: #edf2f7;
+    font-size: 15px;
+    margin-top: 6px;
+}
+.connection-item {
+    color: #edf2f7;
+    font-size: 14px;
+    margin-top: 6px;
+    line-height: 1.4;
+}
+.connection-reason {
+    color: #a0aec0;
+    font-style: italic;
+}
+input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin-top: 8px;
+    box-sizing: border-box;
+    background-color: #24242b;
+    border: 1px solid #3f3f46;
+    border-radius: 6px;
+    color: #fff;
+    font-size: 14px;
+}
+input[type="text"]:focus {
+    border-color: #00adb5;
+    outline: none;
+}
+.btn-save {
+    margin-top: auto;
+    background-color: #00adb5;
+    color: #fff;
+    border: none;
+    padding: 14px;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+}
+.btn-save:hover {
+    background-color: #00c2cb;
+}
+.placeholder-text {
+    color: #4a5568;
+    font-style: italic;
+}
+.link-interactive {
+    stroke: transparent;
+    stroke-width: 16px;
+    cursor: pointer;
+}
+.link-visible {
+    stroke: #3f3f46;
+    stroke-opacity: 0.6;
+    stroke-width: 2px;
+    pointer-events: none;
+}
+.link-interactive:hover + .link-visible {
+    stroke: #a1a1aa;
+    stroke-width: 3px;
+}
+.link-visible.active {
+    stroke: #00adb5 !important;
+    stroke-opacity: 1 !important;
+    stroke-width: 4px !important;
+}
+.node {
+    stroke: #16161a;
+    stroke-width: 2px;
+    cursor: pointer;
+}
+.node-interactive.active-node .node {
+    stroke: #00adb5;
+    stroke-width: 3px;
+    fill: #00adb5;
+}
+.node-text {
+    font-size: 12px;
+    pointer-events: none;
+    text-anchor: middle;
+    fill: #a0aec0;
+}
+.node-interactive.active-node .node-text,
+.node-interactive:hover .node-text {
+    fill: #ffffff;
+}

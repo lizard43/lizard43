@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DNA Connections</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="d3@7.js"></script>
+</head>
+<body>
+    <div id="canvas-container">
+        <svg id="network"></svg>
+    </div>
+    <div id="sidebar">
+        <h2>Details</h2>
+        <div id="panel-content">
+            <p class="placeholder-text">
+                Click an item to edit details.
+            </p>
+        </div>
+        <button class="btn-save" onclick="exportData()">
+            Export people.json
+        </button>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
