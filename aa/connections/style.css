@@ -5,6 +5,8 @@ body {
     font-family: -apple-system, sans-serif;
     display: flex;
     color: #e2e8f0;
+    height: 100vh;
+    width: 100vw;
 }
 #canvas-container {
     width: 75vw;
@@ -26,6 +28,8 @@ svg {
     overflow-y: auto;
     display: flex;
     flex-direction: column;
+    z-index: 100;
+    transition: transform 0.3s ease;
 }
 h2 {
     margin-top: 0;
@@ -49,12 +53,16 @@ h2 {
 .connection-item {
     color: #edf2f7;
     font-size: 14px;
-    margin-top: 6px;
+    margin-top: 10px;
     line-height: 1.4;
+    border-bottom: 1px solid #1f1f24;
+    padding-bottom: 8px;
 }
 .connection-reason {
     color: #a0aec0;
     font-style: italic;
+    display: block;
+    margin-top: 2px;
 }
 input[type="text"] {
     width: 100%;
@@ -72,7 +80,7 @@ input[type="text"]:focus {
     outline: none;
 }
 .btn-save {
-    margin-top: auto;
+    margin-top: 20px;
     background-color: #00adb5;
     color: #fff;
     border: none;
@@ -81,6 +89,7 @@ input[type="text"]:focus {
     font-weight: bold;
     border-radius: 6px;
     cursor: pointer;
+    flex-shrink: 0;
 }
 .btn-save:hover {
     background-color: #00c2cb;
@@ -91,12 +100,12 @@ input[type="text"]:focus {
 }
 .link-interactive {
     stroke: transparent;
-    stroke-width: 16px;
+    stroke-width: 24px; /* fatter touch footprint */
     cursor: pointer;
 }
 .link-visible {
     stroke: #3f3f46;
-    stroke-opacity: 0.6;
+    stroke-opacity: 0.4;
     stroke-width: 2px;
     pointer-events: none;
 }
@@ -105,7 +114,7 @@ input[type="text"]:focus {
     stroke-width: 3px;
 }
 .link-visible.active {
-    stroke: #00adb5 !important;
+    stroke: #0055ff !important;
     stroke-opacity: 1 !important;
     stroke-width: 4px !important;
 }
@@ -115,12 +124,13 @@ input[type="text"]:focus {
     cursor: pointer;
 }
 .node-interactive.active-node .node {
-    stroke: #00adb5;
-    stroke-width: 3px;
-    fill: #00adb5;
+    stroke: #0055ff !important;
+    stroke-width: 4px !important;
+    fill: #2d3748 !important;
+    filter: drop-shadow(0px 0px 6px rgba(0,85,255,0.8));
 }
 .node-text {
-    font-size: 12px;
+    font-size: 11px;
     pointer-events: none;
     text-anchor: middle;
     fill: #a0aec0;
@@ -128,16 +138,40 @@ input[type="text"]:focus {
 .node-interactive.active-node .node-text,
 .node-interactive:hover .node-text {
     fill: #ffffff;
+    font-weight: bold;
 }
 
-/* Correct active state selection criteria based on your design instructions */
-.node-interactive.active-node .node {
-    stroke: #0055ff !important; /* Authentic Wizard of Wor electric dungeon blue wall tint */
-    stroke-width: 4px !important;  /* Broad, structural map boundary thickness */
-    fill: #2d3748 !important;    /* Preserves original node fill color, preventing the baby blue override */
-}
-
-/* Optional glow effect mapping for true retro CRT arcade display emulation */
-.node-interactive.active-node .node {
-    filter: drop-shadow(0px 0px 6px rgba(0, 85, 255, 0.8));
+/* RESPONSIVE MOBILE OVERRIDES: Screens smaller than 768px */
+@media (max-width: 767px) {
+    body {
+        flex-direction: column;
+    }
+    #canvas-container {
+        width: 100vw;
+        height: 100vh;
+        z-index: 1;
+        touch-action: none; /* blocks screen elastic bounces */
+    }
+    #sidebar {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100vw;
+        height: 50vh; /* claims bottom half on click selection */
+        max-height: 50vh;
+        border-left: none;
+        border-top: 1px solid #24242b;
+        transform: translateY(100%); /* hidden by default */
+        border-radius: 16px 16px 0 0;
+        z-index: 1000;
+        box-shadow: 0 -8px 24px rgba(0,0,0,0.6);
+        padding: 20px;
+    }
+    #sidebar.drawer-open {
+        transform: translateY(0); /* slides open cleanly */
+    }
+    .btn-save {
+        padding: 10px;
+        margin-top: 12px;
+    }
 }
