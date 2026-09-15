@@ -1,71 +1,336 @@
 {
   "nodes": [
-    {"id": "David J. Nutting","bio": "Industrial designer and visionary co-founder of Dave Nutting Associates. He provided the core product direction, cabinet layouts, and baseline game concepts for foundational microprocessor titles like Gun Fight, Sea Wolf, and Wizard of Wor."},
-    {"id": "Jeffrey E. Frederiksen"},
-    {"id": "Jamie Fenton"},
-    {"id": "Alan McNeil"},
-    {"id": "Tom McHugh"},
-    {"id": "Rickey Spiece"},
-    {"id": "Bob Ogdon"},
-    {"id": "Terry Coleman"},
-    {"id": "Jim Hemmer"},
-    {"id": "Tony Miller"},
-    {"id": "Brian Taylor"},
-    {"id": "Bill Nutting"},
-    {"id": "Lew Harp"},
-    {"id": "Brett Bilbrey"},
-    {"id": "Fred Cornett"},
-    {"id": "Mike Toth"},
-    {"id": "Marian Nalepa"},
-    {"id": "JoAn Mason"},
-    {"id": "David Winter"},
-    {"id": "Arnie Katz"},
-    {"id": "Julie Ogdon"},
-    {"id": "Dave Armstrong"},
-    {"id": "Danny Goodman"},
-    {"id": "Mike Peace"},
-    {"id": "Tom McConnell"},
-    {"id": "George Moses"},
-    {"id": "Andy Guevara"},
-    {"id": "Richard Houser"},
-    {"id": "Bob Fabris"},
-    {"id": "Guy McLimore, Jr."}
+    {
+      "id": "David J. Nutting",
+      "bio": "Visionary industrial designer and founder of Dave Nutting Associates. He provided the core product concepts, cabinet layouts, and baseline game direction for historic titles like Gun Fight, Sea Wolf, Gorf, and Wizard of Wor."
+    },
+    {
+      "id": "Jeffrey E. Frederiksen",
+      "bio": "Foundational electronics engineer who pioneered the 'Bally Brain' motherboard and designed the 3-chip custom AMI silicon family, creating the 'magic memory' blitter circuit."
+    },
+    {
+      "id": "Jamie Fenton",
+      "bio": "Lead software architect who engineered the Professional Arcade system ROM (HVGSYS), Bally BASIC, and programmed the iconic multi-mission arcade hit Gorf."
+    },
+    {
+      "id": "Alan McNeil",
+      "bio": "Brilliant hacker and architect of the TERSE threaded language environment. He famously left DNA for Stern Electronics to build their video division and create Berzerk."
+    },
+    {
+      "id": "Tom McHugh",
+      "bio": "Key assembly programmer recruited out of UW-Milwaukee who worked side-by-side with Fenton and Frederiksen to write code directly hitting the custom Z80 system routines."
+    },
+    {
+      "id": "Rickey Spiece",
+      "bio": "Essential early retail game programmer at DNA. He wrote Panzer Attack and Red Baron, co-authored Football, and authored the 'Perspective Box' video art demo."
+    },
+    {
+      "id": "Bob Ogdon",
+      "bio": "Workhorse game designer who specialized in home consumer cartridges. He co-authored Football and later formed Action Graphics with Nutting's direct support."
+    },
+    {
+      "id": "Terry Coleman",
+      "bio": "Custom silicon engineer at DNA who helped lay out the logic circuits for the three custom AMI chips alongside Jeff Frederiksen."
+    },
+    {
+      "id": "Jim Hemmer",
+      "bio": "Printed circuit board layout specialist who managed the physical mainboard routing for the home console and arcade board stacks."
+    },
+    {
+      "id": "Tony Miller",
+      "bio": "DNA hardware engineering manager who led the add-on computer systems. He later recruited McNeil to Stern to design the arcade hardware for Berzerk."
+    },
+    {
+      "id": "Brian Taylor",
+      "bio": "American Microsystems Inc. (AMI) engineer who worked directly with Frederiksen to translate DNA's logic schematics into physical five-micrometer silicon."
+    },
+    {
+      "id": "Bill Nutting",
+      "bio": "Dave Nutting's brother and founder of Nutting Associates in California, the company that originally manufactured Nutting's and Nolan Bushnell's Computer Space."
+    },
+    {
+      "id": "Lew Harp",
+      "bio": "Early software programmer at Dave Nutting Associates who authored the console's built-in multi-player strategy game Checkmate."
+    },
+    {
+      "id": "Brett Bilbrey",
+      "bio": "Pioneering external developer who reverse-engineered the console. He provided the Cursor Group with its machine language entry points and co-founded Spectre Systems."
+    },
+    {
+      "id": "Fred Cornett",
+      "bio": "Astrocade archivist and founder of the Cursor Group user collective who published Brett Bilbrey's early machine language memory maps and programming tutorials."
+    },
+    {
+      "id": "Mike Toth",
+      "bio": "Co-founder of Spectre Systems who helped publish the third-party commercial cartridges Treasure Cove and the legendary ultra-rare ICBM Attack."
+    },
+    {
+      "id": "Marian Nalepa",
+      "bio": "Co-founder of Spectre Systems who served as a key technical developer during the creation of the custom Spectre Handle peripheral joystick."
+    },
+    {
+      "id": "JoAn Mason",
+      "bio": "Milwaukee Coin Industries partner and employee photographed standing with David Nutting beside the Red Baron electromechanical flyer in 1971."
+    },
+    {
+      "id": "David Winter",
+      "bio": "Early MCI coin-op route and design contemporary photographed standing beside the Red Baron arcade cabinet in 1971."
+    },
+    {
+      "id": "Arnie Katz",
+      "bio": "Co-founder and editor of Electronic Games magazine who interviewed Bob Ogdon for the landmark May 1982 'Inside Gaming' studio feature profile."
+    },
+    {
+      "id": "Julie Ogdon",
+      "bio": "Bob Ogdon's spouse who explicitly introduced him to Dave Nutting, leading to his exploratory recruitment trip to Chicago and hiring at DNA."
+    },
+    {
+      "id": "Dave Armstrong",
+      "bio": "Action Graphics game designer whose debut fantasy program Quest for the Orb for the Astro Arcade was supervised directly by Bob Ogdon."
+    },
+    {
+      "id": "Danny Goodman",
+      "bio": "Tech journalist who authored the September 1983 JoyStik feature article 'Astrocade's Underground,' documenting the cottage homebrew expansion industry."
+    },
+    {
+      "id": "Mike Peace",
+      "bio": "Professional musician and founder of Wavemakers. He developed 18 software tapes for the BASIC cartridge, including an interactive guitar tuning course."
+    },
+    {
+      "id": "Tom McConnell",
+      "bio": "Founder of the third-party development house Tiny Arcade, which published the unique multi-screen scrolling space game Omega Valley."
+    },
+    {
+      "id": "George Moses",
+      "bio": "Michigan-based audio expert who mastered the 3-channel sound chip. He published multiple music utilities and composed the soundtrack for Treasure Cove."
+    },
+    {
+      "id": "Andy Guevara",
+      "bio": "Founder of 'The Bit Fiddlers' development house and creator of the highly celebrated Machine Language Manager (MLM) utility cartridge."
+    },
+    {
+      "id": "Richard Houser",
+      "bio": "Astrocade developer and data archivist who compiled the monumental 114-page semi-annual Sourcebook catalog of every known program and expansion module."
+    },
+    {
+      "id": "Bob Fabris",
+      "bio": "The historic, central archivist of the platform who published the monthly ARCADIAN user group newsletter, single-handedly keeping the technical community alive."
+    },
+    {
+      "id": "Guy McLimore, Jr.",
+      "bio": "Co-founder of ABC Hobbycraft, a premier midwestern retail dealer of Astrocade hardware, memory components, and cassette-based third-party software tapes."
+    }
   ],
   "links": [
-    {"source": "David J. Nutting", "target": "Jeffrey E. Frederiksen", "reason": "Co-founded Dave Nutting Associates in 1974 after working together at Milwaukee Coin Industries."},
-    {"source": "David J. Nutting", "target": "Bill Nutting", "reason": "Brothers; Bill ran Nutting Associates in California while David ran DNA in Milwaukee."},
-    {"source": "Jeffrey E. Frederiksen", "target": "Brian Taylor", "reason": "Collaborated with Taylor (an AMI engineer) to convert his custom logic designs into physical silicon."},
-    {"source": "David J. Nutting", "target": "Tom McHugh", "reason": "Collaborated on early arcade designs where Nutting defined product details and McHugh programmed the game logic."},
-    {"source": "Bob Ogdon", "target": "Rickey Spiece", "reason": "Co-authored the Football cartridge game together for the Bally Professional Arcade."},
-    {"source": "David J. Nutting", "target": "Bob Ogdon", "reason": "Nutting acted as Ogdon's primary design mentor at DNA and supported him in forming independent software house Action Graphics in 1981."},
-    {"source": "Rickey Spiece", "target": "Alan McNeil", "reason": "Coworkers at DNA who used and debated the structural terminology of McNeil's proprietary TERSE language engine."},
-    {"source": "Tony Miller", "target": "Alan McNeil", "reason": "Coworkers at DNA who held differing firsthand recollections regarding the precise acronym meaning of McNeil's TERSE engine."},
-    {"source": "Jamie Fenton", "target": "Tom McHugh", "reason": "Attended the University of Wisconsin Milwaukee together before joining the DNA software development team."},
-    {"source": "David J. Nutting", "target": "Jamie Fenton", "reason": "Collaborated closely on the core concepts, logic design, and final programming of Gorf and The Adventures of Robby Roto."},
-    {"source": "Jeffrey E. Frederiksen", "target": "Terry Coleman", "reason": "Worked together in the hardware engineering group designing the three custom AMI chips and console circuitry."},
-    {"source": "Jamie Fenton", "target": "Bob Ogdon", "reason": "Collaborated closely at DNA on software designs (such as Gorf and Wizard of Wor) and later rejoined forces at Ogdon's company, Action Graphics."},
-    {"source": "Tom McHugh", "target": "Bob Ogdon", "reason": "Rejoined forces as software developers when McHugh moved over to work at Ogdon's company, Action Graphics."},
-    {"source": "Brett Bilbrey", "target": "Fred Cornett", "reason": "Bilbrey documented low-level machine-language entry points that Cornett and the Cursor Group published in the 1980 Peek n Poke manual."},
-    {"source": "Brett Bilbrey", "target": "Mike Toth", "reason": "Co-founded the third-party software studio Spectre Systems to produce games for the Astrocade ecosystem."},
-    {"source": "Brett Bilbrey", "target": "Marian Nalepa", "reason": "Co-founded the third-party software studio Spectre Systems to produce games for the Astrocade ecosystem."},
-    {"source": "Brett Bilbrey", "target": "Bob Ogdon", "reason": "Bilbrey entered the core DNA developer network from the outside and eventually went to work for Ogdon at Action Graphics."},
-    {"source": "Alan McNeil", "target": "Terry Coleman", "reason": "Coworkers at DNA who migrated together from the company to join Stern Electronics' development group."},
-    {"source": "Alan McNeil", "target": "Jim Hemmer", "reason": "Coworkers at DNA who migrated together from the company to join Stern Electronics' development group."},
-    {"source": "David J. Nutting", "target": "JoAn Mason", "reason": "Photographed together standing beside the Red Baron arcade cabinet in 1971."},
-    {"source": "David J. Nutting", "target": "David Winter", "reason": "Photographed together standing beside the Red Baron arcade cabinet in 1971."},
-    {"source": "Bob Ogdon", "target": "Julie Ogdon", "reason": "Spouses; Julie explicitly introduced Bob to Dave Nutting, kickstarting his professional game design career."},
-    {"source": "David J. Nutting", "target": "Julie Ogdon", "reason": "Met via her introduction of her husband Bob Ogdon for a recruitment exploratory trip to Chicago."},
-    {"source": "Bob Ogdon", "target": "Arnie Katz", "reason": "Interviewed directly by Katz for the May 1982 'Inside Gaming' feature profile in Electronic Games magazine."},
-    {"source": "Bob Ogdon", "target": "Dave Armstrong", "reason": "Ogdon actively supervised Armstrong's debut project, Quest for the Orb, using Action Graphics' proprietary FORTH-like animation environment."},
-    {"source": "Brett Bilbrey", "target": "Danny Goodman", "reason": "Goodman interviewed and documented Bilbrey's transition from publishing BASIC games in the Arcadian newsletter to designing Treasure Cove for Spectre Systems."},
-    {"source": "Mike Peace", "target": "Danny Goodman", "reason": "Peace demonstrated his Wavemakers graphics development tools and Blue Ram software library directly to Goodman for his JoyStik feature article."},
-    {"source": "Tom McConnell", "target": "Danny Goodman", "reason": "Goodman profiled McConnell's development house, Tiny Arcade, and its space multi-screen title Omega Valley."},
-    {"source": "George Moses", "target": "Danny Goodman", "reason": "Goodman highlighted Moses as an active 'Arcade musical expert' who supplied the soundtracks and custom music utilities for third-party games."},
-    {"source": "Andy Guevara", "target": "Danny Goodman", "reason": "Goodman documented Guevara's development of the Machine Language Manager (MLM) utility cartridge under his 'The Bit Fiddlers' label."},
-    {"source": "Richard Houser", "target": "Danny Goodman", "reason": "Goodman relied heavily on Houser's comprehensive 114-page Sourcebook catalog to map out the scale of the ecosystem."},
-    {"source": "Bob Fabris", "target": "Danny Goodman", "reason": "Goodman detailed Fabris's monumental historical status as the central archivist running the monthly ARCADIAN user group newsletter."},
-    {"source": "Guy McLimore, Jr.", "target": "Danny Goodman", "reason": "Goodman interviewed McLimore (running ABC Hobbycraft) to acquire industry insights regarding how Fabris single-handedly kept the user base active."},
-    {"source": "Bob Fabris", "target": "Guy McLimore, Jr.", "reason": "McLimore ran ABC Hobbycraft as a major retail dealer of software and hardware listed and reviewed within Fabris's ARCADIAN newsletter ecosystem."},
-    {"source": "George Moses", "target": "Brett Bilbrey", "reason": "Moses composed and produced the full multi-tune musical backdrop utilized inside Bilbrey's third-party cartridge Treasure Cove."}
+    {
+      "source": "David J. Nutting",
+      "target": "Jeffrey E. Frederiksen",
+      "reason": "Co-founded Dave Nutting Associates in 1974 after working together at Milwaukee Coin Industries."
+    },
+    {
+      "source": "David J. Nutting",
+      "target": "Bill Nutting",
+      "reason": "Brothers; Bill ran Nutting Associates in California while David ran DNA in Milwaukee."
+    },
+    {
+      "source": "Jeffrey E. Frederiksen",
+      "target": "Brian Taylor",
+      "reason": "Collaborated with Taylor (an AMI engineer) to convert his custom logic designs into physical silicon."
+    },
+    {
+      "source": "David J. Nutting",
+      "target": "Tom McHugh",
+      "reason": "Collaborated on early arcade designs where Nutting defined product details and McHugh programmed the game logic."
+    },
+    {
+      "source": "Bob Ogdon",
+      "target": "Rickey Spiece",
+      "reason": "Co-authored the Football cartridge game together for the Bally Professional Arcade."
+    },
+    {
+      "source": "David J. Nutting",
+      "target": "Bob Ogdon",
+      "reason": "Nutting acted as Ogdon's primary design mentor at DNA and supported him in forming independent software house Action Graphics in 1981."
+    },
+    {
+      "source": "Rickey Spiece",
+      "target": "Alan McNeil",
+      "reason": "Coworkers at DNA who used and debated the structural terminology of McNeil's proprietary TERSE language engine."
+    },
+    {
+      "source": "Tony Miller",
+      "target": "Alan McNeil",
+      "reason": "Coworkers at DNA who held differing firsthand recollections regarding the precise acronym meaning of McNeil's TERSE engine."
+    },
+    {
+      "source": "Jamie Fenton",
+      "target": "Tom McHugh",
+      "reason": "Attended the University of Wisconsin Milwaukee together before joining the DNA software development team."
+    },
+    {
+      "source": "David J. Nutting",
+      "target": "Jamie Fenton",
+      "reason": "Collaborated closely on the core concepts, logic design, and final programming of Gorf and The Adventures of Robby Roto."
+    },
+    {
+      "source": "Jeffrey E. Frederiksen",
+      "target": "Terry Coleman",
+      "reason": "Worked together in the hardware engineering group designing the three custom AMI chips and console circuitry."
+    },
+    {
+      "source": "Jamie Fenton",
+      "target": "Bob Ogdon",
+      "reason": "Collaborated closely at DNA on software designs (such as Gorf and Wizard of Wor) and later rejoined forces at Ogdon's company, Action Graphics."
+    },
+    {
+      "source": "Tom McHugh",
+      "target": "Bob Ogdon",
+      "reason": "Rejoined forces as software developers when McHugh moved over to work at Ogdon's company, Action Graphics."
+    },
+    {
+      "source": "Brett Bilbrey",
+      "target": "Fred Cornett",
+      "reason": "Bilbrey documented low-level machine-language entry points that Cornett and the Cursor Group published in the 1980 Peek n Poke manual."
+    },
+    {
+      "source": "Brett Bilbrey",
+      "target": "Mike Toth",
+      "reason": "Co-founded the third-party software studio Spectre Systems to produce games for the Astrocade ecosystem."
+    },
+    {
+      "source": "Brett Bilbrey",
+      "target": "Marian Nalepa",
+      "reason": "Co-founded the third-party software studio Spectre Systems to produce games for the Astrocade ecosystem."
+    },
+    {
+      "source": "Brett Bilbrey",
+      "target": "Bob Ogdon",
+      "reason": "Bilbrey entered the core DNA developer network from the outside and eventually went to work for Ogdon at Action Graphics."
+    },
+    {
+      "source": "Alan McNeil",
+      "target": "Terry Coleman",
+      "reason": "Coworkers at DNA who migrated together from the company to join Stern Electronics' development group."
+    },
+    {
+      "source": "Alan McNeil",
+      "target": "Jim Hemmer",
+      "reason": "Coworkers at DNA who migrated together from the company to join Stern Electronics' development group."
+    },
+    {
+      "source": "David J. Nutting",
+      "target": "JoAn Mason",
+      "reason": "Photographed together standing beside the Red Baron arcade cabinet in 1971."
+    },
+    {
+      "source": "David J. Nutting",
+      "target": "David Winter",
+      "reason": "Photographed together standing beside the Red Baron arcade cabinet in 1971."
+    },
+    {
+      "source": "Bob Ogdon",
+      "target": "Julie Ogdon",
+      "reason": "Spouses; Julie explicitly introduced Bob to Dave Nutting, kickstarting his professional game design career."
+    },
+    {
+      "source": "David J. Nutting",
+      "target": "Julie Ogdon",
+      "reason": "Met via her introduction of her husband Bob Ogdon for a recruitment exploratory trip to Chicago."
+    },
+    {
+      "source": "Bob Ogdon",
+      "target": "Arnie Katz",
+      "reason": "Interviewed directly by Katz for the May 1982 'Inside Gaming' feature profile in Electronic Games magazine."
+    },
+    {
+      "source": "Bob Ogdon",
+      "target": "Dave Armstrong",
+      "reason": "Ogdon actively supervised Armstrong's debut project, Quest for the Orb, using Action Graphics' proprietary FORTH-like animation environment."
+    },
+    {
+      "source": "Brett Bilbrey",
+      "target": "Danny Goodman",
+      "reason": "Goodman interviewed and documented Bilbrey's transition from publishing BASIC games in the Arcadian newsletter to designing Treasure Cove for Spectre Systems."
+    },
+    {
+      "source": "Mike Peace",
+      "target": "Danny Goodman",
+      "reason": "Peace demonstrated his Wavemakers graphics development tools and Blue Ram software library directly to Goodman for his JoyStik feature article."
+    },
+    {
+      "source": "Tom McConnell",
+      "target": "Danny Goodman",
+      "reason": "Goodman profiled McConnell's development house, Tiny Arcade, and its space multi-screen title Omega Valley."
+    },
+    {
+      "source": "George Moses",
+      "target": "Danny Goodman",
+      "reason": "Goodman highlighted Moses as an active 'Arcade musical expert' who supplied the soundtracks and custom music utilities for third-party games."
+    },
+    {
+      "source": "Andy Guevara",
+      "target": "Danny Goodman",
+      "reason": "Goodman documented Guevara's development of the Machine Language Manager (MLM) utility cartridge under his 'The Bit Fiddlers' label."
+    },
+    {
+      "source": "Richard Houser",
+      "target": "Danny Goodman",
+      "reason": "Goodman relied heavily on Houser's comprehensive 114-page Sourcebook catalog to map out the scale of the ecosystem."
+    },
+    {
+      "source": "Bob Fabris",
+      "target": "Danny Goodman",
+      "reason": "Goodman detailed Fabris's monumental historical status as the central archivist running the monthly ARCADIAN user group newsletter."
+    },
+    {
+      "source": "Guy McLimore, Jr.",
+      "target": "Danny Goodman",
+      "reason": "Goodman interviewed McLimore (running ABC Hobbycraft) to acquire industry insights regarding how Fabris single-handedly kept the user base active."
+    },
+    {
+      "source": "Bob Fabris",
+      "target": "Guy McLimore, Jr.",
+      "reason": "McLimore ran ABC Hobbycraft as a major retail dealer of software and hardware listed and reviewed within Fabris's ARCADIAN newsletter ecosystem."
+    },
+    {
+      "source": "George Moses",
+      "target": "Brett Bilbrey",
+      "reason": "Moses composed and produced the full multi-tune musical backdrop utilized inside Bilbrey's third-party cartridge Treasure Cove."
+    },
+    {
+      "source": "Alan McNeil",
+      "target": "Tony Miller",
+      "reason": "Miller managed the hardware expanders at DNA and subsequently recruited McNeil to Stern to establish their new coin-op division."
+    },
+    {
+      "source": "Terry Coleman",
+      "target": "Alan McNeil",
+      "reason": "Coleman followed McNeil and Tony Miller from DNA over to Stern Electronics to work together on the physical board architecture for Berzerk."
+    },
+    {
+      "source": "Jim Hemmer",
+      "target": "Alan McNeil",
+      "reason": "Hemmer followed McNeil and Tony Miller from DNA over to Stern Electronics to manage the physical PCB line layout for Berzerk."
+    },
+    {
+      "source": "Jeffrey E. Frederiksen",
+      "target": "Tony Miller",
+      "reason": "Co-designed console circuitry and expansion systems at DNA, working across the same Z80 memory map configurations."
+    },
+    {
+      "source": "Jamie Fenton",
+      "target": "Alan McNeil",
+      "reason": "The twin software pillars of DNA. Fenton leveraged the development micro-systems and cross-compilers orchestrated by McNeil to code Gorf."
+    },
+    {
+      "source": "Jamie Fenton",
+      "target": "Alan McNeil",
+      "reason": "Reunited in Silicon Valley following the arcade crash, collaborating at MacroMind to engineer VideoWorks II and Maze Wars+."
+    },
+    {
+      "source": "Bob Ogdon",
+      "target": "Rickey Spiece",
+      "reason": "Co-authored early consumer software configurations, trading raw sprite routines to establish standard cartridge templates."
+    }
   ]
 }
