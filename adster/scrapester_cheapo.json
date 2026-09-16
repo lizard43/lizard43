@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-16T15:32:29.288Z",
+  "generated_at": "2026-09-16T16:07:59.718Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,35 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 26,
-      "droppedPrice": 515,
+      "exported_ads": 24,
+      "droppedPrice": 518,
       "droppedMissingGeo": 0,
-      "droppedCircle": 433
+      "droppedCircle": 435
     }
   },
   "ads": [
+    {
+      "adID": "1653426693461243",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100084359830099/?product_id=1653426693461243",
+      "author": "Cavan Dyson",
+      "postedTime": "2026-09-16T15:24:40.000Z",
+      "title": "30th Celebration Elite Trainer box",
+      "description": "Brand New I have 2.",
+      "price": "$145",
+      "lat": 31.1540687,
+      "lon": -85.1754867,
+      "location": "Pansey, AL",
+      "imageUrl": "https://scontent-dfw6-2.xx.fbcdn.net/v/t39.84726-6/813282282_2654329978318633_2409930103523781622_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=108&ccb=1-7&_nc_sid=92e707&_nc_ohc=WI_Dtre83U0Q7kNvwHRiIEW&_nc_oc=AdotFbj2nTw_OQ1PZGC3veht_BiQZDZP_igqnJFnELTJV8-VO5XhbMaxTQWQHGkksFI&_nc_zt=14&_nc_ht=scontent-dfw6-2.xx&_nc_gid=By0lbvz69K0ca8PdaNINKQ&_nc_ss=7b2a8&oh=00_AQKcyj7KWhJrkYixVu1M-Vc_m2s57VCqMnHSFsC-4PboGA&oe=6AB09CFB",
+      "adUrl": "https://www.facebook.com/marketplace/item/1653426693461243/",
+      "facebookGroupId": null,
+      "facebookGroupName": null,
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-09-16 16:05:06",
+      "lastSeen": "2026-09-16T16:05:56.413Z"
+    },
     {
       "adID": "KLOV-557840",
       "source": "KLOV",
@@ -38,7 +60,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-09-16 15:07:54",
-      "lastSeen": "2026-09-16T15:07:54.854Z"
+      "lastSeen": "2026-09-16T16:07:55.486Z"
     },
     {
       "adID": "KLOV-495042",
@@ -60,73 +82,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-09-16 15:07:54",
-      "lastSeen": "2026-09-16T15:07:54.890Z"
-    },
-    {
-      "adID": "1626866799069006",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/100010035498023/?product_id=1626866799069006",
-      "author": "John Parios",
-      "postedTime": "2026-09-16T12:18:50.000Z",
-      "title": "30th anniversary ETBs",
-      "description": "2 30th Anniversary Elite Trainer Boxes from GameStop. $160 each or take both for $300. Willing to take trade for Black Bolt singles.",
-      "price": "$160",
-      "lat": 30.4380832,
-      "lon": -84.2809332,
-      "location": "Tallahassee, FL",
-      "imageUrl": "https://scontent-dfw6-2.xx.fbcdn.net/v/t39.84726-6/800925130_1107303681839045_917596284409187724_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=108&ccb=1-7&_nc_sid=92e707&_nc_ohc=CtePJsQTeHMQ7kNvwEjIaIc&_nc_oc=AdqejPTUrhjeUoNnBgFk3eKTeBScehrMDyPFwQUarD07g33GmW9xOzkBL7c2QyED-8A&_nc_zt=14&_nc_ht=scontent-dfw6-2.xx&_nc_gid=Qxd7IC3o1aWkkD9rQorhuQ&_nc_ss=7b2a8&oh=00_AQLksUMmQjf7Fka9qr7RXdsqELzPliwIZxm1nU2RXJIwgQ&oe=6AB058E8",
-      "adUrl": "https://www.facebook.com/marketplace/item/1626866799069006/",
-      "facebookGroupId": null,
-      "facebookGroupName": null,
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-09-16 13:05:03",
-      "lastSeen": "2026-09-16T13:05:32.819Z"
-    },
-    {
-      "adID": "905098679110036",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/1417806842/?product_id=905098679110036",
-      "author": "Shirley Hammond",
-      "postedTime": "2026-09-16T01:21:59.000Z",
-      "title": "New in pkg...Scattergories Game...$10.00",
-      "description": "New in pkg...Scattergories game...$10.00.In Dothan, Fcfs, Msg if interested, Crossposted, Porch pick up, Cash only.",
-      "price": "$10",
-      "lat": 31.2237285,
-      "lon": -85.3934375,
-      "location": "Dothan, AL",
-      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/795494488_1520198059861972_3238438003551807502_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=103&ccb=1-7&_nc_sid=92e707&_nc_ohc=8YXqTZ1Ety8Q7kNvwGs_8L0&_nc_oc=AdpQF6Z3_TyQM9n1NKVHoowmNU9rosrSDJ-SE5FdmnZ-53k6ejgyrt3nPSZ7DoF5NPc&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=RN0d_d7KC3SWD41QRQIocw&_nc_ss=7b2a8&oh=00_AQIOeM0qboUft6Qd5EtM9F5N4zVRUTRyIEcGDlBr-ov9GQ&oe=6AB0818B",
-      "adUrl": "https://www.facebook.com/marketplace/item/905098679110036/",
-      "facebookGroupId": null,
-      "facebookGroupName": null,
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-09-16 11:07:12",
-      "lastSeen": "2026-09-16T15:06:57.889Z"
-    },
-    {
-      "adID": "1364440562343668",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/576935231/?product_id=1364440562343668",
-      "author": "Jessica McGaughy",
-      "postedTime": "2026-09-16T06:07:24.000Z",
-      "title": "Game Lot",
-      "description": "Several are still new in package. Pickup near Airport Blvd and Azalea.",
-      "price": "$75",
-      "lat": 30.6913462,
-      "lon": -88.0437509,
-      "location": "Mobile, AL",
-      "imageUrl": "https://scontent-dfw6-2.xx.fbcdn.net/v/t39.84726-6/795289225_1089218853486335_714232654574652262_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=109&ccb=1-7&_nc_sid=92e707&_nc_ohc=ACpBrVGXqxEQ7kNvwGhb4PL&_nc_oc=AdoNFA69U1eVjVJX2DYczBtaGcoN36ijpcXdZwSp9wHyY5njIPFj9sRkm43WirtEEGs&_nc_zt=14&_nc_ht=scontent-dfw6-2.xx&_nc_gid=Q5UWO_S4etQ5PzE0ZraOiw&_nc_ss=7b2a8&oh=00_AQINqqSlapRayysJDfpWMRXVFyDHI56c-vKfd5L4-bzq-w&oe=6AB06B45",
-      "adUrl": "https://www.facebook.com/marketplace/item/1364440562343668/",
-      "facebookGroupId": null,
-      "facebookGroupName": null,
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-09-16 11:05:16",
-      "lastSeen": "2026-09-16T15:05:53.009Z"
+      "lastSeen": "2026-09-16T16:07:55.520Z"
     },
     {
       "adID": "KLOV-567170",
@@ -148,7 +104,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-09-15 15:08:14",
-      "lastSeen": "2026-09-16T15:07:55.628Z"
+      "lastSeen": "2026-09-16T16:07:56.289Z"
     },
     {
       "adID": "KLOV-495927",
@@ -170,14 +126,14 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-09-15 14:07:16",
-      "lastSeen": "2026-09-16T15:07:55.695Z"
+      "lastSeen": "2026-09-16T16:07:56.356Z"
     },
     {
       "adID": "28664482523177613",
       "source": "FB",
       "authorUrl": null,
       "author": "Randy Weaver",
-      "postedTime": "2026-09-15T15:02:26.373Z",
+      "postedTime": "2026-09-15T16:02:25.737Z",
       "title": "Cash boxes",
       "description": "assorted cash boxes for arcade and jukebox. The square black metal door is perfectly new and has its frame. the other two frames and very slightly bent.... like they deterred a wouldbe thief.",
       "price": "$30",
@@ -192,7 +148,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-09-14 18:02:25",
-      "lastSeen": "2026-09-16T15:02:26.450Z"
+      "lastSeen": "2026-09-16T16:02:25.827Z"
     },
     {
       "adID": "KLOV-567141",
@@ -214,7 +170,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-09-14 01:07:46",
-      "lastSeen": "2026-09-16T15:07:56.441Z"
+      "lastSeen": "2026-09-16T16:07:57.158Z"
     },
     {
       "adID": "2210520576510841",
@@ -236,7 +192,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-09-13 17:26:11",
-      "lastSeen": "2026-09-16T15:06:22.693Z"
+      "lastSeen": "2026-09-16T16:06:39.600Z"
     },
     {
       "adID": "KLOV-561395",
@@ -280,7 +236,7 @@
       "priceChangedAt": "2026-09-16 11:05:17",
       "hidden": 0,
       "created_at": "2026-09-12 23:05:06",
-      "lastSeen": "2026-09-16T15:05:10.530Z"
+      "lastSeen": "2026-09-16T16:05:06.688Z"
     },
     {
       "adID": "1339660278015421",
