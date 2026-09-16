@@ -1,25 +1,69 @@
+<!-- index.html -->
+<!-- Version 20260916-1920 -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>DNA Connections</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#080b11">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Cg stroke=%27%236ea8ff%27 stroke-width=%274%27 stroke-linecap=%27round%27%3E%3Cpath d=%27M6 22 12 10%27/%3E%3Cpath d=%27M14 25 21 7%27/%3E%3Cpath d=%27M22 22 27 12%27/%3E%3C/g%3E%3C/svg%3E">
+    <title>Connections</title>
     <link rel="stylesheet" href="style.css">
     <script src="d3@7.js"></script>
 </head>
 <body>
-    <div id="canvas-container">
-        <svg id="network"></svg>
-    </div>
-    <div id="sidebar">
-        <div id="panel-content">
-            <p class="placeholder-text">
-                Click an item to edit details.
-            </p>
+    <header class="topbar">
+        <div class="brand-wrap">
+            <div class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></div>
+            <div class="brand">CONNECTIONS</div>
+            <div class="network-count" id="network-count"></div>
         </div>
-        <!-- <button class="btn-save" onclick="exportData()">
-            Export people.json
-        </button> -->
-    </div>
+        <nav class="toolbar" aria-label="Network controls">
+            <button class="toolbar-btn" id="search-btn" type="button" aria-label="Search people">
+                <svg class="toolbar-svg toolbar-search" viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.7"></circle><path d="M16 16l5 5"></path></svg>
+            </button>
+            <button class="toolbar-btn" id="fit-btn" type="button" aria-label="Fit network">
+                <svg class="toolbar-svg toolbar-fit" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 3H3v5M16 3h5v5M8 21H3v-5M21 16v5h-5"></path></svg>
+            </button>
+        </nav>
+    </header>
+
+    <main class="app-shell">
+        <section id="canvas-container" aria-label="DNA relationship network">
+            <div class="canvas-hint" id="canvas-hint">
+                <span>Drag</span> nodes&nbsp;&nbsp;·&nbsp;&nbsp;<span>Scroll</span> to zoom&nbsp;&nbsp;·&nbsp;&nbsp;<span>Tap</span> a person
+            </div>
+            <svg id="network" role="img" aria-label="Interactive network graph"></svg>
+        </section>
+
+        <aside id="sidebar" aria-label="Person details">
+            <div class="sidebar-head">
+                <button class="icon-btn sidebar-close" id="sidebar-close" type="button" aria-label="Close details">×</button>
+            </div>
+            <div id="panel-content"></div>
+        </aside>
+    </main>
+
+
+    <section class="overlay" id="search-overlay" aria-hidden="true">
+        <div class="overlay-scrim" data-close-overlay="search-overlay"></div>
+        <div class="search-panel">
+            <div class="overlay-head">
+                <div>
+                    <div class="overlay-kicker">NETWORK DIRECTORY</div>
+                    <h2>People</h2>
+                </div>
+                <button class="icon-btn" type="button" data-close-overlay="search-overlay" aria-label="Close people search">×</button>
+            </div>
+            <label class="search-field">
+                <svg class="search-field-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.7"></circle><path d="M16 16l5 5"></path></svg>
+                <input id="search-input" type="text" autocomplete="off" placeholder="Search by name..." aria-label="Search people by name">
+                <button id="search-clear" type="button" aria-label="Clear search" hidden>×</button>
+            </label>
+            <div class="search-results" id="search-results"></div>
+        </div>
+    </section>
+
     <script src="app.js"></script>
 </body>
 </html>
