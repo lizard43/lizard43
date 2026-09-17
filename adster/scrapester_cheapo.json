@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-17T17:52:52.576Z",
+  "generated_at": "2026-09-17T18:21:50.814Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,189 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 22,
-      "droppedPrice": 561,
+      "exported_ads": 30,
+      "droppedPrice": 567,
       "droppedMissingGeo": 0,
-      "droppedCircle": 470
+      "droppedCircle": 471
     }
   },
   "ads": [
+    {
+      "adID": "1646706746972298",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/61592120116622/?product_id=1646706746972298",
+      "author": "Andrew Brooks",
+      "postedTime": "2026-09-17T10:47:22.000Z",
+      "title": "Balenciaga Track White",
+      "description": "New Drop Just Landed Clean design, easy to match with any outfit — perfect for daily wear Comfortable, stylish, and made to stand out without trying too hard Special offer: Get $10–$300 OFF (More items = better deal) IG: @luxedrop77 WhatsApp: +86 18697763399 DM me for details, pics & price — fast reply",
+      "price": "$494",
+      "lat": 30.4435293,
+      "lon": -85.0451953,
+      "location": "Blountstown, FL",
+      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/813635146_1555384189132041_414997642083664392_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=104&ccb=1-7&_nc_sid=92e707&_nc_ohc=9DKZn0xiz8gQ7kNvwHoMXin&_nc_oc=AdphfTkXYXVP4wye9-XBGLETL1R-7qCU9xaai7s79akYPowFcoB2fjM8T72oOqhqkp4&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=NeH58rgxnUuH3Swai--R1w&_nc_ss=7b2a8&oh=00_AQLaK9cpixsyFa7Wj9BRjjcrheKmKGPvjsik7_PNEJQLgw&oe=6AB20623",
+      "adUrl": "https://www.facebook.com/marketplace/item/1646706746972298/",
+      "facebookGroupId": null,
+      "facebookGroupName": null,
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-09-17 18:06:43",
+      "lastSeen": "2026-09-17T18:20:07.761Z"
+    },
+    {
+      "adID": "2102222920477418",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/61576730264633/?product_id=2102222920477418",
+      "author": "Olivia Toledo",
+      "postedTime": "2026-09-17T10:49:23.000Z",
+      "title": "Geneva Quartz Silver Tone Scrollwork Cuff Watch",
+      "description": "Silver-tone Geneva quartz cuff watch has an intricate scrollwork design on the band. The timepiece has an oval white dial with Roman numerals at the XII, III, VI, and IX positions. This watch is a metal bangle-style bracelet.",
+      "price": "$15",
+      "lat": 30.6913462,
+      "lon": -88.0437509,
+      "location": "Mobile, AL",
+      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/813931370_1111087978003959_3261968579540830853_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=101&ccb=1-7&_nc_sid=92e707&_nc_ohc=SYVJospmeDQQ7kNvwFi2GPn&_nc_oc=AdpJftAjKjbL-1qxpvK7j6rHiCwRwr_s5dNWQeOOfYJgXEqiRbjaBZ1FK-xRZrbuKaA&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=-9NSQ7dJrATIKxi-1WKnQg&_nc_ss=7b2a8&oh=00_AQIMncwV95beFP0_mIbySNzqNL83BUskol8sn8q60KYb6A&oe=6AB1ED22",
+      "adUrl": "https://www.facebook.com/marketplace/item/2102222920477418/",
+      "facebookGroupId": null,
+      "facebookGroupName": null,
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-09-17 18:06:42",
+      "lastSeen": "2026-09-17T18:16:40.829Z"
+    },
+    {
+      "adID": "29450466407875824",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/61592292307849/?product_id=29450466407875824",
+      "author": "Lucy Parker",
+      "postedTime": "2026-09-11T01:06:46.000Z",
+      "title": "Balenciaga Triple S Black White Red",
+      "description": "New Drop Just Landed Clean design, easy to match with any outfit — perfect for daily wear Comfortable, stylish, and made to stand out without trying too hard Special offer: Get $10–$300 OFF (More items = better deal) IG: @luxedrop77 WhatsApp: +86 18697763399 DM me for details, pics & price — fast reply",
+      "price": "$495",
+      "lat": 30.4057552,
+      "lon": -86.618842,
+      "location": "Fort Walton Beach, FL",
+      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/813583062_1054990770842512_2776764102789265338_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=101&ccb=1-7&_nc_sid=92e707&_nc_ohc=AO1u9ihh3rEQ7kNvwGiJeaa&_nc_oc=AdrpWP56yEBneJkq2ICnQ1ELlXlxttTmFAMdHa_JsdA09Gwi4q3N5E2mVvGeHwX-RgE&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=MySUUvOtlBFBZDXxEqWTsw&_nc_ss=7b2a8&oh=00_AQKRqQkK22qdFDB02rWYOLURhnpaWQwIVnrBvLfuE8TO7w&oe=6AB218DE",
+      "adUrl": "https://www.facebook.com/marketplace/item/29450466407875824/",
+      "facebookGroupId": null,
+      "facebookGroupName": null,
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-09-17 18:06:42",
+      "lastSeen": "2026-09-17T18:16:40.862Z"
+    },
+    {
+      "adID": "1434087851524891",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100010418195365/?product_id=1434087851524891",
+      "author": "Nicole Schipper",
+      "postedTime": "2026-09-17T02:45:42.000Z",
+      "title": "30th Celebration Elite",
+      "description": "4 Mint condition Cards No holds In protective toploaders 30th Celebration Elite Galarian Meowth Basic: 101/128 Ferrothorn Stage 1: 104/128 Nidorina Stage 1: 88/128 Nidoran Basic: 87/128",
+      "price": "$100",
+      "lat": 30.7210227,
+      "lon": -86.1152184,
+      "location": "Defuniak Springs, FL",
+      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/813698542_1130543539300035_8340845562289803112_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=104&ccb=1-7&_nc_sid=92e707&_nc_ohc=kL7ahhYS1dMQ7kNvwEo9ga6&_nc_oc=AdqBRpY-6-4r45GCWHEWvay1U4Vyl5uuJiVunq1nGMlmE9HjXEPY3aJ-XvXrmn24xOU&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=1LEoAMkoO17LW9RTQ4xf8A&_nc_ss=7b2a8&oh=00_AQIpIe47VY-usHJuD74-mCmR4Is130b-6-IUWQFr2CHqTQ&oe=6AB1F7AD",
+      "adUrl": "https://www.facebook.com/marketplace/item/1434087851524891/",
+      "facebookGroupId": null,
+      "facebookGroupName": null,
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-09-17 18:06:40",
+      "lastSeen": "2026-09-17T18:10:02.821Z"
+    },
+    {
+      "adID": "2256138712001802",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100010418195365/?product_id=2256138712001802",
+      "author": "Nicole Schipper",
+      "postedTime": "2026-09-17T02:34:58.000Z",
+      "title": "30th Celebration",
+      "description": "From 30th celebration elite trainer box Mint condition 3 Pokémon Cards No holds. All protected in toploaders Zamazenta Basic: 107/128 Pikachu & Zekrom GX Basic: 33/181 Dialga Basic: 103/128",
+      "price": "$400",
+      "lat": 30.7210227,
+      "lon": -86.1152184,
+      "location": "Defuniak Springs, FL",
+      "imageUrl": "https://scontent-dfw6-2.xx.fbcdn.net/v/t39.84726-6/813976328_1691522128610721_4396139458287612365_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=109&ccb=1-7&_nc_sid=92e707&_nc_ohc=BxQZ3InBpeAQ7kNvwHeOUdd&_nc_oc=Adq5bhOCwoIjuDWGlvYg5y2bvquVosUJbL8YOr0zXWM3yyNAAUpepYte3zR_9r3BeuM&_nc_zt=14&_nc_ht=scontent-dfw6-2.xx&_nc_gid=7fFQhg4TkIxW3Yh-nnGbkg&_nc_ss=7b2a8&oh=00_AQLgohIhK4QqQlU0s6fgVzJbyExnrk9x8cWYB2gcymTwEQ&oe=6AB1F3C4",
+      "adUrl": "https://www.facebook.com/marketplace/item/2256138712001802/",
+      "facebookGroupId": null,
+      "facebookGroupName": null,
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-09-17 18:06:40",
+      "lastSeen": "2026-09-17T18:10:02.929Z"
+    },
+    {
+      "adID": "1712455823148357",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100000169084166/?product_id=1712455823148357",
+      "author": "Joy Chris",
+      "postedTime": "2026-09-17T00:28:11.000Z",
+      "title": "Mattel Games Apples to Apples Party Box",
+      "description": "Like-new card game. This Mattel Games party box is for 4-8 players ages 12 and up. The set has a red storage box, a black plastic card tray, and a quick play rules manual. Several decks of cards are still in their original plastic wrap. CASH ONLY",
+      "price": "$15",
+      "lat": 30.7210227,
+      "lon": -86.1152184,
+      "location": "Defuniak Springs, FL",
+      "imageUrl": "https://scontent-dfw6-2.xx.fbcdn.net/v/t39.84726-6/810593801_1397883752512061_1888706272347651005_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=109&ccb=1-7&_nc_sid=92e707&_nc_ohc=FNP_uAkMqu8Q7kNvwGjMvKj&_nc_oc=AdotyArvDIL8YLddGrSBmHPRjg8dw6I55xRe9uCz2Z5fu8vPVRNHOpBgIibq8Y0ZNP8&_nc_zt=14&_nc_ht=scontent-dfw6-2.xx&_nc_gid=0lAY56fhZKwRZSCQIBxn3A&_nc_ss=7b2a8&oh=00_AQKti5RLRDLlvnq1S025pHDclcQyTlEX8JzKs5G40NH0Gg&oe=6AB20CD3",
+      "adUrl": "https://www.facebook.com/marketplace/item/1712455823148357/",
+      "facebookGroupId": null,
+      "facebookGroupName": null,
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-09-17 18:06:40",
+      "lastSeen": "2026-09-17T18:13:29.852Z"
+    },
+    {
+      "adID": "1053448697463879",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100010418195365/?product_id=1053448697463879",
+      "author": "Nicole Schipper",
+      "postedTime": "2026-09-17T00:28:01.000Z",
+      "title": "30th celebration toxtricity, both stage 1.",
+      "description": "Mint condition. Left one is 60/128, right one is 59/128. No holds",
+      "price": "$300",
+      "lat": 30.7210227,
+      "lon": -86.1152184,
+      "location": "Defuniak Springs, FL",
+      "imageUrl": "https://scontent-dfw6-2.xx.fbcdn.net/v/t39.84726-6/813421480_1396470491908629_5420580135011846468_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=109&ccb=1-7&_nc_sid=92e707&_nc_ohc=M_cIX9LvDbAQ7kNvwGnWTWc&_nc_oc=Adry_wPeHCcyThccUbCJZHO3fiz8iCMNPMsYF_7KXLHz7qGtwZxZhJ7fya3WbtzkzHE&_nc_zt=14&_nc_ht=scontent-dfw6-2.xx&_nc_gid=UQAtUAB8O015Zp2Esl5F8A&_nc_ss=7b2a8&oh=00_AQIjkIHH98F1gjr6ZT_KGsKUHP3MH8bERvEszo7V4wjVAA&oe=6AB21B2E",
+      "adUrl": "https://www.facebook.com/marketplace/item/1053448697463879/",
+      "facebookGroupId": null,
+      "facebookGroupName": null,
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-09-17 18:06:40",
+      "lastSeen": "2026-09-17T18:13:29.885Z"
+    },
+    {
+      "adID": "1089786417134069",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/1732729401/?product_id=1089786417134069",
+      "author": "Linda Kasser Kessler",
+      "postedTime": "2026-09-17T17:28:26.000Z",
+      "title": "Arcade Games",
+      "description": "NBA JAM needs new motherboard. Hydro Thunder needs monitor.",
+      "price": "$200",
+      "lat": 30.6754503,
+      "lon": -87.9040269,
+      "location": "Spanish Fort, AL",
+      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/808079719_1374256591534463_1438067668599041777_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=100&ccb=1-7&_nc_sid=92e707&_nc_ohc=ubz48Jwll6UQ7kNvwHCalv7&_nc_oc=AdpwF4CfZYIupHx8BNmZhUiG4fUJS3VM7iaF2OSUmozkJ3_L83qo1Khc25ZDCl_UuVM&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=NiQ68RhH8olXi4RXHFQnIg&_nc_ss=7b2a8&oh=00_AQK-j7bh-XmxvXT48vl5AsNaQZ4Mhsfe0K7jWabZTLxCxQ&oe=6AB1EE95",
+      "adUrl": "https://www.facebook.com/marketplace/item/1089786417134069/",
+      "facebookGroupId": null,
+      "facebookGroupName": null,
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-09-17 18:05:02",
+      "lastSeen": "2026-09-17T18:10:02.687Z"
+    },
     {
       "adID": "KLOV-533258",
       "source": "KLOV",
@@ -38,7 +214,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-09-17 14:07:00",
-      "lastSeen": "2026-09-17T17:07:07.202Z"
+      "lastSeen": "2026-09-17T18:21:46.690Z"
     },
     {
       "adID": "KLOV-557840",
@@ -60,7 +236,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-09-16 15:07:54",
-      "lastSeen": "2026-09-17T17:07:07.933Z"
+      "lastSeen": "2026-09-17T18:21:47.092Z"
     },
     {
       "adID": "KLOV-495042",
@@ -82,7 +258,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-09-16 15:07:54",
-      "lastSeen": "2026-09-17T17:07:07.766Z"
+      "lastSeen": "2026-09-17T18:21:46.925Z"
     },
     {
       "adID": "KLOV-567170",
@@ -133,7 +309,7 @@
       "source": "FB",
       "authorUrl": null,
       "author": "Randy Weaver",
-      "postedTime": "2026-09-15T17:02:22.156Z",
+      "postedTime": "2026-09-14T18:02:21.268Z",
       "title": "Cash boxes",
       "description": "assorted cash boxes for arcade and jukebox. The square black metal door is perfectly new and has its frame. the other two frames and very slightly bent.... like they deterred a wouldbe thief.",
       "price": "$30",
@@ -148,7 +324,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-09-14 18:02:25",
-      "lastSeen": "2026-09-17T17:02:22.212Z"
+      "lastSeen": "2026-09-17T18:02:21.320Z"
     },
     {
       "adID": "KLOV-567141",
@@ -170,7 +346,7 @@
       "priceChangedAt": "2026-09-17 17:07:08",
       "hidden": 0,
       "created_at": "2026-09-14 01:07:46",
-      "lastSeen": "2026-09-17T17:07:08.534Z"
+      "lastSeen": "2026-09-17T18:21:47.629Z"
     },
     {
       "adID": "2210520576510841",
@@ -192,7 +368,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-09-13 17:26:11",
-      "lastSeen": "2026-09-17T17:05:45.581Z"
+      "lastSeen": "2026-09-17T18:06:39.876Z"
     },
     {
       "adID": "KLOV-561395",
