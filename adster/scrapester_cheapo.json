@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-17T16:07:39.957Z",
+  "generated_at": "2026-09-17T17:07:11.536Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,35 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 23,
+      "exported_ads": 24,
       "droppedPrice": 561,
       "droppedMissingGeo": 0,
-      "droppedCircle": 467
+      "droppedCircle": 470
     }
   },
   "ads": [
+    {
+      "adID": "2244729972983123",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100066640488357/?product_id=2244729972983123",
+      "author": "Joseph Murry",
+      "postedTime": "2026-09-17T16:37:25.000Z",
+      "title": "Soft pitch machine",
+      "description": "Brand new used once!",
+      "price": "$50",
+      "lat": 30.1586518,
+      "lon": -85.6602936,
+      "location": "Panama City, FL",
+      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/814498801_1059043916905702_5359928039880145227_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=100&ccb=1-7&_nc_sid=92e707&_nc_ohc=SZQFWI3LBWYQ7kNvwEroApJ&_nc_oc=Adr1M23cNRmXOex2ahACv2x12O7r8SIszj_KXk9KDewOmdmK4lgYaFJe4gqmUWRl1kg&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=XOs_Lfc2rZqCClnte0l-eQ&_nc_ss=7b2a8&oh=00_AQKoRE8-szpJJw7p5dlrPpCROXPJZaO1rZyhW6grlDFyCA&oe=6AB1E0D5",
+      "adUrl": "https://www.facebook.com/marketplace/item/2244729972983123/",
+      "facebookGroupId": null,
+      "facebookGroupName": null,
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-09-17 17:05:45",
+      "lastSeen": "2026-09-17T17:06:07.342Z"
+    },
     {
       "adID": "1413816094226319",
       "source": "MP",
@@ -60,7 +82,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-09-17 14:07:00",
-      "lastSeen": "2026-09-17T16:07:35.460Z"
+      "lastSeen": "2026-09-17T17:07:07.202Z"
     },
     {
       "adID": "KLOV-557840",
@@ -82,7 +104,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-09-16 15:07:54",
-      "lastSeen": "2026-09-17T16:07:35.862Z"
+      "lastSeen": "2026-09-17T17:07:07.933Z"
     },
     {
       "adID": "KLOV-495042",
@@ -104,7 +126,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-09-16 15:07:54",
-      "lastSeen": "2026-09-17T16:07:35.694Z"
+      "lastSeen": "2026-09-17T17:07:07.766Z"
     },
     {
       "adID": "KLOV-567170",
@@ -155,7 +177,7 @@
       "source": "FB",
       "authorUrl": null,
       "author": "Randy Weaver",
-      "postedTime": "2026-09-15T16:02:21.432Z",
+      "postedTime": "2026-09-15T17:02:22.156Z",
       "title": "Cash boxes",
       "description": "assorted cash boxes for arcade and jukebox. The square black metal door is perfectly new and has its frame. the other two frames and very slightly bent.... like they deterred a wouldbe thief.",
       "price": "$30",
@@ -170,17 +192,17 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-09-14 18:02:25",
-      "lastSeen": "2026-09-17T16:02:21.481Z"
+      "lastSeen": "2026-09-17T17:02:22.212Z"
     },
     {
       "adID": "KLOV-567141",
       "source": "KLOV",
       "authorUrl": "https://forums.arcade-museum.com/members/orangepeel.73874/",
       "author": "OrangePeel",
-      "postedTime": "2026-09-14T00:52:02.000Z",
-      "title": "Space Invaders Trimlime - Marietta, GA $800 or Trade / Partial Trade",
+      "postedTime": "2026-09-17T16:51:36.000Z",
+      "title": "Space Invaders Trimlime - Marietta, GA $750 or Trade / Partial Trade",
       "description": "Selling my Space Invaders Trimlime Recently moved into a smaller space and I could use a little dough too. Game runs really solid, took it to SFGE the last 2 years and had no issues. Includes original manuals Looking to get $800 but trades / partial trades possible. Items I'm looking for: Retro gam...",
-      "price": "$800",
+      "price": "$750",
       "lat": 33.9528472,
       "lon": -84.5496148,
       "location": "Marietta, Georgia",
@@ -188,11 +210,11 @@
       "adUrl": "https://forums.arcade-museum.com/threads/567141/",
       "facebookGroupId": null,
       "facebookGroupName": null,
-      "priceChanged": 0,
-      "priceChangedAt": null,
+      "priceChanged": 1,
+      "priceChangedAt": "2026-09-17 17:07:08",
       "hidden": 0,
       "created_at": "2026-09-14 01:07:46",
-      "lastSeen": "2026-09-17T16:07:37.511Z"
+      "lastSeen": "2026-09-17T17:07:08.534Z"
     },
     {
       "adID": "2210520576510841",
@@ -214,7 +236,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-09-13 17:26:11",
-      "lastSeen": "2026-09-17T16:05:39.858Z"
+      "lastSeen": "2026-09-17T17:05:45.581Z"
     },
     {
       "adID": "KLOV-561395",
