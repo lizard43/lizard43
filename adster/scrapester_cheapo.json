@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-17T15:32:38.304Z",
+  "generated_at": "2026-09-17T16:07:39.957Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,35 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 22,
-      "droppedPrice": 560,
+      "exported_ads": 23,
+      "droppedPrice": 561,
       "droppedMissingGeo": 0,
-      "droppedCircle": 465
+      "droppedCircle": 467
     }
   },
   "ads": [
+    {
+      "adID": "1413816094226319",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/61593798129397/?product_id=1413816094226319",
+      "author": "Levi Yonker",
+      "postedTime": "2026-09-16T11:05:28.000Z",
+      "title": "1989 Pro Set Barry Sanders Rookie Card #494",
+      "description": "Collectible 1989 Pro Set football card featuring Barry Sanders in his Oklahoma State uniform. This card is a Pro Set Prospect No. 1 Pick for the Detroit Lions. It is stored in a clear plastic protective sleeve.",
+      "price": "$15",
+      "lat": 30.6324149,
+      "lon": -87.0396881,
+      "location": "Milton, FL",
+      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/790113775_900334049623217_4913001210442297229_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=111&ccb=1-7&_nc_sid=92e707&_nc_ohc=FJolcMUJERsQ7kNvwHpl76C&_nc_oc=AdrkTzajt_Nb0k8-eJ5qGb2gw0cffP6DvNa-MgP62DpgGSF2L0nQ24nijlNnmYZPLog&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=p7NIA5u6kDlkNZgOr1n6Zg&_nc_ss=7b2a8&oh=00_AQLwCiK5cBkc6YZwkCxfe_oqx1WmLqWmu5qzYLZ_P4VfdA&oe=6AB1E798",
+      "adUrl": "https://www.facebook.com/marketplace/item/1413816094226319/",
+      "facebookGroupId": null,
+      "facebookGroupName": null,
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-09-17 16:05:41",
+      "lastSeen": "2026-09-17T16:06:36.078Z"
+    },
     {
       "adID": "KLOV-533258",
       "source": "KLOV",
@@ -38,7 +60,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-09-17 14:07:00",
-      "lastSeen": "2026-09-17T15:07:46.690Z"
+      "lastSeen": "2026-09-17T16:07:35.460Z"
     },
     {
       "adID": "KLOV-557840",
@@ -60,7 +82,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-09-16 15:07:54",
-      "lastSeen": "2026-09-17T15:07:47.102Z"
+      "lastSeen": "2026-09-17T16:07:35.862Z"
     },
     {
       "adID": "KLOV-495042",
@@ -82,7 +104,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-09-16 15:07:54",
-      "lastSeen": "2026-09-17T15:07:46.935Z"
+      "lastSeen": "2026-09-17T16:07:35.694Z"
     },
     {
       "adID": "KLOV-567170",
@@ -104,7 +126,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-09-15 15:08:14",
-      "lastSeen": "2026-09-17T15:07:47.648Z"
+      "lastSeen": "2026-09-17T16:07:36.704Z"
     },
     {
       "adID": "KLOV-495927",
@@ -126,14 +148,14 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-09-15 14:07:16",
-      "lastSeen": "2026-09-17T15:07:47.716Z"
+      "lastSeen": "2026-09-17T16:07:36.771Z"
     },
     {
       "adID": "28664482523177613",
       "source": "FB",
       "authorUrl": null,
       "author": "Randy Weaver",
-      "postedTime": "2026-09-15T15:02:24.435Z",
+      "postedTime": "2026-09-15T16:02:21.432Z",
       "title": "Cash boxes",
       "description": "assorted cash boxes for arcade and jukebox. The square black metal door is perfectly new and has its frame. the other two frames and very slightly bent.... like they deterred a wouldbe thief.",
       "price": "$30",
@@ -148,7 +170,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-09-14 18:02:25",
-      "lastSeen": "2026-09-17T15:02:24.484Z"
+      "lastSeen": "2026-09-17T16:02:21.481Z"
     },
     {
       "adID": "KLOV-567141",
@@ -170,7 +192,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-09-14 01:07:46",
-      "lastSeen": "2026-09-17T15:07:48.812Z"
+      "lastSeen": "2026-09-17T16:07:37.511Z"
     },
     {
       "adID": "2210520576510841",
@@ -192,7 +214,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-09-13 17:26:11",
-      "lastSeen": "2026-09-17T15:06:34.771Z"
+      "lastSeen": "2026-09-17T16:05:39.858Z"
     },
     {
       "adID": "KLOV-561395",
