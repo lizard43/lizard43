@@ -1,0 +1,116 @@
+<!-- Filename: index.html -->
+<!-- Version: 20260917-173000 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>People Management</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="site-header-inner">
+            <div class="site-title">People Management</div>
+            <nav class="view-tabs" aria-label="Network views">
+                <a class="view-tab active" data-view="developers" aria-selected="true" href="#developers">Developers</a>
+                <a class="view-tab" data-view="connections" aria-selected="false" href="#connections">Connections</a>
+            </nav>
+            <button id="btn-export" class="toolbar-button" type="button">Export JSON</button>
+        </div>
+    </header>
+
+    <main>
+        <section id="developers" class="content-section">
+            <div class="section-heading">
+                <div class="section-title-group">
+                    <h1>Developers</h1>
+                    <button id="btn-add-node" class="icon-button" type="button" aria-label="Add developer" title="Add developer">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"></path></svg>
+                    </button>
+                </div>
+                <span class="section-count" id="section-count-nodes">0</span>
+            </div>
+            <div class="table-wrap">
+                <table class="data-table developers-table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Biography</th>
+                        </tr>
+                    </thead>
+                    <tbody id="table-nodes-body"></tbody>
+                </table>
+            </div>
+        </section>
+
+        <section id="connections" class="content-section connections-section">
+            <div class="table-wrap">
+                <table class="data-table connections-table">
+                    <thead>
+                        <tr>
+                            <th>Source</th>
+                            <th>Target</th>
+                            <th>Reason</th>
+                            <th>Date</th>
+                        </tr>
+                    </thead>
+                    <tbody id="table-links-body"></tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <dialog id="node-dialog" class="edit-dialog">
+        <form id="node-form" method="dialog" class="dialog-form">
+            <div class="dialog-header">
+                <div>
+                    <div class="dialog-kicker">New entry</div>
+                    <h2>Add Developer</h2>
+                </div>
+                <button class="dialog-close" type="button" data-close-dialog="node-dialog" aria-label="Close">×</button>
+            </div>
+            <div class="dialog-body">
+                <label for="node-id">Name</label>
+                <input type="text" id="node-id" autocomplete="off" placeholder="e.g., David J. Nutting" required>
+                <label for="node-bio">Biography / Historical Context</label>
+                <textarea id="node-bio" rows="7" placeholder="Historical context or biographical notes"></textarea>
+            </div>
+            <div class="dialog-footer">
+                <button type="button" class="secondary-button" data-close-dialog="node-dialog">Cancel</button>
+                <button type="button" id="btn-add-connect" class="secondary-button add-connect-button" disabled>Add &amp; Connect</button>
+                <button type="submit" class="primary-button">Add Developer</button>
+            </div>
+        </form>
+    </dialog>
+
+    <dialog id="link-dialog" class="edit-dialog">
+        <form id="link-form" method="dialog" class="dialog-form">
+            <div class="dialog-header">
+                <div>
+                    <div class="dialog-kicker">New entry</div>
+                    <h2>Add Connection</h2>
+                </div>
+                <button class="dialog-close" type="button" data-close-dialog="link-dialog" aria-label="Close">×</button>
+            </div>
+            <div class="dialog-body">
+                <label for="link-source">Source</label>
+                <select id="link-source" required><option value="">Select source developer</option></select>
+                <label for="link-target">Target</label>
+                <select id="link-target" required><option value="">Select target developer</option></select>
+                <label for="link-reason">Reason for Association</label>
+                <textarea id="link-reason" rows="6" placeholder="How or why did they collaborate?"></textarea>
+                <label for="link-date">Date / Year</label>
+                <input type="text" id="link-date" autocomplete="off" placeholder="e.g., 1974 or September 1983">
+            </div>
+            <div class="dialog-footer">
+                <button type="button" class="secondary-button" data-close-dialog="link-dialog">Cancel</button>
+                <button type="submit" class="primary-button">Add Connection</button>
+            </div>
+        </form>
+    </dialog>
+
+    <div id="status-message" class="status-message" role="status" aria-live="polite"></div>
+    <script src="app.js"></script>
+</body>
+</html>

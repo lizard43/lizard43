@@ -462,9 +462,9 @@ function wireUI() {
 setDimensions();
 wireUI();
 
-fetch("people.json")
+fetch("connections.json")
     .then(response => {
-        if (!response.ok) throw new Error(`Unable to load people.json (${response.status})`);
+        if (!response.ok) throw new Error(`Unable to load (${response.status})`);
         return response.json();
     })
     .then(data => {
@@ -479,5 +479,5 @@ fetch("people.json")
     })
     .catch(error => {
         console.error(error);
-        panelContent.innerHTML = `<div class="empty-card">The network data could not be loaded. Check that <strong>people.json</strong> is beside the page.</div>`;
+        panelContent.innerHTML = `<div class="empty-card">The network data could not be loaded.</div>`;
     });
