@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-19T00:06:53.884Z",
+  "generated_at": "2026-09-19T01:07:28.112Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,35 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 23,
-      "droppedPrice": 616,
+      "exported_ads": 24,
+      "droppedPrice": 617,
       "droppedMissingGeo": 0,
-      "droppedCircle": 499
+      "droppedCircle": 498
     }
   },
   "ads": [
+    {
+      "adID": "1545267020701521",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/61567782176890/?product_id=1545267020701521",
+      "author": "Felishia Benson",
+      "postedTime": "2026-09-19T00:28:55.000Z",
+      "title": "Atari Video Game",
+      "description": "In great condition, Atari game! Dm me if interested!",
+      "price": "$15",
+      "lat": 30.9768532,
+      "lon": -84.7376974,
+      "location": "Brinson, GA",
+      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/807673614_2811335029266633_1473357837462872115_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=100&ccb=1-7&_nc_sid=92e707&_nc_ohc=eZdPSgw37CcQ7kNvwEG9GrH&_nc_oc=Adq2eRNNVvThKINoOOsQXZArRlFVM1O-oLVIJz6fpXo-7HdCUDIrWMzBlnM0SYvSJDw&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=wDCn2PzeEqeRY5BW5W8UaA&_nc_ss=7b2a8&oh=00_AQLsiu5F5UTgMZ2ELnDqfmLZ71W2VPlocOp4bXjWuggYsg&oe=6AB3C7FC",
+      "adUrl": "https://www.facebook.com/marketplace/item/1545267020701521/",
+      "facebookGroupId": null,
+      "facebookGroupName": null,
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-09-19 01:05:02",
+      "lastSeen": "2026-09-19T01:05:37.584Z"
+    },
     {
       "adID": "2137950200450003",
       "source": "MP",
@@ -30,7 +52,7 @@
       "lat": 31.0237921,
       "lon": -87.4938708,
       "location": "Atmore, AL",
-      "imageUrl": "https://scontent-dfw6-2.xx.fbcdn.net/v/t39.84726-6/798182107_1070944885929529_9212552440035104604_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=110&ccb=1-7&_nc_sid=92e707&_nc_ohc=c7hMrH4s0OkQ7kNvwHmsaPq&_nc_oc=AdqCc3Y0YqlKhXnBj_kFMbjM_Y4uKJd1iQ-qfDIlNCOtZD5ngPoq3HSBoSNSrGQNebY&_nc_zt=14&_nc_ht=scontent-dfw6-2.xx&_nc_gid=B7tuZDN3qrrASuYWYSKGsg&_nc_ss=7b2a8&oh=00_AQLn21AAcDXwyJChBGhLuNJXHYrDQB2QdJZ-J6nrPNI-XQ&oe=6AB394D8",
+      "imageUrl": "https://scontent-dfw6-2.xx.fbcdn.net/v/t39.84726-6/798182107_1070944885929529_9212552440035104604_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=110&ccb=1-7&_nc_sid=92e707&_nc_ohc=c7hMrH4s0OkQ7kNvwHmsaPq&_nc_oc=AdqCc3Y0YqlKhXnBj_kFMbjM_Y4uKJd1iQ-qfDIlNCOtZD5ngPoq3HSBoSNSrGQNebY&_nc_zt=14&_nc_ht=scontent-dfw6-2.xx&_nc_gid=TKdavF4S3D-qGpNRMZhorQ&_nc_ss=7b2a8&oh=00_AQJ_Oop667jMo5K2ebaM1s76aRdTTAl0-gOy8IJKOtix4A&oe=6AB3CD18",
       "adUrl": "https://www.facebook.com/marketplace/item/2137950200450003/",
       "facebookGroupId": null,
       "facebookGroupName": null,
@@ -38,14 +60,14 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-09-19 00:05:01",
-      "lastSeen": "2026-09-19T00:05:13.295Z"
+      "lastSeen": "2026-09-19T01:05:37.687Z"
     },
     {
       "adID": "2182671032460590",
       "source": "FB",
       "authorUrl": null,
       "author": "John Matlock",
-      "postedTime": "2026-09-18T00:00:56.193Z",
+      "postedTime": "2026-09-18T01:00:57.360Z",
       "title": "Arknoid Arcade",
       "description": "Making space and need to sell this unit. It has been sitting for some time. The cab is pretty rough",
       "price": "$225",
@@ -60,7 +82,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-09-17 23:00:54",
-      "lastSeen": "2026-09-19T00:00:56.333Z"
+      "lastSeen": "2026-09-19T01:00:57.468Z"
     },
     {
       "adID": "KLOV-533258",
@@ -177,7 +199,7 @@
       "source": "FB",
       "authorUrl": null,
       "author": "Randy Weaver",
-      "postedTime": "2026-09-15T00:02:22.478Z",
+      "postedTime": "2026-09-15T01:02:23.514Z",
       "title": "Cash boxes",
       "description": "assorted cash boxes for arcade and jukebox. The square black metal door is perfectly new and has its frame. the other two frames and very slightly bent.... like they deterred a wouldbe thief.",
       "price": "$30",
@@ -192,7 +214,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-09-14 18:02:25",
-      "lastSeen": "2026-09-19T00:02:22.568Z"
+      "lastSeen": "2026-09-19T01:02:23.613Z"
     },
     {
       "adID": "KLOV-567141",
@@ -214,7 +236,7 @@
       "priceChangedAt": "2026-09-17 17:07:08",
       "hidden": 0,
       "created_at": "2026-09-14 01:07:46",
-      "lastSeen": "2026-09-19T00:06:50.122Z"
+      "lastSeen": "2026-09-19T01:07:25.281Z"
     },
     {
       "adID": "2210520576510841",
@@ -236,7 +258,7 @@
       "priceChangedAt": "2026-09-18 17:07:32",
       "hidden": 0,
       "created_at": "2026-09-13 17:26:11",
-      "lastSeen": "2026-09-19T00:05:37.758Z"
+      "lastSeen": "2026-09-19T01:06:04.411Z"
     },
     {
       "adID": "KLOV-561395",
