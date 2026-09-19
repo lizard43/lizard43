@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-19T13:07:29.411Z",
+  "generated_at": "2026-09-19T14:07:28.206Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,35 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 23,
-      "droppedPrice": 626,
+      "exported_ads": 24,
+      "droppedPrice": 629,
       "droppedMissingGeo": 0,
-      "droppedCircle": 499
+      "droppedCircle": 501
     }
   },
   "ads": [
+    {
+      "adID": "1788578575716347",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100000832360031/?product_id=1788578575716347",
+      "author": "Audrey Dawson",
+      "postedTime": "2026-09-19T13:22:12.000Z",
+      "title": "Side kicks game",
+      "description": "New game",
+      "price": "$5",
+      "lat": 30.6324149,
+      "lon": -87.0396881,
+      "location": "Milton, FL",
+      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/818353564_1748250406395214_3299343111010555287_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=100&ccb=1-7&_nc_sid=92e707&_nc_ohc=XKWNRzZI1wMQ7kNvwGmvIZC&_nc_oc=AdrGJ0sC_cGeQzODHN1wdMN5Lnh7jQRQm6eweHunPD0b-GPNiijgaAY0May1Kd7qpJk&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=CrUuL_O9bTuTCesANP3-FQ&_nc_ss=7b2a8&oh=00_AQKgAvW6h7kJjZzwzfGHrS2SOX5srt1PQdFTxCE4VhNbxA&oe=6AB46E6A",
+      "adUrl": "https://www.facebook.com/marketplace/item/1788578575716347/",
+      "facebookGroupId": null,
+      "facebookGroupName": null,
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-09-19 14:04:59",
+      "lastSeen": "2026-09-19T14:06:26.555Z"
+    },
     {
       "adID": "1091943086709273",
       "source": "MP",
@@ -30,7 +52,7 @@
       "lat": 31.2237285,
       "lon": -85.3934375,
       "location": "Dothan, AL",
-      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/815468496_1655375276378478_98059992782168185_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=101&ccb=1-7&_nc_sid=92e707&_nc_ohc=l3uBTCwlvDkQ7kNvwGRDQVP&_nc_oc=Ado2O7Wmc753Ym9gXm4vhPHPnhpsr5XK_2f-VTC5opvzKH-iVM70t5PC5z-brUBdjrA&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=Qzd4Au8zn0A7UtpCaJBIJw&_nc_ss=7b2a8&oh=00_AQIXYcWAB5H0o2ft-jNW_wbU9wjtR8DYgXmWwI_c6Rv-TA&oe=6AB44FE3",
+      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/815468496_1655375276378478_98059992782168185_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=101&ccb=1-7&_nc_sid=92e707&_nc_ohc=l3uBTCwlvDkQ7kNvwGRDQVP&_nc_oc=Ado2O7Wmc753Ym9gXm4vhPHPnhpsr5XK_2f-VTC5opvzKH-iVM70t5PC5z-brUBdjrA&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=ixoOFXTqb4FJxesI2pQL8A&_nc_ss=7b2a8&oh=00_AQID0pw7a6kxaTFwfGpohRvfgisQPnd64VS0Ctc1OFKa-g&oe=6AB44FE3",
       "adUrl": "https://www.facebook.com/marketplace/item/1091943086709273/",
       "facebookGroupId": null,
       "facebookGroupName": null,
@@ -38,14 +60,14 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-09-19 12:05:06",
-      "lastSeen": "2026-09-19T13:05:15.058Z"
+      "lastSeen": "2026-09-19T14:05:53.275Z"
     },
     {
       "adID": "2182671032460590",
       "source": "FB",
       "authorUrl": null,
       "author": "John Matlock",
-      "postedTime": "2026-09-18T13:00:54.296Z",
+      "postedTime": "2026-09-18T14:00:55.873Z",
       "title": "Arknoid Arcade",
       "description": "Making space and need to sell this unit. It has been sitting for some time. The cab is pretty rough",
       "price": "$225",
@@ -60,7 +82,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-09-17 23:00:54",
-      "lastSeen": "2026-09-19T13:00:55.401Z"
+      "lastSeen": "2026-09-19T14:00:56.231Z"
     },
     {
       "adID": "KLOV-533258",
@@ -177,7 +199,7 @@
       "source": "FB",
       "authorUrl": null,
       "author": "Randy Weaver",
-      "postedTime": "2026-09-15T13:02:21.217Z",
+      "postedTime": "2026-09-15T14:02:22.685Z",
       "title": "Cash boxes",
       "description": "assorted cash boxes for arcade and jukebox. The square black metal door is perfectly new and has its frame. the other two frames and very slightly bent.... like they deterred a wouldbe thief.",
       "price": "$30",
@@ -192,7 +214,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-09-14 18:02:25",
-      "lastSeen": "2026-09-19T13:02:21.303Z"
+      "lastSeen": "2026-09-19T14:02:22.762Z"
     },
     {
       "adID": "KLOV-567141",
@@ -214,7 +236,7 @@
       "priceChangedAt": "2026-09-17 17:07:08",
       "hidden": 0,
       "created_at": "2026-09-14 01:07:46",
-      "lastSeen": "2026-09-19T13:07:26.706Z"
+      "lastSeen": "2026-09-19T14:07:25.380Z"
     },
     {
       "adID": "2210520576510841",
@@ -236,7 +258,7 @@
       "priceChangedAt": "2026-09-18 17:07:32",
       "hidden": 0,
       "created_at": "2026-09-13 17:26:11",
-      "lastSeen": "2026-09-19T13:05:42.913Z"
+      "lastSeen": "2026-09-19T14:06:17.391Z"
     },
     {
       "adID": "KLOV-561395",
