@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-19T11:07:28.157Z",
+  "generated_at": "2026-09-19T12:06:54.661Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,7 +11,7 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 22,
+      "exported_ads": 23,
       "droppedPrice": 626,
       "droppedMissingGeo": 0,
       "droppedCircle": 499
@@ -19,11 +19,33 @@
   },
   "ads": [
     {
+      "adID": "1091943086709273",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100067596637467/?product_id=1091943086709273",
+      "author": "Nany Abad",
+      "postedTime": "2026-09-19T04:42:15.000Z",
+      "title": "Games",
+      "description": "never use it",
+      "price": "$10",
+      "lat": 31.2237285,
+      "lon": -85.3934375,
+      "location": "Dothan, AL",
+      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/815468496_1655375276378478_98059992782168185_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=101&ccb=1-7&_nc_sid=92e707&_nc_ohc=l3uBTCwlvDkQ7kNvwGRDQVP&_nc_oc=Ado2O7Wmc753Ym9gXm4vhPHPnhpsr5XK_2f-VTC5opvzKH-iVM70t5PC5z-brUBdjrA&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=m17NfqAFFgoHS0bzqIQr8w&_nc_ss=7b2a8&oh=00_AQKUa8Rxx6VCe-A-ySSd9wX5ezOq67xCZE_k4bYPF9A3wQ&oe=6AB44FE3",
+      "adUrl": "https://www.facebook.com/marketplace/item/1091943086709273/",
+      "facebookGroupId": null,
+      "facebookGroupName": null,
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-09-19 12:05:06",
+      "lastSeen": "2026-09-19T12:05:38.617Z"
+    },
+    {
       "adID": "2182671032460590",
       "source": "FB",
       "authorUrl": null,
       "author": "John Matlock",
-      "postedTime": "2026-09-18T11:01:02.661Z",
+      "postedTime": "2026-09-18T12:00:59.062Z",
       "title": "Arknoid Arcade",
       "description": "Making space and need to sell this unit. It has been sitting for some time. The cab is pretty rough",
       "price": "$225",
@@ -38,7 +60,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-09-17 23:00:54",
-      "lastSeen": "2026-09-19T11:01:03.090Z"
+      "lastSeen": "2026-09-19T12:00:59.315Z"
     },
     {
       "adID": "KLOV-533258",
@@ -155,7 +177,7 @@
       "source": "FB",
       "authorUrl": null,
       "author": "Randy Weaver",
-      "postedTime": "2026-09-15T11:02:28.877Z",
+      "postedTime": "2026-09-15T12:02:26.528Z",
       "title": "Cash boxes",
       "description": "assorted cash boxes for arcade and jukebox. The square black metal door is perfectly new and has its frame. the other two frames and very slightly bent.... like they deterred a wouldbe thief.",
       "price": "$30",
@@ -170,7 +192,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-09-14 18:02:25",
-      "lastSeen": "2026-09-19T11:02:28.960Z"
+      "lastSeen": "2026-09-19T12:02:26.604Z"
     },
     {
       "adID": "KLOV-567141",
@@ -192,7 +214,7 @@
       "priceChangedAt": "2026-09-17 17:07:08",
       "hidden": 0,
       "created_at": "2026-09-14 01:07:46",
-      "lastSeen": "2026-09-19T11:07:25.433Z"
+      "lastSeen": "2026-09-19T12:06:51.911Z"
     },
     {
       "adID": "2210520576510841",
@@ -214,7 +236,7 @@
       "priceChangedAt": "2026-09-18 17:07:32",
       "hidden": 0,
       "created_at": "2026-09-13 17:26:11",
-      "lastSeen": "2026-09-19T11:05:55.595Z"
+      "lastSeen": "2026-09-19T12:06:06.673Z"
     },
     {
       "adID": "KLOV-561395",
