@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-20T18:07:06.062Z",
+  "generated_at": "2026-09-20T19:07:55.718Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,35 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 28,
-      "droppedPrice": 663,
+      "exported_ads": 29,
+      "droppedPrice": 667,
       "droppedMissingGeo": 0,
-      "droppedCircle": 549
+      "droppedCircle": 551
     }
   },
   "ads": [
+    {
+      "adID": "2490933981388668",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/61590725094243/?product_id=2490933981388668",
+      "author": "Brian Lee",
+      "postedTime": "2026-09-20T17:43:52.000Z",
+      "title": "Super Mario Bros 3",
+      "description": "Super Mario Bros 3 for NES. Good working condition. Asking $30 obo. If its up it's still available.",
+      "price": "$30",
+      "lat": 30.4065868,
+      "lon": -87.6835974,
+      "location": "Foley, AL",
+      "imageUrl": "https://scontent-dfw6-2.xx.fbcdn.net/v/t39.84726-6/817708908_1871784027345395_4642045531300192266_n.jpg?stp=dst-jpg_p180x540_tt6&_nc_cat=110&ccb=1-7&_nc_sid=92e707&_nc_ohc=Yp6mSAVy9A8Q7kNvwF2Dmu6&_nc_oc=Ado0so7yyoamUvyPMo7Lo0_FKB0T3F_E8LLl4l7DCMo6CUhqxIKKC_hK_t47Vvkjdt0&_nc_zt=14&_nc_ht=scontent-dfw6-2.xx&_nc_gid=CndkVJqf0EKcMlvDkFkOzA&_nc_ss=7b2a8&oh=00_AQLGzZtuFg_j2baE4TzNzQA1cdFsq8Wcf90IVsNwIiQLbQ&oe=6AB5FCD1",
+      "adUrl": "https://www.facebook.com/marketplace/item/2490933981388668/",
+      "facebookGroupId": null,
+      "facebookGroupName": null,
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-09-20 19:05:07",
+      "lastSeen": "2026-09-20T19:05:50.423Z"
+    },
     {
       "adID": "1407338311603292",
       "source": "MP",
@@ -38,7 +60,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-09-20 17:06:13",
-      "lastSeen": "2026-09-20T18:05:55.469Z"
+      "lastSeen": "2026-09-20T19:06:21.041Z"
     },
     {
       "adID": "1353723630168780",
@@ -52,7 +74,7 @@
       "lat": 30.4876954,
       "lon": -87.6997094,
       "location": "Summerdale, AL",
-      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/800715603_2068193683825255_6540107225504503526_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=106&ccb=1-7&_nc_sid=92e707&_nc_ohc=Mf0i_9l1l10Q7kNvwF5bvmf&_nc_oc=AdrhWxk2yU7cCVjKu-Xwu3R9mGpo3yXa-Z8A3P20BqlagZvWZdEdJJvUm6awyplYtks&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=E_rEWK_tgopf8L0-QZJiLA&_nc_ss=7b2a8&oh=00_AQJvdJDRN7vvntwhCe0j0XcLrpqCcwQGSQBdrrfeAL9fSw&oe=6AB5E781",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/800715603_2068193683825255_6540107225504503526_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=106&ccb=1-7&_nc_sid=92e707&_nc_ohc=Mf0i_9l1l10Q7kNvwF5bvmf&_nc_oc=AdrhWxk2yU7cCVjKu-Xwu3R9mGpo3yXa-Z8A3P20BqlagZvWZdEdJJvUm6awyplYtks&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=xUUWEc5JHDTIzfv_SI-pzw&_nc_ss=7b2a8&oh=00_AQLRZ3vtlgI0xaZ7qHBPWQyKBdhUW4uWRobQr2bycs95hA&oe=6AB5E781",
       "adUrl": "https://www.facebook.com/marketplace/item/1353723630168780/",
       "facebookGroupId": null,
       "facebookGroupName": null,
@@ -60,14 +82,14 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-09-20 17:05:09",
-      "lastSeen": "2026-09-20T18:06:07.390Z"
+      "lastSeen": "2026-09-20T19:06:48.702Z"
     },
     {
       "adID": "38487697587544463",
       "source": "FB",
       "authorUrl": null,
       "author": "Christian McGivern",
-      "postedTime": "2026-09-20T17:01:32.600Z",
+      "postedTime": "2026-09-20T17:01:27.436Z",
       "title": "Orange Pi 5 4GB with 256 NVME Storage",
       "description": "Works great and is ready for your next project. Great for home servers, AI projects, media centers, emulation, automation, or development. Great alternative to Raspberry Pi and very powerful.",
       "price": "$125",
@@ -82,7 +104,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-09-20 17:01:27",
-      "lastSeen": "2026-09-20T18:01:32.649Z"
+      "lastSeen": "2026-09-20T19:01:27.860Z"
     },
     {
       "adID": "KLOV-462248",
@@ -104,7 +126,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-09-20 14:08:14",
-      "lastSeen": "2026-09-20T18:07:02.290Z"
+      "lastSeen": "2026-09-20T19:07:51.960Z"
     },
     {
       "adID": "KLOV-567312",
@@ -126,7 +148,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-09-19 20:19:44",
-      "lastSeen": "2026-09-20T18:07:02.605Z"
+      "lastSeen": "2026-09-20T19:07:52.273Z"
     },
     {
       "adID": "KLOV-567311",
@@ -148,7 +170,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-09-19 20:19:44",
-      "lastSeen": "2026-09-20T18:07:02.638Z"
+      "lastSeen": "2026-09-20T19:07:52.318Z"
     },
     {
       "adID": "2182671032460590",
@@ -287,7 +309,7 @@
       "source": "FB",
       "authorUrl": null,
       "author": "Randy Weaver",
-      "postedTime": "2026-09-14T18:02:31.270Z",
+      "postedTime": "2026-09-14T19:02:26.524Z",
       "title": "Cash boxes",
       "description": "assorted cash boxes for arcade and jukebox. The square black metal door is perfectly new and has its frame. the other two frames and very slightly bent.... like they deterred a wouldbe thief.",
       "price": "$30",
@@ -302,7 +324,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-09-14 18:02:25",
-      "lastSeen": "2026-09-20T18:02:31.404Z"
+      "lastSeen": "2026-09-20T19:02:26.670Z"
     },
     {
       "adID": "KLOV-567141",
@@ -324,7 +346,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-09-14 01:07:46",
-      "lastSeen": "2026-09-20T18:07:03.342Z"
+      "lastSeen": "2026-09-20T19:07:53.005Z"
     },
     {
       "adID": "2210520576510841",
@@ -346,7 +368,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-09-13 17:26:11",
-      "lastSeen": "2026-09-20T18:05:55.406Z"
+      "lastSeen": "2026-09-20T19:06:20.940Z"
     },
     {
       "adID": "KLOV-561395",
