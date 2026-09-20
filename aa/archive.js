@@ -1,6 +1,5 @@
 // Filename: archive.js
-// Version: 20260914-people-network
-// Version: 20260914-011522
+// Version: 20260920-124315-people-links-fix
 
 "use strict";
 
@@ -1495,6 +1494,45 @@ function renderPersonSources(sources) {
     return list;
 }
 
+function escapeRegularExpression(value) {
+    return String(value).replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+}
+
+function profilePersonAnchor(person, label = person.name) {
+    const link = document.createElement("a");
+    link.className = "profile-person-link";
+    link.href = `#people=${encodeURIComponent(person.id)}`;
+    link.textContent = label;
+    return link;
+}
+
+function appendLinkedPeopleText(container, text, currentPerson) {
+    const personByName = new Map();
+    for (const person of state.people) {
+        if (person.id === currentPerson.id) continue;
+        for (const name of [person.name, ...(person.aliases || [])]) {
+            if (name) personByName.set(name.toLocaleLowerCase("en-US"), person);
+        }
+    }
+    const names = [...personByName.keys()].sort((left, right) => right.length - left.length);
+    if (!names.length) {
+        container.textContent = text;
+        return;
+    }
+    const pattern = new RegExp(
+        `(?<![\\p{L}\\p{N}])(${names.map(escapeRegularExpression).join("|")})(?![\\p{L}\\p{N}])`,
+        "giu"
+    );
+    let offset = 0;
+    for (const match of String(text).matchAll(pattern)) {
+        container.append(document.createTextNode(text.slice(offset, match.index)));
+        const person = personByName.get(match[0].toLocaleLowerCase("en-US"));
+        container.append(profilePersonAnchor(person, match[0]));
+        offset = match.index + match[0].length;
+    }
+    container.append(document.createTextNode(text.slice(offset)));
+}
+
 function renderPersonConnections(person) {
     const relationships = state.relationships.filter((relationship) =>
         (relationship.participants || []).some((participant) => participant.personId === person.id)
@@ -1506,20 +1544,19 @@ function renderPersonConnections(person) {
     const section = document.createElement("section");
     section.className = "person-connections";
     const heading = document.createElement("h3");
-    heading.textContent = "Connections";
-    const list = document.createElement("ul");
+    heading.textContent = "Work and collaborators";
+    const list = document.createElement("div");
+    list.className = "person-connections-list";
     for (const relationship of relationships) {
-        const item = document.createElement("li");
-        const people = (relationship.participants || []).map((participant) => {
-            const name = state.people.find((entry) => entry.id === participant.personId)?.name ||
-                participant.name || participant.personId;
-            return participant.role ? `${name} — ${participant.role}` : name;
-        }).filter(Boolean);
+        const item = document.createElement("article");
+        item.className = "person-connection";
         const organizations = (relationship.organizationIds || [])
-            .map((id) => state.organizations.find((entry) => entry.id === id)?.name || id);
+            .map((id) => state.organizations.find((entry) => entry.id === id)?.name || id)
+            .filter((name) => name.toLocaleLowerCase("en-US") !==
+                String(relationship.label || "").toLocaleLowerCase("en-US"));
         const projects = (relationship.projectIds || [])
             .map((id) => state.projects.find((entry) => entry.id === id)?.name || id);
-        const title = document.createElement("strong");
+        const title = document.createElement("h4");
         title.textContent = relationship.label || "Documented connection";
         item.append(title);
         const context = [
@@ -1533,24 +1570,17 @@ function renderPersonConnections(person) {
             metadata.textContent = context;
             item.append(metadata);
         }
-        if (people.length) {
-            const participants = document.createElement("span");
-            participants.className = "person-connection-participants";
-            participants.textContent = people.join("; ");
-            item.append(participants);
-        }
         if (relationship.description) {
-            const description = document.createElement("span");
+            const description = document.createElement("p");
             description.className = "person-connection-description";
-            description.textContent = relationship.description;
+            appendLinkedPeopleText(description, relationship.description, person);
             item.append(description);
         }
         if (relationship.sources?.length) {
-            const evidence = document.createElement("span");
-            evidence.className = "person-connection-evidence";
-            evidence.append(document.createTextNode("Evidence: "));
+            const sources = document.createElement("p");
+            sources.className = "person-connection-sources";
             relationship.sources.forEach((source, index) => {
-                if (index) evidence.append(document.createTextNode(" · "));
+                if (index) sources.append(document.createTextNode(" · "));
                 const url = typeof source === "string" ? source : source.url;
                 const label = typeof source === "string" ? source : (source.label || source.url);
                 const link = document.createElement("a");
@@ -1558,9 +1588,9 @@ function renderPersonConnections(person) {
                 link.target = "_blank";
                 link.rel = "noopener";
                 link.textContent = label;
-                evidence.append(link);
+                sources.append(link);
             });
-            item.append(evidence);
+            item.append(sources);
         }
         list.append(item);
     }

@@ -1,6 +1,6 @@
 /*
  * Filename: archive.css
- * Version: 20260914-011522
+ * Version: 20260919-people-profiles
  */
 
 :root {
@@ -875,28 +875,58 @@ a { color: var(--accent); }
     border-color: var(--accent);
 }
 
+.profile-person-link {
+    color: var(--accent-strong);
+    font-weight: 620;
+    text-decoration-color: color-mix(in srgb, var(--accent) 62%, transparent);
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.15em;
+}
+
+.profile-person-link:hover { color: var(--text); }
+
 .person-accomplishments,
-.person-sources,
-.person-connections ul {
+.person-sources {
     max-width: 72rem;
     margin: 0.25rem 0 0;
     padding-left: 1.2rem;
 }
 
 .person-accomplishments li + li,
-.person-sources li + li,
-.person-connections li + li { margin-top: 0.28rem; }
+.person-sources li + li { margin-top: 0.28rem; }
 
 .person-sources { font-size: 0.86rem; }
-.person-connections strong,
-.person-connections span { display: block; }
-.person-connections li { margin-top: 0.5rem; }
-.person-connections span { margin-top: 0.12rem; font-size: 0.86rem; }
-.person-connection-metadata { color: var(--accent-strong); }
-.person-connection-participants,
-.person-connection-description { color: var(--muted); }
-.person-connection-evidence { color: var(--muted); font-size: 0.78rem !important; }
-.person-connection-evidence a { color: var(--accent-strong); }
+.person-connections-list { max-width: 72rem; }
+.person-connection {
+    margin-top: 0.62rem;
+    padding: 0.08rem 0 0.1rem 0.85rem;
+    border-left: 2px solid color-mix(in srgb, var(--accent) 42%, var(--line));
+}
+.person-connection + .person-connection { margin-top: 0.9rem; }
+.person-connection h4 {
+    margin: 0;
+    color: var(--text);
+    font-size: 0.94rem;
+}
+.person-connection-metadata {
+    display: block;
+    margin-top: 0.08rem;
+    color: var(--muted);
+    font-size: 0.82rem;
+    font-style: italic;
+}
+.person-connection-description {
+    margin: 0.3rem 0 0;
+    color: var(--text);
+    font-size: 0.88rem;
+    line-height: 1.46;
+}
+.person-connection-sources {
+    margin: 0.22rem 0 0;
+    color: var(--muted);
+    font-size: 0.78rem;
+}
+.person-connection-sources a { color: var(--accent-strong); }
 
 .topic-table {
     min-width: 800px;
