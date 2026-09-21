@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-21T10:02:33.899Z",
+  "generated_at": "2026-09-21T11:07:50.883Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,25 +11,47 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 26,
-      "droppedPrice": 685,
+      "exported_ads": 27,
+      "droppedPrice": 690,
       "droppedMissingGeo": 0,
-      "droppedCircle": 558
+      "droppedCircle": 565
     }
   },
   "ads": [
+    {
+      "adID": "1706830030407489",
+      "source": "FB",
+      "authorUrl": null,
+      "author": "Clayton Lacey",
+      "postedTime": "2026-09-21T03:01:01.562Z",
+      "title": "Golden tee 2013 live arcade game in a complete fore arcade cabinet",
+      "description": "This is a golden tee 2013 live nighthawk pc ( the live updates no longer available from manufacturer) inside a golden tee complete fore cabinet with a lcd screen. Added in the illuminated option buttons for the nighthawk system. Set to free play but setup to take quarters one dollar bills and five dollar bills and pricing can be set in the operator menu.I have add casters to all 4 corners of the game for easy movement and has the levelers still there so the can be lowered sto... See more",
+      "price": "$850",
+      "lat": 33.2442813,
+      "lon": -86.8163773,
+      "location": "ALABASTER, AL",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.30808-6/795415592_28804692609123775_3003560889426711017_n.jpg?stp=dst-jpg_tt6&cstp=mx1537x2048&ctp=s590x590&_nc_cat=105&ccb=1-7&_nc_sid=aa7b47&_nc_ohc=JmOWf13YRUAQ7kNvwGn0vhc&_nc_oc=AdrWsBATkWyhWaXpAdNkaAnOAVjuNS6OKblvqaFc64JM_fEm_aMRbHlX0JDkS4loG8M&_nc_zt=23&_nc_ht=scontent-dfw5-1.xx&_nc_gid=0Mh5CkwN1NBa8mhQkaIfmw&_nc_ss=7b2a8&oh=00_AQKBECpVE3yIuIPtXoypkQAuHbDCMTO6M_Hvt89AuLILVg&oe=6AB6CC31",
+      "adUrl": "https://www.facebook.com/groups/430055717205352/posts/3260756207468608/",
+      "facebookGroupId": "430055717205352",
+      "facebookGroupName": "Classic Arcade & Pinball Classifieds",
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-09-21 11:01:01",
+      "lastSeen": "2026-09-21T11:01:01.752Z"
+    },
     {
       "adID": "38487697587544463",
       "source": "FB",
       "authorUrl": null,
       "author": "Christian McGivern",
-      "postedTime": "2026-09-20T17:01:31.661Z",
-      "title": "Works great and is ready for your next project",
+      "postedTime": "2026-09-20T17:01:32.380Z",
+      "title": "Orange Pi 5 4GB with 256 NVME Storage",
       "description": "Works great and is ready for your next project. Great for home servers, AI projects, media centers, emulation, automation, or development. Great alternative to Raspberry Pi and very powerful.",
       "price": "$125",
       "lat": 27.8428025,
       "lon": -82.6995444,
-      "location": "Orange Pi 5 4GB with 256 NVME Storage",
+      "location": "PINELLAS PARK, FL",
       "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.30808-6/795494488_10246699303162014_6690205269781022655_n.jpg?stp=dst-jpg_tt6&cstp=mx1536x2048&ctp=s590x590&_nc_cat=105&ccb=1-7&_nc_sid=aa7b47&_nc_ohc=FwokxY59FD0Q7kNvwHidYAl&_nc_oc=AdoJ0lobh-1wRGgh7_G-pdUgRS6v2Sz4I0rvsatk161Zq7fXmRkMr8fkDongmHH9ZVc&_nc_zt=23&_nc_ht=scontent-dfw5-1.xx&_nc_gid=mEQOuzGtbzddnXP9SKyDdw&_nc_ss=7b2a8&oh=00_AQILh9kxVwYCBbDO9-_ccfP3QMEgongHS7Gtvb2ZZ7231w&oe=6AB5DA6F",
       "adUrl": "https://www.facebook.com/groups/340386762706349/posts/28370541625930820/",
       "facebookGroupId": "340386762706349",
@@ -38,7 +60,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-09-20 17:01:27",
-      "lastSeen": "2026-09-21T01:01:33.162Z"
+      "lastSeen": "2026-09-21T11:01:32.602Z"
     },
     {
       "adID": "KLOV-462248",
@@ -60,7 +82,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-09-20 14:08:14",
-      "lastSeen": "2026-09-21T01:06:11.945Z"
+      "lastSeen": "2026-09-21T11:07:45.557Z"
     },
     {
       "adID": "KLOV-567312",
@@ -82,7 +104,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-09-19 20:19:44",
-      "lastSeen": "2026-09-21T01:06:12.587Z"
+      "lastSeen": "2026-09-21T11:07:46.177Z"
     },
     {
       "adID": "KLOV-567311",
@@ -104,7 +126,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-09-19 20:19:44",
-      "lastSeen": "2026-09-21T01:06:12.621Z"
+      "lastSeen": "2026-09-21T11:07:46.210Z"
     },
     {
       "adID": "2182671032460590",
@@ -243,7 +265,7 @@
       "source": "FB",
       "authorUrl": null,
       "author": "Randy Weaver",
-      "postedTime": "2026-09-15T01:02:32.849Z",
+      "postedTime": "2026-09-15T11:02:32.532Z",
       "title": "Cash boxes",
       "description": "assorted cash boxes for arcade and jukebox. The square black metal door is perfectly new and has its frame. the other two frames and very slightly bent.... like they deterred a wouldbe thief.",
       "price": "$30",
@@ -258,7 +280,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-09-14 18:02:25",
-      "lastSeen": "2026-09-21T01:02:33.513Z"
+      "lastSeen": "2026-09-21T11:02:32.797Z"
     },
     {
       "adID": "KLOV-567141",
@@ -280,7 +302,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-09-14 01:07:46",
-      "lastSeen": "2026-09-21T01:06:13.358Z"
+      "lastSeen": "2026-09-21T11:07:48.109Z"
     },
     {
       "adID": "2210520576510841",
@@ -302,7 +324,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-09-13 17:26:11",
-      "lastSeen": "2026-09-21T00:06:19.055Z"
+      "lastSeen": "2026-09-21T11:06:13.173Z"
     },
     {
       "adID": "KLOV-561395",
