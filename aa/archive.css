@@ -1,6 +1,6 @@
 /*
  * Filename: archive.css
- * Version: 20260919-people-profiles
+ * Version: 20260921-next-sprint-1
  */
 
 :root {
@@ -884,6 +884,43 @@ a { color: var(--accent); }
 }
 
 .profile-person-link:hover { color: var(--text); }
+
+.profile-entity-link {
+    color: var(--accent-strong);
+    font-weight: 620;
+    text-decoration-color: color-mix(in srgb, var(--accent) 62%, transparent);
+    text-underline-offset: 0.15em;
+}
+
+.profile-entity-link:hover { color: var(--text); }
+
+.people-entity-focus {
+    margin-bottom: 0.8rem;
+    padding: 0.75rem 0.85rem;
+    border: 1px solid color-mix(in srgb, var(--accent) 50%, var(--line));
+    border-radius: 0.5rem;
+    background: color-mix(in srgb, var(--accent) 5%, var(--surface));
+}
+
+.people-entity-focus-heading {
+    display: flex;
+    align-items: start;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.people-entity-focus h2 { margin: 0.05rem 0 0; font-size: 1.25rem; }
+.people-entity-type {
+    color: var(--muted);
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.055em;
+    text-transform: uppercase;
+}
+.people-entity-focus p { margin: 0.28rem 0 0; color: var(--muted); font-size: 0.84rem; }
+.people-entity-clear,
+.people-entity-messages { color: var(--accent-strong); font-size: 0.82rem; font-weight: 620; }
+.people-entity-messages { display: inline-block; margin-top: 0.35rem; }
 
 .person-accomplishments,
 .person-sources {

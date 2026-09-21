@@ -1,5 +1,5 @@
 // Filename: archive.js
-// Version: 20260920-124315-people-links-fix
+// Version: 20260921-entity-navigation
 
 "use strict";
 
@@ -39,6 +39,7 @@ const state = {
     personFilter: null,
     personFilterType: null,
     expandedPerson: null,
+    peopleEntityFilter: null,
     previewNumber: null,
     searchBodies: true,
     bodySearchMatches: new Set(),
@@ -217,6 +218,7 @@ function parseHash() {
     state.personFilter = null;
     state.personFilterType = null;
     state.expandedPerson = null;
+    state.peopleEntityFilter = null;
     clearPreview();
 
     if (kind === "sender" && encodedValue) {
@@ -235,6 +237,12 @@ function parseHash() {
     } else if (kind === "people") {
         state.view = "people";
         state.expandedPerson = encodedValue ? decodeURIComponent(encodedValue) : null;
+    } else if (["people-organization", "people-project"].includes(kind) && encodedValue) {
+        state.view = "people";
+        state.peopleEntityFilter = {
+            type: kind === "people-organization" ? "organization" : "project",
+            id: decodeURIComponent(encodedValue)
+        };
     } else if (["messages", "senders", "topics", "people", "keywords"].includes(kind)) {
         state.view = kind;
     } else {
@@ -1506,6 +1514,70 @@ function profilePersonAnchor(person, label = person.name) {
     return link;
 }
 
+function profileEntityAnchor(entity, type) {
+    const link = document.createElement("a");
+    link.className = "profile-entity-link";
+    link.href = `#people-${type}=${encodeURIComponent(entity.id)}`;
+    link.textContent = entity.name;
+    return link;
+}
+
+function relationshipEntities(relationship, type) {
+    const collection = type === "organization" ? state.organizations : state.projects;
+    const ids = type === "organization"
+        ? relationship.organizationIds || []
+        : relationship.projectIds || [];
+    return ids.map((id) => collection.find((entry) => entry.id === id) || { id, name: id });
+}
+
+function relationshipsForEntity(type, id) {
+    const field = type === "organization" ? "organizationIds" : "projectIds";
+    return state.relationships.filter((relationship) => (relationship[field] || []).includes(id));
+}
+
+function entityTopic(entity) {
+    return state.topics.find((topic) => topic.id === (entity.topicId || entity.id)) || null;
+}
+
+function renderPeopleEntityFocus() {
+    const filter = state.peopleEntityFilter;
+    if (!filter) return null;
+    const collection = filter.type === "organization" ? state.organizations : state.projects;
+    const entity = collection.find((entry) => entry.id === filter.id);
+    if (!entity) return null;
+    const relationships = relationshipsForEntity(filter.type, filter.id);
+    const peopleIds = new Set(relationships.flatMap((relationship) =>
+        (relationship.participants || []).map((participant) => participant.personId).filter(Boolean)
+    ));
+    const panel = document.createElement("section");
+    panel.className = "people-entity-focus";
+    const heading = document.createElement("div");
+    heading.className = "people-entity-focus-heading";
+    const titleGroup = document.createElement("div");
+    const type = document.createElement("span");
+    type.className = "people-entity-type";
+    type.textContent = filter.type;
+    const title = document.createElement("h2");
+    title.textContent = entity.name;
+    titleGroup.append(type, title);
+    const clear = document.createElement("a");
+    clear.className = "people-entity-clear";
+    clear.href = "#people";
+    clear.textContent = "All people";
+    heading.append(titleGroup, clear);
+    const summary = document.createElement("p");
+    summary.textContent = `${peopleIds.size.toLocaleString()} connected people · ` +
+        `${relationships.length.toLocaleString()} documented relationships`;
+    panel.append(heading, summary);
+    const topic = entityTopic(entity);
+    if (topic?.messageCount) {
+        const messages = profileTopicAnchor(topic, `${topic.messageCount.toLocaleString()} related messages`);
+        messages.classList.add("people-entity-messages");
+        panel.append(messages);
+    }
+    return panel;
+}
+
 function appendLinkedPeopleText(container, text, currentPerson) {
     const personByName = new Map();
     for (const person of state.people) {
@@ -1550,24 +1622,38 @@ function renderPersonConnections(person) {
     for (const relationship of relationships) {
         const item = document.createElement("article");
         item.className = "person-connection";
-        const organizations = (relationship.organizationIds || [])
-            .map((id) => state.organizations.find((entry) => entry.id === id)?.name || id)
-            .filter((name) => name.toLocaleLowerCase("en-US") !==
+        const organizations = relationshipEntities(relationship, "organization")
+            .filter((entry) => entry.name.toLocaleLowerCase("en-US") !==
                 String(relationship.label || "").toLocaleLowerCase("en-US"));
-        const projects = (relationship.projectIds || [])
-            .map((id) => state.projects.find((entry) => entry.id === id)?.name || id);
+        const projects = relationshipEntities(relationship, "project");
         const title = document.createElement("h4");
         title.textContent = relationship.label || "Documented connection";
         item.append(title);
-        const context = [
-            relationship.period || "",
-            organizations.length ? organizations.join(", ") : "",
-            projects.length ? projects.join(", ") : ""
-        ].filter(Boolean).join(" · ");
-        if (context) {
+        if (relationship.period || organizations.length || projects.length) {
             const metadata = document.createElement("span");
             metadata.className = "person-connection-metadata";
-            metadata.textContent = context;
+            const groups = [];
+            if (relationship.period) groups.push(document.createTextNode(relationship.period));
+            if (organizations.length) {
+                const group = document.createDocumentFragment();
+                organizations.forEach((organization, index) => {
+                    if (index) group.append(document.createTextNode(", "));
+                    group.append(profileEntityAnchor(organization, "organization"));
+                });
+                groups.push(group);
+            }
+            if (projects.length) {
+                const group = document.createDocumentFragment();
+                projects.forEach((project, index) => {
+                    if (index) group.append(document.createTextNode(", "));
+                    group.append(profileEntityAnchor(project, "project"));
+                });
+                groups.push(group);
+            }
+            groups.forEach((group, index) => {
+                if (index) metadata.append(document.createTextNode(" · "));
+                metadata.append(group);
+            });
             item.append(metadata);
         }
         if (relationship.description) {
@@ -1601,6 +1687,12 @@ function renderPersonConnections(person) {
 function renderPeople() {
     updateMessageCounter();
     elements.content.replaceChildren();
+    const entityRelationships = state.peopleEntityFilter
+        ? relationshipsForEntity(state.peopleEntityFilter.type, state.peopleEntityFilter.id)
+        : [];
+    const entityPeople = new Set(entityRelationships.flatMap((relationship) =>
+        (relationship.participants || []).map((participant) => participant.personId).filter(Boolean)
+    ));
     const query = state.query.toLocaleLowerCase("en-US");
     const visible = state.people.filter((person) => {
         const searchable = [
@@ -1612,8 +1704,12 @@ function renderPeople() {
             person.industrySummary,
             ...(person.accomplishments || [])
         ].join(" ").toLocaleLowerCase("en-US");
-        return !query || searchable.includes(query);
+        return (!state.peopleEntityFilter || entityPeople.has(person.id)) &&
+            (!query || searchable.includes(query));
     });
+
+    const entityFocus = renderPeopleEntityFocus();
+    if (entityFocus) elements.content.append(entityFocus);
 
     if (!visible.length) {
         const empty = document.createElement("p");
