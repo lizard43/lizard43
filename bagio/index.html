@@ -1,0 +1,304 @@
+<!--
+Filename: index.html
+Version: 20260922-012930
+-->
+<!doctype html>
+<html lang="en" class="assets-loading">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Search and browse the Bally Alley message archive."
+    />
+    <title>BAGIO</title>
+    <style>
+      html.assets-loading body {
+        visibility: hidden;
+      }
+    </style>
+    <noscript>
+      <style>
+        html.assets-loading body {
+          visibility: visible;
+        }
+      </style>
+    </noscript>
+    <script src="d3@7.js" defer></script>
+    <script src="loader.js" defer></script>
+  </head>
+  <body>
+    <div id="appChrome" class="app-chrome">
+      <header class="site-header">
+        <div class="site-title-row">
+          <h1>BAGIO</h1>
+          <nav class="view-tabs" aria-label="Archive views">
+            <button
+              type="button"
+              data-view="messages"
+              class="view-tab active"
+              aria-label="Messages"
+              aria-pressed="true"
+            >
+              <span class="view-tab-wide">Messages</span>
+              <span class="view-tab-compact">Msgs</span>
+            </button>
+            <button
+              type="button"
+              data-view="senders"
+              class="view-tab"
+              aria-label="Senders"
+              aria-pressed="false"
+            >
+              Senders
+            </button>
+            <button
+              type="button"
+              data-view="topics"
+              class="view-tab"
+              aria-label="Topics"
+              aria-pressed="false"
+            >
+              Topics
+            </button>
+            <button
+              type="button"
+              data-view="people"
+              class="view-tab"
+              aria-label="People"
+              aria-pressed="false"
+            >
+              People
+            </button>
+          </nav>
+        </div>
+      </header>
+
+      <nav class="app-toolbar" aria-label="Message controls and search">
+        <div class="toolbar-inner">
+          <label class="toolbar-search">
+            <span class="visually-hidden">Search messages</span>
+            <input
+              id="searchInput"
+              type="search"
+              placeholder="Search message number, sender, or subject"
+              autocomplete="off"
+            />
+          </label>
+          <button
+            id="threadViewButton"
+            type="button"
+            class="toolbar-button thread-view-button"
+            aria-label="Group messages by thread"
+            title="Group messages by thread"
+            aria-pressed="false"
+          >
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <circle cx="6" cy="5" r="2"></circle>
+              <circle cx="18" cy="12" r="2"></circle>
+              <circle cx="6" cy="19" r="2"></circle>
+              <path
+                d="M8 5h2a3 3 0 0 1 3 3v1a3 3 0 0 0 3 3M8 19h2a3 3 0 0 0 3-3v-1a3 3 0 0 1 3-3"
+              ></path>
+            </svg>
+          </button>
+          <button
+            id="bodySearchButton"
+            type="button"
+            class="toolbar-button body-search-button"
+            aria-label="Include message text in search"
+            title="Include message text in search"
+            aria-pressed="false"
+          >
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M4 5h10M4 9h8M4 13h5"></path>
+              <circle cx="15" cy="15" r="4"></circle>
+              <path d="m18 18 3 3"></path>
+            </svg>
+          </button>
+          <button
+            id="settingsButton"
+            type="button"
+            class="toolbar-button settings-button"
+            aria-label="Settings"
+            title="Settings"
+          >
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <circle cx="12" cy="12" r="3"></circle>
+              <path
+                d="M19.4 15a1.7 1.7 0 0 0 .34 1.88l.06.06-2.83 2.83-.06-.06A1.7 1.7 0 0 0 15 19.4a1.7 1.7 0 0 0-1 .6 1.7 1.7 0 0 0-.4 1.1V21h-4v-.09A1.7 1.7 0 0 0 8.6 19.4a1.7 1.7 0 0 0-1.88.34l-.06.06-2.83-2.83.06-.06A1.7 1.7 0 0 0 4.6 15a1.7 1.7 0 0 0-.6-1 1.7 1.7 0 0 0-1.1-.4H3v-4h.09A1.7 1.7 0 0 0 4.6 8.6a1.7 1.7 0 0 0-.34-1.88l-.06-.06 2.83-2.83.06.06A1.7 1.7 0 0 0 9 4.6a1.7 1.7 0 0 0 1-.6 1.7 1.7 0 0 0 .4-1.1V3h4v.09A1.7 1.7 0 0 0 15.4 4.6a1.7 1.7 0 0 0 1.88-.34l.06-.06 2.83 2.83-.06.06A1.7 1.7 0 0 0 19.4 9c.13.37.35.71.64.98.3.27.68.42 1.08.42H21v4h-.09A1.7 1.7 0 0 0 19.4 15Z"
+              ></path>
+            </svg>
+          </button>
+        </div>
+      </nav>
+    </div>
+
+    <main>
+      <section id="activeFilter" class="active-filter" hidden></section>
+      <section id="content" aria-live="polite"></section>
+
+      <nav id="pagination" class="pagination" aria-label="Message pages" hidden>
+        <button id="previousPage" type="button">Previous</button>
+        <span id="pageStatus"></span>
+        <button id="nextPage" type="button">Next</button>
+      </nav>
+    </main>
+
+    <dialog
+      id="messageDialog"
+      class="message-dialog"
+      aria-labelledby="messageDialogSubject"
+    >
+      <article class="message-reader">
+        <header class="message-reader-header">
+          <div class="message-reader-title-row">
+            <h2 id="messageDialogSubject">Message</h2>
+            <button
+              id="messageDialogClose"
+              type="button"
+              class="dialog-close"
+              aria-label="Close message"
+            >
+              ×
+            </button>
+          </div>
+          <div class="message-reader-details">
+            <button
+              id="messageDialogSender"
+              type="button"
+              class="message-reader-sender"
+            ></button>
+            <time id="messageDialogDate"></time>
+            <span id="messageDialogNumber"></span>
+          </div>
+          <div class="message-reader-actions">
+            <a
+              id="messageDialogOpen"
+              class="open-message-button"
+              target="_blank"
+              rel="noopener"
+              >Open on Groups.io</a
+            >
+            <nav
+              class="reader-thread-navigation"
+              aria-label="Messages in this thread"
+            >
+              <button id="messageDialogPrevious" type="button">
+                ← Previous
+              </button>
+              <span id="messageDialogThreadStatus" aria-live="polite"></span>
+              <button id="messageDialogNext" type="button">Next →</button>
+            </nav>
+          </div>
+        </header>
+        <div class="message-reader-scroll-shell">
+          <div id="messageDialogBody" class="message-reader-body" tabindex="0">
+            <div id="messageDialogText" class="message-thread-document">
+              Loading message…
+            </div>
+          </div>
+        </div>
+      </article>
+    </dialog>
+
+    <dialog
+      id="settingsDialog"
+      class="settings-dialog"
+      aria-labelledby="settingsTitle"
+    >
+      <form method="dialog">
+        <header class="settings-header">
+          <h2 id="settingsTitle">Settings</h2>
+          <button
+            type="submit"
+            class="dialog-close"
+            aria-label="Close settings"
+          >
+            ×
+          </button>
+        </header>
+        <div class="settings-fields">
+          <label>
+            <span>Messages per page</span>
+            <select id="pageSizeSetting">
+              <option value="50">50</option>
+              <option value="100">100</option>
+              <option value="200">200</option>
+            </select>
+          </label>
+          <label class="settings-checkbox-row">
+            <span>Group messages by thread</span>
+            <input id="threadedSetting" type="checkbox" />
+          </label>
+          <label class="settings-checkbox-row">
+            <span>Search message text</span>
+            <input id="bodySearchSetting" type="checkbox" />
+          </label>
+          <div class="settings-about">
+            <span>Version</span>
+            <strong>v20260914</strong>
+            <span>Archive</span>
+            <strong id="settingsArchiveSummary">Loading…</strong>
+            <span>Contact</span>
+            <strong
+              ><a href="mailto:astrocadester@gmail.com"
+                >astrocadester@gmail.com</a
+              ></strong
+            >
+          </div>
+        </div>
+        <footer class="settings-footer">
+          <button type="submit" class="settings-done">Done</button>
+        </footer>
+      </form>
+    </dialog>
+
+    <template id="messageTableTemplate">
+      <div class="table-wrap message-table-wrap">
+        <table class="message-table">
+          <thead>
+            <tr>
+              <th scope="col">
+                <button
+                  type="button"
+                  class="sort-button"
+                  data-message-sort="date"
+                >
+                  Date
+                </button>
+              </th>
+              <th scope="col">
+                <span class="sender-heading">
+                  <button
+                    type="button"
+                    class="sort-button"
+                    data-message-sort="sender"
+                  >
+                    Sender
+                  </button>
+                  <span
+                    class="message-counter"
+                    data-message-counter
+                    aria-label="Displayed and total messages"
+                    >— / —</span
+                  >
+                </span>
+              </th>
+              <th scope="col">
+                <button
+                  type="button"
+                  class="sort-button"
+                  data-message-sort="subject"
+                >
+                  Subject
+                </button>
+              </th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </template>
+  </body>
+</html>
