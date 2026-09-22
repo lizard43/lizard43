@@ -1,5 +1,5 @@
 // Filename: archive.js
-// Version: 20260922-011320
+// Version: 20260922-022526
 
 "use strict";
 
@@ -2052,7 +2052,12 @@ function peopleGraphDegrees() {
   return counts;
 }
 
-function fitPeopleNodes(nodes, anchor, duration = 650) {
+function fitPeopleNodes(
+  nodes,
+  anchor,
+  duration = 650,
+  framing = "overview",
+) {
   if (
     !peopleNetwork.svg ||
     !nodes.length ||
@@ -2061,22 +2066,28 @@ function fitPeopleNodes(nodes, anchor, duration = 650) {
   )
     return;
   const area = peopleGraphAvailableArea();
-  const padding = peopleNetwork.mobileQuery.matches ? 52 : 76;
+  const mobile = peopleNetwork.mobileQuery.matches;
+  const focused = framing === "selected";
+  const padding = mobile ? (focused ? 14 : 24) : focused ? 40 : 52;
+  const maxScale = mobile ? (focused ? 2 : 1.8) : focused ? 1.85 : 1.6;
   const maxX = Math.max(1, ...nodes.map((node) => Math.abs(node.x - anchor.x)));
   const maxY = Math.max(1, ...nodes.map((node) => Math.abs(node.y - anchor.y)));
+  const usableWidth = Math.max(48, area.width - padding * 2);
+  const usableHeight = Math.max(48, area.height - padding * 2);
   const scale = Math.max(
-    0.18,
-    Math.min(
-      1.18,
-      (area.width - padding * 2) / (maxX * 2),
-      (area.height - padding * 2) / (maxY * 2),
-    ),
+    0.16,
+    Math.min(maxScale, usableWidth / (maxX * 2), usableHeight / (maxY * 2)),
   );
   const transform = d3.zoomIdentity
     .translate(area.centerX - anchor.x * scale, area.centerY - anchor.y * scale)
     .scale(scale);
+
+  peopleNetwork.svg.interrupt();
+  if (duration <= 0) {
+    peopleNetwork.svg.call(peopleNetwork.zoom.transform, transform);
+    return;
+  }
   peopleNetwork.svg
-    .interrupt()
     .transition()
     .duration(duration)
     .ease(d3.easeCubicOut)
@@ -2087,7 +2098,7 @@ function fitPeopleOverview(duration = 650) {
   const anchor =
     peopleNetwork.nodes.find((node) => node.id === "dave-nutting") ||
     peopleNetwork.nodes[0];
-  fitPeopleNodes(peopleNetwork.nodes, anchor, duration);
+  fitPeopleNodes(peopleNetwork.nodes, anchor, duration, "overview");
 }
 
 function fitSelectedPerson(duration = 650) {
@@ -2103,7 +2114,7 @@ function fitSelectedPerson(duration = 650) {
   const localNodes = peopleNetwork.nodes.filter(
     (node) => node.id === selected.id || peers.has(node.id),
   );
-  fitPeopleNodes(localNodes, selected, duration);
+  fitPeopleNodes(localNodes, selected, duration, "selected");
 }
 
 function updatePeopleLabelVisibility() {
@@ -2402,11 +2413,17 @@ function selectPeopleNode(personId, updateHash = true) {
     if (person) renderPeopleProfile(person);
   }
   applyPeopleNetworkFocus();
+  peopleNetwork.svg?.interrupt();
+  if (person) {
+    fitSelectedPerson(0);
+  } else {
+    fitPeopleOverview(240);
+  }
   settlePeopleNetwork(Boolean(person));
   if (person) {
     requestAnimationFrame(() => {
       if (peopleNetwork.selectedId === person.id) {
-        fitSelectedPerson(240);
+        fitSelectedPerson(0);
       }
     });
   }
