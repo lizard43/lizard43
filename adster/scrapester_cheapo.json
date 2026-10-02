@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-02T11:24:18.837Z",
+  "generated_at": "2026-10-02T12:08:48.763Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,26 +11,92 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 56,
-      "droppedPrice": 1066,
+      "exported_ads": 59,
+      "droppedPrice": 1067,
       "droppedMissingGeo": 0,
-      "droppedCircle": 864
+      "droppedCircle": 863
     }
   },
   "ads": [
+    {
+      "adID": "1434079691965478",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/1411756113/?product_id=1434079691965478",
+      "author": "Sky Watcher",
+      "postedTime": "2026-10-02T00:56:08.000Z",
+      "title": "Cobra hurricane",
+      "description": "Incomplete but all working parts Vapor included with file card Inbox for details",
+      "price": "$60",
+      "lat": 31.8295972,
+      "lon": -86.6177517,
+      "location": "Greenville, AL",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/830486892_1570576740921722_646140405794019015_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=106&ccb=1-7&_nc_sid=92e707&_nc_ohc=UNY5n3k9roAQ7kNvwG4H4w7&_nc_oc=AdpcPJ2_lLLGxOKUebcqlcj9mKaXRgtpfAWGkCwo_PgItLwqhwqXTAp4sz_VsOf2_fE&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=Z8DO4KoD9Fpo4YhItRWNhQ&_nc_ss=7b2a8&oh=00_AQMmUY8WTKas0bNAkyQAG94KleLK_Q5MoayzxY3DeHZB3Q&oe=6AC5650B",
+      "adUrl": "https://www.facebook.com/marketplace/item/1434079691965478/",
+      "facebookGroupId": null,
+      "facebookGroupName": null,
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-10-02 12:06:20",
+      "lastSeen": "2026-10-02T12:07:37.292Z"
+    },
+    {
+      "adID": "1800925284376057",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100072525305383/?product_id=1800925284376057",
+      "author": "Re Tek",
+      "postedTime": "2026-10-02T02:32:32.000Z",
+      "title": "10 Pin IDC Ribbon Cable 10 Feet",
+      "description": "See pictures for details...",
+      "price": "$6",
+      "lat": 30.6324149,
+      "lon": -87.0396881,
+      "location": "Milton, FL",
+      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/829115756_1610659087562599_1970090941389930547_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=104&ccb=1-7&_nc_sid=92e707&_nc_ohc=Byy2euAIk5oQ7kNvwG_1VGi&_nc_oc=Ado_qFQaV_lzXbppRzZG3VyTANPycDe7GRh514xV-S2KWYyout79VVV6akPYdmbuXfI&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=XnVSnRaVS5KBgZDwPljzTw&_nc_ss=7b2a8&oh=00_AQPlCNPNSHY66FuXLR9ghHxG25U5bkuefEbH0iSrooLudw&oe=6AC55FF4",
+      "adUrl": "https://www.facebook.com/marketplace/item/1800925284376057/",
+      "facebookGroupId": null,
+      "facebookGroupName": null,
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-10-02 12:04:57",
+      "lastSeen": "2026-10-02T12:05:51.611Z"
+    },
+    {
+      "adID": "1072783062202419",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/1591645545/?product_id=1072783062202419",
+      "author": "Ashley Scott",
+      "postedTime": "2026-10-01T23:12:44.000Z",
+      "title": "Snake Rack 32qt Tubs",
+      "description": "Has all tubs. Heat tape is good. Swapping it out tonight. Will be cleaned and sanatized. No thermostate included.",
+      "price": "$300",
+      "lat": 30.605427,
+      "lon": -87.344442,
+      "location": "Cantonment, FL",
+      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/830199785_1415969263424889_5801882971230678948_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=107&ccb=1-7&_nc_sid=92e707&_nc_ohc=8X_5XYjgvG0Q7kNvwGydHZr&_nc_oc=AdoR-AtkExdKb9FwLGAhp1IBvebXzfF8mo9QX2bHxOEQcJ39qZ7FlFPlzBQSSyOjuOk&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=ejzfA2bwN5Mmy3hQnS7eUg&_nc_ss=7b2a8&oh=00_AQON3zPr-oCH7BBW4ypM0gZa9lGUQApnwaiEExR6M3ZTQQ&oe=6AC56B47",
+      "adUrl": "https://www.facebook.com/marketplace/item/1072783062202419/",
+      "facebookGroupId": null,
+      "facebookGroupName": null,
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-10-02 12:04:57",
+      "lastSeen": "2026-10-02T12:05:51.644Z"
+    },
     {
       "adID": "1069765266048315",
       "source": "MP",
       "authorUrl": "https://www.facebook.com/marketplace/profile/100080786015572/?product_id=1069765266048315",
       "author": "Christopher Gasca",
-      "postedTime": "2026-10-01T07:24:49.000Z",
+      "postedTime": "2026-10-02T02:17:40.000Z",
       "title": "Brotherhood Regalia Foil-",
       "description": "",
       "price": "$12",
       "lat": 31.4146108,
       "lon": -86.0677243,
       "location": "Elba, AL",
-      "imageUrl": "https://scontent-dfw6-2.xx.fbcdn.net/v/t39.84726-6/829413536_28466090483042218_445877505119120680_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=110&ccb=1-7&_nc_sid=92e707&_nc_ohc=tS57eGUNGk4Q7kNvwGBV4J3&_nc_oc=Adp1Ke5xp1G8j_DIs1uP7ZuIlMZLdfIu4AVcPBNUhfq2Hk1CHTSqlMuayd4zrtUJGOA&_nc_zt=14&_nc_ht=scontent-dfw6-2.xx&_nc_gid=b7ci7PDoz5utqmrNkQwlIQ&_nc_ss=7b2a8&oh=00_AQOz7ZdZCicLqyOTt7GStkNdTOyUzyMjusGEiY9eJK1QpQ&oe=6AC55C3A",
+      "imageUrl": "https://scontent-dfw6-2.xx.fbcdn.net/v/t39.84726-6/829413536_28466090483042218_445877505119120680_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=110&ccb=1-7&_nc_sid=92e707&_nc_ohc=tS57eGUNGk4Q7kNvwGBV4J3&_nc_oc=Adp1Ke5xp1G8j_DIs1uP7ZuIlMZLdfIu4AVcPBNUhfq2Hk1CHTSqlMuayd4zrtUJGOA&_nc_zt=14&_nc_ht=scontent-dfw6-2.xx&_nc_gid=3kgVbgPJzAnQzmIcxoUhew&_nc_ss=7b2a8&oh=00_AQPwDbo45rM00dRclSO1iZz8cFX-pZb3c3KQggR-_flVbw&oe=6AC55C3A",
       "adUrl": "https://www.facebook.com/marketplace/item/1069765266048315/",
       "facebookGroupId": null,
       "facebookGroupName": null,
@@ -38,7 +104,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-10-02 11:17:04",
-      "lastSeen": "2026-10-02T11:23:15.725Z"
+      "lastSeen": "2026-10-02T12:07:37.157Z"
     },
     {
       "adID": "1428799495333295",
@@ -52,7 +118,7 @@
       "lat": 31.4146108,
       "lon": -86.0677243,
       "location": "Elba, AL",
-      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/828650452_2361646741268434_4775042045949899130_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=103&ccb=1-7&_nc_sid=92e707&_nc_ohc=WzJ8zhBZ3j8Q7kNvwHfsiF2&_nc_oc=Adp67lvTf0x5__BhW-vzFjVd7j5_S-uCYq45BQTSBu65zkooLpt2sXbXzKBImza_Ce4&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=bPV6KLxU7mqBBdN18FZwtQ&_nc_ss=7b2a8&oh=00_AQN8ekRx_Nys-owEBhFaGyczb6bJymbNQWzkKNuSjY4jaA&oe=6AC56C1F",
+      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/828650452_2361646741268434_4775042045949899130_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=103&ccb=1-7&_nc_sid=92e707&_nc_ohc=WzJ8zhBZ3j8Q7kNvwHfsiF2&_nc_oc=Adp67lvTf0x5__BhW-vzFjVd7j5_S-uCYq45BQTSBu65zkooLpt2sXbXzKBImza_Ce4&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=Uta88Reu5qJ765T7B56c4w&_nc_ss=7b2a8&oh=00_AQPOcdmYAVyRtuNyZ5Jkk0bd-ue-WjkUi6JqHeilEEqhZA&oe=6AC56C1F",
       "adUrl": "https://www.facebook.com/marketplace/item/1428799495333295/",
       "facebookGroupId": null,
       "facebookGroupName": null,
@@ -60,7 +126,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-10-02 11:17:04",
-      "lastSeen": "2026-10-02T11:23:15.757Z"
+      "lastSeen": "2026-10-02T12:07:37.190Z"
     },
     {
       "adID": "1089380356810240",
@@ -82,7 +148,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-10-02 11:17:04",
-      "lastSeen": "2026-10-02T11:23:15.791Z"
+      "lastSeen": "2026-10-02T12:06:19.455Z"
     },
     {
       "adID": "2156052931960815",
@@ -104,7 +170,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-10-02 11:17:04",
-      "lastSeen": "2026-10-02T11:23:15.824Z"
+      "lastSeen": "2026-10-02T12:06:19.489Z"
     },
     {
       "adID": "1083705904588558",
@@ -126,7 +192,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-10-02 11:17:04",
-      "lastSeen": "2026-10-02T11:23:15.858Z"
+      "lastSeen": "2026-10-02T12:06:19.522Z"
     },
     {
       "adID": "1749224669696254",
@@ -148,7 +214,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-10-02 11:17:04",
-      "lastSeen": "2026-10-02T11:23:16.180Z"
+      "lastSeen": "2026-10-02T12:06:19.556Z"
     },
     {
       "adID": "1576657977009210",
@@ -170,7 +236,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-10-02 11:17:04",
-      "lastSeen": "2026-10-02T11:23:16.235Z"
+      "lastSeen": "2026-10-02T12:06:19.931Z"
     },
     {
       "adID": "1670709581147823",
@@ -199,14 +265,14 @@
       "source": "MP",
       "authorUrl": "https://www.facebook.com/marketplace/profile/100072525305383/?product_id=2204511790120113",
       "author": "Re Tek",
-      "postedTime": "2026-10-02T02:17:40.000Z",
+      "postedTime": "2026-10-02T00:34:01.000Z",
       "title": "Educational Insights Brainbolt - Brain Teaser Memory Game",
       "description": "See pictures for details...",
       "price": "$13",
       "lat": 30.6324149,
       "lon": -87.0396881,
       "location": "Milton, FL",
-      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/825286679_1435003965502092_8811716616844538542_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=102&ccb=1-7&_nc_sid=92e707&_nc_ohc=_l1Fad6rZogQ7kNvwHvWfpM&_nc_oc=AdouXeDUJTX5_PsQ9fJX2d8CUEFvXE7K3fcZPtBHsJx81JlsGzxZ21mFMBy4q3qLIqQ&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=4_0L2xg-fc4Sxp4lt7-wYA&_nc_ss=7b2a8&oh=00_AQMAKyRcsow3QEAR85oyqVr-mfG8z5HoPHJbgdSHYIQpBg&oe=6AC56846",
+      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/825286679_1435003965502092_8811716616844538542_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=102&ccb=1-7&_nc_sid=92e707&_nc_ohc=_l1Fad6rZogQ7kNvwHvWfpM&_nc_oc=AdouXeDUJTX5_PsQ9fJX2d8CUEFvXE7K3fcZPtBHsJx81JlsGzxZ21mFMBy4q3qLIqQ&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=QeeHT1Radf-CPurz5fTmvw&_nc_ss=7b2a8&oh=00_AQOW1Mr-_Z4Gv-SAXJYC9mKKk4xI-IM5AZOTWXPjmSiqHw&oe=6AC56846",
       "adUrl": "https://www.facebook.com/marketplace/item/2204511790120113/",
       "facebookGroupId": null,
       "facebookGroupName": null,
@@ -214,7 +280,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-10-02 11:17:03",
-      "lastSeen": "2026-10-02T11:20:23.558Z"
+      "lastSeen": "2026-10-02T12:07:37.053Z"
     },
     {
       "adID": "1452604683416789",
@@ -228,7 +294,7 @@
       "lat": 29.8118757,
       "lon": -85.302974,
       "location": "Port St Joe, FL",
-      "imageUrl": "https://scontent-dfw6-2.xx.fbcdn.net/v/t39.84726-6/834038155_4074954579474751_9130182782954904459_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=108&ccb=1-7&_nc_sid=92e707&_nc_ohc=kZ_7vjoZ9-kQ7kNvwFQT0dh&_nc_oc=AdoUr03PEHoV7mcQlMmHR3lE9Wmg6h084faX-8n1kOJafi2HK47A6Ftvh7AkNvlRDtM&_nc_zt=14&_nc_ht=scontent-dfw6-2.xx&_nc_gid=uRd9y1VuQ5gUQYPQw81xzA&_nc_ss=7b2a8&oh=00_AQPBMEydHlr0nRNqPXM6P9oYlUQjg_ZvskazTZFRCvIe9g&oe=6AC559BA",
+      "imageUrl": "https://scontent-dfw6-2.xx.fbcdn.net/v/t39.84726-6/834038155_4074954579474751_9130182782954904459_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=108&ccb=1-7&_nc_sid=92e707&_nc_ohc=kZ_7vjoZ9-kQ7kNvwFQT0dh&_nc_oc=AdoUr03PEHoV7mcQlMmHR3lE9Wmg6h084faX-8n1kOJafi2HK47A6Ftvh7AkNvlRDtM&_nc_zt=14&_nc_ht=scontent-dfw6-2.xx&_nc_gid=DThOZ7rvrgeSaTAMkCas4A&_nc_ss=7b2a8&oh=00_AQOWQdQDDvwv6-9HL-TtsmH5vTTaBAVh75k2GBXRosRU4g&oe=6AC559BA",
       "adUrl": "https://www.facebook.com/marketplace/item/1452604683416789/",
       "facebookGroupId": null,
       "facebookGroupName": null,
@@ -236,7 +302,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-10-02 11:17:03",
-      "lastSeen": "2026-10-02T11:20:23.598Z"
+      "lastSeen": "2026-10-02T12:07:37.090Z"
     },
     {
       "adID": "KLOV-565967",
@@ -258,14 +324,14 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-10-02 01:10:48",
-      "lastSeen": "2026-10-02T11:24:13.828Z"
+      "lastSeen": "2026-10-02T12:08:44.334Z"
     },
     {
       "adID": "PI-222304",
       "source": "PS",
       "authorUrl": "https://pinside.com/pinball/community/pinsiders/skolnib/market",
       "author": "skolnib",
-      "postedTime": "2026-10-02T00:23:35.292Z",
+      "postedTime": "2026-10-02T01:07:59.569Z",
       "title": "Argosy",
       "description": "Sold as is - No guarantees - “Machine powers on but that is about all I can guarantee. Machine has been sitting in this state for over 30 yrs and needs alot of TLC. Please review the pictures and let me know ...”",
       "price": "$400",
@@ -280,7 +346,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-10-02 00:12:27",
-      "lastSeen": "2026-10-02T11:23:35.693Z"
+      "lastSeen": "2026-10-02T12:08:00.005Z"
     },
     {
       "adID": "1812692746590382",
@@ -294,7 +360,7 @@
       "lat": 30.4099215,
       "lon": -86.6630098,
       "location": "Mary Esther, FL",
-      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/832870291_28741050788881851_4651958593074575190_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=100&ccb=1-7&_nc_sid=92e707&_nc_ohc=NrDkOTEKwZkQ7kNvwERLue3&_nc_oc=AdpTmd0cz4qbMtYtWUmPPzIqBcyWVsUUN4LJAyRyXWjI4oaLo524nHqNtBGz3w2y5MM&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=3WnjnCna6Z1pDqKrmxiIxg&_nc_ss=7b2a8&oh=00_AQMmzgHcZ6_HWkoLZ5vpDkX_QOqa2i7QYbv0tnsLVLInyQ&oe=6AC57541",
+      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/832870291_28741050788881851_4651958593074575190_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=100&ccb=1-7&_nc_sid=92e707&_nc_ohc=NrDkOTEKwZkQ7kNvwERLue3&_nc_oc=AdpTmd0cz4qbMtYtWUmPPzIqBcyWVsUUN4LJAyRyXWjI4oaLo524nHqNtBGz3w2y5MM&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=t09Mq2FuAryOzZ_qR3YrjQ&_nc_ss=7b2a8&oh=00_AQOl8Ts2pqDZXiJhQem1ERHxut_Ra_hwHIgnSI7Pq4FXgQ&oe=6AC57541",
       "adUrl": "https://www.facebook.com/marketplace/item/1812692746590382/",
       "facebookGroupId": null,
       "facebookGroupName": null,
@@ -302,7 +368,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-10-02 00:05:04",
-      "lastSeen": "2026-10-02T11:08:37.250Z"
+      "lastSeen": "2026-10-02T12:05:51.535Z"
     },
     {
       "adID": "KLOV-567684",
@@ -324,7 +390,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-10-01 22:16:30",
-      "lastSeen": "2026-10-02T11:24:13.962Z"
+      "lastSeen": "2026-10-02T12:08:44.468Z"
     },
     {
       "adID": "KLOV-503634",
@@ -346,7 +412,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-10-01 18:43:17",
-      "lastSeen": "2026-10-02T11:24:14.331Z"
+      "lastSeen": "2026-10-02T12:08:44.848Z"
     },
     {
       "adID": "KLOV-437484",
@@ -368,7 +434,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-10-01 18:43:17",
-      "lastSeen": "2026-10-02T11:24:14.364Z"
+      "lastSeen": "2026-10-02T12:08:44.883Z"
     },
     {
       "adID": "1100726596262588",
@@ -478,7 +544,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-09-27 19:09:38",
-      "lastSeen": "2026-10-02T11:24:15.605Z"
+      "lastSeen": "2026-10-02T12:08:46.542Z"
     },
     {
       "adID": "KLOV-373719",
@@ -918,7 +984,7 @@
       "priceChangedAt": "2026-10-01 18:43:18",
       "hidden": 0,
       "created_at": "2026-09-15 15:08:14",
-      "lastSeen": "2026-10-02T11:24:14.833Z"
+      "lastSeen": "2026-10-02T12:08:45.384Z"
     },
     {
       "adID": "KLOV-495927",
@@ -984,7 +1050,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-09-13 17:26:11",
-      "lastSeen": "2026-10-02T11:17:04.853Z"
+      "lastSeen": "2026-10-02T12:06:19.964Z"
     },
     {
       "adID": "KLOV-561395",
