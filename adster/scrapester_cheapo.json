@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-09T21:15:14.531Z",
+  "generated_at": "2026-10-09T21:35:37.932Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,10 +11,10 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 132,
-      "droppedPrice": 1417,
+      "exported_ads": 133,
+      "droppedPrice": 1415,
       "droppedMissingGeo": 0,
-      "droppedCircle": 1204
+      "droppedCircle": 1203
     }
   },
   "ads": [
@@ -1301,20 +1301,20 @@
       "author": "Ed Ayers",
       "postedTime": "2026-10-06T19:34:39.000Z",
       "title": "Retro PC Packard Bell 1996",
-      "description": "PC turns on and works. First, you will need a hard drive and also the CD ROM drive needs a little TLC to get it going.",
-      "price": "$120",
+      "description": "PC turns on and works. First, you will need a hard drive and also the CD ROM drive needs a little TLC to get it going. Line on screen in first pic is just a camera artifact.",
+      "price": "$100",
       "lat": 34.1014112,
       "lon": -84.5192192,
       "location": "Woodstock, GA",
-      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/836663063_2173338639886037_5844758523830970410_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=107&ccb=1-7&_nc_sid=92e707&_nc_ohc=U_kQfOz6STIQ7kNvwGJX1LH&_nc_oc=AdotpOkG_LgHFbqVpSdhs8DT44Yh5EQFAPdAnwMX0LbB2TgjF6Pim7agqyq-9WXlEm0&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=ztL6By8SAqQ7X0KS_CAEDA&_nc_ss=7b2a8&oh=00_AQPcFOoHO6AimqoBq4yDaAhfEXavjUDDu-9tujdpF83D9w&oe=6ACB5072",
+      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/836663063_2173338639886037_5844758523830970410_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=107&ccb=1-7&_nc_sid=92e707&_nc_ohc=7kFMB6MAdRUQ7kNvwHov7_o&_nc_oc=AdpLNPd4ss2UOn6ZxIX6tpQUeHPFKnqupNJDybGeo6Rv7Ao8WNwiS3kDDq98_km4xbA&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=3YkV_zETpOkKBp46BjHlyA&_nc_ss=7b2a8&oh=00_AQP39pgntaPisr_CHXRmjpqVDs_ctws3XuV41mkKNK22Ew&oe=6ACF44F2",
       "adUrl": "https://www.facebook.com/marketplace/item/1639643417868390/",
       "facebookGroupId": null,
       "facebookGroupName": null,
-      "priceChanged": 0,
-      "priceChangedAt": null,
+      "priceChanged": 1,
+      "priceChangedAt": "2026-10-09 21:35:10",
       "hidden": 0,
       "created_at": "2026-10-06 21:05:05",
-      "lastSeen": "2026-10-06T21:09:38.641Z"
+      "lastSeen": "2026-10-09T21:35:10.698Z"
     },
     {
       "adID": "1123356430229510",
@@ -1328,7 +1328,7 @@
       "lat": 27.7729445,
       "lon": -82.3981375,
       "location": "Apollo Beach, FL",
-      "imageUrl": "https://scontent-dfw6-2.xx.fbcdn.net/v/t39.84726-6/835510864_1630004495147203_6442566316341685978_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=108&ccb=1-7&_nc_sid=92e707&_nc_ohc=B15IK_7RlNMQ7kNvwE5aa8S&_nc_oc=AdpIaZuV2OeWdymREAUIo4KLuTl0G4s5YQJK_fIGPS8xFjItBtVUR4lQfHqT0YMXBJ4&_nc_zt=14&_nc_ht=scontent-dfw6-2.xx&_nc_gid=VgwThnW1HkeM5KT0F2HJnA&_nc_ss=7b2a8&oh=00_AQPwet_WgJ2Hhl9y--Q6j__l-fkfs2SR4eT9zU1wbOKe3A&oe=6ACB3DA8",
+      "imageUrl": "https://scontent-dfw6-2.xx.fbcdn.net/v/t39.84726-6/835510864_1630004495147203_6442566316341685978_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=108&ccb=1-7&_nc_sid=92e707&_nc_ohc=4p86dE_f83AQ7kNvwGXxiza&_nc_oc=Adr-vRRlXtjD-yNqfTZFzbM6BA-UutPQZiqJrTPZr9sIqWCtNna6M3BHH8HX4LDZNvo&_nc_zt=14&_nc_ht=scontent-dfw6-2.xx&_nc_gid=VKSnMGKHVD1ndb47p3h__g&_nc_ss=7b2a8&oh=00_AQNvbM668xX-QArrhN0PmKNbVHMF2t5I29FRHnK7fce_9g&oe=6ACF3228",
       "adUrl": "https://www.facebook.com/marketplace/item/1123356430229510/",
       "facebookGroupId": null,
       "facebookGroupName": null,
@@ -1336,7 +1336,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-10-06 20:05:06",
-      "lastSeen": "2026-10-06T20:09:50.039Z"
+      "lastSeen": "2026-10-09T21:35:10.732Z"
     },
     {
       "adID": "1069527335716256",
@@ -1579,6 +1579,28 @@
       "hidden": 0,
       "created_at": "2026-10-05 19:13:35",
       "lastSeen": "2026-10-08T19:33:59.237Z"
+    },
+    {
+      "adID": "2015859432390007",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/1105170054/?product_id=2015859432390007",
+      "author": "Corey Hubbard",
+      "postedTime": "2026-10-05T17:48:13.000Z",
+      "title": "Taito double dragon arcade game",
+      "description": "Vintage Taito Double Dragon arcade cabinet with a black finish and red trim. This upright unit has a two-player control panel with joysticks and colored buttons. The cabinet features original side art and a coin door with a key and a free play button modification. Seen online for thousands, this one needs repair but we have the parts!",
+      "price": "$900",
+      "lat": 27.7712264,
+      "lon": -82.6340259,
+      "location": "St Petersburg, FL",
+      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/838818796_4416094928705725_4917284648729016445_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=102&ccb=1-7&_nc_sid=92e707&_nc_ohc=HmG61ObBjAoQ7kNvwEsgIFo&_nc_oc=AdrfZan_VfUlfs4ClZ21QfPkF3aVCGMixxZthX618uummrxjDQDGUSLJsYdpf8lKmfs&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=yUIOji4jk9L3ziFuoxwAXA&_nc_ss=7b2a8&oh=00_AQMRRGZszKlVDzdT9XUos4ylHNcZKnXF5NU2Va5gMNGqeQ&oe=6ACF21E7",
+      "adUrl": "https://www.facebook.com/marketplace/item/2015859432390007/",
+      "facebookGroupId": null,
+      "facebookGroupName": null,
+      "priceChanged": 1,
+      "priceChangedAt": "2026-10-09 21:35:10",
+      "hidden": 0,
+      "created_at": "2026-10-05 18:05:03",
+      "lastSeen": "2026-10-09T21:35:10.899Z"
     },
     {
       "adID": "1478182980838101",
