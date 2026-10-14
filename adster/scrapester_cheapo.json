@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-14T14:14:05.638Z",
+  "generated_at": "2026-10-14T15:18:07.924Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,35 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 181,
-      "droppedPrice": 1589,
+      "exported_ads": 182,
+      "droppedPrice": 1591,
       "droppedMissingGeo": 0,
-      "droppedCircle": 1369
+      "droppedCircle": 1370
     }
   },
   "ads": [
+    {
+      "adID": "2017000979015677",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100017075288922/?product_id=2017000979015677",
+      "author": "Emmanuel Osorio",
+      "postedTime": "2026-10-13T01:15:31.000Z",
+      "title": "Machine snow cone.",
+      "description": "",
+      "price": "$350",
+      "lat": 34.6060203,
+      "lon": -86.9838165,
+      "location": "Decatur, AL",
+      "imageUrl": "https://scontent-dfw6-2.xx.fbcdn.net/v/t39.84726-6/845747103_1093899640019732_9156915987468374991_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=109&ccb=1-7&_nc_sid=92e707&_nc_ohc=9iC8hCdemx0Q7kNvwEcT_j6&_nc_oc=AdoFyWlERNLKJbCE8jXFrBNuL-_wU941tTO7AS98-Oqa1EV9YUrb3EZoF26nZqk8sv0&_nc_zt=14&_nc_ht=scontent-dfw6-2.xx&_nc_gid=XaGujzbH2KN_nAVmkVc4SA&_nc_ss=7b2a8&oh=00_AQPNe6mIgQ5FLm1PBwH_6WYPPUvMrZuq-ufvpaWXAC4FUw&oe=6AD5674A",
+      "adUrl": "https://www.facebook.com/marketplace/item/2017000979015677/",
+      "facebookGroupId": null,
+      "facebookGroupName": null,
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-10-14 15:12:39",
+      "lastSeen": "2026-10-14T15:17:08.163Z"
+    },
     {
       "adID": "1365572055649564",
       "source": "MP",
@@ -111,14 +133,14 @@
       "source": "MP",
       "authorUrl": "https://www.facebook.com/marketplace/profile/100071889460568/?product_id=1861776148602037",
       "author": "Andrea Padilla",
-      "postedTime": "2026-10-13T23:00:03.000Z",
+      "postedTime": "2026-07-12T15:43:55.000Z",
       "title": "Árcade stick para videojuegos",
       "description": "Control para videojuegos",
       "price": "$50",
       "lat": 33.9528472,
       "lon": -84.5496148,
       "location": "Marietta, GA",
-      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/844795627_4758583394424244_1710411402886390666_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=101&ccb=1-7&_nc_sid=92e707&_nc_ohc=9p7gsOnODBoQ7kNvwFSP59E&_nc_oc=AdpGJfwIYFiTsugdMiCyX9auAKtdsMsNhHIUqKLng_kHQ_kUEklPPrlNZtoow4NXaa4&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=KKQubpdym_XmewErTiqKZg&_nc_ss=7b2a8&oh=00_AQMm3NHIsQft42vgANvii16zzq39Y8r5MtXelswMXGj-Yg&oe=6AD48F08",
+      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/844795627_4758583394424244_1710411402886390666_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=101&ccb=1-7&_nc_sid=92e707&_nc_ohc=9p7gsOnODBoQ7kNvwFSP59E&_nc_oc=AdpGJfwIYFiTsugdMiCyX9auAKtdsMsNhHIUqKLng_kHQ_kUEklPPrlNZtoow4NXaa4&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=YvsifUM4zS1Z8YXBYklZ2w&_nc_ss=7b2a8&oh=00_AQNWrYtrdCfeVOebnAeAzFNZjeYq5XbfqgjkkHzjkZyWeg&oe=6AD57008",
       "adUrl": "https://www.facebook.com/marketplace/item/1861776148602037/",
       "facebookGroupId": null,
       "facebookGroupName": null,
@@ -126,7 +148,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-10-14 01:04:59",
-      "lastSeen": "2026-10-14T01:10:50.519Z"
+      "lastSeen": "2026-10-14T15:11:30.873Z"
     },
     {
       "adID": "1770979734137370",
@@ -382,7 +404,7 @@
       "lat": 31.4854475,
       "lon": -89.0328346,
       "location": "Ovett, MS",
-      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/846228265_2040319186671405_9157458281575036132_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=111&ccb=1-7&_nc_sid=92e707&_nc_ohc=vGW22MFffI8Q7kNvwHjp2ss&_nc_oc=AdqQMlJnvgrysYK4DAahj_Bl_N_B1z00bcV8oPdQHwGQNlbjHj2ow9FDmzKaXW4r0rA&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=_YwUZG1qTL185hGFXXAg-A&_nc_ss=7b2a8&oh=00_AQP90bDO1JoRpiNZmxILr7qrN44hn0WaoyDdAbPVUZmLDw&oe=6AD4641D",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/846228265_2040319186671405_9157458281575036132_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=111&ccb=1-7&_nc_sid=92e707&_nc_ohc=vGW22MFffI8Q7kNvwHjp2ss&_nc_oc=AdqQMlJnvgrysYK4DAahj_Bl_N_B1z00bcV8oPdQHwGQNlbjHj2ow9FDmzKaXW4r0rA&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=2ktAN5TyDanFDZ_D7c5elw&_nc_ss=7b2a8&oh=00_AQMfCUyu0tHaaOL-ZtKh-cJYjf3VrRq9YWFek6c-2NXVoA&oe=6AD57D5D",
       "adUrl": "https://www.facebook.com/marketplace/item/4523587317968794/",
       "facebookGroupId": null,
       "facebookGroupName": null,
@@ -390,7 +412,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-10-13 19:39:05",
-      "lastSeen": "2026-10-13T20:14:47.377Z"
+      "lastSeen": "2026-10-14T15:15:58.432Z"
     },
     {
       "adID": "969767589516639",
@@ -456,7 +478,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-10-13 16:33:57",
-      "lastSeen": "2026-10-14T14:13:59.859Z"
+      "lastSeen": "2026-10-14T15:18:03.264Z"
     },
     {
       "adID": "1133395269373549",
@@ -500,7 +522,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-10-13 16:20:47",
-      "lastSeen": "2026-10-14T14:08:30.603Z"
+      "lastSeen": "2026-10-14T15:12:40.044Z"
     },
     {
       "adID": "1654818159478065",
@@ -522,7 +544,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-10-13 16:20:46",
-      "lastSeen": "2026-10-14T14:08:30.469Z"
+      "lastSeen": "2026-10-14T15:12:39.910Z"
     },
     {
       "adID": "1600558027823678",
@@ -588,7 +610,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-10-13 15:52:34",
-      "lastSeen": "2026-10-14T14:08:30.570Z"
+      "lastSeen": "2026-10-14T15:12:40.010Z"
     },
     {
       "adID": "2183419032608507",
@@ -874,7 +896,7 @@
       "priceChangedAt": "2026-10-13 16:33:58",
       "hidden": 0,
       "created_at": "2026-10-12 17:22:54",
-      "lastSeen": "2026-10-14T14:14:00.813Z"
+      "lastSeen": "2026-10-14T15:18:03.902Z"
     },
     {
       "adID": "KLOV-555540",
@@ -896,7 +918,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-10-12 17:22:51",
-      "lastSeen": "2026-10-14T14:14:00.746Z"
+      "lastSeen": "2026-10-14T15:18:03.835Z"
     },
     {
       "adID": "PI-220198",
@@ -1138,7 +1160,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-10-12 16:27:11",
-      "lastSeen": "2026-10-14T14:08:30.937Z"
+      "lastSeen": "2026-10-14T15:12:40.390Z"
     },
     {
       "adID": "1852798705886670",
@@ -3074,7 +3096,7 @@
       "priceChangedAt": "2026-10-14 11:12:42",
       "hidden": 0,
       "created_at": "2026-10-02 17:05:00",
-      "lastSeen": "2026-10-14T14:08:31.223Z"
+      "lastSeen": "2026-10-14T15:05:03.497Z"
     },
     {
       "adID": "KLOV-565967",
@@ -3492,7 +3514,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-09-21 14:07:33",
-      "lastSeen": "2026-10-14T14:14:00.368Z"
+      "lastSeen": "2026-10-14T15:18:03.467Z"
     },
     {
       "adID": "38487697587544463",
