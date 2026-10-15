@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-15T17:20:10.911Z",
+  "generated_at": "2026-10-15T17:43:05.837Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,10 +11,10 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 209,
-      "droppedPrice": 1617,
+      "exported_ads": 207,
+      "droppedPrice": 1613,
       "droppedMissingGeo": 0,
-      "droppedCircle": 1443
+      "droppedCircle": 1436
     }
   },
   "ads": [
@@ -1724,7 +1724,7 @@
       "lat": 28.810823,
       "lon": -81.8778582,
       "location": "Leesburg, FL",
-      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/845436963_1051936964479937_77202018859723088_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=105&ccb=1-7&_nc_sid=92e707&_nc_ohc=n_JDLX3ss8gQ7kNvwGZaPRN&_nc_oc=AdrovV0ioofmKHHKL803ZnaiwO2eP2IuZKyGA7isk355rOzppcDPVH5GHZnPeCiF0S0&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=GVIFvv6mvEqDTBF27IWjMw&_nc_ss=7b2a8&oh=00_AQO9EfH325Qa2HiphRbtc9Vvo-ttneZBPTqZMJZnAa5e0w&oe=6AD2F19E",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/845436963_1051936964479937_77202018859723088_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=105&ccb=1-7&_nc_sid=92e707&_nc_ohc=jVIbGZw6REcQ7kNvwENgW95&_nc_oc=AdpCxceg0JtthoBCOwjoNppjBT5yj5ZTB0dPouOdijvpZG_5HQjIfqXHO3VrOqJ7s3c&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=_nIMyp7yJb_VSsUCzNq2pQ&_nc_ss=7b2a8&oh=00_AQN7_WEm52RjdBtJPwc5kL9-GsEADD8qFvpOJW4uE-5o5w&oe=6AD6E61E",
       "adUrl": "https://www.facebook.com/marketplace/item/1091272573513690/",
       "facebookGroupId": null,
       "facebookGroupName": null,
@@ -1732,7 +1732,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-10-12 16:58:36",
-      "lastSeen": "2026-10-12T17:09:46.668Z"
+      "lastSeen": "2026-10-15T17:41:39.761Z"
     },
     {
       "adID": "1132886785853718",
@@ -1801,28 +1801,6 @@
       "lastSeen": "2026-10-14T14:08:31.005Z"
     },
     {
-      "adID": "28523424270683772",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/100051736059005/?product_id=28523424270683772",
-      "author": "Edghar Diaz",
-      "postedTime": "2026-10-12T14:34:34.000Z",
-      "title": "AGPTEK LED-500 Smoke machine for parties with control lights and pedal",
-      "description": "Versatile AGPTEK LED-500 fog machine is black with integrated LED lights. This unit has a top-mounted handle and a fluid reservoir with a visible level indicator. The rear panel includes power and light switches, a controller port, and a standard power inlet. It comes with the original box.",
-      "price": "$40",
-      "lat": 33.7544657,
-      "lon": -84.3898151,
-      "location": "Atlanta, GA",
-      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/844278604_1846473710138471_6331210296960373056_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=101&ccb=1-7&_nc_sid=92e707&_nc_ohc=Nh9NcbZIht4Q7kNvwF5RkxQ&_nc_oc=AdrQBxghpd7cHgRbvNpUaTijXz01wPBqwoB7sl84kbYMBjTE0TKwANUaSR7kX1QQ6Yg&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=8VnwryvL7EpjuLmKdPhZdA&_nc_ss=7b2a8&oh=00_AQOq8h6frLHoVgv1eYSHdo7smGv7IREDNbAaEx023OHw9w&oe=6AD2E942",
-      "adUrl": "https://www.facebook.com/marketplace/item/28523424270683772/",
-      "facebookGroupId": null,
-      "facebookGroupName": null,
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-10-12 16:27:19",
-      "lastSeen": "2026-10-12T16:56:33.667Z"
-    },
-    {
       "adID": "1787863389032501",
       "source": "MP",
       "authorUrl": "https://www.facebook.com/marketplace/profile/61594118427599/?product_id=1787863389032501",
@@ -1834,7 +1812,7 @@
       "lat": 29.1871986,
       "lon": -82.1400923,
       "location": "Ocala, FL",
-      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/846611896_1097290566488811_1043694340566314276_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=105&ccb=1-7&_nc_sid=92e707&_nc_ohc=R5qcyWJ1kSEQ7kNvwG3ME5-&_nc_oc=AdpeqhWKHc6B5PLszKU7LSsqTXg8rkfSKFp17ftBwAvaSf0LlelBRq62IzXdKrPWIhg&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=0BFa_ubU0jZfNmdGXGfRGQ&_nc_ss=7b2a8&oh=00_AQNZ03meJOrRsapsafrqpzNGaRZKabQyyyjPc48QE05ScQ&oe=6AD2C92E",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/846611896_1097290566488811_1043694340566314276_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=105&ccb=1-7&_nc_sid=92e707&_nc_ohc=Eeadcjh0dkkQ7kNvwGv3u7j&_nc_oc=AdpwlGImRbCR06chkCifRcwT5NO5xX7a_b68IImnyOOcCdVNIQ2UblrObynLGa7338w&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=MYg3nECDCLboolmSIyBSNw&_nc_ss=7b2a8&oh=00_AQNRVfw4BY6TUDE3HDpFDXEaOodqmTVImO6sduade_5qsw&oe=6AD6F5EE",
       "adUrl": "https://www.facebook.com/marketplace/item/1787863389032501/",
       "facebookGroupId": null,
       "facebookGroupName": null,
@@ -1842,21 +1820,21 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-10-12 16:27:17",
-      "lastSeen": "2026-10-12T16:56:32.494Z"
+      "lastSeen": "2026-10-15T17:36:28.372Z"
     },
     {
       "adID": "1261067176177153",
       "source": "MP",
       "authorUrl": "https://www.facebook.com/marketplace/profile/1519281964/?product_id=1261067176177153",
       "author": "Todd Ross",
-      "postedTime": "2026-10-11T21:00:08.000Z",
+      "postedTime": "2026-08-27T13:23:33.000Z",
       "title": "Arcade Performance Stretch Belt",
       "description": "Arcade Performance Stretch Belt Woody Heather Limo W/Micro Adjustable Buckle Up to 40 inches",
       "price": "$24",
       "lat": 30.3262247,
       "lon": -81.6579179,
       "location": "Jacksonville, FL",
-      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/846467331_1097364772884071_1941052162020973666_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=103&ccb=1-7&_nc_sid=92e707&_nc_ohc=yeLifnXhedwQ7kNvwEwhlbO&_nc_oc=AdoQshxJ-VHcaVcxNpAa8sC0u2NW6rtVYJX4ogxfpfz3ZjJRFlWHH76lp4L7YQsMpbY&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=7Gr_U20RyTNLflq_E4y-HA&_nc_ss=7b2a8&oh=00_AQPiN-OaOrYb7La1na73cIt7hsJtTeUa1MNsjymx41C-EA&oe=6AD2F037",
+      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/846467331_1097364772884071_1941052162020973666_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=103&ccb=1-7&_nc_sid=92e707&_nc_ohc=V8PX8VlWE2IQ7kNvwEsvf4h&_nc_oc=AdpmcW0N8gESRZoO_SnB-WXPSgemEJ82ODqO8CRBc92HmYzqL7ROxfqvzl59bi5NA-E&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=-wameA9TEF-JKhwcr6Sjyw&_nc_ss=7b2a8&oh=00_AQOpQEiTigljzN2gfWOGtZozZSfTTZaE6F2b6P6LZvZVaw&oe=6AD6E4B7",
       "adUrl": "https://www.facebook.com/marketplace/item/1261067176177153/",
       "facebookGroupId": null,
       "facebookGroupName": null,
@@ -1864,29 +1842,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-10-12 16:27:12",
-      "lastSeen": "2026-10-12T16:49:29.860Z"
-    },
-    {
-      "adID": "1842487630525427",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/100004360027059/?product_id=1842487630525427",
-      "author": "Rob Moayedzadeh",
-      "postedTime": "2026-10-11T20:21:27.000Z",
-      "title": "Dragon's Lair Arcade Machine",
-      "description": "Awesome Dragon's Lair arcade machine is black. It has Dragon's Lair graphics on side.",
-      "price": "$640",
-      "lat": 34.2073196,
-      "lon": -84.1401926,
-      "location": "Cumming, GA",
-      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/843520455_2187218995542975_1188216476767387236_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=103&ccb=1-7&_nc_sid=92e707&_nc_ohc=becw-78PP70Q7kNvwF6XPaB&_nc_oc=AdpHWeBywX1EnzboLp4YtiswMWL5GZgNQpXmRxDUvQIjLXVYjoYT-1ymFjfwPAIk3R0&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=AEZPSGCr-gyB05UIGvVTrw&_nc_ss=7b2a8&oh=00_AQMc1xaySO7GqboQRtlRvhAECfrgdg0ZeQBIfevYCKMQUw&oe=6AD2D592",
-      "adUrl": "https://www.facebook.com/marketplace/item/1842487630525427/",
-      "facebookGroupId": null,
-      "facebookGroupName": null,
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-10-12 16:27:12",
-      "lastSeen": "2026-10-12T16:52:58.438Z"
+      "lastSeen": "2026-10-15T17:39:49.987Z"
     },
     {
       "adID": "1630270578886346",
@@ -1915,22 +1871,22 @@
       "source": "MP",
       "authorUrl": "https://www.facebook.com/marketplace/profile/737446152/?product_id=1852798705886670",
       "author": "Chad Ross",
-      "postedTime": "2026-10-11T22:06:01.000Z",
+      "postedTime": "2026-08-27T13:23:33.000Z",
       "title": "Original 1987 Twin Cobra Arcade Cabinet (Project / Needs PCB Repair)",
       "description": "Selling an original 1987 Twin Cobra arcade cabinet (Romstar/Toaplan). This is a complete, original cabinet that makes a perfect candidate for a dedicated restoration or a straightforward multicade/MAME conversion. The CRT monitor and power supply are working, but the original game board (PCB) currently needs logic-level repair to boot the game. The Details: Cabinet & Art: Solid cabinet with the original glass bezel and an original Romstar marquee in excellent, vibrant condition. The control panel overlay (CPO) shows typical arcade wear and peeling around the joysticks/buttons and will eventually need a reproduction sticker if you want a perfect look. Power Supply: The switching power supply is fully functional and recently dialed in. It is delivering a steady 5.12V to the board. CRT Monitor: The original CRT monitor is intact, receives power, and holds a raster/glow (no neck glow issues or broken glass). The Technical Issue (For Arcade Techs): The game board is currently stuck in a \"watchdog reset loop.\" When powered on, the screen remains blank/gray and the audio outputs a continuous, rapid clicking/beeping sound. I have already cleaned the JAMMA edge connector, eliminated chip-creep by reseating all socketed ROMs, and verified the 5.12V line. The board is physically pristine with no gouges or visible corrosion, meaning a component (likely RAM or a logic chip) has failed internally. It will need to be diagnosed with a logic probe or sent to a mail-in repair specialist. Cabinet is sold as-is. It is heavy, so please bring a friend and a truck for loading. Ground floor pickup. Cash only.",
-      "price": "$800",
+      "price": "$400",
       "lat": 29.1871986,
       "lon": -82.1400923,
       "location": "Ocala, FL",
-      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/843474598_1521857836448228_4775110969425280666_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=104&ccb=1-7&_nc_sid=92e707&_nc_ohc=AHnD5FFro00Q7kNvwGfwrnh&_nc_oc=AdoH3CAJQcxoR88sylzYMzd5cTs0uQxD5PuibWGT26f-i2YJXYuURi9HkEaTTLXSpj0&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=CfwgUmoGMu4AWRmMhH73nA&_nc_ss=7b2a8&oh=00_AQM2ZP94Qxs2cwpE8jRSPmKKflF4PNpXjRtmr_3H129Zjg&oe=6AD2E895",
+      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/843474598_1521857836448228_4775110969425280666_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=104&ccb=1-7&_nc_sid=92e707&_nc_ohc=NCXkgmY7xuoQ7kNvwGRGy-G&_nc_oc=Adrp2twg1vKGApUOZMjISfIshCZuxCeYxRaFErCt7hfOAz9H-aQg7zeRjZ9aANvUSFY&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=MQXH9LzqxgeDfe8xHXKtIw&_nc_ss=7b2a8&oh=00_AQMKdEVpBnmW9ZuTWgd0HqQHnTywOkosb-_H2NqLEaNzpg&oe=6AD6DD15",
       "adUrl": "https://www.facebook.com/marketplace/item/1852798705886670/",
       "facebookGroupId": null,
       "facebookGroupName": null,
-      "priceChanged": 0,
-      "priceChangedAt": null,
+      "priceChanged": 1,
+      "priceChangedAt": "2026-10-15 17:39:49",
       "hidden": 0,
       "created_at": "2026-10-12 16:27:10",
-      "lastSeen": "2026-10-12T16:49:20.457Z"
+      "lastSeen": "2026-10-15T17:39:49.951Z"
     },
     {
       "adID": "1625660065574649",
@@ -1940,19 +1896,19 @@
       "postedTime": "2026-10-11T23:28:02.000Z",
       "title": "Vintage Sega Choplifter Arcade Game (Taito Conversion Cabinet)",
       "description": "Up for sale is a classic Sega Choplifter arcade machine in a vintage Taito cabinet. This is what collectors call an \"upright conversion\"—it features the authentic Choplifter game board, control panel, and marquee, all housed in a sturdy Taito arcade shell with its original green side art. Working Condition: The game boots up, and the CRT monitor is bright, colorful, and fully functional. Cabinet Condition: The cabinet is structurally sound but shows expected cosmetic wear, scuffs, and minor dings consistent with a classic arcade machine of this age. The coin door is intact. Gameplay: Classic helicopter rescue action with a fully outfitted Sega control panel featuring the joystick and dual fire/direction buttons.",
-      "price": "$800",
+      "price": "$700",
       "lat": 29.1871986,
       "lon": -82.1400923,
       "location": "Ocala, FL",
-      "imageUrl": "https://scontent-dfw6-2.xx.fbcdn.net/v/t39.84726-6/844177064_2997023847307498_7653820802554255906_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=110&ccb=1-7&_nc_sid=92e707&_nc_ohc=Kn8LJ8pEXaMQ7kNvwH8cRb4&_nc_oc=AdpdC1juoOqtXLlCMAaoq--Is45ZQ6T1gyiiWOEakH6zx8vfIxFjNzV34ImTr8zAisA&_nc_zt=14&_nc_ht=scontent-dfw6-2.xx&_nc_gid=Vq5fpIgkVt7QO5yGhZS7vw&_nc_ss=7b2a8&oh=00_AQPqMcljdyp3Z0MPNKKVs_I-_-ypSRxwtr9pPsrJNdz-ow&oe=6AD2FAD0",
+      "imageUrl": "https://scontent-dfw6-2.xx.fbcdn.net/v/t39.84726-6/844177064_2997023847307498_7653820802554255906_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=110&ccb=1-7&_nc_sid=92e707&_nc_ohc=oqJRyqL0JuUQ7kNvwGaii9T&_nc_oc=AdokhF6Z0aEldO0t2O4Al7waM3rbEgxXpOqh6HXtFZmN3kawg1zPAFR7NKmwgeGY6Nk&_nc_zt=14&_nc_ht=scontent-dfw6-2.xx&_nc_gid=GwlX7ybi57mQy1GuUioUQA&_nc_ss=7b2a8&oh=00_AQPg-DS_dQEizG5ZX88op8tJxJZXvP2rzF-ZPQ5SapiFhg&oe=6AD6EF50",
       "adUrl": "https://www.facebook.com/marketplace/item/1625660065574649/",
       "facebookGroupId": null,
       "facebookGroupName": null,
-      "priceChanged": 0,
-      "priceChangedAt": null,
+      "priceChanged": 1,
+      "priceChangedAt": "2026-10-15 17:39:49",
       "hidden": 0,
       "created_at": "2026-10-12 16:27:09",
-      "lastSeen": "2026-10-12T16:45:43.884Z"
+      "lastSeen": "2026-10-15T17:39:49.716Z"
     },
     {
       "adID": "2571613933266521",
@@ -1966,7 +1922,7 @@
       "lat": 29.1871986,
       "lon": -82.1400923,
       "location": "Ocala, FL",
-      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/840191586_1407724748176050_247526422045099602_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=101&ccb=1-7&_nc_sid=92e707&_nc_ohc=5cie2_fCLN4Q7kNvwHF8hlQ&_nc_oc=Adq88XKvlszqwx2DmV0R81706yLeD0u8udBJMcJ8ibBwCFUzAX80_QJGmB4j1qsOI90&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=xpusbgvVQy6AMv9L6XDgYw&_nc_ss=7b2a8&oh=00_AQO4t1EtDXZ6shSG6HUn7KQQEvL4DOiPnGzYOwx5u0SgYw&oe=6AD2D759",
+      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/840191586_1407724748176050_247526422045099602_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=101&ccb=1-7&_nc_sid=92e707&_nc_ohc=WyzRt7ng2B0Q7kNvwGkJE03&_nc_oc=AdrK_EbOoohNbob6JLxJex2VkPVPmiK_2Ude8pa66Uws2jH4qPnWKnI8ORff8P-hlkY&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=WAN786N7EcS7-r8oOEW2sw&_nc_ss=7b2a8&oh=00_AQM3DQtLBUupPm82zYeZJ3P3XbuyK5bBZ6pSyBum965q2g&oe=6AD6CBD9",
       "adUrl": "https://www.facebook.com/marketplace/item/2571613933266521/",
       "facebookGroupId": null,
       "facebookGroupName": null,
@@ -1974,7 +1930,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-10-12 16:27:08",
-      "lastSeen": "2026-10-12T16:42:11.309Z"
+      "lastSeen": "2026-10-15T17:39:49.618Z"
     },
     {
       "adID": "1599064154398511",
