@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-16T21:11:41.489Z",
+  "generated_at": "2026-10-16T21:38:50.308Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,10 +11,10 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 234,
-      "droppedPrice": 1657,
+      "exported_ads": 233,
+      "droppedPrice": 1654,
       "droppedMissingGeo": 0,
-      "droppedCircle": 1503
+      "droppedCircle": 1498
     }
   },
   "ads": [
@@ -1625,28 +1625,6 @@
       "lastSeen": "2026-10-13T22:18:47.054Z"
     },
     {
-      "adID": "28448020191506468",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/61594094949258/?product_id=28448020191506468",
-      "author": "SquishyAde Needoh",
-      "postedTime": "2026-10-13T17:41:31.000Z",
-      "title": "Fuzz Ball",
-      "description": "Teenie Fuzz Ball $25 Regular FB $13 Green Fuzz Ball $16",
-      "price": "$15",
-      "lat": 33.9528472,
-      "lon": -84.5496148,
-      "location": "Marietta, GA",
-      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/846504357_1392646256285481_4459585964671537727_n.jpg?stp=dst-jpg_p960x960_tt6&_nc_cat=100&ccb=1-7&_nc_sid=92e707&_nc_ohc=2jdVKYN8qjAQ7kNvwFmrS7a&_nc_oc=AdqTYpbJsQm8Jv3iib0J4RdmC68q5DP768kgRrshbRILZ4l9ex5ZFGc6kXCmtB0SShI&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=CYDSeNtVu2C0SJ0IKLwoFw&_nc_ss=7b2a8&oh=00_AQOx4OWO_0nEAd9r1LBSh4bc3KXochZectSahZ0G2J_OLw&oe=6AD474FD",
-      "adUrl": "https://www.facebook.com/marketplace/item/28448020191506468/",
-      "facebookGroupId": null,
-      "facebookGroupName": null,
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-10-13 21:12:24",
-      "lastSeen": "2026-10-13T21:19:50.891Z"
-    },
-    {
       "adID": "1765778031204864",
       "source": "MP",
       "authorUrl": "https://www.facebook.com/marketplace/profile/1277817792/?product_id=1765778031204864",
@@ -1724,7 +1702,7 @@
       "lat": 29.0491426,
       "lon": -82.4609331,
       "location": "Dunnellon, FL",
-      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/846258577_1998715830791995_3219471182958290684_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=103&ccb=1-7&_nc_sid=92e707&_nc_ohc=1JGXgkMREyYQ7kNvwFXCqNN&_nc_oc=AdokCg1NP2O6EW9x_xpnbrzGWqJnkg6bLXUGDvaIsWhgIM2Pb3GNMXV80fXZwFqUAQo&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=9bIK_rvkwkSeawgR9sUjPQ&_nc_ss=7b2a8&oh=00_AQNRQxy1zfHFKkMGywyk9aOFgRs2WZhp3PdsEknVIPz7hQ&oe=6AD47DCD",
+      "imageUrl": "https://scontent-atl3-1.xx.fbcdn.net/v/t39.84726-6/846258577_1998715830791995_3219471182958290684_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=103&ccb=1-7&_nc_sid=92e707&_nc_ohc=K1Z2r02tbbIQ7kNvwF_Ezrb&_nc_oc=AdriimfemEPYY6k8-2xubkUzc6j4sVGjwU_ODFHsP6ZiZcFSqtWlXFdIcNpOir7KnX0&_nc_zt=14&_nc_ht=scontent-atl3-1.xx&_nc_gid=8FcXQ_75BVW6ZT-FkWeEDA&_nc_ss=7b2a8&oh=00_AQPJNhLBkPQBvkgfd-ciaBATJ7nOUNHQFSxGt6cayC8O4w&oe=6AD8724D",
       "adUrl": "https://www.facebook.com/marketplace/item/2260744841439936/",
       "facebookGroupId": null,
       "facebookGroupName": null,
@@ -1732,7 +1710,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-10-13 20:04:58",
-      "lastSeen": "2026-10-13T20:14:47.848Z"
+      "lastSeen": "2026-10-16T21:36:28.214Z"
     },
     {
       "adID": "4523587317968794",
@@ -1790,7 +1768,7 @@
       "lat": 33.6676103,
       "lon": -84.0176904,
       "location": "Conyers, GA",
-      "imageUrl": "https://scontent-dfw6-2.xx.fbcdn.net/v/t39.84726-6/847182100_28747254694924957_2999879018013866204_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=110&ccb=1-7&_nc_sid=92e707&_nc_ohc=7ulS1yFjeTMQ7kNvwE6_-4Y&_nc_oc=AdqvKGs6SWX6fhoy_4sAuhGo1tJqnbUDWPRNOOoAmoKfA8fAOoWqVjMNCWaPJG5y9Qg&_nc_zt=14&_nc_ht=scontent-dfw6-2.xx&_nc_gid=arsEJ7n1iR7T9neHyh9VvQ&_nc_ss=7b2a8&oh=00_AQPlu0PrxPew68kxD6HwphVMTTCqw27oHH6VBZoKC-l8qQ&oe=6AD46AD9",
+      "imageUrl": "https://scontent-atl3-1.xx.fbcdn.net/v/t39.84726-6/847182100_28747254694924957_2999879018013866204_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=110&ccb=1-7&_nc_sid=92e707&_nc_ohc=p7PNhMQSKTAQ7kNvwF-cUG7&_nc_oc=AdolRsAWKK0vRux_En7z9zYzHdHu1AmnrIxgUev5hR3QEasjhLjmzNdwSgPJvJj_eXM&_nc_zt=14&_nc_ht=scontent-atl3-1.xx&_nc_gid=YSIcr4EYyM3Es7JMRygarQ&_nc_ss=7b2a8&oh=00_AQO4OjgjtiyXugTb4nDN5pB5lQNkBhR9zfVL3fX3UL8h2g&oe=6AD85F59",
       "adUrl": "https://www.facebook.com/marketplace/item/3742016495960562/",
       "facebookGroupId": null,
       "facebookGroupName": null,
@@ -1798,7 +1776,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-10-13 19:39:04",
-      "lastSeen": "2026-10-13T20:14:47.343Z"
+      "lastSeen": "2026-10-16T21:36:28.045Z"
     },
     {
       "adID": "KLOV-568013",
@@ -1922,7 +1900,7 @@
       "lat": 30.3262247,
       "lon": -81.6579179,
       "location": "Jacksonville, FL",
-      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/847886355_3805439842963066_5828937019812197247_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=111&ccb=1-7&_nc_sid=92e707&_nc_ohc=wxCIvPl925YQ7kNvwGgrXzH&_nc_oc=AdobtZGAxPM60YXolaHOGZl7dY_WCkfuL1FmiSfOICTgtP84uoWamxk9Ps6ly9k7lng&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=HWd8M_2nTHA8aIQJe81whg&_nc_ss=7b2a8&oh=00_AQOjToUjYtVNR7pKkTvizZFVIx5jxOiN9J930kcTR-gmpQ&oe=6AD46BC7",
+      "imageUrl": "https://scontent-atl3-2.xx.fbcdn.net/v/t39.84726-6/847886355_3805439842963066_5828937019812197247_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=111&ccb=1-7&_nc_sid=92e707&_nc_ohc=kW30Nh7gAVgQ7kNvwHxbnWQ&_nc_oc=Ado30SQuOCkxDJEv-rtfoMu82DQ6Wo4hj_vvUiMhX3UBJeBjrGOkCpLW0qlkrt1kFus&_nc_zt=14&_nc_ht=scontent-atl3-2.xx&_nc_gid=puvSCN5Hr2NK1dJ-Ppgtmg&_nc_ss=7b2a8&oh=00_AQO28rzGgKgLTec8UYM7idAyqyzl4tTwyNMicYmRrrTdBQ&oe=6AD86047",
       "adUrl": "https://www.facebook.com/marketplace/item/1649019486825612/",
       "facebookGroupId": null,
       "facebookGroupName": null,
@@ -1930,7 +1908,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-10-13 15:52:35",
-      "lastSeen": "2026-10-13T20:25:44.288Z"
+      "lastSeen": "2026-10-16T21:38:10.792Z"
     },
     {
       "adID": "1129689796262548",
@@ -3576,8 +3554,8 @@
       "adUrl": "https://www.facebook.com/marketplace/item/1639643417868390/",
       "facebookGroupId": null,
       "facebookGroupName": null,
-      "priceChanged": 1,
-      "priceChangedAt": "2026-10-14 21:36:11",
+      "priceChanged": 0,
+      "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-10-06 21:05:05",
       "lastSeen": "2026-10-14T21:36:11.751Z"
