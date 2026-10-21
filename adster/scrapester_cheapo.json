@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-21T17:21:58.210Z",
+  "generated_at": "2026-10-21T17:38:41.239Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,10 +11,10 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 314,
-      "droppedPrice": 1834,
+      "exported_ads": 312,
+      "droppedPrice": 1835,
       "droppedMissingGeo": 0,
-      "droppedCircle": 1766
+      "droppedCircle": 1763
     }
   },
   "ads": [
@@ -1768,7 +1768,7 @@
       "lat": 33.7544657,
       "lon": -84.3898151,
       "location": "Atlanta, GA",
-      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/853677802_1084499164409515_1485804637443438561_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=105&ccb=1-7&_nc_sid=92e707&_nc_ohc=OCYKPJORtqQQ7kNvwGKY-VT&_nc_oc=Adrt4PG97H6MiyKDpLAMf-aADS4OjxgYgeHsLMDPm0zYNBColTgc_zbACEPmBAgxeus&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=6lueS6J8bA128XpFs8XjNA&_nc_ss=7b2a8&oh=00_AQP8uTYZqJsUd6afQZw1SQ9A0iC5eovN3RpL2py7tQUhiQ&oe=6ADAD19C",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/853677802_1084499164409515_1485804637443438561_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=105&ccb=1-7&_nc_sid=92e707&_nc_ohc=rCyhf1bWxoUQ7kNvwHLtcbd&_nc_oc=AdorMhYc4diKy4KuwkQnjd560OTWzlaKo4f1MyouzfrELziZZrgBxJ9_HaDq_ViPD6Q&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=nTdeezgxIgOmh9LpW4C8cw&_nc_ss=7b2a8&oh=00_AQNkaAVDU_lQzOHsh4H3pPjiDxuLfaPb_t7_EuoRg-ZfzQ&oe=6ADEC61C",
       "adUrl": "https://www.facebook.com/marketplace/item/1096764806300211/",
       "facebookGroupId": null,
       "facebookGroupName": null,
@@ -1776,7 +1776,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-10-18 16:05:59",
-      "lastSeen": "2026-10-18T16:12:21.075Z"
+      "lastSeen": "2026-10-21T17:32:37.431Z"
     },
     {
       "adID": "4432541550392563",
@@ -2439,28 +2439,6 @@
       "lastSeen": "2026-10-18T18:05:01.762Z"
     },
     {
-      "adID": "1113002464447155",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/785854578/?product_id=1113002464447155",
-      "author": "Dawn Mike Jarnigan",
-      "postedTime": "2026-10-16T14:09:47.000Z",
-      "title": "Pinball Machine",
-      "description": "Barely use pinball machine, but it needs repair.",
-      "price": "$30",
-      "lat": 31.2135511,
-      "lon": -82.3540178,
-      "location": "Waycross, GA",
-      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/852948839_2414910312612578_468030364668036651_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=102&ccb=1-7&_nc_sid=92e707&_nc_ohc=tE1tRUb4yaYQ7kNvwEMVwmw&_nc_oc=AdoFqCn9-et60qr1lByFSD8Pdbq3dS13ltL6k_wZp0PKF_RyhpHot5iOamrwF5HVt1I&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=DpwZQPMoZZsbMqJmiJFFtg&_nc_ss=7b2a8&oh=00_AQOH_k3Zzje9cOHb3hYrR3IBJtMn_OR4DKy8z-VXoCYsyA&oe=6AD96A17",
-      "adUrl": "https://www.facebook.com/marketplace/item/1113002464447155/",
-      "facebookGroupId": null,
-      "facebookGroupName": null,
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-10-16 15:04:56",
-      "lastSeen": "2026-10-18T16:05:58.554Z"
-    },
-    {
       "adID": "2230722247867393",
       "source": "MP",
       "authorUrl": "https://www.facebook.com/marketplace/profile/1834575360/?product_id=2230722247867393",
@@ -2934,7 +2912,7 @@
       "lat": 34.729847,
       "lon": -86.5859011,
       "location": "Huntsville, AL",
-      "imageUrl": "https://scontent-dfw6-2.xx.fbcdn.net/v/t39.84726-6/849099542_2149616822616350_8337558248618108020_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=108&ccb=1-7&_nc_sid=92e707&_nc_ohc=gudi2Cj_Ve0Q7kNvwFxnHqb&_nc_oc=Adq4sDEHarcXkQ28yT1MMtLOq5ERg04Sq6LxvQ9SHJdXtVeKO63a15NzSbD3AvLbUfw&_nc_zt=14&_nc_ht=scontent-dfw6-2.xx&_nc_gid=rQaXlmM4EsVQS0-g_TbvHg&_nc_ss=7b2a8&oh=00_AQPv464-Sry1-T5HvEsaGg0W-mouwHEo5j2rvaduBZItCA&oe=6ADAAAC3",
+      "imageUrl": "https://scontent-dfw6-2.xx.fbcdn.net/v/t39.84726-6/849099542_2149616822616350_8337558248618108020_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=108&ccb=1-7&_nc_sid=92e707&_nc_ohc=Ydajae0bK0MQ7kNvwGwJlkZ&_nc_oc=AdrXsNSVjskl4dgWZHM5Kl-YUfDCUfqjaTiiKidrWDajBHxipaAJsaKoVBx0YFzXQSs&_nc_zt=14&_nc_ht=scontent-dfw6-2.xx&_nc_gid=d7K_4g2AcmSqTJRcvQv-kg&_nc_ss=7b2a8&oh=00_AQNBC2J7gHgdTdCZGqgosyRF43Drr3xbG_d_t4nJ8OKTRw&oe=6ADED783",
       "adUrl": "https://www.facebook.com/marketplace/item/1749786152773029/",
       "facebookGroupId": null,
       "facebookGroupName": null,
@@ -2942,21 +2920,21 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-10-15 15:18:09",
-      "lastSeen": "2026-10-18T15:36:13.479Z"
+      "lastSeen": "2026-10-21T17:32:37.866Z"
     },
     {
       "adID": "1780936816443700",
       "source": "MP",
       "authorUrl": "https://www.facebook.com/marketplace/profile/100006217988770/?product_id=1780936816443700",
       "author": "Jessica Henderson",
-      "postedTime": "2026-10-15T14:19:37.000Z",
+      "postedTime": "2026-08-22T12:13:48.000Z",
       "title": "(PENDING) Giant Play-doh can",
       "description": "I made this giant play doh can for my little grandsons birthday party. I can’t say the theme due to copyright but Buzz and Woody were presentation if you catch my drift !! This would be great to hold toys or a nice trunk r treat addition. Made from a 5 gallon bucket.",
       "price": "$10",
       "lat": 34.3684295,
       "lon": -86.908616,
       "location": "Falkville, AL",
-      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/850450112_1451702823773702_4058471192290167103_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=106&ccb=1-7&_nc_sid=92e707&_nc_ohc=AcaYs64bMGIQ7kNvwGEAPpp&_nc_oc=AdpWFBiGJ3czNVFDcRYwcaqSFybea1SxJtzErPzpT9dDnPokzimQ0QWnIXpJ4GUvwww&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=iKBgWnwitcCWuHUOXsmrSg&_nc_ss=7b2a8&oh=00_AQNi1leMXgrUHnuYRVu1Iwmco4zIID4_bnMUJY1XecPQAg&oe=6ADAC44B",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/850450112_1451702823773702_4058471192290167103_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=106&ccb=1-7&_nc_sid=92e707&_nc_ohc=Kysr3Y5RUaMQ7kNvwFVn0dm&_nc_oc=AdrPWl4ljCCmScp2mt7O0_x91oR-BEWj9qpKP7i7PJbANP0U7lv83ZriUzvWorATgmY&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=_6aQ3xbSebgQYC0fqIfypA&_nc_ss=7b2a8&oh=00_AQOrnf0V5Ll_RNtCdVlfDMoPF9yE7FxOMGJVv7wCq3-pLw&oe=6ADEB8CB",
       "adUrl": "https://www.facebook.com/marketplace/item/1780936816443700/",
       "facebookGroupId": null,
       "facebookGroupName": null,
@@ -2964,7 +2942,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-10-15 15:18:09",
-      "lastSeen": "2026-10-18T15:36:13.513Z"
+      "lastSeen": "2026-10-21T17:35:33.579Z"
     },
     {
       "adID": "4630345103867509",
@@ -2987,28 +2965,6 @@
       "hidden": 0,
       "created_at": "2026-10-15 15:18:09",
       "lastSeen": "2026-10-19T06:09:22.980Z"
-    },
-    {
-      "adID": "1949409939636757",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/61595332953238/?product_id=1949409939636757",
-      "author": "Dan Diecast",
-      "postedTime": "2026-10-14T13:20:28.000Z",
-      "title": "Ozzy Osborne c10 m2 machines 1/24",
-      "description": "Ozzy Osborne c10 m2 machines 1/24 brand new never been open getting rid of stuff from my collection and doing fair prices asking $45",
-      "price": "$45",
-      "lat": 34.2978794,
-      "lon": -83.8240663,
-      "location": "Gainesville, GA",
-      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/847978972_2137566163534241_2819524640607967160_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=101&ccb=1-7&_nc_sid=92e707&_nc_ohc=PO8aHXvkDSsQ7kNvwHXUG2T&_nc_oc=AdrjDprU4SPvpqPfOjS33mj_kq-GZ1mggkVqPyttx8of2uGVg0A2e50WXoXkB-op6LM&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=8JxXzpf0iQrt1mhqOlcERg&_nc_ss=7b2a8&oh=00_AQPc5HvTDkZ7rHrcefTSqjsyRVdMxuymuQek7-UX132zZA&oe=6ADABCCA",
-      "adUrl": "https://www.facebook.com/marketplace/item/1949409939636757/",
-      "facebookGroupId": null,
-      "facebookGroupName": null,
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-10-15 13:09:11",
-      "lastSeen": "2026-10-18T15:39:40.808Z"
     },
     {
       "adID": "KLOV-568062",
@@ -3220,7 +3176,7 @@
       "lat": 28.9203666,
       "lon": -82.4636305,
       "location": "Beverly Hills, FL",
-      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/845732166_2549381785888321_5680405646012526978_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=100&ccb=1-7&_nc_sid=92e707&_nc_ohc=q_ZvHEoz0qYQ7kNvwEb21NH&_nc_oc=Adp9_8iM--qCAxM4zYZvKHq8aqla6nGw_M4IPyNqALkHSClBoHCAAzXeaMSEG-I3CSc&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=4bfjkLO306UhOo75T6eaGA&_nc_ss=7b2a8&oh=00_AQOVJcNg-i0RFLJDjzIlH53B0NZie727wwlT0IgzcciaKg&oe=6ADAB150",
+      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/845732166_2549381785888321_5680405646012526978_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=100&ccb=1-7&_nc_sid=92e707&_nc_ohc=hr5kRG2tUIIQ7kNvwH7SoCr&_nc_oc=AdrYcOZx9TrwCEKoFRrJRyx4QNKddwuoT0EAIP8o1RTL2CvhMehUxOeB_mwfPYGET8I&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=R2J05zXvcGzpyJN5NhtcrQ&_nc_ss=7b2a8&oh=00_AQNEgUCbf6SffLF64VL1XNwe59XDHmXy4GQHI4Hq5bVCMA&oe=6ADEDE10",
       "adUrl": "https://www.facebook.com/marketplace/item/2170191287234204/",
       "facebookGroupId": null,
       "facebookGroupName": null,
@@ -3228,7 +3184,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-10-14 20:11:44",
-      "lastSeen": "2026-10-18T15:36:13.915Z"
+      "lastSeen": "2026-10-21T17:35:34.038Z"
     },
     {
       "adID": "3364743497064824",
@@ -3301,14 +3257,14 @@
       "source": "MP",
       "authorUrl": "https://www.facebook.com/marketplace/profile/100080394352819/?product_id=2284321229087172",
       "author": "Dylan C Black",
-      "postedTime": "2026-10-14T16:21:40.000Z",
+      "postedTime": "2026-08-22T12:13:48.000Z",
       "title": "Romstar sky shark arcade game",
       "description": "Price is not 1 dollar no monitor has some parts inside basically just a shell make an offer pickup location Dallas ga no delivery cash only",
       "price": "$1",
       "lat": 33.9237141,
       "lon": -84.8407732,
       "location": "Dallas, GA",
-      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/848119754_1110053885155081_7363452144003783174_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=102&ccb=1-7&_nc_sid=92e707&_nc_ohc=V3QLdwLFvEQQ7kNvwH-FPKb&_nc_oc=Adpb4OZZZgqi4e9zvhaEW9jSwAs4tUqKLGpzOUR6O5OUgtrndykDM3ROI_xt5uArskc&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=Hzddsl_162TbB90zNyWIjg&_nc_ss=7b2a8&oh=00_AQN2l63ZNnj1rAaDmBsleEahx6MDJhhg8zrs5mqFB4L-_Q&oe=6ADACBE6",
+      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/848119754_1110053885155081_7363452144003783174_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=102&ccb=1-7&_nc_sid=92e707&_nc_ohc=FEDgGNfszlMQ7kNvwGgLi3T&_nc_oc=AdqpH01yR8dCj4EbV147scLingd1vPgTJV8bDeuQRHKVE5_uJ8TqKDTe2D5Wt7vac2I&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=w3CumGSYoMluwipNHoIcLw&_nc_ss=7b2a8&oh=00_AQMvZEXZy8jgnfz4WCO5gw0vpWN6mR2glx0whHF8fNeQTQ&oe=6ADEC066",
       "adUrl": "https://www.facebook.com/marketplace/item/2284321229087172/",
       "facebookGroupId": null,
       "facebookGroupName": null,
@@ -3316,7 +3272,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-10-14 17:05:00",
-      "lastSeen": "2026-10-18T15:39:40.706Z"
+      "lastSeen": "2026-10-21T17:37:58.761Z"
     },
     {
       "adID": "1632846474946958",
@@ -3330,7 +3286,7 @@
       "lat": 33.9237141,
       "lon": -84.8407732,
       "location": "Dallas, GA",
-      "imageUrl": "https://scontent-dfw6-2.xx.fbcdn.net/v/t39.84726-6/845535940_1622398569376525_603567305756332631_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=109&ccb=1-7&_nc_sid=92e707&_nc_ohc=zxJ750zurw8Q7kNvwGY5_Hj&_nc_oc=AdrPICzv_5hDYQWvJ_QnJuSD7PFMIQKN2QwuUxNwpEa7ODerO2dGS6NYpsu1aSLsR9I&_nc_zt=14&_nc_ht=scontent-dfw6-2.xx&_nc_gid=rNYHsohw67C6Qljieb2qew&_nc_ss=7b2a8&oh=00_AQM0X3XCvxmQ3ehH0MAeAeMuJqY8S4M0bCdeYtQxP3KSVA&oe=6ADABC54",
+      "imageUrl": "https://scontent-dfw6-2.xx.fbcdn.net/v/t39.84726-6/845535940_1622398569376525_603567305756332631_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=109&ccb=1-7&_nc_sid=92e707&_nc_ohc=N8x7DdN8neMQ7kNvwFQCp3B&_nc_oc=AdrI9gT6gKTjS7rtG3BGBC-Bdv2M_j6lGyyNBEyDdzKBPVs6Gz2I_PhsHiNQKsIk7kw&_nc_zt=14&_nc_ht=scontent-dfw6-2.xx&_nc_gid=Y150PEDEPkYz2APyBXzc8w&_nc_ss=7b2a8&oh=00_AQPfC1wR1DNWcWTDBcYUGuEHMw1L_9Cy9qm8m-PMHwnezA&oe=6ADEB0D4",
       "adUrl": "https://www.facebook.com/marketplace/item/1632846474946958/",
       "facebookGroupId": null,
       "facebookGroupName": null,
@@ -3338,7 +3294,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-10-14 17:05:00",
-      "lastSeen": "2026-10-18T15:39:40.774Z"
+      "lastSeen": "2026-10-21T17:37:58.895Z"
     },
     {
       "adID": "2017000979015677",
