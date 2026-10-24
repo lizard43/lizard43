@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-24T15:37:05.816Z",
+  "generated_at": "2026-10-24T16:13:52.148Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,19 +11,41 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 381,
-      "droppedPrice": 1934,
+      "exported_ads": 382,
+      "droppedPrice": 1936,
       "droppedMissingGeo": 0,
-      "droppedCircle": 1927
+      "droppedCircle": 1932
     }
   },
   "ads": [
+    {
+      "adID": "1581869170374708",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100000797543999/?product_id=1581869170374708",
+      "author": "Brit Brit",
+      "postedTime": "2026-10-24T13:43:17.000Z",
+      "title": "The Original Flying Turtle",
+      "description": "The Original Flying Turtle Works great",
+      "price": "$35",
+      "lat": 27.4989278,
+      "lon": -82.5748194,
+      "location": "Bradenton, FL",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/861996383_1112300098232370_4511847755529212775_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=106&ccb=1-7&_nc_sid=92e707&_nc_ohc=hB-u5L2B5m0Q7kNvwH3Zzb7&_nc_oc=AdpzuYWJoml3GEX7Z6ivaQh3-UyPqblK30iuVuYJIWHY-t2m6Ew47YfPJnm9NEMz4pw&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=-ICITfSQuNJf1xDxcRohqg&_nc_ss=7b2a8&oh=00_AQPffyJXevNlthy2k4aSslIF6SJ2V_k7-8e1bkMLfsF47Q&oe=6AE2B1FF",
+      "adUrl": "https://www.facebook.com/marketplace/item/1581869170374708/",
+      "facebookGroupId": null,
+      "facebookGroupName": null,
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-10-24 16:08:19",
+      "lastSeen": "2026-10-24T16:12:43.161Z"
+    },
     {
       "adID": "PI-223478",
       "source": "PS",
       "authorUrl": "https://pinside.com/pinball/community/pinsiders/vindic8r/market",
       "author": "vindic8r",
-      "postedTime": "2026-10-24T15:09:24.551Z",
+      "postedTime": "2026-10-24T15:13:07.683Z",
       "title": "Rare Bally Heavy Metal Meltdown (1987) Prototype Playfield",
       "description": "Used - Good condition - “Up for grabs is an incredibly rare 1987 Bally Heavy Metal Meltdown Prototype Playfield featuring classic 80s hair-metal artwork by Greg Freres. This could make a killer wall hanger...”",
       "price": "$675",
@@ -38,7 +60,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-10-24 15:17:25",
-      "lastSeen": "2026-10-24T15:17:25.177Z"
+      "lastSeen": "2026-10-24T16:13:07.884Z"
     },
     {
       "adID": "1481611740453541",
@@ -74,7 +96,7 @@
       "lat": 27.928464,
       "lon": -82.2880508,
       "location": "Brandon, FL",
-      "imageUrl": "https://scontent-dfw6-2.xx.fbcdn.net/v/t39.84726-6/858643884_29207274585556053_1542794286839383459_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=110&ccb=1-7&_nc_sid=92e707&_nc_ohc=zYDNKhnGzvUQ7kNvwGUiODy&_nc_oc=Adq5JlNleJQfGzx6Y6asVraQF8YPvJ3elFRKgCmWoDsvWWYEUiZXL2yWCgFzWrxxNmY&_nc_zt=14&_nc_ht=scontent-dfw6-2.xx&_nc_gid=Gh0KOVkVDrLoW-cSgDG_Jw&_nc_ss=7b2a8&oh=00_AQNPy5K6umTTCJIn-9_bWbFbJFrIXg1gcShTBX3N_xjJAA&oe=6AE282DE",
+      "imageUrl": "https://scontent-dfw6-2.xx.fbcdn.net/v/t39.84726-6/858643884_29207274585556053_1542794286839383459_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=110&ccb=1-7&_nc_sid=92e707&_nc_ohc=zYDNKhnGzvUQ7kNvwGUiODy&_nc_oc=Adq5JlNleJQfGzx6Y6asVraQF8YPvJ3elFRKgCmWoDsvWWYEUiZXL2yWCgFzWrxxNmY&_nc_zt=14&_nc_ht=scontent-dfw6-2.xx&_nc_gid=0dT1qbeqcjTz4yjsnk-y_Q&_nc_ss=7b2a8&oh=00_AQPs9qckARG6EoEypbFZ2dYcvHJOEfXauO8PARA4eKr_bg&oe=6AE2BB1E",
       "adUrl": "https://www.facebook.com/marketplace/item/1915493316080355/",
       "facebookGroupId": null,
       "facebookGroupName": null,
@@ -82,7 +104,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-10-24 15:11:52",
-      "lastSeen": "2026-10-24T15:14:55.876Z"
+      "lastSeen": "2026-10-24T16:11:10.430Z"
     },
     {
       "adID": "1115590577505186",
@@ -96,7 +118,7 @@
       "lat": 28.8004955,
       "lon": -81.6446961,
       "location": "Mt Dora, FL",
-      "imageUrl": "https://scontent-dfw6-2.xx.fbcdn.net/v/t39.84726-6/860457694_1412407810558507_529955578726897239_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=109&ccb=1-7&_nc_sid=92e707&_nc_ohc=H6rWUFunkDUQ7kNvwELM98u&_nc_oc=AdrdQ3Z3tuU4dPBy5t2AYbeE_KtM0-TSVgkpDNE032T8rveyhp2_tq12VZDeM4FRucI&_nc_zt=14&_nc_ht=scontent-dfw6-2.xx&_nc_gid=5nGCyGLk8iVqj0nq-OldfA&_nc_ss=7b2a8&oh=00_AQNInJCmKeWw_lr5wHA4DpVoCzIAMcVwAgE1d4S8s9-9_g&oe=6AE2AFEE",
+      "imageUrl": "https://scontent-dfw6-2.xx.fbcdn.net/v/t39.84726-6/860457694_1412407810558507_529955578726897239_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=109&ccb=1-7&_nc_sid=92e707&_nc_ohc=H6rWUFunkDUQ7kNvwELM98u&_nc_oc=AdrdQ3Z3tuU4dPBy5t2AYbeE_KtM0-TSVgkpDNE032T8rveyhp2_tq12VZDeM4FRucI&_nc_zt=14&_nc_ht=scontent-dfw6-2.xx&_nc_gid=1Up5weXUUC5LCksBv3SAOg&_nc_ss=7b2a8&oh=00_AQNlQF7Q7fnR9q4gWTDAlndTjkDIBi48WsArCdgEzReZjg&oe=6AE2AFEE",
       "adUrl": "https://www.facebook.com/marketplace/item/1115590577505186/",
       "facebookGroupId": null,
       "facebookGroupName": null,
@@ -104,7 +126,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-10-24 14:04:55",
-      "lastSeen": "2026-10-24T15:08:03.628Z"
+      "lastSeen": "2026-10-24T16:07:46.485Z"
     },
     {
       "adID": "1440403824715977",
@@ -170,7 +192,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-10-24 11:20:20",
-      "lastSeen": "2026-10-24T15:18:06.223Z"
+      "lastSeen": "2026-10-24T16:13:47.003Z"
     },
     {
       "adID": "1818341596031319",
@@ -214,7 +236,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-10-24 11:04:56",
-      "lastSeen": "2026-10-24T15:04:58.050Z"
+      "lastSeen": "2026-10-24T16:04:59.978Z"
     },
     {
       "adID": "1515838777047053",
@@ -228,7 +250,7 @@
       "lat": 34.1623292,
       "lon": -83.6779474,
       "location": "Pendergrass, GA",
-      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/858569689_1958912308401057_1850383242336257999_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=103&ccb=1-7&_nc_sid=92e707&_nc_ohc=IXdifbjNj1QQ7kNvwFG9hTq&_nc_oc=AdpnXQYZYxc0m4YQEgdhMGRWRpHutRKzPpsCfEJCHPkSohXAGK-cNDCljmaT-emo2V8&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=pK1jIB3tp93Rwc-rcLcimQ&_nc_ss=7b2a8&oh=00_AQPOfO9A21EAt9CqOATwQCA_Thg_GeTVKFmFcs4pTALXgQ&oe=6AE28DB4",
+      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/858569689_1958912308401057_1850383242336257999_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=103&ccb=1-7&_nc_sid=92e707&_nc_ohc=IXdifbjNj1QQ7kNvwFG9hTq&_nc_oc=AdpnXQYZYxc0m4YQEgdhMGRWRpHutRKzPpsCfEJCHPkSohXAGK-cNDCljmaT-emo2V8&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=qLPLTMSlx37z3Kv7vQVzzg&_nc_ss=7b2a8&oh=00_AQPv0ir2xY2PjwNMkULuI67qd7r2Be4OIlL4mBHSOHM2Sw&oe=6AE2C5F4",
       "adUrl": "https://www.facebook.com/marketplace/item/1515838777047053/",
       "facebookGroupId": null,
       "facebookGroupName": null,
@@ -236,7 +258,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-10-24 11:04:54",
-      "lastSeen": "2026-10-24T15:08:03.746Z"
+      "lastSeen": "2026-10-24T16:07:46.585Z"
     },
     {
       "adID": "5509999665890965",
@@ -404,7 +426,7 @@
       "lat": 33.4487257,
       "lon": -84.4549262,
       "location": "Fayetteville, GA",
-      "imageUrl": "https://scontent-dfw6-2.xx.fbcdn.net/v/t39.84726-6/859089296_1673868984123619_550651028042724260_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=108&ccb=1-7&_nc_sid=92e707&_nc_ohc=vqtt6Wg_NxkQ7kNvwGd4Ega&_nc_oc=AdoWMSwNdO2_cYqIZL_FsnkB3xRADE9YBmbCAtxB0Lvju6N_7Vng0bFN82agct9xEto&_nc_zt=14&_nc_ht=scontent-dfw6-2.xx&_nc_gid=ngLLX5kTUKYeDaM8pbrePg&_nc_ss=7b2a8&oh=00_AQMkoanABnV1d0d9CkGWYU_ERX4P52tusVG3ydsbSzIu5A&oe=6AE2B229",
+      "imageUrl": "https://scontent-dfw6-2.xx.fbcdn.net/v/t39.84726-6/859089296_1673868984123619_550651028042724260_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=108&ccb=1-7&_nc_sid=92e707&_nc_ohc=vqtt6Wg_NxkQ7kNvwGd4Ega&_nc_oc=AdoWMSwNdO2_cYqIZL_FsnkB3xRADE9YBmbCAtxB0Lvju6N_7Vng0bFN82agct9xEto&_nc_zt=14&_nc_ht=scontent-dfw6-2.xx&_nc_gid=QoFhd0ETi-DA2SpWVnqVlg&_nc_ss=7b2a8&oh=00_AQPRljz28ATDtjJeaZEfWSKssCBim-2wcTyZMpFbrRd0Ig&oe=6AE2B229",
       "adUrl": "https://www.facebook.com/marketplace/item/1816380859673642/",
       "facebookGroupId": null,
       "facebookGroupName": null,
@@ -412,7 +434,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-10-24 00:04:54",
-      "lastSeen": "2026-10-24T15:08:03.846Z"
+      "lastSeen": "2026-10-24T16:07:46.685Z"
     },
     {
       "adID": "1786516969066552",
@@ -786,7 +808,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-10-23 15:09:48",
-      "lastSeen": "2026-10-24T15:11:52.625Z"
+      "lastSeen": "2026-10-24T16:08:17.822Z"
     },
     {
       "adID": "KLOV-495908",
@@ -808,7 +830,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-10-23 14:14:19",
-      "lastSeen": "2026-10-24T15:18:06.623Z"
+      "lastSeen": "2026-10-24T16:13:47.405Z"
     },
     {
       "adID": "1861609878517109",
@@ -896,7 +918,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-10-23 11:19:39",
-      "lastSeen": "2026-10-24T15:18:06.691Z"
+      "lastSeen": "2026-10-24T16:13:47.472Z"
     },
     {
       "adID": "1699056255270249",
@@ -1644,7 +1666,7 @@
       "priceChangedAt": "2026-10-22 22:11:00",
       "hidden": 0,
       "created_at": "2026-10-21 22:04:58",
-      "lastSeen": "2026-10-24T15:11:53.328Z"
+      "lastSeen": "2026-10-24T16:08:18.525Z"
     },
     {
       "adID": "1138634638681003",
@@ -1871,7 +1893,7 @@
       "source": "PS",
       "authorUrl": "https://pinside.com/pinball/community/pinsiders/gardenartisan68/market",
       "author": "Gardenartisan68",
-      "postedTime": "2026-10-22T15:17:34.174Z",
+      "postedTime": "2026-10-22T16:13:14.110Z",
       "title": "Bronco",
       "description": "Used - Shows wear, but clean and fully working - “Cleaned and adjusted all the switches in the playfield and cabinet. The game works well. Touched up playfield. Backglass is nice original. Cabinet is nice except someone painted o...”",
       "price": "$700",
@@ -1886,7 +1908,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-10-21 18:19:18",
-      "lastSeen": "2026-10-24T15:17:34.687Z"
+      "lastSeen": "2026-10-24T16:13:14.808Z"
     },
     {
       "adID": "2170582343865751",
@@ -1959,7 +1981,7 @@
       "source": "PS",
       "authorUrl": "https://pinside.com/pinball/community/pinsiders/rebelguitars/market",
       "author": "RebelGuitars",
-      "postedTime": "2026-10-22T15:17:34.174Z",
+      "postedTime": "2026-10-21T16:13:14.113Z",
       "title": "Evil Dead Middle Finger Mod by Back Alley Creations",
       "description": "New (personal, selling one) - “Here is a new Evil Dead Middle Finger Mod by Back Alley Creations that I never used. Message me with any questions. I can ship to the lower 48 States or pick up is welcomed. Shipp...”",
       "price": "$90",
@@ -1974,14 +1996,14 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-10-21 16:15:12",
-      "lastSeen": "2026-10-24T15:17:34.887Z"
+      "lastSeen": "2026-10-24T16:13:15.010Z"
     },
     {
       "adID": "PI-223317",
       "source": "PS",
       "authorUrl": "https://pinside.com/pinball/community/pinsiders/rebelguitars/market",
       "author": "RebelGuitars",
-      "postedTime": "2026-10-22T15:17:34.175Z",
+      "postedTime": "2026-10-21T16:13:14.114Z",
       "title": "Labyrinth “Should You Need Us” Alternate Backglass",
       "description": "New (personal, selling one) - “Here's a like new Labyrinth “Should You Need Us” alternate backglass. I used it in my game for a few weeks then stored it in its original shipping box. Message me with any qu...”",
       "price": "$200",
@@ -1996,7 +2018,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-10-21 16:15:12",
-      "lastSeen": "2026-10-24T15:17:34.954Z"
+      "lastSeen": "2026-10-24T16:13:15.076Z"
     },
     {
       "adID": "KLOV-550906",
@@ -4526,7 +4548,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-10-15 11:15:25",
-      "lastSeen": "2026-10-24T15:18:08.730Z"
+      "lastSeen": "2026-10-24T16:13:49.503Z"
     },
     {
       "adID": "2899331907091609",
@@ -5523,7 +5545,7 @@
       "source": "KLOV",
       "authorUrl": "https://forums.arcade-museum.com/members/texas_funnyhair.79187/",
       "author": "Texas_Funnyhair",
-      "postedTime": "2026-10-24T04:40:28.000Z",
+      "postedTime": "2026-10-24T15:47:30.000Z",
       "title": "Mistercade V2, Taito F3 motherboard",
       "description": "Taito F3 motherboard + Darksoft Multi: $800 Taito F3 motherboard in great condition, but with no plastic base. Has Darksoft multi installed. Mistercade V2: $550 Basically new Mistercade V2 setup, will come with Mistercade VS. STV + Mutli: $800 Sega STV motherboard with Darksoft multi installed. Wor...",
       "price": "$800",
@@ -5538,7 +5560,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-10-12 17:22:54",
-      "lastSeen": "2026-10-24T15:18:06.154Z"
+      "lastSeen": "2026-10-24T16:13:46.792Z"
     },
     {
       "adID": "KLOV-555540",
@@ -7474,7 +7496,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-10-02 17:05:00",
-      "lastSeen": "2026-10-24T15:04:57.450Z"
+      "lastSeen": "2026-10-24T16:04:59.395Z"
     },
     {
       "adID": "KLOV-565967",
@@ -7606,7 +7628,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-09-28 13:08:25",
-      "lastSeen": "2026-10-24T15:18:07.126Z"
+      "lastSeen": "2026-10-24T16:13:47.906Z"
     },
     {
       "adID": "KLOV-559902",
@@ -7826,7 +7848,7 @@
       "priceChangedAt": "2026-10-23 11:19:39",
       "hidden": 0,
       "created_at": "2026-09-22 11:09:19",
-      "lastSeen": "2026-10-24T15:18:06.724Z"
+      "lastSeen": "2026-10-24T16:13:47.505Z"
     },
     {
       "adID": "KLOV-559512",
