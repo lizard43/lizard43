@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-24T01:15:36.578Z",
+  "generated_at": "2026-10-24T06:06:44.272Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,10 +11,10 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 374,
-      "droppedPrice": 1933,
+      "exported_ads": 372,
+      "droppedPrice": 1929,
       "droppedMissingGeo": 0,
-      "droppedCircle": 1917
+      "droppedCircle": 1914
     }
   },
   "ads": [
@@ -2010,7 +2010,7 @@
       "lat": 28.5602149,
       "lon": -81.8561226,
       "location": "Groveland, FL",
-      "imageUrl": "https://scontent-dfw6-2.xx.fbcdn.net/v/t39.84726-6/857785203_1662650892148112_4491983577848867733_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=110&ccb=1-7&_nc_sid=92e707&_nc_ohc=fp4p_Ug8R_8Q7kNvwGoykjy&_nc_oc=AdqRvENh8n49NN5hzHFeWu7T6Fmg1DbUFG0NR7B3fg4XfJC9r4MujtLM_lpsfCJtWL0&_nc_zt=14&_nc_ht=scontent-dfw6-2.xx&_nc_gid=dQLi-n05W7KbvIDTI03jGw&_nc_ss=7b2a8&oh=00_AQN4We4QXhwQ6CHvPdS2gYeascu_sF_QORHa2B9aMDN9rQ&oe=6ADDC96B",
+      "imageUrl": "https://scontent-dfw6-2.xx.fbcdn.net/v/t39.84726-6/857785203_1662650892148112_4491983577848867733_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=110&ccb=1-7&_nc_sid=92e707&_nc_ohc=8N3V5nZvmN0Q7kNvwHGeEFa&_nc_oc=AdoXaE2bQHQpx8BQvwS0dMInzUKSM0mYjO6AACylHicdgeam9FlJmuTVNgEUHGURV0I&_nc_zt=14&_nc_ht=scontent-dfw6-2.xx&_nc_gid=r8tpBBoHjUBWI4ocDuNeIg&_nc_ss=7b2a8&oh=00_AQOVbirHCPw25pK8Y3uNGp4oHyJbR1cNE4Fvk-thdOBMrA&oe=6AE22E6B",
       "adUrl": "https://www.facebook.com/marketplace/item/2566130157146092/",
       "facebookGroupId": null,
       "facebookGroupName": null,
@@ -2018,7 +2018,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-10-20 23:13:17",
-      "lastSeen": "2026-10-20T23:18:48.855Z"
+      "lastSeen": "2026-10-24T06:02:46.720Z"
     },
     {
       "adID": "1687132382832128",
@@ -2032,7 +2032,7 @@
       "lat": 28.3647248,
       "lon": -82.1959178,
       "location": "Dade City, FL",
-      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/859141566_1878376923180757_5932941082242506350_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=107&ccb=1-7&_nc_sid=92e707&_nc_ohc=mj4ek1_ivPcQ7kNvwEDtQps&_nc_oc=Adqtps3HH6Car-ydowpzUA0pQkZLhXzz_AFyKHXm9U4hfnp_rNn4g8zwvKEQDa1WRe0&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=C5x_eY49UQMoSECvIDo3rw&_nc_ss=7b2a8&oh=00_AQOtCBePeHvWHHMxziMoqfZCkYNMDCAH3MXa61f2XXltwA&oe=6ADDCE92",
+      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/859141566_1878376923180757_5932941082242506350_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=107&ccb=1-7&_nc_sid=92e707&_nc_ohc=ICzR1UhmYWUQ7kNvwFy-xbh&_nc_oc=AdqLR8escvs1P3bVp1Yz73DvyRgoEbA83lu168h3Hmwes8t2yY7H5TuvD-OuiwEdQvs&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=_U6cAgPCGgFl8nvBy2w8Lw&_nc_ss=7b2a8&oh=00_AQMdjAnDSMxliHb9N79Cbjg6Rsfrw7BbJVJseBI3fgSY6A&oe=6AE23392",
       "adUrl": "https://www.facebook.com/marketplace/item/1687132382832128/",
       "facebookGroupId": null,
       "facebookGroupName": null,
@@ -2040,29 +2040,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-10-20 23:05:01",
-      "lastSeen": "2026-10-21T00:12:24.437Z"
-    },
-    {
-      "adID": "1509911757625495",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/100003073277557/?product_id=1509911757625495",
-      "author": "Faleel Mohammed",
-      "postedTime": "2026-10-20T22:20:52.000Z",
-      "title": "Pac Man arcade game",
-      "description": "Pac Man arcade table with matching chairs Multi player and numerous games",
-      "price": "$200",
-      "lat": 28.5602149,
-      "lon": -81.8561226,
-      "location": "Groveland, FL",
-      "imageUrl": "https://scontent-dfw6-2.xx.fbcdn.net/v/t39.84726-6/858068366_1504058821554310_82517989354827057_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=108&ccb=1-7&_nc_sid=92e707&_nc_ohc=QVXIvT54tDIQ7kNvwG-8AZP&_nc_oc=AdrjUYBSsrKDCuScvk2xHKfUvaN4jnV10st1jdWPuqQ6DO2PEUPtHjOHaYsTE_X4N_A&_nc_zt=14&_nc_ht=scontent-dfw6-2.xx&_nc_gid=HDnAFbhUomVMeWpi8eo4Xw&_nc_ss=7b2a8&oh=00_AQOPMum1JPMNfhK-V73gkXBwTHFRKUAyQmIsyPDeMV5m4Q&oe=6ADDDFB2",
-      "adUrl": "https://www.facebook.com/marketplace/item/1509911757625495/",
-      "facebookGroupId": null,
-      "facebookGroupName": null,
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-10-20 23:05:00",
-      "lastSeen": "2026-10-20T23:07:55.607Z"
+      "lastSeen": "2026-10-24T06:02:46.785Z"
     },
     {
       "adID": "4172258113074579",
@@ -2076,7 +2054,7 @@
       "lat": 30.9382358,
       "lon": -90.5089843,
       "location": "Kentwood, LA",
-      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/854416541_1651207823033662_1597214105929205100_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=106&ccb=1-7&_nc_sid=92e707&_nc_ohc=roiAJUZJbXkQ7kNvwESZpEu&_nc_oc=AdqlQDogF_RDeUiRQ-FcKjEfRXxRTndPOA6DrLj6o7uHTvvBMPJRDr7BzINoVCiqzUQ&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=AmprCpPuYl2xBvlRVDweoQ&_nc_ss=7b2a8&oh=00_AQMde9xaDr_C3OQyDwt_PPVW9n79XOdT3tohvVwHBFw6FQ&oe=6ADDC1F5",
+      "imageUrl": "https://scontent-dfw6-2.xx.fbcdn.net/v/t39.84726-6/856660304_1587209965961874_5378838319921680466_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=109&ccb=1-7&_nc_sid=92e707&_nc_ohc=mZ7H5UZbkLwQ7kNvwHgGS7c&_nc_oc=AdqHaDWM6zNHEKHNsLngOE6tQDROkAzDmoBVHrxqea-Ny4NdZkcVX0Nr2_6T_-cVITI&_nc_zt=14&_nc_ht=scontent-dfw6-2.xx&_nc_gid=0gUhdro_Z6TIz3QG-QZS4Q&_nc_ss=7b2a8&oh=00_AQPSzCllNgH0yMMtGae0_tffMfcPz9d8wDSqoK2oqfeqyw&oe=6AE214B8",
       "adUrl": "https://www.facebook.com/marketplace/item/4172258113074579/",
       "facebookGroupId": null,
       "facebookGroupName": null,
@@ -2084,7 +2062,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-10-20 21:08:07",
-      "lastSeen": "2026-10-20T23:18:49.057Z"
+      "lastSeen": "2026-10-24T06:02:46.886Z"
     },
     {
       "adID": "2688994881569219",
@@ -2186,7 +2164,7 @@
       "lat": 28.5602149,
       "lon": -81.8561226,
       "location": "Groveland, FL",
-      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/856274239_1124660599966982_3767583186641816380_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=102&ccb=1-7&_nc_sid=92e707&_nc_ohc=cdiUHZ-fd_sQ7kNvwEiuoS8&_nc_oc=AdrRis0UFpelyeMxJSLeetIcz3N03E2QPKS2W6ppSjF77vO5XJekOqVkyyN3XjRwjOQ&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=hH5z0Axm2j6K_UQ38pxqlw&_nc_ss=7b2a8&oh=00_AQPFUvdAEf9v_0LLONNVejfUmmmptBU8ivPNxT_XYXk9tQ&oe=6ADDDCA9",
+      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/856274239_1124660599966982_3767583186641816380_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=102&ccb=1-7&_nc_sid=92e707&_nc_ohc=ZAGfo921s34Q7kNvwEyu3LE&_nc_oc=Adq4QR6aqbOTq4SR17zQ6OQnK6vJwtcrl0w1ETvFHVOsqpclaqVWjmxWcLAgzIyzesc&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=aCq9bBGvE_bcCg2dRzxBcA&_nc_ss=7b2a8&oh=00_AQPZ41CwNkkEQ84hKnUSMkln9GxeITqG0n0MmGLz2hmCqg&oe=6AE20969",
       "adUrl": "https://www.facebook.com/marketplace/item/2090166572374146/",
       "facebookGroupId": null,
       "facebookGroupName": null,
@@ -2194,7 +2172,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-10-20 19:12:34",
-      "lastSeen": "2026-10-20T23:18:49.158Z"
+      "lastSeen": "2026-10-24T06:02:47.021Z"
     },
     {
       "adID": "993153316385832",
@@ -2593,28 +2571,6 @@
       "lastSeen": "2026-10-23T06:03:27.611Z"
     },
     {
-      "adID": "3259460317587032",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/100000093917600/?product_id=3259460317587032",
-      "author": "Shane Kogut",
-      "postedTime": "2026-10-19T20:28:19.000Z",
-      "title": "Pinball machine",
-      "description": "Like brand new.",
-      "price": "$300",
-      "lat": 28.2144905,
-      "lon": -82.4455929,
-      "location": "Land O Lakes, FL",
-      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/855606071_942995112224563_7353719755844279700_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=105&ccb=1-7&_nc_sid=92e707&_nc_ohc=12rxZsc5O5wQ7kNvwGD2sB3&_nc_oc=AdrUwQEaks59mQmgbA1p557_HFhWE777KzI83Bxs9qqV99JQFmjuqhkOoCLtvgmjrX0&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=6pjr-r3ZrJoBhOsoBZip-w&_nc_ss=7b2a8&oh=00_AQPJ9hjpiA81toLQfvKA8BTLXDg9ePECISIrFo77DRKrmw&oe=6ADDA8E2",
-      "adUrl": "https://www.facebook.com/marketplace/item/3259460317587032/",
-      "facebookGroupId": null,
-      "facebookGroupName": null,
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-10-19 21:12:42",
-      "lastSeen": "2026-10-20T23:13:16.002Z"
-    },
-    {
       "adID": "1036728879437358",
       "source": "MP",
       "authorUrl": "https://www.facebook.com/marketplace/profile/1051976210/?product_id=1036728879437358",
@@ -2664,13 +2620,13 @@
       "authorUrl": "https://www.facebook.com/marketplace/profile/100000469550330/?product_id=2072964116757347",
       "author": "Justin Gresham",
       "postedTime": "2026-10-19T20:42:50.000Z",
-      "title": "Arcade Machine",
+      "title": "(PENDING) Arcade Machine",
       "description": "Lightly used arcade machine, 300 plus games, 2 player mode, fully assembled.",
       "price": "$200",
       "lat": 34.257038,
       "lon": -85.1646726,
       "location": "Rome, GA",
-      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/855834272_1894839411889249_4732344311745458686_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=102&ccb=1-7&_nc_sid=92e707&_nc_ohc=nvW18Dg5NVAQ7kNvwGVQ9Iw&_nc_oc=AdplF4FMmidHj92Wo_uF4kvKqwP5AYUikoVUvoDS1ikJzxU8EtCixMWxiSHFpQbzwGs&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=_6sTLi0SsahlsS5eaNYseQ&_nc_ss=7b2a8&oh=00_AQOZzo7_Ez-e-wfeowT8mKvXte9yudsrFHf2W5DpjufFHA&oe=6ADDAC72",
+      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/855834272_1894839411889249_4732344311745458686_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=102&ccb=1-7&_nc_sid=92e707&_nc_ohc=2lllVotcDr8Q7kNvwHtHCFd&_nc_oc=Adqg67QuAVyq_CA2FzdPWmo5gDBh2hocEkqy0qH8TJ5B-dtHu9buMDqwIXh5QR4R2DI&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=e6m15tSnN3bxZuRdZbctBg&_nc_ss=7b2a8&oh=00_AQNjwOHWW624o77_xduRsPbTXMZ1Xw28yzphAB7tjU33zQ&oe=6AE21172",
       "adUrl": "https://www.facebook.com/marketplace/item/2072964116757347/",
       "facebookGroupId": null,
       "facebookGroupName": null,
@@ -2678,7 +2634,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-10-19 21:05:01",
-      "lastSeen": "2026-10-20T23:05:01.214Z"
+      "lastSeen": "2026-10-24T06:04:06.333Z"
     },
     {
       "adID": "28944779188488622",
@@ -2692,7 +2648,7 @@
       "lat": 34.1851017,
       "lon": -83.9251809,
       "location": "Flowery Branch, GA",
-      "imageUrl": "https://scontent-dfw6-2.xx.fbcdn.net/v/t39.84726-6/856091587_1111427767967430_5542758508430745929_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=108&ccb=1-7&_nc_sid=92e707&_nc_ohc=7NM3wITrKMEQ7kNvwG1bk0d&_nc_oc=AdplzpTLYVjSQtmlWs4X3mkR2hDr1URCRLy7BXmRf8GIM2xsa-r9UGc8-HyyiugZS2Y&_nc_zt=14&_nc_ht=scontent-dfw6-2.xx&_nc_gid=Vl5rigVaR9iHAG6S13o14A&_nc_ss=7b2a8&oh=00_AQNqtSjGPsl3qnpSVae5ifgoOIot_B4xOVzre06jCJUV7g&oe=6ADD7B3C",
+      "imageUrl": "https://scontent-dfw6-2.xx.fbcdn.net/v/t39.84726-6/856091587_1111427767967430_5542758508430745929_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=108&ccb=1-7&_nc_sid=92e707&_nc_ohc=EynNgDK6IPUQ7kNvwGjTXUx&_nc_oc=AdqLbrSezwol9jtLuRvmRYN6oa0q1bWUmnjQ77CsWjy7cm9G05kY9u4niUyxexW2dcM&_nc_zt=14&_nc_ht=scontent-dfw6-2.xx&_nc_gid=zP2XPlAfRFGNw1RtVFDC6g&_nc_ss=7b2a8&oh=00_AQO6EQj7l9icUBVNDG1yjWPgDLDhrBoSbzH7MqhGpVuN-g&oe=6AE2187C",
       "adUrl": "https://www.facebook.com/marketplace/item/28944779188488622/",
       "facebookGroupId": null,
       "facebookGroupName": null,
@@ -2700,7 +2656,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-10-19 19:05:06",
-      "lastSeen": "2026-10-20T23:05:01.248Z"
+      "lastSeen": "2026-10-24T06:04:06.435Z"
     },
     {
       "adID": "1480430247265720",
@@ -3396,7 +3352,7 @@
       "lat": 29.0625783,
       "lon": -82.0495108,
       "location": "Belleview, FL",
-      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/851078922_2350468538691545_3777187057829257645_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=102&ccb=1-7&_nc_sid=92e707&_nc_ohc=4BI04C_ZAAAQ7kNvwGl6XpW&_nc_oc=AdrznPuUJmL6tiVGtjlvZepvWLbWdnk8xJH0GkOA7zVgoZdHolHAy9Fh-A1rFu2E3Bo&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=Jb2x_GbfOcRo3wCGKTsWjw&_nc_ss=7b2a8&oh=00_AQPITaJPZN18fHaM_E15HE-0WH5qTNgS9SZlWe_OlCs4KQ&oe=6ADDCC63",
+      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/851078922_2350468538691545_3777187057829257645_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=102&ccb=1-7&_nc_sid=92e707&_nc_ohc=T67c3Uae5BcQ7kNvwFok1M_&_nc_oc=AdohrWQJzWifnabcvPwZO6L8Z0SLy_jRWVUbMLowpciBAhYGtJvJDGYYLuA0pyZpXLs&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=XzCxsT0AVf2SBj20YyV_NQ&_nc_ss=7b2a8&oh=00_AQPHN6VqxpJxtJGbg1rZo2UZNGS0BFwuE9zWnye5hoP5mg&oe=6AE23163",
       "adUrl": "https://www.facebook.com/marketplace/item/4543238875950437/",
       "facebookGroupId": null,
       "facebookGroupName": null,
@@ -3404,7 +3360,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-10-17 20:10:38",
-      "lastSeen": "2026-10-20T21:36:26.297Z"
+      "lastSeen": "2026-10-24T06:06:26.355Z"
     },
     {
       "adID": "1095261273099462",
@@ -3418,7 +3374,7 @@
       "lat": 28.4635266,
       "lon": -82.5363557,
       "location": "Spring Hill, FL",
-      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/853483055_1093024670379123_2825255261494113092_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=104&ccb=1-7&_nc_sid=92e707&_nc_ohc=SYevRmkLLa4Q7kNvwGVGZqv&_nc_oc=AdqJ-Wd_DF7mzDuPk2gWIUxIlvbmuqFk1gzGQwaeREmCHVCuEvkIyZAYLple5iWnQ6s&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=AKBLjpwXbA11OoqaYLpqXQ&_nc_ss=7b2a8&oh=00_AQMpelbxmIeDA3yGcCOWvBCCtHAfI9wA4XRaw44WOFGi8A&oe=6ADDBF62",
+      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/853483055_1093024670379123_2825255261494113092_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=104&ccb=1-7&_nc_sid=92e707&_nc_ohc=ab9fdplCSEoQ7kNvwE3AaOn&_nc_oc=Adqqv_KQVpii6K_yLr3ib1q5-kAtCxJsNYC9cGLmrIqXQE5EHUs-a7gR9tT6DC_Mixs&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=KGBCl3SphjXZngD7FJyHSA&_nc_ss=7b2a8&oh=00_AQMOHGWH9tArPQZ0NBsR4vqjD6tKg475SdhuQax1H3jwGA&oe=6AE22462",
       "adUrl": "https://www.facebook.com/marketplace/item/1095261273099462/",
       "facebookGroupId": null,
       "facebookGroupName": null,
@@ -3426,7 +3382,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-10-17 20:10:38",
-      "lastSeen": "2026-10-20T21:36:26.430Z"
+      "lastSeen": "2026-10-24T06:06:26.388Z"
     },
     {
       "adID": "39166240666357137",
@@ -3462,7 +3418,7 @@
       "lat": 34.4434282,
       "lon": -86.9352842,
       "location": "Hartselle, AL",
-      "imageUrl": "https://scontent-dfw6-2.xx.fbcdn.net/v/t39.84726-6/855556784_29143867871897223_2105082596187479812_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=109&ccb=1-7&_nc_sid=92e707&_nc_ohc=kASxkWxTfRUQ7kNvwHeQsqq&_nc_oc=AdoqdhsWvCOImvJ4BCSiFA3Qrvd-dd5vqTrMoxZLG27QI_N4DlGCP3t0qnzR7Y8l7gk&_nc_zt=14&_nc_ht=scontent-dfw6-2.xx&_nc_gid=Ikh6lleJ3lQoWgniJiAS1g&_nc_ss=7b2a8&oh=00_AQMLp2arH90KFqhcdPaGN_nsYniuizbF6Z8TTukcawDyTg&oe=6ADDC083",
+      "imageUrl": "https://scontent-dfw6-2.xx.fbcdn.net/v/t39.84726-6/855556784_29143867871897223_2105082596187479812_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=109&ccb=1-7&_nc_sid=92e707&_nc_ohc=Y7MsGiNGc6kQ7kNvwGRN4f9&_nc_oc=AdodHOGu79svhF4UzSsYs_3fPgrzdFe-CnA_7W-DUv8CdGlwhsIO2AlBwTsFgRsdqsI&_nc_zt=14&_nc_ht=scontent-dfw6-2.xx&_nc_gid=fGpBXM3V5Fo04ueriOwf1Q&_nc_ss=7b2a8&oh=00_AQMCLuxD9iU4Ep262eltbv6uuHDKOcG2uOWy7QBlnXwqow&oe=6AE22583",
       "adUrl": "https://www.facebook.com/marketplace/item/1092936410308894/",
       "facebookGroupId": null,
       "facebookGroupName": null,
@@ -3470,7 +3426,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-10-17 18:15:14",
-      "lastSeen": "2026-10-20T21:36:26.264Z"
+      "lastSeen": "2026-10-24T06:06:26.322Z"
     },
     {
       "adID": "2317182672435784",
