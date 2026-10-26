@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-26T17:16:52.939Z",
+  "generated_at": "2026-10-26T17:37:54.702Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,10 +11,10 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 428,
+      "exported_ads": 426,
       "droppedPrice": 2019,
       "droppedMissingGeo": 0,
-      "droppedCircle": 2030
+      "droppedCircle": 2028
     }
   },
   "ads": [
@@ -2142,7 +2142,7 @@
       "lat": 27.7712264,
       "lon": -82.6340259,
       "location": "St Petersburg, FL",
-      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/861527290_2244476359453831_8438420588190598954_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=106&ccb=1-7&_nc_sid=92e707&_nc_ohc=7XQcX-m3rVYQ7kNvwHEGvmH&_nc_oc=Adqe7-6Oh7iH2xno4iacyydLRf_5pFfsmY-E41K2Msl31XqL0FfN_wfb9hXnmGHun-c&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=2FwaWTnpF6S6wpjAXXEhjA&_nc_ss=7b2a8&oh=00_AQNUR_dL5qAf8wcORGqdYOLiadpKW-TBVLB-2P6dRFlcCQ&oe=6AE15E4A",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/861527290_2244476359453831_8438420588190598954_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=106&ccb=1-7&_nc_sid=92e707&_nc_ohc=PA4u9yrSC1IQ7kNvwFG2dYO&_nc_oc=AdobmGtm7X77GiyNGvNfwrcF7ke1D4RfjMMRsnwU_JoYKAQwG8OalMNqf7rCmNu4VD4&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=IU2u7D5UUreTKBK6Lw2MWA&_nc_ss=7b2a8&oh=00_AQNlsu5lCLskBuiLU8eMFEtSQS37P9LTj4NNsRPWZR7xcg&oe=6AE552CA",
       "adUrl": "https://www.facebook.com/marketplace/item/1869381721181999/",
       "facebookGroupId": null,
       "facebookGroupName": null,
@@ -2150,7 +2150,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-10-23 16:05:03",
-      "lastSeen": "2026-10-23T16:10:21.113Z"
+      "lastSeen": "2026-10-26T17:33:07.075Z"
     },
     {
       "adID": "2453970298463153",
@@ -3726,7 +3726,7 @@
       "lat": 34.6060203,
       "lon": -86.9838165,
       "location": "Decatur, AL",
-      "imageUrl": "https://scontent-dfw6-2.xx.fbcdn.net/v/t39.84726-6/857627178_978880275265384_690859971674102072_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=108&ccb=1-7&_nc_sid=92e707&_nc_ohc=Wo9-3j2uDBsQ7kNvwGVd5w5&_nc_oc=AdoA2OfpwOPw_xQ3-xM0poa7eHDp1SExPMLxV0zhyXDYN5gEJJZwhsBOgzVNjUZIkfE&_nc_zt=14&_nc_ht=scontent-dfw6-2.xx&_nc_gid=tYshxC-Z1e5_Np_mbh08BA&_nc_ss=7b2a8&oh=00_AQMOXqIoa7PTDR2Ac_0W_dWjK8dWWCB4MQ45VxSzJCnU6Q&oe=6AE13E22",
+      "imageUrl": "https://scontent-dfw6-2.xx.fbcdn.net/v/t39.84726-6/857627178_978880275265384_690859971674102072_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=108&ccb=1-7&_nc_sid=92e707&_nc_ohc=ZiSHi_UsIy8Q7kNvwGdX5BJ&_nc_oc=AdqoUZUok2dFLbIWhOFJqeV3KvXCW9vlNL8Ga3NGaA5jsX2OSAGpPulaTQ1knNQyEyQ&_nc_zt=14&_nc_ht=scontent-dfw6-2.xx&_nc_gid=7g68yoaWKudvxJiR-yvZzQ&_nc_ss=7b2a8&oh=00_AQNcTHcVpRErCbKvIjdb0cU7gpbCXf1ox9Jkog3jkQQQIw&oe=6AE56AE2",
       "adUrl": "https://www.facebook.com/marketplace/item/1102471112644227/",
       "facebookGroupId": null,
       "facebookGroupName": null,
@@ -3734,65 +3734,21 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-10-20 15:11:19",
-      "lastSeen": "2026-10-23T15:33:13.883Z"
-    },
-    {
-      "adID": "1597620364908885",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/61585177165748/?product_id=1597620364908885",
-      "author": "Billy Pearson",
-      "postedTime": "2026-10-20T15:02:38.000Z",
-      "title": "Bally 1976 vintage pinball machine",
-      "description": "1976 Bally Hang Glider machine in works great",
-      "price": "$800",
-      "lat": 34.045655,
-      "lon": -85.056058,
-      "location": "Aragon, GA",
-      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/860373328_1146930414560928_3537140703757363827_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=100&ccb=1-7&_nc_sid=92e707&_nc_ohc=UY30vnCrkzoQ7kNvwF4tPip&_nc_oc=AdpZBDN93OUMDTMX0veK2aWPvZd9zoqW5fgC_gKW2tHQZpzyhs2nrujePxC-9FAVghA&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=Y8zSvFeW0_aiCkebnBIaQg&_nc_ss=7b2a8&oh=00_AQPdoelanqWmN-kJquUURh17mwYvYFtz_VIzECwsiSw55g&oe=6ADE9693",
-      "adUrl": "https://www.facebook.com/marketplace/item/1597620364908885/",
-      "facebookGroupId": null,
-      "facebookGroupName": null,
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-10-20 15:11:09",
-      "lastSeen": "2026-10-23T15:09:49.579Z"
-    },
-    {
-      "adID": "937982759107771",
-      "source": "MP",
-      "authorUrl": "https://www.facebook.com/marketplace/profile/100058530927026/?product_id=937982759107771",
-      "author": "Brooke Marie",
-      "postedTime": "2026-10-20T08:36:03.000Z",
-      "title": "Energizer Max Battieries Bundle",
-      "description": "Brand New Energizer Max Bundle. AA and AAA batteries still in the packages as shown in pictures. 5 packs of 16 count AA's. Which is 80 total. 5 packs of 16 count AAA. Which is 80 total also. Which makes 160 total batteries. Retail value 180$. Purchased at Winn Dixie. Only asking 85$ OBO !! NEED GONE ASAP !! FCFS !! Pick up on Westside of Jacksonville.",
-      "price": "$85",
-      "lat": 30.3262247,
-      "lon": -81.6579179,
-      "location": "Jacksonville, FL",
-      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/858222176_1178462097848265_9021287928045639861_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=106&ccb=1-7&_nc_sid=92e707&_nc_ohc=YWdWmLWEvH8Q7kNvwHp13mf&_nc_oc=Ado6jg4T5piSHcdWe6RftiEcS2A7YZSEUzQqxadsTtFrnIy7DeYb8mIydO6aRqjVQM0&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=XANJPXu07NuLQELl9G2zDA&_nc_ss=7b2a8&oh=00_AQOALkD2K9b-M8ZsmRv0W19cflHwZHuTEJVL__o5oZY33Q&oe=6AE15D3A",
-      "adUrl": "https://www.facebook.com/marketplace/item/937982759107771/",
-      "facebookGroupId": null,
-      "facebookGroupName": null,
-      "priceChanged": 0,
-      "priceChangedAt": null,
-      "hidden": 0,
-      "created_at": "2026-10-20 15:04:55",
-      "lastSeen": "2026-10-23T15:33:13.817Z"
+      "lastSeen": "2026-10-26T17:37:34.942Z"
     },
     {
       "adID": "1800885517814152",
       "source": "MP",
       "authorUrl": "https://www.facebook.com/marketplace/profile/61567851293962/?product_id=1800885517814152",
       "author": "Christo Bandz",
-      "postedTime": "2026-10-20T03:03:56.000Z",
+      "postedTime": "2026-09-03T23:43:31.000Z",
       "title": "UAV Sky Seeker Quadcopter",
       "description": "New UAV Sky Seeker quadcopter is a black foldable drone with an HD camera. It has a 2.4G intelligent flight system and includes a remote controller with a smartphone mount. The device is designed for ages 14 and up.",
       "price": "$65",
       "lat": 30.3262247,
       "lon": -81.6579179,
       "location": "Jacksonville, FL",
-      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/857159151_1459162349497680_2348959454337610699_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=106&ccb=1-7&_nc_sid=92e707&_nc_ohc=leBRidyAaN4Q7kNvwFjQ6Fl&_nc_oc=AdqdDm28XgWxPoDIqACxWI0LKqHXTj9PgdQPpoEspptdpPcVeomVwTXIqDscsbcMxks&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=oGRQrAnrHmqQiVC0Z8BPEQ&_nc_ss=7b2a8&oh=00_AQMgLHqsio6dpyfUDjs50JaXU0WoLzTuUpyJWpueSWLpcQ&oe=6AE13F55",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/857159151_1459162349497680_2348959454337610699_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=106&ccb=1-7&_nc_sid=92e707&_nc_ohc=efq3gDL3VdoQ7kNvwG_kgKd&_nc_oc=Ado6fMB1FMIzgZz39i1dH-umsRB0C751ZDwuq69d81z64vs_GE3TRjjiYVZRvm1fjOg&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=6PeIUubyQmiKOLLf7cetKw&_nc_ss=7b2a8&oh=00_AQPUAK1GlPO2vM3eE_NwZj3b0l6bXF9_EfgNRbEVGDJxzg&oe=6AE56C15",
       "adUrl": "https://www.facebook.com/marketplace/item/1800885517814152/",
       "facebookGroupId": null,
       "facebookGroupName": null,
@@ -3800,7 +3756,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-10-20 15:04:55",
-      "lastSeen": "2026-10-23T15:33:13.950Z"
+      "lastSeen": "2026-10-26T17:37:35.009Z"
     },
     {
       "adID": "1148622800837257",
