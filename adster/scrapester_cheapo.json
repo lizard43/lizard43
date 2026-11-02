@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-02T21:13:31.543Z",
+  "generated_at": "2026-11-02T22:25:48.513Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,145 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 19,
-      "droppedPrice": 215,
+      "exported_ads": 25,
+      "droppedPrice": 224,
       "droppedMissingGeo": 0,
-      "droppedCircle": 173
+      "droppedCircle": 183
     }
   },
   "ads": [
+    {
+      "adID": "29884241864511027",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/1533319714/?product_id=29884241864511027",
+      "author": "Carmen Burgos",
+      "postedTime": "2026-08-24T15:09:18.000Z",
+      "title": "Vintage Milton Bradley Battleship Classic Naval Combat Game – 2 Players",
+      "description": "Classic Milton Bradley Battleship board game for 2 players. Used, but in very good condition. Includes both Battleship game units, plastic ships, red and white pegs, and the original instruction booklet in both English and Spanish. The game is ready for hours of fun! A great classic strategy game for family game nights. From a smoke-free and pet-free home. Juego clásico Battleship (Batalla Naval) de Milton Bradley para 2 jugadores. Usado, pero en muy buenas condiciones. Incluye las dos unidades de juego, los barcos de plástico, las clavijas rojas y blancas y el folleto original de instrucciones en inglés y español. Un divertido juego de estrategia, ideal para compartir en familia y disfrutar de momentos entretenidos. Proviene de una familia de no fumadores y sin mascotas.",
+      "price": "$16",
+      "lat": 27.7712264,
+      "lon": -82.6340259,
+      "location": "St Petersburg, FL",
+      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/885265837_2385805382248378_7988459201339338658_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=103&ccb=1-7&_nc_sid=92e707&_nc_ohc=jWb2m-vqyMwQ7kNvwGjoWPm&_nc_oc=Adpzc6WmeavZeLgJjOmpy0B5kytuDO27SgcNZtmZjHmQFukp2SLQ4KJLrmFr29LFmWk&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=YbiPILj_zLb6HfAQp-7pQw&_nc_ss=7b2a8&oh=00_AQRp8LhBO315LHo2UIBGqIuQtFM27985m-OTK_SQS748Rw&oe=6AEEC65E",
+      "adUrl": "https://www.facebook.com/marketplace/item/29884241864511027/",
+      "facebookGroupId": null,
+      "facebookGroupName": null,
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-11-02 22:18:15",
+      "lastSeen": "2026-11-02T22:24:20.668Z"
+    },
+    {
+      "adID": "2172875886773162",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/507001006/?product_id=2172875886773162",
+      "author": "Darryl C",
+      "postedTime": "2026-11-02T21:42:57.000Z",
+      "title": "Aputure Sidus 1",
+      "description": "Single universe CRMX transceiver with built-in battery",
+      "price": "$250",
+      "lat": 33.7544657,
+      "lon": -84.3898151,
+      "location": "Atlanta, GA",
+      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/884930236_1441206728102561_4832235104496909560_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=101&ccb=1-7&_nc_sid=92e707&_nc_ohc=Rab-40R7VkcQ7kNvwHDNeS6&_nc_oc=AdqVOhxtUbDwHqQukUk-A34c7Ppt0B_DsMrHIa76KvdzQjCCYb1gyyHTcSeOUQ0kGWM&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=sJfqu_Vgxf2FxpUrYC9ykQ&_nc_ss=7b2a8&oh=00_AQTOQauGVL_AWNrRlZFLJ-bW8v9mM2vb00aJ1N6csMFNnQ&oe=6AEEEB5B",
+      "adUrl": "https://www.facebook.com/marketplace/item/2172875886773162/",
+      "facebookGroupId": null,
+      "facebookGroupName": null,
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-11-02 22:05:02",
+      "lastSeen": "2026-11-02T22:14:58.471Z"
+    },
+    {
+      "adID": "2309923586434626",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/1619636429/?product_id=2309923586434626",
+      "author": "Delia Velez Ruck",
+      "postedTime": "2026-11-02T20:47:31.000Z",
+      "title": "BN-LINK 8-Outlet Surge Protector with Digital Timer",
+      "description": "Versatile white BN-LINK power strip has eight grounded outlets and a built-in digital timer. Four outlets are controlled by the programmable timer, while the other four remain always on. The unit includes a digital display for scheduling, a manual override button, and a heavy-duty power cord.",
+      "price": "$20",
+      "lat": 28.5551912,
+      "lon": -81.7669488,
+      "location": "Clermont, FL",
+      "imageUrl": "https://scontent-dfw6-2.xx.fbcdn.net/v/t39.84726-6/885226726_1388682796409965_7242239104621759026_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=109&ccb=1-7&_nc_sid=92e707&_nc_ohc=F4eupuHys1YQ7kNvwFwZ-ym&_nc_oc=AdoflL0K_YFdb7pDecXE6padtHgtQQGMOMAbZP5V7k9aM45XjJj7vtKi6IzuKL_wZCU&_nc_zt=14&_nc_ht=scontent-dfw6-2.xx&_nc_gid=ga6wAJeDQS7gY1TUk7z5WQ&_nc_ss=7b2a8&oh=00_AQQaHtpVkUBHvcmQp67E3YQq7dtx98jza8R0VFqYJRFtSA&oe=6AEEEA00",
+      "adUrl": "https://www.facebook.com/marketplace/item/2309923586434626/",
+      "facebookGroupId": null,
+      "facebookGroupName": null,
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-11-02 22:05:02",
+      "lastSeen": "2026-11-02T22:17:48.898Z"
+    },
+    {
+      "adID": "2930031744026120",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/740334611/?product_id=2930031744026120",
+      "author": "John Bracken Spence Kosanke",
+      "postedTime": "2026-11-02T00:07:02.000Z",
+      "title": "Arcade machine glass (x2) and one bezel",
+      "description": "Two arcade glass and one bezel. I'm not sure what machines they came from. One glass is 25 3/4\" x 25 3/4 Second glass is 26 1/2 x 25 5/8 Bezel is ~ 26 3/4 x 24 1/8 If the listing is still up it's still available. Located near Nicholson Elementary School",
+      "price": "$80",
+      "lat": 33.9528472,
+      "lon": -84.5496148,
+      "location": "Marietta, GA",
+      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/870670009_1772865307351174_3245885051399577324_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=101&ccb=1-7&_nc_sid=92e707&_nc_ohc=Dwnk1Dh9osUQ7kNvwG7G3bI&_nc_oc=AdrIlesU9n8T71zQTRtStu8DxFVUVZBKW2sUOdPUeH4y382uC6862_XP8fB6RaNeOv0&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=RPX6GzoU0EXyYZE-Xn-eIQ&_nc_ss=7b2a8&oh=00_AQRpzXwMpSzyCqCDuGgNAgdZtu4Wd4yuxkiAVUw66368yw&oe=6AEEDB44",
+      "adUrl": "https://www.facebook.com/marketplace/item/2930031744026120/",
+      "facebookGroupId": null,
+      "facebookGroupName": null,
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-11-02 22:05:01",
+      "lastSeen": "2026-11-02T22:14:58.049Z"
+    },
+    {
+      "adID": "2576973036144767",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100000718550489/?product_id=2576973036144767",
+      "author": "Chase Atherton",
+      "postedTime": "2026-11-02T12:57:57.000Z",
+      "title": "Playseat Challenge Cockpit",
+      "description": "Playseat Challenge foldable cockpit with 3D printed attachments to adapt to Moza Wheel Base and pedals.",
+      "price": "$160",
+      "lat": 34.729847,
+      "lon": -86.5859011,
+      "location": "Huntsville, AL",
+      "imageUrl": "https://scontent-dfw6-2.xx.fbcdn.net/v/t39.84726-6/883961457_1697822595311068_1568573224666596173_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=110&ccb=1-7&_nc_sid=92e707&_nc_ohc=9TNkDUwuRw4Q7kNvwFEpRui&_nc_oc=Adr4LozMda2PNR8RKhBInYakdhyb2Z5__h-YshmGOpqZb_ThH3GpJ9TSTuMe-UCOW64&_nc_zt=14&_nc_ht=scontent-dfw6-2.xx&_nc_gid=14Em6GKtG3FT1xI2agOQ8g&_nc_ss=7b2a8&oh=00_AQTmWk4IdE6o61eU0wnmYmGjzgwQXzl-vnT3dXgWuIa0pA&oe=6AEECCD2",
+      "adUrl": "https://www.facebook.com/marketplace/item/2576973036144767/",
+      "facebookGroupId": null,
+      "facebookGroupName": null,
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-11-02 22:05:00",
+      "lastSeen": "2026-11-02T22:14:57.881Z"
+    },
+    {
+      "adID": "1451255676428125",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/542427281/?product_id=1451255676428125",
+      "author": "Andy Cartee",
+      "postedTime": "2026-11-02T21:17:59.000Z",
+      "title": "Fast and Furious Arcade Game",
+      "description": "Selling our fast and furious arcade game. This has been in our church rec center. It is not working and finding people/parts to repair is more of a pain. I don’t know everything that’s wrong with it, just stopped working. but I am sure someone with the skills could get it back up and running. Pickup in Homewood. Asking 800 or best reasonable offer. It it is showing then it is still available.",
+      "price": "$800",
+      "lat": 33.5206824,
+      "lon": -86.8024326,
+      "location": "Birmingham, AL",
+      "imageUrl": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.84726-6/888584415_1128256876238908_9014378561264565061_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=103&ccb=1-7&_nc_sid=92e707&_nc_ohc=UOUNyGkYMFoQ7kNvwHTQo6p&_nc_oc=AdrtjR8Q4gcpjETHnVYYAgYUvV9BxraSlLoH0_uLfsYNF9jDWrACe9zzsFizVysskXk&_nc_zt=14&_nc_ht=scontent-dfw6-1.xx&_nc_gid=5TrMn5SnyVIMY5rv52g0qA&_nc_ss=7b2a8&oh=00_AQS7WULixoB5JMQpH-8jLgPI6ZNBO0Bm0mGxxy-oWswwhg&oe=6AEEC937",
+      "adUrl": "https://www.facebook.com/marketplace/item/1451255676428125/",
+      "facebookGroupId": null,
+      "facebookGroupName": null,
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-11-02 22:04:59",
+      "lastSeen": "2026-11-02T22:08:12.103Z"
+    },
     {
       "adID": "1109342848553843",
       "source": "MP",
@@ -52,7 +184,7 @@
       "lat": 30.4007626,
       "lon": -88.8893818,
       "location": "Biloxi, MS",
-      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/888089454_1148664214167720_8077420256326916377_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=106&ccb=1-7&_nc_sid=92e707&_nc_ohc=LFF_5uPIfTAQ7kNvwEbvxg5&_nc_oc=Ado0FCiZmSNKzMOBci5l1-jzlAtezk9kUYgXCKFqIhvbqZo8c0k7ANAYTNaOBJnxb-c&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=7tAeqUiFwmrgsaRPCMEdew&_nc_ss=7b2a8&oh=00_AQRaccTO0ouki9NJFLzN-NJCQ78So-LrSJjrrHEDLtx2WA&oe=6AEEDC55",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/888089454_1148664214167720_8077420256326916377_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=106&ccb=1-7&_nc_sid=92e707&_nc_ohc=LFF_5uPIfTAQ7kNvwEbvxg5&_nc_oc=Ado0FCiZmSNKzMOBci5l1-jzlAtezk9kUYgXCKFqIhvbqZo8c0k7ANAYTNaOBJnxb-c&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=29XKRBP6IRvhj9Zu9GRt_g&_nc_ss=7b2a8&oh=00_AQQniAxILPIn4ozSvDA2olnpGbrozB8RkoSpltEFJgBlKA&oe=6AEEDC55",
       "adUrl": "https://www.facebook.com/marketplace/item/1451780170252026/",
       "facebookGroupId": null,
       "facebookGroupName": null,
@@ -60,7 +192,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-11-02 20:05:07",
-      "lastSeen": "2026-11-02T20:19:49.797Z"
+      "lastSeen": "2026-11-02T22:24:43.824Z"
     },
     {
       "adID": "997781846026985",
@@ -214,7 +346,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-11-02 15:17:18",
-      "lastSeen": "2026-11-02T21:13:27.379Z"
+      "lastSeen": "2026-11-02T22:25:43.973Z"
     },
     {
       "adID": "1102860925909507",
@@ -302,7 +434,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-11-02 14:24:27",
-      "lastSeen": "2026-11-02T21:13:29.190Z"
+      "lastSeen": "2026-11-02T22:25:45.750Z"
     },
     {
       "adID": "KLOV-567585",
@@ -346,7 +478,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-11-02 14:24:23",
-      "lastSeen": "2026-11-02T21:13:27.746Z"
+      "lastSeen": "2026-11-02T22:25:44.342Z"
     },
     {
       "adID": "1629470338588920",
@@ -368,7 +500,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-11-02 13:44:22",
-      "lastSeen": "2026-11-02T20:05:07.314Z"
+      "lastSeen": "2026-11-02T22:05:01.445Z"
     },
     {
       "adID": "1425575719734276",
@@ -382,7 +514,7 @@
       "lat": 30.5637205,
       "lon": -81.8297744,
       "location": "Callahan, FL",
-      "imageUrl": "https://scontent-dfw6-2.xx.fbcdn.net/v/t39.84726-6/881510016_1587714745992587_248654859532448162_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=109&ccb=1-7&_nc_sid=92e707&_nc_ohc=FzLog72HW5sQ7kNvwEmaXqE&_nc_oc=AdolLM1Z4nr1lz_JG5r97zCLyQTbvz3FSYbW15PWuCVIxw8UhVhNUi58SoSI1NcVdgw&_nc_zt=14&_nc_ht=scontent-dfw6-2.xx&_nc_gid=Ti4ogaiGBzWVxPP4ubRQfw&_nc_ss=7b2a8&oh=00_AQRbE7Fi1Y6Vx-2paOQIqjosil-JPjQkIGRYtMankG8J3Q&oe=6AEED72F",
+      "imageUrl": "https://scontent-dfw6-2.xx.fbcdn.net/v/t39.84726-6/881510016_1587714745992587_248654859532448162_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=109&ccb=1-7&_nc_sid=92e707&_nc_ohc=FzLog72HW5sQ7kNvwEmaXqE&_nc_oc=AdolLM1Z4nr1lz_JG5r97zCLyQTbvz3FSYbW15PWuCVIxw8UhVhNUi58SoSI1NcVdgw&_nc_zt=14&_nc_ht=scontent-dfw6-2.xx&_nc_gid=4XmqCPminzj6seOhkGrd-Q&_nc_ss=7b2a8&oh=00_AQT53NcRmurPsfdkkHX0H_ZiBEA3Sg5oso4K9msly-s-jw&oe=6AEED72F",
       "adUrl": "https://www.facebook.com/marketplace/item/1425575719734276/",
       "facebookGroupId": null,
       "facebookGroupName": null,
@@ -390,21 +522,21 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-11-02 13:44:22",
-      "lastSeen": "2026-11-02T21:12:32.429Z"
+      "lastSeen": "2026-11-02T22:21:25.231Z"
     },
     {
       "adID": "2934917023549661",
       "source": "MP",
       "authorUrl": "https://www.facebook.com/marketplace/profile/543013669/?product_id=2934917023549661",
       "author": "Allen Robinson",
-      "postedTime": "2026-11-02T01:07:48.000Z",
+      "postedTime": "2026-08-24T15:09:18.000Z",
       "title": "Sega Thunder Blade Original Arcade Machine – Working – Vintage 1987",
       "description": "Original full-size Sega Thunder Blade arcade machine from the late 1980s. * Powers on and displays gameplay * Original CRT monitor * Original Sega cabinet, artwork, and controls * Currently set to Free Play * Original dual coin mechanisms * Marquee lights up * Cabinet shows cosmetic wear consistent with age * Joystick is loose and falls backward; may need adjustment or repair Great vintage arcade collectible for a home arcade, game room, or restoration project. Selling as-is due to age. Buyer is welcome to inspect and test before purchasing. Pickup in Powder Springs, GA. Must bring help and appropriate transportation for loading. $650 or best reasonable offer.",
       "price": "$650",
       "lat": 33.8595492,
       "lon": -84.683824,
       "location": "Powder Springs, GA",
-      "imageUrl": "https://scontent-dfw6-2.xx.fbcdn.net/v/t39.84726-6/885150406_1049243941507789_4386778369078922987_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=109&ccb=1-7&_nc_sid=92e707&_nc_ohc=Sm1PCEnmjNUQ7kNvwFxz9FU&_nc_oc=AdoW2MjZhvNE6ExAOoWX-yH_0LZFhVxEHxd3qaRqeEdDfqSH0RSqJe-dpEL4JYkFnQY&_nc_zt=14&_nc_ht=scontent-dfw6-2.xx&_nc_gid=WaQsxK-lBqOoxiPExX1GVw&_nc_ss=7b2a8&oh=00_AQSGincOJSrfZgTOL2XYueT1nd9Qqk52MZHZMe70NdDzZA&oe=6AEE8DAD",
+      "imageUrl": "https://scontent-dfw6-2.xx.fbcdn.net/v/t39.84726-6/885150406_1049243941507789_4386778369078922987_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=109&ccb=1-7&_nc_sid=92e707&_nc_ohc=Sm1PCEnmjNUQ7kNvwFxz9FU&_nc_oc=AdoW2MjZhvNE6ExAOoWX-yH_0LZFhVxEHxd3qaRqeEdDfqSH0RSqJe-dpEL4JYkFnQY&_nc_zt=14&_nc_ht=scontent-dfw6-2.xx&_nc_gid=v6GV7j9kjrPKvPveyESm2g&_nc_ss=7b2a8&oh=00_AQTlYc9v_CvhEwlMUw_gMFPngUpPnI1bauYK2MC-ySh60A&oe=6AEEC5ED",
       "adUrl": "https://www.facebook.com/marketplace/item/2934917023549661/",
       "facebookGroupId": null,
       "facebookGroupName": null,
@@ -412,7 +544,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-11-02 13:44:19",
-      "lastSeen": "2026-11-02T18:09:00.373Z"
+      "lastSeen": "2026-11-02T22:14:58.015Z"
     },
     {
       "adID": "2031628134139532",
@@ -426,7 +558,7 @@
       "lat": 29.1871986,
       "lon": -82.1400923,
       "location": "Ocala, FL",
-      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/866609375_1446965113426701_6343983909599692783_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=104&ccb=1-7&_nc_sid=92e707&_nc_ohc=GswwP9hbZ0YQ7kNvwHyXQWD&_nc_oc=Adp1ITVPgSBlPp7HwPI3pE1UL22OOQpmQ8dm-ADUZ9UzpNKS3Zm6kOSkFdjUuzjxJ0E&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=h1tqqkaJF5raHK03xSGcEg&_nc_ss=7b2a8&oh=00_AQRNzUyCs1rK4Msa9n5_Ho8DmK209xVxhhKE1hNkKHYcjA&oe=6AEEC0CD",
+      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/866609375_1446965113426701_6343983909599692783_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=104&ccb=1-7&_nc_sid=92e707&_nc_ohc=GswwP9hbZ0YQ7kNvwHyXQWD&_nc_oc=Adp1ITVPgSBlPp7HwPI3pE1UL22OOQpmQ8dm-ADUZ9UzpNKS3Zm6kOSkFdjUuzjxJ0E&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=2N7CcIOJOncOJvQIdduEyQ&_nc_ss=7b2a8&oh=00_AQQl-7nKoHUwcCf3IDN2tjEgMbldqbjLMgySeR10qBk2HQ&oe=6AEEF90D",
       "adUrl": "https://www.facebook.com/marketplace/item/2031628134139532/",
       "facebookGroupId": null,
       "facebookGroupName": null,
@@ -434,7 +566,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-11-02 13:44:19",
-      "lastSeen": "2026-11-02T21:09:13.074Z"
+      "lastSeen": "2026-11-02T22:14:58.115Z"
     }
   ]
 }
