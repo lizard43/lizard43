@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-02T15:17:25.626Z",
+  "generated_at": "2026-11-02T16:18:20.045Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,57 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 11,
-      "droppedPrice": 165,
+      "exported_ads": 13,
+      "droppedPrice": 179,
       "droppedMissingGeo": 0,
-      "droppedCircle": 110
+      "droppedCircle": 120
     }
   },
   "ads": [
+    {
+      "adID": "1656831815995043",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/61561067914495/?product_id=1656831815995043",
+      "author": "Debbie D Treadaway",
+      "postedTime": "2026-11-02T12:07:21.000Z",
+      "title": "Huge sale Thursday Nov 5th 8am-2pm",
+      "description": "Hundreds of items",
+      "price": "$1",
+      "lat": 30.4007626,
+      "lon": -88.8893818,
+      "location": "Biloxi, MS",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/879429348_29003044412691482_7969289091968250084_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=105&ccb=1-7&_nc_sid=92e707&_nc_ohc=u1nhu66J6EsQ7kNvwGis4l1&_nc_oc=AdrqyADOowtjCOjOz50F81iy0TC6kUxJjcLe4vC8IWinsoQka4e2sVAjCHBWb-yLW2w&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=wXgCTnz9mXyzXjdI2xUyDw&_nc_ss=7b2a8&oh=00_AQSjMu3qJWDNnuodMpWtmxXlOJg6Ner1MrAnEvBKEXdTqw&oe=6AEE803F",
+      "adUrl": "https://www.facebook.com/marketplace/item/1656831815995043/",
+      "facebookGroupId": null,
+      "facebookGroupName": null,
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-11-02 16:05:06",
+      "lastSeen": "2026-11-02T16:11:46.809Z"
+    },
+    {
+      "adID": "4650792718509687",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/100008497568306/?product_id=4650792718509687",
+      "author": "Daniel Box",
+      "postedTime": "2026-11-02T14:08:39.000Z",
+      "title": "Turtlebox Grande & Ranger",
+      "description": "Up for sale I have a Turtlebox Grande and a Ranger. Both speakers in like new condition with very little wear. they sound amazing and they pair up together. They are both 100% waterproof and great for boating or anything outdoors. I will send a video of them playing if you need it. $600 is the price for the Grande ONLY. If you want the ranger it is an additional $150. $750 for both! A new Grande is $730 before taxes and shipping, and a new ranger is $250 before taxes and shipping. This is a great deal. Message me with questions or offers. Will do some trading for camo TurtleBoxes or Yeti items. Let me know what you have. Located in Auburn AL.",
+      "price": "$600",
+      "lat": 32.6098566,
+      "lon": -85.4807825,
+      "location": "Auburn, AL",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/884397323_1836758577352757_5027599767465879211_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=111&ccb=1-7&_nc_sid=92e707&_nc_ohc=OWHnbOrcvEcQ7kNvwHKbVbo&_nc_oc=AdpAQ5fgpy1HyMrXK47x00U6dpftQLU0CKj0luqFAy5gdfv_2AFPeBpBIj5hjoXERDQ&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=hI1M45Xux_6A8f5vdsTfJQ&_nc_ss=7b2a8&oh=00_AQSRmIzuQtkS2GSG1UzWvLblxeQFY7ppkXgRkcTS0ymeQg&oe=6AEE9E11",
+      "adUrl": "https://www.facebook.com/marketplace/item/4650792718509687/",
+      "facebookGroupId": null,
+      "facebookGroupName": null,
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-11-02 16:05:05",
+      "lastSeen": "2026-11-02T16:11:46.369Z"
+    },
     {
       "adID": "KLOV-542186",
       "source": "KLOV",
@@ -38,7 +82,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-11-02 15:17:18",
-      "lastSeen": "2026-11-02T15:17:18.971Z"
+      "lastSeen": "2026-11-02T16:18:15.390Z"
     },
     {
       "adID": "1102860925909507",
@@ -126,7 +170,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-11-02 14:24:27",
-      "lastSeen": "2026-11-02T15:17:21.100Z"
+      "lastSeen": "2026-11-02T16:18:17.373Z"
     },
     {
       "adID": "KLOV-567585",
@@ -170,7 +214,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-11-02 14:24:23",
-      "lastSeen": "2026-11-02T15:17:19.430Z"
+      "lastSeen": "2026-11-02T16:18:16.112Z"
     },
     {
       "adID": "1629470338588920",
@@ -192,7 +236,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-11-02 13:44:22",
-      "lastSeen": "2026-11-02T15:05:13.819Z"
+      "lastSeen": "2026-11-02T16:05:05.262Z"
     },
     {
       "adID": "1425575719734276",
@@ -206,7 +250,7 @@
       "lat": 30.5637205,
       "lon": -81.8297744,
       "location": "Callahan, FL",
-      "imageUrl": "https://scontent-dfw6-2.xx.fbcdn.net/v/t39.84726-6/881510016_1587714745992587_248654859532448162_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=109&ccb=1-7&_nc_sid=92e707&_nc_ohc=FzLog72HW5sQ7kNvwEmaXqE&_nc_oc=AdolLM1Z4nr1lz_JG5r97zCLyQTbvz3FSYbW15PWuCVIxw8UhVhNUi58SoSI1NcVdgw&_nc_zt=14&_nc_ht=scontent-dfw6-2.xx&_nc_gid=10r77m1rRntOw_MrqvmEtw&_nc_ss=7b2a8&oh=00_AQQP_b8V_CmFwMGxtfulu6G4ROxwoY2xWVNjfSJ5l93BbQ&oe=6AEE66AF",
+      "imageUrl": "https://scontent-dfw6-2.xx.fbcdn.net/v/t39.84726-6/881510016_1587714745992587_248654859532448162_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=109&ccb=1-7&_nc_sid=92e707&_nc_ohc=FzLog72HW5sQ7kNvwEmaXqE&_nc_oc=AdolLM1Z4nr1lz_JG5r97zCLyQTbvz3FSYbW15PWuCVIxw8UhVhNUi58SoSI1NcVdgw&_nc_zt=14&_nc_ht=scontent-dfw6-2.xx&_nc_gid=_Kz1hroJaHY_n2wKga_u3A&_nc_ss=7b2a8&oh=00_AQRjhP537346Slq5aaVnq8-4bAlQjfS5kKaZIf8TaMC9PA&oe=6AEE9EEF",
       "adUrl": "https://www.facebook.com/marketplace/item/1425575719734276/",
       "facebookGroupId": null,
       "facebookGroupName": null,
@@ -214,21 +258,21 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-11-02 13:44:22",
-      "lastSeen": "2026-11-02T15:14:13.395Z"
+      "lastSeen": "2026-11-02T16:16:00.057Z"
     },
     {
       "adID": "2934917023549661",
       "source": "MP",
       "authorUrl": "https://www.facebook.com/marketplace/profile/543013669/?product_id=2934917023549661",
       "author": "Allen Robinson",
-      "postedTime": "2026-11-02T01:07:48.000Z",
+      "postedTime": "2026-10-30T19:10:22.000Z",
       "title": "Sega Thunder Blade Original Arcade Machine – Working – Vintage 1987",
       "description": "Original full-size Sega Thunder Blade arcade machine from the late 1980s. * Powers on and displays gameplay * Original CRT monitor * Original Sega cabinet, artwork, and controls * Currently set to Free Play * Original dual coin mechanisms * Marquee lights up * Cabinet shows cosmetic wear consistent with age * Joystick is loose and falls backward; may need adjustment or repair Great vintage arcade collectible for a home arcade, game room, or restoration project. Selling as-is due to age. Buyer is welcome to inspect and test before purchasing. Pickup in Powder Springs, GA. Must bring help and appropriate transportation for loading. $650 or best reasonable offer.",
       "price": "$650",
       "lat": 33.8595492,
       "lon": -84.683824,
       "location": "Powder Springs, GA",
-      "imageUrl": "https://scontent-dfw6-2.xx.fbcdn.net/v/t39.84726-6/885150406_1049243941507789_4386778369078922987_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=109&ccb=1-7&_nc_sid=92e707&_nc_ohc=Sm1PCEnmjNUQ7kNvwFxz9FU&_nc_oc=AdoW2MjZhvNE6ExAOoWX-yH_0LZFhVxEHxd3qaRqeEdDfqSH0RSqJe-dpEL4JYkFnQY&_nc_zt=14&_nc_ht=scontent-dfw6-2.xx&_nc_gid=mVREaurUlj-C4Zm-Y1QT5w&_nc_ss=7b2a8&oh=00_AQQ5vLxRQSbtC9dk9itaPYVk5ORkMxQJLhXB_eEJAny3Sg&oe=6AEE8DAD",
+      "imageUrl": "https://scontent-dfw6-2.xx.fbcdn.net/v/t39.84726-6/885150406_1049243941507789_4386778369078922987_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=109&ccb=1-7&_nc_sid=92e707&_nc_ohc=Sm1PCEnmjNUQ7kNvwFxz9FU&_nc_oc=AdoW2MjZhvNE6ExAOoWX-yH_0LZFhVxEHxd3qaRqeEdDfqSH0RSqJe-dpEL4JYkFnQY&_nc_zt=14&_nc_ht=scontent-dfw6-2.xx&_nc_gid=CDoVVEQMwKzrzJvp6hHEBg&_nc_ss=7b2a8&oh=00_AQSHy17Hd_oHEG8zcOIfSijqn2Yr9gdp6UKuHAqloffecg&oe=6AEE8DAD",
       "adUrl": "https://www.facebook.com/marketplace/item/2934917023549661/",
       "facebookGroupId": null,
       "facebookGroupName": null,
@@ -236,21 +280,21 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-11-02 13:44:19",
-      "lastSeen": "2026-11-02T15:08:51.639Z"
+      "lastSeen": "2026-11-02T16:08:37.466Z"
     },
     {
       "adID": "2031628134139532",
       "source": "MP",
       "authorUrl": "https://www.facebook.com/marketplace/profile/1834467120/?product_id=2031628134139532",
       "author": "Michael Polley",
-      "postedTime": "2026-11-01T23:22:18.000Z",
+      "postedTime": "2026-10-30T19:10:22.000Z",
       "title": "Asteroids Arcade",
       "description": "Have an asteroids playing blind. I have neck glow. But no screen and dont want to mess with it.",
       "price": "$350",
       "lat": 29.1871986,
       "lon": -82.1400923,
       "location": "Ocala, FL",
-      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/866609375_1446965113426701_6343983909599692783_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=104&ccb=1-7&_nc_sid=92e707&_nc_ohc=GswwP9hbZ0YQ7kNvwHyXQWD&_nc_oc=Adp1ITVPgSBlPp7HwPI3pE1UL22OOQpmQ8dm-ADUZ9UzpNKS3Zm6kOSkFdjUuzjxJ0E&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=C64IURTay815XezYYE7gLw&_nc_ss=7b2a8&oh=00_AQRLAynhA7jlgFbHZH-n_qh0O9ShH5_yw7bKRrHGcbrvcg&oe=6AEE888D",
+      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/866609375_1446965113426701_6343983909599692783_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=104&ccb=1-7&_nc_sid=92e707&_nc_ohc=GswwP9hbZ0YQ7kNvwHyXQWD&_nc_oc=Adp1ITVPgSBlPp7HwPI3pE1UL22OOQpmQ8dm-ADUZ9UzpNKS3Zm6kOSkFdjUuzjxJ0E&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=kSBq8Oi5EqQd4Qgo5fDGWA&_nc_ss=7b2a8&oh=00_AQRIfWIpdvUwOzzhcs9KHtWC5uzMVSoBS8qviNOE7Sid6A&oe=6AEE888D",
       "adUrl": "https://www.facebook.com/marketplace/item/2031628134139532/",
       "facebookGroupId": null,
       "facebookGroupName": null,
@@ -258,7 +302,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-11-02 13:44:19",
-      "lastSeen": "2026-11-02T15:08:51.707Z"
+      "lastSeen": "2026-11-02T16:08:37.532Z"
     }
   ]
 }
