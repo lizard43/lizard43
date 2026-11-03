@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-03T17:18:48.474Z",
+  "generated_at": "2026-11-03T18:12:56.688Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,35 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 36,
-      "droppedPrice": 271,
+      "exported_ads": 37,
+      "droppedPrice": 272,
       "droppedMissingGeo": 0,
-      "droppedCircle": 219
+      "droppedCircle": 221
     }
   },
   "ads": [
+    {
+      "adID": "4616472951966302",
+      "source": "MP",
+      "authorUrl": null,
+      "author": "",
+      "postedTime": "2026-11-03T18:08:31.255Z",
+      "title": "Just listed",
+      "description": "",
+      "price": "$200",
+      "lat": 33.2095614,
+      "lon": -87.5675258,
+      "location": "Tuscaloosa, AL",
+      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/888176944_1665064345285490_6964951926950337841_n.jpg?stp=c0.152.261.261a_dst-jpg_p261x260_tt6&_nc_cat=104&ccb=1-7&_nc_sid=92e707&_nc_ohc=Jf8fQvY4WJwQ7kNvwGoJhmK&_nc_oc=Adoky59ps4XjXSWpxXx7gNiCsznxB3OyjNj3i4i0ADexfuhYAg4qSEoqlQ_eHOdMkLA&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=o1gFFmyBYSluhuZo1yBt2w&_nc_ss=7b2a8&oh=00_AQTNfwf0QUqDBv9raNJCh5RbE76ZsByc-0xq71b2stWk3w&oe=6AEFE850",
+      "adUrl": "https://www.facebook.com/marketplace/item/4616472951966302/",
+      "facebookGroupId": null,
+      "facebookGroupName": null,
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-11-03 18:08:31",
+      "lastSeen": "2026-11-03T18:11:54.904Z"
+    },
     {
       "adID": "1671756821283599",
       "source": "MP",
@@ -588,7 +610,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-11-02 15:17:18",
-      "lastSeen": "2026-11-03T17:18:44.217Z"
+      "lastSeen": "2026-11-03T18:12:52.925Z"
     },
     {
       "adID": "1102860925909507",
@@ -676,7 +698,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-11-02 14:24:27",
-      "lastSeen": "2026-11-03T17:18:45.770Z"
+      "lastSeen": "2026-11-03T18:12:54.121Z"
     },
     {
       "adID": "KLOV-567585",
@@ -720,7 +742,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-11-02 14:24:23",
-      "lastSeen": "2026-11-03T17:18:44.583Z"
+      "lastSeen": "2026-11-03T18:12:53.292Z"
     },
     {
       "adID": "1629470338588920",
@@ -734,15 +756,15 @@
       "lat": 30.4982516,
       "lon": -86.1360517,
       "location": "Freeport, FL",
-      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t45.5328-4/831355572_1755842412342249_8499283056657323813_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=247b10&_nc_ohc=i5orJnsCGg4Q7kNvwEk2PFB&_nc_oc=AdohThQR4ocoyuUMALButW0XYcTH-zQhxBgoDKuOcV1PpQqoRbrLeu0YnUPC3LeOSno&_nc_zt=23&_nc_ht=scontent-dfw5-1.xx&_nc_gid=R5kDpVBOqXUrqmxTFoKOig&_nc_ss=7b2a8&oh=00_AQScB2VLd2Od5XVfGkYnUqRKF2XUxtuxi0iZerC1RZA4jg&oe=6AEE734E",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t45.5328-4/831355572_1755842412342249_8499283056657323813_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=247b10&_nc_ohc=i5orJnsCGg4Q7kNvwEk2PFB&_nc_oc=AdohThQR4ocoyuUMALButW0XYcTH-zQhxBgoDKuOcV1PpQqoRbrLeu0YnUPC3LeOSno&_nc_zt=23&_nc_ht=scontent-dfw5-1.xx&_nc_gid=HyUGKdrajtw0Y0xrLiXkMA&_nc_ss=7b2a8&oh=00_AQQmtHXRGtDeRhWY8dq_9GWIqrOHDpooK8dedh80bPto0A&oe=6AEFFD0E",
       "adUrl": "https://www.facebook.com/marketplace/item/1629470338588920/",
       "facebookGroupId": null,
       "facebookGroupName": null,
-      "priceChanged": 0,
-      "priceChangedAt": null,
+      "priceChanged": 1,
+      "priceChangedAt": "2026-11-03 18:11:55",
       "hidden": 0,
       "created_at": "2026-11-02 13:44:22",
-      "lastSeen": "2026-11-03T17:04:58.017Z"
+      "lastSeen": "2026-11-03T18:11:56.292Z"
     },
     {
       "adID": "1425575719734276",
@@ -786,7 +808,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-11-02 13:44:19",
-      "lastSeen": "2026-11-03T17:04:57.984Z"
+      "lastSeen": "2026-11-03T18:05:03.157Z"
     },
     {
       "adID": "2031628134139532",
