@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-06T11:04:31.925Z",
+  "generated_at": "2026-11-06T12:19:20.096Z",
   "meta": {
     "parent_file": "scrapester.json",
     "price_max_exclusive": 1000,
@@ -11,13 +11,35 @@
       "radius_miles": 300
     },
     "counts": {
-      "exported_ads": 90,
-      "droppedPrice": 398,
+      "exported_ads": 91,
+      "droppedPrice": 409,
       "droppedMissingGeo": 0,
-      "droppedCircle": 421
+      "droppedCircle": 431
     }
   },
   "ads": [
+    {
+      "adID": "1082381501511849",
+      "source": "MP",
+      "authorUrl": "https://www.facebook.com/marketplace/profile/1588821816/?product_id=1082381501511849",
+      "author": "Kindre Bingham-Bosio",
+      "postedTime": "2026-11-06T08:39:59.000Z",
+      "title": "MAIN EVENT SPIRIT NIGHT",
+      "description": "ATTENTION, HILLSBOROUGH COUNTY PARENTS! Your kids have NO SCHOOL Wednesday, November 11! So here’s a brilliant parenting strategy: Bring them to Main Event Wesley Chapel Tuesday night, let them burn through every ounce of energy they’ve got, and cross your fingers that they actually SLEEP IN Wednesday morning! Arcade games! Laser tag! Family fun at discounted prices! Tuesday, November 10 6–10 PM for the LOW PRICE of $40 per card Main Event, Wesley Chapel https://4clarkpta.org/MainEventSpiritNight It’s Clark Elementary PTA’s Spirit Night, but EVERYONE is welcome! You don’t have to attend Clark to join the fun or support our school! Come make memories, enjoy special Spirit Night packages, and help us raise money for our Cougars! The kids get a night of fun. Clark gets some love. And parents might get to sleep past sunrise.",
+      "price": "$40",
+      "lat": 27.9449854,
+      "lon": -82.4583107,
+      "location": "Tampa, FL",
+      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/888936961_1683065236686842_3833792803034812595_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=92e707&_nc_ohc=IiaNuN_5UOwQ7kNvwFeRMlE&_nc_oc=Adrkw3nvvLAE4kZ2cj5lQ0w0E1Z3M-xUF-Ewm6Rr_SrwKMZJxg6GOgM52J2c_Pu9uFQ&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=FCK6hDAmTb9Xuif05gSGjQ&_nc_ss=7b2a8&oh=00_AQQi8r2D_7k843xkLMImEcxF0eFn9a97aAZpfye39eZLmA&oe=6AF37D45",
+      "adUrl": "https://www.facebook.com/marketplace/item/1082381501511849/",
+      "facebookGroupId": null,
+      "facebookGroupName": null,
+      "priceChanged": 0,
+      "priceChangedAt": null,
+      "hidden": 0,
+      "created_at": "2026-11-06 12:04:58",
+      "lastSeen": "2026-11-06T12:11:17.829Z"
+    },
     {
       "adID": "1821985335674911",
       "source": "MP",
@@ -30,7 +52,7 @@
       "lat": 34.5881461,
       "lon": -86.4588768,
       "location": "Owens Cross Roads, AL",
-      "imageUrl": "https://scontent-dfw6-2.xx.fbcdn.net/v/t39.84726-6/887213114_914594408286627_1810356037543835051_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=108&ccb=1-7&_nc_sid=92e707&_nc_ohc=Dr9dbxl_IwsQ7kNvwHHKnEn&_nc_oc=AdqgV1SsIDBC7KyMb4xwlzEWG7UiHYKcvgl8PdUVIr7FIASp2TF___1Gn3TjA-wJk7M&_nc_zt=14&_nc_ht=scontent-dfw6-2.xx&_nc_gid=Dp3TEDOweDvlW51RMFLbKQ&_nc_ss=7b2a8&oh=00_AQQt_690YfhV0T6QMvhSYqA1Ukx0u1-f8zwULQxGYOykug&oe=6AF304E1",
+      "imageUrl": "https://scontent-dfw6-2.xx.fbcdn.net/v/t39.84726-6/887213114_914594408286627_1810356037543835051_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=108&ccb=1-7&_nc_sid=92e707&_nc_ohc=vk2pQqa2ryEQ7kNvwFjhT51&_nc_oc=AdqakYWVEapYjP6I6QPo5yBfEfuKnKyTL3a7rDloxEC5AHLd3oM0-h6i40VP9Q8olTQ&_nc_zt=14&_nc_ht=scontent-dfw6-2.xx&_nc_gid=qXViX6Mn37DO_b8z-sZzKA&_nc_ss=7b2a8&oh=00_AQSgR7Q2-8XaxJnWddw6qNu8HYzBq32g4zne96dkpyDwPA&oe=6AF3ADA1",
       "adUrl": "https://www.facebook.com/marketplace/item/1821985335674911/",
       "facebookGroupId": null,
       "facebookGroupName": null,
@@ -38,7 +60,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-11-06 02:10:46",
-      "lastSeen": "2026-11-06T02:13:46.696Z"
+      "lastSeen": "2026-11-06T12:16:28.414Z"
     },
     {
       "adID": "2364275514390452",
@@ -250,7 +272,7 @@
       "lat": 27.4989278,
       "lon": -82.5748194,
       "location": "Bradenton, FL",
-      "imageUrl": "https://scontent-dfw6-2.xx.fbcdn.net/v/t39.84726-6/890873655_4676956372579301_8692540303885219035_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=92e707&_nc_ohc=MohhVfp7slQQ7kNvwE-M1xT&_nc_oc=AdqnMn6xmh40yxQo7C2MU5jVOmbrP0iCa6ZGhs3aMiUEBApVWXkTwa_BtF4X4gNMl-0&_nc_zt=14&_nc_ht=scontent-dfw6-2.xx&_nc_gid=EHCRCkzmR-Xkrqux91iVfg&_nc_ss=7b2a8&oh=00_AQTYETEcNd4z7ti_kTgLA1YcjUZmmobmU7LtWBdvgeTH0w&oe=6AF31A07",
+      "imageUrl": "https://scontent-dfw6-2.xx.fbcdn.net/v/t39.84726-6/890873655_4676956372579301_8692540303885219035_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=92e707&_nc_ohc=MohhVfp7slQQ7kNvwE-M1xT&_nc_oc=AdqnMn6xmh40yxQo7C2MU5jVOmbrP0iCa6ZGhs3aMiUEBApVWXkTwa_BtF4X4gNMl-0&_nc_zt=14&_nc_ht=scontent-dfw6-2.xx&_nc_gid=YJ_QN2q2Z7aBRjEEW-kPxQ&_nc_ss=7b2a8&oh=00_AQTH_dxYuQrVuZ4Xo3OVlJorpb7q5HcnSIXhQL2mQ30c8Q&oe=6AF38A87",
       "adUrl": "https://www.facebook.com/marketplace/item/1607078780571046/",
       "facebookGroupId": null,
       "facebookGroupName": null,
@@ -258,7 +280,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-11-05 23:05:05",
-      "lastSeen": "2026-11-06T02:13:47.090Z"
+      "lastSeen": "2026-11-06T12:16:28.481Z"
     },
     {
       "adID": "4648249735410979",
@@ -309,14 +331,14 @@
       "source": "MP",
       "authorUrl": "https://www.facebook.com/marketplace/profile/100071726836509/?product_id=1665763798520527",
       "author": "Max Johnson",
-      "postedTime": "2026-11-05T20:03:37.000Z",
+      "postedTime": "2026-08-26T01:28:00.000Z",
       "title": "Pinball System 11 MPU boards",
-      "description": "Looks like there is one board that has a populated sound area and one that doesbt. I have no idea if these are functional. Batteries removed a long ime ago. Consider them as-is not working. Moving locations and selling inventory that is considered excessive. Shipping is a flat fee of $17.00 to the US. Buy one or both. IF YOU CAN SEE THE POST, THEY ARE AVAILABLE.",
+      "description": "Looks like there is one board that has a populated sound area and one that doesbt. I have no idea if these are functional. Batteries removed a long ime ago. Consider them as-is not working. Moving locations and selling inventory that is considered excessive. ($125.00 Each.) Shipping is a flat fee of $17.00 to the US. Buy one or both. IF YOU CAN SEE THE POST, THEY ARE AVAILABLE.",
       "price": "$250",
       "lat": 30.4982516,
       "lon": -86.1360517,
       "location": "Freeport, FL",
-      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/890345492_1453825123390877_5899544184485694652_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=107&ccb=1-7&_nc_sid=92e707&_nc_ohc=Qdl0_Sn1dbMQ7kNvwGNZCoH&_nc_oc=Adr-Sd6uL55VLXKizrkD0wAELE5Ru40w-I6pkOf4y7Lcc28WOnG-CAWs9odg4JHNrVY&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=p2MOXTSSdF74uABC_Tk2_A&_nc_ss=7b2a8&oh=00_AQQPnN7vXpD-ipw1vvSP4jUYOY4HAa3r9pvZYrS-ufwKpA&oe=6AF31019",
+      "imageUrl": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.84726-6/890345492_1453825123390877_5899544184485694652_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=107&ccb=1-7&_nc_sid=92e707&_nc_ohc=Qdl0_Sn1dbMQ7kNvwGNZCoH&_nc_oc=Adr-Sd6uL55VLXKizrkD0wAELE5Ru40w-I6pkOf4y7Lcc28WOnG-CAWs9odg4JHNrVY&_nc_zt=14&_nc_ht=scontent-dfw5-2.xx&_nc_gid=R1vbdG70SSoo9yaQwvz2Aw&_nc_ss=7b2a8&oh=00_AQQJ8fBZVoolLrmb56YL7l49wFYGvLpc2NSpokh4wrysnw&oe=6AF38099",
       "adUrl": "https://www.facebook.com/marketplace/item/1665763798520527/",
       "facebookGroupId": null,
       "facebookGroupName": null,
@@ -324,7 +346,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-11-05 21:08:47",
-      "lastSeen": "2026-11-06T02:13:47.189Z"
+      "lastSeen": "2026-11-06T12:16:28.583Z"
     },
     {
       "adID": "1687738163137465",
@@ -404,7 +426,7 @@
       "lat": 28.2441768,
       "lon": -82.7192671,
       "location": "New Port Richey, FL",
-      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/890345310_1700478705106089_1816541903150422106_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=105&ccb=1-7&_nc_sid=92e707&_nc_ohc=z5OEJngS8o8Q7kNvwEMbItA&_nc_oc=AdrylNSZWKc0vrN-NXKS_yqDic0XwFt1h6dk1xh2INKTmzZyFuaq-VYfBWJmkMi0qQQ&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=6zjLJ-_mzMo01Q6u5UQDKQ&_nc_ss=7b2a8&oh=00_AQSMO3AKm_V1WM9A6dL5hXzYI-Yc2Off1_KUkHO4vBhGdg&oe=6AF321F0",
+      "imageUrl": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.84726-6/890345310_1700478705106089_1816541903150422106_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=105&ccb=1-7&_nc_sid=92e707&_nc_ohc=z5OEJngS8o8Q7kNvwEMbItA&_nc_oc=AdrylNSZWKc0vrN-NXKS_yqDic0XwFt1h6dk1xh2INKTmzZyFuaq-VYfBWJmkMi0qQQ&_nc_zt=14&_nc_ht=scontent-dfw5-1.xx&_nc_gid=7dMBbWYxFSlgVc0iB5Cklg&_nc_ss=7b2a8&oh=00_AQQFy_pyb8NbUty-hP8tHWmJ8eAqklR8ZgSfzKYe79q2DA&oe=6AF39270",
       "adUrl": "https://www.facebook.com/marketplace/item/1803806100895990/",
       "facebookGroupId": null,
       "facebookGroupName": null,
@@ -412,7 +434,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-11-05 19:04:58",
-      "lastSeen": "2026-11-06T02:08:03.992Z"
+      "lastSeen": "2026-11-06T12:08:04.040Z"
     },
     {
       "adID": "1690578312592042",
@@ -610,7 +632,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-11-05 12:19:43",
-      "lastSeen": "2026-11-06T02:16:13.562Z"
+      "lastSeen": "2026-11-06T12:19:15.528Z"
     },
     {
       "adID": "890524327421491",
@@ -940,7 +962,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-11-04 17:08:52",
-      "lastSeen": "2026-11-06T02:10:47.570Z"
+      "lastSeen": "2026-11-06T12:13:30.619Z"
     },
     {
       "adID": "KLOV-381287",
@@ -962,7 +984,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-11-04 15:20:10",
-      "lastSeen": "2026-11-06T02:16:13.932Z"
+      "lastSeen": "2026-11-06T12:19:15.896Z"
     },
     {
       "adID": "1102710645912558",
@@ -1886,7 +1908,7 @@
       "priceChangedAt": null,
       "hidden": 0,
       "created_at": "2026-11-02 14:24:27",
-      "lastSeen": "2026-11-06T02:16:15.582Z"
+      "lastSeen": "2026-11-06T12:19:17.795Z"
     },
     {
       "adID": "KLOV-567585",
