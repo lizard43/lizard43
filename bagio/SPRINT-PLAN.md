@@ -1,0 +1,3 @@
+# Sprint plan — native-software engineering baseline
+
+This is the mandatory baseline gate, not a replacement for existing detailed plans in other PRs. For every stage: (1) identify original source, language, native interpreter/compiler/XC and runtime; (2) establish a complete original-style native loading/build session; (3) trace original routines/DATA and preserve behavior; (4) implement only approved hardware adaptations; (5) separately verify native compilation, binary integrity, emulator and hardware execution; (6) record unresolved issues and approved deviations in TECHNICAL-DEBT.md. Stop before an unapproved substitute. See ../ENGINEERING-RULES.md.
